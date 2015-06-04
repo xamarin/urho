@@ -28,7 +28,7 @@ namespace SharpieBinder
 				File.WriteAllText (output + "/" + st.FileName, st.ToString ());
 				//File.WriteAllText (output + "/" + st.FileName + ".c"
 			}
-			Console.WriteLine("Dumped data into /tmp/ra");
+			Console.WriteLine($"Dumped data into {output}");
 			
 			return 0;
 		}

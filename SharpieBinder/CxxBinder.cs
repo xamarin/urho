@@ -1,4 +1,13 @@
 ﻿//
+// CURRENTLY
+//    RefCounted is getting a ton of methods added that are *not* part of
+//    RefCounted, so that is a porblem
+//
+// WARNING
+//
+//    This file still contains code from the original CppBind, it is some legacy code
+//    so it might be possible to remove.
+//
 //TODO:
 //  operators
 // 
@@ -24,7 +33,7 @@ namespace SharpieBinder
 {
 	class CxxBinder : AstVisitor
 	{
-		public static Clang.Ast.Type CleanType (QualType qt)
+		public static Clang.Ast.Type CleanType(QualType qt)
 		{
 			var et = qt.Type as ElaboratedType;
 			if (et == null)
@@ -65,7 +74,8 @@ namespace SharpieBinder
 			baseNodeTypes = new Dictionary<string, BaseNodeType>
 			{
 				["Urho3D::Object"] = new BaseNodeType(Bind),
-				["Urho3D::StringHash"] = new BaseNodeType (Bind),
+				["Urho3D::RefCounted"] = new BaseNodeType(Bind),
+				["Urho3D::RefCount"] = new BaseNodeType(Bind),
 				//["clang::DeclContext"] = new BaseNodeType(Bind),
 				//["clang::Decl"] = new BaseNodeType(Bind),
 				//["clang::Type"] = new BaseNodeType(Bind),
@@ -76,8 +86,7 @@ namespace SharpieBinder
 
 		public IEnumerable<SyntaxTree> Generate()
 		{
-			foreach (var syntaxTree in syntaxTrees)
-			{
+			foreach (var syntaxTree in syntaxTrees) {
 				syntaxTree.AcceptVisitor(new Sharpie.Bind.Massagers.GenerateUsingStatementsMassager());
 				yield return syntaxTree;
 			}
@@ -124,28 +133,7 @@ namespace SharpieBinder
 				return;
 
 			Console.WriteLine($"--here: {decl.QualifiedName}");
-			string typeName;
-
-			switch (decl.QualifiedName)
-			{
-				case "clang::Decl::Kind":
-					typeName = "DeclKind";
-					break;
-				case "clang::Type::TypeClass":
-					typeName = "TypeKind";
-					break;
-				case "clang::BuiltinType::Kind":
-					typeName = "BuiltinTypeKind";
-					break;
-				case "clang::attr::Kind":
-					typeName = "AttrKind";
-					break;
-				case "clang::Stmt::StmtClass":
-					typeName = "StmtKind";
-					break;
-				default:
-					return;
-			}
+			string typeName = decl.Name;
 
 			PushType(new TypeDeclaration
 			{
@@ -154,12 +142,12 @@ namespace SharpieBinder
 				Modifiers = Modifiers.Public
 			});
 
-			foreach (var constantDecl in decl.Decls<EnumConstantDecl>())
-			{
+			foreach (var constantDecl in decl.Decls<EnumConstantDecl>()) {
 				var valueName = constantDecl.Name;
 
-				switch (valueName)
-				{
+				switch (valueName) {
+					// LIST HERE ANY Values we want to skip
+					// About to type just "/"
 					case "NUM_ATTRS":
 					case "LAST_INHERITABLE_PARAM":
 					case "LAST_INHERITABLE":
@@ -174,45 +162,35 @@ namespace SharpieBinder
 					valueName.StartsWith("last", StringComparison.Ordinal))
 					continue;
 
-				if (typeName == "StmtKind")
-				{
-					if (valueName.EndsWith("Class", StringComparison.Ordinal))
-						valueName = valueName.Substring(0, valueName.Length - 5);
-
-					if (valueName == "NoStmt")
-						valueName = "None";
-				}
-
 				currentType.Members.Add(new EnumMemberDeclaration { Name = valueName });
 			}
 		}
 
 		public override void VisitCXXRecordDecl(CXXRecordDecl decl, VisitKind visitKind)
 		{
-			if (visitKind != VisitKind.Enter || !decl.IsCompleteDefinition || decl.Name == null)
+			if (visitKind != VisitKind.Enter || !decl.IsCompleteDefinition || decl.Name == null) {
 				return;
+			}
+			if (visitKind == VisitKind.Leave)
+				currentType = null;
 
 			BaseNodeType baseNodeType;
-			if (baseNodeTypes.TryGetValue(decl.QualifiedName, out baseNodeType))
-			{
+			if (baseNodeTypes.TryGetValue(decl.QualifiedName, out baseNodeType)) {
 				baseNodeType.Decl = decl;
 				if (decl.QualifiedName != "clang::DeclContext")
 					baseNodeType.Bind();
 				return;
 			}
 
-			switch (decl.QualifiedName)
-			{
+			switch (decl.QualifiedName) {
 				case "clang::ObjCObjectTypeImpl":
 					// from the docs: "Code outside of ASTContext and the
 					// core type system should not reference this type."
 					return;
 			}
 
-			foreach (var bnt in baseNodeTypes.Values)
-			{
-				if (bnt.Decl != null && decl.IsDerivedFrom(bnt.Decl))
-				{
+			foreach (var bnt in baseNodeTypes.Values) {
+				if (bnt.Decl != null && decl.IsDerivedFrom(bnt.Decl)) {
 					bnt.Bind(decl);
 					return;
 				}
@@ -223,17 +201,16 @@ namespace SharpieBinder
 		{
 			var name = decl.Name;
 			Console.WriteLine(name);
+
 			PushType(new TypeDeclaration
 			{
 				Name = decl.Name,
-				ClassType = ClassType.Class,
-				Modifiers = Modifiers.Partial | Modifiers.Public
+				ClassType = decl.TagKind == TagDeclKind.Struct ? ClassType.Struct : ClassType.Class,
+				Modifiers = Modifiers.Partial | Modifiers.Public | Modifiers.Unsafe
 			});
 
-			if (baseDecl != null)
-			{
-				foreach (var baseType in decl.Bases)
-				{
+			if (baseDecl != null) {
+				foreach (var baseType in decl.Bases) {
 					var baseName = baseType.Decl?.Name;
 					if (baseName == null)
 						continue;
@@ -269,8 +246,7 @@ namespace SharpieBinder
 
 			AstType type = new SimpleType(parts[0]);
 
-			for (int i = 1; i < parts.Length; i++)
-			{
+			for (int i = 1; i < parts.Length; i++) {
 				if (i < parts.Length - 1)
 					type = new MemberType(type, parts[i]);
 				else
@@ -292,95 +268,29 @@ namespace SharpieBinder
 			return CreateAstType(name, type.GetGenericArguments().Select(at => GenerateReflectedType(at)));
 		}
 
-		void GenerateDeclContext()
-		{
-			var declContextType = typeof(IDeclContext);
-			var templateType = declContextType.Assembly.GetType("Clang.Ast.IDeclContextTemplate", false);
-			if (templateType != null)
-				declContextType = templateType;
-
-			foreach (var member in declContextType.GetMembers())
-			{
-				var prop = member as PropertyInfo;
-				if (prop != null)
-				{
-					var propertyDeclaration = new PropertyDeclaration
-					{
-						Name = prop.Name,
-						Modifiers = Modifiers.Public,
-						ReturnType = GenerateReflectedType(prop.PropertyType),
-					};
-
-					if (prop.CanRead)
-						propertyDeclaration.Getter = new Accessor
-						{
-							Body = new BlockStatement {
-								new ReturnStatement (
-									new InvocationExpression (
-										new MemberReferenceExpression (
-											new IdentifierExpression ("DeclContextImpl"),
-											prop.Name
-										),
-										new ThisReferenceExpression ()
-									)
-								)
-							}
-						};
-
-					if (prop.CanWrite)
-						throw new NotImplementedException("property setters for IDeclContext");
-
-					currentType.Members.Add(propertyDeclaration);
-				}
-
-				var meth = member as MethodInfo;
-				if (meth != null && !meth.IsSpecialName && meth.Name != "Accept")
-				{
-					var invocation = new InvocationExpression(
-						new MemberReferenceExpression(
-							new IdentifierExpression("DeclContextImpl"),
-							meth.Name
-						),
-						new Expression[] { new ThisReferenceExpression() }.Concat(
-							meth.GetParameters().Select(p => new IdentifierExpression(p.Name))
-						)
-					);
-
-					var methodDeclaration = new MethodDeclaration
-					{
-						Name = meth.Name,
-						Modifiers = Modifiers.Public,
-						ReturnType = GenerateReflectedType(meth.ReturnType),
-					};
-
-					if (meth.ReturnType == typeof(void))
-						methodDeclaration.Body = new BlockStatement { invocation };
-					else
-						methodDeclaration.Body = new BlockStatement {
-							new ReturnStatement (invocation)
-						};
-
-					foreach (var param in meth.GetParameters())
-						methodDeclaration.Parameters.Add(new ParameterDeclaration(
-							GenerateReflectedType(param.ParameterType), param.Name));
-
-					currentType.Members.Add(methodDeclaration);
-				}
-			}
-		}
-
-		static string MakeName (string typeName)
+		static string MakeName(string typeName)
 		{
 			return typeName;
 		}
 
-		public override void VisitCXXMethodDecl (CXXMethodDecl decl, VisitKind visitKind)
+		// Temporary, just to help us get the bindings bootstrapped
+		static bool IsUnsupportedType(QualType qt)
+		{
+			#pragma warning disable NR0060
+			return CleanType(qt).Bind().ToString().IndexOf("unsupported") != -1;
+			#pragma warning restore NR0060
+		}
+
+		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
 		{
 			if (currentType == null) {
 				// Global definitions, not inside a class, skip
 				return;
 			}
-			
+			if (currentType.Name == "RefCounted") {
+				Console.WriteLine("adding {0} to {1}", decl.Name, currentType.Name);
+			}
+
 			if (visitKind != VisitKind.Enter)
 				return;
 
@@ -392,41 +302,59 @@ namespace SharpieBinder
 				return;
 
 			// TODO: temporary, do not handle opreators
-			if (decl.Name.StartsWith ("operator"))
+			if (decl.Name.StartsWith("operator", StringComparison.Ordinal))
 				return;
 
-
+			// Temporary: while we add support for other things, just to debug things
+			// remove types we do not support
+			foreach (var p in decl.Parameters) {
+				if (IsUnsupportedType (p.QualType)){
+					Console.WriteLine($"Bailing out on {p.QualType}");
+					return;
+				}
+			}
+			if (IsUnsupportedType(decl.ReturnQualType)) {
+				Console.WriteLine($"Bailing out on {decl.QualType}");
+				return;
+			}
+			
 			// PInvoke declaration
-			var pinvoke = new MethodDeclaration {
-				Name = "e_" + MakeName (currentType.Name) + "_" + decl.Name,
-				ReturnType = CleanType (decl.ReturnQualType).Bind (),
+			var pinvoke = new MethodDeclaration
+			{
+				Name = "e_" + MakeName(currentType.Name) + "_" + decl.Name,
+				ReturnType = CleanType(decl.ReturnQualType).Bind(),
 				Modifiers = Modifiers.Extern | Modifiers.Static
 			};
 			if (!decl.IsStatic)
-				pinvoke.Parameters.Add (new ParameterDeclaration (new SimpleType ("IntPtr"), "handle"));
-
-			var dllImport = new Attribute () {
-				Type = new SimpleType ("DllImport")
+				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
+			foreach (var param in decl.Parameters)
+				pinvoke.Parameters.Add(new ParameterDeclaration(CleanType(param.QualType).Bind(), param.Name));
+			
+			var dllImport = new Attribute()
+			{
+				Type = new SimpleType("DllImport")
 			};
-			dllImport.Arguments.Add (new PrimitiveExpression ("mono-urho"));
+			dllImport.Arguments.Add(new PrimitiveExpression("mono-urho"));
 
-			pinvoke.Attributes.Add (new AttributeSection (dllImport));
-			currentType.Members.Add (pinvoke);
+			pinvoke.Attributes.Add(new AttributeSection(dllImport));
+			currentType.Members.Add(pinvoke);
 
 			// Method declaration
-			var method = new MethodDeclaration {
+			var method = new MethodDeclaration
+			{
 				Name = decl.Name,
-				ReturnType = CleanType (decl.ReturnQualType).Bind (),
+				ReturnType = CleanType(decl.ReturnQualType).Bind(),
 				Modifiers = (decl.IsStatic ? Modifiers.Static : 0)
 			};
 
 			foreach (var param in decl.Parameters)
-				method.Parameters.Add (new ParameterDeclaration (CleanType (param.QualType).Bind (), param.Name));
-			method.Body = new BlockStatement () {
-				
+				method.Parameters.Add(new ParameterDeclaration(CleanType(param.QualType).Bind(), param.Name));
+			method.Body = new BlockStatement()
+			{
+
 			};
-				
-			currentType.Members.Add (method);
+
+			currentType.Members.Add(method);
 		}
 
 	}
