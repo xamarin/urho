@@ -1,7 +1,7 @@
 ﻿//
 // CURRENTLY
-//    RefCounted is getting a ton of methods added that are *not* part of
-//    RefCounted, so that is a porblem
+//    Generate base classes without a call to base
+//    Generate the standard idioms/patterns for init, dispose
 //
 // WARNING
 //
@@ -119,6 +119,7 @@ namespace SharpieBinder
 				syntaxTree.Members.Add(new Comment(" " + line));
 
 			syntaxTree.Members.Add(new UsingDeclaration("System"));
+			syntaxTree.Members.Add (new UsingDeclaration () { Import = new SimpleType ("System.Runtime.InteropServices") });
 
 			var ns = new NamespaceDeclaration("Urho");
 			syntaxTree.Members.Add(ns);
@@ -147,20 +148,10 @@ namespace SharpieBinder
 
 				switch (valueName) {
 					// LIST HERE ANY Values we want to skip
-					// About to type just "/"
-					case "NUM_ATTRS":
-					case "LAST_INHERITABLE_PARAM":
-					case "LAST_INHERITABLE":
-					case "LastKind":
-					case "TypeLast":
-					case "TagFirst":
-					case "TagLast":
-						continue;
-				}
-
-				if (valueName.StartsWith("first", StringComparison.Ordinal) ||
-					valueName.StartsWith("last", StringComparison.Ordinal))
+				case "foo":
 					continue;
+				
+				}
 
 				currentType.Members.Add(new EnumMemberDeclaration { Name = valueName });
 			}
@@ -177,7 +168,6 @@ namespace SharpieBinder
 			BaseNodeType baseNodeType;
 			if (baseNodeTypes.TryGetValue(decl.QualifiedName, out baseNodeType)) {
 				baseNodeType.Decl = decl;
-				if (decl.QualifiedName != "clang::DeclContext")
 					baseNodeType.Bind();
 				return;
 			}
@@ -220,6 +210,11 @@ namespace SharpieBinder
 
 					currentType.BaseTypes.Add(new SimpleType(baseName));
 				}
+			}
+
+			if (currentType.BaseTypes.Count == 0) {
+				currentType.BaseTypes.Add (new SimpleType ("UrhoBase"));
+			} else {
 			}
 
 			var nativeCtor = new ConstructorDeclaration
@@ -321,7 +316,7 @@ namespace SharpieBinder
 			// PInvoke declaration
 			var pinvoke = new MethodDeclaration
 			{
-				Name = "e_" + MakeName(currentType.Name) + "_" + decl.Name,
+				Name = MakeName(currentType.Name) + "_" + decl.Name,
 				ReturnType = CleanType(decl.ReturnQualType).Bind(),
 				Modifiers = Modifiers.Extern | Modifiers.Static
 			};
@@ -351,7 +346,7 @@ namespace SharpieBinder
 				method.Parameters.Add(new ParameterDeclaration(CleanType(param.QualType).Bind(), param.Name));
 			method.Body = new BlockStatement()
 			{
-
+				new ThrowStatement (new ObjectCreateExpression (new SimpleType ("Exception")))
 			};
 
 			currentType.Members.Add(method);
