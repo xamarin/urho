@@ -47,17 +47,6 @@ namespace Urho {
 			}
 		}
 
-		//
-		// This currently just news the object, but should in the future do a lookup and keep
-		// a table of objects, so we only ever surface the same object.   
-		//
-		// Currently we implement equality by comparing the underlying handle
-		//
-		public T LookupObject<T> (IntPtr handle) where T : new()
-		{
-			return new T(handle);
-		}
-
 		public override bool Equals (object other)
 		{
 			if (other == null)

@@ -21,7 +21,7 @@ namespace Urho {
 
 		public static implicit operator StringHash (StringHashRef r)
 		{
-			return StringHash (Marshal.ReadInt32 (ptr));
+			return new StringHash (Marshal.ReadInt32 (r.ptr));
 		}
 	}
 }

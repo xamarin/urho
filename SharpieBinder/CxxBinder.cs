@@ -476,10 +476,12 @@ namespace SharpieBinder
 			else {
 				var ret = new ReturnStatement();
 				if (returnIsWrapped == WrapKind.RefCounted) {
-					var id = new IdentifierExpression("LookupObject");
-					id.TypeArguments.Add(methodReturn2);
+					
+					//var id = new IdentifierExpression("LookupObject");
+					//id.TypeArguments.Add(methodReturn2);
 
-					ret.Expression = new InvocationExpression(id, invoke);
+					//ret.Expression = new InvocationExpression(id, invoke);
+					ret.Expression = new ObjectCreateExpression(methodReturn2, new IdentifierExpression("handle"));
 				} else if (returnIsWrapped == WrapKind.EventHandler){
 					ret.Expression = invoke;
 				} else {

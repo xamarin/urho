@@ -11,4 +11,4 @@ SOURCES =	\
 	src/Stubs.cs
 
 Urho.dll: $(SOURCES) Makefile
-	mcs -unsafe -out:Urho.dll -debug $(SOURCES)
+	mcs -unsafe -out:Urho.dll -target:library -debug $(SOURCES)
