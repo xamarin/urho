@@ -19,7 +19,7 @@ namespace Urho {
 			this.ptr = ptr;
 		}
 
-		public static operator implicit StringHash (StringHashRef r)
+		public static implicit operator StringHash (StringHashRef r)
 		{
 			return StringHash (Marshal.ReadInt32 (ptr));
 		}
