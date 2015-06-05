@@ -1,6 +1,7 @@
 The class hierarchy for the objects in Urho is the following:
 
-= ValueTypes =
+ValueTypes
+==========
 
 * Vector2 
 * IntVector2
@@ -44,7 +45,8 @@ The class hierarchy for the objects in Urho is the following:
 * HiresTimer
 * AreaAllocator
 
-= Classes = 
+Classes
+=======
 
 * RefCounted
   * Object : public RefCounted
