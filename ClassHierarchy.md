@@ -1,6 +1,7 @@
 The class hierarchy for the objects in Urho is the following:
 
 = ValueTypes =
+
 * Vector2 
 * IntVector2
 * Vector3
