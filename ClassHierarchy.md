@@ -1,5 +1,50 @@
 The class hierarchy for the objects in Urho is the following:
 
+= ValueTypes =
+* Vector2 
+* IntVector2
+* Vector3
+* Vector4
+* Skeleton
+* StringHash
+* Rect
+* IntRect
+* Sphere
+* Octant
+* Ray
+* Polyhedron
+* Quaternion
+* Matrix3
+* Matrix3x4
+* Matrix4
+* Plane
+* Frustum
+* Color
+* BoundingBox
+* Spline
+* String
+* WString
+* Controls
+* Mutex
+* MutexLock
+* UIBatch
+* Variant
+* Condition
+* JSONValue
+* XMLElement
+* XPathResultSet
+* XPathQuery
+* SceneResolver
+* CScriptDictValue
+* HashBase
+* ListBase
+* VectorBase
+* Timer
+* HiresTimer
+* AreaAllocator
+
+= Classes = 
+
 * RefCounted
   * Object : public RefCounted
     * Audio : public Object
@@ -179,54 +224,13 @@ The class hierarchy for the objects in Urho is the following:
   * SphereOctreeQuery : public OctreeQuery
   * BoxOctreeQuery : public OctreeQuery
   * FrustumOctreeQuery : public OctreeQuery
-
-* Controls
-* JSONValue
-* PListValue
-* XMLElement
-* XPathResultSet
-* XPathQuery
-* SceneResolver
-* CScriptArray
-* CScriptDictValue
-* CScriptDictionary
-* ScriptEventListener
-* UIBatch
-* HashBase
-* ListBase
-* String
-* WString
-* VectorBase
-* Condition
-* Mutex
-* MutexLock
-* Spline
-* Thread
-* Timer
-* HiresTimer
-* Variant
 * AutoProfileBlock
 * ProfilerBlock
+* Thread
+* PListValue
+* CScriptArray
+* CScriptDictionary
+* ScriptEventListener
 * LuaScriptEventListener
-* AreaAllocator
-* BoundingBox
-* Color
-* Frustum
-* Matrix3
-* Matrix3x4
-* Matrix4
-* Plane
-* Polyhedron
-* Quaternion
-* Ray
-* Rect
-* IntRect
-* Sphere
-* StringHash
-* Vector2
-* IntVector2
-* Vector3
-* Vector4
-* Octant
 * RayOctreeQuery
-* Skeleton
+
