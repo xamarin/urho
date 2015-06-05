@@ -22,6 +22,8 @@ namespace SharpieBinder
 
 			var reader = new AstReader ();
 			var binder = new CxxBinder();
+			var lookup = new ScanBaseTypes ();
+			reader.TranslationUnitParsed += tu => tu.Accept (lookup);
 			reader.TranslationUnitParsed += tu => tu.Accept (binder);
 			reader.Load (args [0]);
 			foreach (var st in binder.Generate()) {

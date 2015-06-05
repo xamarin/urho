@@ -95,9 +95,9 @@ namespace SharpieBinder
 		CXXRecordDecl GetRootDecl(CXXRecordDecl decl)
 		{
 			return baseNodeTypes.Values.FirstOrDefault(node =>
-													   node.Decl != null &&
-													   node.Decl.Name != "DeclContext" &&
-													   decl.IsDerivedFrom(node.Decl))?.Decl;
+								   node.Decl != null &&
+								   node.Decl.Name != "DeclContext" &&
+								   decl.IsDerivedFrom(node.Decl))?.Decl;
 		}
 
 		void PushType(TypeDeclaration typeDeclaration)
@@ -168,7 +168,7 @@ namespace SharpieBinder
 			BaseNodeType baseNodeType;
 			if (baseNodeTypes.TryGetValue(decl.QualifiedName, out baseNodeType)) {
 				baseNodeType.Decl = decl;
-					baseNodeType.Bind();
+				baseNodeType.Bind();
 				return;
 			}
 
@@ -212,25 +212,22 @@ namespace SharpieBinder
 				}
 			}
 
-			if (currentType.BaseTypes.Count == 0) {
-				currentType.BaseTypes.Add (new SimpleType ("UrhoBase"));
-			} else {
+			// Determines if this is a subclass of RefCounted (but not RefCounted itself)
+			bool refCountedSubclass = decl.TagKind == TagDeclKind.Class && decl.QualifiedName != "Urho3D::RefCounted" && decl.IsDerivedFrom (ScanBaseTypes.UrhoRefCounted);
+
+			if (refCountedSubclass) {
+				var nativeCtor = new ConstructorDeclaration {
+					Modifiers = Modifiers.Internal,
+					Body = new BlockStatement (),
+					Initializer = new ConstructorInitializer ()
+				};
+
+
+				nativeCtor.Parameters.Add (new ParameterDeclaration (new SimpleType ("IntPtr"), "handle"));
+				nativeCtor.Initializer.Arguments.Add (new IdentifierExpression ("handle"));
+
+				currentType.Members.Add (nativeCtor);
 			}
-
-			var nativeCtor = new ConstructorDeclaration
-			{
-				Modifiers = Modifiers.Internal,
-				Body = new BlockStatement(),
-				Initializer = new ConstructorInitializer()
-			};
-
-			nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
-			nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("handle"));
-
-			currentType.Members.Add(nativeCtor);
-
-
-			//GenerateAcceptAstVisitor(decl);
 		}
 
 		public static AstType CreateAstType(string dottedName, IEnumerable<AstType> typeArguments)
@@ -271,19 +268,51 @@ namespace SharpieBinder
 		// Temporary, just to help us get the bindings bootstrapped
 		static bool IsUnsupportedType(QualType qt)
 		{
-			#pragma warning disable NR0060
 			return CleanType(qt).Bind().ToString().IndexOf("unsupported") != -1;
-			#pragma warning restore NR0060
 		}
 
-		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
+		// 
+		// Given a pointer type, returns the underlying type 
+		//
+		static RecordType GetPointersUnderlyingType (PointerType ptrType)
 		{
-			if (currentType == null) {
-				// Global definitions, not inside a class, skip
-				return;
+			return (ptrType.PointeeQualType.Type.UnqualifiedDesugaredType as RecordType);
+		}
+
+		// 
+		// Given a Clang QualType, returns the AstType to use to marshal, both for the 
+		// P/Invoke signature and for the high level binding
+		//
+		// Handles RefCounted objects that we wrap
+		//
+		void LookupMarshalTypes (QualType qt, out AstType lowLevel, out AstType highLevel)
+		{
+			Console.WriteLine ("Considering: {0}", qt);
+			if (qt.ToString ().IndexOf ("Context") != -1)
+				Console.WriteLine ("Jack");
+			
+			var cleanType = CleanType (qt);
+			if (cleanType.Kind == TypeKind.Pointer) {
+				var ptrType = cleanType as PointerType;
+				var underlying = GetPointersUnderlyingType (ptrType);
+
+				CXXRecordDecl decl;
+				if (underlying != null && ScanBaseTypes.nameToDecl.TryGetValue (underlying.Decl.QualifiedName, out decl)) {
+					if (decl.IsDerivedFrom (ScanBaseTypes.UrhoRefCounted)) {
+						lowLevel = new SimpleType ("IntPtr");
+						highLevel = underlying.Bind ();
+						return;
+					}
+				}
 			}
-			if (currentType.Name == "RefCounted") {
-				Console.WriteLine("adding {0} to {1}", decl.Name, currentType.Name);
+			lowLevel = cleanType.Bind ();
+			highLevel = cleanType.Bind ();
+		}
+
+		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind){
+			// Global definitions, not inside a class, skip
+			if (currentType == null) {
+				return;
 			}
 
 			if (visitKind != VisitKind.Enter)
@@ -312,19 +341,21 @@ namespace SharpieBinder
 				Console.WriteLine($"Bailing out on {decl.QualType}");
 				return;
 			}
-			
+				
+			AstType pinvokeReturn, methodReturn;
+			LookupMarshalTypes (decl.ReturnQualType, out pinvokeReturn, out methodReturn);
+
 			// PInvoke declaration
 			var pinvoke = new MethodDeclaration
 			{
 				Name = MakeName(currentType.Name) + "_" + decl.Name,
-				ReturnType = CleanType(decl.ReturnQualType).Bind(),
+				ReturnType = pinvokeReturn,
 				Modifiers = Modifiers.Extern | Modifiers.Static
 			};
 			if (!decl.IsStatic)
 				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
-			foreach (var param in decl.Parameters)
-				pinvoke.Parameters.Add(new ParameterDeclaration(CleanType(param.QualType).Bind(), param.Name));
-			
+
+
 			var dllImport = new Attribute()
 			{
 				Type = new SimpleType("DllImport")
@@ -338,19 +369,42 @@ namespace SharpieBinder
 			var method = new MethodDeclaration
 			{
 				Name = decl.Name,
-				ReturnType = CleanType(decl.ReturnQualType).Bind(),
-				Modifiers = (decl.IsStatic ? Modifiers.Static : 0)
+				ReturnType = methodReturn,
+				Modifiers = (decl.IsStatic ? Modifiers.Static : 0) | Modifiers.Public
 			};
 
-			foreach (var param in decl.Parameters)
-				method.Parameters.Add(new ParameterDeclaration(CleanType(param.QualType).Bind(), param.Name));
+			foreach (var param in decl.Parameters){
+				AstType pinvokeParameter, parameter;
+				LookupMarshalTypes (param.QualType, out pinvokeParameter, out parameter);
+				method.Parameters.Add(new ParameterDeclaration(parameter, param.Name));
+				pinvoke.Parameters.Add (new ParameterDeclaration (pinvokeParameter, param.Name));
+			}
+
 			method.Body = new BlockStatement()
 			{
 				new ThrowStatement (new ObjectCreateExpression (new SimpleType ("Exception")))
 			};
-
+	
 			currentType.Members.Add(method);
 		}
+	}
 
+	class ScanBaseTypes : AstVisitor
+	{
+		static public CXXRecordDecl UrhoRefCounted;
+		public static Dictionary<string,CXXRecordDecl> nameToDecl = new Dictionary<string, CXXRecordDecl>();
+
+		public override void VisitCXXRecordDecl(CXXRecordDecl decl, VisitKind visitKind)
+		{
+			if (visitKind != VisitKind.Enter || !decl.IsCompleteDefinition || decl.Name == null) 
+				return;
+		
+			nameToDecl [decl.QualifiedName] = decl;
+			switch (decl.QualifiedName) {
+			case "Urho3D::RefCounted":
+				UrhoRefCounted = decl;
+				break;
+			}
+		}
 	}
 }
