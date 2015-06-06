@@ -21,7 +21,7 @@ namespace SharpieBinder
 			}
 
 			var reader = new AstReader ();
-			var binder = new CxxBinder();
+			var binder = new CxxBinder(output);
 			var lookup = new ScanBaseTypes ();
 			reader.TranslationUnitParsed += tu => tu.Accept (lookup);
 			reader.TranslationUnitParsed += tu => tu.Accept (binder);
@@ -31,7 +31,7 @@ namespace SharpieBinder
 				//File.WriteAllText (output + "/" + st.FileName + ".c"
 			}
 			Console.WriteLine($"Dumped data into {output}");
-			
+			binder.Close ();
 			return 0;
 		}
 	}
