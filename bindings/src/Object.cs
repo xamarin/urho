@@ -15,8 +15,6 @@ namespace Urho {
 		public Profiler Profiler => GetSubsystem (Profiler.GetTypeStatic ());
 		public FileSystem FileSystem => GetSubsystem (FileSystem.GetTypeStatic ());
 		public Log Log => GetSubsystem (Log.GetTypeStatic ());
-		public ResourceCache ResourceCache => GetSubsystem (ResourceCache.GetTypeStatic ());
-		public Network Network => GetSubsystem (Network.GetTypeStatic ());
 		public Input Input => GetSubsystem (Input.GetTypeStatic ());
 		public Audio Audio => GetSubsystem (Audio.GetTypeStatic ());
 		public UI UI => GetSubsystem (UI.GetTypeStatic ());
