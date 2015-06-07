@@ -1,3 +1,12 @@
+//
+// Urho's Object C# sugar
+//
+// Authors:
+//   Miguel de Icaza (miguel@xamarin.com)
+//
+// Copyrigh 2015 Xamarin INc
+//
+
 using System;
 using System.Runtime.InteropServices;
 

@@ -33,17 +33,6 @@ namespace SharpieBinder
 
 			reader.Load (args [0]);
 
-
-
-			foreach (var typeKV in ScanBaseTypes.allProperties) {
-				Console.WriteLine("Type {0} has {1} properties", typeKV.Key, typeKV.Value.Count);
-				foreach (var propNameKV in typeKV.Value) {
-					foreach (var propTypeKV in propNameKV.Value) {
-						Console.WriteLine("   Property {0} has {1} variations", propNameKV.Key, propNameKV.Value.Count);
-					}
-				}
-			}
-
 			foreach (var st in binder.Generate()) {
 				File.WriteAllText (output + "/" + st.FileName, st.ToString ());
 				//File.WriteAllText (output + "/" + st.FileName + ".c"
