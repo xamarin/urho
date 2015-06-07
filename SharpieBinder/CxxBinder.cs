@@ -199,6 +199,7 @@ namespace SharpieBinder
 					continue;
 				
 				}
+				var x = new EnumMemberDeclaration();
 
 				currentType.Members.Add(new EnumMemberDeclaration { Name = valueName });
 			}
@@ -470,6 +471,14 @@ namespace SharpieBinder
 			WrapKind returnIsWrapped;
 			LookupMarshalTypes (decl.ReturnQualType, out pinvokeReturn, out methodReturn, out returnIsWrapped, isReturn: true);
 			var methodReturn2 = methodReturn.Clone();
+
+			var propertyInfo = ScanBaseTypes.GetPropertyInfo(decl);
+			if (propertyInfo != null) {
+				propertyInfo.HostType = currentType; ;
+				propertyInfo.MethodReturn = methodReturn.Clone ();
+			}
+
+
 			// PInvoke declaration
 			string pinvoke_name = MakeName(currentType.Name) + "_" + decl.Name;
 			if (isConstructor) {
@@ -517,7 +526,8 @@ namespace SharpieBinder
 			{
 				Name = decl.Name,
 
-				Modifiers = (decl.IsStatic ? Modifiers.Static : 0) | Modifiers.Public
+				Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
+					(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
 			};
 			if (!isConstructor) {
 				method.ReturnType = methodReturn;
@@ -598,8 +608,47 @@ namespace SharpieBinder
 
 			currentType.Members.Add(method);
 		}
+
+		public void GenerateProperties()
+		{
+			foreach (var typeKV in ScanBaseTypes.allProperties) {
+				foreach (var propNameKV in typeKV.Value) {
+					foreach (var gs in propNameKV.Value.Values) {
+						var p = new PropertyDeclaration()
+						{
+							Name = gs.Name,
+							ReturnType = gs.MethodReturn,
+							Modifiers = Modifiers.Public | (gs.Getter.IsStatic ? Modifiers.Static : 0)
+						};
+
+						p.Getter = new Accessor()
+						{
+							Body = new BlockStatement() {
+								new ReturnStatement (new InvocationExpression (new IdentifierExpression (gs.Getter.Name)))
+							}
+						};
+                        if (gs.Setter != null) {
+							p.Setter = new Accessor()
+							{
+								Body = new BlockStatement()
+								{
+									new InvocationExpression (new IdentifierExpression (gs.Setter.Name), new IdentifierExpression ("value"))
+								}
+							};
+						}
+						// We are unable to bind
+                        if (gs.HostType == null)
+							continue;
+						gs.HostType.Members.Add(p);	
+					}
+				}
+			}
+		}
 	}
 
+	//
+	// Finds a few types that we use later to make decisions, and scans for methods for get/set patterns
+	//
 	class ScanBaseTypes : AstVisitor
 	{
 		static public CXXRecordDecl UrhoRefCounted, EventHandlerType;
@@ -618,6 +667,132 @@ namespace SharpieBinder
 			case "Urho3D::EventHandler":
 					EventHandlerType = decl;
 					break;
+			}
+		}
+
+		public class GetterSetter
+		{
+			public CXXMethodDecl Getter, Setter;
+			public TypeDeclaration HostType;
+			public AstType MethodReturn;
+			public string Name;
+		}
+
+		// typeName to propertyName to returnType to GetterSetter pairs
+		public static Dictionary<string, Dictionary<string,Dictionary<QualType,GetterSetter>>> allProperties = 
+			new Dictionary<string, Dictionary<string,Dictionary<QualType,GetterSetter>>>();
+		public int bad;
+		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
+		{
+			if (visitKind != VisitKind.Enter)
+				return;
+
+			var isConstructor = decl is CXXConstructorDecl;
+			if (decl is CXXDestructorDecl || isConstructor)
+				return;
+
+			if (decl.IsCopyAssignmentOperator || decl.IsMoveAssignmentOperator)
+				return;
+
+			if (decl.Parent == null)
+				return;
+			if (!decl.Parent.QualifiedName.StartsWith("Urho3D::"))
+				return;
+			
+			// Only get methods prefixed with Get with no parameters
+			// and Set methods that return void and take a single parameter
+			var name = decl.Name;
+			QualType type;
+			if (name.StartsWith("Get")) {
+				if (decl.Parameters.Count ()!= 0)
+					return;
+				type = decl.ReturnQualType;
+			} else if (name.StartsWith("Set")) {
+				if (decl.Parameters.Count() != 1)
+					return;
+				if (!(decl.ReturnQualType.Bind () is Sharpie.Bind.Types.VoidType))
+					return;
+				type = decl.Parameters.FirstOrDefault().QualType;
+			} else
+				return;
+			
+			Dictionary<string, Dictionary<QualType,GetterSetter>> typeProperties;
+			if (!allProperties.TryGetValue(decl.Parent.Name, out typeProperties)) {
+				typeProperties = new Dictionary<string, Dictionary<QualType,GetterSetter>>();
+				allProperties[decl.Parent.Name] = typeProperties;
+			}
+			var propName = name.Substring(3);
+			Dictionary<QualType,GetterSetter> property;
+
+			if (!typeProperties.TryGetValue(propName, out property)) {
+				property = new Dictionary<QualType, GetterSetter>();
+				typeProperties[propName] = property;
+			}
+			GetterSetter gs;
+			if (!property.TryGetValue(type, out gs)) {
+				gs = new GetterSetter() { Name = propName };
+			}
+
+			if (name.StartsWith("Get")) {
+				if (gs.Getter != null)
+					throw new Exception("Can not happen");
+				gs.Getter = decl;
+			} else {
+				if (gs.Setter != null) {
+					throw new Exception("Can not happen");
+				}
+				gs.Setter = decl;
+			}
+			property[type] = gs;
+		}
+
+		// Contains a list of all methods that will be part of a property
+		static Dictionary<CXXMethodDecl,GetterSetter> allPropertyMethods = new Dictionary<CXXMethodDecl,GetterSetter>();
+
+		public static GetterSetter GetPropertyInfo(CXXMethodDecl decl)
+		{
+			GetterSetter gs;
+			if (allPropertyMethods.TryGetValue(decl, out gs))
+				return gs;
+			return null;
+		}
+
+		//
+		// After we colleted the information, remove pairs that only had a setter, but no getter
+		//
+		public void PrepareProperties()
+		{
+			var typeRemovals = new List<string>();
+			foreach (var typeKV in allProperties) {
+				var propertyRemovals = new List<string>();
+				foreach (var propNameKV in typeKV.Value) {
+					var qualTypeRemoval = new List<QualType>();
+					foreach (var propTypeKV in propNameKV.Value) {
+						if (propTypeKV.Value.Getter == null)
+							qualTypeRemoval.Add(propTypeKV.Key);
+					}
+					foreach (var qualType in qualTypeRemoval)
+						propNameKV.Value.Remove(qualType);
+					if (propNameKV.Value.Count == 0)
+						propertyRemovals.Add(propNameKV.Key);
+				}
+				foreach (var property in propertyRemovals)
+					typeKV.Value.Remove(property);
+
+				if (typeKV.Value.Count == 0)
+					typeRemovals.Add(typeKV.Key);
+			}
+			foreach (var type in typeRemovals)
+				allProperties.Remove(type);
+
+			foreach (var typeKV in allProperties) {
+				foreach (var propNameKV in typeKV.Value) {
+					foreach (var gs in propNameKV.Value.Values) {
+						allPropertyMethods[gs.Getter] = gs;
+						if (gs.Setter != null)
+							allPropertyMethods[gs.Setter] = gs;
+					}
+				}
 			}
 		}
 	}
