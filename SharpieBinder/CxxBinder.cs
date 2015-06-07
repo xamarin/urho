@@ -206,11 +206,17 @@ namespace SharpieBinder
 
 		public override void VisitCXXRecordDecl(CXXRecordDecl decl, VisitKind visitKind)
 		{
+			if (decl.QualifiedName == ("Urho3D::Text")) {
+				Console.WriteLine($"{decl.QualifiedName} {visitKind} {decl.IsCompleteDefinition}");
+				Console.WriteLine("here");
+			}
+
 			if (visitKind != VisitKind.Enter || !decl.IsCompleteDefinition || decl.Name == null) {
 				return;
 			}
 			if (visitKind == VisitKind.Leave)
 				currentType = null;
+
 
 			BaseNodeType baseNodeType;
 			if (baseNodeTypes.TryGetValue(decl.QualifiedName, out baseNodeType)) {
@@ -431,15 +437,15 @@ namespace SharpieBinder
 			if (visitKind != VisitKind.Enter)
 				return;
 
-			if (decl is CXXConstructorDecl || decl is CXXDestructorDecl)
+			var isConstructor = decl is CXXConstructorDecl;
+			if (decl is CXXDestructorDecl)
 				return;
-
 
 			if (decl.IsCopyAssignmentOperator || decl.IsMoveAssignmentOperator)
 				return;
 
 			// TODO: temporary, do not handle opreators
-			if (decl.Name.StartsWith("operator", StringComparison.Ordinal))
+			if (!isConstructor && decl.Name.StartsWith("operator", StringComparison.Ordinal))
 				return;
 
 			if (decl.Parent.Name != currentType.Name) {
@@ -460,21 +466,22 @@ namespace SharpieBinder
 				return;
 			}
 
-			if (decl.Name == "PlayLockless")
-				Console.WriteLine ("f");
 			AstType pinvokeReturn, methodReturn;
 			WrapKind returnIsWrapped;
 			LookupMarshalTypes (decl.ReturnQualType, out pinvokeReturn, out methodReturn, out returnIsWrapped, isReturn: true);
 			var methodReturn2 = methodReturn.Clone();
 			// PInvoke declaration
 			string pinvoke_name = MakeName(currentType.Name) + "_" + decl.Name;
+			if (isConstructor) {
+				pinvokeReturn = new SimpleType("IntPtr");
+			}
 			var pinvoke = new MethodDeclaration
 			{
 				Name = pinvoke_name,
 				ReturnType = pinvokeReturn,
 				Modifiers = Modifiers.Extern | Modifiers.Static | Modifiers.Internal
 			};
-			if (!decl.IsStatic)
+			if (!decl.IsStatic && !isConstructor)
 				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
 
 
@@ -489,12 +496,16 @@ namespace SharpieBinder
 
 			// The C counterpart
 			var cinvoke = new StringBuilder ();
-			Console.WriteLine ("dq: {0}", decl.ReturnQualType.Bind ());
-			p ($"{CleanTypeCplusplus (decl.ReturnQualType)}\n{pinvoke_name} (");
+			if (isConstructor)
+				p($"void *\n{pinvoke_name} (");
+			else
+				p ($"{CleanTypeCplusplus (decl.ReturnQualType)}\n{pinvoke_name} (");
 
 			if (decl.IsStatic) {
 				cinvoke.Append ($"{currentType.Name}::{decl.Name} (");
 			
+			} else if (isConstructor) {
+				cinvoke.Append ($"new {decl.Name} (");
 			} else {
 				p ($"{currentType.Name} *_target");
 				if (decl.Parameters.Count () > 0)
@@ -505,13 +516,17 @@ namespace SharpieBinder
 			var method = new MethodDeclaration
 			{
 				Name = decl.Name,
-				ReturnType = methodReturn,
+
 				Modifiers = (decl.IsStatic ? Modifiers.Static : 0) | Modifiers.Public
 			};
+			if (!isConstructor) {
+				method.ReturnType = methodReturn;
+			}
+
 			method.Body = new BlockStatement();
 
 			var invoke = new InvocationExpression(new IdentifierExpression(pinvoke_name));
-			if (!decl.IsStatic)
+			if (!decl.IsStatic && !isConstructor)
 				invoke.Arguments.Add(new IdentifierExpression("handle"));
 			bool first = true;
             foreach (var param in decl.Parameters) {
@@ -544,25 +559,39 @@ namespace SharpieBinder
 			cinvoke.Append (");");
 			p (")\n{\n\t");
 
-
-			if (methodReturn is Sharpie.Bind.Types.VoidType) {
+			if (methodReturn is Sharpie.Bind.Types.VoidType && !isConstructor) {
 				method.Body.Add (invoke);
 				pn ($"{cinvoke.ToString ()}");
 			} else {
-				var ret = new ReturnStatement();
+				ReturnStatement ret = null;
+				Expression returnExpression;
+
+				if (decl.Name == "Audio" && isConstructor)
+					Console.Write("top");
+				
+				if (!isConstructor)
+					ret = new ReturnStatement();
+				
 				if (returnIsWrapped == WrapKind.RefCounted) {
 					
 					//var id = new IdentifierExpression("LookupObject");
 					//id.TypeArguments.Add(methodReturn2);
 
 					//ret.Expression = new InvocationExpression(id, invoke);
-					ret.Expression = new ObjectCreateExpression(methodReturn2, new IdentifierExpression("handle"));
+					returnExpression = new ObjectCreateExpression(methodReturn2, new IdentifierExpression("handle"));
 				} else if (returnIsWrapped == WrapKind.EventHandler){
-					ret.Expression = invoke;
+					returnExpression = invoke;
 				} else {
-					ret.Expression = invoke;
+					returnExpression = invoke;
 				}
-				method.Body.Add(ret);
+				if (ret != null){
+					ret.Expression = returnExpression;
+					method.Body.Add(ret);
+				} else {
+					var ctorAssign = new AssignmentExpression(new IdentifierExpression("handle"), returnExpression);
+					method.Body.Add(new ExpressionStatement(ctorAssign));
+				}
+
 				pn ($"return {cinvoke.ToString ()}");
 			}
 			pn ("}\n");
