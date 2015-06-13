@@ -2,27 +2,27 @@ URHO_DIR=/cvs/Urho3D
 OBJSHARPIE_BIN=/cvs/ObjectiveSharpie//llvm/_install/bin
 
 SOURCES =	\
-	generated/Animatable.cs	\
+	generated/Animatable.cs		\
 	generated/AnimatedModel.cs	\
 	generated/AnimatedSprite2D.cs	\
-	generated/Animation.cs	\
+	generated/Animation.cs		\
 	generated/Animation2D.cs	\
-	generated/AnimationController.cs	\
+	generated/AnimationController.cs\
 	generated/AnimationSet2D.cs	\
 	generated/AnimationState.cs	\
 	generated/Application.cs	\
 	generated/AsyncLoadState.cs	\
 	generated/AttributeAccessor.cs	\
-	generated/AttributeAnimationInfo.cs	\
-	generated/Audio.cs	\
+	generated/AttributeAnimationInfo.cs\
+	generated/Audio.cs		\
 	generated/BillboardSet.cs	\
-	generated/BlendMode.cs	\
-	generated/BodyType2D.cs	\
+	generated/BlendMode.cs		\
+	generated/BodyType2D.cs		\
 	generated/BorderImage.cs	\
-	generated/BufferedSoundStream.cs	\
-	generated/Button.cs	\
-	generated/Camera.cs	\
-	generated/CheckBox.cs	\
+	generated/BufferedSoundStream.cs\
+	generated/Button.cs		\
+	generated/Camera.cs		\
+	generated/CheckBox.cs		\
 	generated/CollisionBox2D.cs	\
 	generated/CollisionChain2D.cs	\
 	generated/CollisionCircle2D.cs	\
@@ -30,58 +30,59 @@ SOURCES =	\
 	generated/CollisionPolygon2D.cs	\
 	generated/CollisionShape2D.cs	\
 	generated/CompareMode.cs	\
-	generated/Component.cs	\
+	generated/Component.cs		\
 	generated/CompressedFormat.cs	\
-	generated/Console.cs	\
+	generated/Connection.cs		\
+	generated/Console.cs		\
 	generated/ConstantBuffer.cs	\
 	generated/Constraint2D.cs	\
-	generated/ConstraintDistance2D.cs	\
-	generated/ConstraintFriction2D.cs	\
+	generated/ConstraintDistance2D.cs\
+	generated/ConstraintFriction2D.cs\
 	generated/ConstraintGear2D.cs	\
 	generated/ConstraintMotor2D.cs	\
 	generated/ConstraintMouse2D.cs	\
-	generated/ConstraintPrismatic2D.cs	\
+	generated/ConstraintPrismatic2D.cs\
 	generated/ConstraintPulley2D.cs	\
-	generated/ConstraintRevolute2D.cs	\
+	generated/ConstraintRevolute2D.cs\
 	generated/ConstraintRope2D.cs	\
 	generated/ConstraintWeld2D.cs	\
 	generated/ConstraintWheel2D.cs	\
-	generated/Context.cs	\
-	generated/Corner.cs	\
-	generated/CreateMode.cs	\
-	generated/CrowdAgent.cs	\
+	generated/Context.cs		\
+	generated/Corner.cs		\
+	generated/CreateMode.cs		\
+	generated/CrowdAgent.cs		\
 	generated/CrowdAgentState.cs	\
 	generated/CrowdTargetState.cs	\
 	generated/CubeMapFace.cs	\
 	generated/CubeMapLayout.cs	\
-	generated/CullMode.cs	\
-	generated/Cursor.cs	\
+	generated/CullMode.cs		\
+	generated/Cursor.cs		\
 	generated/CursorShape.cs	\
 	generated/CustomGeometry.cs	\
-	generated/DebugHud.cs	\
+	generated/DebugHud.cs		\
 	generated/DebugRenderer.cs	\
-	generated/DecalSet.cs	\
+	generated/DecalSet.cs		\
 	generated/DeferredLightPSVariation.cs	\
 	generated/DeferredLightVSVariation.cs	\
 	generated/DetourCrowdManager.cs	\
-	generated/Drawable.cs	\
-	generated/Drawable2D.cs	\
+	generated/Drawable.cs		\
+	generated/Drawable2D.cs		\
 	generated/DropDownList.cs	\
-	generated/DynamicNavigationMesh.cs	\
+	generated/DynamicNavigationMesh.cs\
 	generated/EmitterType.cs	\
 	generated/EmitterType2D.cs	\
-	generated/Engine.cs	\
-	generated/FONT_TYPE.cs	\
+	generated/Engine.cs		\
+	generated/FONT_TYPE.cs		\
 	generated/FaceCameraMode.cs	\
-	generated/File.cs	\
-	generated/FileMode.cs	\
+	generated/File.cs		\
+	generated/FileMode.cs		\
 	generated/FileSelector.cs	\
-	generated/FileSystem.cs	\
+	generated/FileSystem.cs		\
 	generated/FileWatcher.cs	\
-	generated/FillMode.cs	\
-	generated/FocusMode.cs	\
-	generated/Font.cs	\
-	generated/FontFace.cs	\
+	generated/FillMode.cs		\
+	generated/FocusMode.cs		\
+	generated/Font.cs		\
+	generated/FontFace.cs		\
 	generated/FontFaceBitmap.cs	\
 	generated/FontFaceFreeType.cs	\
 	generated/FrustumPlane.cs	\
@@ -119,18 +120,18 @@ SOURCES =	\
 	generated/NavigationPushiness.cs	\
 	generated/NavigationQuality.cs	\
 	generated/NavmeshPartitionType.cs	\
-	generated/Node.cs	\
-	generated/Object.cs	\
+	generated/Node.cs		\
+	generated/Object.cs		\
 	generated/ObjectAnimation.cs	\
 	generated/ObjectFactory.cs	\
-	generated/Obstacle.cs	\
+	generated/Obstacle.cs		\
 	generated/OcclusionBuffer.cs	\
-	generated/Octree.cs	\
+	generated/Octree.cs		\
 	generated/OffMeshConnection.cs	\
 	generated/OggVorbisSoundStream.cs	\
 	generated/Orientation.cs	\
 	generated/Orientation2D.cs	\
-	generated/PListFile.cs	\
+	generated/PListFile.cs		\
 	generated/PListValueType.cs	\
 	generated/PackageFile.cs	\
 	generated/ParticleEffect.cs	\

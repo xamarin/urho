@@ -149,12 +149,11 @@
 #include <Urho3D/Navigation/OffMeshConnection.h>
 #include <Urho3D/Network/Connection.h>
 #include <Urho3D/Network/HttpRequest.h>
-#if false
+
 #include <Urho3D/Network/Network.h>
 #include <Urho3D/Network/NetworkEvents.h>
 #include <Urho3D/Network/NetworkPriority.h>
 #include <Urho3D/Network/Protocol.h>
-///
 #include <Urho3D/Physics/CollisionShape.h>
 #include <Urho3D/Physics/Constraint.h>
 #include <Urho3D/Physics/PhysicsEvents.h>
@@ -166,7 +165,6 @@
 #include <Urho3D/Resource/Image.h>
 #include <Urho3D/Resource/JSONFile.h>
 #include <Urho3D/Resource/JSONValue.h>
-#endif
 #include <Urho3D/Resource/PListFile.h>
 #include <Urho3D/Resource/Resource.h>
 #include <Urho3D/Resource/ResourceCache.h>

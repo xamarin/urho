@@ -36,6 +36,7 @@ namespace SharpieBinder
 			};
 
 			reader.Load (args [0]);
+			binder.FixupOverrides();
 
 			foreach (var st in binder.Generate()) {
 				File.WriteAllText (output + "/" + st.FileName, st.ToString ());
