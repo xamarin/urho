@@ -239,7 +239,6 @@ SOURCES =	\
 	generated/WorkItem.cs	\
 	generated/WorkQueue.cs	\
 	generated/WrapMode.cs	\
-	generated/XMLElement.cs	\
 	generated/XMLFile.cs	\
 	generated/Zone.cs	\
 	src/AttributeInfo.cs		\

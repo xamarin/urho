@@ -258,7 +258,6 @@ namespace SharpieBinder
 			// TODO: replace with a lookup tablem
 			if (decl.QualifiedName == "Urho3D::String")
 				isStruct = true;
-
 			PushType(new TypeDeclaration
 			{
 				Name = decl.Name,
@@ -283,7 +282,7 @@ namespace SharpieBinder
 					//
 					if (baseName == "GPUObject" || baseName == "Thread" || baseName == "Octant" ||
 					   baseName == "b2Draw" || baseName == "b2ContactListener")
-						return;
+						continue;
 
 					if (currentType.BaseTypes.Count > 0)
 						baseName = "I" + baseName;
@@ -375,7 +374,8 @@ namespace SharpieBinder
 			// Candidate for a hand binding (Connection.h)
 			if (qt.ToString().Contains("kNet::SharedPtr"))
 				return true;
-
+			if (s.Contains("XMLElement"))
+				return true;
 			return false;
 		}
 
@@ -449,6 +449,7 @@ namespace SharpieBinder
 					if (decl.Name == "Deserializer") {
 						lowLevel = new SimpleType("IntPtr");
 						highLevel = new SimpleType("IDeserializer");
+						wrapKind = WrapKind.HandleMember;
 						return;
 					}
 					if (decl.Name == "Serializer") {
@@ -781,7 +782,7 @@ namespace SharpieBinder
 						p.Getter = new Accessor()
 						{
 							Body = new BlockStatement() {
-								new ReturnStatement (new InvocationExpression (new IdentifierExpression (gs.Getter.Name)))
+								new ReturnStatement (new InvocationExpression (new IdentifierExpression (RemapName (gs.Getter.Name))))
 							}
 						};
 						if (gs.Setter != null) {
