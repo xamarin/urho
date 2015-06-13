@@ -9,6 +9,10 @@ namespace Urho {
 		IntPtr block;
 	}
 
+	public enum UrhoObjectFlag {
+		Empty
+	}
+		
 	public partial class Network {
 	}
 

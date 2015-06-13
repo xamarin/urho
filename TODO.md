@@ -1,4 +1,12 @@
 
+This is worng on window.cs
+
+                new void RegisterObject (Context context)
+                {
+                        Window_RegisterObject (context == null ? IntPtr.Zero : context.handle);
+                }
+
+
 Binding
 -------
 Urho3D::String(string) would currently call a constructor that assumes

@@ -15,6 +15,10 @@ namespace Urho {
 		
 		public IntPtr Handle => handle;
 
+		internal RefCounted (UrhoObjectFlag empty)
+		{
+		}
+		
 		public RefCounted (IntPtr handle)
 		{
 			this.handle = handle;

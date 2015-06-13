@@ -307,6 +307,21 @@ namespace SharpieBinder
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("handle"));
 
 				currentType.Members.Add(nativeCtor);
+
+				// The construtor with the emtpy chain flag
+				nativeCtor = new ConstructorDeclaration
+				{
+					Modifiers = Modifiers.Internal,
+					Body = new BlockStatement(),
+					Initializer = new ConstructorInitializer()
+				};
+
+
+				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("UrhoObjectFlag"), "emptyFlag"));
+				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("emptyFlag"));
+
+				currentType.Members.Add(nativeCtor);
+
 			} else if (IsStructure(decl)) {
 				var serializable = new Attribute()
 				{
@@ -573,18 +588,29 @@ namespace SharpieBinder
 				cinvoke.Append($"_target->{decl.Name} (");
 			}
 			// Method declaration
-			var method = new MethodDeclaration
-			{
-				Name = RemapName(decl.Name),
+			MethodDeclaration method = null;
+			ConstructorDeclaration constructor = null;
 
-				Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
-					(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
-			};
-			if (!isConstructor) {
-				method.ReturnType = methodReturn;
+			if (isConstructor) {
+				constructor = new ConstructorDeclaration
+				{
+					Name = RemapName(decl.Name),
+
+					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
+						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
+				};
+				constructor.Body = new BlockStatement();
+			} else {
+				method = new MethodDeclaration
+				{
+					Name = RemapName(decl.Name),
+					ReturnType = methodReturn,
+					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
+						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
+				};
+				method.Body = new BlockStatement();
 			}
 
-			method.Body = new BlockStatement();
 
 			var invoke = new InvocationExpression(new IdentifierExpression(pinvoke_name));
 			if (!decl.IsStatic && !isConstructor)
@@ -608,7 +634,10 @@ namespace SharpieBinder
 				if (paramName == "" || paramName == null)
 					paramName = "param" + (anonymousParameterNameCount++);
 
-				method.Parameters.Add(new ParameterDeclaration(parameter, paramName));
+				if (constructor == null)
+					method.Parameters.Add(new ParameterDeclaration(parameter, paramName));
+				else
+					constructor.Parameters.Add(new ParameterDeclaration(parameter, paramName));
 				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName));
 
 				if (wrapKind == WrapKind.HandleMember) {
@@ -625,7 +654,7 @@ namespace SharpieBinder
 			cinvoke.Append(");");
 			p(")\n{\n\t");
 
-			if (methodReturn is Sharpie.Bind.Types.VoidType && !isConstructor) {
+			if (method != null && methodReturn is Sharpie.Bind.Types.VoidType) {
 				method.Body.Add(invoke);
 				pn($"{cinvoke.ToString()}");
 			} else {
@@ -652,15 +681,24 @@ namespace SharpieBinder
 					ret.Expression = returnExpression;
 					method.Body.Add(ret);
 				} else {
+					constructor.Initializer = new ConstructorInitializer()
+					{
+						ConstructorInitializerType = ConstructorInitializerType.Base,
+					};
+					constructor.Initializer.Arguments.Add(csParser.ParseExpression("UrhoObjectFlag.Empty"));
+
 					var ctorAssign = new AssignmentExpression(new IdentifierExpression("handle"), returnExpression);
-					method.Body.Add(new ExpressionStatement(ctorAssign));
+					constructor.Body.Add(new ExpressionStatement(ctorAssign));
 				}
 
 				pn($"return {cinvoke.ToString()}");
 			}
 			pn("}\n");
 
-			currentType.Members.Add(method);
+			if (method == null)
+				currentType.Members.Add(constructor);
+			else
+				currentType.Members.Add(method);
 		}
 
 		void ScanBases(TypeDeclaration td, Func<TypeDeclaration, bool> cback)
