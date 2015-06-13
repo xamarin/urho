@@ -13,11 +13,15 @@ namespace SharpieBinder
 		public static int Main (string[] args)
 		{
 			Directory.CreateDirectory (output);
+			Console.WriteLine(Environment.CurrentDirectory);
+
 			Console.WriteLine("This needs a 64-bit Mono to run, and libclang-mono.dylib in /usr/lib");
+
 			if (args.Length == 0) {
 				//Console.Error.WriteLine ("error: provide a PCH file to dump");
 				//return 1;
-				args = new String[] { "/Users/miguel/Dropbox/UrhoBindings/test.pch" };
+				args = new String[] { "/cvs/urho/bindings/Urho.pch" };
+				//args = new String[] { "/Users/miguel/Dropbox/UrhoBindings/test.pch" };
 			}
 
 			var reader = new AstReader ();

@@ -9,6 +9,14 @@ its own copy
 Generator
 ---------
 
+Serializer, Deserializer
+========================
+They are only used in a couple of places as base classes, and the type
+is in general not used to pass data around.   So we should inline the
+methods from those classes in the classes that adopt them.
+
+(File, MemoryBuffer, VectorBuffer)
+
 String&
 =======
 

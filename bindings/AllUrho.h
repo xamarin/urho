@@ -147,13 +147,13 @@
 #include <Urho3D/Navigation/NavigationMesh.h>
 #include <Urho3D/Navigation/Obstacle.h>
 #include <Urho3D/Navigation/OffMeshConnection.h>
+#include <Urho3D/Network/Connection.h>
+#include <Urho3D/Network/HttpRequest.h>
 #if false
-//#include <Urho3D/Network/Connection.h>
-//#include <Urho3D/Network/HttpRequest.h>
-//#include <Urho3D/Network/Network.h>
-//#include <Urho3D/Network/NetworkEvents.h>
-//#include <Urho3D/Network/NetworkPriority.h>
-//#include <Urho3D/Network/Protocol.h>
+#include <Urho3D/Network/Network.h>
+#include <Urho3D/Network/NetworkEvents.h>
+#include <Urho3D/Network/NetworkPriority.h>
+#include <Urho3D/Network/Protocol.h>
 ///
 #include <Urho3D/Physics/CollisionShape.h>
 #include <Urho3D/Physics/Constraint.h>
@@ -177,7 +177,6 @@
 #include <Urho3D/Scene/AnimationDefs.h>
 #include <Urho3D/Scene/Component.h>
 
-#if false
 #include <Urho3D/Scene/LogicComponent.h>
 #include <Urho3D/Scene/Node.h>
 #include <Urho3D/Scene/ObjectAnimation.h>
@@ -255,4 +254,3 @@
 #include <Urho3D/Urho2D/TileMapLayer2D.h>
 #include <Urho3D/Urho2D/TmxFile2D.h>
 #include <Urho3D/Urho2D/Urho2D.h>
-#endif

@@ -1,5 +1,4 @@
 URHO_DIR=/cvs/Urho3D
-
 LIBS =   -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio \
 	 -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices \
 	 -L$(URHO_DIR)/lib -lUrho3D -ldl -lpthread -lpthread -lpthread
@@ -22,3 +21,4 @@ check-links:
 	if test ! -e $(URHO_DIR)/include/Box2D; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/Box2D/Box2D Box2D); fi
 	if test ! -e $(URHO_DIR)/include/Bullet; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/Bullet/src Bullet); fi
 	if test ! -e $(URHO_DIR)/include/GLEW; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/GLEW GLEW); fi
+	if test ! -e $(URHO_DIR)/include/kNet; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/kNet/include kNet); fi

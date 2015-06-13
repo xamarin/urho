@@ -1,1 +1,4 @@
 generated
+*.dll
+*.mdb
+*.pch

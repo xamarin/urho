@@ -8,4 +8,7 @@ namespace Urho {
 	public partial struct ProfilerBlock {
 		IntPtr block;
 	}
+
+	public partial class Network {
+	}
 }
