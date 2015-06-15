@@ -14,6 +14,28 @@ that the value woudl not be released, we probably need to change this
 constructor to call instead String(string,length) so that it makes
 its own copy
 
+Structures
+----------
+
+Should fix code generation for structures (see generated String.cs for
+the invalid use of handle)
+
+Fix
+---
+
+We are not calling the actual method, see in Context.cs:
+
+                [DllImport ("mono-urho")]
+                internal static extern IntPtr Context_GetSubsystem (IntPtr handle, StringHash type);
+
+                public Urho.Object GetSubsystem (StringHash type)
+                {
+                        return new Urho.Object (handle);
+                }
+
+
+It is missing a call to "Context_GetSubsystem"
+
 Generator
 ---------
 

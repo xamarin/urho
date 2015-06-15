@@ -173,6 +173,11 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct ShaderParameter {
 	}
+
+	// DEBATABLE: maybe we should let the binder handle it?
+	[StructLayout (LayoutKind.Sequential)]
+	public struct String {
+	}
 }
 
 

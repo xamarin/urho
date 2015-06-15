@@ -642,7 +642,7 @@ namespace SharpieBinder
 
 				if (wrapKind == WrapKind.HandleMember) {
 					var cond = new ConditionalExpression(new BinaryOperatorExpression(new IdentifierExpression(paramName), BinaryOperatorType.Equality, new PrimitiveExpression(null)),
-														 csParser.ParseExpression("IntPtr.Zero"), csParser.ParseExpression(paramName + ".handle"));
+														 csParser.ParseExpression("IntPtr.Zero"), csParser.ParseExpression(paramName + ".Handle"));
 
 					invoke.Arguments.Add(cond);
 				} else {
@@ -681,14 +681,19 @@ namespace SharpieBinder
 					ret.Expression = returnExpression;
 					method.Body.Add(ret);
 				} else {
-					constructor.Initializer = new ConstructorInitializer()
-					{
-						ConstructorInitializerType = ConstructorInitializerType.Base,
-					};
-					constructor.Initializer.Arguments.Add(csParser.ParseExpression("UrhoObjectFlag.Empty"));
+					if (currentType.ClassType == ClassType.Class){
+						if (currentType.BaseTypes.Count() != 0) {
 
-					var ctorAssign = new AssignmentExpression(new IdentifierExpression("handle"), returnExpression);
-					constructor.Body.Add(new ExpressionStatement(ctorAssign));
+							constructor.Initializer = new ConstructorInitializer()
+							{
+								ConstructorInitializerType = ConstructorInitializerType.Base,
+							};
+
+							constructor.Initializer.Arguments.Add(csParser.ParseExpression("UrhoObjectFlag.Empty"));
+						}
+						var ctorAssign = new AssignmentExpression(new IdentifierExpression("handle"), returnExpression);
+						constructor.Body.Add(new ExpressionStatement(ctorAssign));
+					}
 				}
 
 				pn($"return {cinvoke.ToString()}");

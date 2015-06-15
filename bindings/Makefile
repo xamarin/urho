@@ -120,6 +120,7 @@ SOURCES =	\
 	generated/NavigationPushiness.cs	\
 	generated/NavigationQuality.cs	\
 	generated/NavmeshPartitionType.cs	\
+	generated/Network.cs		\
 	generated/Node.cs		\
 	generated/Object.cs		\
 	generated/ObjectAnimation.cs	\
@@ -188,7 +189,6 @@ SOURCES =	\
 	generated/StaticModelGroup.cs	\
 	generated/StaticSprite2D.cs	\
 	generated/StencilOp.cs	\
-	generated/String.cs	\
 	generated/Technique.cs	\
 	generated/Terrain.cs	\
 	generated/TerrainPatch.cs	\

@@ -17,18 +17,18 @@ namespace Urho {
 		//
 		// GetSubsystem helpers
 		//
-		public ResourceCache ResourceCache => GetSubsystem (ResourceCache.GetTypeStatic ());
-		public Network Network => GetSubsystem (Netowkr.GetTypeStatic ());
-		public Time Time => GetSubsystem (Time.GetTypeStatic ());
-		public WorkQueue WorkQueue => GetSubsystem (WorkQueue.GetTypeStatic ());
-		public Profiler Profiler => GetSubsystem (Profiler.GetTypeStatic ());
-		public FileSystem FileSystem => GetSubsystem (FileSystem.GetTypeStatic ());
-		public Log Log => GetSubsystem (Log.GetTypeStatic ());
-		public Input Input => GetSubsystem (Input.GetTypeStatic ());
-		public Audio Audio => GetSubsystem (Audio.GetTypeStatic ());
-		public UI UI => GetSubsystem (UI.GetTypeStatic ());
-		public Graphics Graphics => GetSubsystem (Graphics.GetTypeStatic ());
-		public Renderer Renderer => GetSubsystem (Renderer.GetTypeStatic ());
+		public ResourceCache ResourceCache => new Urho.ResourceCache (Object_GetSubsystem (handle, ResourceCache.TypeStatic));
+		public Network Network => new Urho.Network (Object_GetSubsystem (handle, Network.TypeStatic));
+		public Time Time => new Urho.Time (Object_GetSubsystem (handle, Time.TypeStatic));
+		public WorkQueue WorkQueue => new Urho.WorkQueue (Object_GetSubsystem (handle, WorkQueue.TypeStatic));
+		public Profiler Profiler => new Urho.Profiler (Object_GetSubsystem (handle, Profiler.TypeStatic));
+		public FileSystem FileSystem => new Urho.FileSystem (Object_GetSubsystem (handle, FileSystem.TypeStatic));
+		public Log Log => new Urho.Log (Object_GetSubsystem (handle, Log.TypeStatic));
+		public Input Input => new Urho.Input (Object_GetSubsystem (handle, Input.TypeStatic));
+		public Audio Audio => new Urho.Audio (Object_GetSubsystem (handle, Audio.TypeStatic));
+		public UI UI => new Urho.UI (Object_GetSubsystem (handle, UI.TypeStatic));
+		public Graphics Graphics => new Urho.Graphics (Object_GetSubsystem (handle, Graphics.TypeStatic));
+		public Renderer Renderer => new Urho.Renderer (Object_GetSubsystem (handle, Renderer.TypeStatic));
 
 
 	}

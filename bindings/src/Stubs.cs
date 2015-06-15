@@ -13,9 +13,6 @@ namespace Urho {
 		Empty
 	}
 		
-	public partial class Network {
-	}
-
 	public interface ISerializer {
 		IntPtr Handle { get; }
 	}
