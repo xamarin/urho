@@ -30,6 +30,6 @@ namespace Urho {
 		public Graphics Graphics => new Urho.Graphics (Object_GetSubsystem (handle, Graphics.TypeStatic));
 		public Renderer Renderer => new Urho.Renderer (Object_GetSubsystem (handle, Renderer.TypeStatic));
 
-
+		
 	}
 }

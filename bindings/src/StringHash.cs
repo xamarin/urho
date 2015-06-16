@@ -3,12 +3,15 @@ using System.Runtime.InteropServices;
 
 namespace Urho {
 
+	[StructLayout(LayoutKind.Sequential)]
 	public struct StringHash {
 		int code;
 		public StringHash (int code)
 		{
 			this.code = code;
 		}
+
+		public int Code => code;
 	}
 
 	// Points to a StringHash

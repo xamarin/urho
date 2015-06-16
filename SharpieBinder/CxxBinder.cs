@@ -485,6 +485,8 @@ namespace SharpieBinder
 				return "UrhoGetType";
 			if (name == "GetBaseType")
 				return "UrhoGetBaseType";
+			if (name == "ToString")
+				return "ToDebugString";
 			return name;
 		}
 
@@ -597,7 +599,8 @@ namespace SharpieBinder
 					Name = RemapName(decl.Name),
 
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
-						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
+						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)  |
+						(decl.Name == "ToString" ? Modifiers.Override : 0)
 				};
 				constructor.Body = new BlockStatement();
 			} else {
@@ -671,7 +674,7 @@ namespace SharpieBinder
 					//id.TypeArguments.Add(methodReturn2);
 
 					//ret.Expression = new InvocationExpression(id, invoke);
-					returnExpression = new ObjectCreateExpression(methodReturn2, new IdentifierExpression("handle"));
+					returnExpression = new ObjectCreateExpression(methodReturn2, invoke); // new IdentifierExpression("handle"));
 				} else if (returnIsWrapped == WrapKind.EventHandler) {
 					returnExpression = invoke;
 				} else {
@@ -799,6 +802,7 @@ namespace SharpieBinder
 				foreach (var propNameKV in typeKV.Value) {
 					foreach (var gs in propNameKV.Value.Values) {
 						string pname = gs.Name;
+						Modifiers mods = 0;
 						switch (typeKV.Key) {
 
 						case "UIElement":
@@ -813,13 +817,24 @@ namespace SharpieBinder
 							if (pname == "ShowPopup")
 								pname = "IsPopupShown";
 							break;
+						case "File":
+							if (pname == "Handle")
+								pname = "FileHandle";
+							break;
+
+						case "View":
+							// View.Graphics is the Urho C++ strong type to GetSubssytem(Graphics)
+							if (pname == "Graphics" || pname == "Renderer")
+								mods = Modifiers.New;
+							
+							break;
 						}
 
 						var p = new PropertyDeclaration()
 						{
 							Name = pname,
 							ReturnType = gs.MethodReturn,
-							Modifiers = Modifiers.Public | (gs.Getter.IsStatic ? Modifiers.Static : 0)
+							Modifiers = Modifiers.Public | (gs.Getter.IsStatic ? Modifiers.Static : 0) | mods
 						};
 
 						p.Getter = new Accessor()
