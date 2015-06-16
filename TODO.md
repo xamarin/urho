@@ -1,3 +1,11 @@
+BUILD
+=====
+
+Currently we hardcode /cvs/Urho3D as well as hardcoding URHO3D_OPENGL,
+and the reality is that we should instead install Urho3D into a
+prefix, and use pkg-config to fetch the flags for the install (so we
+actually get the configured flags correctly, and we do not need to
+hardcode URHO3D_OPENGL everywhere)
 
 This is worng on window.cs
 
@@ -17,24 +25,7 @@ its own copy
 Structures
 ----------
 
-Should fix code generation for structures (see generated String.cs for
-the invalid use of handle)
-
-Fix
----
-
-We are not calling the actual method, see in Context.cs:
-
-                [DllImport ("mono-urho")]
-                internal static extern IntPtr Context_GetSubsystem (IntPtr handle, StringHash type);
-
-                public Urho.Object GetSubsystem (StringHash type)
-                {
-                        return new Urho.Object (handle);
-                }
-
-
-It is missing a call to "Context_GetSubsystem"
+Should fix code generation for structures, they should likely use "ref" to initialize themselves?
 
 Generator
 ---------
