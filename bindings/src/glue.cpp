@@ -6,7 +6,7 @@
 #include <Urho3D/Engine/Application.h>
 #include <Urho3D/Engine/Console.h>
 #include <Urho3D/Engine/Engine.h>
-
+#include <Urho3D/Input/InputEvents.h>
 typedef void (*HandlerFunctionPtr)(void *data, Urho3D::StringHash, Urho3D::VariantMap&);
 
 using namespace Urho3D;
@@ -42,6 +42,18 @@ create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
 {
 	return (void *) new NotificationProxy (receiver, callback, data);
 }
+
+	int get_event ()
+	{
+		return *(int *) (&E_KEYDOWN);
+	}
+
+	int main ()
+	{
+		printf ("Got %x\n", get_event ());
+		printf ("Got %x\n", E_KEYDOWN.Value ());
+		return 1;
+	}
 	
 }
 

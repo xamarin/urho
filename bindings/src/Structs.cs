@@ -14,22 +14,28 @@ namespace Urho {
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Vector2 {
+		public float X, Y;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Vector3 {
+		public float X, Y, Z;
 	}
 	
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Vector4 {
+		public float X, Y, Z, W;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct IntRect {
+		public int Left, Top, Right, Bottom;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct ResourceRef {
+		public StringHash Type;
+		public Urho.String Name;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]

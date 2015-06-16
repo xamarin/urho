@@ -271,11 +271,11 @@ Urho.pch: AllUrho.h Makefile check-links
 	$(OBJSHARPIE_BIN)/clang -cc1 -emit-pch -o Urho.pch all-urho.cpp  -I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 
 #X=-fvisibility=default
-libmono-urho.dylib: binding.o Makefile
+libmono-urho.dylib: binding.o glue.o Makefile
 	c++ -dynamiclib $(X) -o libmono-urho.dylib $(URHO_LIBS) binding.o glue.o
 
 binding.o: AllUrho.h generated/binding.cpp Makefile check-links 
-	c++ -c $(X) generated/binding.cpp $(URHO_FLAGS) 
+	c++ -c $(X) -Wno-return-type-c-linkage generated/binding.cpp $(URHO_FLAGS) 
 
 glue.o: src/glue.cpp Makefile 
 	c++ -c $(X) src/glue.cpp $(URHO_FLAGS) 
