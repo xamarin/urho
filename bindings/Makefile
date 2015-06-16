@@ -1,5 +1,12 @@
+#
+#
+# This really should use an installed Urho
+# and use `pkg-config --libs Urho3D`
+#
 URHO_DIR=/cvs/Urho3D
 OBJSHARPIE_BIN=/cvs/ObjectiveSharpie//llvm/_install/bin
+URHO_FLAGS=-I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
+URHO_LIBS=-L$(URHO_DIR)/lib -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices -lUrho3D -ldl -lpthread 
 
 SOURCES =	\
 	generated/Animatable.cs		\
@@ -248,7 +255,8 @@ SOURCES =	\
 	src/Stubs.cs			\
 	src/Structs.cs
 
-all: Urho.pch Urho.dll
+
+all: Urho.pch Urho.dll mono-urho.dylib
 
 run: gen-bind Urho.dll
 
@@ -259,11 +267,18 @@ Urho.dll: $(SOURCES) Makefile
 	mcs -unsafe -out:Urho.dll -target:library -debug $(SOURCES)
 
 
-Urho.pch: AllUrho.h Makefile
+Urho.pch: AllUrho.h Makefile check-links
 	$(OBJSHARPIE_BIN)/clang -cc1 -emit-pch -o Urho.pch all-urho.cpp  -I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 
+mono-urho.dylib: AllUrho.h generated/binding.cpp Makefile check-links
+	c++ -dynamiclib -o mono-urho.dylib generated/binding.cpp $(URHO_FLAGS) $(URHO_LIBS)
+
 check-links:
-	cd runtime; make check-links
+	@if test ! -e $(URHO_DIR)/include/SDL; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/SDL/include SDL); fi
+	@if test ! -e $(URHO_DIR)/include/Box2D; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/Box2D/Box2D Box2D); fi
+	@if test ! -e $(URHO_DIR)/include/Bullet; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/Bullet/src Bullet); fi
+	@if test ! -e $(URHO_DIR)/include/GLEW; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/GLEW GLEW); fi
+	@if test ! -e $(URHO_DIR)/include/kNet; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/kNet/include kNet); fi
 
 ../SharpieBinder/bin/Debug/SharpieBinder.exe: ../SharpieBinder/CxxBinder.cs ../SharpieBinder/Program.cs
 	(cd ../SharpieBinder; xbuild)

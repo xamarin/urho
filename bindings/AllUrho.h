@@ -1,5 +1,4 @@
 #include <Urho3D/Urho3D.h>
-#define URHO3D_OPENGL
 #include <Urho3D/Audio/Audio.h>
 #include <Urho3D/Audio/AudioDefs.h>
 #include <Urho3D/Audio/BufferedSoundStream.h>
