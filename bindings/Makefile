@@ -256,7 +256,7 @@ SOURCES =	\
 	src/Structs.cs
 
 
-all: Urho.pch Urho.dll mono-urho.dylib
+all: Urho.pch Urho.dll libmono-urho.dylib
 
 run: gen-bind Urho.dll
 
@@ -270,8 +270,15 @@ Urho.dll: $(SOURCES) Makefile
 Urho.pch: AllUrho.h Makefile check-links
 	$(OBJSHARPIE_BIN)/clang -cc1 -emit-pch -o Urho.pch all-urho.cpp  -I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 
-mono-urho.dylib: AllUrho.h generated/binding.cpp Makefile check-links
-	c++ -dynamiclib -o mono-urho.dylib generated/binding.cpp $(URHO_FLAGS) $(URHO_LIBS)
+#X=-fvisibility=default
+libmono-urho.dylib: binding.o Makefile
+	c++ -dynamiclib $(X) -o libmono-urho.dylib $(URHO_LIBS) binding.o glue.o
+
+binding.o: AllUrho.h generated/binding.cpp Makefile check-links 
+	c++ -c $(X) generated/binding.cpp $(URHO_FLAGS) 
+
+glue.o: src/glue.cpp Makefile 
+	c++ -c $(X) src/glue.cpp $(URHO_FLAGS) 
 
 check-links:
 	@if test ! -e $(URHO_DIR)/include/SDL; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/SDL/include SDL); fi

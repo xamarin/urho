@@ -63,8 +63,10 @@ namespace Urho {
 			return false;
 		}
 
-		public static bool operator ==(RefCounted a, RefCounted b)
+		public static bool operator ==(RefCounted _a, RefCounted _b)
 		{
+			object a = _a;
+			object b = _b;
 			if (a == null){
 				if (b == null)
 					return true;
@@ -72,18 +74,20 @@ namespace Urho {
 			} else {
 				if (b == null)
 					return false;
-				return a.handle == b.handle;
+				return _a.handle == _b.handle;
 			}
 		}
 		
-		public static bool operator !=(RefCounted a, RefCounted b)
+		public static bool operator !=(RefCounted _a, RefCounted _b)
 		{
+			object a = _a;
+			object b = _b;
 			if (a == null)
 				return b != null;
 			else {
 				if (b == null)
 					return true;
-				return a.handle != b.handle;
+				return _a.handle != _b.handle;
 			}
 		}
 

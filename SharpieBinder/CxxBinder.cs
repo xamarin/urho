@@ -102,11 +102,13 @@ namespace SharpieBinder
 			pn ("#define URHO3D_OPENGL");
 			pn("#include \"../AllUrho.h\"");
 			pn("using namespace Urho3D;");
+			pn ("extern \"C\" {");
 
 		}
 
 		public void Close()
 		{
+			pn ("}");
 			cbindingStream.Close();
 			cbindingStream = null;
 		}
@@ -653,8 +655,8 @@ namespace SharpieBinder
 				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName));
 
 				if (wrapKind == WrapKind.HandleMember) {
-					var cond = new ConditionalExpression(new BinaryOperatorExpression(new IdentifierExpression(paramName), BinaryOperatorType.Equality, new PrimitiveExpression(null)),
-														 csParser.ParseExpression("IntPtr.Zero"), csParser.ParseExpression(paramName + ".Handle"));
+					var cond = new ConditionalExpression(new BinaryOperatorExpression(new CastExpression (new PrimitiveType ("object"),new IdentifierExpression(paramName)), BinaryOperatorType.Equality, new PrimitiveExpression(null)),
+														 csParser.ParseExpression("IntPtr.Zero"), csParser.ParseExpression(paramName + ".handle"));
 
 					invoke.Arguments.Add(cond);
 				} else {
