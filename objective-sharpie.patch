@@ -1,0 +1,64 @@
+diff --git a/Clang/Ast/CXXRecordDecl.cs b/Clang/Ast/CXXRecordDecl.cs
+index 6acc7b3..16f5453 100644
+--- a/Clang/Ast/CXXRecordDecl.cs
++++ b/Clang/Ast/CXXRecordDecl.cs
+@@ -19,6 +19,13 @@ namespace Clang.Ast
+ 		public extern bool IsDerivedFrom (CXXRecordDecl baseDecl);
+ 
+ 		[MethodImpl (MethodImplOptions.InternalCall)]
++		extern int GetAbstract ();
++
++		public bool IsAbstract {
++			get { return GetAbstract () != 0; }
++		}
++
++		[MethodImpl (MethodImplOptions.InternalCall)]
+ 		extern void GetBases (IntPtr baseCallback);
+ 
+ 		public IEnumerable<RecordType> Bases {
+@@ -44,4 +51,4 @@ namespace Clang.Ast
+ 			get { return GetIsPOD (); }
+ 		}
+ 	}
+-}
+\ No newline at end of file
++}
+diff --git a/Clang/libclang-mono/ast.cpp b/Clang/libclang-mono/ast.cpp
+index 274af1b..aad2154 100644
+--- a/Clang/libclang-mono/ast.cpp
++++ b/Clang/libclang-mono/ast.cpp
+@@ -468,7 +468,6 @@ LCM_AST_ICALL(Decl, GetAccess)(const MonoObject *decl)
+ {
+ 	return $<Decl> (decl)->getAccess ();
+ }
+-
+ void
+ LCM_AST_ICALL(Decl, Dump)(const MonoObject *decl)
+ {
+@@ -909,6 +908,12 @@ LCM_AST_ICALL(TypedefNameDecl, GetUnderlyingType)(const MonoObject *decl)
+ 	return $<TypedefNameDecl> (decl)->getUnderlyingType ();
+ }
+ 
++int
++LCM_AST_ICALL(CXXRecordDecl, GetAbstract)(const MonoObject *decl)
++{
++	return $<CXXRecordDecl> (decl)->isAbstract () ? 1 : 0;
++}
++
+ void
+ LCM_AST_ICALL(CXXRecordDecl, GetBases)(const MonoObject *decl,
+ 	void (*baseCallback)(const RecordType *))
+diff --git a/external/clang b/external/clang
+index 49ba1e2..de0839b 160000
+--- a/external/clang
++++ b/external/clang
+@@ -1 +1 @@
+-Subproject commit 49ba1e25fb09c7a6f98ae8ac721bbf6f8e392a65
++Subproject commit de0839be7f7147cffef9fd8566c6587582e3f3d2
+diff --git a/external/llvm b/external/llvm
+index e17b540..09f4600 160000
+--- a/external/llvm
++++ b/external/llvm
+@@ -1 +1 @@
+-Subproject commit e17b5400329b3b2f40a749bcb45b97b9c4dcd8fc
++Subproject commit 09f4600d318b6f32f0aa31f2b7db2a792f5f6421
