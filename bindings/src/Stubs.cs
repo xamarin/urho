@@ -20,4 +20,11 @@ namespace Urho {
 	public interface IDeserializer {
 		IntPtr Handle { get; }
 	}
+
+	public class PhysicsWorld {
+		public PhysicsWorld (IntPtr handle) {}
+	}
+	public class RigidBody {
+		public RigidBody (IntPtr handle) {}
+	}
 }

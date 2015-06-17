@@ -2,11 +2,8 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include <Urho3D/Urho3D.h>
-#include <Urho3D/Engine/Application.h>
-#include <Urho3D/Engine/Console.h>
-#include <Urho3D/Engine/Engine.h>
-#include <Urho3D/Input/InputEvents.h>
+#define URHO3D_OPENGL
+#include "../AllUrho.h"
 #include "glue.h"
 using namespace Urho3D;
 
@@ -16,12 +13,47 @@ using namespace Urho3D;
 //
 
 extern "C" {
+
+	void * urho_map_get_Buffer (VariantMap *) {}
+	Camera get_Camera (VariantMap *) {}
+	Component get_Component (VariantMap *) {}
+	Connection get_Connection (VariantMap *) {}
+	CrowdAgent get_CrowdAgent (VariantMap *) {}
+	NavigationMesh get_NavigationMesh (VariantMap *) {}
+	Node get_Node (VariantMap *) {}
+	Object get_Object (VariantMap *) {}
+	Obstacle get_Obstacle (VariantMap *) {}
+	PhysicsWorld get_PhysicsWorld (VariantMap *) {}
+	PhysicsWorld2D get_PhysicsWorld2D (VariantMap *) {}
+	RenderSurface get_RenderSurface (VariantMap *) {}
+	Resource get_Resource (VariantMap *) {}
+	RigidBody get_RigidBody (VariantMap *) {}
+	RigidBody2D get_RigidBody2D (VariantMap *) {}
+	Scene get_Scene (VariantMap *) {}
+	Serializable get_Serializable (VariantMap *) {}
+	String get_String (VariantMap *) {}
+	Texture get_Texture (VariantMap *) {}
+	UIElement get_UIElement (VariantMap *) {}
+
+	IntPtr get_IntPtr (VariantMap *) {}
+	MouseMode get_MouseMode (VariantMap *) {}
+	StringHash get_StringHash (VariantMap *) {}
+	Variant get_Variant (VariantMap *) {}
+	Vector3 get_Vector3 (VariantMap *) {}
+	View get_View (VariantMap *) {}
+	WorkItem get_WorkItem (VariantMap *) {}
+	bool get_bool (VariantMap *) {}
+	float get_float (VariantMap *) {}
+	int get_int (VariantMap *) {}
+	uint get_uint (VariantMap *) {}
+	
 void *
 create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
 {
 	return (void *) new NotificationProxy (receiver, callback, data);
 }
 
+	
 	
 }
 

@@ -15,6 +15,11 @@ This is worng on window.cs
                 }
 
 
+Build
+-----
+PhysicsWorld and RigidBody are pending, since they surface some bt data types
+that I do not currently bind.
+
 Events
 ======
 

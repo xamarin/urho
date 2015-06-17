@@ -146,89 +146,89 @@ SOURCES =	\
 	generated/ParticleEffect2D.cs	\
 	generated/ParticleEmitter.cs	\
 	generated/ParticleEmitter2D.cs	\
-	generated/Pass.cs	\
+	generated/Pass.cs		\
 	generated/PassLightingMode.cs	\
 	generated/PhysicsWorld2D.cs	\
 	generated/PrimitiveType.cs	\
-	generated/Profiler.cs	\
+	generated/Profiler.cs		\
 	generated/PropertySet2D.cs	\
 	generated/RayQueryLevel.cs	\
-	generated/RefCount.cs	\
-	generated/RefCounted.cs	\
+	generated/RefCount.cs		\
+	generated/RefCounted.cs		\
 	generated/RenderCommandSortMode.cs	\
 	generated/RenderCommandType.cs	\
-	generated/RenderPath.cs	\
+	generated/RenderPath.cs		\
 	generated/RenderSurface.cs	\
 	generated/RenderSurfaceUpdateMode.cs	\
 	generated/RenderTargetSizeMode.cs	\
-	generated/Renderer.cs	\
-	generated/Renderer2D.cs	\
-	generated/Resource.cs	\
+	generated/Renderer.cs		\
+	generated/Renderer2D.cs		\
+	generated/Resource.cs		\
 	generated/ResourceCache.cs	\
 	generated/ResourceRequest.cs	\
 	generated/ResourceRouter.cs	\
 	generated/RigidBody2D.cs	\
-	generated/Scene.cs	\
-	generated/ScrollBar.cs	\
-	generated/ScrollView.cs	\
+	generated/Scene.cs		\
+	generated/ScrollBar.cs		\
+	generated/ScrollView.cs		\
 	generated/Serializable.cs	\
-	generated/Shader.cs	\
+	generated/Shader.cs		\
 	generated/ShaderParameterAnimationInfo.cs	\
 	generated/ShaderParameterGroup.cs	\
 	generated/ShaderPrecache.cs	\
 	generated/ShaderProgram.cs	\
-	generated/ShaderType.cs	\
+	generated/ShaderType.cs		\
 	generated/ShaderVariation.cs	\
-	generated/Skybox.cs	\
-	generated/Slider.cs	\
+	generated/Skybox.cs		\
+	generated/Slider.cs		\
 	generated/SmoothedTransform.cs	\
-	generated/Sound.cs	\
+	generated/Sound.cs		\
 	generated/SoundListener.cs	\
 	generated/SoundSource.cs	\
 	generated/SoundSource3D.cs	\
 	generated/SoundStream.cs	\
-	generated/SplinePath.cs	\
-	generated/Sprite.cs	\
-	generated/Sprite2D.cs	\
+	generated/SplinePath.cs		\
+	generated/Sprite.cs		\
+	generated/Sprite2D.cs		\
 	generated/SpriteSheet2D.cs	\
-	generated/State.cs	\
+	generated/State.cs		\
 	generated/StaticModel.cs	\
 	generated/StaticModelGroup.cs	\
 	generated/StaticSprite2D.cs	\
-	generated/StencilOp.cs	\
-	generated/Technique.cs	\
-	generated/Terrain.cs	\
+	generated/StencilOp.cs		\
+	generated/Technique.cs		\
+	generated/Terrain.cs		\
 	generated/TerrainPatch.cs	\
-	generated/Text.cs	\
-	generated/Text3D.cs	\
-	generated/TextEffect.cs	\
-	generated/Texture.cs	\
-	generated/Texture2D.cs	\
-	generated/Texture3D.cs	\
+	generated/Text.cs		\
+	generated/Text3D.cs		\
+	generated/TextEffect.cs		\
+	generated/Texture.cs		\
+	generated/Texture2D.cs		\
+	generated/Texture3D.cs		\
 	generated/TextureAddressMode.cs	\
 	generated/TextureCoordinate.cs	\
 	generated/TextureCube.cs	\
 	generated/TextureFilterMode.cs	\
 	generated/TextureUnit.cs	\
 	generated/TextureUsage.cs	\
-	generated/Tile2D.cs	\
-	generated/TileMap2D.cs	\
+	generated/Tile2D.cs		\
+	generated/TileMap2D.cs		\
 	generated/TileMapLayer2D.cs	\
 	generated/TileMapLayerType2D.cs	\
 	generated/TileMapObject2D.cs	\
 	generated/TileMapObjectType2D.cs	\
-	generated/Time.cs	\
-	generated/TmxFile2D.cs	\
+	generated/Time.cs		\
+	generated/TmxFile2D.cs		\
 	generated/TmxImageLayer2D.cs	\
-	generated/TmxLayer2D.cs	\
+	generated/TmxLayer2D.cs		\
 	generated/TmxObjectGroup2D.cs	\
 	generated/TmxTileLayer2D.cs	\
-	generated/ToolTip.cs	\
+	generated/ToolTip.cs		\
 	generated/TransformSpace.cs	\
 	generated/TraversalMode.cs	\
-	generated/Type.cs	\
-	generated/UI.cs	\
-	generated/UIElement.cs	\
+	generated/Type.cs		\
+	generated/UI.cs			\
+	generated/UIElement.cs		\
 	generated/UnknownComponent.cs	\
 	generated/UpdateGeometryType.cs	\
 	generated/ValueAnimation.cs	\
@@ -238,18 +238,19 @@ SOURCES =	\
 	generated/VertexElement.cs	\
 	generated/VertexLightVSVariation.cs	\
 	generated/VerticalAlignment.cs	\
-	generated/View.cs	\
-	generated/View3D.cs	\
-	generated/Viewport.cs	\
-	generated/Window.cs	\
+	generated/View.cs		\
+	generated/View3D.cs		\
+	generated/Viewport.cs		\
+	generated/Window.cs		\
 	generated/WindowDragMode.cs	\
-	generated/WorkItem.cs	\
-	generated/WorkQueue.cs	\
-	generated/WrapMode.cs	\
-	generated/XMLFile.cs	\
-	generated/Zone.cs	\
+	generated/WorkItem.cs		\
+	generated/WorkQueue.cs		\
+	generated/WrapMode.cs		\
+	generated/XMLFile.cs		\
+	generated/Zone.cs		\
 	src/AttributeInfo.cs		\
 	src/Object.cs			\
+	src/UrhoMap.cs			\
 	src/RefCounted.cs		\
 	src/StringHash.cs		\
 	src/Stubs.cs			\
@@ -297,5 +298,5 @@ d: d.cpp Makefile
 	c++ -c d.cpp $(URHO_FLAGS) 
 	c++ -o d d.cpp $(URHO_FLAGS) $(URHO_LIBS)
 
-generated/events.cpp: parse.pl
+p generated/events.cpp: parse.pl
 	perl parse.pl $(URHO_DIR)/include/Urho3d/*/*h
