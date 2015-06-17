@@ -8,7 +8,7 @@ OBJSHARPIE_BIN=/cvs/ObjectiveSharpie//llvm/_install/bin
 URHO_FLAGS=-I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 URHO_LIBS=-L$(URHO_DIR)/lib -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices -lUrho3D -ldl -lpthread 
 
-SOURCES =	\
+GENERATED_SOURCES =	\
 	generated/Animatable.cs		\
 	generated/AnimatedModel.cs	\
 	generated/AnimatedSprite2D.cs	\
@@ -247,7 +247,9 @@ SOURCES =	\
 	generated/WorkQueue.cs		\
 	generated/WrapMode.cs		\
 	generated/XMLFile.cs		\
-	generated/Zone.cs		\
+	generated/Zone.cs
+
+SOURCES = $(GENERATED_SOURCES) 		\
 	src/AttributeInfo.cs		\
 	src/Object.cs			\
 	src/UrhoMap.cs			\
@@ -257,25 +259,25 @@ SOURCES =	\
 	src/Structs.cs
 
 
-all: Urho.pch Urho.dll libmono-urho.dylib
+all: check-links Urho.pch Urho.dll libmono-urho.dylib
 
 run: gen-bind Urho.dll
 
-gen-bind: Urho.pch ../SharpieBinder/bin/Debug/SharpieBinder.exe
+$(GENERATED_SOURCES): Urho.pch ../SharpieBinder/bin/Debug/SharpieBinder.exe
 	/mono/bin/mono ../SharpieBinder/bin/Debug/SharpieBinder.exe
 
-Urho.dll: $(SOURCES) Makefile 
+Urho.dll: $(SOURCES) Makefile $(GENERATED_SOURCES)
 	mcs -unsafe -out:Urho.dll -target:library -debug $(SOURCES)
 
 
-Urho.pch: AllUrho.h Makefile check-links
+Urho.pch: AllUrho.h Makefile
 	$(OBJSHARPIE_BIN)/clang -cc1 -emit-pch -o Urho.pch all-urho.cpp  -I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 
 #X=-fvisibility=default
 libmono-urho.dylib: binding.o glue.o events.o Makefile
 	c++ -dynamiclib $(X) -o libmono-urho.dylib $(URHO_LIBS) binding.o glue.o events.o
 
-binding.o: AllUrho.h generated/binding.cpp Makefile check-links 
+binding.o: AllUrho.h generated/binding.cpp Makefile
 	c++ -c $(X) -Wno-return-type-c-linkage generated/binding.cpp $(URHO_FLAGS) 
 
 glue.o: src/glue.cpp Makefile 
