@@ -15,6 +15,13 @@ This is worng on window.cs
                 }
 
 
+Events
+======
+
+Object.cs/ObjectCallback: do we even need the stringHash in the event?
+
+Seems like we do not, since we proxy everything.
+
 Binding
 -------
 Urho3D::String(string) would currently call a constructor that assumes

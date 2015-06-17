@@ -7,34 +7,13 @@
 #include <Urho3D/Engine/Console.h>
 #include <Urho3D/Engine/Engine.h>
 #include <Urho3D/Input/InputEvents.h>
-typedef void (*HandlerFunctionPtr)(void *data, Urho3D::StringHash, Urho3D::VariantMap&);
-
+#include "glue.h"
 using namespace Urho3D;
 
 //
 // This is just an implemention of EventHandler that can be used with function
 // pointers, so we can register delegates from C#
 //
-class NotificationProxy : public EventHandler {
-public:
-        NotificationProxy (Object *receiver, HandlerFunctionPtr func, void *data) : EventHandler(receiver, data), theFunc(func){}
-
-        virtual void Invoke(VariantMap& eventData)
-        {
-                (*theFunc)(userData_, eventType_, eventData);
-        }
-
-        virtual EventHandler* Clone() const
-        {
-                NotificationProxy *x = new NotificationProxy(receiver_, theFunc, userData_);
-                x->SetSenderAndEventType (sender_, eventType_);
-                return x;
-        }
-
-
-protected:
-        HandlerFunctionPtr theFunc;
-};
 
 extern "C" {
 void *
@@ -43,17 +22,6 @@ create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
 	return (void *) new NotificationProxy (receiver, callback, data);
 }
 
-	int get_event ()
-	{
-		return *(int *) (&E_KEYDOWN);
-	}
-
-	int main ()
-	{
-		printf ("Got %x\n", get_event ());
-		printf ("Got %x\n", E_KEYDOWN.Value ());
-		return 1;
-	}
 	
 }
 

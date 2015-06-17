@@ -30,6 +30,13 @@ namespace Urho {
 		public Graphics Graphics => new Urho.Graphics (Object_GetSubsystem (handle, Graphics.TypeStatic));
 		public Renderer Renderer => new Urho.Renderer (Object_GetSubsystem (handle, Renderer.TypeStatic));
 
-		
+
+		// Invoked by the subscribe methods
+		static void ObjectCallback (IntPtr data, int stringHash, IntPtr variantMap)
+		{
+			GCHandle gch = GCHandle.FromIntPtr(data);
+			Action<IntPtr> a = (Action<IntPtr>) gch.Target;
+			a (variantMap);
+		}
 	}
 }

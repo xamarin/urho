@@ -271,14 +271,17 @@ Urho.pch: AllUrho.h Makefile check-links
 	$(OBJSHARPIE_BIN)/clang -cc1 -emit-pch -o Urho.pch all-urho.cpp  -I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 
 #X=-fvisibility=default
-libmono-urho.dylib: binding.o glue.o Makefile
-	c++ -dynamiclib $(X) -o libmono-urho.dylib $(URHO_LIBS) binding.o glue.o
+libmono-urho.dylib: binding.o glue.o events.o Makefile
+	c++ -dynamiclib $(X) -o libmono-urho.dylib $(URHO_LIBS) binding.o glue.o events.o
 
 binding.o: AllUrho.h generated/binding.cpp Makefile check-links 
 	c++ -c $(X) -Wno-return-type-c-linkage generated/binding.cpp $(URHO_FLAGS) 
 
 glue.o: src/glue.cpp Makefile 
 	c++ -c $(X) src/glue.cpp $(URHO_FLAGS) 
+
+events.o: generated/events.cpp Makefile 
+	c++ -c $(X) generated/events.cpp $(URHO_FLAGS) 
 
 check-links:
 	@if test ! -e $(URHO_DIR)/include/SDL; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/SDL/include SDL); fi
@@ -289,3 +292,10 @@ check-links:
 
 ../SharpieBinder/bin/Debug/SharpieBinder.exe: ../SharpieBinder/CxxBinder.cs ../SharpieBinder/Program.cs
 	(cd ../SharpieBinder; xbuild)
+
+d: d.cpp Makefile
+	c++ -c d.cpp $(URHO_FLAGS) 
+	c++ -o d d.cpp $(URHO_FLAGS) $(URHO_LIBS)
+
+generated/events.cpp: parse.pl
+	perl parse.pl $(URHO_DIR)/include/Urho3d/*/*h

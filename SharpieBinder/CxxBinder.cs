@@ -214,8 +214,10 @@ namespace SharpieBinder
 			}
 		}
 
+
 		public override void VisitCXXRecordDecl(CXXRecordDecl decl, VisitKind visitKind)
 		{
+			//Console.WriteLine($"{decl.QualifiedName} {visitKind} ");
 			if (decl.QualifiedName == ("Urho3D::String")) {
 				//Console.WriteLine($"{decl.QualifiedName} {visitKind} {decl.IsCompleteDefinition}");
 			}
@@ -382,8 +384,10 @@ namespace SharpieBinder
 		static bool IsUnsupportedType(QualType qt)
 		{
 			var s = CleanType(qt).Bind().ToString();
-			if (s.Contains("unsupported"))
+			if (s.Contains ("unsupported")) {
+				
 				return true;
+			}
 
 			// Quick hack, just while we get thigns going
 			if (s.Contains("EventHandler**")) {
@@ -587,13 +591,13 @@ namespace SharpieBinder
 
 			// The C counterpart
 			var cinvoke = new StringBuilder();
-			string cast = "{0}";
+			string marshalReturn = "{0}";
 			string creturnType = CleanTypeCplusplus(decl.ReturnQualType);
 
 			switch (creturnType) {
 			case "Urho3D::StringHash":
 				creturnType = "int";
-					cast = "(int) ({0})";
+				marshalReturn = "({0}).Value ()";
 				break;
 			
 			}
@@ -723,7 +727,7 @@ namespace SharpieBinder
 						constructor.Body.Add(new ExpressionStatement(ctorAssign));
 					}
 				}
-				var rstr = String.Format(cast, cinvoke.ToString());
+				var rstr = String.Format(marshalReturn, cinvoke.ToString());
 				pn($"return {rstr};");
 			}
 			pn("}\n");
