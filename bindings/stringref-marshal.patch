@@ -1,0 +1,261 @@
+commit 9d252919a45c36b26dd0c81ce7dc57b96c5a6306
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Wed Jun 17 16:26:18 2015 -0400
+
+    Prefix Object, Console and String with 'Urho' on the C# bindings
+
+diff --git a/SharpieBinder/CxxBinder.cs b/SharpieBinder/CxxBinder.cs
+index 7234618..6afce8a 100644
+--- a/SharpieBinder/CxxBinder.cs
++++ b/SharpieBinder/CxxBinder.cs
+@@ -190,7 +190,7 @@ namespace SharpieBinder
+ 				return;
+ 
+ 			//Console.WriteLine($"VisitingType: {decl.QualifiedName}");
+-			string typeName = decl.Name;
++			string typeName = RemapTypeName(decl.Name);
+ 
+ 			PushType(new TypeDeclaration
+ 			{
+@@ -270,7 +270,7 @@ namespace SharpieBinder
+ 
+ 			PushType(new TypeDeclaration
+ 			{
+-				Name = decl.Name,
++				Name = RemapTypeName (decl.Name),
+ 				ClassType = isStruct ? ClassType.Struct : ClassType.Class,
+ 				Modifiers = Modifiers.Partial | Modifiers.Public | Modifiers.Unsafe
+ 			});
+@@ -297,7 +297,7 @@ namespace SharpieBinder
+ 					if (currentType.BaseTypes.Count > 0)
+ 						baseName = "I" + baseName;
+ 
+-					currentType.BaseTypes.Add(new SimpleType(baseName));
++					currentType.BaseTypes.Add(new SimpleType(RemapTypeName(baseName)));
+ 				}
+ 			}
+ 
+@@ -454,9 +454,9 @@ namespace SharpieBinder
+ 				if (underlying != null && ScanBaseTypes.nameToDecl.TryGetValue(underlying.Decl.QualifiedName, out decl)) {
+ 					if (decl.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted)) {
+ 						lowLevel = new SimpleType("IntPtr");
+-
+-						if (decl.QualifiedName == "Urho3D::Object")
+-							highLevel = csParser.ParseTypeReference("Urho.Object");
++						var remapped = RemapTypeName(decl.Name);
++						if (remapped != decl.Name)
++							highLevel = csParser.ParseTypeReference("Urho." + remapped);
+ 						else
+ 							highLevel = underlying.Bind();
+ 						wrapKind = WrapKind.HandleMember;
+@@ -491,7 +491,7 @@ namespace SharpieBinder
+ 			highLevel = cleanType.Bind();
+ 		}
+ 
+-		public string RemapName(string name)
++		public string RemapMemberName(string name)
+ 		{
+ 			if (name == "GetType")
+ 				return "UrhoGetType";
+@@ -502,6 +502,17 @@ namespace SharpieBinder
+ 			return name;
+ 		}
+ 
++		public string RemapTypeName(string type)
++		{
++			switch (type) {
++			case "Object": return "UrhoObject";
++			case "String": return "UrhoString";
++			case "Console": return "UrhoConsole";
++			default:
++				return type;
++			}
++		}
++
+ 		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
+ 		{
+ 			// Global definitions, not inside a class, skip
+@@ -526,13 +537,17 @@ namespace SharpieBinder
+ 			if (!isConstructor && decl.Name.StartsWith("operator", StringComparison.Ordinal))
+ 				return;
+ 
+-			if (decl.Parent.Name != currentType.Name) {
++			if (RemapTypeName (decl.Parent.Name) != currentType.Name) {
+ 				//Console.WriteLine("For some reason we go t amethod that does not belong here {0}.{1} on {2}", decl.Parent.Name, decl.Name, currentType.Name);
+ 				return;
+ 			}
+ 
+ 			if (decl.Access != AccessSpecifier.Public)
+ 				return;
++			
++			if (decl.Parent.Name == "Urho3D::Object") {
++				Console.Write(1);
++			}
+ 
+ 			// Temporary: while we add support for other things, just to debug things
+ 			// remove types we do not support
+@@ -608,12 +623,12 @@ namespace SharpieBinder
+ 				p($"{creturnType}\n{pinvoke_name} (");
+ 
+ 			if (decl.IsStatic) {
+-				cinvoke.Append($"{currentType.Name}::{decl.Name} (");
++				cinvoke.Append($"{decl.Parent.Name}::{decl.Name} (");
+ 
+ 			} else if (isConstructor) {
+ 				cinvoke.Append($"new {decl.Name} (");
+ 			} else {
+-				p($"{currentType.Name} *_target");
++				p($"{decl.Parent.Name} *_target");
+ 				if (decl.Parameters.Count() > 0)
+ 					p(", ");
+ 				cinvoke.Append($"_target->{decl.Name} (");
+@@ -625,7 +640,7 @@ namespace SharpieBinder
+ 			if (isConstructor) {
+ 				constructor = new ConstructorDeclaration
+ 				{
+-					Name = RemapName(decl.Name),
++					Name = RemapMemberName(decl.Name),
+ 
+ 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
+ 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)  |
+@@ -635,7 +650,7 @@ namespace SharpieBinder
+ 			} else {
+ 				method = new MethodDeclaration
+ 				{
+-					Name = RemapName(decl.Name),
++					Name = RemapMemberName(decl.Name),
+ 					ReturnType = methodReturn,
+ 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
+ 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
+@@ -743,7 +758,7 @@ namespace SharpieBinder
+ 			if (td.BaseTypes.Count() == 0)
+ 				return;
+ 			var j = td.BaseTypes.First();
+-			var btype = allTypes[(j as SimpleType).Identifier];
++			var btype = allTypes[RemapTypeName ((j as SimpleType).Identifier)];
+ 			if (cback(btype))
+ 				return;
+ 			ScanBases(btype, cback);
+@@ -869,7 +884,7 @@ namespace SharpieBinder
+ 						p.Getter = new Accessor()
+ 						{
+ 							Body = new BlockStatement() {
+-								new ReturnStatement (new InvocationExpression (new IdentifierExpression (RemapName (gs.Getter.Name))))
++								new ReturnStatement (new InvocationExpression (new IdentifierExpression (RemapMemberName (gs.Getter.Name))))
+ 							}
+ 						};
+ 						if (gs.Setter != null) {
+diff --git a/bindings/Makefile b/bindings/Makefile
+index 42b4a36..6533e10 100644
+--- a/bindings/Makefile
++++ b/bindings/Makefile
+@@ -40,7 +40,7 @@ GENERATED_SOURCES =	\
+ 	generated/Component.cs		\
+ 	generated/CompressedFormat.cs	\
+ 	generated/Connection.cs		\
+-	generated/Console.cs		\
++	generated/UrhoConsole.cs	\
+ 	generated/ConstantBuffer.cs	\
+ 	generated/Constraint2D.cs	\
+ 	generated/ConstraintDistance2D.cs\
+@@ -129,7 +129,7 @@ GENERATED_SOURCES =	\
+ 	generated/NavmeshPartitionType.cs	\
+ 	generated/Network.cs		\
+ 	generated/Node.cs		\
+-	generated/Object.cs		\
++	generated/UrhoObject.cs		\
+ 	generated/ObjectAnimation.cs	\
+ 	generated/ObjectFactory.cs	\
+ 	generated/Obstacle.cs		\
+diff --git a/bindings/parse.pl b/bindings/parse.pl
+index 6abb937..373cab0 100644
+--- a/bindings/parse.pl
++++ b/bindings/parse.pl
+@@ -49,7 +49,7 @@ while (<>){
+ 	    }
+ 	    if (/}/){
+ 		print CS "    }\n\n";
+-		print CS "    public partial class Object {\n"; 
++		print CS "    public partial class UrhoObject {\n"; 
+ 		print CS "         [DllImport(\"mono-urho\")]\n";
+ 		print CS "         extern static void urho_subscribe_$en (IntPtr target, Action<IntPtr,int,IntPtr> act, IntPtr data);\n";
+                 print CS "         public void SubscribeTo$en (Action<EventArgs$en> handler)\n";
+diff --git a/bindings/src/Object.cs b/bindings/src/Object.cs
+index ccf72d1..fd2465b 100644
+--- a/bindings/src/Object.cs
++++ b/bindings/src/Object.cs
+@@ -12,23 +12,23 @@ using System.Runtime.InteropServices;
+ 
+ namespace Urho {
+ 
+-	public partial class Object : RefCounted {
++	public partial class UrhoObject : RefCounted {
+ 
+ 		//
+ 		// GetSubsystem helpers
+ 		//
+-		public ResourceCache ResourceCache => new Urho.ResourceCache (Object_GetSubsystem (handle, ResourceCache.TypeStatic));
+-		public Network Network => new Urho.Network (Object_GetSubsystem (handle, Network.TypeStatic));
+-		public Time Time => new Urho.Time (Object_GetSubsystem (handle, Time.TypeStatic));
+-		public WorkQueue WorkQueue => new Urho.WorkQueue (Object_GetSubsystem (handle, WorkQueue.TypeStatic));
+-		public Profiler Profiler => new Urho.Profiler (Object_GetSubsystem (handle, Profiler.TypeStatic));
+-		public FileSystem FileSystem => new Urho.FileSystem (Object_GetSubsystem (handle, FileSystem.TypeStatic));
+-		public Log Log => new Urho.Log (Object_GetSubsystem (handle, Log.TypeStatic));
+-		public Input Input => new Urho.Input (Object_GetSubsystem (handle, Input.TypeStatic));
+-		public Audio Audio => new Urho.Audio (Object_GetSubsystem (handle, Audio.TypeStatic));
+-		public UI UI => new Urho.UI (Object_GetSubsystem (handle, UI.TypeStatic));
+-		public Graphics Graphics => new Urho.Graphics (Object_GetSubsystem (handle, Graphics.TypeStatic));
+-		public Renderer Renderer => new Urho.Renderer (Object_GetSubsystem (handle, Renderer.TypeStatic));
++		public ResourceCache ResourceCache => new Urho.ResourceCache (UrhoObject_GetSubsystem (handle, ResourceCache.TypeStatic));
++		public Network Network => new Urho.Network (UrhoObject_GetSubsystem (handle, Network.TypeStatic));
++		public Time Time => new Urho.Time (UrhoObject_GetSubsystem (handle, Time.TypeStatic));
++		public WorkQueue WorkQueue => new Urho.WorkQueue (UrhoObject_GetSubsystem (handle, WorkQueue.TypeStatic));
++		public Profiler Profiler => new Urho.Profiler (UrhoObject_GetSubsystem (handle, Profiler.TypeStatic));
++		public FileSystem FileSystem => new Urho.FileSystem (UrhoObject_GetSubsystem (handle, FileSystem.TypeStatic));
++		public Log Log => new Urho.Log (UrhoObject_GetSubsystem (handle, Log.TypeStatic));
++		public Input Input => new Urho.Input (UrhoObject_GetSubsystem (handle, Input.TypeStatic));
++		public Audio Audio => new Urho.Audio (UrhoObject_GetSubsystem (handle, Audio.TypeStatic));
++		public UI UI => new Urho.UI (UrhoObject_GetSubsystem (handle, UI.TypeStatic));
++		public Graphics Graphics => new Urho.Graphics (UrhoObject_GetSubsystem (handle, Graphics.TypeStatic));
++		public Renderer Renderer => new Urho.Renderer (UrhoObject_GetSubsystem (handle, Renderer.TypeStatic));
+ 
+ 
+ 		// Invoked by the subscribe methods
+diff --git a/bindings/src/Structs.cs b/bindings/src/Structs.cs
+index db68883..1aa15f0 100644
+--- a/bindings/src/Structs.cs
++++ b/bindings/src/Structs.cs
+@@ -35,7 +35,7 @@ namespace Urho {
+ 	[StructLayout (LayoutKind.Sequential)]
+ 	public struct ResourceRef {
+ 		public StringHash Type;
+-		public Urho.String Name;
++		public UrhoString Name;
+ 	}
+ 
+ 	[StructLayout (LayoutKind.Sequential)]
+@@ -182,7 +182,7 @@ namespace Urho {
+ 
+ 	// DEBATABLE: maybe we should let the binder handle it?
+ 	[StructLayout (LayoutKind.Sequential)]
+-	public struct String {
++	public struct UrhoString {
+ 	}
+ }
+ 
+diff --git a/bindings/src/UrhoMap.cs b/bindings/src/UrhoMap.cs
+index a6b5d3e..b854341 100644
+--- a/bindings/src/UrhoMap.cs
++++ b/bindings/src/UrhoMap.cs
+@@ -53,9 +53,9 @@ namespace Urho {
+ 			return new Node (urho_map_get_ptr (handle, stringHash));
+ 		}
+ 		
+-		static public Object get_Object (IntPtr handle, int stringHash)
++		static public UrhoObject get_Object (IntPtr handle, int stringHash)
+ 		{
+-			return new Object (urho_map_get_ptr (handle, stringHash));
++			return new UrhoObject (urho_map_get_ptr (handle, stringHash));
+ 		}
+ 		
+ 		static public Obstacle get_Obstacle (IntPtr handle, int stringHash)

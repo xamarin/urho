@@ -380,12 +380,16 @@ namespace SharpieBinder
 			return typeName;
 		}
 
+		const string ConstStringReference = "const class Urho3D::String &";
 		// Temporary, just to help us get the bindings bootstrapped
 		static bool IsUnsupportedType(QualType qt)
 		{
-			var s = CleanType(qt).Bind().ToString();
+			var ct = CleanType(qt);
+			if (ct.ToString() == ConstStringReference)
+				return false;
+			
+			var s = ct.Bind().ToString();
 			if (s.Contains ("unsupported")) {
-				
 				return true;
 			}
 
@@ -426,9 +430,14 @@ namespace SharpieBinder
 		//
 		// Handles RefCounted objects that we wrap
 		//
-		void LookupMarshalTypes(QualType qt, out AstType lowLevel, out AstType highLevel, out WrapKind wrapKind, bool isReturn = false)
+		void LookupMarshalTypes(QualType qt, 
+		                        out AstType lowLevel, out ICSharpCode.NRefactory.CSharp.ParameterModifier lowLevelParameterMod, 
+		                        out AstType highLevel, out ICSharpCode.NRefactory.CSharp.ParameterModifier highLevelParameterMod, 
+		                        out WrapKind wrapKind, bool isReturn = false)
 		{
 			wrapKind = WrapKind.None;
+			lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.None;
+			highLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.None;
 
 			var cleanType = CleanType(qt);
 			var cleanTypeStr = cleanType.ToString();
@@ -444,6 +453,19 @@ namespace SharpieBinder
 				lowLevel = new PrimitiveType("IntPtr");
 				highLevel = new PrimitiveType("IntPtr");
 				return;
+			case ConstStringReference:
+				if (isReturn) {
+					lowLevel = csParser.ParseTypeReference("UrhoString *");
+					highLevel = csParser.ParseTypeReference("UrhoString");
+					return;
+				} else {
+					lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+					lowLevel = csParser.ParseTypeReference("UrhoString");
+					highLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+					highLevel = new PrimitiveType("UrhoString");
+					return;
+				}
+				break;
             }
 
 			if (cleanType.Kind == TypeKind.Pointer) {
@@ -565,7 +587,9 @@ namespace SharpieBinder
 
 			AstType pinvokeReturn, methodReturn;
 			WrapKind returnIsWrapped;
-			LookupMarshalTypes(decl.ReturnQualType, out pinvokeReturn, out methodReturn, out returnIsWrapped, isReturn: true);
+			ICSharpCode.NRefactory.CSharp.ParameterModifier pinvokeMod, methodMod;
+
+			LookupMarshalTypes(decl.ReturnQualType, out pinvokeReturn, out pinvokeMod, out methodReturn, out methodMod, out returnIsWrapped, isReturn: true);
 			var methodReturn2 = methodReturn.Clone();
 
 			var propertyInfo = ScanBaseTypes.GetPropertyInfo(decl);
@@ -674,19 +698,18 @@ namespace SharpieBinder
 				} else
 					first = false;
 
-
-				LookupMarshalTypes(param.QualType, out pinvokeParameter, out parameter, out wrapKind);
+				LookupMarshalTypes(param.QualType, out pinvokeParameter, out pinvokeMod, out parameter, out methodMod, out wrapKind);
 
 				string paramName = param.Name;
 				if (paramName == "" || paramName == null)
 					paramName = "param" + (anonymousParameterNameCount++);
 
 				if (constructor == null)
-					method.Parameters.Add(new ParameterDeclaration(parameter, paramName));
+					method.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
 				else
-					constructor.Parameters.Add(new ParameterDeclaration(parameter, paramName));
-				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName));
+					constructor.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
 
+				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName, pinvokeMod));
 				if (wrapKind == WrapKind.HandleMember) {
 					var cond = new ConditionalExpression(new BinaryOperatorExpression(new CastExpression (new PrimitiveType ("object"),new IdentifierExpression(paramName)), BinaryOperatorType.Equality, new PrimitiveExpression(null)),
 														 csParser.ParseExpression("IntPtr.Zero"), csParser.ParseExpression(paramName + ".handle"));
@@ -865,7 +888,10 @@ namespace SharpieBinder
 							if (pname == "Handle")
 								pname = "FileHandle";
 							break;
-
+						case "Text":
+							if (pname == "Text")
+								pname = "Value";
+							break;
 						case "View":
 							// View.Graphics is the Urho C++ strong type to GetSubssytem(Graphics)
 							if (pname == "Graphics" || pname == "Renderer")

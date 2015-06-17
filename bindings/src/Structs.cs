@@ -184,6 +184,10 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct UrhoString {
 	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct PackageEntry {
+	}
 }
 
 
