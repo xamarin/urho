@@ -385,9 +385,10 @@ namespace SharpieBinder
 		static bool IsUnsupportedType(QualType qt)
 		{
 			var ct = CleanType(qt);
+			#if STRING_REF
 			if (ct.ToString() == ConstStringReference)
 				return false;
-			
+			#endif
 			var s = ct.Bind().ToString();
 			if (s.Contains ("unsupported")) {
 				return true;
