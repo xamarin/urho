@@ -7,6 +7,6 @@ class X {
 	{
 		var c = new Context ();
 		var app = new Application (c);
-		app.Run ();
+	//	app.Run ();
 	}
 }

@@ -112,9 +112,9 @@ namespace Urho {
 		
 		[DllImport ("mono-urho")]
 		extern static int urho_map_get_StringHash (IntPtr handle, int stringHash);
-		static public int get_StringHash (IntPtr handle, int stringHash)
+		static public StringHash get_StringHash (IntPtr handle, int stringHash)
 		{
-			return urho_map_get_StringHash (handle, stringHash);
+			return new StringHash (urho_map_get_StringHash (handle, stringHash));
 		}
 		
 		static public Texture get_Texture (IntPtr handle, int stringHash)
@@ -139,6 +139,11 @@ namespace Urho {
 		static public View get_View (IntPtr handle, int stringHash)
 		{
 			return new View (urho_map_get_ptr (handle, stringHash));
+		}
+		
+		static public UIElement get_UIElement (IntPtr handle, int stringHash)
+		{
+			return new UIElement (urho_map_get_ptr (handle, stringHash));
 		}
 		
 		static public WorkItem get_WorkItem (IntPtr handle, int stringHash)

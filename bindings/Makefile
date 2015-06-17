@@ -250,6 +250,7 @@ GENERATED_SOURCES =	\
 	generated/Zone.cs
 
 SOURCES = $(GENERATED_SOURCES) 		\
+	generated/Object.Events.cs	\
 	src/AttributeInfo.cs		\
 	src/Object.cs			\
 	src/UrhoMap.cs			\
@@ -266,7 +267,7 @@ run: gen-bind Urho.dll
 $(GENERATED_SOURCES): Urho.pch ../SharpieBinder/bin/Debug/SharpieBinder.exe
 	/mono/bin/mono ../SharpieBinder/bin/Debug/SharpieBinder.exe
 
-Urho.dll: $(SOURCES) Makefile $(GENERATED_SOURCES)
+Urho.dll: $(SOURCES) Makefile 
 	mcs -unsafe -out:Urho.dll -target:library -debug $(SOURCES)
 
 
@@ -300,5 +301,6 @@ d: d.cpp Makefile
 	c++ -c d.cpp $(URHO_FLAGS) 
 	c++ -o d d.cpp $(URHO_FLAGS) $(URHO_LIBS)
 
-p generated/events.cpp: parse.pl
+p generated/events.cpp generated/Object.Events.cs: parse.pl
 	perl parse.pl $(URHO_DIR)/include/Urho3d/*/*h
+

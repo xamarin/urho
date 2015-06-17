@@ -21,6 +21,7 @@ sub mapType {
     return "uint" if $t eq "unsigned";
     return "float" if $t eq "Float";
     return "IntPtr" if $t eq "User-defined";
+    return "IntPtr" if $t eq "Buffer";
     return $t;
 }
 
@@ -50,10 +51,10 @@ while (<>){
 		print CS "    }\n\n";
 		print CS "    public partial class Object {\n"; 
 		print CS "         [DllImport(\"mono-urho\")]\n";
-		print CS "         extern static void urho_subscribe_$en (IntPtr target, Action<IntPtr> act, IntPtr data);\n";
+		print CS "         extern static void urho_subscribe_$en (IntPtr target, Action<IntPtr,int,IntPtr> act, IntPtr data);\n";
                 print CS "         public void SubscribeTo$en (Action<EventArgs$en> handler)\n";
 		print CS "         {\n";
-		print CS "              Action<Intptr> proxy = (x)=> { var d = new EventArgs$en () { handle = x }; handler (d); }\n";
+		print CS "              Action<IntPtr> proxy = (x)=> { var d = new EventArgs$en () { handle = x }; handler (d); };\n";
 	        print CS "              GCHandle gch = GCHandle.Alloc (proxy);\n";
 		print CS "              urho_subscribe_$en (handle, ObjectCallback, GCHandle.ToIntPtr (gch));\n";
 		print CS "         }\n";
@@ -63,7 +64,6 @@ while (<>){
 	}
     }
 }
-print CS "    }\n";
 print CPP "// Hash Getters\n";
 print CS "// Hash Getters\n";
 print CS "internal class UrhoHash {\n";
@@ -74,7 +74,7 @@ foreach $pc (keys %hashgetters){
     print CS "        [DllImport(\"mono-urho\")]\n";
     print CS "        extern static int urho_hash_get_$pc ();\n";
     print CS "        static int _$pc;\n";
-    print CS "        static int $pc { get { if (_$pc == 0){ _$pc = urho_hash_get_$pc (); } return _$pc; }};\n\n";
+    print CS "        internal static int $pc { get { if (_$pc == 0){ _$pc = urho_hash_get_$pc (); } return _$pc; }}\n\n";
 }
 
 print CPP "}\n";
