@@ -35,7 +35,7 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct ResourceRef {
 		public StringHash Type;
-		public Urho.String Name;
+		public UrhoString Name;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -182,7 +182,7 @@ namespace Urho {
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
-	public struct String {
+	public struct UrhoString {
 	}
 }
 

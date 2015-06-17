@@ -40,7 +40,7 @@ GENERATED_SOURCES =	\
 	generated/Component.cs		\
 	generated/CompressedFormat.cs	\
 	generated/Connection.cs		\
-	generated/Console.cs		\
+	generated/UrhoConsole.cs	\
 	generated/ConstantBuffer.cs	\
 	generated/Constraint2D.cs	\
 	generated/ConstraintDistance2D.cs\
@@ -129,7 +129,7 @@ GENERATED_SOURCES =	\
 	generated/NavmeshPartitionType.cs	\
 	generated/Network.cs		\
 	generated/Node.cs		\
-	generated/Object.cs		\
+	generated/UrhoObject.cs		\
 	generated/ObjectAnimation.cs	\
 	generated/ObjectFactory.cs	\
 	generated/Obstacle.cs		\

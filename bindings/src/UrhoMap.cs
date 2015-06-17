@@ -53,9 +53,9 @@ namespace Urho {
 			return new Node (urho_map_get_ptr (handle, stringHash));
 		}
 		
-		static public Object get_Object (IntPtr handle, int stringHash)
+		static public UrhoObject get_Object (IntPtr handle, int stringHash)
 		{
-			return new Object (urho_map_get_ptr (handle, stringHash));
+			return new UrhoObject (urho_map_get_ptr (handle, stringHash));
 		}
 		
 		static public Obstacle get_Obstacle (IntPtr handle, int stringHash)

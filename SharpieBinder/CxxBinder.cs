@@ -190,7 +190,7 @@ namespace SharpieBinder
 				return;
 
 			//Console.WriteLine($"VisitingType: {decl.QualifiedName}");
-			string typeName = decl.Name;
+			string typeName = RemapTypeName(decl.Name);
 
 			PushType(new TypeDeclaration
 			{
@@ -270,7 +270,7 @@ namespace SharpieBinder
 
 			PushType(new TypeDeclaration
 			{
-				Name = decl.Name,
+				Name = RemapTypeName (decl.Name),
 				ClassType = isStruct ? ClassType.Struct : ClassType.Class,
 				Modifiers = Modifiers.Partial | Modifiers.Public | Modifiers.Unsafe
 			});
@@ -297,7 +297,7 @@ namespace SharpieBinder
 					if (currentType.BaseTypes.Count > 0)
 						baseName = "I" + baseName;
 
-					currentType.BaseTypes.Add(new SimpleType(baseName));
+					currentType.BaseTypes.Add(new SimpleType(RemapTypeName(baseName)));
 				}
 			}
 
@@ -454,9 +454,9 @@ namespace SharpieBinder
 				if (underlying != null && ScanBaseTypes.nameToDecl.TryGetValue(underlying.Decl.QualifiedName, out decl)) {
 					if (decl.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted)) {
 						lowLevel = new SimpleType("IntPtr");
-
-						if (decl.QualifiedName == "Urho3D::Object")
-							highLevel = csParser.ParseTypeReference("Urho.Object");
+						var remapped = RemapTypeName(decl.Name);
+						if (remapped != decl.Name)
+							highLevel = csParser.ParseTypeReference("Urho." + remapped);
 						else
 							highLevel = underlying.Bind();
 						wrapKind = WrapKind.HandleMember;
@@ -491,7 +491,7 @@ namespace SharpieBinder
 			highLevel = cleanType.Bind();
 		}
 
-		public string RemapName(string name)
+		public string RemapMemberName(string name)
 		{
 			if (name == "GetType")
 				return "UrhoGetType";
@@ -500,6 +500,17 @@ namespace SharpieBinder
 			if (name == "ToString")
 				return "ToDebugString";
 			return name;
+		}
+
+		public string RemapTypeName(string type)
+		{
+			switch (type) {
+			case "Object": return "UrhoObject";
+			case "String": return "UrhoString";
+			case "Console": return "UrhoConsole";
+			default:
+				return type;
+			}
 		}
 
 		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
@@ -526,13 +537,17 @@ namespace SharpieBinder
 			if (!isConstructor && decl.Name.StartsWith("operator", StringComparison.Ordinal))
 				return;
 
-			if (decl.Parent.Name != currentType.Name) {
+			if (RemapTypeName (decl.Parent.Name) != currentType.Name) {
 				//Console.WriteLine("For some reason we go t amethod that does not belong here {0}.{1} on {2}", decl.Parent.Name, decl.Name, currentType.Name);
 				return;
 			}
 
 			if (decl.Access != AccessSpecifier.Public)
 				return;
+			
+			if (decl.Parent.Name == "Urho3D::Object") {
+				Console.Write(1);
+			}
 
 			// Temporary: while we add support for other things, just to debug things
 			// remove types we do not support
@@ -608,12 +623,12 @@ namespace SharpieBinder
 				p($"{creturnType}\n{pinvoke_name} (");
 
 			if (decl.IsStatic) {
-				cinvoke.Append($"{currentType.Name}::{decl.Name} (");
+				cinvoke.Append($"{decl.Parent.Name}::{decl.Name} (");
 
 			} else if (isConstructor) {
 				cinvoke.Append($"new {decl.Name} (");
 			} else {
-				p($"{currentType.Name} *_target");
+				p($"{decl.Parent.Name} *_target");
 				if (decl.Parameters.Count() > 0)
 					p(", ");
 				cinvoke.Append($"_target->{decl.Name} (");
@@ -625,7 +640,7 @@ namespace SharpieBinder
 			if (isConstructor) {
 				constructor = new ConstructorDeclaration
 				{
-					Name = RemapName(decl.Name),
+					Name = RemapMemberName(decl.Name),
 
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)  |
@@ -635,7 +650,7 @@ namespace SharpieBinder
 			} else {
 				method = new MethodDeclaration
 				{
-					Name = RemapName(decl.Name),
+					Name = RemapMemberName(decl.Name),
 					ReturnType = methodReturn,
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
@@ -743,7 +758,7 @@ namespace SharpieBinder
 			if (td.BaseTypes.Count() == 0)
 				return;
 			var j = td.BaseTypes.First();
-			var btype = allTypes[(j as SimpleType).Identifier];
+			var btype = allTypes[RemapTypeName ((j as SimpleType).Identifier)];
 			if (cback(btype))
 				return;
 			ScanBases(btype, cback);
@@ -869,7 +884,7 @@ namespace SharpieBinder
 						p.Getter = new Accessor()
 						{
 							Body = new BlockStatement() {
-								new ReturnStatement (new InvocationExpression (new IdentifierExpression (RemapName (gs.Getter.Name))))
+								new ReturnStatement (new InvocationExpression (new IdentifierExpression (RemapMemberName (gs.Getter.Name))))
 							}
 						};
 						if (gs.Setter != null) {

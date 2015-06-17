@@ -49,7 +49,7 @@ while (<>){
 	    }
 	    if (/}/){
 		print CS "    }\n\n";
-		print CS "    public partial class Object {\n"; 
+		print CS "    public partial class UrhoObject {\n"; 
 		print CS "         [DllImport(\"mono-urho\")]\n";
 		print CS "         extern static void urho_subscribe_$en (IntPtr target, Action<IntPtr,int,IntPtr> act, IntPtr data);\n";
                 print CS "         public void SubscribeTo$en (Action<EventArgs$en> handler)\n";
