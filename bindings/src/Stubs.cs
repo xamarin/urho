@@ -27,4 +27,10 @@ namespace Urho {
 	public class RigidBody {
 		public RigidBody (IntPtr handle) {}
 	}
+	public partial struct WorkItem {
+		public WorkItem (IntPtr p)
+		{
+		}
+				
+	}
 }

@@ -15,6 +15,18 @@ This is worng on window.cs
                 }
 
 
+Type remapping
+--------------
+
+Remap Urho.Object -> Urho.UrhoObject
+Remap Urho.String -> Urho.UrhoString
+
+WorkItem issues
+---------------
+
+structs that subclass RefCounted should be bound as classes, see
+WorkItem (which is currently surfaced as a struct)
+
 Build
 -----
 PhysicsWorld and RigidBody are pending, since they surface some bt data types

@@ -14,38 +14,60 @@ using namespace Urho3D;
 
 extern "C" {
 
-	void * urho_map_get_Buffer (VariantMap *) {}
-	Camera get_Camera (VariantMap *) {}
-	Component get_Component (VariantMap *) {}
-	Connection get_Connection (VariantMap *) {}
-	CrowdAgent get_CrowdAgent (VariantMap *) {}
-	NavigationMesh get_NavigationMesh (VariantMap *) {}
-	Node get_Node (VariantMap *) {}
-	Object get_Object (VariantMap *) {}
-	Obstacle get_Obstacle (VariantMap *) {}
-	PhysicsWorld get_PhysicsWorld (VariantMap *) {}
-	PhysicsWorld2D get_PhysicsWorld2D (VariantMap *) {}
-	RenderSurface get_RenderSurface (VariantMap *) {}
-	Resource get_Resource (VariantMap *) {}
-	RigidBody get_RigidBody (VariantMap *) {}
-	RigidBody2D get_RigidBody2D (VariantMap *) {}
-	Scene get_Scene (VariantMap *) {}
-	Serializable get_Serializable (VariantMap *) {}
-	String get_String (VariantMap *) {}
-	Texture get_Texture (VariantMap *) {}
-	UIElement get_UIElement (VariantMap *) {}
+	void * urho_map_urho_map_get_ptr (VariantMap &map, int hash)
+	{
+		StringHash h (hash);
+		return map [h].GetVoidPtr ();
+	}
+	
+	String urho_map_get_String (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return map [h].GetString ();
+	}
+	
+	int urho_map_get_StringHash (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return map [h].GetStringHash ().Value ();
+	}
+	
+	Variant urho_map_get_Variant (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return map [h];
+	}
+	
+	Vector3 urho_map_get_Vector3 (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return map [h].GetVector3 ();
+	}
 
-	IntPtr get_IntPtr (VariantMap *) {}
-	MouseMode get_MouseMode (VariantMap *) {}
-	StringHash get_StringHash (VariantMap *) {}
-	Variant get_Variant (VariantMap *) {}
-	Vector3 get_Vector3 (VariantMap *) {}
-	View get_View (VariantMap *) {}
-	WorkItem get_WorkItem (VariantMap *) {}
-	bool get_bool (VariantMap *) {}
-	float get_float (VariantMap *) {}
-	int get_int (VariantMap *) {}
-	uint get_uint (VariantMap *) {}
+	bool urho_map_get_bool (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return map [h].GetBool ();
+	}
+	
+	float urho_map_get_float (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return map [h].GetFloat ();
+	}
+		
+	int urho_map_get_int (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return map [h].GetInt ();
+	}
+	
+	uint urho_map_get_uint (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return map [h].GetUInt ();
+	}
+	
 	
 void *
 create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
