@@ -255,6 +255,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Object.cs			\
 	src/UrhoMap.cs			\
 	src/RefCounted.cs		\
+	src/ResourceCache.cs		\
 	src/StringHash.cs		\
 	src/Stubs.cs			\
 	src/Structs.cs

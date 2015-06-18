@@ -12,6 +12,11 @@ namespace Urho {
 		}
 
 		public int Code => code;
+
+		public override string ToString ()
+		{
+			return $"StringHash({Code})";
+		}
 	}
 
 	// Points to a StringHash
