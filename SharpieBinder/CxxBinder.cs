@@ -385,7 +385,7 @@ namespace SharpieBinder
 		static bool IsUnsupportedType(QualType qt)
 		{
 			var ct = CleanType(qt);
-			#if STRING_REF
+			#if true || STRING_REF
 			if (ct.ToString() == ConstStringReference)
 				return false;
 			#endif
@@ -456,14 +456,12 @@ namespace SharpieBinder
 				return;
 			case ConstStringReference:
 				if (isReturn) {
-					lowLevel = csParser.ParseTypeReference("UrhoString *");
-					highLevel = csParser.ParseTypeReference("UrhoString");
+					lowLevel = csParser.ParseTypeReference("string");
+					highLevel = csParser.ParseTypeReference("string");
 					return;
 				} else {
-					lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-					lowLevel = csParser.ParseTypeReference("UrhoString");
-					highLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-					highLevel = new PrimitiveType("UrhoString");
+					lowLevel = csParser.ParseTypeReference("string");
+					highLevel = new PrimitiveType("string");
 					return;
 				}
 				break;
@@ -536,6 +534,27 @@ namespace SharpieBinder
 			}
 		}
 
+		// Avoid generating methods that conflict in their signatures after we turn Urho::String into string
+		bool SkipMethod (CXXMethodDecl decl)
+		{
+			switch (currentType.Name) {
+			case "Graphics":
+				if (decl.Name == "GetShader") 
+					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
+				break;
+			case "Node":
+				if (decl.Name == "GetChild")
+					return decl.Parameters.First ().QualType.ToString () == "const char *";
+				break;
+			case "Shader":
+				if (decl.Name == "GetVariation")
+					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
+				break;
+			}
+
+			return false;
+		}
+
 		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
 		{
 			// Global definitions, not inside a class, skip
@@ -567,15 +586,15 @@ namespace SharpieBinder
 
 			if (decl.Access != AccessSpecifier.Public)
 				return;
-			
-			if (decl.Parent.Name == "Urho3D::Object") {
-				Console.Write(1);
-			}
+
+			if (SkipMethod (decl))
+				return;
 
 			// Temporary: while we add support for other things, just to debug things
 			// remove types we do not support
 			foreach (var p in decl.Parameters) {
 				if (IsUnsupportedType(p.QualType)) {
+
 					//Console.WriteLine($"Bailing out on {p.QualType} from {decl.QualifiedName}");
 					return;
 				}
@@ -634,10 +653,18 @@ namespace SharpieBinder
 			string marshalReturn = "{0}";
 			string creturnType = CleanTypeCplusplus(decl.ReturnQualType);
 
+			if (creturnType.Contains ("Urho3D::String")) {
+				var a = 1;
+			}
+
 			switch (creturnType) {
 			case "Urho3D::StringHash":
 				creturnType = "int";
 				marshalReturn = "({0}).Value ()";
+				break;
+			case "const class Urho3D::String &":
+				creturnType = "const char *";
+				marshalReturn = "({0}).CString ()";
 				break;
 			
 			}
@@ -719,8 +746,17 @@ namespace SharpieBinder
 				} else {
 					invoke.Arguments.Add(new IdentifierExpression(paramName));
 				}
-				p($"{CleanTypeCplusplus(param.QualType)} {paramName}");
-				cinvoke.Append($"{paramName}");
+				var ctype = CleanTypeCplusplus (param.QualType);
+				string paramInvoke = paramName;
+				switch (ctype) {
+				case "const class Urho3D::String &":
+					ctype = "const char *";
+					paramInvoke = $"Urho3D::String({paramInvoke})";
+					break;
+				}
+
+				p($"{ctype} {paramName}");
+				cinvoke.Append($"{paramInvoke}");
 			}
 			cinvoke.Append(")");
 			p(")\n{\n\t");
