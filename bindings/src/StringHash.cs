@@ -5,17 +5,15 @@ namespace Urho {
 
 	[StructLayout(LayoutKind.Sequential)]
 	public struct StringHash {
-		int code;
+		public int Code;
 		public StringHash (int code)
 		{
-			this.code = code;
+			this.Code = code;
 		}
-
-		public int Code => code;
 
 		public override string ToString ()
 		{
-			return $"StringHash({Code})";
+			return $"StringHash({Code:x})";
 		}
 	}
 

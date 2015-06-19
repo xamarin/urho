@@ -261,7 +261,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Structs.cs
 
 
-all: check-links Urho.pch Urho.dll libmono-urho.dylib
+all: check-links Urho.pch Urho.dll libmono-urho.dylib sample.exe
 
 run: gen-bind Urho.dll
 
@@ -277,16 +277,16 @@ Urho.pch: AllUrho.h Makefile
 
 #X=-fvisibility=default
 libmono-urho.dylib: binding.o glue.o events.o Makefile
-	c++ -dynamiclib $(X) -o libmono-urho.dylib $(URHO_LIBS) binding.o glue.o events.o
+	c++ -dynamiclib $(X) -g -o libmono-urho.dylib $(URHO_LIBS) binding.o glue.o events.o
 
 binding.o: AllUrho.h generated/binding.cpp Makefile
-	c++ -c $(X) -Wno-return-type-c-linkage generated/binding.cpp $(URHO_FLAGS) 
+	c++ -g -c $(X) -Wno-return-type-c-linkage generated/binding.cpp $(URHO_FLAGS) 
 
 glue.o: src/glue.cpp Makefile 
-	c++ -c $(X) src/glue.cpp $(URHO_FLAGS) 
+	c++ -g -c $(X) src/glue.cpp $(URHO_FLAGS) 
 
 events.o: generated/events.cpp Makefile 
-	c++ -c $(X) generated/events.cpp $(URHO_FLAGS) 
+	c++ -g -c $(X) generated/events.cpp $(URHO_FLAGS) 
 
 check-links:
 	@if test ! -e $(URHO_DIR)/include/SDL; then (cd $(URHO_DIR)/include; ln -s ../Source/ThirdParty/SDL/include SDL); fi
@@ -305,3 +305,6 @@ d: d.cpp Makefile
 p generated/events.cpp generated/Object.Events.cs: parse.pl
 	perl parse.pl $(URHO_DIR)/include/Urho3d/*/*h
 
+
+sample.exe: sample.cs Urho.dll
+	mcs -debug sample.cs -r:Urho.dll

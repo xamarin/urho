@@ -11,13 +11,6 @@
 //TODO:
 //  operators
 // 
-// StringHash is jsut a "struct StringHash { int value; }", so it might make sense
-// to avoid binding it, and manually handle it instead.
-//
-// The API uses "StringHash&" as a return type extensively, it might be worth
-// creating a StringHashRef struct perhaps that is a "struct StringHashRef { IntPtr value }" and
-// that is implicitly convertible to a StringHash by dereferencing the value
-//
 
 using System;
 using System.IO;
@@ -423,7 +416,8 @@ namespace SharpieBinder
 		{
 			None,
 			HandleMember,
-			EventHandler
+			EventHandler,
+			StringHash
 		}
 		// 
 		// Given a Clang QualType, returns the AstType to use to marshal, both for the 
@@ -454,6 +448,7 @@ namespace SharpieBinder
 				lowLevel = new PrimitiveType("IntPtr");
 				highLevel = new PrimitiveType("IntPtr");
 				return;
+			
 			case ConstStringReference:
 				if (isReturn) {
 					lowLevel = csParser.ParseTypeReference("string");
@@ -464,6 +459,13 @@ namespace SharpieBinder
 					highLevel = new PrimitiveType("string");
 					return;
 				}
+			case "class Urho3D::StringHash":
+				highLevel = new SimpleType ("StringHash");
+				lowLevel = new PrimitiveType ("int");
+				wrapKind = WrapKind.StringHash;
+				return;
+			default:
+				//Console.WriteLine (cleanTypeStr);
 				break;
             }
 
@@ -653,10 +655,6 @@ namespace SharpieBinder
 			string marshalReturn = "{0}";
 			string creturnType = CleanTypeCplusplus(decl.ReturnQualType);
 
-			if (creturnType.Contains ("Urho3D::String")) {
-				var a = 1;
-			}
-
 			switch (creturnType) {
 			case "Urho3D::StringHash":
 				creturnType = "int";
@@ -739,10 +737,12 @@ namespace SharpieBinder
 
 				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName, pinvokeMod));
 				if (wrapKind == WrapKind.HandleMember) {
-					var cond = new ConditionalExpression(new BinaryOperatorExpression(new CastExpression (new PrimitiveType ("object"),new IdentifierExpression(paramName)), BinaryOperatorType.Equality, new PrimitiveExpression(null)),
-														 csParser.ParseExpression("IntPtr.Zero"), csParser.ParseExpression(paramName + ".handle"));
+					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), new IdentifierExpression (paramName)), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
+						           csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".handle"));
 
-					invoke.Arguments.Add(cond);
+					invoke.Arguments.Add (cond);
+				} else if (wrapKind == WrapKind.StringHash) {
+					invoke.Arguments.Add (csParser.ParseExpression (paramName + ".Code"));
 				} else {
 					invoke.Arguments.Add(new IdentifierExpression(paramName));
 				}
@@ -752,6 +752,10 @@ namespace SharpieBinder
 				case "const class Urho3D::String &":
 					ctype = "const char *";
 					paramInvoke = $"Urho3D::String({paramInvoke})";
+					break;
+				case "Urho3D::StringHash":
+					ctype = "int";
+					paramInvoke = $"Urho3D::StringHash({paramInvoke})";
 					break;
 				}
 
@@ -778,9 +782,11 @@ namespace SharpieBinder
 					//id.TypeArguments.Add(methodReturn2);
 
 					//ret.Expression = new InvocationExpression(id, invoke);
-					returnExpression = new ObjectCreateExpression(methodReturn2, invoke); // new IdentifierExpression("handle"));
+					returnExpression = new ObjectCreateExpression (methodReturn2, invoke); // new IdentifierExpression("handle"));
 				} else if (returnIsWrapped == WrapKind.EventHandler) {
 					returnExpression = invoke;
+				} else if (returnIsWrapped == WrapKind.StringHash) {
+					returnExpression = new ObjectCreateExpression (new SimpleType ("StringHash"), invoke);
 				} else {
 					returnExpression = invoke;
 				}
@@ -835,7 +841,7 @@ namespace SharpieBinder
 		void UpdateMembers(EntityDeclaration baseDeclaration, EntityDeclaration declaration)
 		{
 			if (declaration.Modifiers.HasFlag(Modifiers.Static)) {
-				declaration.Modifiers = Modifiers.New;
+				declaration.Modifiers |= Modifiers.New;
 			} else {
 				declaration.Modifiers |= Modifiers.Override;
 				baseDeclaration.Modifiers |= Modifiers.Virtual;

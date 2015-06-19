@@ -7,32 +7,19 @@
 // Copyrigh 2015 Xamarin INc
 //
 using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Reflection;
 
 namespace Urho {
-
+	
 	public partial class ResourceCache {
-		static Dictionary<System.Type,ConstructorInfo> ctorMap;
-		ConstructorInfo GetCtor (System.Type t)
-		{
-			if (ctorMap == null)
-				ctorMap = new Dictionary<System.Type,ConstructorInfo> ();
-			ConstructorInfo ctor;
-			if (ctorMap.TryGetValue (t, out ctor))
-				return ctor;
-			ctor = t.GetConstructor (new System.Type [] {typeof(IntPtr)});
-			ctorMap [t] = ctor;
-			return ctor;
-		}
-
 #region Convenience methods to get resources
 		T GetResource<T> (StringHash type, string name, bool sendEventOnFailure) where T:UrhoObject
 		{
-			var ptr = ResourceCache_GetResource (handle, type, name, sendEventOnFailure);
-			var ctor = GetCtor (typeof (T));
-			return (T) ctor.Invoke (null, new object [] { ptr });
+			var ptr = ResourceCache_GetResource (handle, type.Code, name, sendEventOnFailure);
+			return (T)Activator.CreateInstance (typeof(T), BindingFlags.Instance|BindingFlags.NonPublic, null, new object [] { ptr }, null);
 		}
 
 		public Sound GetSound (string name, bool sendEventOnFailure = true)

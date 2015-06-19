@@ -75,6 +75,15 @@ create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
 	return (void *) new NotificationProxy (receiver, callback, data);
 }
 
+	void check (Context *app)
+	{
+		auto x = app->GetSubsystems ();
+		for (auto i = x.Begin(); i != x.End(); ++i){
+			printf ("got %s\n", i->second_.Get ()->GetTypeName().CString ());
+		}
+		void *g = app->GetSubsystem<Graphics>();
+		printf ("GGGG->%x\n", g);
+	}
 	
 	
 }

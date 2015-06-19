@@ -21,6 +21,8 @@ namespace Urho {
 		
 		public RefCounted (IntPtr handle)
 		{
+			if (handle == IntPtr.Zero)
+				throw new ArgumentException ($"Attempted to instantiate a {GetType()} with a null handle");
 			this.handle = handle;
 		}
 		
