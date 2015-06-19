@@ -14,12 +14,24 @@ This is worng on window.cs
                         Window_RegisterObject (context == null ? IntPtr.Zero : context.handle);
                 }
 
+Object System
+-------------
 
-Type remapping
---------------
+Need support to do a Runtime.Lookup, not only because we want to avoid
+creating multiple isntances of the same object (which is ok), but
+because we want to be able to return an instance of the *most derived*
+type.
 
-Remap Urho.Object -> Urho.UrhoObject
-Remap Urho.String -> Urho.UrhoString
+
+Application
+-----------
+Make the code generator not generate Application(context), because we want people to use
+the overload that takes callbacks instead.
+
+Bind
+----
+Support for the EngineParameters
+Support for the command line arguments
 
 WorkItem issues
 ---------------

@@ -1,33 +1,67 @@
 using System.Threading;
+using static System.Console;
+using System.Runtime.InteropServices;
 using Urho;
 using System;
 using System.Runtime.InteropServices;
 
-class X {
+class Demo {
 	[DllImport ("mono-urho")]
-	extern static void check (IntPtr h);
-			
-	static void Main ()
+	extern static void check (IntPtr p);
+
+	Demo ()
 	{
 		Environment.CurrentDirectory = "/cvs/Urho3D/bin";
+	}
+
+	Application app;
+	ResourceCache cache;
+	UI ui;
+	
+	void CreateLogo ()
+	{
+		cache = app.ResourceCache;
+		var logoTexture = cache.GetTexture2D ("Textures/LogoLarge.png");
+		if (logoTexture == null)
+			return;
+
+		ui = app.UI;
+		var logoSprite = ui.Root.CreateChild (Sprite.TypeStatic, "", 0xffffffff);
+		//logoSprite.SetTexture (logoTexture);
+	}
+	
+	public void Run ()
+	{
 		var c = new Context ();
-		var app = new Application (c);
+		Console.WriteLine (c.Handle);
+		var app = new Application (
+			c,
+			setup=>{
+				Console.WriteLine ("MonoUrho.Setup: This is where we would setup engine flags");
+			},
+			start=>{
+				//CreateLogo ();
+				Console.WriteLine ("OOOPS");
+			},
+			stop=>{
+				Console.WriteLine ("Stop");
+			});
 
-		// Observations: at this point, the app needs to run, so that the initialization below works.
-		// This will happen in the Application.Start, that we need to manually proxy to managed
-		// code.
+		app.SubscribeToKeyDown (
+			x=> {
+				Console.WriteLine ("keystroke received, terminating");
+				Environment.Exit (1);
+			});
 
-		//
-		// To configure stuff, we need to access "_engineParameters" from the "Setup" method,
-		// another callback, that pokes into a hashtable some values (which can also be set from the
-		// command line.
-		
-		app.SubscribeToKeyDown (y=>Environment.Exit (1));
-		var img = app.ResourceCache.GetImage ("Data/Textures/UrhoIcon.png");
-
-		// The line below crashes because app.Graphics is null until app.Run starts.
-		app.Graphics.SetWindowIcon (img);
-		app.Graphics.SetWindowTitle ("Urho3D#");
-		//app.Run ();
+		//var a = app.ResourceCache;
+		//var img = app.ResourceCache.GetImage ("Textures/UrhoIcon.png");
+		//app.Graphics.SetWindowIcon (img);
+		//app.Graphics.SetWindowTitle ("Urho3D#");
+		app.Run ();
+	}
+	
+	static void Main ()
+	{
+		new Demo ().Run ();
 	}
 }

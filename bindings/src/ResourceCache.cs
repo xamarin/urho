@@ -56,6 +56,11 @@ namespace Urho {
 		{
 			return GetResource<Technique> (Technique.TypeStatic, name, sendEventOnFailure);
 		}
+
+		public Texture2D GetTexture2D (string name, bool sendEventOnFailure = true)
+		{
+			return GetResource<Texture2D> (Texture2D.TypeStatic, name, sendEventOnFailure);
+		}
 		
 		public Image GetImage (string name, bool sendEventOnFailure = true)
 		{

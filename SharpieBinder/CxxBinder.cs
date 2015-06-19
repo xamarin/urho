@@ -655,6 +655,7 @@ namespace SharpieBinder
 			string marshalReturn = "{0}";
 			string creturnType = CleanTypeCplusplus(decl.ReturnQualType);
 
+			string extra_code;
 			switch (creturnType) {
 			case "Urho3D::StringHash":
 				creturnType = "int";
@@ -744,6 +745,7 @@ namespace SharpieBinder
 				} else if (wrapKind == WrapKind.StringHash) {
 					invoke.Arguments.Add (csParser.ParseExpression (paramName + ".Code"));
 				} else {
+
 					invoke.Arguments.Add(new IdentifierExpression(paramName));
 				}
 				var ctype = CleanTypeCplusplus (param.QualType);
@@ -809,6 +811,7 @@ namespace SharpieBinder
 					}
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());
+				pn($"{extra_code}");
 				pn($"return {rstr};");
 			}
 			pn("}\n");
