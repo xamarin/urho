@@ -75,5 +75,30 @@ create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
 	return (void *) new NotificationProxy (receiver, callback, data);
 }
 
+void check (Context *app)
+{
+
+	ResourceCache* cache = app->GetSubsystem<ResourceCache>();
+	Texture2D* logoTexture = cache->GetResource<Texture2D>("Textures/LogoLarge.png");
+	printf ("LOGOTEXTURE %d\n", logoTexture);
+    
+        auto x = app->GetSubsystems ();
+        for (auto i = x.Begin(); i != x.End(); ++i){
+                printf ("got %s\n", i->second_.Get ()->GetTypeName().CString ());
+        }
+        void *g = app->GetSubsystem<Graphics>();
+        printf ("GGGG->%x\n", g);
+}
+
+//void check2 (ResourceCache *rc)
+//{
+//        auto x = rc->GetSubsystems ();
+//        for (auto i = x.Begin(); i != x.End(); ++i){
+//                printf ("got %s\n", i->second_.Get ()->GetTypeName().CString ());
+//        }
+//        void *g = rc->GetSubsystem<Graphics>();
+//        printf ("GGGG->%x\n", g);
+//}
+
 }
 

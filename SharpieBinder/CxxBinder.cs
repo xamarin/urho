@@ -567,6 +567,7 @@ namespace SharpieBinder
 			if (visitKind != VisitKind.Enter)
 				return;
 
+
 			var isConstructor = decl is CXXConstructorDecl;
 			if (isConstructor && decl.Parent.IsAbstract)
 				return;
@@ -785,6 +786,7 @@ namespace SharpieBinder
 
 					//ret.Expression = new InvocationExpression(id, invoke);
 					returnExpression = new ObjectCreateExpression (methodReturn2, invoke); // new IdentifierExpression("handle"));
+
 				} else if (returnIsWrapped == WrapKind.EventHandler) {
 					returnExpression = invoke;
 				} else if (returnIsWrapped == WrapKind.StringHash) {
@@ -939,10 +941,14 @@ namespace SharpieBinder
 								pname = "Value";
 							break;
 						case "View":
+							#if false
+							// if false -> temporarily moved the apis to Application, not RefCounted, so there is currently
+							// no conflict
+
 							// View.Graphics is the Urho C++ strong type to GetSubssytem(Graphics)
 							if (pname == "Graphics" || pname == "Renderer")
 								mods = Modifiers.New;
-							
+							#endif
 							break;
 						}
 
@@ -1037,19 +1043,28 @@ namespace SharpieBinder
 
 			// Handle Get methods that are not really getters
 			// This is a get method that does not get anything
-			if (decl.ReturnQualType.ToString() == "void")
-				return;
 
 
+			if (name.Contains ("TextureQuality"))
+				decl = decl;
 			QualType type;
 			if (name.StartsWith("Get")) {
 				if (decl.Parameters.Count() != 0)
 					return;
+				if (decl.ReturnQualType.ToString() == "void")
+					return;
+
 				type = decl.ReturnQualType;
 			} else if (name.StartsWith("Set")) {
+				if (name.Contains ("SetNumGeometries"))
+					name = name;
 				if (decl.Parameters.Count() != 1)
 					return;
 				if (!(decl.ReturnQualType.Bind() is Sharpie.Bind.Types.VoidType))
+					return;
+				if ((name == "SetTypeName" || name == "SetType") && decl.Parent.Name == "UnknownComponent")
+					return;
+				if (decl.Access != AccessSpecifier.Public)
 					return;
 				type = decl.Parameters.FirstOrDefault().QualType;
 			} else
@@ -1061,6 +1076,7 @@ namespace SharpieBinder
 				allProperties[decl.Parent.Name] = typeProperties;
 			}
 			var propName = name.Substring(3);
+
 			Dictionary<QualType, GetterSetter> property;
 
 			if (!typeProperties.TryGetValue(propName, out property)) {
@@ -1098,7 +1114,7 @@ namespace SharpieBinder
 		}
 
 		//
-		// After we colleted the information, remove pairs that only had a setter, but no getter
+		// After we collected the information, remove pairs that only had a setter, but no getter
 		//
 		public void PrepareProperties()
 		{

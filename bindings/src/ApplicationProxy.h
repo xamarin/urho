@@ -4,7 +4,7 @@ typedef void(*callback_t)(ApplicationProxy *);
 
 class ApplicationProxy : public Urho3D::Application {
 public:
-	ApplicationProxy (Urho3D::Context *ctx, callback_t cstart, callback_t csetup, callback_t cstop) : Urho3D::Application (ctx)
+	ApplicationProxy (Urho3D::Context *ctx, callback_t csetup, callback_t cstart, callback_t cstop) : Urho3D::Application (ctx)
 	{
 		setup = csetup;
 		start = cstart;
@@ -27,6 +27,11 @@ public:
 	void Stop ()
 	{
 		stop (this);
+	}
+
+	Urho3D::Engine *GetEngine ()
+	{
+		return engine_.Get ();
 	}
 	
 private:

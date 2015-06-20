@@ -22,6 +22,22 @@ creating multiple isntances of the same object (which is ok), but
 because we want to be able to return an instance of the *most derived*
 type.
 
+CODE GEN
+--------
+
+Either change:
+
+       return new Foo(Foo_Foo (xx))
+       
+to:
+
+	var t = Foo_Foo (xx) ;
+	return t == IntPtr.Zero ? null : new Foo (t);
+
+Or use the lookup system:
+
+   return new Runtime.Lookup<Foo> (Foo_Foo (xx)
+
 
 Application
 -----------
@@ -30,8 +46,9 @@ the overload that takes callbacks instead.
 
 Bind
 ----
-Support for the EngineParameters
-Support for the command line arguments
+[ ] Support for the EngineParameters
+[ ] Support for the command line arguments
+[ ] Input/inputEvents constant definitions.
 
 WorkItem issues
 ---------------

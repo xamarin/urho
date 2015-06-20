@@ -19,6 +19,8 @@ namespace Urho {
 		T GetResource<T> (StringHash type, string name, bool sendEventOnFailure) where T:UrhoObject
 		{
 			var ptr = ResourceCache_GetResource (handle, type.Code, name, sendEventOnFailure);
+			if (ptr == IntPtr.Zero)
+				return null;
 			return Runtime.LookupObject<T> (ptr);
 		}
 

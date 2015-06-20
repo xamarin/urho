@@ -281,7 +281,7 @@ Urho.pch: AllUrho.h Makefile
 	$(OBJSHARPIE_BIN)/clang -cc1 -emit-pch -o Urho.pch all-urho.cpp  -I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 
 libmono-urho.dylib: binding.o glue.o events.o ApplicationProxy.o Makefile
-	c++ -dynamiclib -o -g libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o events.o ApplicationProxy.o
+	c++ -dynamiclib -g -o libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o events.o ApplicationProxy.o
 
 binding.o: AllUrho.h generated/binding.cpp Makefile
 	c++ -g -c $(X) -Wno-return-type-c-linkage generated/binding.cpp $(URHO_FLAGS) 
@@ -315,8 +315,8 @@ p generated/events.cpp generated/Object.Events.cs: parse.pl
 sample.exe: sample.cs Urho.dll
 	mcs -debug sample.cs -r:Urho.dll
 
-rs: sample.exe
-	DYLD_LIBRARY_PATH=. /mono/bin/mono sample.exe
+rs: sample.exe libmono-urho.dylib
+	DYLD_LIBRARY_PATH=. /mono/bin/mono --debug sample.exe
 
 clean:
 	-rm sample.exe Urho.dll Urho.dll libmono-urho.dylib *.o d 

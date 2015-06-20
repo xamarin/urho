@@ -17,8 +17,15 @@ namespace Urho {
 	public partial class Runtime {
 		public static T LookupObject<T> (IntPtr ptr) where T:RefCounted
 		{
-			return (T)Activator.CreateInstance (
-				typeof(T), BindingFlags.Instance|BindingFlags.NonPublic, null, new object [] { ptr }, null);
+			if (ptr == IntPtr.Zero)
+				return null;
+			try {
+				return (T)Activator.CreateInstance (
+					typeof(T), BindingFlags.Instance|BindingFlags.NonPublic, null, new object [] { ptr }, null);
+			} catch {
+				Console.WriteLine ($"Failed to instantiate a {typeof (T)} from {Environment.StackTrace}");
+				throw;
+			}
 		}
 				
 	}
