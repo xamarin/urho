@@ -19,7 +19,7 @@ namespace Urho {
 		T GetResource<T> (StringHash type, string name, bool sendEventOnFailure) where T:UrhoObject
 		{
 			var ptr = ResourceCache_GetResource (handle, type.Code, name, sendEventOnFailure);
-			return (T)Activator.CreateInstance (typeof(T), BindingFlags.Instance|BindingFlags.NonPublic, null, new object [] { ptr }, null);
+			return Runtime.LookupObject<T> (ptr);
 		}
 
 		public Sound GetSound (string name, bool sendEventOnFailure = true)

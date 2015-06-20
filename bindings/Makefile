@@ -253,13 +253,16 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	generated/Object.Events.cs	\
 	src/Application.cs		\
 	src/AttributeInfo.cs		\
+	src/Node.cs			\
 	src/Object.cs			\
 	src/UrhoMap.cs			\
 	src/RefCounted.cs		\
 	src/ResourceCache.cs		\
+	src/Runtime.cs			\
 	src/StringHash.cs		\
 	src/Stubs.cs			\
-	src/Structs.cs
+	src/Structs.cs			\
+	src/UIElement.cs
 
 CXXFLAGS=-Wno-return-type-c-linkage $(URHO_FLAGS)
 

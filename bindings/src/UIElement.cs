@@ -15,123 +15,91 @@ using System.Reflection;
 namespace Urho {
 	
 	public partial class UIElement {
-#region Convenience methods to get resources
-		T GetResource<T> (StringHash type, string name, bool sendEventOnFailure) where T:UrhoObject
+
+		public T CreateChild<T> (StringHash code, string name = "", uint index = UInt32.MaxValue) where T:UIElement
 		{
-			var ptr = ResourceCache_GetResource (handle, type.Code, name, sendEventOnFailure);
-			return (T)Activator.CreateInstance (typeof(T), BindingFlags.Instance|BindingFlags.NonPublic, null, new object [] { ptr }, null);
+			var ptr = UIElement_CreateChild (handle, code.Code, name, index);
+			return Runtime.LookupObject<T> (ptr);
 		}
 
-		public Sound GetSound (string name, bool sendEventOnFailure = true)
+		public BorderImage CreateBorderImage (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<Sound> (Sound.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<BorderImage> (BorderImage.TypeStatic, name, index);
 		}
 		
-		public Animation GetAnimation (string name, bool sendEventOnFailure = true)
+		public Button CreateButton (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<Animation> (Animation.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<Button> (Button.TypeStatic, name, index);
 		}
 		
-		public Material GetMaterial (string name, bool sendEventOnFailure = true)
+		public Menu CreateMenu (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<Material> (Material.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<Menu> (Menu.TypeStatic, name, index);
 		}
 		
-		public Model GetModel (string name, bool sendEventOnFailure = true)
+		public DropDownList CreateDropDownList (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<Model> (Model.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<DropDownList> (DropDownList.TypeStatic, name, index);
 		}
 		
-		public ParticleEffect GetParticleEffect (string name, bool sendEventOnFailure = true)
+		public CheckBox CreateCheckBox (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<ParticleEffect> (ParticleEffect.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<CheckBox> (CheckBox.TypeStatic, name, index);
 		}
 		
-		public Shader GetShader (string name, bool sendEventOnFailure = true)
+		public Cursor CreateCursor (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<Shader> (Shader.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<Cursor> (Cursor.TypeStatic, name, index);
 		}
 		
-		public Technique GetTechnique (string name, bool sendEventOnFailure = true)
+		public LineEdit CreateLineEdit (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<Technique> (Technique.TypeStatic, name, sendEventOnFailure);
-		}
-
-		public Texture2D GetTexture2D (string name, bool sendEventOnFailure = true)
-		{
-			return GetResource<Texture2D> (Texture2D.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<LineEdit> (LineEdit.TypeStatic, name, index);
 		}
 		
-		public Image GetImage (string name, bool sendEventOnFailure = true)
+		public Slider CreateSlider (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<Image> (Image.TypeStatic, name, sendEventOnFailure);
-		}
-		public PListFile GetPListFile (string name, bool sendEventOnFailure = true)
-		{
-			return GetResource<PListFile> (PListFile.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<Slider> (Slider.TypeStatic, name, index);
 		}
 		
-		public XMLFile GetXMLFile (string name, bool sendEventOnFailure = true)
+		public Window CreateWindow (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<XMLFile> (XMLFile.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<Window> (Window.TypeStatic, name, index);
 		}
 		
-		public ObjectAnimation GetObjectAnimation (string name, bool sendEventOnFailure = true)
+		public View3D CreateView3D (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<ObjectAnimation> (ObjectAnimation.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<View3D> (View3D.TypeStatic, name, index);
 		}
 		
-		public ValueAnimation GetValueAnimation (string name, bool sendEventOnFailure = true)
+		public ScrollBar CreateScrollBar (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<ValueAnimation> (ValueAnimation.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<ScrollBar> (ScrollBar.TypeStatic, name, index);
 		}
 		
-#if false
-		public LuaFile GetLuaFile (string name, bool sendEventOnFailure = true)
+		public ScrollView CreateScrollView (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<LuaFile> (LuaFile.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<ScrollView> (ScrollView.TypeStatic, name, index);
 		}
 		
-		public JSONFile GetJSONFile (string name, bool sendEventOnFailure = true)
+		public ListView CreateListView (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<JSONFile> (JSONFile.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<ListView> (ListView.TypeStatic, name, index);
 		}
 		
-		public ScriptFile GetScriptFile (string name, bool sendEventOnFailure = true)
+		public Sprite CreateSprite (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<ScriptFile> (ScriptFile.TypeStatic, name, sendEventOnFailure);
-		}
-#endif
-		
-		public Font GetFont (string name, bool sendEventOnFailure = true)
-		{
-			return GetResource<Font> (Font.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<Sprite> (Sprite.TypeStatic, name, index);
 		}
 		
-		public AnimationSet2D GetAnimationSet2D (string name, bool sendEventOnFailure = true)
+		public Text CreateText (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<AnimationSet2D> (AnimationSet2D.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<Text> (Text.TypeStatic, name, index);
 		}
 		
-		public ParticleEffect2D GetParticleEffect2D (string name, bool sendEventOnFailure = true)
+		public ToolTip CreateToolTip (string name = "", uint index = UInt32.MaxValue)
 		{
-			return GetResource<ParticleEffect2D> (ParticleEffect2D.TypeStatic, name, sendEventOnFailure);
+			return CreateChild<ToolTip> (ToolTip.TypeStatic, name, index);
 		}
-		
-		public Sprite2D GetSprite2D (string name, bool sendEventOnFailure = true)
-		{
-			return GetResource<Sprite2D> (Sprite2D.TypeStatic, name, sendEventOnFailure);
-		}
-		
-		public SpriteSheet2D GetSpriteSheet2D (string name, bool sendEventOnFailure = true)
-		{
-			return GetResource<SpriteSheet2D> (SpriteSheet2D.TypeStatic, name, sendEventOnFailure);
-		}
-		
-		public TmxFile2D GetTmxFile2D (string name, bool sendEventOnFailure = true)
-		{
-			return GetResource<TmxFile2D> (TmxFile2D.TypeStatic, name, sendEventOnFailure);
-		}
-#endregion
 	}
 }
