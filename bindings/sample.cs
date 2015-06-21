@@ -5,30 +5,37 @@ using Urho;
 using System;
 using System.Runtime.InteropServices;
 
-class Demo {
+class Sample : Application {
 	[DllImport ("mono-urho")]
 	extern static void check (IntPtr p);
 
-	Demo ()
+	[DllImport ("mono-urho")]
+	extern static void check2 (ref Vector3 p);
+
+	ResourceCache cache;
+	UI ui;
+	
+	public Sample (Context ctx) : base (ctx)
 	{
 		Environment.CurrentDirectory = "/cvs/Urho3D/bin";
 	}
 
-	Application app;
-	ResourceCache cache;
-	UI ui;
-	
+	public override void Setup ()
+	{
+		WriteLine ("MonoUrho.Setup: This is where we would setup engine flags");
+	}
+
 	void CreateLogo ()
 	{
-		cache = app.ResourceCache;
-		Console.WriteLine ("one");
+		cache = ResourceCache;
+		WriteLine ("one");
 		var logoTexture = cache.GetTexture2D ("Textures/LogoLarge.png");
-		Console.WriteLine ("two");
+		WriteLine ("two");
 		
 		if (logoTexture == null)
 			return;
 
-		ui = app.UI;
+		ui = UI;
 		var logoSprite = ui.Root.CreateSprite ();
 		logoSprite.Texture = logoTexture;
 		int w = logoTexture.Width;
@@ -44,8 +51,8 @@ class Demo {
 	void SetWindowAndTitleIcon ()
 	{
 		var icon = cache.GetImage ("Textures/UrhoIcon.png");
-		app.Graphics.SetWindowIcon (icon);
-		app.Graphics.WindowTitle = "Mono Urho3D Sample";
+		Graphics.SetWindowIcon (icon);
+		Graphics.WindowTitle = "Mono Urho3D Sample";
 	}
 
 	UrhoConsole console;
@@ -54,23 +61,23 @@ class Demo {
 	void CreateConsoleAndDebugHud ()
 	{
 		var xml = cache.GetXMLFile ("UI/DefaultStyle.xml");
-		console = app.Engine.CreateConsole ();
+		console = Engine.CreateConsole ();
 		console.DefaultStyle = xml;
 		console.Background.Opacity = 0.8f;
 
-		debugHud = app.Engine.CreateDebugHud ();
+		debugHud = Engine.CreateDebugHud ();
 		debugHud.DefaultStyle = xml;
 	}
 
 	void HandleKeyDown (EventArgsKeyDown e)
 	{
-		Console.WriteLine (e.Key);
+		WriteLine (e.Key);
 		switch (e.Key){
 		case 27: // ESC
-			if (app.Console.IsVisible ())
-				app.Console.SetVisible (false);
+			if (this.Console.IsVisible ())
+				this.Console.SetVisible (false);
 			else
-				app.Engine.Exit ();
+				Engine.Exit ();
 			return;
 		case 1073741882: // F1
 			console.Toggle ();
@@ -79,14 +86,10 @@ class Demo {
 			debugHud.ToggleAll ();
 			return;
 		}
-		try {
-		if (app.UI.FocusElement == null)
+		if (UI.FocusElement == null)
 			return;
-		} catch {
-			// Ignore for now -- need to replace new Foo(xx) with Runtime.LookupObject(xx)
-		}
 		
-		var renderer = app.Renderer;
+		var renderer = Renderer;
 		switch (e.Key){
 		case '1':
 			var quality = renderer.TextureQuality;
@@ -138,44 +141,86 @@ class Demo {
 
 			// screenshot
 		case '9':
-			var screenshot = new Image (app.Context);
+			var screenshot = new Image (Context);
 
 			// Pending "Image&" binding
-			//app.Graphics.TakeScreenshot (screenshot);
+			//Graphics.TakeScreenshot (screenshot);
 			//screenshot.SavePNG ("/tmp/shot.png");
 			break;
 		}
 	}
-	
-	public void Run ()
-	{
-		var c = new Context ();
-		Console.WriteLine (c.Handle);
-		app = new Application (
-			c,
-			setup=>{
-				Console.WriteLine ("MonoUrho.Setup: This is where we would setup engine flags");
-			},
-			start=>{
-				CreateLogo ();
-				SetWindowAndTitleIcon ();
-				CreateConsoleAndDebugHud ();
-				Console.WriteLine ("OOOPS");
-			},
-			stop=>{
-				Console.WriteLine ("Stop");
-			});
 
-		app.SubscribeToKeyDown (HandleKeyDown);
-		//var a = app.ResourceCache;
-		//var img = app.ResourceCache.GetImage ("Textures/UrhoIcon.png");
-		//app.Graphics.SetWindowIcon (img);
-		//app.Graphics.SetWindowTitle ("Urho3D#");
-		app.Run ();
+	public override void Start ()
+	{
+		Vector3 v = new Vector3 { X = -100, Y = 200, Z = 300 };
+		
+		check2 (ref v);
+		CreateLogo ();
+		SetWindowAndTitleIcon ();
+		CreateConsoleAndDebugHud ();
+		SubscribeToKeyDown (HandleKeyDown);
 	}
+
+}
+
+class HelloWorld : Sample {
+	void CreateText ()
+	{
+		var c = ResourceCache;
+		var t = new Text (Context) {
+			Value = "Hello World from Urho3D + Mono",
+			//Color = new Color (0, 1, 0),
+			HorizontalAlignment = HorizontalAlignment.HA_CENTER,
+			VerticalAlignment = VerticalAlignment.VA_CENTER
+		};
+		t.SetFont (c.GetFont ("Fonts/Anonymous Pro.ttf"), 30);
+		UI.Root.AddChild (t);
+		
+	}
+	
+	public override void Start ()
+	{
+		base.Start ();
+		CreateText ();
+	}
+
+	public HelloWorld (Context c) : base (c) {}
+}
+
+class StaticScene : Sample {
+	public override void Start ()
+	{
+		base.Start ();
+		CreateScene ();
+		//CreateInstructions ();
+		//SetupViewport ();
+		//SubscribeToEvents ();
+	}
+
+	void CreateScene ()
+	{
+		var cache = ResourceCache;
+		var scene = new Scene (Context);
+
+		// Create the Octree component to the scene. This is required before adding any drawable components, or else nothing will
+		// show up. The default octree volume will be from (-1000, -1000, -1000) to (1000, 1000, 1000) in world coordinates; it
+		// is also legal to place objects outside the volume but their visibility can then not be checked in a hierarchically
+		// optimizing manner
+		scene.CreateComponent<Octree> ();
+
+	}
+		
+		
+	public StaticScene (Context c) : base (c) {}
+}
+
+class Demo {
 	
 	static void Main ()
 	{
-		new Demo ().Run ();
+		var c = new Context ();
+		//new Sample (c).Run ();
+		new HelloWorld (c).Run ();
 	}
 }
+

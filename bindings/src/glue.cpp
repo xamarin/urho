@@ -75,7 +75,7 @@ create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
 	return (void *) new NotificationProxy (receiver, callback, data);
 }
 
-void check (Context *app)
+void check1 (Context *app)
 {
 
 	ResourceCache* cache = app->GetSubsystem<ResourceCache>();
@@ -90,6 +90,11 @@ void check (Context *app)
         printf ("GGGG->%x\n", g);
 }
 
+void check2 (Vector3& vec)
+{
+	printf ("Got %g %g %g\n", vec.x_, vec.y_, vec.z_);
+}
+	
 //void check2 (ResourceCache *rc)
 //{
 //        auto x = rc->GetSubsystems ();

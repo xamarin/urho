@@ -15,10 +15,20 @@ using System.Reflection;
 namespace Urho {
 	
 	public partial class Node {
-		public T CreateComponent<T> (StringHash type, CreateMode mode, uint id) where T:Component
+		public T CreateComponent<T> (StringHash type, CreateMode mode = CreateMode.REPLICATED, uint id = 0) where T:Component
 		{
 			var ptr = Node_CreateComponent (handle, type.Code, mode, id);
 			return Runtime.LookupObject<T> (ptr);
 		}
+
+		
+		public T CreateComponent<T> (CreateMode mode = CreateMode.REPLICATED, uint id = 0) where T:Component
+		{
+			var stringhash = Runtime.LookupStringHash (typeof (T));
+			var ptr = Node_CreateComponent (handle, stringhash.Code, mode, id);
+			return Runtime.LookupObject<T> (ptr);
+		}
+
+		
 	}
 }

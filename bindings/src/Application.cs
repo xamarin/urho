@@ -17,9 +17,56 @@ namespace Urho {
 		//
 		public Application (Context context, Action<IntPtr> setup, Action<IntPtr> start, Action<IntPtr> stop) : base (UrhoObjectFlag.Empty)
 		{
-			handle = ApplicationProxy_ApplicationProxy (context.Handle, setup, start, stop);
+			if (context == null)
+				throw new ArgumentNullException ("context");
 			
+			handle = ApplicationProxy_ApplicationProxy (context.Handle, setup, start, stop);
+			Runtime.RegisterObject (this);
 		}
+
+		public Application (Context context) : base (UrhoObjectFlag.Empty)
+		{
+			if (context == null)
+				throw new ArgumentNullException ("context");
+			handle = ApplicationProxy_ApplicationProxy (context.Handle, ProxySetup, ProxyStart, ProxyStop);
+			Runtime.RegisterObject (this);
+		}
+		
+
+		static Application GetApp (IntPtr h)
+		{
+			return Runtime.LookupObject<Application> (h);
+		}
+		
+		static void ProxySetup (IntPtr h)
+		{
+			GetApp (h).Setup ();
+		}
+
+		static void ProxyStart (IntPtr h)
+		{
+			GetApp (h).Start ();
+		}
+
+		static void ProxyStop (IntPtr h)
+		{
+			GetApp (h).Stop ();
+		}
+		
+		public virtual void Setup ()
+		{
+			System.Console.WriteLine ("Your application does not override the Setup method, where you configure the engine");
+		}
+
+		public virtual void Start ()
+		{
+			System.Console.WriteLine ("Your application does not override the Start method, where you have access to UI elements");
+		}
+
+		public virtual void Stop ()
+		{
+		}
+		
 
 		//
 		// GetSubsystem helpers

@@ -24,6 +24,7 @@ namespace Urho {
 			if (handle == IntPtr.Zero)
 				throw new ArgumentException ($"Attempted to instantiate a {GetType()} with a null handle");
 			this.handle = handle;
+			Runtime.RegisterObject (this);
 		}
 		
 		public void Dispose ()
@@ -47,8 +48,10 @@ namespace Urho {
 		public void FlushHandles ()
 		{
 			lock (deadHandles){
-				foreach (var p in deadHandles)
+				foreach (var p in deadHandles){
+					Runtime.UnregisterObject (p);
 					RefCounted.RefCounted_ReleaseRef (p);
+				}
 				deadHandles.Clear ();
 			}
 		}

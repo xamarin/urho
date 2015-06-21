@@ -552,6 +552,16 @@ namespace SharpieBinder
 				if (decl.Name == "GetVariation")
 					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
 				break;
+			case "Application":
+				switch (decl.Name) {
+				case "Application":
+					return decl.Parameters.First ().QualType.ToString ().Contains ("Urho3D::Context");
+				case "Setup":
+				case "Start":
+				case "Stop":
+					return true;
+				}
+				break;
 			}
 
 			return false;
@@ -785,9 +795,12 @@ namespace SharpieBinder
 					//id.TypeArguments.Add(methodReturn2);
 
 					//ret.Expression = new InvocationExpression(id, invoke);
-					returnExpression = new ObjectCreateExpression (methodReturn2, invoke); // new IdentifierExpression("handle"));
 
-				} else if (returnIsWrapped == WrapKind.EventHandler) {
+					returnExpression = new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "LookupObject", methodReturn2), invoke);
+					//var x = csParser.ParseExpression ("Hello.Call<Foo> (1)");
+					//returnExpression = new ObjectCreateExpression (methodReturn2, invoke); // new IdentifierExpression("handle"));
+
+					} else if (returnIsWrapped == WrapKind.EventHandler) {
 					returnExpression = invoke;
 				} else if (returnIsWrapped == WrapKind.StringHash) {
 					returnExpression = new ObjectCreateExpression (new SimpleType ("StringHash"), invoke);
@@ -810,6 +823,7 @@ namespace SharpieBinder
 						}
 						var ctorAssign = new AssignmentExpression(new IdentifierExpression("handle"), returnExpression);
 						constructor.Body.Add(new ExpressionStatement(ctorAssign));
+						constructor.Body.Add (new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "RegisterObject"), new ThisReferenceExpression ()));
 					}
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());
@@ -989,7 +1003,13 @@ namespace SharpieBinder
 	//
 	class ScanBaseTypes : AstVisitor
 	{
+		// 
+		// These are the types that we have to lookup earlier, before we run the scan in CxxBinder
+		//
 		static public CXXRecordDecl UrhoRefCounted, EventHandlerType;
+
+		// Provides a way of mapping names to declarations, we load this as we process
+		// and use this information later in CxxBinder
 		public static Dictionary<string, CXXRecordDecl> nameToDecl = new Dictionary<string, CXXRecordDecl>();
 
 		public override void VisitCXXRecordDecl(CXXRecordDecl decl, VisitKind visitKind)
@@ -1019,7 +1039,7 @@ namespace SharpieBinder
 		// typeName to propertyName to returnType to GetterSetter pairs
 		public static Dictionary<string, Dictionary<string, Dictionary<QualType, GetterSetter>>> allProperties =
 			new Dictionary<string, Dictionary<string, Dictionary<QualType, GetterSetter>>>();
-		public int bad;
+
 		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
 		{
 			if (visitKind != VisitKind.Enter)
@@ -1044,9 +1064,6 @@ namespace SharpieBinder
 			// Handle Get methods that are not really getters
 			// This is a get method that does not get anything
 
-
-			if (name.Contains ("TextureQuality"))
-				decl = decl;
 			QualType type;
 			if (name.StartsWith("Get")) {
 				if (decl.Parameters.Count() != 0)
@@ -1056,8 +1073,6 @@ namespace SharpieBinder
 
 				type = decl.ReturnQualType;
 			} else if (name.StartsWith("Set")) {
-				if (name.Contains ("SetNumGeometries"))
-					name = name;
 				if (decl.Parameters.Count() != 1)
 					return;
 				if (!(decl.ReturnQualType.Bind() is Sharpie.Bind.Types.VoidType))

@@ -1,54 +1,34 @@
-BUILD
-=====
 
-Currently we hardcode /cvs/Urho3D as well as hardcoding URHO3D_OPENGL,
-and the reality is that we should instead install Urho3D into a
-prefix, and use pkg-config to fetch the flags for the install (so we
-actually get the configured flags correctly, and we do not need to
-hardcode URHO3D_OPENGL everywhere)
+Findings
+========
 
-This is worng on window.cs
+Struct vector3 can be passed by ref to an unmanaged method that will take that as a Vector3&
 
-                new void RegisterObject (Context context)
-                {
-                        Window_RegisterObject (context == null ? IntPtr.Zero : context.handle);
-                }
+Binding
+=======
+
+Node.CreateCompoennt
+--------------------
+
+Currently using the ugly StringHash API, and since we can not call methods
+through type interfaces, the challenge is then to find a way where we can 
+quickly look this up, based on a type.
+
+API
+---
+Produce default parameters
 
 Object System
 -------------
 
-Need support to do a Runtime.Lookup, not only because we want to avoid
-creating multiple isntances of the same object (which is ok), but
-because we want to be able to return an instance of the *most derived*
-type.
-
-CODE GEN
---------
-
-Either change:
-
-       return new Foo(Foo_Foo (xx))
-       
-to:
-
-	var t = Foo_Foo (xx) ;
-	return t == IntPtr.Zero ? null : new Foo (t);
-
-Or use the lookup system:
-
-   return new Runtime.Lookup<Foo> (Foo_Foo (xx)
-
-
-Application
------------
-Make the code generator not generate Application(context), because we want people to use
-the overload that takes callbacks instead.
+Need support most derived object creation in Runtime.LookupObject.
 
 Bind
 ----
 [ ] Support for the EngineParameters
 [ ] Support for the command line arguments
 [ ] Input/inputEvents constant definitions.
+[ ] Color&
 
 WorkItem issues
 ---------------
@@ -61,48 +41,14 @@ Build
 PhysicsWorld and RigidBody are pending, since they surface some bt data types
 that I do not currently bind.
 
-Events
-======
-
-Object.cs/ObjectCallback: do we even need the stringHash in the event?
-
-Seems like we do not, since we proxy everything.
-
-Binding
--------
-Urho3D::String(string) would currently call a constructor that assumes
-that the value woudl not be released, we probably need to change this
-constructor to call instead String(string,length) so that it makes
-its own copy
-
 Structures
 ----------
 
-Should fix code generation for structures, they should likely use "ref" to initialize themselves?
-
-Generator
----------
-
-Serializer, Deserializer
-========================
-They are only used in a couple of places as base classes, and the type
-is in general not used to pass data around.   So we should inline the
-methods from those classes in the classes that adopt them.
-
-(File, MemoryBuffer, VectorBuffer)
-
-String&
-=======
-
-Return values can be the new StringPtr data type, which is a wrapper
-around the pointer and is implicitly convertible to string.
-
-For calling, we need to figure out what to do here.   We could create
-an on-stack String on demand based on a C# string for an overload method
-and always surface the one that takes a "ref String" method.
+Should fix code generation for structures, they should likely use
+"ref" to initialize themselves?
 
 Enumerations
-============
+------------
 
 They currently just dump the name, we need to dump the value
 
@@ -111,18 +57,34 @@ constants inside real enumeration definitions (because trying to
 prettify this automatically is a lot of work for little gain,
 85 or so enumerations)
 
-PInvoke generator
-=================
+Generator
+=========
 
-Needs to generate unique names for the C method names, currently, we
-have clashing names like these for the C functions:
+Serializer, Deserializer
+------------------------
+They are only used in a couple of places as base classes, and the type
+is in general not used to pass data around.   So we should inline the
+methods from those classes in the classes that adopt them.
 
-String_String ()
-String_String (const char *)
+(File, MemoryBuffer, VectorBuffer)
 
-So for P/Invoek we need unique signatures
 
-Rename/Remap some types
-=======================
-String is a bad name, because it is easy to clash, this type should 
-likely be renamed to UrhoString
+Build Issues
+============
+
+Currently we hardcode /cvs/Urho3D as well as hardcoding URHO3D_OPENGL,
+and the reality is that we should instead install Urho3D into a
+prefix, and use pkg-config to fetch the flags for the install (so we
+actually get the configured flags correctly, and we do not need to
+hardcode URHO3D_OPENGL everywhere)
+
+
+Optimizations
+=============
+
+Events
+------
+
+Object.cs/ObjectCallback: do we even need the stringHash in the event?
+
+Seems like we do not, since we proxy everything.
