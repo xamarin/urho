@@ -7,6 +7,15 @@ Struct vector3 can be passed by ref to an unmanaged method that will take that a
 Binding
 =======
 
+Style
+-----
+Input.MouseMove is a property, this does not look good.   It should be jsut a method, so we need a blacklist there.
+
+Scale overloads
+---------------
+
+Node's scale overloads does not cope well with the get/set autogenerator
+
 Node.CreateCompoennt
 --------------------
 

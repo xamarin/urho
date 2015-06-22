@@ -26,7 +26,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Xml.Serialization;
 
-namespace OpenTK
+namespace Urho
 {
     /// <summary>
     /// Represents a 3D vector using three single-precision floating-point numbers.
@@ -944,6 +944,7 @@ namespace OpenTK
         #endregion
 
         #region Transform
+#if false 
 
         /// <summary>Transform a direction vector by the given Matrix
         /// Assumes the matrix has a bottom row of (0,0,0,1), that is the translation part is ignored.
@@ -1161,7 +1162,7 @@ namespace OpenTK
             result.Y = v.Y / v.W;
             result.Z = v.Z / v.W;
         }
-
+#endif
         #endregion
 
         #region CalculateAngle

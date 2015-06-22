@@ -90,6 +90,24 @@ void check1 (Context *app)
         printf ("GGGG->%x\n", g);
 }
 
+	class Vector3i {
+	public:
+		Vector3i(int a, int b, int c):x(a),y(b),z(c) {}
+		int x, y, z;
+	
+	};
+		
+	Vector3i a (0xdeadbeef,0xcafebabe,0xfeed8001);
+	Vector3i &Readl_getVector3 ()
+	{
+		return a;
+	}
+	
+	Vector3i getVector3 ()
+	{
+		return Readl_getVector3 ();
+	}
+	
 void check2 (Vector3& vec)
 {
 	printf ("Got %g %g %g\n", vec.x_, vec.y_, vec.z_);

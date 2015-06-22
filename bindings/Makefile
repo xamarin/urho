@@ -262,7 +262,9 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/StringHash.cs		\
 	src/Stubs.cs			\
 	src/Structs.cs			\
-	src/UIElement.cs
+	src/UIElement.cs		\
+	external/Vector3.cs		\
+	external/MathHelper.cs
 
 CXXFLAGS=-Wno-return-type-c-linkage $(URHO_FLAGS)
 
@@ -313,7 +315,7 @@ p generated/events.cpp generated/Object.Events.cs: parse.pl
 	perl parse.pl $(URHO_DIR)/include/Urho3d/*/*h
 
 sample.exe: sample.cs Urho.dll
-	mcs -debug sample.cs -r:Urho.dll
+	mcs -unsafe -debug sample.cs -r:Urho.dll
 
 rs: sample.exe libmono-urho.dylib
 	DYLD_LIBRARY_PATH=. /mono/bin/mono --debug sample.exe

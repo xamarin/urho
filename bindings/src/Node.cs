@@ -29,6 +29,10 @@ namespace Urho {
 			return Runtime.LookupObject<T> (ptr);
 		}
 
-		
+		// Parameters are swapped, so I can use default parameters vs the other method signature
+		public Node CreateChild (string name = "", uint id = 0, CreateMode mode = CreateMode.REPLICATED)
+		{
+			return CreateChild (name, mode, id);
+		}				
 	}
 }

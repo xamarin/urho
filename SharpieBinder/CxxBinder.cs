@@ -374,14 +374,28 @@ namespace SharpieBinder
 		}
 
 		const string ConstStringReference = "const class Urho3D::String &";
+
 		// Temporary, just to help us get the bindings bootstrapped
+		// 
+		// This limits which C++ types we can bind, and lets us progressively add more
 		static bool IsUnsupportedType(QualType qt)
 		{
 			var ct = CleanType(qt);
-			#if true || STRING_REF
-			if (ct.ToString() == ConstStringReference)
+			var ctstring = ct.ToString ();
+
+			// String references are hand-bound, so we are going to let those though
+			if (ctstring == ConstStringReference)
 				return false;
-			#endif
+
+			switch (ctstring) {
+			case "const class Urho3D::Vector3 &":
+			case "const class Urho3D::Vector2 &":
+			case "const class Urho3D::Vector4 &":
+			case "const class Urho3D::IntVector2 &":
+			case "const class Urho3D::Quaternion &":
+				return false;
+			}
+
 			var s = ct.Bind().ToString();
 			if (s.Contains ("unsupported")) {
 				return true;
@@ -412,12 +426,14 @@ namespace SharpieBinder
 			return (ptrType.PointeeQualType.Type.UnqualifiedDesugaredType as RecordType);
 		}
 
+		// Describes how a given type should be mapped from our managed API to the P/Invoke call
 		enum WrapKind
 		{
-			None,
-			HandleMember,
-			EventHandler,
-			StringHash
+			None,				// no wrapping needed
+			HandleMember,		// access the .Handle on the parameter
+			EventHandler,		// 
+			StringHash,			// StringHash is handled specially (we surface StringHash, but we always pass an int/receive an int)
+			RefBlittable		// Used for blittable value types that are surfaced as reference classes
 		}
 		// 
 		// Given a Clang QualType, returns the AstType to use to marshal, both for the 
@@ -459,6 +475,19 @@ namespace SharpieBinder
 					highLevel = new PrimitiveType("string");
 					return;
 				}
+			case "const class Urho3D::Vector2 &":
+			case "const class Urho3D::Vector3 &":
+			case "const class Urho3D::Vector4 &":
+			case "const class Urho3D::Quaternion &":
+			case "const class Urho3D::IntVector2 &":
+				int p = cleanTypeStr.IndexOf ("::");
+				int q = cleanTypeStr.IndexOf (" ", p + 2);
+				var simpleType = cleanTypeStr.Substring (p + 2, q - p - 2);
+				highLevel = new SimpleType (simpleType);
+				lowLevel = new SimpleType (simpleType);
+				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				wrapKind = WrapKind.RefBlittable;
+				return;
 			case "class Urho3D::StringHash":
 				highLevel = new SimpleType ("StringHash");
 				lowLevel = new PrimitiveType ("int");
@@ -514,14 +543,34 @@ namespace SharpieBinder
 			highLevel = cleanType.Bind();
 		}
 
-		public string RemapMemberName(string name)
+		//
+		// Remaps member names that might clash with other definitions
+		// (for example with comment methods in System.Object, for consistencty, or
+		// because they clash with the Getter/Setter folding)
+		//
+		public string RemapMemberName(string type, string name)
 		{
-			if (name == "GetType")
-				return "UrhoGetType";
-			if (name == "GetBaseType")
-				return "UrhoGetBaseType";
-			if (name == "ToString")
-				return "ToDebugString";
+			switch (type) {
+			case "Node":
+				switch (name) {
+				case "Scale":
+					return "ScaleNode";
+				case "Scale2D":
+					return "ScaleNode2D";
+				default:
+					break;
+				}
+				break;
+
+			default:
+				if (name == "GetType")
+					return "UrhoGetType";
+				if (name == "GetBaseType")
+					return "UrhoGetBaseType";
+				if (name == "ToString")
+					return "ToDebugString";
+				break;
+			}
 			return name;
 		}
 
@@ -567,41 +616,49 @@ namespace SharpieBinder
 			return false;
 		}
 
-		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
+		// 
+		// Determines if we should bind a method that the C++ API scanner found
+		//
+		bool MethodIsBindable (CXXMethodDecl decl, VisitKind visitKind)
 		{
-			// Global definitions, not inside a class, skip
-			if (currentType == null) {
-				return;
-			}
-
+			// We only care about enter visits, not leave
 			if (visitKind != VisitKind.Enter)
-				return;
+				return false;
 
+			// Global definitions, not inside a class, skip
+			if (currentType == null) 
+				return false;
 
+			// Do not bother with constructors in abstract classes
 			var isConstructor = decl is CXXConstructorDecl;
 			if (isConstructor && decl.Parent.IsAbstract)
-				return;
+				return false;
 
+			// Do not wrap constructors
 			if (decl is CXXDestructorDecl)
-				return;
+				return false;
 
+			// Not supported in C#
 			if (decl.IsCopyAssignmentOperator || decl.IsMoveAssignmentOperator)
-				return;
+				return false;
 
 			// TODO: temporary, do not handle opreators
-			if (!isConstructor && decl.Name.StartsWith("operator", StringComparison.Ordinal))
-				return;
+			if (!isConstructor && decl.Name.StartsWith ("operator", StringComparison.Ordinal))
+				return false;
 
+			// Sanity check
 			if (RemapTypeName (decl.Parent.Name) != currentType.Name) {
 				//Console.WriteLine("For some reason we go t amethod that does not belong here {0}.{1} on {2}", decl.Parent.Name, decl.Name, currentType.Name);
-				return;
+				return false;
 			}
 
+			// We only bind the public API
 			if (decl.Access != AccessSpecifier.Public)
-				return;
+				return false;
 
+			// Skip blacklisted methods
 			if (SkipMethod (decl))
-				return;
+				return false;
 
 			// Temporary: while we add support for other things, just to debug things
 			// remove types we do not support
@@ -609,14 +666,21 @@ namespace SharpieBinder
 				if (IsUnsupportedType(p.QualType)) {
 
 					//Console.WriteLine($"Bailing out on {p.QualType} from {decl.QualifiedName}");
-					return;
+					return false;
 				}
 			}
 			if (IsUnsupportedType(decl.ReturnQualType)) {
 				// HANDLE HERE STRING
 				//Console.WriteLine($"RETURN Bailing out on {decl.ReturnQualType} from {decl.QualifiedName}");
-				return;
+				return false;
 			}
+			return true;
+		}
+
+		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
+		{
+			if (!MethodIsBindable (decl, visitKind))
+				return;
 
 			AstType pinvokeReturn, methodReturn;
 			WrapKind returnIsWrapped;
@@ -637,11 +701,14 @@ namespace SharpieBinder
 				methodName += (uniqueMethodName++).ToString();
 			currentTypeNames.Add(methodName);
 
-			// PInvoke declaration
+			//
+			// PInvoke declaration + C counterpart declaration
+			//
 			string pinvoke_name = MakeName(currentType.Name) + "_" + methodName;
-			if (isConstructor) {
+			var isConstructor = decl is CXXConstructorDecl;
+
+			if (isConstructor)
 				pinvokeReturn = new SimpleType("IntPtr");
-			}
 			var pinvoke = new MethodDeclaration
 			{
 				Name = pinvoke_name,
@@ -650,7 +717,6 @@ namespace SharpieBinder
 			};
 			if (!decl.IsStatic && !isConstructor)
 				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
-
 
 			var dllImport = new Attribute()
 			{
@@ -695,14 +761,17 @@ namespace SharpieBinder
 					p(", ");
 				cinvoke.Append($"_target->{decl.Name} (");
 			}
+
+			//
 			// Method declaration
+			//
 			MethodDeclaration method = null;
 			ConstructorDeclaration constructor = null;
 
 			if (isConstructor) {
 				constructor = new ConstructorDeclaration
 				{
-					Name = RemapMemberName(decl.Name),
+					Name = RemapMemberName(decl.Parent.Name, decl.Name),
 
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)  |
@@ -712,7 +781,7 @@ namespace SharpieBinder
 			} else {
 				method = new MethodDeclaration
 				{
-					Name = RemapMemberName(decl.Name),
+					Name = RemapMemberName(decl.Parent.Name, decl.Name),
 					ReturnType = methodReturn,
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
@@ -720,7 +789,9 @@ namespace SharpieBinder
 				method.Body = new BlockStatement();
 			}
 
-
+			// 
+			// Marshal from C# to C and the C support to call into C++
+			//
 			var invoke = new InvocationExpression(new IdentifierExpression(pinvoke_name));
 			if (!decl.IsStatic && !isConstructor)
 				invoke.Arguments.Add(new IdentifierExpression("handle"));
@@ -748,17 +819,26 @@ namespace SharpieBinder
 					constructor.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
 
 				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName, pinvokeMod));
-				if (wrapKind == WrapKind.HandleMember) {
-					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), new IdentifierExpression (paramName)), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
-						           csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".handle"));
-
-					invoke.Arguments.Add (cond);
-				} else if (wrapKind == WrapKind.StringHash) {
-					invoke.Arguments.Add (csParser.ParseExpression (paramName + ".Code"));
-				} else {
-
+				switch (wrapKind) {
+				case WrapKind.None:
 					invoke.Arguments.Add(new IdentifierExpression(paramName));
+					break;
+				case WrapKind.HandleMember:
+					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), new IdentifierExpression (paramName)), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
+						csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".handle"));
+					invoke.Arguments.Add (cond);
+					break;
+				case WrapKind.EventHandler:
+					invoke.Arguments.Add(new IdentifierExpression(paramName));
+					break;
+				case WrapKind.StringHash:
+					invoke.Arguments.Add (csParser.ParseExpression (paramName + ".Code"));
+					break;
+				case WrapKind.RefBlittable:
+					invoke.Arguments.Add (new DirectionExpression (FieldDirection.Ref, new IdentifierExpression (paramName)));
+					break;
 				}
+
 				var ctype = CleanTypeCplusplus (param.QualType);
 				string paramInvoke = paramName;
 				switch (ctype) {
@@ -801,7 +881,7 @@ namespace SharpieBinder
 					//returnExpression = new ObjectCreateExpression (methodReturn2, invoke); // new IdentifierExpression("handle"));
 
 					} else if (returnIsWrapped == WrapKind.EventHandler) {
-					returnExpression = invoke;
+						returnExpression = invoke;
 				} else if (returnIsWrapped == WrapKind.StringHash) {
 					returnExpression = new ObjectCreateExpression (new SimpleType ("StringHash"), invoke);
 				} else {
@@ -954,6 +1034,15 @@ namespace SharpieBinder
 							if (pname == "Text")
 								pname = "Value";
 							break;
+						case "Sprite":
+							switch (pname) {
+							case "Position":
+								pname = "PositionFloat";
+								break;
+							default:
+								break;
+							}
+							break;
 						case "View":
 							#if false
 							// if false -> temporarily moved the apis to Application, not RefCounted, so there is currently
@@ -976,7 +1065,7 @@ namespace SharpieBinder
 						p.Getter = new Accessor()
 						{
 							Body = new BlockStatement() {
-								new ReturnStatement (new InvocationExpression (new IdentifierExpression (RemapMemberName (gs.Getter.Name))))
+								new ReturnStatement (new InvocationExpression (new IdentifierExpression (RemapMemberName (gs.Getter.Parent.Name, gs.Getter.Name))))
 							}
 						};
 						if (gs.Setter != null) {
