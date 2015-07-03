@@ -33,3 +33,5 @@ To run it, do:
     make rs
   
 That runs Urho with the proper environment variables (DYLD_LIBRARY_PATH and a 64 bit Mono).
+
+![Very simple sample](/xamarin/urho/blob/master/shots/shot-2015-06-21.png)
