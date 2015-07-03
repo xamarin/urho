@@ -4,6 +4,7 @@
 # and use `pkg-config --libs Urho3D`
 #
 URHO_DIR=/cvs/Urho3D
+mono64=/mono
 OBJSHARPIE_BIN=/cvs/ObjectiveSharpie//llvm/_install/bin
 URHO_FLAGS=-I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 URHO_LIBS=-L$(URHO_DIR)/lib -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices -lUrho3D -ldl -lpthread 
@@ -273,7 +274,7 @@ all: check-links Urho.pch Urho.dll libmono-urho.dylib sample.exe
 run: gen-bind Urho.dll
 
 $(GENERATED_SOURCES): Urho.pch ../SharpieBinder/bin/Debug/SharpieBinder.exe
-	/mono/bin/mono ../SharpieBinder/bin/Debug/SharpieBinder.exe
+	$(mono64)/bin/mono ../SharpieBinder/bin/Debug/SharpieBinder.exe
 
 Urho.dll: $(SOURCES) Makefile 
 	mcs -unsafe -out:Urho.dll -target:library -debug $(SOURCES)
@@ -318,7 +319,7 @@ sample.exe: sample.cs Urho.dll
 	mcs -unsafe -debug sample.cs -r:Urho.dll
 
 rs: sample.exe libmono-urho.dylib
-	DYLD_LIBRARY_PATH=. /mono/bin/mono --debug sample.exe
+	DYLD_LIBRARY_PATH=. $(mono64)/bin/mono --debug sample.exe
 
 clean:
 	-rm sample.exe Urho.dll Urho.dll libmono-urho.dylib *.o d 
