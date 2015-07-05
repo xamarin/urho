@@ -8,7 +8,6 @@ using static System.Console;
 using System.Runtime.InteropServices;
 using Urho;
 using System;
-using System.Runtime.InteropServices;
 
 class Sample : Application {
 	[DllImport ("mono-urho")]

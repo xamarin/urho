@@ -20,7 +20,7 @@ extern "C" {
 		return map [h].GetVoidPtr ();
 	}
 	
-	String urho_map_get_String (VariantMap& map, int hash)
+	Urho3D::String urho_map_get_String (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetString ();

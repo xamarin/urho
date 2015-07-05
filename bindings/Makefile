@@ -8,6 +8,7 @@ mono64=/mono
 OBJSHARPIE_BIN=/cvs/ObjectiveSharpie//llvm/_install/bin
 URHO_FLAGS=-I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 URHO_LIBS=-L$(URHO_DIR)/lib -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices -lUrho3D -ldl -lpthread 
+NO_CLS_WARNINGS=-nowarn:3021
 
 GENERATED_SOURCES =	\
 	generated/Animatable.cs		\
@@ -267,7 +268,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	external/Vector3.cs		\
 	external/MathHelper.cs
 
-CXXFLAGS=-Wno-return-type-c-linkage $(URHO_FLAGS)
+CXXFLAGS=-Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS)
 
 all: check-links Urho.pch Urho.dll libmono-urho.dylib sample.exe
 
@@ -277,7 +278,7 @@ $(GENERATED_SOURCES): Urho.pch ../SharpieBinder/bin/Debug/SharpieBinder.exe
 	$(mono64)/bin/mono ../SharpieBinder/bin/Debug/SharpieBinder.exe
 
 Urho.dll: $(SOURCES) Makefile 
-	mcs -unsafe -out:Urho.dll -target:library -debug $(SOURCES)
+	mcs $(NO_CLS_WARNINGS) -unsafe -out:Urho.dll -target:library -debug $(SOURCES)
 
 
 Urho.pch: AllUrho.h Makefile
@@ -287,10 +288,10 @@ libmono-urho.dylib: binding.o glue.o events.o ApplicationProxy.o Makefile
 	c++ -dynamiclib -g -o libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o events.o ApplicationProxy.o
 
 binding.o: AllUrho.h generated/binding.cpp Makefile
-	c++ -g -c $(X) -Wno-return-type-c-linkage generated/binding.cpp $(URHO_FLAGS) 
+	c++ -g -c $(X) $(CXXFLAGS) generated/binding.cpp 
 
 glue.o: src/glue.cpp src/glue.h Makefile 
-	c++ -c src/glue.cpp $(URHO_FLAGS) 
+	c++ -c $(CXXFLAGS) src/glue.cpp 
 
 events.o: generated/events.cpp Makefile 
 	c++ -c generated/events.cpp $(URHO_FLAGS) 
