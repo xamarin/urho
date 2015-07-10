@@ -86,5 +86,17 @@ namespace Urho {
 			hashDict [t] = hash.Code;
 			return hash;
 		}
+
+		[DllImport ("mono-urho", EntryPoint="Urho_GetPlatform")]
+		extern static string GetPlatform();
+
+		static string platform;
+		public static string Platform {
+			get {
+				if (platform == null)
+					platform = GetPlatform ();
+				return platform;
+			}
+		}
 	}
 }

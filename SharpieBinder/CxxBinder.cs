@@ -51,6 +51,7 @@ namespace SharpieBinder
 			}
 			if (s.StartsWith("struct "))
 				return s.Substring(7);
+
 			return s;
 		}
 		class BaseNodeType
@@ -97,8 +98,9 @@ namespace SharpieBinder
 			pn ("#define URHO3D_OPENGL");
 			pn("#include \"../AllUrho.h\"");
 			pn("#include \"../src/asserts.h\"");
+			pn("#include \"../src/interop.h\"");
 			pn("using namespace Urho3D;");
-			pn ("extern \"C\" {");
+			pn("extern \"C\" {");
 
 		}
 
@@ -707,6 +709,9 @@ namespace SharpieBinder
 			string pinvoke_name = MakeName(currentType.Name) + "_" + methodName;
 			var isConstructor = decl is CXXConstructorDecl;
 
+			if (pinvoke_name == "Input_GetMouseMove")
+				Console.WriteLine ("here");
+
 			if (isConstructor)
 				pinvokeReturn = new SimpleType("IntPtr");
 			var pinvoke = new MethodDeclaration
@@ -732,7 +737,6 @@ namespace SharpieBinder
 			string marshalReturn = "{0}";
 			string creturnType = CleanTypeCplusplus(decl.ReturnQualType);
 
-			string extra_code;
 			switch (creturnType) {
 			case "Urho3D::StringHash":
 				creturnType = "int";
@@ -742,7 +746,14 @@ namespace SharpieBinder
 				creturnType = "const char *";
 				marshalReturn = "({0}).CString ()";
 				break;
-			
+			case "const class Urho3D::Vector3 &":
+			case "const class Urho3D::Vector2 &":
+			case "const class Urho3D::Vector4 &":
+			case "const class Urho3D::IntVector2 &":
+			case "const class Urho3D::Quaternion &":
+				creturnType = "Interop" + creturnType.Substring (18, creturnType.Length - 19);
+				marshalReturn = "*((" + creturnType + " *) &({0}))";
+				break;				
 			}
 			
 			if (isConstructor)
@@ -860,7 +871,8 @@ namespace SharpieBinder
 
 			if (method != null && methodReturn is Sharpie.Bind.Types.VoidType) {
 				method.Body.Add(invoke);
-				pn($"{cinvoke.ToString()};");
+				//	pn ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
+				pn ($"{cinvoke.ToString()};");
 			} else {
 				ReturnStatement ret = null;
 				Expression returnExpression;
@@ -907,7 +919,7 @@ namespace SharpieBinder
 					}
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());
-				pn($"{extra_code}");
+				//pn ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
 				pn($"return {rstr};");
 			}
 			pn("}\n");

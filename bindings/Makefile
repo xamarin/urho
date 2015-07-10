@@ -255,6 +255,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	generated/Object.Events.cs	\
 	src/Application.cs		\
 	src/AttributeInfo.cs		\
+	src/Input.cs			\
 	src/Node.cs			\
 	src/Object.cs			\
 	src/UrhoMap.cs			\
@@ -268,7 +269,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	external/Vector3.cs		\
 	external/MathHelper.cs
 
-CXXFLAGS=-Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS)
+CXXFLAGS=-g -Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS)
 
 all: check-links Urho.pch Urho.dll libmono-urho.dylib sample.exe
 
@@ -321,6 +322,9 @@ sample.exe: sample.cs Urho.dll
 
 rs: sample.exe libmono-urho.dylib
 	DYLD_LIBRARY_PATH=. $(mono64)/bin/mono --debug sample.exe
+
+deb: sample.exe libmono-urho.dylib
+	DYLD_LIBRARY_PATH=. gdb --args $(mono64)/bin/mono --debug sample.exe
 
 clean:
 	-rm sample.exe Urho.dll Urho.dll libmono-urho.dylib *.o d 

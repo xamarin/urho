@@ -21,7 +21,6 @@ namespace Urho {
 			return Runtime.LookupObject<T> (ptr);
 		}
 
-		
 		public T CreateComponent<T> (CreateMode mode = CreateMode.REPLICATED, uint id = 0) where T:Component
 		{
 			var stringhash = Runtime.LookupStringHash (typeof (T));
@@ -33,6 +32,13 @@ namespace Urho {
 		public Node CreateChild (string name = "", uint id = 0, CreateMode mode = CreateMode.REPLICATED)
 		{
 			return CreateChild (name, mode, id);
-		}				
+		}
+
+		public T GetComponent<T> () where T:Component
+		{
+			var stringHash = Runtime.LookupStringHash (typeof (T));
+			var ptr = Node_GetComponent (handle, stringHash.Code);
+			return Runtime.LookupObject<T> (ptr);
+		}
 	}
 }

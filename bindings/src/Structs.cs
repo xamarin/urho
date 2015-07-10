@@ -156,7 +156,32 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
+	public struct WeakPtr {
+		internal IntPtr ptr;
+		internal IntPtr refCountPtr;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
 	public struct TouchState {
+		public int TouchID;
+		public IntVector2 Position, LastPosition, Delta;
+		public float Pressure;
+		private WeakPtr _TouchedElement;
+
+		[DllImport ("mono-urho")]
+		extern static IntPtr TouchState_GetTouchedElement (ref TouchState state);
+		
+		public UIElement TouchedElement ()
+		{
+			if (_TouchedElement.ptr == IntPtr.Zero)
+				return null;
+
+			var x = TouchState_GetTouchedElement (ref this);
+			if (x == IntPtr.Zero)
+				return null;
+			
+			return Runtime.LookupObject<UIElement> (x);
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]

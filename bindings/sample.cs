@@ -1,7 +1,9 @@
 //
-// TODO: Sample class needs the HandleSceneUpdate, which updates yaw/pitch
-// TODO: sample class needs InitTouchInput
+// TODO: sample class needs InitTouchInput's patch joystick support
 // TODO: StaticScene, enable the mouse updates once the above are done, they seemed to be rotating forever
+//
+// The class Sample contains the basic init sequence and shared code for
+// all the samples.    The subclasses represent one class per sample.
 // 
 using System.Threading;
 using static System.Console;
@@ -16,9 +18,13 @@ class Sample : Application {
 	[DllImport ("mono-urho")]
 	extern static void check2 (ref Vector3 p);
 
+	const float TouchSensitivity = 2;
 	protected float Yaw, Pitch;
 	protected bool TouchEnabled;
-	
+	protected Node CameraNode;
+	protected Scene Scene;
+	protected Sprite LogoSprite;
+		
 	ResourceCache cache;
 	UI ui;
 	
@@ -50,16 +56,16 @@ class Sample : Application {
 			return;
 
 		ui = UI;
-		var logoSprite = ui.Root.CreateSprite ();
-		logoSprite.Texture = logoTexture;
+		LogoSprite = ui.Root.CreateSprite ();
+		LogoSprite.Texture = logoTexture;
 		int w = logoTexture.Width;
 		int h = logoTexture.Height;
-		logoSprite.SetScale (256.0f / w);
-		logoSprite.SetSize (w, h);
-		logoSprite.SetHotSpot (0, h);
-		logoSprite.SetAlignment (HorizontalAlignment.HA_LEFT, VerticalAlignment.VA_BOTTOM);
-		logoSprite.Opacity = 0.75f;
-		logoSprite.Priority = -100;
+		LogoSprite.SetScale (256.0f / w);
+		LogoSprite.SetSize (w, h);
+		LogoSprite.SetHotSpot (0, h);
+		LogoSprite.SetAlignment (HorizontalAlignment.HA_LEFT, VerticalAlignment.VA_BOTTOM);
+		LogoSprite.Opacity = 0.75f;
+		LogoSprite.Priority = -100;
 	}
 
 	void SetWindowAndTitleIcon ()
@@ -74,7 +80,7 @@ class Sample : Application {
 	
 	void CreateConsoleAndDebugHud ()
 	{
-		var xml = cache.GetXMLFile ("UI/DefaultStyle.xml");
+		var xml = cache.GetXmlFile ("UI/DefaultStyle.xml");
 		console = Engine.CreateConsole ();
 		console.DefaultStyle = xml;
 		console.Background.Opacity = 0.8f;
@@ -83,9 +89,37 @@ class Sample : Application {
 		debugHud.DefaultStyle = xml;
 	}
 
+	void HandleSceneUpdate (EventArgsSceneUpdate args)
+	{
+		if (!TouchEnabled || CameraNode == null)
+			return;
+
+		var input = Input;
+		for (uint i = 0, num = input.NumTouches; i < num; ++i){
+			TouchState state;
+			UIElement e;
+			if (!input.TryGetTouch (i, out state) || (e = state.TouchedElement ()) == null)
+				continue;
+
+			if (state.Delta.X != 0 || state.Delta.Y != 0){
+				var camera = CameraNode.GetComponent<Camera> ();
+				if (camera == null)
+					return;
+				var graphics = Graphics;
+				Yaw += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.X;
+				Pitch += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.Y;
+				CameraNode.Rotation = new Quaternion (Pitch, Yaw, 0);
+			} else {
+				var cursor = UI.Cursor;
+				if (cursor != null && cursor.IsVisible ())
+					cursor.Position = state.Position;
+			}
+		}
+	}
+	
 	void HandleKeyDown (EventArgsKeyDown e)
 	{
-		WriteLine (e.Key);
+		WriteLine ("KeyEvent: " + e.Key);
 		switch (e.Key){
 		case 27: // ESC
 			if (this.Console.IsVisible ())
@@ -171,6 +205,9 @@ class Sample : Application {
 	[DllImport ("mono-urho")]
 	extern unsafe static Vector3i getVector3 ();
 
+	[DllImport ("mono-urho")]
+	public extern unsafe static IntVector2 Test2 (IntPtr handle);
+
 	unsafe void Test ()
 	{
 		Vector3 j = new Vector3 { X = -100, Y = 200, Z = 300 };
@@ -181,14 +218,29 @@ class Sample : Application {
 		WriteLine ("getVector3: {0:x} {1:x} {2:x}", v.X, v.Y, v.Z);
 	}
 #endif
-	
+
+	void InitTouchInput ()
+	{
+		TouchEnabled = true;
+		var layout = ResourceCache.GetXmlFile ("UI/ScreenJoystick_Samples.xml");
+		var screenJoystickIndex = Input.AddScreenJoystick (layout, ResourceCache.GetXmlFile ("UI/DefaultStyle.xml"));
+		Input.SetScreenJoystickVisible (screenJoystickIndex, true);
+	}
+
 	public override void Start ()
 	{
-		//Test ();
+		switch (Runtime.Platform){
+		case "Android":
+		case "iOS":
+			InitTouchInput ();
+			break;
+		}
+		Test ();
 		CreateLogo ();
 		SetWindowAndTitleIcon ();
 		CreateConsoleAndDebugHud ();
 		SubscribeToKeyDown (HandleKeyDown);
+		SubscribeToSceneUpdate (HandleSceneUpdate);
 	}
 
 }
@@ -219,7 +271,6 @@ class HelloWorld : Sample {
 
 class StaticScene : Sample {
 	Camera camera;
-	Node cameraNode;
 	Scene scene;
 	
 	public override void Start ()
@@ -269,9 +320,9 @@ class StaticScene : Sample {
 			mushroomObject.Model = cache.GetModel ("Models/Mushroom.mdl");
 			mushroomObject.SetMaterial (cache.GetMaterial ("Materials/Mushroom.xml"));
 		}
-		cameraNode = scene.CreateChild ("camera");
-		camera = cameraNode.CreateComponent<Camera>();
-		cameraNode.Position = new Vector3 (0, 5, 0);
+		CameraNode = scene.CreateChild ("camera");
+		camera = CameraNode.CreateComponent<Camera>();
+		CameraNode.Position = new Vector3 (0, 5, 0);
 	}
 		
 	void SetupViewport ()
@@ -289,19 +340,20 @@ class StaticScene : Sample {
 			return;
 		var input = Input;
 		var mouseMove = input.MouseMove;
+		//var mouseMove = Test2 (input.Handle);
 		Yaw += mouseSensitivity * mouseMove.X;
 		Pitch += mouseSensitivity * mouseMove.Y;
 		Pitch = Clamp (Pitch, -90, 90);
 
-		//cameraNode.Rotation = new Quaternion (Pitch, Yaw, 0);
+		CameraNode.Rotation = new Quaternion (Pitch, Yaw, 0);
 		if (input.GetKeyDown ('W'))
-			cameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 		if (input.GetKeyDown ('S'))
-			cameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 		if (input.GetKeyDown ('A'))
-			cameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 		if (input.GetKeyDown ('D'))
-			cameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 	}
 	
 	void UpdateHandler (EventArgsUpdate args)
