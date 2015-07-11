@@ -395,6 +395,8 @@ namespace SharpieBinder
 			case "const class Urho3D::Vector4 &":
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::Quaternion &":
+			case "const class Urho3D::BoundingBox &":
+			case "const class Urho3D::Color &":
 				return false;
 			}
 
@@ -481,6 +483,8 @@ namespace SharpieBinder
 			case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::Vector4 &":
 			case "const class Urho3D::Quaternion &":
+			case "const class Urho3D::BoundingBox &":
+			case "const class Urho3D::Color &":
 			case "const class Urho3D::IntVector2 &":
 				int p = cleanTypeStr.IndexOf ("::");
 				int q = cleanTypeStr.IndexOf (" ", p + 2);
@@ -751,6 +755,8 @@ namespace SharpieBinder
 			case "const class Urho3D::Vector4 &":
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::Quaternion &":
+			case "const class Urho3D::BoundingBox &":
+			case "const class Urho3D::Color &":
 				creturnType = "Interop" + creturnType.Substring (18, creturnType.Length - 19);
 				marshalReturn = "*((" + creturnType + " *) &({0}))";
 				break;				

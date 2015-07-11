@@ -7,6 +7,43 @@ Struct vector3 can be passed by ref to an unmanaged method that will take that a
 Binding
 =======
 
+C# code Registration
+--------------------
+
+The C++ code uses an idiom where classes must be registered with the
+context before they can be used by the various "Create" methods, for example
+
+	context->RegisterFactory<Rotator> ()
+
+Which creates an ObjectFactoryImpl that has been initialized with some
+of the constant values from the C++ type to track the type, base type
+and name.  Once that happens, it is possible to
+CreateComponent<Rotator>.
+
+In the scripting world, that is achieved with the ScriptComponent,
+which has support to proxy the dat,a and also "rename the class".
+
+What we need to do is implement a subclass of ObjectFactory that
+overrides the CreateObject() method with one that uses C# to create the object and returns it.
+
+Sample Problem
+--------------
+
+See above for "C# Code Registartion" for some background.
+
+The AnimationSample currently just subscribes to an event on the cube
+element to perform the rotation, instead of creating a custom class that 
+can override methods, and then allow the user to set properties from C#.
+
+What we need to do is implement something like LogicComponent or ScriptComponent
+
+Blessing of Objects
+-------------------
+
+Need some boilerplate to allow C# classes to implement the entire set
+of Urho object system methods.  For example, used in registration of
+objects and factories.
+
 Style
 -----
 Input.MouseMove is a property, this does not look good.   It should be jsut a method, so we need a blacklist there.

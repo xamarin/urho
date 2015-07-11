@@ -67,6 +67,13 @@ namespace Urho {
 	public struct BoundingBox {
 		public Vector3 Min, Max;
 		public bool Defined;
+
+		public BoundingBox (float min, float max)
+		{
+			Min = new Vector3 (min, min, min);
+			Max = new Vector3 (max, max, max);
+			Defined = true;
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -141,6 +148,37 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Color {
 		public float R, G, B, A;
+		public Color ()
+		{
+			R = 1.0f;
+			G = 1.0f;
+			B = 1.0f;
+			A = 1.0f;
+		}
+
+		public Color (float r, float g, float b, float a = 1f)
+		{
+			R = r;
+			G = g;
+			B = b;
+			A = a;
+		}
+
+		public Color (Color source)
+		{
+			R = source.R;
+			G = source.G;
+			B = source.B;
+			A = source.A;
+		}
+
+		public Color (Color source, float alpha)
+		{
+			R = source.R;
+			G = source.G;
+			B = source.B;
+			A = alpha;
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]

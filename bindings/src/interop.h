@@ -27,5 +27,14 @@ namespace Interop {
 	struct Quaternion {
 		float w, x, y, z;
 	};
+
+	struct Color {
+		float r, g, b, a;
+	};
+			
+	struct BoundingBox {
+		Vector3 min, max;
+		bool defined;
+	};
 }
 #endif
