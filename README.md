@@ -35,3 +35,8 @@ To run it, do:
 That runs Urho with the proper environment variables (DYLD_LIBRARY_PATH and a 64 bit Mono).
 
 ![Very simple sample](https://cloud.githubusercontent.com/assets/36863/8503830/a479f564-2193-11e5-8ec4-e8816c24bf4f.png)
+
+Some screencasts:
+
+* http://screencast.com/t/EmFj3O0K8 
+* http://screencast.com/t/Xh8G4StiABY
