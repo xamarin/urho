@@ -1,6 +1,5 @@
 //
 // TODO: sample class needs InitTouchInput's patch joystick support
-// TODO: instead of using the LogicComponent/ScriptComponent in AnimatingSample, I just add the event monitor to the cube, which is not as pretty.
 //
 // The class Sample contains the basic init sequence and shared code for
 // all the samples.    The subclasses represent one class per sample.
@@ -386,6 +385,23 @@ class AnimatingScene : Sample {
 	Camera camera;
 	public AnimatingScene (Context c) : base (c) {}
 
+	class Rotator : Component {
+		public Rotator (Context ctx, Vector3 rotationSpeed) : base (ctx)
+		{
+			RotationSpeed = rotationSpeed;
+			SubscribeToSceneUpdate (SceneUpdate);
+		}
+		public Vector3 RotationSpeed { get; set; }
+		void SceneUpdate (EventArgsSceneUpdate args)
+		{
+			Node.Rotate (new Quaternion (RotationSpeed.X * args.TimeStep,
+						     RotationSpeed.Y * args.TimeStep,
+						     RotationSpeed.Z * args.TimeStep),
+				     TransformSpace.TS_LOCAL);
+		}
+		
+	}
+	
 	void CreateScene ()
 	{
 		var r = new Random ();
@@ -425,8 +441,19 @@ class AnimatingScene : Sample {
 			// to the various update events, and forward them to virtual functions that can be implemented by subclasses. This way
 			// writing logic/update components in C++ becomes similar to scripting.
 			// Now we simply set same rotation speed for all objects
-			var rotationSpeed = new Vector3(10.0f, 20.0f, 30.0f);
 
+			var rotationSpeed = new Vector3(10.0f, 20.0f, 30.0f);
+#if true
+			// First style: use a Rotator instance, which is a component subclass, and
+			// add it to the boxNode.
+			var rotator = new Rotator (Context) {
+				RotationSpeed = rotationSpeed
+			};
+			boxNode.AddComponent (rotator);
+#else
+			//
+			// Or directly, hook up to an existing object and attach some code via a
+			// subscription
 			boxObject.SubscribeToSceneUpdate (args =>
 			{
 				boxNode.Rotate (new Quaternion (rotationSpeed.X * args.TimeStep,
@@ -434,6 +461,7 @@ class AnimatingScene : Sample {
 								rotationSpeed.Z * args.TimeStep),
 					TransformSpace.TS_LOCAL);
 			});
+#endif
 		}
 		// Create the camera. Let the starting position be at the world origin. As the fog limits maximum visible distance, we can
 		// bring the far clip plane closer for more effective culling of distant objects

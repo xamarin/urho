@@ -7,6 +7,11 @@ Struct vector3 can be passed by ref to an unmanaged method that will take that a
 Binding
 =======
 
+EventArgsFoo => FooEventArgs
+----------------------------
+
+Current naming is backwards
+
 C# code Registration
 --------------------
 
@@ -21,7 +26,8 @@ and name.  Once that happens, it is possible to
 CreateComponent<Rotator>.
 
 In the scripting world, that is achieved with the ScriptComponent,
-which has support to proxy the dat,a and also "rename the class".
+which has support to proxy the data and also convenience methods to 
+attaching to events to listen to (not needed in our case I think).
 
 What we need to do is implement a subclass of ObjectFactory that
 overrides the CreateObject() method with one that uses C# to create the object and returns it.
