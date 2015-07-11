@@ -79,6 +79,10 @@ extern "C" {
 		return strdup (GetPlatform().CString ());
 	}
 	
+	AnimationState * AnimatedModel_AnimationStateIdx (AnimatedModel *model, int idx)
+	{
+		return model->GetAnimationStates ()[idx].Get ();
+	}
 	
 void *
 create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
@@ -86,6 +90,9 @@ create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
 	return (void *) new NotificationProxy (receiver, callback, data);
 }
 
+#if false
+
+	// Stuff to check interop
 void check1 (Context *app)
 {
 
@@ -125,11 +132,11 @@ void check1 (Context *app)
 		return Readl_getVector3 ();
 	}
 	
-void check2 (Vector3& vec)
-{
-	printf ("Got %g %g %g\n", vec.x_, vec.y_, vec.z_);
-}
-
+	void check2 (Vector3& vec)
+	{
+		printf ("Got %g %g %g\n", vec.x_, vec.y_, vec.z_);
+	}
+	
 	Urho3D::IntVector2
 	Input_GetMousePosition (Input *_target);
 
@@ -157,6 +164,7 @@ void check2 (Vector3& vec)
 //        void *g = rc->GetSubsystem<Graphics>();
 //        printf ("GGGG->%x\n", g);
 //}
-
+#endif
+	
 }
 

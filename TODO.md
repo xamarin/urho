@@ -7,6 +7,13 @@ Struct vector3 can be passed by ref to an unmanaged method that will take that a
 Binding
 =======
 
+Missing Bindings
+----------------
+
+Wanted
+------
+Bring OpenTK data types to replace the ones in the quick and dirty implementation (Vectors, Quaternions, etc)
+
 EventArgsFoo => FooEventArgs
 ----------------------------
 
@@ -140,3 +147,9 @@ Events
 Object.cs/ObjectCallback: do we even need the stringHash in the event?
 
 Seems like we do not, since we proxy everything.
+
+API improvements
+================
+
+Node's SetBoundingBox should have a GetBoundingBox and surface a BoundingBox property
+

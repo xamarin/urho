@@ -397,6 +397,8 @@ namespace SharpieBinder
 			case "const class Urho3D::Quaternion &":
 			case "const class Urho3D::BoundingBox &":
 			case "const class Urho3D::Color &":
+			case "const struct Urho3D::BiasParameters &":
+			case "const struct Urho3D::CascadeParameters &":
 				return false;
 			}
 
@@ -419,6 +421,7 @@ namespace SharpieBinder
 				return true;
 			if (s.Contains("XMLElement"))
 				return true;
+
 			return false;
 		}
 
@@ -492,6 +495,18 @@ namespace SharpieBinder
 				highLevel = new SimpleType (simpleType);
 				lowLevel = new SimpleType (simpleType);
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				wrapKind = WrapKind.RefBlittable;
+				return;
+			case "const struct Urho3D::BiasParameters &":
+				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				highLevel = new SimpleType ("BiasParameters");
+				lowLevel = new SimpleType ("BiasParameters");
+				wrapKind = WrapKind.RefBlittable;
+				return;
+			case "const struct Urho3D::CascadeParameters &":
+				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				highLevel = new SimpleType ("CascadeParameters");
+				lowLevel = new SimpleType ("CascadeParameters");
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "class Urho3D::StringHash":

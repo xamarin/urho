@@ -254,7 +254,9 @@ GENERATED_SOURCES =	\
 SOURCES = $(GENERATED_SOURCES) 		\
 	generated/Object.Events.cs	\
 	src/Application.cs		\
+	src/AnimatedModel.cs		\
 	src/AttributeInfo.cs		\
+	src/Component.cs		\
 	src/Input.cs			\
 	src/Node.cs			\
 	src/Object.cs			\

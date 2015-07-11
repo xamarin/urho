@@ -74,6 +74,13 @@ namespace Urho {
 			Max = new Vector3 (max, max, max);
 			Defined = true;
 		}
+
+		public BoundingBox (Vector3 min, Vector3 max)
+		{
+			Min = min;
+			Max = max;
+			Defined = true;
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -323,6 +330,44 @@ namespace Urho {
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct PackageEntry {
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct BiasParameters {
+		public float ConstantBias;
+		public float SlopeScaleBias;
+
+		public BiasParameters (float constantBias, float slopeScaleBias)
+		{
+			ConstantBias = constantBias;
+			SlopeScaleBias = slopeScaleBias;
+		}
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct CascadeParameters {
+		public float Split1, Split2, Split3, Split4;
+		public float FadeStart;
+		public float BiasAutoAdjust;
+
+		public CascadeParameters (float split1, float split2, float split3, float split4, float fadeStart, float biasAutoAdjust = 1f)
+		{
+			Split1 = split1;
+			Split2 = split2;
+			Split3 = split3;
+			Split4 = split4;
+			FadeStart = fadeStart;
+			BiasAutoAdjust = biasAutoAdjust;
+		}
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct FocusParameters {
+		public bool Focus;
+		public bool NonUniform;
+		public bool AutoSize;
+		public float Quantize;
+		public float MinView;
 	}
 }
 
