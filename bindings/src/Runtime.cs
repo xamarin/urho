@@ -98,5 +98,102 @@ namespace Urho {
 				return platform;
 			}
 		}
+
+		static internal IList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : RefCounted
+		{
+			return new Vectors.Proxy<T> (handle);
+		}
+	}
+
+	internal static class Vectors {
+		[DllImport ("mono-urho")]
+		internal extern static int VectorSharedPtr_Count (IntPtr h);
+
+		[DllImport ("mono-urho")]
+		internal extern static IntPtr VectorSharedPtr_GetIdx (IntPtr h, int idx);
+
+		[DllImport ("mono-urho")]
+		internal extern static void VectorSharedPtr_SetIdx (IntPtr h, int idx, IntPtr v);
+		
+	
+		internal class Proxy<T> : IList<T> where T : RefCounted
+		{
+			IntPtr handle;
+			public Proxy (IntPtr handle)
+			{
+				this.handle = handle;
+			}
+			
+		
+			public T this [int idx] {
+				get {
+					return Runtime.LookupObject<T> (VectorSharedPtr_GetIdx (handle, idx));
+				}
+				set {
+					// Mhm, how do we get the SharedPtr from an existing object?
+					throw new NotImplementedException ("Proxy has not implemented this yet");
+				}
+			}
+				
+			public int IndexOf (T v)
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");
+			}
+			
+			public void Insert (int idx, T v)
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");
+			}
+			
+			public void RemoveAt (int idx)
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");
+			}
+			
+			public bool Remove (T val)
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");
+			}
+			
+			public void CopyTo (T [] target, int p)
+			{
+				int c = Count;
+				for (int i = 0; i < c; i++)
+					target [i+p] = this[i];
+			}
+			
+			public int Count {
+				get {
+					return VectorSharedPtr_Count (handle);
+				}
+			}
+			
+			public bool IsReadOnly => false;
+			
+			public void Add (T v)
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");			
+			}
+			
+			public void Clear ()
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");			
+			}
+			
+			public bool Contains (T v)
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");			
+			}
+			
+			System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator ()
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");			
+			}
+			
+			public IEnumerator<T> GetEnumerator ()
+			{
+				throw new NotImplementedException ("Proxy has not implemented this yet");			
+			}
+		}
 	}
 }

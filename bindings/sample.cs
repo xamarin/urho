@@ -527,7 +527,7 @@ class SkeletalAnimation : Sample {
 			
 			var model = GetComponent<AnimatedModel>();
 			if (model.NumAnimationStates > 0){
-				var state = model.GetAnimationState (0);
+				var state = model.AnimationStates [0];
 				state.AddTime(args.TimeStep);
 			}
 		}

@@ -254,7 +254,6 @@ GENERATED_SOURCES =	\
 SOURCES = $(GENERATED_SOURCES) 		\
 	generated/Object.Events.cs	\
 	src/Application.cs		\
-	src/AnimatedModel.cs		\
 	src/AttributeInfo.cs		\
 	src/Component.cs		\
 	src/Input.cs			\
@@ -287,14 +286,17 @@ Urho.dll: $(SOURCES) Makefile
 Urho.pch: AllUrho.h Makefile
 	$(OBJSHARPIE_BIN)/clang -cc1 -emit-pch -o Urho.pch all-urho.cpp  -I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 
-libmono-urho.dylib: binding.o glue.o events.o ApplicationProxy.o Makefile
-	c++ -dynamiclib -g -o libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o events.o ApplicationProxy.o
+libmono-urho.dylib: binding.o glue.o events.o ApplicationProxy.o vector.o Makefile 
+	c++ -dynamiclib -g -o libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o vector.o events.o ApplicationProxy.o
 
 binding.o: AllUrho.h generated/binding.cpp Makefile
 	c++ -g -c $(X) $(CXXFLAGS) generated/binding.cpp 
 
 glue.o: src/glue.cpp src/glue.h Makefile 
 	c++ -c $(CXXFLAGS) src/glue.cpp 
+
+vector.o: src/vector.cpp src/glue.h Makefile 
+	c++ -c $(CXXFLAGS) src/vector.cpp 
 
 events.o: generated/events.cpp Makefile 
 	c++ -c generated/events.cpp $(URHO_FLAGS) 

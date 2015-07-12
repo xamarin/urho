@@ -165,6 +165,7 @@ namespace SharpieBinder
 
 			syntaxTree.Members.Add(new UsingDeclaration("System"));
 			syntaxTree.Members.Add(new UsingDeclaration() { Import = new SimpleType("System.Runtime.InteropServices") });
+			syntaxTree.Members.Add(new UsingDeclaration() { Import = new SimpleType("System.Collections.Generic") });
 
 			var ns = new NamespaceDeclaration("Urho");
 			syntaxTree.Members.Add(ns);
@@ -376,11 +377,11 @@ namespace SharpieBinder
 		}
 
 		const string ConstStringReference = "const class Urho3D::String &";
-
+		static HashSet<string> displayed = new HashSet<string>();
 		// Temporary, just to help us get the bindings bootstrapped
 		// 
 		// This limits which C++ types we can bind, and lets us progressively add more
-		static bool IsUnsupportedType(QualType qt)
+		static bool IsUnsupportedType(QualType qt, bool returnType = false)
 		{
 			var ct = CleanType(qt);
 			var ctstring = ct.ToString ();
@@ -400,6 +401,19 @@ namespace SharpieBinder
 			case "const struct Urho3D::BiasParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 				return false;
+			}
+
+			if (returnType) {
+				if (ctstring == "const Vector<SharedPtr<class Urho3D::AnimationState> > &")
+					return false;
+#if true
+				if (ctstring.Contains ("Vector")) {
+					if (!displayed.Contains (ctstring)) {
+						Console.WriteLine (ctstring);
+						displayed.Add (ctstring);
+					}
+				}
+#endif
 			}
 
 			var s = ct.Bind().ToString();
@@ -440,6 +454,7 @@ namespace SharpieBinder
 			HandleMember,		// access the .Handle on the parameter
 			EventHandler,		// 
 			StringHash,			// StringHash is handled specially (we surface StringHash, but we always pass an int/receive an int)
+			VectorSharedPtr,	// Used to marshal Vector pointers, by using an implementation of a IList<T> 
 			RefBlittable		// Used for blittable value types that are surfaced as reference classes
 		}
 		// 
@@ -508,6 +523,13 @@ namespace SharpieBinder
 				highLevel = new SimpleType ("CascadeParameters");
 				lowLevel = new SimpleType ("CascadeParameters");
 				wrapKind = WrapKind.RefBlittable;
+				return;
+
+				// currently "Vector<X> &" are only supported for return values
+			case "const Vector<SharedPtr<class Urho3D::AnimationState> > &":
+				highLevel = csParser.ParseTypeReference ("IList<AnimationState>");
+				lowLevel = new SimpleType ("IntPtr");
+				wrapKind = WrapKind.VectorSharedPtr;
 				return;
 			case "class Urho3D::StringHash":
 				highLevel = new SimpleType ("StringHash");
@@ -684,14 +706,14 @@ namespace SharpieBinder
 			// Temporary: while we add support for other things, just to debug things
 			// remove types we do not support
 			foreach (var p in decl.Parameters) {
-				if (IsUnsupportedType(p.QualType)) {
+				if (IsUnsupportedType(p.QualType, returnType: false)) {
 
 					//Console.WriteLine($"Bailing out on {p.QualType} from {decl.QualifiedName}");
 					return false;
 				}
 			}
-			if (IsUnsupportedType(decl.ReturnQualType)) {
-				// HANDLE HERE STRING
+			if (IsUnsupportedType(decl.ReturnQualType, returnType: true)) {
+				
 				//Console.WriteLine($"RETURN Bailing out on {decl.ReturnQualType} from {decl.QualifiedName}");
 				return false;
 			}
@@ -869,6 +891,8 @@ namespace SharpieBinder
 				case WrapKind.RefBlittable:
 					invoke.Arguments.Add (new DirectionExpression (FieldDirection.Ref, new IdentifierExpression (paramName)));
 					break;
+				case WrapKind.VectorSharedPtr:
+					throw new NotImplementedException ("Vector marshaling not supported for parameters yet");
 				}
 
 				var ctype = CleanTypeCplusplus (param.QualType);
@@ -902,23 +926,40 @@ namespace SharpieBinder
 				if (!isConstructor)
 					ret = new ReturnStatement();
 
-				if (returnIsWrapped == WrapKind.HandleMember) {
-
-					//var id = new IdentifierExpression("LookupObject");
-					//id.TypeArguments.Add(methodReturn2);
-
-					//ret.Expression = new InvocationExpression(id, invoke);
-
+				switch (returnIsWrapped) {
+				case WrapKind.HandleMember:
 					returnExpression = new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "LookupObject", methodReturn2), invoke);
-					//var x = csParser.ParseExpression ("Hello.Call<Foo> (1)");
-					//returnExpression = new ObjectCreateExpression (methodReturn2, invoke); // new IdentifierExpression("handle"));
-
-					} else if (returnIsWrapped == WrapKind.EventHandler) {
-						returnExpression = invoke;
-				} else if (returnIsWrapped == WrapKind.StringHash) {
-					returnExpression = new ObjectCreateExpression (new SimpleType ("StringHash"), invoke);
-				} else {
+					break;
+				case WrapKind.EventHandler:
 					returnExpression = invoke;
+					break;
+				case WrapKind.StringHash:
+					returnExpression = new ObjectCreateExpression (new SimpleType ("StringHash"), invoke);
+					break;
+				case WrapKind.VectorSharedPtr:
+					var cacheName = "_" + method.Name + "_cache";
+					var f = new FieldDeclaration () {
+						ReturnType = method.ReturnType.Clone (),
+						Modifiers = Modifiers.Private | (method.Modifiers & Modifiers.Static)
+					};
+					f.Variables.Add (new VariableInitializer (cacheName, null));
+					currentType.Members.Add (f);
+
+					returnExpression = new ConditionalExpression (
+						new BinaryOperatorExpression (new IdentifierExpression (cacheName), BinaryOperatorType.InEquality, new PrimitiveExpression (null)),
+						new IdentifierExpression (cacheName),
+						new AssignmentExpression (
+							new IdentifierExpression (cacheName), 
+							new InvocationExpression (
+								new MemberReferenceExpression (
+									new IdentifierExpression ("Runtime"), "CreateVectorSharedPtrProxy", (methodReturn as SimpleType).TypeArguments.First ().Clone ()),
+								invoke)));
+						
+						
+					break;
+				default:
+					returnExpression = invoke;
+					break;
 				}
 				if (ret != null) {
 					ret.Expression = returnExpression;
