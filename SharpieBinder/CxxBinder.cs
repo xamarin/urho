@@ -404,9 +404,18 @@ namespace SharpieBinder
 			}
 
 			if (returnType) {
-				if (ctstring == "const Vector<SharedPtr<class Urho3D::AnimationState> > &")
+				switch (ctstring) {
+				case "const Vector<SharedPtr<class Urho3D::Node> > &":
+				case "const Vector<SharedPtr<class Urho3D::Component> > &":
+				case "const Vector<SharedPtr<class Urho3D::VertexBuffer> > &":
+				case "const Vector<SharedPtr<class Urho3D::IndexBuffer> > &":
+				case "const Vector<SharedPtr<class Urho3D::UIElement> > &":
+				case "const Vector<SharedPtr<class Urho3D::PackageFile> > &":
+				case "const Vector<SharedPtr<class Urho3D::Texture2D> > &":
+				case "const Vector<SharedPtr<class Urho3D::AnimationState> > &":
 					return false;
-#if true
+				}
+#if false
 				if (ctstring.Contains ("Vector")) {
 					if (!displayed.Contains (ctstring)) {
 						Console.WriteLine (ctstring);
@@ -527,7 +536,18 @@ namespace SharpieBinder
 
 				// currently "Vector<X> &" are only supported for return values
 			case "const Vector<SharedPtr<class Urho3D::AnimationState> > &":
-				highLevel = csParser.ParseTypeReference ("IList<AnimationState>");
+			case "const Vector<SharedPtr<class Urho3D::Node> > &":
+			case "const Vector<SharedPtr<class Urho3D::Component> > &":
+			case "const Vector<SharedPtr<class Urho3D::VertexBuffer> > &":
+			case "const Vector<SharedPtr<class Urho3D::IndexBuffer> > &":
+			case "const Vector<SharedPtr<class Urho3D::UIElement> > &":
+			case "const Vector<SharedPtr<class Urho3D::PackageFile> > &":
+			case "const Vector<SharedPtr<class Urho3D::Texture2D> > &":
+				var sp = cleanTypeStr.IndexOf ("::");
+				var ep = cleanTypeStr.IndexOf ("> >");
+				string tn = cleanTypeStr.Substring (sp + 2, ep - sp - 2);
+
+				highLevel = csParser.ParseTypeReference ("IList<" + tn + ">");
 				lowLevel = new SimpleType ("IntPtr");
 				wrapKind = WrapKind.VectorSharedPtr;
 				return;
