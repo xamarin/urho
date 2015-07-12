@@ -39,6 +39,9 @@ attaching to events to listen to (not needed in our case I think).
 What we need to do is implement a subclass of ObjectFactory that
 overrides the CreateObject() method with one that uses C# to create the object and returns it.
 
+The sole point of this is to allow the idiom: foo->CreateObject<XX>
+instead of doing "new XX(Context)" followed by an AddComponent.
+
 Sample Problem
 --------------
 

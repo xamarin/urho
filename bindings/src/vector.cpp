@@ -22,4 +22,5 @@ extern "C" {
 		
 		return (*vector) [idx].Get ();
 	}
+
 }

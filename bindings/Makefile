@@ -321,8 +321,11 @@ d: d.cpp Makefile
 p generated/events.cpp generated/Object.Events.cs: parse.pl
 	perl parse.pl $(URHO_DIR)/include/Urho3d/*/*h
 
-sample.exe: sample.cs Urho.dll
-	mcs -unsafe -debug sample.cs -r:Urho.dll
+sample.exe: sample.cs sample-lib.dll Urho.dll
+	mcs -unsafe -debug sample.cs -r:sample-lib.dll -r:Urho.dll 
+
+sample-lib.dll: sample-lib.cs
+	mcs -unsafe -debug -target:library sample-lib.cs -r:Urho.dll 
 
 rs: sample.exe libmono-urho.dylib
 	DYLD_LIBRARY_PATH=. $(mono64)/bin/mono --debug sample.exe
