@@ -31,7 +31,7 @@ while (<>){
     next if (/#define/);
     if (/EVENT\(/){
 	($ec,$en) = $_ =~ /EVENT\((\w+), ?(\w+)/;
-	print CS "    public struct EventArgs$en {\n";
+	print CS "    public struct ${en}EventArgs {\n";
 	print CS "        internal IntPtr handle;\n";
 	print CPP "void urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
 	print CPP "{\n";
@@ -52,9 +52,9 @@ while (<>){
 		print CS "    public partial class UrhoObject {\n"; 
 		print CS "         [DllImport(\"mono-urho\")]\n";
 		print CS "         extern static void urho_subscribe_$en (IntPtr target, Action<IntPtr,int,IntPtr> act, IntPtr data);\n";
-                print CS "         public void SubscribeTo$en (Action<EventArgs$en> handler)\n";
+                print CS "         public void SubscribeTo$en (Action<${en}EventArgs> handler)\n";
 		print CS "         {\n";
-		print CS "              Action<IntPtr> proxy = (x)=> { var d = new EventArgs$en () { handle = x }; handler (d); };\n";
+		print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";
 	        print CS "              GCHandle gch = GCHandle.Alloc (proxy);\n";
 		print CS "              urho_subscribe_$en (handle, ObjectCallback, GCHandle.ToIntPtr (gch));\n";
 		print CS "         }\n";

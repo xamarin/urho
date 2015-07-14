@@ -298,7 +298,7 @@ glue.o: src/glue.cpp src/glue.h Makefile
 vector.o: src/vector.cpp src/glue.h Makefile 
 	c++ -c $(CXXFLAGS) src/vector.cpp 
 
-events.o: generated/events.cpp Makefile 
+events.o: generated/events.cpp Makefile parse.pl
 	c++ -c generated/events.cpp $(URHO_FLAGS) 
 
 ApplicationProxy.o: src/ApplicationProxy.cpp src/ApplicationProxy.h Makefile
@@ -324,7 +324,7 @@ p generated/events.cpp generated/Object.Events.cs: parse.pl
 sample.exe: sample.cs sample-lib.dll Urho.dll
 	mcs -unsafe -debug sample.cs -r:sample-lib.dll -r:Urho.dll 
 
-sample-lib.dll: sample-lib.cs
+sample-lib.dll: sample-lib.cs Urho.dll
 	mcs -unsafe -debug -target:library sample-lib.cs -r:Urho.dll 
 
 rs: sample.exe libmono-urho.dylib

@@ -94,7 +94,7 @@ public class Sample : Application {
 		debugHud.DefaultStyle = xml;
 	}
 
-	void HandleSceneUpdate (EventArgsSceneUpdate args)
+	void HandleSceneUpdate (SceneUpdateEventArgs args)
 	{
 		if (!TouchEnabled || CameraNode == null)
 			return;
@@ -123,7 +123,7 @@ public class Sample : Application {
 		}
 	}
 	
-	void HandleKeyDown (EventArgsKeyDown e)
+	void HandleKeyDown (KeyDownEventArgs e)
 	{
 		WriteLine ("KeyEvent: " + e.Key);
 		switch (e.Key){

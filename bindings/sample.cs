@@ -90,7 +90,7 @@ class StaticScene : Sample {
 		renderer.SetViewport (0, new Viewport (Context, scene, camera, null));
 	}
 
-	void UpdateHandler (EventArgsUpdate args)
+	void UpdateHandler (UpdateEventArgs args)
 	{
 		SimpleMoveCamera (args.TimeStep);
 	}
@@ -109,7 +109,7 @@ class AnimatingScene : Sample {
 			SubscribeToSceneUpdate (SceneUpdate);
 		}
 		public Vector3 RotationSpeed { get; set; }
-		void SceneUpdate (EventArgsSceneUpdate args)
+		void SceneUpdate (SceneUpdateEventArgs args)
 		{
 			Node.Rotate (new Quaternion (RotationSpeed.X * args.TimeStep,
 						     RotationSpeed.Y * args.TimeStep,
@@ -228,7 +228,7 @@ class SkeletalAnimation : Sample {
 			SubscribeToSceneUpdate (SceneUpdate);
 		}
 
-		public void SceneUpdate (EventArgsSceneUpdate args)
+		public void SceneUpdate (SceneUpdateEventArgs args)
 		{
 			// This moves the character position
 			Node.Translate (Vector3.UnitZ * MoveSpeed * args.TimeStep, TransformSpace.TS_LOCAL);
