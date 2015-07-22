@@ -21,6 +21,33 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct IntRect {
 		public int Left, Top, Right, Bottom;
+		public IntRect (int left, int top, int right, int bottom)
+		{
+			Left = left;
+			Top = top;
+			Right = right;
+			Bottom = bottom;
+		}
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Rect {
+		public Vector2 Min, Max;
+		public bool Defined;
+
+		public Rect (int left, int top, int right, int bottom)
+		{
+			Min = new Vector2 (left, top);
+			Max = new Vector2 (right, bottom);
+			Defined = true;
+		}
+		
+		public Rect (Vector2 min, Vector2 max)
+		{
+			Min = min;
+			Max = max;
+			Defined = true;
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -222,6 +249,13 @@ namespace Urho {
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Billboard {
+		public Vector3 Position;
+		public Vector2 Size;
+		public Rect UV;
+		public Color Color;
+		public float Rotation;
+		public bool Enabled;
+		public float SortDistance;
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?

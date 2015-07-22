@@ -40,3 +40,9 @@ Some screencasts:
 
 * http://screencast.com/t/EmFj3O0K8 
 * http://screencast.com/t/Xh8G4StiABY
+
+# Sample Issues
+
+Various sample issues are being tracked here:
+
+https://docs.google.com/spreadsheets/d/1TUMBGpo7Jp18yp7AqghXE9QnBC5jVLt2tDQWfD_bI2w/edit?usp=sharing
