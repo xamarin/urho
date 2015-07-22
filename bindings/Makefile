@@ -268,7 +268,18 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Structs.cs			\
 	src/UIElement.cs		\
 	external/Vector3.cs		\
-	external/MathHelper.cs
+	external/MathHelper.cs		\
+	external/Matrix3.cs		\
+	external/Matrix4.cs		\
+	external/Matrix4d.cs		\
+	external/Quaternion.cs		\
+	external/Quaterniond.cs		\
+	external/Vector2d.cs		\
+	external/Vector3d.cs		\
+	external/Vector4d.cs		\
+	external/Vector2.cs		\
+	external/Vector3.cs		\
+	external/Vector4.cs
 
 CXXFLAGS=-g -Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS)
 

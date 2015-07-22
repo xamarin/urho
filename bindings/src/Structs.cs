@@ -19,28 +19,6 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct Vector2 {
-		public float X, Y;
-		public Vector2 (float x, float y)
-		{
-			X = x;
-			Y = y;
-		}
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
-	public struct Vector4 {
-		public float X, Y, Z, W;
-		public Vector4 (float x, float y, float z, float w)
-		{
-			X = x;
-			Y = y;
-			Z = z;
-			W = w;
-		}
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
 	public struct IntRect {
 		public int Left, Top, Right, Bottom;
 	}
@@ -81,58 +59,6 @@ namespace Urho {
 			Max = max;
 			Defined = true;
 		}
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
-	public struct Quaternion {
-		public float W, X, Y, Z;
-		public Quaternion (float w, float x, float y, float z)
-		{
-			W = w;
-			X = x;
-			Y = y;
-			Z = z;
-		}
-
-		// From Euler angles
-		public Quaternion (float x, float y, float z)
-		{
-			const float M_DEGTORAD_2 = (float)Math.PI / 360.0f;
-			x *= M_DEGTORAD_2;
-			y *= M_DEGTORAD_2;
-			z *= M_DEGTORAD_2;
-			float sinX = (float)Math.Sin(x);
-			float cosX = (float)Math.Cos(x);
-			float sinY = (float)Math.Sin(y);
-			float cosY = (float)Math.Cos(y);
-			float sinZ = (float)Math.Sin(z);
-			float cosZ = (float)Math.Cos(z);
-			
-			W = cosY * cosX * cosZ + sinY * sinX * sinZ;
-			X = cosY * sinX * cosZ + sinY * cosX * sinZ;
-			Y = sinY * cosX * cosZ - cosY * sinX * sinZ;
-			Z = cosY * cosX * sinZ - sinY * sinX * cosZ;
-		}
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
-	public struct Matrix4 {
-		public float m00;
-		public float m01;
-		public float m02;
-		public float m03;
-		public float m10;
-		public float m11;
-		public float m12;
-		public float m13;
-		public float m20;
-		public float m21;
-		public float m22;
-		public float m23;
-		public float m30;
-		public float m31;
-		public float m32;
-		public float m33;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]

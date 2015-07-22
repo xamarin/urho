@@ -1,4 +1,4 @@
-﻿#region --- License ---
+#region --- License ---
 /*
 Copyright (c) 2006 - 2008 The Open Toolkit library.
 
@@ -25,83 +25,137 @@ SOFTWARE.
 using System;
 using System.Runtime.InteropServices;
 using System.Xml.Serialization;
+
 namespace Urho
 {
-    /// <summary>
-    /// Represents a 3D vector using three single-precision floating-point numbers.
-    /// </summary>
-    /// <remarks>
-    /// The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.
-    /// </remarks>
+    /// <summary>Represents a 4D vector using four double-precision floating-point numbers.</summary>
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    public struct Vector3 : IEquatable<Vector3>
+    public struct Vector4d : IEquatable<Vector4d>
     {
         #region Fields
 
         /// <summary>
-        /// The X component of the Vector3.
+        /// The X component of the Vector4d.
         /// </summary>
-        public float X;
+        public double X;
 
         /// <summary>
-        /// The Y component of the Vector3.
+        /// The Y component of the Vector4d.
         /// </summary>
-        public float Y;
+        public double Y;
 
         /// <summary>
-        /// The Z component of the Vector3.
+        /// The Z component of the Vector4d.
         /// </summary>
-        public float Z;
+        public double Z;
+
+        /// <summary>
+        /// The W component of the Vector4d.
+        /// </summary>
+        public double W;
+
+        /// <summary>
+        /// Defines a unit-length Vector4d that points towards the X-axis.
+        /// </summary>
+        public static Vector4d UnitX = new Vector4d(1, 0, 0, 0);
+
+        /// <summary>
+        /// Defines a unit-length Vector4d that points towards the Y-axis.
+        /// </summary>
+        public static Vector4d UnitY = new Vector4d(0, 1, 0, 0);
+
+        /// <summary>
+        /// Defines a unit-length Vector4d that points towards the Z-axis.
+        /// </summary>
+        public static Vector4d UnitZ = new Vector4d(0, 0, 1, 0);
+
+        /// <summary>
+        /// Defines a unit-length Vector4d that points towards the W-axis.
+        /// </summary>
+        public static Vector4d UnitW = new Vector4d(0, 0, 0, 1);
+
+        /// <summary>
+        /// Defines a zero-length Vector4d.
+        /// </summary>
+        public static Vector4d Zero = new Vector4d(0, 0, 0, 0);
+
+        /// <summary>
+        /// Defines an instance with all components set to 1.
+        /// </summary>
+        public static readonly Vector4d One = new Vector4d(1, 1, 1, 1);
+
+        /// <summary>
+        /// Defines the size of the Vector4d struct in bytes.
+        /// </summary>
+        public static readonly int SizeInBytes = Marshal.SizeOf(new Vector4d());
 
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Constructs a new Vector3.
+        /// Constructs a new Vector4d.
         /// </summary>
-        /// <param name="x">The x component of the Vector3.</param>
-        /// <param name="y">The y component of the Vector3.</param>
-        /// <param name="z">The z component of the Vector3.</param>
-        public Vector3(float x, float y, float z)
+        /// <param name="x">The x component of the Vector4d.</param>
+        /// <param name="y">The y component of the Vector4d.</param>
+        /// <param name="z">The z component of the Vector4d.</param>
+        /// <param name="w">The z component of the Vector4d.</param>
+        public Vector4d(double x, double y, double z, double w)
         {
             X = x;
             Y = y;
             Z = z;
+            W = w;
         }
 
         /// <summary>
-        /// Constructs a new Vector3 from the given Vector2.
+        /// Constructs a new Vector4d from the given Vector2d.
         /// </summary>
-        /// <param name="v">The Vector2 to copy components from.</param>
-        public Vector3(Vector2 v)
+        /// <param name="v">The Vector2d to copy components from.</param>
+        public Vector4d(Vector2d v)
         {
             X = v.X;
             Y = v.Y;
             Z = 0.0f;
+            W = 0.0f;
         }
 
         /// <summary>
-        /// Constructs a new Vector3 from the given Vector3.
+        /// Constructs a new Vector4d from the given Vector3d.
         /// </summary>
-        /// <param name="v">The Vector3 to copy components from.</param>
-        public Vector3(Vector3 v)
+        /// <param name="v">The Vector3d to copy components from.</param>
+        public Vector4d(Vector3d v)
         {
             X = v.X;
             Y = v.Y;
             Z = v.Z;
+            W = 0.0f;
         }
 
         /// <summary>
-        /// Constructs a new Vector3 from the given Vector4.
+        /// Constructs a new Vector4d from the specified Vector3d and W component.
         /// </summary>
-        /// <param name="v">The Vector4 to copy components from.</param>
-        public Vector3(Vector4 v)
+        /// <param name="v">The Vector3d to copy components from.</param>
+        /// <param name="w">The W component of the new Vector4.</param>
+        public Vector4d(Vector3 v, double w)
         {
             X = v.X;
             Y = v.Y;
             Z = v.Z;
+            W = w;
+        }
+
+        /// <summary>
+        /// Constructs a new Vector4d from the given Vector4d.
+        /// </summary>
+        /// <param name="v">The Vector4d to copy components from.</param>
+        public Vector4d(Vector4d v)
+        {
+            X = v.X;
+            Y = v.Y;
+            Z = v.Z;
+            W = v.W;
         }
 
         #endregion
@@ -115,22 +169,24 @@ namespace Urho
         /// <summary>Add the Vector passed as parameter to this instance.</summary>
         /// <param name="right">Right operand. This parameter is only read from.</param>
         [Obsolete("Use static Add() method instead.")]
-        public void Add(Vector3 right)
+        public void Add(Vector4d right)
         {
             this.X += right.X;
             this.Y += right.Y;
             this.Z += right.Z;
+            this.W += right.W;
         }
 
         /// <summary>Add the Vector passed as parameter to this instance.</summary>
         /// <param name="right">Right operand. This parameter is only read from.</param>
         [CLSCompliant(false)]
         [Obsolete("Use static Add() method instead.")]
-        public void Add(ref Vector3 right)
+        public void Add(ref Vector4d right)
         {
             this.X += right.X;
             this.Y += right.Y;
             this.Z += right.Z;
+            this.W += right.W;
         }
 
         #endregion public void Add()
@@ -140,22 +196,24 @@ namespace Urho
         /// <summary>Subtract the Vector passed as parameter from this instance.</summary>
         /// <param name="right">Right operand. This parameter is only read from.</param>
         [Obsolete("Use static Subtract() method instead.")]
-        public void Sub(Vector3 right)
+        public void Sub(Vector4d right)
         {
             this.X -= right.X;
             this.Y -= right.Y;
             this.Z -= right.Z;
+            this.W -= right.W;
         }
 
         /// <summary>Subtract the Vector passed as parameter from this instance.</summary>
         /// <param name="right">Right operand. This parameter is only read from.</param>
         [CLSCompliant(false)]
         [Obsolete("Use static Subtract() method instead.")]
-        public void Sub(ref Vector3 right)
+        public void Sub(ref Vector4d right)
         {
             this.X -= right.X;
             this.Y -= right.Y;
             this.Z -= right.Z;
+            this.W -= right.W;
         }
 
         #endregion public void Sub()
@@ -165,11 +223,12 @@ namespace Urho
         /// <summary>Multiply this instance by a scalar.</summary>
         /// <param name="f">Scalar operand.</param>
         [Obsolete("Use static Multiply() method instead.")]
-        public void Mult(float f)
+        public void Mult(double f)
         {
             this.X *= f;
             this.Y *= f;
             this.Z *= f;
+            this.W *= f;
         }
 
         #endregion public void Mult()
@@ -179,34 +238,35 @@ namespace Urho
         /// <summary>Divide this instance by a scalar.</summary>
         /// <param name="f">Scalar operand.</param>
         [Obsolete("Use static Divide() method instead.")]
-        public void Div(float f)
+        public void Div(double f)
         {
-            float mult = 1.0f / f;
+            double mult = 1.0 / f;
             this.X *= mult;
             this.Y *= mult;
             this.Z *= mult;
+            this.W *= mult;
         }
 
         #endregion public void Div()
 
-        #region public float Length
+        #region public double Length
 
         /// <summary>
         /// Gets the length (magnitude) of the vector.
         /// </summary>
         /// <see cref="LengthFast"/>
         /// <seealso cref="LengthSquared"/>
-        public float Length
+        public double Length
         {
             get
             {
-                return (float)System.Math.Sqrt(X * X + Y * Y + Z * Z);
+                return (double)System.Math.Sqrt(X * X + Y * Y + Z * Z + W * W);
             }
         }
 
         #endregion
 
-        #region public float LengthFast
+        #region public double LengthFast
 
         /// <summary>
         /// Gets an approximation of the vector length (magnitude).
@@ -217,17 +277,17 @@ namespace Urho
         /// </remarks>
         /// <see cref="Length"/>
         /// <seealso cref="LengthSquared"/>
-        public float LengthFast
+        public double LengthFast
         {
             get
             {
-                return 1.0f / MathHelper.InverseSqrtFast(X * X + Y * Y + Z * Z);
+                return 1.0f / MathHelper.InverseSqrtFast(X * X + Y * Y + Z * Z + W * W);
             }
         }
 
         #endregion
 
-        #region public float LengthSquared
+        #region public double LengthSquared
 
         /// <summary>
         /// Gets the square of the vector length (magnitude).
@@ -237,12 +297,11 @@ namespace Urho
         /// for comparisons.
         /// </remarks>
         /// <see cref="Length"/>
-        /// <seealso cref="LengthFast"/>
-        public float LengthSquared
+        public double LengthSquared
         {
             get
             {
-                return X * X + Y * Y + Z * Z;
+                return X * X + Y * Y + Z * Z + W * W;
             }
         }
 
@@ -251,14 +310,15 @@ namespace Urho
         #region public void Normalize()
 
         /// <summary>
-        /// Scales the Vector3 to unit length.
+        /// Scales the Vector4d to unit length.
         /// </summary>
         public void Normalize()
         {
-            float scale = 1.0f / this.Length;
+            double scale = 1.0f / this.Length;
             X *= scale;
             Y *= scale;
             Z *= scale;
+            W *= scale;
         }
 
         #endregion
@@ -266,14 +326,15 @@ namespace Urho
         #region public void NormalizeFast()
 
         /// <summary>
-        /// Scales the Vector3 to approximately unit length.
+        /// Scales the Vector4d to approximately unit length.
         /// </summary>
         public void NormalizeFast()
         {
-            float scale = MathHelper.InverseSqrtFast(X * X + Y * Y + Z * Z);
+            double scale = MathHelper.InverseSqrtFast(X * X + Y * Y + Z * Z + W * W);
             X *= scale;
             Y *= scale;
             Z *= scale;
+            W *= scale;
         }
 
         #endregion
@@ -281,38 +342,42 @@ namespace Urho
         #region public void Scale()
 
         /// <summary>
-        /// Scales the current Vector3 by the given amounts.
+        /// Scales the current Vector4d by the given amounts.
         /// </summary>
         /// <param name="sx">The scale of the X component.</param>
         /// <param name="sy">The scale of the Y component.</param>
         /// <param name="sz">The scale of the Z component.</param>
+        /// <param name="sw">The scale of the Z component.</param>
         [Obsolete("Use static Multiply() method instead.")]
-        public void Scale(float sx, float sy, float sz)
+        public void Scale(double sx, double sy, double sz, double sw)
         {
             this.X = X * sx;
             this.Y = Y * sy;
             this.Z = Z * sz;
+            this.W = W * sw;
         }
 
         /// <summary>Scales this instance by the given parameter.</summary>
         /// <param name="scale">The scaling of the individual components.</param>
         [Obsolete("Use static Multiply() method instead.")]
-        public void Scale(Vector3 scale)
+        public void Scale(Vector4d scale)
         {
             this.X *= scale.X;
             this.Y *= scale.Y;
             this.Z *= scale.Z;
+            this.W *= scale.W;
         }
 
         /// <summary>Scales this instance by the given parameter.</summary>
         /// <param name="scale">The scaling of the individual components.</param>
         [CLSCompliant(false)]
         [Obsolete("Use static Multiply() method instead.")]
-        public void Scale(ref Vector3 scale)
+        public void Scale(ref Vector4d scale)
         {
             this.X *= scale.X;
             this.Y *= scale.Y;
             this.Z *= scale.Z;
+            this.W *= scale.W;
         }
 
         #endregion public void Scale()
@@ -320,40 +385,6 @@ namespace Urho
         #endregion
 
         #region Static
-
-        #region Fields
-
-        /// <summary>
-        /// Defines a unit-length Vector3 that points towards the X-axis.
-        /// </summary>
-        public static readonly Vector3 UnitX = new Vector3(1, 0, 0);
-
-        /// <summary>
-        /// Defines a unit-length Vector3 that points towards the Y-axis.
-        /// </summary>
-        public static readonly Vector3 UnitY = new Vector3(0, 1, 0);
-
-        /// <summary>
-        /// /// Defines a unit-length Vector3 that points towards the Z-axis.
-        /// </summary>
-        public static readonly Vector3 UnitZ = new Vector3(0, 0, 1);
-
-        /// <summary>
-        /// Defines a zero-length Vector3.
-        /// </summary>
-        public static readonly Vector3 Zero = new Vector3(0, 0, 0);
-
-        /// <summary>
-        /// Defines an instance with all components set to 1.
-        /// </summary>
-        public static readonly Vector3 One = new Vector3(1, 1, 1);
-
-        /// <summary>
-        /// Defines the size of the Vector3 struct in bytes.
-        /// </summary>
-        public static readonly int SizeInBytes = Marshal.SizeOf(new Vector3());
-
-        #endregion
 
         #region Obsolete
 
@@ -366,11 +397,12 @@ namespace Urho
         /// <param name="b">Second operand</param>
         /// <returns>Result of subtraction</returns>
         [Obsolete("Use static Subtract() method instead.")]
-        public static Vector3 Sub(Vector3 a, Vector3 b)
+        public static Vector4d Sub(Vector4d a, Vector4d b)
         {
             a.X -= b.X;
             a.Y -= b.Y;
             a.Z -= b.Z;
+            a.W -= b.W;
             return a;
         }
 
@@ -381,11 +413,12 @@ namespace Urho
         /// <param name="b">Second operand</param>
         /// <param name="result">Result of subtraction</param>
         [Obsolete("Use static Subtract() method instead.")]
-        public static void Sub(ref Vector3 a, ref Vector3 b, out Vector3 result)
+        public static void Sub(ref Vector4d a, ref Vector4d b, out Vector4d result)
         {
             result.X = a.X - b.X;
             result.Y = a.Y - b.Y;
             result.Z = a.Z - b.Z;
+            result.W = a.W - b.W;
         }
 
         #endregion
@@ -399,11 +432,12 @@ namespace Urho
         /// <param name="f">Scalar operand</param>
         /// <returns>Result of the multiplication</returns>
         [Obsolete("Use static Multiply() method instead.")]
-        public static Vector3 Mult(Vector3 a, float f)
+        public static Vector4d Mult(Vector4d a, double f)
         {
             a.X *= f;
             a.Y *= f;
             a.Z *= f;
+            a.W *= f;
             return a;
         }
 
@@ -414,11 +448,12 @@ namespace Urho
         /// <param name="f">Scalar operand</param>
         /// <param name="result">Result of the multiplication</param>
         [Obsolete("Use static Multiply() method instead.")]
-        public static void Mult(ref Vector3 a, float f, out Vector3 result)
+        public static void Mult(ref Vector4d a, double f, out Vector4d result)
         {
             result.X = a.X * f;
             result.Y = a.Y * f;
             result.Z = a.Z * f;
+            result.W = a.W * f;
         }
 
         #endregion
@@ -432,12 +467,13 @@ namespace Urho
         /// <param name="f">Scalar operand</param>
         /// <returns>Result of the division</returns>
         [Obsolete("Use static Divide() method instead.")]
-        public static Vector3 Div(Vector3 a, float f)
+        public static Vector4d Div(Vector4d a, double f)
         {
-            float mult = 1.0f / f;
+            double mult = 1.0f / f;
             a.X *= mult;
             a.Y *= mult;
             a.Z *= mult;
+            a.W *= mult;
             return a;
         }
 
@@ -448,12 +484,13 @@ namespace Urho
         /// <param name="f">Scalar operand</param>
         /// <param name="result">Result of the division</param>
         [Obsolete("Use static Divide() method instead.")]
-        public static void Div(ref Vector3 a, float f, out Vector3 result)
+        public static void Div(ref Vector4d a, double f, out Vector4d result)
         {
-            float mult = 1.0f / f;
+            double mult = 1.0f / f;
             result.X = a.X * mult;
             result.Y = a.Y * mult;
             result.Z = a.Z * mult;
+            result.W = a.W * mult;
         }
 
         #endregion
@@ -468,7 +505,7 @@ namespace Urho
         /// <param name="a">Left operand.</param>
         /// <param name="b">Right operand.</param>
         /// <returns>Result of operation.</returns>
-        public static Vector3 Add(Vector3 a, Vector3 b)
+        public static Vector4d Add(Vector4d a, Vector4d b)
         {
             Add(ref a, ref b, out a);
             return a;
@@ -480,9 +517,9 @@ namespace Urho
         /// <param name="a">Left operand.</param>
         /// <param name="b">Right operand.</param>
         /// <param name="result">Result of operation.</param>
-        public static void Add(ref Vector3 a, ref Vector3 b, out Vector3 result)
+        public static void Add(ref Vector4d a, ref Vector4d b, out Vector4d result)
         {
-            result = new Vector3(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+            result = new Vector4d(a.X + b.X, a.Y + b.Y, a.Z + b.Z, a.W + b.W);
         }
 
         #endregion
@@ -495,7 +532,7 @@ namespace Urho
         /// <param name="a">First operand</param>
         /// <param name="b">Second operand</param>
         /// <returns>Result of subtraction</returns>
-        public static Vector3 Subtract(Vector3 a, Vector3 b)
+        public static Vector4d Subtract(Vector4d a, Vector4d b)
         {
             Subtract(ref a, ref b, out a);
             return a;
@@ -507,9 +544,9 @@ namespace Urho
         /// <param name="a">First operand</param>
         /// <param name="b">Second operand</param>
         /// <param name="result">Result of subtraction</param>
-        public static void Subtract(ref Vector3 a, ref Vector3 b, out Vector3 result)
+        public static void Subtract(ref Vector4d a, ref Vector4d b, out Vector4d result)
         {
-            result = new Vector3(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+            result = new Vector4d(a.X - b.X, a.Y - b.Y, a.Z - b.Z, a.W - b.W);
         }
 
         #endregion
@@ -522,7 +559,7 @@ namespace Urho
         /// <param name="vector">Left operand.</param>
         /// <param name="scale">Right operand.</param>
         /// <returns>Result of the operation.</returns>
-        public static Vector3 Multiply(Vector3 vector, float scale)
+        public static Vector4d Multiply(Vector4d vector, double scale)
         {
             Multiply(ref vector, scale, out vector);
             return vector;
@@ -534,9 +571,9 @@ namespace Urho
         /// <param name="vector">Left operand.</param>
         /// <param name="scale">Right operand.</param>
         /// <param name="result">Result of the operation.</param>
-        public static void Multiply(ref Vector3 vector, float scale, out Vector3 result)
+        public static void Multiply(ref Vector4d vector, double scale, out Vector4d result)
         {
-            result = new Vector3(vector.X * scale, vector.Y * scale, vector.Z * scale);
+            result = new Vector4d(vector.X * scale, vector.Y * scale, vector.Z * scale, vector.W * scale);
         }
 
         /// <summary>
@@ -545,7 +582,7 @@ namespace Urho
         /// <param name="vector">Left operand.</param>
         /// <param name="scale">Right operand.</param>
         /// <returns>Result of the operation.</returns>
-        public static Vector3 Multiply(Vector3 vector, Vector3 scale)
+        public static Vector4d Multiply(Vector4d vector, Vector4d scale)
         {
             Multiply(ref vector, ref scale, out vector);
             return vector;
@@ -557,9 +594,9 @@ namespace Urho
         /// <param name="vector">Left operand.</param>
         /// <param name="scale">Right operand.</param>
         /// <param name="result">Result of the operation.</param>
-        public static void Multiply(ref Vector3 vector, ref Vector3 scale, out Vector3 result)
+        public static void Multiply(ref Vector4d vector, ref Vector4d scale, out Vector4d result)
         {
-            result = new Vector3(vector.X * scale.X, vector.Y * scale.Y, vector.Z * scale.Z);
+            result = new Vector4d(vector.X * scale.X, vector.Y * scale.Y, vector.Z * scale.Z, vector.W * scale.W);
         }
 
         #endregion
@@ -572,7 +609,7 @@ namespace Urho
         /// <param name="vector">Left operand.</param>
         /// <param name="scale">Right operand.</param>
         /// <returns>Result of the operation.</returns>
-        public static Vector3 Divide(Vector3 vector, float scale)
+        public static Vector4d Divide(Vector4d vector, double scale)
         {
             Divide(ref vector, scale, out vector);
             return vector;
@@ -584,7 +621,7 @@ namespace Urho
         /// <param name="vector">Left operand.</param>
         /// <param name="scale">Right operand.</param>
         /// <param name="result">Result of the operation.</param>
-        public static void Divide(ref Vector3 vector, float scale, out Vector3 result)
+        public static void Divide(ref Vector4d vector, double scale, out Vector4d result)
         {
             Multiply(ref vector, 1 / scale, out result);
         }
@@ -595,7 +632,7 @@ namespace Urho
         /// <param name="vector">Left operand.</param>
         /// <param name="scale">Right operand.</param>
         /// <returns>Result of the operation.</returns>
-        public static Vector3 Divide(Vector3 vector, Vector3 scale)
+        public static Vector4d Divide(Vector4d vector, Vector4d scale)
         {
             Divide(ref vector, ref scale, out vector);
             return vector;
@@ -607,14 +644,14 @@ namespace Urho
         /// <param name="vector">Left operand.</param>
         /// <param name="scale">Right operand.</param>
         /// <param name="result">Result of the operation.</param>
-        public static void Divide(ref Vector3 vector, ref Vector3 scale, out Vector3 result)
+        public static void Divide(ref Vector4d vector, ref Vector4d scale, out Vector4d result)
         {
-            result = new Vector3(vector.X / scale.X, vector.Y / scale.Y, vector.Z / scale.Z);
+            result = new Vector4d(vector.X / scale.X, vector.Y / scale.Y, vector.Z / scale.Z, vector.W / scale.W);
         }
 
         #endregion
 
-        #region ComponentMin
+        #region Min
 
         /// <summary>
         /// Calculate the component-wise minimum of two vectors
@@ -622,11 +659,12 @@ namespace Urho
         /// <param name="a">First operand</param>
         /// <param name="b">Second operand</param>
         /// <returns>The component-wise minimum</returns>
-        public static Vector3 ComponentMin(Vector3 a, Vector3 b)
+        public static Vector4d Min(Vector4d a, Vector4d b)
         {
             a.X = a.X < b.X ? a.X : b.X;
             a.Y = a.Y < b.Y ? a.Y : b.Y;
             a.Z = a.Z < b.Z ? a.Z : b.Z;
+            a.W = a.W < b.W ? a.W : b.W;
             return a;
         }
 
@@ -636,16 +674,17 @@ namespace Urho
         /// <param name="a">First operand</param>
         /// <param name="b">Second operand</param>
         /// <param name="result">The component-wise minimum</param>
-        public static void ComponentMin(ref Vector3 a, ref Vector3 b, out Vector3 result)
+        public static void Min(ref Vector4d a, ref Vector4d b, out Vector4d result)
         {
             result.X = a.X < b.X ? a.X : b.X;
             result.Y = a.Y < b.Y ? a.Y : b.Y;
             result.Z = a.Z < b.Z ? a.Z : b.Z;
+            result.W = a.W < b.W ? a.W : b.W;
         }
 
         #endregion
 
-        #region ComponentMax
+        #region Max
 
         /// <summary>
         /// Calculate the component-wise maximum of two vectors
@@ -653,11 +692,12 @@ namespace Urho
         /// <param name="a">First operand</param>
         /// <param name="b">Second operand</param>
         /// <returns>The component-wise maximum</returns>
-        public static Vector3 ComponentMax(Vector3 a, Vector3 b)
+        public static Vector4d Max(Vector4d a, Vector4d b)
         {
             a.X = a.X > b.X ? a.X : b.X;
             a.Y = a.Y > b.Y ? a.Y : b.Y;
             a.Z = a.Z > b.Z ? a.Z : b.Z;
+            a.W = a.W > b.W ? a.W : b.W;
             return a;
         }
 
@@ -667,41 +707,12 @@ namespace Urho
         /// <param name="a">First operand</param>
         /// <param name="b">Second operand</param>
         /// <param name="result">The component-wise maximum</param>
-        public static void ComponentMax(ref Vector3 a, ref Vector3 b, out Vector3 result)
+        public static void Max(ref Vector4d a, ref Vector4d b, out Vector4d result)
         {
             result.X = a.X > b.X ? a.X : b.X;
             result.Y = a.Y > b.Y ? a.Y : b.Y;
             result.Z = a.Z > b.Z ? a.Z : b.Z;
-        }
-
-        #endregion
-
-        #region Min
-
-        /// <summary>
-        /// Returns the Vector3 with the minimum magnitude
-        /// </summary>
-        /// <param name="left">Left operand</param>
-        /// <param name="right">Right operand</param>
-        /// <returns>The minimum Vector3</returns>
-        public static Vector3 Min(Vector3 left, Vector3 right)
-        {
-            return left.LengthSquared < right.LengthSquared ? left : right;
-        }
-
-        #endregion
-
-        #region Max
-
-        /// <summary>
-        /// Returns the Vector3 with the minimum magnitude
-        /// </summary>
-        /// <param name="left">Left operand</param>
-        /// <param name="right">Right operand</param>
-        /// <returns>The minimum Vector3</returns>
-        public static Vector3 Max(Vector3 left, Vector3 right)
-        {
-            return left.LengthSquared >= right.LengthSquared ? left : right;
+            result.W = a.W > b.W ? a.W : b.W;
         }
 
         #endregion
@@ -715,11 +726,12 @@ namespace Urho
         /// <param name="min">Minimum vector</param>
         /// <param name="max">Maximum vector</param>
         /// <returns>The clamped vector</returns>
-        public static Vector3 Clamp(Vector3 vec, Vector3 min, Vector3 max)
+        public static Vector4d Clamp(Vector4d vec, Vector4d min, Vector4d max)
         {
             vec.X = vec.X < min.X ? min.X : vec.X > max.X ? max.X : vec.X;
             vec.Y = vec.Y < min.Y ? min.Y : vec.Y > max.Y ? max.Y : vec.Y;
-            vec.Z = vec.Z < min.Z ? min.Z : vec.Z > max.Z ? max.Z : vec.Z;
+            vec.Z = vec.X < min.Z ? min.Z : vec.Z > max.Z ? max.Z : vec.Z;
+            vec.W = vec.Y < min.W ? min.W : vec.W > max.W ? max.W : vec.W;
             return vec;
         }
 
@@ -730,11 +742,12 @@ namespace Urho
         /// <param name="min">Minimum vector</param>
         /// <param name="max">Maximum vector</param>
         /// <param name="result">The clamped vector</param>
-        public static void Clamp(ref Vector3 vec, ref Vector3 min, ref Vector3 max, out Vector3 result)
+        public static void Clamp(ref Vector4d vec, ref Vector4d min, ref Vector4d max, out Vector4d result)
         {
             result.X = vec.X < min.X ? min.X : vec.X > max.X ? max.X : vec.X;
             result.Y = vec.Y < min.Y ? min.Y : vec.Y > max.Y ? max.Y : vec.Y;
-            result.Z = vec.Z < min.Z ? min.Z : vec.Z > max.Z ? max.Z : vec.Z;
+            result.Z = vec.X < min.Z ? min.Z : vec.Z > max.Z ? max.Z : vec.Z;
+            result.W = vec.Y < min.W ? min.W : vec.W > max.W ? max.W : vec.W;
         }
 
         #endregion
@@ -746,12 +759,13 @@ namespace Urho
         /// </summary>
         /// <param name="vec">The input vector</param>
         /// <returns>The normalized vector</returns>
-        public static Vector3 Normalize(Vector3 vec)
+        public static Vector4d Normalize(Vector4d vec)
         {
-            float scale = 1.0f / vec.Length;
+            double scale = 1.0f / vec.Length;
             vec.X *= scale;
             vec.Y *= scale;
             vec.Z *= scale;
+            vec.W *= scale;
             return vec;
         }
 
@@ -760,12 +774,13 @@ namespace Urho
         /// </summary>
         /// <param name="vec">The input vector</param>
         /// <param name="result">The normalized vector</param>
-        public static void Normalize(ref Vector3 vec, out Vector3 result)
+        public static void Normalize(ref Vector4d vec, out Vector4d result)
         {
-            float scale = 1.0f / vec.Length;
+            double scale = 1.0f / vec.Length;
             result.X = vec.X * scale;
             result.Y = vec.Y * scale;
             result.Z = vec.Z * scale;
+            result.W = vec.W * scale;
         }
 
         #endregion
@@ -777,12 +792,13 @@ namespace Urho
         /// </summary>
         /// <param name="vec">The input vector</param>
         /// <returns>The normalized vector</returns>
-        public static Vector3 NormalizeFast(Vector3 vec)
+        public static Vector4d NormalizeFast(Vector4d vec)
         {
-            float scale = MathHelper.InverseSqrtFast(vec.X * vec.X + vec.Y * vec.Y + vec.Z * vec.Z);
+            double scale = MathHelper.InverseSqrtFast(vec.X * vec.X + vec.Y * vec.Y + vec.Z * vec.Z + vec.W * vec.W);
             vec.X *= scale;
             vec.Y *= scale;
             vec.Z *= scale;
+            vec.W *= scale;
             return vec;
         }
 
@@ -791,12 +807,13 @@ namespace Urho
         /// </summary>
         /// <param name="vec">The input vector</param>
         /// <param name="result">The normalized vector</param>
-        public static void NormalizeFast(ref Vector3 vec, out Vector3 result)
+        public static void NormalizeFast(ref Vector4d vec, out Vector4d result)
         {
-            float scale = MathHelper.InverseSqrtFast(vec.X * vec.X + vec.Y * vec.Y + vec.Z * vec.Z);
+            double scale = MathHelper.InverseSqrtFast(vec.X * vec.X + vec.Y * vec.Y + vec.Z * vec.Z + vec.W * vec.W);
             result.X = vec.X * scale;
             result.Y = vec.Y * scale;
             result.Z = vec.Z * scale;
+            result.W = vec.W * scale;
         }
 
         #endregion
@@ -804,56 +821,25 @@ namespace Urho
         #region Dot
 
         /// <summary>
-        /// Calculate the dot (scalar) product of two vectors
+        /// Calculate the dot product of two vectors
         /// </summary>
         /// <param name="left">First operand</param>
         /// <param name="right">Second operand</param>
         /// <returns>The dot product of the two inputs</returns>
-        public static float Dot(Vector3 left, Vector3 right)
+        public static double Dot(Vector4d left, Vector4d right)
         {
-            return left.X * right.X + left.Y * right.Y + left.Z * right.Z;
+            return left.X * right.X + left.Y * right.Y + left.Z * right.Z + left.W * right.W;
         }
 
         /// <summary>
-        /// Calculate the dot (scalar) product of two vectors
+        /// Calculate the dot product of two vectors
         /// </summary>
         /// <param name="left">First operand</param>
         /// <param name="right">Second operand</param>
         /// <param name="result">The dot product of the two inputs</param>
-        public static void Dot(ref Vector3 left, ref Vector3 right, out float result)
+        public static void Dot(ref Vector4d left, ref Vector4d right, out double result)
         {
-            result = left.X * right.X + left.Y * right.Y + left.Z * right.Z;
-        }
-
-        #endregion
-
-        #region Cross
-
-        /// <summary>
-        /// Caclulate the cross (vector) product of two vectors
-        /// </summary>
-        /// <param name="left">First operand</param>
-        /// <param name="right">Second operand</param>
-        /// <returns>The cross product of the two inputs</returns>
-        public static Vector3 Cross(Vector3 left, Vector3 right)
-        {
-            return new Vector3(left.Y * right.Z - left.Z * right.Y,
-                               left.Z * right.X - left.X * right.Z,
-                               left.X * right.Y - left.Y * right.X);
-        }
-
-        /// <summary>
-        /// Caclulate the cross (vector) product of two vectors
-        /// </summary>
-        /// <param name="left">First operand</param>
-        /// <param name="right">Second operand</param>
-        /// <returns>The cross product of the two inputs</returns>
-        /// <param name="result">The cross product of the two inputs</param>
-        public static void Cross(ref Vector3 left, ref Vector3 right, out Vector3 result)
-        {
-            result.X = left.Y * right.Z - left.Z * right.Y;
-            result.Y = left.Z * right.X - left.X * right.Z;
-            result.Z = left.X * right.Y - left.Y * right.X;
+            result = left.X * right.X + left.Y * right.Y + left.Z * right.Z + left.W * right.W;
         }
 
         #endregion
@@ -867,11 +853,12 @@ namespace Urho
         /// <param name="b">Second input vector</param>
         /// <param name="blend">The blend factor. a when blend=0, b when blend=1.</param>
         /// <returns>a when blend=0, b when blend=1, and a linear combination otherwise</returns>
-        public static Vector3 Lerp(Vector3 a, Vector3 b, float blend)
+        public static Vector4d Lerp(Vector4d a, Vector4d b, double blend)
         {
             a.X = blend * (b.X - a.X) + a.X;
             a.Y = blend * (b.Y - a.Y) + a.Y;
             a.Z = blend * (b.Z - a.Z) + a.Z;
+            a.W = blend * (b.W - a.W) + a.W;
             return a;
         }
 
@@ -882,11 +869,12 @@ namespace Urho
         /// <param name="b">Second input vector</param>
         /// <param name="blend">The blend factor. a when blend=0, b when blend=1.</param>
         /// <param name="result">a when blend=0, b when blend=1, and a linear combination otherwise</param>
-        public static void Lerp(ref Vector3 a, ref Vector3 b, float blend, out Vector3 result)
+        public static void Lerp(ref Vector4d a, ref Vector4d b, double blend, out Vector4d result)
         {
             result.X = blend * (b.X - a.X) + a.X;
             result.Y = blend * (b.Y - a.Y) + a.Y;
             result.Z = blend * (b.Z - a.Z) + a.Z;
+            result.W = blend * (b.W - a.W) + a.W;
         }
 
         #endregion
@@ -902,7 +890,7 @@ namespace Urho
         /// <param name="u">First Barycentric Coordinate</param>
         /// <param name="v">Second Barycentric Coordinate</param>
         /// <returns>a when u=v=0, b when u=1,v=0, c when u=0,v=1, and a linear combination of a,b,c otherwise</returns>
-        public static Vector3 BaryCentric(Vector3 a, Vector3 b, Vector3 c, float u, float v)
+        public static Vector4d BaryCentric(Vector4d a, Vector4d b, Vector4d c, double u, double v)
         {
             return a + u * (b - a) + v * (c - a);
         }
@@ -914,11 +902,11 @@ namespace Urho
         /// <param name="u">First Barycentric Coordinate.</param>
         /// <param name="v">Second Barycentric Coordinate.</param>
         /// <param name="result">Output Vector. a when u=v=0, b when u=1,v=0, c when u=0,v=1, and a linear combination of a,b,c otherwise</param>
-        public static void BaryCentric(ref Vector3 a, ref Vector3 b, ref Vector3 c, float u, float v, out Vector3 result)
+        public static void BaryCentric(ref Vector4d a, ref Vector4d b, ref Vector4d c, double u, double v, out Vector4d result)
         {
             result = a; // copy
 
-            Vector3 temp = b; // copy
+            Vector4d temp = b; // copy
             Subtract(ref temp, ref a, out temp);
             Multiply(ref temp, u, out temp);
             Add(ref result, ref temp, out result);
@@ -933,157 +921,17 @@ namespace Urho
 
         #region Transform
 
-        /// <summary>Transform a direction vector by the given Matrix
-        /// Assumes the matrix has a bottom row of (0,0,0,1), that is the translation part is ignored.
-        /// </summary>
-        /// <param name="vec">The vector to transform</param>
-        /// <param name="mat">The desired transformation</param>
-        /// <returns>The transformed vector</returns>
-        public static Vector3 TransformVector(Vector3 vec, Matrix4 mat)
-        {
-            Vector3 v;
-            v.X = Vector3.Dot(vec, new Vector3(mat.Column0));
-            v.Y = Vector3.Dot(vec, new Vector3(mat.Column1));
-            v.Z = Vector3.Dot(vec, new Vector3(mat.Column2));
-            return v;
-        }
-
-        /// <summary>Transform a direction vector by the given Matrix
-        /// Assumes the matrix has a bottom row of (0,0,0,1), that is the translation part is ignored.
-        /// </summary>
-        /// <param name="vec">The vector to transform</param>
-        /// <param name="mat">The desired transformation</param>
-        /// <param name="result">The transformed vector</param>
-        public static void TransformVector(ref Vector3 vec, ref Matrix4 mat, out Vector3 result)
-        {
-            result.X = vec.X * mat.Row0.X +
-                       vec.Y * mat.Row1.X +
-                       vec.Z * mat.Row2.X;
-
-            result.Y = vec.X * mat.Row0.Y +
-                       vec.Y * mat.Row1.Y +
-                       vec.Z * mat.Row2.Y;
-
-            result.Z = vec.X * mat.Row0.Z +
-                       vec.Y * mat.Row1.Z +
-                       vec.Z * mat.Row2.Z;
-        }
-
-        /// <summary>Transform a Normal by the given Matrix</summary>
-        /// <remarks>
-        /// This calculates the inverse of the given matrix, use TransformNormalInverse if you
-        /// already have the inverse to avoid this extra calculation
-        /// </remarks>
-        /// <param name="norm">The normal to transform</param>
-        /// <param name="mat">The desired transformation</param>
-        /// <returns>The transformed normal</returns>
-        public static Vector3 TransformNormal(Vector3 norm, Matrix4 mat)
-        {
-            mat.Invert();
-            return TransformNormalInverse(norm, mat);
-        }
-
-        /// <summary>Transform a Normal by the given Matrix</summary>
-        /// <remarks>
-        /// This calculates the inverse of the given matrix, use TransformNormalInverse if you
-        /// already have the inverse to avoid this extra calculation
-        /// </remarks>
-        /// <param name="norm">The normal to transform</param>
-        /// <param name="mat">The desired transformation</param>
-        /// <param name="result">The transformed normal</param>
-        public static void TransformNormal(ref Vector3 norm, ref Matrix4 mat, out Vector3 result)
-        {
-            Matrix4 Inverse = Matrix4.Invert(mat);
-            Vector3.TransformNormalInverse(ref norm, ref Inverse, out result);
-        }
-
-        /// <summary>Transform a Normal by the (transpose of the) given Matrix</summary>
-        /// <remarks>
-        /// This version doesn't calculate the inverse matrix.
-        /// Use this version if you already have the inverse of the desired transform to hand
-        /// </remarks>
-        /// <param name="norm">The normal to transform</param>
-        /// <param name="invMat">The inverse of the desired transformation</param>
-        /// <returns>The transformed normal</returns>
-        public static Vector3 TransformNormalInverse(Vector3 norm, Matrix4 invMat)
-        {
-            Vector3 n;
-            n.X = Vector3.Dot(norm, new Vector3(invMat.Row0));
-            n.Y = Vector3.Dot(norm, new Vector3(invMat.Row1));
-            n.Z = Vector3.Dot(norm, new Vector3(invMat.Row2));
-            return n;
-        }
-
-        /// <summary>Transform a Normal by the (transpose of the) given Matrix</summary>
-        /// <remarks>
-        /// This version doesn't calculate the inverse matrix.
-        /// Use this version if you already have the inverse of the desired transform to hand
-        /// </remarks>
-        /// <param name="norm">The normal to transform</param>
-        /// <param name="invMat">The inverse of the desired transformation</param>
-        /// <param name="result">The transformed normal</param>
-        public static void TransformNormalInverse(ref Vector3 norm, ref Matrix4 invMat, out Vector3 result)
-        {
-            result.X = norm.X * invMat.Row0.X +
-                       norm.Y * invMat.Row0.Y +
-                       norm.Z * invMat.Row0.Z;
-
-            result.Y = norm.X * invMat.Row1.X +
-                       norm.Y * invMat.Row1.Y +
-                       norm.Z * invMat.Row1.Z;
-
-            result.Z = norm.X * invMat.Row2.X +
-                       norm.Y * invMat.Row2.Y +
-                       norm.Z * invMat.Row2.Z;
-        }
-
-        /// <summary>Transform a Position by the given Matrix</summary>
-        /// <param name="pos">The position to transform</param>
-        /// <param name="mat">The desired transformation</param>
-        /// <returns>The transformed position</returns>
-        public static Vector3 TransformPosition(Vector3 pos, Matrix4 mat)
-        {
-            Vector3 p;
-            p.X = Vector3.Dot(pos, new Vector3(mat.Column0)) + mat.Row3.X;
-            p.Y = Vector3.Dot(pos, new Vector3(mat.Column1)) + mat.Row3.Y;
-            p.Z = Vector3.Dot(pos, new Vector3(mat.Column2)) + mat.Row3.Z;
-            return p;
-        }
-
-        /// <summary>Transform a Position by the given Matrix</summary>
-        /// <param name="pos">The position to transform</param>
-        /// <param name="mat">The desired transformation</param>
-        /// <param name="result">The transformed position</param>
-        public static void TransformPosition(ref Vector3 pos, ref Matrix4 mat, out Vector3 result)
-        {
-            result.X = pos.X * mat.Row0.X +
-                       pos.Y * mat.Row1.X +
-                       pos.Z * mat.Row2.X +
-                       mat.Row3.X;
-
-            result.Y = pos.X * mat.Row0.Y +
-                       pos.Y * mat.Row1.Y +
-                       pos.Z * mat.Row2.Y +
-                       mat.Row3.Y;
-
-            result.Z = pos.X * mat.Row0.Z +
-                       pos.Y * mat.Row1.Z +
-                       pos.Z * mat.Row2.Z +
-                       mat.Row3.Z;
-        }
-
         /// <summary>Transform a Vector by the given Matrix</summary>
         /// <param name="vec">The vector to transform</param>
         /// <param name="mat">The desired transformation</param>
         /// <returns>The transformed vector</returns>
-        public static Vector4 Transform(Vector3 vec, Matrix4 mat)
+        public static Vector4d Transform(Vector4d vec, Matrix4d mat)
         {
-            Vector4 v4 = new Vector4(vec.X, vec.Y, vec.Z, 1.0f);
-            Vector4 result;
-            result.X = Vector4.Dot(v4, mat.Column0);
-            result.Y = Vector4.Dot(v4, mat.Column1);
-            result.Z = Vector4.Dot(v4, mat.Column2);
-            result.W = Vector4.Dot(v4, mat.Column3);
+            Vector4d result;
+            result.X = Vector4d.Dot(vec, mat.Column0);
+            result.Y = Vector4d.Dot(vec, mat.Column1);
+            result.Z = Vector4d.Dot(vec, mat.Column2);
+            result.W = Vector4d.Dot(vec, mat.Column3);
             return result;
         }
 
@@ -1091,61 +939,27 @@ namespace Urho
         /// <param name="vec">The vector to transform</param>
         /// <param name="mat">The desired transformation</param>
         /// <param name="result">The transformed vector</param>
-        public static void Transform(ref Vector3 vec, ref Matrix4 mat, out Vector4 result)
+        public static void Transform(ref Vector4d vec, ref Matrix4d mat, out Vector4d result)
         {
-            Vector4 v4 = new Vector4(vec.X, vec.Y, vec.Z, 1.0f);
-            Vector4.Transform(ref v4, ref mat, out result);
-        }
+            result.X = vec.X * mat.Row0.X +
+                       vec.Y * mat.Row1.X +
+                       vec.Z * mat.Row2.X +
+                       vec.W * mat.Row3.X;
 
-        /// <summary>Transform a Vector3 by the given Matrix, and project the resulting Vector4 back to a Vector3</summary>
-        /// <param name="vec">The vector to transform</param>
-        /// <param name="mat">The desired transformation</param>
-        /// <returns>The transformed vector</returns>
-        public static Vector3 TransformPerspective(Vector3 vec, Matrix4 mat)
-        {
-            Vector4 h = Transform(vec, mat);
-            return new Vector3(h.X / h.W, h.Y / h.W, h.Z / h.W);
-        }
+            result.Y = vec.X * mat.Row0.Y +
+                       vec.Y * mat.Row1.Y +
+                       vec.Z * mat.Row2.Y +
+                       vec.W * mat.Row3.Y;
 
-        /// <summary>Transform a Vector3 by the given Matrix, and project the resulting Vector4 back to a Vector3</summary>
-        /// <param name="vec">The vector to transform</param>
-        /// <param name="mat">The desired transformation</param>
-        /// <param name="result">The transformed vector</param>
-        public static void TransformPerspective(ref Vector3 vec, ref Matrix4 mat, out Vector3 result)
-        {
-            Vector4 h;
-            Vector3.Transform(ref vec, ref mat, out h);
-            result.X = h.X / h.W;
-            result.Y = h.Y / h.W;
-            result.Z = h.Z / h.W;
-        }
+            result.Z = vec.X * mat.Row0.Z +
+                       vec.Y * mat.Row1.Z +
+                       vec.Z * mat.Row2.Z +
+                       vec.W * mat.Row3.Z;
 
-        #endregion
-
-        #region CalculateAngle
-
-        /// <summary>
-        /// Calculates the angle (in radians) between two vectors.
-        /// </summary>
-        /// <param name="first">The first vector.</param>
-        /// <param name="second">The second vector.</param>
-        /// <returns>Angle (in radians) between the vectors.</returns>
-        /// <remarks>Note that the returned angle is never bigger than the constant Pi.</remarks>
-        public static float CalculateAngle(Vector3 first, Vector3 second)
-        {
-            return (float)System.Math.Acos((Vector3.Dot(first, second)) / (first.Length * second.Length));
-        }
-
-        /// <summary>Calculates the angle (in radians) between two vectors.</summary>
-        /// <param name="first">The first vector.</param>
-        /// <param name="second">The second vector.</param>
-        /// <param name="result">Angle (in radians) between the vectors.</param>
-        /// <remarks>Note that the returned angle is never bigger than the constant Pi.</remarks>
-        public static void CalculateAngle(ref Vector3 first, ref Vector3 second, out float result)
-        {
-            float temp;
-            Vector3.Dot(ref first, ref second, out temp);
-            result = (float)System.Math.Acos(temp / (first.Length * second.Length));
+            result.W = vec.X * mat.Row0.W +
+                       vec.Y * mat.Row1.W +
+                       vec.Z * mat.Row2.W +
+                       vec.W * mat.Row3.W;
         }
 
         #endregion
@@ -1155,10 +969,16 @@ namespace Urho
         #region Swizzle
 
         /// <summary>
-        /// Gets or sets an OpenTK.Vector2 with the X and Y components of this instance.
+        /// Gets or sets an OpenTK.Vector2d with the X and Y components of this instance.
         /// </summary>
         [XmlIgnore]
-        public Vector2 Xy { get { return new Vector2(X, Y); } set { X = value.X; Y = value.Y; } }
+        public Vector2d Xy { get { return new Vector2d(X, Y); } set { X = value.X; Y = value.Y; } }
+
+        /// <summary>
+        /// Gets or sets an OpenTK.Vector3d with the X, Y and Z components of this instance.
+        /// </summary>
+        [XmlIgnore]
+        public Vector3d Xyz { get { return new Vector3d(X, Y, Z); } set { X = value.X; Y = value.Y; Z = value.Z; } }
 
         #endregion
 
@@ -1170,11 +990,12 @@ namespace Urho
         /// <param name="left">The first instance.</param>
         /// <param name="right">The second instance.</param>
         /// <returns>The result of the calculation.</returns>
-        public static Vector3 operator +(Vector3 left, Vector3 right)
+        public static Vector4d operator +(Vector4d left, Vector4d right)
         {
             left.X += right.X;
             left.Y += right.Y;
             left.Z += right.Z;
+            left.W += right.W;
             return left;
         }
 
@@ -1184,11 +1005,12 @@ namespace Urho
         /// <param name="left">The first instance.</param>
         /// <param name="right">The second instance.</param>
         /// <returns>The result of the calculation.</returns>
-        public static Vector3 operator -(Vector3 left, Vector3 right)
+        public static Vector4d operator -(Vector4d left, Vector4d right)
         {
             left.X -= right.X;
             left.Y -= right.Y;
             left.Z -= right.Z;
+            left.W -= right.W;
             return left;
         }
 
@@ -1197,11 +1019,12 @@ namespace Urho
         /// </summary>
         /// <param name="vec">The instance.</param>
         /// <returns>The result of the calculation.</returns>
-        public static Vector3 operator -(Vector3 vec)
+        public static Vector4d operator -(Vector4d vec)
         {
             vec.X = -vec.X;
             vec.Y = -vec.Y;
             vec.Z = -vec.Z;
+            vec.W = -vec.W;
             return vec;
         }
 
@@ -1211,11 +1034,12 @@ namespace Urho
         /// <param name="vec">The instance.</param>
         /// <param name="scale">The scalar.</param>
         /// <returns>The result of the calculation.</returns>
-        public static Vector3 operator *(Vector3 vec, float scale)
+        public static Vector4d operator *(Vector4d vec, double scale)
         {
             vec.X *= scale;
             vec.Y *= scale;
             vec.Z *= scale;
+            vec.W *= scale;
             return vec;
         }
 
@@ -1225,11 +1049,12 @@ namespace Urho
         /// <param name="scale">The scalar.</param>
         /// <param name="vec">The instance.</param>
         /// <returns>The result of the calculation.</returns>
-        public static Vector3 operator *(float scale, Vector3 vec)
+        public static Vector4d operator *(double scale, Vector4d vec)
         {
             vec.X *= scale;
             vec.Y *= scale;
             vec.Z *= scale;
+            vec.W *= scale;
             return vec;
         }
 
@@ -1239,12 +1064,13 @@ namespace Urho
         /// <param name="vec">The instance.</param>
         /// <param name="scale">The scalar.</param>
         /// <returns>The result of the calculation.</returns>
-        public static Vector3 operator /(Vector3 vec, float scale)
+        public static Vector4d operator /(Vector4d vec, double scale)
         {
-            float mult = 1.0f / scale;
+            double mult = 1 / scale;
             vec.X *= mult;
             vec.Y *= mult;
             vec.Z *= mult;
+            vec.W *= mult;
             return vec;
         }
 
@@ -1254,7 +1080,7 @@ namespace Urho
         /// <param name="left">The first instance.</param>
         /// <param name="right">The second instance.</param>
         /// <returns>True, if left equals right; false otherwise.</returns>
-        public static bool operator ==(Vector3 left, Vector3 right)
+        public static bool operator ==(Vector4d left, Vector4d right)
         {
             return left.Equals(right);
         }
@@ -1265,9 +1091,49 @@ namespace Urho
         /// <param name="left">The first instance.</param>
         /// <param name="right">The second instance.</param>
         /// <returns>True, if left does not equa lright; false otherwise.</returns>
-        public static bool operator !=(Vector3 left, Vector3 right)
+        public static bool operator !=(Vector4d left, Vector4d right)
         {
             return !left.Equals(right);
+        }
+
+        /// <summary>
+        /// Returns a pointer to the first element of the specified instance.
+        /// </summary>
+        /// <param name="v">The instance.</param>
+        /// <returns>A pointer to the first element of v.</returns>
+        [CLSCompliant(false)]
+        unsafe public static explicit operator double*(Vector4d v)
+        {
+            return &v.X;
+        }
+
+        /// <summary>
+        /// Returns a pointer to the first element of the specified instance.
+        /// </summary>
+        /// <param name="v">The instance.</param>
+        /// <returns>A pointer to the first element of v.</returns>
+        public static explicit operator IntPtr(Vector4d v)
+        {
+            unsafe
+            {
+                return (IntPtr)(&v.X);
+            }
+        }
+
+        /// <summary>Converts OpenTK.Vector4 to OpenTK.Vector4d.</summary>
+        /// <param name="v4">The Vector4 to convert.</param>
+        /// <returns>The resulting Vector4d.</returns>
+        public static explicit operator Vector4d(Vector4 v4)
+        {
+            return new Vector4d(v4.X, v4.Y, v4.Z, v4.W);
+        }
+
+        /// <summary>Converts OpenTK.Vector4d to OpenTK.Vector4.</summary>
+        /// <param name="v4d">The Vector4d to convert.</param>
+        /// <returns>The resulting Vector4.</returns>
+        public static explicit operator Vector4(Vector4d v4d)
+        {
+            return new Vector4((float)v4d.X, (float)v4d.Y, (float)v4d.Z, (float)v4d.W);
         }
 
         #endregion
@@ -1277,12 +1143,12 @@ namespace Urho
         #region public override string ToString()
 
         /// <summary>
-        /// Returns a System.String that represents the current Vector3.
+        /// Returns a System.String that represents the current Vector4d.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("({0}, {1}, {2})", X, Y, Z);
+            return String.Format("({0}, {1}, {2}, {3})", X, Y, Z, W);
         }
 
         #endregion
@@ -1295,7 +1161,7 @@ namespace Urho
         /// <returns>A System.Int32 containing the unique hashcode for this instance.</returns>
         public override int GetHashCode()
         {
-            return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
+            return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode() ^ W.GetHashCode();
         }
 
         #endregion
@@ -1309,10 +1175,10 @@ namespace Urho
         /// <returns>True if the instances are equal; false otherwise.</returns>
         public override bool Equals(object obj)
         {
-            if (!(obj is Vector3))
+            if (!(obj is Vector4d))
                 return false;
 
-            return this.Equals((Vector3)obj);
+            return this.Equals((Vector4d)obj);
         }
 
         #endregion
@@ -1321,17 +1187,18 @@ namespace Urho
 
         #endregion
 
-        #region IEquatable<Vector3> Members
+        #region IEquatable<Vector4d> Members
 
         /// <summary>Indicates whether the current vector is equal to another vector.</summary>
         /// <param name="other">A vector to compare with this vector.</param>
         /// <returns>true if the current vector is equal to the vector parameter; otherwise, false.</returns>
-        public bool Equals(Vector3 other)
+        public bool Equals(Vector4d other)
         {
             return
                 X == other.X &&
                 Y == other.Y &&
-                Z == other.Z;
+                Z == other.Z &&
+                W == other.W;
         }
 
         #endregion
