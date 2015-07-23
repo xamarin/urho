@@ -160,7 +160,7 @@ class _06_SkeletalAnimation : Sample {
     {
         base.Start ();
         CreateScene ();
-        SimpleCreateInstructions ("\nSpace to toggle debug geometry");
+        SimpleCreateInstructionsWithWASD ("\nSpace to toggle debug geometry");
         SetupViewport ();
         SubscribeToEvents();
     }

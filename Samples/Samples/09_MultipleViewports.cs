@@ -13,7 +13,7 @@ class _09_MultipleViewports : Sample
     {
         base.Start();
         CreateScene();
-        SimpleCreateInstructions(
+        SimpleCreateInstructionsWithWASD(
                     "\nB to toggle bloom, F to toggle FXAA\n" +
                     "Space to toggle debug geometry\n");
         SetupViewport();

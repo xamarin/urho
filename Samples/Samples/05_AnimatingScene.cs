@@ -105,7 +105,7 @@ class _05_AnimatingScene : Sample {
     {
         base.Start ();
         CreateScene ();
-        SimpleCreateInstructions ();
+        SimpleCreateInstructionsWithWASD ();
         SetupViewport ();
         SubscribeToUpdate (args => SimpleMoveCamera (args.TimeStep));
     }

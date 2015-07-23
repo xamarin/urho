@@ -12,7 +12,7 @@ class _08_Decals : Sample
     {
         base.Start();
         CreateScene();
-        SimpleCreateInstructions(
+        SimpleCreateInstructionsWithWASD(
             "\nSpace to toggle debug geometry" +
             "LMB to paint decals, RMB to rotate view\n" +
             "Space to toggle debug geometry\n" + 

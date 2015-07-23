@@ -16,7 +16,7 @@ class _20_HugeObjectCount : Sample
     {
         base.Start();
         CreateScene();
-        SimpleCreateInstructions(
+        SimpleCreateInstructionsWithWASD(
             "\nSpace to toggle animation\n" +
             "G to toggle object group optimization");
         SetupViewport();

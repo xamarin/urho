@@ -9,7 +9,7 @@ class _04_StaticScene : Sample {
     {
         base.Start ();
         CreateScene ();
-        SimpleCreateInstructions ();
+        SimpleCreateInstructionsWithWASD ();
         SetupViewport ();
         SubscribeToUpdate (UpdateHandler);
     }

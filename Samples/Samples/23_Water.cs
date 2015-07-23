@@ -16,7 +16,7 @@ class _23_Water : Sample
     {
         base.Start();
         CreateScene();
-        SimpleCreateInstructions();
+        SimpleCreateInstructionsWithWASD();
         SetupViewport();
         SubscribeToEvents();
     }

@@ -18,7 +18,7 @@ class _10_RenderToTexture : Sample
     {
         base.Start();
         CreateScene();
-        SimpleCreateInstructions();
+        SimpleCreateInstructionsWithWASD();
         SetupViewport();
         SubscribeToEvents();
     }

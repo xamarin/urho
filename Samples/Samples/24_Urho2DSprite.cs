@@ -23,7 +23,7 @@ class _24_Urho2DSprite : Sample
     {
         base.Start();
         CreateScene();
-        SimpleCreateInstructions("\nuse PageUp PageDown keys to zoom.");
+        SimpleCreateInstructionsWithWASD("\nuse PageUp PageDown keys to zoom.");
         SetupViewport();
         SubscribeToEvents();
     }
@@ -86,7 +86,7 @@ class _24_Urho2DSprite : Sample
 
             });
 
-#warning MISSIN_API (constructor accepting string)
+#warning MISSIN_API 
         //UnsubscribeFromEvent(E_SCENEUPDATE); //is it   new StringHash("E_SCENEUPDATE") ?
     }
     

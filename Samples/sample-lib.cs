@@ -274,14 +274,20 @@ public class Sample : Application {
 			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 	}
 
-	protected void SimpleCreateInstructions (string extra = "")
+	protected void SimpleCreateInstructionsWithWASD (string extra = "")
 	{
-		var t = new Text (Context) {
-			Value = "Use WASD keys and mouse/touch to move" + extra,
-			HorizontalAlignment = HorizontalAlignment.HA_CENTER,
-			VerticalAlignment = VerticalAlignment.VA_CENTER
-		};
-		t.SetFont  (ResourceCache.GetFont ("Fonts/Anonymous Pro.ttf"), 15);
-		UI.Root.AddChild (t);
-	}
+	    SimpleCreateInstructions("Use WASD keys and mouse/touch to move" + extra);
+    }
+
+    protected void SimpleCreateInstructions(string text = "")
+    {
+        var t = new Text(Context)
+        {
+            Value = text,
+            HorizontalAlignment = HorizontalAlignment.HA_CENTER,
+            VerticalAlignment = VerticalAlignment.VA_CENTER
+        };
+        t.SetFont(ResourceCache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
+        UI.Root.AddChild(t);
+    }
 }
