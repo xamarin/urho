@@ -46,3 +46,10 @@ Some screencasts:
 Various sample issues are being tracked here:
 
 https://docs.google.com/spreadsheets/d/1TUMBGpo7Jp18yp7AqghXE9QnBC5jVLt2tDQWfD_bI2w/edit?usp=sharing
+
+Some of the basic structs have differences:
+
+C++ | C# 
+--- | ---
+Plane | Vector4
+ctor Quaternion(float angle, const Vector3& axis) | static Quaternion FromAxisAngle(Vector3 axis, float angle)
