@@ -10,6 +10,19 @@ Binding
 Missing Bindings
 ----------------
 
+PODVector
+---------
+
+This comes in three flavors, "PODVector<X>", "PODVector<X>&" and
+"const PODVector<X>&", it is used as vector that can be blit, but they
+do use it to store classes (see documentation about the differences in
+which ctors are called in PODVector vs Vector).
+
+THe ones that we seem to be interested are the second two, the ones
+that are passed by reference as they are the most common.  The
+non-const version is used in a few cases to return new values, so
+perhaps we can bind those differently.
+
 Wanted
 ------
 Bring OpenTK data types to replace the ones in the quick and dirty implementation (Vectors, Quaternions, etc)
