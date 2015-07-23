@@ -55,33 +55,3 @@ public static class QuaternionExtensions
         return vector + 2.0f*cross1*quaternion.W + cross2;
     }
 }
-
-
-public static class Vector3Extensions
-{
-    public static Vector3 Abs(this Vector3 vector)
-    {
-        return new Vector3(Math.Abs(vector.X), Math.Abs(vector.Y), Math.Abs(vector.Z));
-    }
-}
-
-public class Vector4Extensions
-{
-    /// <summary>
-    /// void Define(const Vector3& normal, const Vector3& point)
-    /// </summary>
-    public static Vector4 FromNormalAndPointVectors(Vector3 normal, Vector3 point)
-    {
-        //NOTE: realyyyyy not sure about this impl.....
-
-        /*
-            normal_ = normal.Normalized();
-            absNormal_ = normal_.Abs();
-            d_ = -normal_.DotProduct(point);
-        */
-
-        normal.Normalize();
-        normal = normal.Abs();
-        return new Vector4(normal.X, normal.Y, normal.Z, Vector3.Dot(normal, point));
-    }
-}
