@@ -54,8 +54,7 @@ class _14_SoundEffects : Sample
     {
         UIElement root = UI.Root;
         ResourceCache cache = ResourceCache;
-        Font font = cache.GetFont("Fonts/Anonymous Pro.ttf");
-    
+        Font font = cache.GetFont("Fonts/Anonymous Pro.ttf");    
         // Create text and slider below it
         Text sliderText = root.CreateChild<Text>(Text.TypeStatic);
         sliderText.SetPosition(x, y);

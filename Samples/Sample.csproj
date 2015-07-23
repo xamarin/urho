@@ -54,6 +54,7 @@
     <Compile Include="Samples\13_Ragdolls.cs" />
     <Compile Include="Samples\14_SoundEffects.cs" />
     <Compile Include="Samples\20_HugeObjectCount.cs" />
+    <Compile Include="Samples\24_Urho2DSprite.cs" />
     <Compile Include="Samples\___TEMPLATE.cs" />
     <Compile Include="Samples\05_AnimatingScene.cs" />
     <Compile Include="Samples\01_HelloWorld.cs" />
