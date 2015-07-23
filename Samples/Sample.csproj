@@ -56,6 +56,7 @@
     <Compile Include="Samples\20_HugeObjectCount.cs" />
     <Compile Include="Samples\24_Urho2DSprite.cs" />
     <Compile Include="Samples\25_Urho2DParticle.cs" />
+    <Compile Include="Samples\26_ConsoleInput.cs" />
     <Compile Include="Samples\___TEMPLATE.cs" />
     <Compile Include="Samples\05_AnimatingScene.cs" />
     <Compile Include="Samples\01_HelloWorld.cs" />
