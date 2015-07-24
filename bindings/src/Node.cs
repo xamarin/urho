@@ -22,7 +22,7 @@ namespace Urho {
 	public partial class Node {
 		static Node []ZeroArray = new Node[0];
 			
-		public Node[] GetComponents<T> (bool recursive = false) where T: Node
+		public Node[] GetChildrenWithComponents<T> (bool recursive = false) where T: Node
 		{
 			var stringhash = Runtime.LookupStringHash (typeof (T));
 			int count;
