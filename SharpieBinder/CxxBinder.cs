@@ -104,9 +104,30 @@ namespace SharpieBinder
 
 		}
 
+		static string FlattenVectorName (string p)
+		{
+			return p.Replace ("<", "_").Replace (">", "").Replace (" ", "").Replace ("::", "__").Replace("*","Ptr");
+		}
+
+		void GeneratePodVector ()
+		{
+			foreach (var p in podClasses) {
+				var flatName = FlattenVectorName (p);
+				pn ("{0}* Create_{1} ()", p, flatName);
+				pn ("{");
+				pn ("\treturn new {0} ();", p.Replace ("class ", "").Trim ());
+				pn ("}\n\n");
+				pn ($"void Destroy_{flatName} ({p} *obj)");
+				pn ("{");
+				pn ("\tdelete obj;");
+				pn ("}\n");
+			}
+		}
+
 		public void Close()
 		{
 			pn ("}");
+			GeneratePodVector ();
 			cbindingStream.Close();
 			cbindingStream = null;
 		}
@@ -376,8 +397,20 @@ namespace SharpieBinder
 			return typeName;
 		}
 
+		// Removes the "const" and "&" from a typename string definition 
+		static string DropConstAndReference (string tname)
+		{
+			if (tname.StartsWith ("const")) 
+				tname = tname.Substring ("const".Length);
+			// strip the &
+			tname = tname.Substring (0, tname.Length - 1);
+			return tname.Trim ();
+		}
+
 		const string ConstStringReference = "const class Urho3D::String &";
 		static HashSet<string> displayed = new HashSet<string>();
+		static HashSet<string> podClasses = new HashSet<string> ();
+
 		// Temporary, just to help us get the bindings bootstrapped
 		// 
 		// This limits which C++ types we can bind, and lets us progressively add more
@@ -423,6 +456,15 @@ namespace SharpieBinder
 					}
 				}
 #endif
+			} else {
+				// The & at the end is redundant, Urho always uses PODVector & on parameters
+				// but there for future proofing.
+				if (ctstring.Contains ("PODVector<") && ctstring.EndsWith ("&")) {
+					string plainPodClass = DropConstAndReference (ctstring);
+					if (!podClasses.Contains (plainPodClass))
+						podClasses.Add (plainPodClass);
+				}
+
 			}
 
 			var s = ct.Bind().ToString();
