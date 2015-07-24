@@ -249,7 +249,8 @@ GENERATED_SOURCES =	\
 	generated/WorkQueue.cs		\
 	generated/WrapMode.cs		\
 	generated/XMLFile.cs		\
-	generated/Zone.cs
+	generated/Zone.cs		\
+	generated/PodVectors.cs
 
 SOURCES = $(GENERATED_SOURCES) 		\
 	generated/Object.Events.cs	\
@@ -289,7 +290,7 @@ all: check-links Urho.pch Urho.dll libmono-urho.dylib sample.exe
 run: gen-bind Urho.dll
 
 $(GENERATED_SOURCES): Urho.pch ../SharpieBinder/bin/Debug/SharpieBinder.exe
-	$(mono64)/bin/mono ../SharpieBinder/bin/Debug/SharpieBinder.exe
+	$(mono64)/bin/mono --debug ../SharpieBinder/bin/Debug/SharpieBinder.exe
 
 Urho.dll: $(SOURCES) Makefile 
 	mcs $(NO_CLS_WARNINGS) -unsafe -out:Urho.dll -target:library -debug $(SOURCES)

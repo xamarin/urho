@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 #define URHO3D_OPENGL
 #include "../AllUrho.h"
 #include "glue.h"
@@ -76,7 +77,26 @@ extern "C" {
 	{
 		return strdup (GetPlatform().CString ());
 	}
-	
+
+	//
+	// returns: null on no matches
+	// otherwise, a pointer that should be released with free() that
+	// contains a first element (pointer sized) with the number of elements
+	// followed by the number of pointers
+	//
+	void *urho_node_get_components (Node *node, int code, int recursive, int *count)
+	{
+		PODVector<Node*> dest;
+		node->GetChildrenWithComponent (dest, StringHash(code), recursive);
+		if (dest.Size () == 0)
+			return NULL;
+		*count = dest.Size ();
+		void **t = (void **) malloc (sizeof(Node*)*dest.Size());
+		for (int i = 0; i < dest.Size (); i++){
+			t [i] = dest [i];
+		}
+		return t;
+	}
 	
 void *
 create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)

@@ -13,8 +13,31 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 
 namespace Urho {
+
+	internal partial class NodeHelper {
+		[DllImport ("mono-urho")]
+		internal extern static IntPtr urho_node_get_components(IntPtr node, int code, int recursive, out int count);
+	}
 	
 	public partial class Node {
+		static Node []ZeroArray = new Node[0];
+			
+		public Node[] GetComponents<T> (bool recursive = false) where T: Node
+		{
+			var stringhash = Runtime.LookupStringHash (typeof (T));
+			int count;
+			var ptr = NodeHelper.urho_node_get_components (handle, stringhash.Code, recursive ? 1 : 0, out count);
+			if (ptr == null)
+				return ZeroArray;
+			
+			var res = new Node [count];
+			for (int i = 0; i < count; i++){
+				var node = Marshal.ReadIntPtr (ptr, i);
+				res [i] = Runtime.LookupObject<T> (node);
+			}
+			return res;
+		}
+		
 		public T CreateComponent<T> (StringHash type, CreateMode mode = CreateMode.REPLICATED, uint id = 0) where T:Component
 		{
 			var ptr = Node_CreateComponent (handle, type.Code, mode, id);
