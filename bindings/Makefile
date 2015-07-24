@@ -259,6 +259,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Input.cs			\
 	src/Node.cs			\
 	src/Object.cs			\
+	src/PodVector.cs		\
 	src/UrhoMap.cs			\
 	src/RefCounted.cs		\
 	src/ResourceCache.cs		\

@@ -23,6 +23,21 @@ that are passed by reference as they are the most common.  The
 non-const version is used in a few cases to return new values, so
 perhaps we can bind those differently.
 
+Ownership
+---------
+
+Currently there is no object destruction of any kind, although there
+is some supporting code to queue finalizers to invoke destruction on
+the main thread.
+
+But we do not have a way of tracking whether the unmanaged code is
+keeping a reference to our code around.  This might not be an issue,
+as long as we do not add managed state and prevent users from
+subclassing our framework classes (because then, we can relinquish our
+reference safely, as we can always recreate it if needed).
+
+
+
 Wanted
 ------
 Bring OpenTK data types to replace the ones in the quick and dirty implementation (Vectors, Quaternions, etc)
