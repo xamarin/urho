@@ -5,8 +5,6 @@ class _25_Urho2DParticle : Sample
 {
     private Scene scene;
     private Node particleNode;
-#warning MISSIN_API //constant
-    private const float PIXEL_SIZE = 0.01f;
 
     public _25_Urho2DParticle(Context ctx) : base(ctx) { }
 

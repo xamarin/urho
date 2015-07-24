@@ -33,8 +33,6 @@ class _24_Urho2DSprite : Sample
         SubscribeToUpdate(args =>
             {
 #warning MISSING_API //constant
-                const int KEY_PAGEUP = 1073741899;
-                const int KEY_PAGEDOWN = 1073741902;
 
                 SimpleMoveCamera(args.TimeStep);
                 var input = Input;

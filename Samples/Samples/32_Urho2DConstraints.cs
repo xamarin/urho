@@ -27,11 +27,7 @@ class _32_Urho2DConstraints : Sample
             {
                 SimpleMoveCamera(args.TimeStep);
 
-#warning MISSING_API //constant
-                const int KEY_PAGEUP = 1073741899;
-                const int KEY_PAGEDOWN = 1073741902;
-                const int KEY_SPACE = 32;
-                const int KEY_F5 = 1073741886;
+
 
                 var input = Input;
                 if (input.GetKeyDown(KEY_PAGEUP))

@@ -26,8 +26,18 @@ public class Sample : Application {
 		
 	ResourceCache cache;
 	UI ui;
-	
-	public Sample (Context ctx) : base (ctx)
+
+#warning MISSIN_API //constant
+    public const float PIXEL_SIZE = 0.01f;
+
+#warning MISSING_API //constants for Input::GetKeyDown
+    public const int KEY_PAGEUP = 1073741899;
+    public const int KEY_PAGEDOWN = 1073741902;
+    public const int KEY_SPACE = 32;
+    public const int KEY_F5 = 1073741886;
+
+
+    public Sample (Context ctx) : base (ctx)
 	{
 		Environment.CurrentDirectory = "/cvs/Urho3D/bin";
 	}

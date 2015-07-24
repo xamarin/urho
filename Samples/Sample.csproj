@@ -60,6 +60,7 @@
     <Compile Include="Samples\30_LightAnimation.cs" />
     <Compile Include="Samples\31_MaterialAnimation.cs" />
     <Compile Include="Samples\32_Urho2DConstraints.cs" />
+    <Compile Include="Samples\33_Urho2DSpriterAnimation.cs" />
     <Compile Include="Samples\___TEMPLATE.cs" />
     <Compile Include="Samples\05_AnimatingScene.cs" />
     <Compile Include="Samples\01_HelloWorld.cs" />
