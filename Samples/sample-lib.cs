@@ -37,6 +37,8 @@ public class Sample : Application {
     public const int KEY_F5 = 1073741886;
     public const int KEY_F7 = 1073741888;
     public const int KEY_ESC = 27;
+    public const int KEY_UP = 0;
+    public const int KEY_DOWN = 0;
     //more in InputEvents.h
 
 #warning MISSING_API //enum for Log::Write

@@ -63,8 +63,8 @@ class _28_Urho2DPhysicsRope : Sample
         camera.SetOrthographic(true);
 
         var graphics = Graphics;
-        camera.OrthoSize=(float)graphics.Height * 0.05f;
-        camera.Zoom = 1.5f * Math.Min((float)graphics.Width / 1280.0f, (float)graphics.Height / 800.0f); // Set zoom according to user's resolution to ensure full visibility (initial zoom (1.5) is set for full visibility at 1280x800 resolution)
+        camera.OrthoSize=graphics.Height * 0.05f;
+        camera.Zoom = 1.5f * Math.Min(graphics.Width / 1280.0f, graphics.Height / 800.0f); // Set zoom according to user's resolution to ensure full visibility (initial zoom (1.5) is set for full visibility at 1280x800 resolution)
 
         // Create 2D physics world component
         PhysicsWorld2D physicsWorld = scene.CreateComponent<PhysicsWorld2D>();
