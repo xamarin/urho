@@ -300,22 +300,26 @@ public class Sample : Application {
 		SubscribeToSceneUpdate (HandleSceneUpdate);
 	}
 
-	protected void SimpleMoveCamera (float timeStep)
+	protected void SimpleMoveCamera (float timeStep, bool withMouse = true, float moveSpeed = 20f)
 	{
-		const float moveSpeed = 20f;
 		const float mouseSensitivity = .1f;
 		
 		if (UI.FocusElement != null)
 			return;
 		var input = Input;
-		var mouseMove = input.MouseMove;
-		//var mouseMove = Test2 (input.Handle);
-		Yaw += mouseSensitivity * mouseMove.X;
-		Pitch += mouseSensitivity * mouseMove.Y;
-		Pitch = Clamp (Pitch, -90, 90);
 
-		CameraNode.Rotation = new Quaternion (Pitch, Yaw, 0);
-		if (input.GetKeyDown ('W'))
+	    if (withMouse)
+	    {
+	        var mouseMove = input.MouseMove;
+	        //var mouseMove = Test2 (input.Handle);
+	        Yaw += mouseSensitivity*mouseMove.X;
+	        Pitch += mouseSensitivity*mouseMove.Y;
+	        Pitch = Clamp(Pitch, -90, 90);
+
+	        CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
+	    }
+
+	    if (input.GetKeyDown ('W'))
 			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 		if (input.GetKeyDown ('S'))
 			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);

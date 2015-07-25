@@ -55,7 +55,7 @@
     <Compile Include="Samples\Todo\18_CharacterDemo.cs" />
     <Compile Include="Samples\Todo\19_VehicleDemo.cs" />
     <Compile Include="Samples\InProgress\21_AngelScriptIntegration.cs" />
-    <Compile Include="Samples\Todo\26_ConsoleInput.cs" />
+    <Compile Include="Samples\InProgress\26_ConsoleInput.cs" />
     <Compile Include="Samples\Todo\27_Urho2DPhysics.cs" />
     <Compile Include="Samples\Todo\28_Urho2DPhysicsRope.cs" />
     <Compile Include="Samples\Todo\29_SoundSynthesis.cs" />
