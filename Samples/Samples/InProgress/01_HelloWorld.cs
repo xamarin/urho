@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Urho;
-
+﻿using Urho;
 
 class _01_HelloWorld : Sample
 {
@@ -27,6 +21,10 @@ class _01_HelloWorld : Sample
     {
         base.Start();
         CreateText();
+        SubscribeToUpdate(args =>
+            {
+                // Do nothing for now, could be extended to eg. animate the display
+            });
     }
 
     public _01_HelloWorld(Context c) : base(c) { }
