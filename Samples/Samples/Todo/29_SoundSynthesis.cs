@@ -1,12 +1,12 @@
 ﻿using Urho;
 
-class ___TEMPLATE : Sample
+class _29_SoundSynthesis : Sample
 {
     private Scene scene;
     private bool drawDebug;
     private Camera camera;
 
-    public ___TEMPLATE(Context ctx) : base(ctx) { }
+    public _29_SoundSynthesis(Context ctx) : base(ctx) { }
 
     public override void Start()
     {
