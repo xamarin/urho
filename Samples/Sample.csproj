@@ -63,6 +63,7 @@
     <Compile Include="Samples\33_Urho2DSpriterAnimation.cs" />
     <Compile Include="Samples\34_DynamicGeometry.cs" />
     <Compile Include="Samples\35_SignedDistanceFieldText.cs" />
+    <Compile Include="Samples\36_Urho2DTileMap.cs" />
     <Compile Include="Samples\___TEMPLATE.cs" />
     <Compile Include="Samples\05_AnimatingScene.cs" />
     <Compile Include="Samples\01_HelloWorld.cs" />
