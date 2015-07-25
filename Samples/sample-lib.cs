@@ -117,6 +117,12 @@ public class Sample : Application {
 		LogoSprite.Priority = -100;
 	}
 
+    protected bool IsLogoVisible
+    {
+        get { return LogoSprite.IsVisible(); }
+        set { LogoSprite.SetVisible(value); }
+    }
+
 	void SetWindowAndTitleIcon ()
 	{
 		var icon = cache.GetImage ("Textures/UrhoIcon.png");

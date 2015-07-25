@@ -50,7 +50,7 @@
     <Compile Include="Samples\InProgress\03_Sprites.cs" />
     <Compile Include="Samples\InProgress\12_PhysicsStressTest.cs" />
     <Compile Include="Samples\InProgress\15_Navigation.cs" />
-    <Compile Include="Samples\Todo\16_Chat.cs" />
+    <Compile Include="Samples\InProgress\16_Chat.cs" />
     <Compile Include="Samples\Todo\17_SceneReplication.cs" />
     <Compile Include="Samples\Todo\18_CharacterDemo.cs" />
     <Compile Include="Samples\Todo\19_VehicleDemo.cs" />
