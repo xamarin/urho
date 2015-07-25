@@ -35,6 +35,8 @@ public class Sample : Application {
     public const int KEY_PAGEDOWN = 1073741902;
     public const int KEY_SPACE = 32;
     public const int KEY_F5 = 1073741886;
+    public const int KEY_F7 = 1073741888;
+    //more in InputEvents.h
 
 #warning MISSING_API //enum for Log::Write
     public const int LOG_RAW = -1;
@@ -45,7 +47,7 @@ public class Sample : Application {
     public const int LOG_NONE = 4;
 
 
-#warning MISSING_API //enum for VertexBuffer::SetSize
+#warning MISSING_API //enum for VertexBuffer::SetSize //[Flag]
     public const uint MASK_NONE = 0x0;
     public const uint MASK_POSITION = 0x1;
     public const uint MASK_NORMAL = 0x2;
@@ -62,6 +64,12 @@ public class Sample : Application {
     public const uint MASK_INSTANCEMATRIX3 = 0x1000;
     public const uint MASK_DEFAULT = 0xffffffff;
     public const uint NO_ELEMENT = 0xffffffff;
+
+#warning MISSING_API //enum for Input::GetQualifierDown
+    public const int QUAL_SHIFT = 1;
+    public const int QUAL_CTRL = 2;
+    public const int QUAL_ALT = 4;
+    public const int QUAL_ANY = 8;
 
     public Sample (Context ctx) : base (ctx)
 	{
