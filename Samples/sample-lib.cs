@@ -36,6 +36,32 @@ public class Sample : Application {
     public const int KEY_SPACE = 32;
     public const int KEY_F5 = 1073741886;
 
+#warning MISSING_API //enum for Log::Write
+    public const int LOG_RAW = -1;
+    public const int LOG_DEBUG = 0;
+    public const int LOG_INFO = 1;
+    public const int LOG_WARNING = 2;
+    public const int LOG_ERROR = 3;
+    public const int LOG_NONE = 4;
+
+
+#warning MISSING_API //enum for VertexBuffer::SetSize
+    public const uint MASK_NONE = 0x0;
+    public const uint MASK_POSITION = 0x1;
+    public const uint MASK_NORMAL = 0x2;
+    public const uint MASK_COLOR = 0x4;
+    public const uint MASK_TEXCOORD1 = 0x8;
+    public const uint MASK_TEXCOORD2 = 0x10;
+    public const uint MASK_CUBETEXCOORD1 = 0x20;
+    public const uint MASK_CUBETEXCOORD2 = 0x40;
+    public const uint MASK_TANGENT = 0x80;
+    public const uint MASK_BLENDWEIGHTS = 0x100;
+    public const uint MASK_BLENDINDICES = 0x200;
+    public const uint MASK_INSTANCEMATRIX1 = 0x400;
+    public const uint MASK_INSTANCEMATRIX2 = 0x800;
+    public const uint MASK_INSTANCEMATRIX3 = 0x1000;
+    public const uint MASK_DEFAULT = 0xffffffff;
+    public const uint NO_ELEMENT = 0xffffffff;
 
     public Sample (Context ctx) : base (ctx)
 	{

@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Urho;
 
 class _32_Urho2DConstraints : Sample
@@ -26,8 +30,6 @@ class _32_Urho2DConstraints : Sample
         SubscribeToUpdate(args =>
             {
                 SimpleMoveCamera(args.TimeStep);
-
-
 
                 var input = Input;
                 if (input.GetKeyDown(KEY_PAGEUP))
