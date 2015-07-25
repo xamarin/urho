@@ -108,7 +108,7 @@ class _36_Urho2DTileMap : Sample
         ////const TileMapInfo2D&info = tileMap.GetInfo();
         ////float x = info.GetMapWidth() * 0.5f;
         ////float y = info.GetMapHeight() * 0.5f;
-        CameraNode.Position = (new Vector3(x, y, -10.0f));
+        ////CameraNode.Position = (new Vector3(x, y, -10.0f));
 
     }
 }
