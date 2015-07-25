@@ -19,7 +19,22 @@ class _27_Urho2DPhysics : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args => SimpleMoveCamera(args.TimeStep, false, 4f));
+        SubscribeToUpdate(args =>
+            {
+                SimpleMoveCamera(args.TimeStep, false, 4f);
+
+                if (Input.GetKeyDown(KEY_PAGEUP))
+                {
+                    Camera camera = CameraNode.GetComponent<Camera>();
+                    camera.Zoom = (camera.Zoom * 1.01f);
+                }
+
+                if (Input.GetKeyDown(KEY_PAGEDOWN))
+                {
+                    Camera camera = CameraNode.GetComponent<Camera>();
+                    camera.Zoom = (camera.Zoom * 0.99f);
+                }
+            });
 
 #warning MISSING_API UnsubscribeFromEvent
         ////UnsubscribeFromEvent(E_SCENEUPDATE);
