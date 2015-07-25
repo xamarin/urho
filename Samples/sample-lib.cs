@@ -302,7 +302,7 @@ public class Sample : Application {
 		SubscribeToSceneUpdate (HandleSceneUpdate);
 	}
 
-	protected void SimpleMoveCamera (float timeStep, bool withMouse = true, float moveSpeed = 20f)
+	protected void SimpleMoveCamera (float timeStep, bool withMouse = true, float moveSpeed = 20f, bool moveIfCursorHiddenOnly = false)
 	{
 		const float mouseSensitivity = .1f;
 		
@@ -310,15 +310,15 @@ public class Sample : Application {
 			return;
 		var input = Input;
 
-	    if (withMouse)
-	    {
-	        var mouseMove = input.MouseMove;
-	        //var mouseMove = Test2 (input.Handle);
-	        Yaw += mouseSensitivity*mouseMove.X;
-	        Pitch += mouseSensitivity*mouseMove.Y;
-	        Pitch = Clamp(Pitch, -90, 90);
+	    if (withMouse && !(moveIfCursorHiddenOnly && UI.Cursor.IsVisible()))
+        {
+            var mouseMove = input.MouseMove;
+            //var mouseMove = Test2 (input.Handle);
+            Yaw += mouseSensitivity * mouseMove.X;
+            Pitch += mouseSensitivity * mouseMove.Y;
+            Pitch = Clamp(Pitch, -90, 90);
 
-	        CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
+            CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
 	    }
 
 	    if (input.GetKeyDown ('W'))

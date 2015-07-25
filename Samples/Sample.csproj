@@ -79,7 +79,7 @@
     <Compile Include="Samples\InProgress\35_SignedDistanceFieldText.cs" />
     <Compile Include="Samples\InProgress\36_Urho2DTileMap.cs" />
     <Compile Include="Samples\InProgress\39_CrowdNavigation.cs" />
-    <Compile Include="Samples\Todo\38_SceneAndUILoad.cs" />
+    <Compile Include="Samples\InProgress\38_SceneAndUILoad.cs" />
     <Compile Include="Samples\InProgress\05_AnimatingScene.cs" />
     <Compile Include="Samples\InProgress\01_HelloWorld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
