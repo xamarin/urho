@@ -47,12 +47,12 @@ class _26_ConsoleInput : Sample
         // subscriber for the console command event
 
 #warning MISSING_API Console
-        ////Console console = Console;
-        ////console.SetNumRows(Graphics.Height / 16);
-        ////console.SetNumBufferedRows(2 * console.NumRows);
-        ////console.SetCommandInterpreter(GetType().Name);
-        ////console.SetVisible(true);
-        ////console.GetCloseButton().SetVisible(false);
+        var console = Console;
+        console.NumRows = (uint) (Graphics.Height / 16);
+        console.NumBufferedRows = 2 * console.NumRows;
+        console.CommandInterpreter = GetType().Name;
+        console.SetVisible(true);
+        console.CloseButton.SetVisible(false);
 
         // Show OS mouse cursor
         Input.SetMouseVisible(true, false);
@@ -80,7 +80,6 @@ class _26_ConsoleInput : Sample
 
 
 #warning MISSING_API GetConsoleInput
-
         ////string input = GetConsoleInput();
         ////if (!string.IsNullOrEmpty(input))
         ////    HandleInput(input);

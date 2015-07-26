@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Urho;
 
 class _16_Chat : Sample
@@ -222,21 +223,22 @@ class _16_Chat : Sample
             ////// Use a MemoryBuffer to read the message data so that there is no unnecessary copying
             ////MemoryBuffer msg = new MemoryBuffer(args.Data);
             ////string text = msg.ReadString();
+            Marshal.PtrToStringUni(args.Data, 100);//???
 
             ////// If we are the server, prepend the sender's IP address and port and echo to everyone
             ////// If we are a client, just display the message
             ////if (network.IsServerRunning())
             ////{
             ////    Connection sender = args.Connection;
-            
+
             ////    text = sender.ToString() + " " + text;
-            
+
             ////    VectorBuffer sendMsg;
             ////    sendMsg.WriteString(text);
             ////    // Broadcast as in-order and reliable
             ////    network.BroadcastMessage(MSG_CHAT, true, true, sendMsg);
             ////}
-        
+
             ////ShowChatText(text);
         }
     }
