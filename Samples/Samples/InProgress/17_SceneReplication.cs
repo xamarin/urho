@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using Urho;
 
@@ -9,7 +9,7 @@ class _17_SceneReplication : Sample
     private Camera camera;
     
     /// Mapping from client connections to controllable objects.
-    Dictionary<Connection, WeakReference<Node>> serverObjects_;
+    Dictionary<Connection, Node> serverObjects_;
     /// Button container element.
     UIElement buttonContainer_;
     /// Server address line editor element.
@@ -25,6 +25,10 @@ class _17_SceneReplication : Sample
     /// ID of own controllable object (client only.)
     uint clientObjectID_;
 
+    public const ushort SERVER_PORT = 2345;
+#warning MISSING_API StringHash(String)
+    //static StringHash E_CLIENTOBJECTID("ClientObjectID");
+    //static StringHash P_ID("ID");
 
     public _17_SceneReplication(Context ctx) : base(ctx) { }
 
@@ -47,21 +51,25 @@ class _17_SceneReplication : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args =>
+        SubscribeToPhysicsPreStep(HandlePhysicsPreStep);
+        SubscribeToPostUpdate(HandlePostUpdate);
+
+        SubscribeToReleased(args =>
         {
-            SimpleMoveCamera(args.TimeStep);
-            if (Input.GetKeyDown(' '))
-                drawDebug = !drawDebug;
+            if (args.Element == connectButton_) HandleConnect();
+            if (args.Element == disconnectButton_) HandleDisconnect();
+            if (args.Element == startServerButton_) HandleStartServer();
         });
 
-        SubscribeToPostRenderUpdate(args =>
-        {
-            // If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
-            // bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
-            // bones properly
-            if (drawDebug)
-                Renderer.DrawDebugGeometry(false);
-        });
+        SubscribeToServerConnected(args => HandleConnectionStatus());
+        SubscribeToServerDisconnected(args => HandleConnectionStatus());
+        SubscribeToConnectFailed(args => HandleConnectionStatus());
+        SubscribeToClientConnected(HandleClientConnected);
+        SubscribeToClientDisconnected(HandleClientDisconnected);
+
+#warning MISSING_API E_CLIENTOBJECTID
+        ////SubscribeToEvent(E_CLIENTOBJECTID, HANDLER(SceneReplication, HandleClientObjectID));
+        ////Network.RegisterRemoteEvent(E_CLIENTOBJECTID);
     }
     
     private void SetupViewport()
@@ -80,7 +88,8 @@ class _17_SceneReplication : Sample
         // Create octree and physics world with default settings. Create them as local so that they are not needlessly replicated
         // when a client connects
         scene.CreateComponent<Octree>(CreateMode.LOCAL);
-        scene.CreateComponent<PhysicsWorld>(CreateMode.LOCAL);
+#warning MISSING_API
+        ////scene.CreateComponent<PhysicsWorld>(CreateMode.LOCAL);
 
         // All static scene content and the camera are also created as local, so that they are unaffected by scene replication and are
         // not removed from the client upon connection. Create a Zone component first for ambient lighting & fog control.
@@ -111,10 +120,11 @@ class _17_SceneReplication : Sample
                 floorObject.Model = (cache.GetModel("Models/Box.mdl"));
                 floorObject.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
 
-                RigidBody body = floorNode.CreateComponent<RigidBody>();
-                body.Friction = 1.0f;
-                CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
-                shape.SetBox(Vector3.One);
+#warning MISSING_API
+                ////RigidBody body = floorNode.CreateComponent<RigidBody>();
+                ////body.Friction = 1.0f;
+                ////CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
+                ////shape.SetBox(Vector3.One);
             }
         }
 
@@ -151,7 +161,8 @@ class _17_SceneReplication : Sample
 
         // Construct the instructions text element
         instructionsText_ = ui.Root.CreateChild<Text>(Text.TypeStatic);
-        instructionsText_.Text = "Use WASD keys to move and RMB to rotate view";
+#warning MISSING_API
+        ////instructionsText_.Text = "Use WASD keys to move and RMB to rotate view";
         instructionsText_.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
         // Position the text relative to the screen center
         instructionsText_.HorizontalAlignment = HorizontalAlignment.HA_CENTER;
@@ -187,7 +198,8 @@ class _17_SceneReplication : Sample
         var buttonText = button.CreateChild<Text>(Text.TypeStatic);
         buttonText.SetFont(font, 12);
         buttonText.SetAlignment(HorizontalAlignment.HA_CENTER, VerticalAlignment.VA_CENTER);
-        buttonText.Text = text;
+#warning MISSING_API
+        ////buttonText.Text = text;
 
         return button;
     }
@@ -217,20 +229,21 @@ class _17_SceneReplication : Sample
         ballObject.Model = (cache.GetModel("Models/Sphere.mdl"));
         ballObject.SetMaterial(cache.GetMaterial("Materials/StoneSmall.xml"));
 
+#warning MISSING_API
         // Create the physics components
-        RigidBody body = ballNode.CreateComponent<RigidBody>();
-        body.SetMass(1.0f);
-        body.Friction = (1.0f);
-        // In addition to friction, use motion damping so that the ball can not accelerate limitlessly
-        body.SetLinearDamping(0.5f);
-        body.SetAngularDamping(0.5f);
-        CollisionShape shape = ballNode.CreateComponent<CollisionShape>();
-        shape.SetSphere(1.0f);
+        ////RigidBody body = ballNode.CreateComponent<RigidBody>();
+        ////body.SetMass(1.0f);
+        ////body.Friction = (1.0f);
+        ////// In addition to friction, use motion damping so that the ball can not accelerate limitlessly
+        ////body.SetLinearDamping(0.5f);
+        ////body.SetAngularDamping(0.5f);
+        ////CollisionShape shape = ballNode.CreateComponent<CollisionShape>();
+        ////shape.SetSphere(1.0f);
 
         // Create a random colored point light at the ball so that can see better where is going
         Light light = ballNode.CreateComponent<Light>();
         light.Range = (3.0f);
-        light.Color = (new Color(0.5f + (Rand() & 1) * 0.5f, 0.5f + (Rand() & 1) * 0.5f, 0.5f + (Rand() & 1) * 0.5f));
+        light.Color = (new Color(0.5f + ((int)NextRandom() & 1) * 0.5f, 0.5f + ((int)NextRandom() & 1) * 0.5f, 0.5f + ((int)NextRandom() & 1) * 0.5f));
 
         return ballNode;
     }
@@ -276,13 +289,13 @@ class _17_SceneReplication : Sample
         instructionsText_.SetVisible(showInstructions);
     }
 
-    private void HandlePostUpdate()
+    private void HandlePostUpdate(PostUpdateEventArgs postUpdateEventArgs)
     {
         // We only rotate the camera according to mouse movement since last frame, so do not need the time step
         MoveCamera();
     }
 
-    private void HandlePhysicsPreStep()
+    private void HandlePhysicsPreStep(PhysicsPreStepEventArgs physicsPreStepEventArgs)
     {
         // This function is different on the client and server. The client collects controls (WASD controls + yaw angle)
         // and sets them to its server connection object, so that they will be sent to the server automatically at a
@@ -295,21 +308,22 @@ class _17_SceneReplication : Sample
         {
             UI ui = UI;
             Input input = Input;
-            Controls controls;
+#warning MISSING_API Controls
+            ////Controls controls;
 
-            // Copy mouse yaw
-            controls._yaw = Yaw;
+            ////// Copy mouse yaw
+            ////controls._yaw = Yaw;
 
-            // Only apply WASD controls if there is no focused UI element
-            if (!ui.FocusElement)
-            {
-                controls.Set(CTRL_FORWARD, input.GetKeyDown('W'));
-                controls.Set(CTRL_BACK, input.GetKeyDown('S'));
-                controls.Set(CTRL_LEFT, input.GetKeyDown('A'));
-                controls.Set(CTRL_RIGHT, input.GetKeyDown('D'));
-            }
+            ////// Only apply WASD controls if there is no focused UI element
+            ////if (!ui.FocusElement)
+            ////{
+            ////    controls.Set(CTRL_FORWARD, input.GetKeyDown('W'));
+            ////    controls.Set(CTRL_BACK, input.GetKeyDown('S'));
+            ////    controls.Set(CTRL_LEFT, input.GetKeyDown('A'));
+            ////    controls.Set(CTRL_RIGHT, input.GetKeyDown('D'));
+            ////}
 
-            serverConnection.SetControls(controls);
+            ////serverConnection.SetControls(controls);
             // In case the server wants to do position-based interest management using the NetworkPriority components, we should also
             // tell it our observer (camera) position. In this sample it is not in use, but eg. the NinjaSnowWar game uses it
             serverConnection.Position = (CameraNode.Position);
@@ -317,50 +331,52 @@ class _17_SceneReplication : Sample
         // Server: apply controls to client objects
         else if (network.IsServerRunning())
         {
-            const Vector<Connection>&connections = network.GetClientConnections();
+#warning MISSING_API Network::GetClientConnections, RigidBody
+            ////var connections = network.GetClientConnections();
 
-            for (uint i = 0; i < connections.Size(); ++i)
-            {
-                Connection* connection = connections[i];
-                // Get the object this connection is controlling
-                Node ballNode = serverObjects_[connection];
-                if (!ballNode)
-                    continue;
+            ////for (int i = 0; i < connections.Size(); ++i)
+            ////{
+            ////    Connection connection = connections[i];
+            ////    // Get the object this connection is controlling
+            ////    Node ballNode = serverObjects_[connection];
+            ////    if (ballNode == null)
+            ////        continue;
 
-                RigidBody body = ballNode.GetComponent<RigidBody>();
+            ////    RigidBody body = ballNode.GetComponent<RigidBody>();
 
-                // Get the last controls sent by the client
-                const Controls&controls = connection.GetControls();
-                // Torque is relative to the forward vector
-                Quaternion rotation(0.0f, controls.yaw_, 0.0f);
+            ////    // Get the last controls sent by the client
+            ////    var controls = connection.GetControls();
+            ////    // Torque is relative to the forward vector
+            ////    Quaternion rotation = new Quaternion(0.0f, controls.yaw_, 0.0f);
 
-            const float MOVE_TORQUE = 3.0f;
+            ////    const float MOVE_TORQUE = 3.0f;
 
-            // Movement torque is applied before each simulation step, which happen at 60 FPS. This makes the simulation
-            // independent from rendering framerate. We could also apply forces (which would enable in-air control),
-            // but want to emphasize that it's a ball which should only control its motion by rolling along the ground
-            if (controls.buttons_ & CTRL_FORWARD)
-                body.ApplyTorque(rotation * Vector3.UnitX * MOVE_TORQUE);
-            if (controls.buttons_ & CTRL_BACK)
-                body.ApplyTorque(rotation * Vector3::LEFT * MOVE_TORQUE);
-            if (controls.buttons_ & CTRL_LEFT)
-                body.ApplyTorque(rotation * Vector3.UnitZ * MOVE_TORQUE);
-            if (controls.buttons_ & CTRL_RIGHT)
-                body.ApplyTorque(rotation * Vector3::BACK * MOVE_TORQUE);
-        }
+            ////    // Movement torque is applied before each simulation step, which happen at 60 FPS. This makes the simulation
+            ////    // independent from rendering framerate. We could also apply forces (which would enable in-air control),
+            ////    // but want to emphasize that it's a ball which should only control its motion by rolling along the ground
+            ////    if (controls.buttons_ & CTRL_FORWARD)
+            ////        body.ApplyTorque(rotation * Vector3.UnitX * MOVE_TORQUE);
+            ////    if (controls.buttons_ & CTRL_BACK)
+            ////        body.ApplyTorque(rotation * Vector3::LEFT * MOVE_TORQUE);
+            ////    if (controls.buttons_ & CTRL_LEFT)
+            ////        body.ApplyTorque(rotation * Vector3.UnitZ * MOVE_TORQUE);
+            ////    if (controls.buttons_ & CTRL_RIGHT)
+            ////        body.ApplyTorque(rotation * Vector3::BACK * MOVE_TORQUE);
+            ////}
     }
 }
 
     private void HandleConnect()
     {
         Network network = Network;
-        String address = textEdit_.GetText().Trimmed();
-        if (address.Empty())
+        String address = textEdit_.Text.Trim();
+        if (string.IsNullOrEmpty(address))
             address = "localhost"; // Use localhost to connect if nothing else specified
 
         // Connect to server, specify scene to use as a client for replication
         clientObjectID_ = 0; // Reset own object ID from possible previous connection
-        network.Connect(address, SERVER_PORT, scene);
+#warning MISSING_API Network::Connect
+        ////network.Connect(address, SERVER_PORT, scene);
 
         UpdateButtons();
     }
@@ -373,7 +389,7 @@ class _17_SceneReplication : Sample
         // scene of all replicated content, but let the local nodes & components (the static world + camera) stay
         if (serverConnection != null)
         {
-            serverConnection.Disconnect();
+            serverConnection.Disconnect(0);
             scene.Clear(true, false);
             clientObjectID_ = 0;
         }
@@ -400,36 +416,37 @@ class _17_SceneReplication : Sample
         UpdateButtons();
     }
 
-    private void HandleClientConnected()
+    private void HandleClientConnected(ClientConnectedEventArgs args)
     {
         // When a client connects, assign to scene to begin scene replication
-        Connection newConnection = static_cast<Connection*>(eventData[P_CONNECTION].GetPtr());
-        newConnection.SetScene(scene);
+        Connection newConnection = args.Connection;
+        newConnection.Scene = scene;
     
         // Then create a controllable object for that client
         Node newObject = CreateControllableObject();
         serverObjects_[newConnection] = newObject;
-    
-        // Finally send the object's node ID using a remote event
-        VariantMap remoteEventData;
-        remoteEventData[P_ID] = newObject.GetID();
-        newConnection.SendRemoteEvent(E_CLIENTOBJECTID, true, remoteEventData);
+
+#warning MISSING_API Connection::SendRemoteEvent
+        ////// Finally send the object's node ID using a remote event
+        ////VariantMap remoteEventData;
+        ////remoteEventData[P_ID] = newObject.GetID();
+        ////newConnection.SendRemoteEvent(E_CLIENTOBJECTID, true, remoteEventData);
     }
 
-    private void HandleClientDisconnected()
+    private void HandleClientDisconnected(ClientDisconnectedEventArgs args)
     {
         // When a client disconnects, remove the controlled object
-        Connection connection = static_cast<Connection*>(eventData[P_CONNECTION].GetPtr());
+        Connection connection = args.Connection;
         Node n = serverObjects_[connection];
         if (n != null)
             n.Remove();
 
-        serverObjects_.Erase(connection);
+        serverObjects_.Remove(connection);
     }
 
-    private void HandleClientObjectID()
-    {
-        clientObjectID_ = eventData[P_ID].GetUInt();
-    }
+#warning MISSING_API custom event
+    ////private void HandleClientObjectID()
+    ////{
+    ////    clientObjectID_ = eventData[P_ID].GetUInt();
+    ////}
 }
-*/

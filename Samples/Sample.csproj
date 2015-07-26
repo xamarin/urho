@@ -51,8 +51,8 @@
     <Compile Include="Samples\InProgress\12_PhysicsStressTest.cs" />
     <Compile Include="Samples\InProgress\15_Navigation.cs" />
     <Compile Include="Samples\InProgress\16_Chat.cs" />
-    <Compile Include="Samples\Todo\17_SceneReplication.cs" />
-    <Compile Include="Samples\Todo\18_CharacterDemo.cs" />
+    <Compile Include="Samples\InProgress\17_SceneReplication.cs" />
+    <Compile Include="Samples\InProgress\18_CharacterDemo.cs" />
     <Compile Include="Samples\InProgress\19_VehicleDemo.cs" />
     <Compile Include="Samples\InProgress\21_AngelScriptIntegration.cs" />
     <Compile Include="Samples\InProgress\26_ConsoleInput.cs" />
