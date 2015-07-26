@@ -274,12 +274,6 @@ public class Vehicle : LogicComponent
         /// Current left/right steering amount (-1 to 1.)
         float steering_;
 
-#warning MISSING_API Missing enum for UpdateEventMask
-        const byte USE_UPDATE = 0x1;
-        const byte USE_POSTUPDATE = 0x2;
-        const byte USE_FIXEDUPDATE = 0x4;
-        const byte USE_FIXEDPOSTUPDATE = 0x8;
-
         public Vehicle(Context context) : base(context)
         {
             UpdateEventMask = USE_FIXEDUPDATE;

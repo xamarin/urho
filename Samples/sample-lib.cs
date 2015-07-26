@@ -17,8 +17,9 @@ public class Sample : Application {
 	[DllImport ("mono-urho")]
 	extern static void check2 (ref Vector3 p);
 
-	const float TouchSensitivity = 2;
-	protected float Yaw, Pitch;
+    protected const float TouchSensitivity = 2;
+
+    protected float Yaw, Pitch;
 	protected bool TouchEnabled;
 	protected Node CameraNode;
 	protected Scene Scene;
@@ -26,6 +27,12 @@ public class Sample : Application {
 		
 	ResourceCache cache;
 	UI ui;
+
+#warning MISSING_API Missing enum for UpdateEventMask
+    public const byte USE_UPDATE = 0x1;
+    public const byte USE_POSTUPDATE = 0x2;
+    public const byte USE_FIXEDUPDATE = 0x4;
+    public const byte USE_FIXEDPOSTUPDATE = 0x8;
 
 #warning MISSIN_API //constant
     public const float PIXEL_SIZE = 0.01f;
