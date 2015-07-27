@@ -37,9 +37,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Urho">
-      <HintPath>..\bindings\Urho.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\Colors.cs" />
@@ -85,6 +82,11 @@
     <Compile Include="Samples\InProgress\06_SkeletalAnimation.cs" />
     <Compile Include="Samples\Done\04_StaticScene.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\bindings\Urho.csproj">
+      <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
+      <Name>Urho</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
