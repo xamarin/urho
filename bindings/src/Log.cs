@@ -8,10 +8,10 @@ namespace Urho
 	{
 		Raw = -1,
 		Default = 0,
-		Info = 1;
-		Warning = 2;
-		Error = 3;
-		None = 4;
+		Info = 1,
+		Warning = 2,
+		Error = 3,
+		None = 4,
 	}
 
 	public partial class Log
