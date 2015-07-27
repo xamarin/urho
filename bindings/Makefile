@@ -249,8 +249,7 @@ GENERATED_SOURCES =	\
 	generated/WorkQueue.cs		\
 	generated/WrapMode.cs		\
 	generated/XMLFile.cs		\
-	generated/Zone.cs		\
-	generated/PodVectors.cs
+	generated/Zone.cs
 
 SOURCES = $(GENERATED_SOURCES) 		\
 	generated/Object.Events.cs	\
