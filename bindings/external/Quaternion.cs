@@ -38,22 +38,27 @@ namespace Urho
     {
         #region Fields
 
-        Vector3 xyz;
         float w;
+        float x;
+        float y;
+        float z;
 
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Construct a new Quaternion from vector and w components
+        /// Construct a new Quaternion from vector and w components (FromAxisAngle)
         /// </summary>
         /// <param name="v">The vector part</param>
         /// <param name="w">The w part</param>
         public Quaternion(Vector3 v, float w)
         {
-            this.xyz = v;
-            this.w = w;
+            var q = FromAxisAngle(v, w);
+            this.w = q.W;
+            this.x = q.X;
+            this.y = q.Y;
+            this.z = q.Z;
         }
 
         /// <summary>
@@ -64,11 +69,15 @@ namespace Urho
         /// <param name="z">The z component</param>
         /// <param name="w">The w component</param>
         public Quaternion(float x, float y, float z, float w)
-            : this(new Vector3(x, y, z), w)
-        { }
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.w = w;
+        }
 
-	// From Euler angles
-	public Quaternion (float x, float y, float z)
+        // From Euler angles
+	    public Quaternion (float x, float y, float z)
 	{
 		const float M_DEGTORAD_2 = (float)Math.PI / 360.0f;
 		x *= M_DEGTORAD_2;
@@ -81,24 +90,21 @@ namespace Urho
 		float sinZ = (float)Math.Sin(z);
 		float cosZ = (float)Math.Cos(z);
 
-		xyz = new Vector3(cosY * sinX * cosZ + sinY * cosX * sinZ,
-				  sinY * cosX * cosZ - cosY * sinX * sinZ,
-				  cosY * cosX * sinZ - sinY * sinX * cosZ);
-		w = cosY * cosX * cosZ + sinY * sinX * sinZ;
+	    this.x = cosY*sinX*cosZ + sinY*cosX*sinZ;
+	    this.y = sinY*cosX*cosZ - cosY*sinX*sinZ;
+        this.z = cosY * cosX * sinZ - sinY * sinX * cosZ;
+		this.w = cosY * cosX * cosZ + sinY * sinX * sinZ;
 	}
 	
         public Quaternion (ref Matrix3 matrix)
         {
             double scale = System.Math.Pow(matrix.Determinant, 1.0d / 3.0d);
-	    float x, y, z;
 	    
             w = (float) (System.Math.Sqrt(System.Math.Max(0, scale + matrix[0, 0] + matrix[1, 1] + matrix[2, 2])) / 2);
             x = (float) (System.Math.Sqrt(System.Math.Max(0, scale + matrix[0, 0] - matrix[1, 1] - matrix[2, 2])) / 2);
             y = (float) (System.Math.Sqrt(System.Math.Max(0, scale - matrix[0, 0] + matrix[1, 1] - matrix[2, 2])) / 2);
             z = (float) (System.Math.Sqrt(System.Math.Max(0, scale - matrix[0, 0] - matrix[1, 1] + matrix[2, 2])) / 2);
 
-	    xyz = new Vector3 (x, y, z);
-	    
             if (matrix[2, 1] - matrix[1, 2] < 0) X = -X;
             if (matrix[0, 2] - matrix[2, 0] < 0) Y = -Y;
             if (matrix[1, 0] - matrix[0, 1] < 0) Z = -Z;
@@ -110,37 +116,37 @@ namespace Urho
 
         #region Properties
 
-        /// <summary>
+        /*/// <summary>
         /// Gets or sets an OpenTK.Vector3 with the X, Y and Z components of this instance.
         /// </summary>
         [Obsolete("Use Xyz property instead.")]
         [CLSCompliant(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [XmlIgnore]
-        public Vector3 XYZ { get { return Xyz; } set { Xyz = value; } }
+        public Vector3 XYZ { get { return Xyz; } }
 
         /// <summary>
         /// Gets or sets an OpenTK.Vector3 with the X, Y and Z components of this instance.
         /// </summary>
-        public Vector3 Xyz { get { return xyz; } set { xyz = value; } }
+        public Vector3 Xyz { get { return xyz; } }*/
 
         /// <summary>
         /// Gets or sets the X component of this instance.
         /// </summary>
         [XmlIgnore]
-        public float X { get { return xyz.X; } set { xyz.X = value; } }
+        public float X { get { return x; } set { x = value; } }
 
         /// <summary>
         /// Gets or sets the Y component of this instance.
         /// </summary>
         [XmlIgnore]
-        public float Y { get { return xyz.Y; } set { xyz.Y = value; } }
+        public float Y { get { return y; } set { y = value; } }
 
         /// <summary>
         /// Gets or sets the Z component of this instance.
         /// </summary>
         [XmlIgnore]
-        public float Z { get { return xyz.Z; } set { xyz.Z = value; } }
+        public float Z { get { return z; } set { z = value; } }
 
         /// <summary>
         /// Gets or sets the W component of this instance.
@@ -181,7 +187,9 @@ namespace Urho
             float den = (float)System.Math.Sqrt(1.0 - q.W * q.W);
             if (den > 0.0001f)
             {
-                result.Xyz = q.Xyz / den;
+                result.X = q.X / den;
+                result.Y = q.Y / den;
+                result.Z = q.Z / den;
             }
             else
             {
@@ -205,7 +213,7 @@ namespace Urho
         {
             get
             {
-                return (float)System.Math.Sqrt(W * W + Xyz.LengthSquared);
+                return (float)System.Math.Sqrt(W * W + X * X + Y * Y + Z * Z);
             }
         }
 
@@ -220,7 +228,7 @@ namespace Urho
         {
             get
             {
-                return W * W + Xyz.LengthSquared;
+                return W * W + X * X + Y * Y + Z * Z;
             }
         }
 
@@ -234,7 +242,9 @@ namespace Urho
         public void Normalize()
         {
             float scale = 1.0f / this.Length;
-            Xyz *= scale;
+            X *= scale;
+            Y *= scale;
+            Z *= scale;
             W *= scale;
         }
 
@@ -247,7 +257,9 @@ namespace Urho
         /// </summary>
         public void Conjugate()
         {
-            Xyz = -Xyz;
+            X = -X;
+            Y = -Y;
+            Z = -Z;
         }
 
         #endregion
@@ -276,7 +288,9 @@ namespace Urho
         public static Quaternion Add(Quaternion left, Quaternion right)
         {
             return new Quaternion(
-                left.Xyz + right.Xyz,
+                left.X + right.X,
+                left.Y + right.Y,
+                left.Z + right.Z,
                 left.W + right.W);
         }
 
@@ -289,7 +303,9 @@ namespace Urho
         public static void Add(ref Quaternion left, ref Quaternion right, out Quaternion result)
         {
             result = new Quaternion(
-                left.Xyz + right.Xyz,
+                left.X + right.X,
+                left.Y + right.Y,
+                left.Z + right.Z,
                 left.W + right.W);
         }
 
@@ -306,7 +322,9 @@ namespace Urho
         public static Quaternion Sub(Quaternion left, Quaternion right)
         {
             return  new Quaternion(
-                left.Xyz - right.Xyz,
+                left.X - right.X,
+                left.Y - right.Y,
+                left.Z - right.Z,
                 left.W - right.W);
         }
 
@@ -319,7 +337,9 @@ namespace Urho
         public static void Sub(ref Quaternion left, ref Quaternion right, out Quaternion result)
         {
             result = new Quaternion(
-                left.Xyz - right.Xyz,
+                left.X - right.X,
+                left.Y - right.Y,
+                left.Z - right.Z,
                 left.W - right.W);
         }
 
@@ -332,53 +352,14 @@ namespace Urho
         /// </summary>
         /// <param name="left">The first instance.</param>
         /// <param name="right">The second instance.</param>
-        /// <returns>A new instance containing the result of the calculation.</returns>
-        [Obsolete("Use Multiply instead.")]
-        public static Quaternion Mult(Quaternion left, Quaternion right)
-        {
-            return new Quaternion(
-                right.W * left.Xyz + left.W * right.Xyz + Vector3.Cross(left.Xyz, right.Xyz),
-                left.W * right.W - Vector3.Dot(left.Xyz, right.Xyz));
-        }
-
-        /// <summary>
-        /// Multiplies two instances.
-        /// </summary>
-        /// <param name="left">The first instance.</param>
-        /// <param name="right">The second instance.</param>
-        /// <param name="result">A new instance containing the result of the calculation.</param>
-        [Obsolete("Use Multiply instead.")]
-        public static void Mult(ref Quaternion left, ref Quaternion right, out Quaternion result)
-        {
-            result = new Quaternion(
-                right.W * left.Xyz + left.W * right.Xyz + Vector3.Cross(left.Xyz, right.Xyz),
-                left.W * right.W - Vector3.Dot(left.Xyz, right.Xyz));
-        }
-
-        /// <summary>
-        /// Multiplies two instances.
-        /// </summary>
-        /// <param name="left">The first instance.</param>
-        /// <param name="right">The second instance.</param>
-        /// <returns>A new instance containing the result of the calculation.</returns>
-        public static Quaternion Multiply(Quaternion left, Quaternion right)
-        {
-            Quaternion result;
-            Multiply(ref left, ref right, out result);
-            return result;
-        }
-
-        /// <summary>
-        /// Multiplies two instances.
-        /// </summary>
-        /// <param name="left">The first instance.</param>
-        /// <param name="right">The second instance.</param>
         /// <param name="result">A new instance containing the result of the calculation.</param>
         public static void Multiply(ref Quaternion left, ref Quaternion right, out Quaternion result)
         {
             result = new Quaternion(
-                right.W * left.Xyz + left.W * right.Xyz + Vector3.Cross(left.Xyz, right.Xyz),
-                left.W * right.W - Vector3.Dot(left.Xyz, right.Xyz));
+                left.W*right.X + left.X*right.W + left.Y*right.Z - left.Z*right.Y,
+                left.W*right.Y + left.Y*right.W + left.Z*right.X - left.X*right.Z,
+                left.W*right.Z + left.Z*right.W + left.X*right.Y - left.Y*right.X,
+                left.W*right.W - left.X*right.X - left.Y*right.Y - left.Z*right.Z);
         }
 
         /// <summary>
@@ -391,24 +372,7 @@ namespace Urho
         {
             result = new Quaternion(quaternion.X * scale, quaternion.Y * scale, quaternion.Z * scale, quaternion.W * scale);
         }
-
-	[Obsolete ("Use the overload without the ref float scale")]
-        public static void Multiply(ref Quaternion quaternion, ref float scale, out Quaternion result)
-	{
-            result = new Quaternion(quaternion.X * scale, quaternion.Y * scale, quaternion.Z * scale, quaternion.W * scale);		
-	}
 	
-        /// <summary>
-        /// Multiplies an instance by a scalar.
-        /// </summary>
-        /// <param name="quaternion">The instance.</param>
-        /// <param name="scale">The scalar.</param>
-        /// <returns>A new instance containing the result of the calculation.</returns>
-        public static Quaternion Multiply(Quaternion quaternion, float scale)
-        {
-            return new Quaternion(quaternion.X * scale, quaternion.Y * scale, quaternion.Z * scale, quaternion.W * scale);
-        }
-
         #endregion
 
         #region Conjugate
@@ -420,7 +384,7 @@ namespace Urho
         /// <returns>The conjugate of the given quaternion</returns>
         public static Quaternion Conjugate(Quaternion q)
         {
-            return new Quaternion(-q.Xyz, q.W);
+            return new Quaternion(-q.X, -q.Y, -q.Z, q.W);
         }
 
         /// <summary>
@@ -430,7 +394,7 @@ namespace Urho
         /// <param name="result">The conjugate of the given quaternion</param>
         public static void Conjugate(ref Quaternion q, out Quaternion result)
         {
-            result = new Quaternion(-q.Xyz, q.W);
+            result = new Quaternion(-q.X, -q.Y, -q.Z, q.W);
         }
 
         #endregion
@@ -460,7 +424,7 @@ namespace Urho
             if (lengthSq != 0.0)
             {
                 float i = 1.0f / lengthSq;
-                result = new Quaternion(q.Xyz * -i, q.W * i);
+                result = new Quaternion(q.X * -i, q.Y * -i, q.Z * -i, q.W * i);
             }
             else
             {
@@ -492,7 +456,7 @@ namespace Urho
         public static void Normalize(ref Quaternion q, out Quaternion result)
         {
             float scale = 1.0f / q.Length;
-            result = new Quaternion(q.Xyz * scale, q.W * scale);
+            result = new Quaternion(q.X * scale, q.Y * scale, q.Z * scale, q.W * scale);
         }
 
         #endregion
@@ -514,7 +478,10 @@ namespace Urho
 
             angle *= 0.5f;
             axis.Normalize();
-            result.Xyz = axis * (float)System.Math.Sin(angle);
+            var vector = axis * (float)System.Math.Sin(angle);
+            result.X = vector.X;
+            result.Y = vector.Y;
+            result.Z = vector.Z;
             result.W = (float)System.Math.Cos(angle);
 
             return Normalize(result);
@@ -548,7 +515,7 @@ namespace Urho
             }
 
 
-            float cosHalfAngle = q1.W * q2.W + Vector3.Dot(q1.Xyz, q2.Xyz);
+            float cosHalfAngle = q1.W*q2.W + q1.X*q2.X + q1.Y*q2.Y + q1.Z*q2.Z;
 
             if (cosHalfAngle >= 1.0f || cosHalfAngle <= -1.0f)
             {
@@ -557,7 +524,9 @@ namespace Urho
             }
             else if (cosHalfAngle < 0.0f)
             {
-                q2.Xyz = -q2.Xyz;
+                q2.X = -q2.X;
+                q2.Y = -q2.Y;
+                q2.Z = -q2.Z;
                 q2.W = -q2.W;
                 cosHalfAngle = -cosHalfAngle;
             }
@@ -580,7 +549,7 @@ namespace Urho
                 blendB = blend;
             }
 
-            Quaternion result = new Quaternion(blendA * q1.Xyz + blendB * q2.Xyz, blendA * q1.W + blendB * q2.W);
+            Quaternion result = new Quaternion(blendA * q1.X + blendB * q2.X, blendA * q1.Y + blendB * q2.Y, blendA * q1.Z + blendB * q2.Z, blendA * q1.W + blendB * q2.W);
             if (result.LengthSquared > 0.0f)
                 return Normalize(result);
             else
@@ -590,6 +559,37 @@ namespace Urho
         #endregion
 
         #endregion
+
+        public static Quaternion FromRotationTo(Vector3 start, Vector3 end)
+        {
+            Quaternion result = new Quaternion();
+            start.Normalize();
+            end.Normalize();
+
+            const float epsilon = 0.000001f;
+            float d = Vector3.Dot(start, end);
+
+            if (d > -1.0f + epsilon)
+            {
+                Vector3 c = Vector3.Cross(start, end);
+                float s = (float)Math.Sqrt((1.0f + d) * 2.0f);
+                float invS = 1.0f / s;
+
+                result.X = c.X * invS;
+                result.Y = c.Y * invS;
+                result.Z = c.Z * invS;
+                result.W = 0.5f * s;
+            }
+            else
+            {
+                Vector3 axis = Vector3.Cross(Vector3.UnitX, start);
+                if (axis.Length < epsilon)
+                    axis = Vector3.Cross(Vector3.UnitY, start);
+
+                return FromAxisAngle(axis, 180.0f);
+            }
+            return result;
+        }
 
         #region Operators
 
@@ -601,7 +601,9 @@ namespace Urho
         /// <returns>The result of the calculation.</returns>
         public static Quaternion operator +(Quaternion left, Quaternion right)
         {
-            left.Xyz += right.Xyz;
+            left.X += right.X;
+            left.Y += right.Y;
+            left.Z += right.Z;
             left.W += right.W;
             return left;
         }
@@ -614,7 +616,9 @@ namespace Urho
         /// <returns>The result of the calculation.</returns>
         public static Quaternion operator -(Quaternion left, Quaternion right)
         {
-            left.Xyz -= right.Xyz;
+            left.X -= right.X;
+            left.Y -= right.Y;
+            left.Z -= right.Z;
             left.W -= right.W;
             return left;
         }
@@ -655,6 +659,20 @@ namespace Urho
         }
 
         /// <summary>
+        /// Multiplies an instance by a vector3.
+        /// </summary>
+        /// <param name="quaternion">The instance.</param>
+        /// <param name="vector">The vector.</param>
+        /// <returns>A new instance containing the result of the calculation.</returns>
+        public static Vector3 operator *(Quaternion quaternion, Vector3 vector)
+        {
+            var qVec = new Vector3(quaternion.X, quaternion.Y, quaternion.Z);
+            var cross1 = Vector3.Cross(qVec, vector);
+            var cross2 = Vector3.Cross(qVec, cross1);
+            return vector + 2.0f * cross1 * quaternion.W + cross2;
+        }
+
+        /// <summary>
         /// Compares two instances for equality.
         /// </summary>
         /// <param name="left">The first instance.</param>
@@ -688,7 +706,7 @@ namespace Urho
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("V: {0}, W: {1}", Xyz, W);
+            return String.Format("X: {0}, Y: {1}, Z: {2}, W: {3}", X, Y, Z, W);
         }
 
         #endregion
@@ -716,7 +734,7 @@ namespace Urho
         /// <returns>A hash code formed from the bitwise XOR of this objects members.</returns>
         public override int GetHashCode()
         {
-            return Xyz.GetHashCode() ^ W.GetHashCode();
+            return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode() ^ W.GetHashCode();
         }
 
         #endregion
@@ -734,7 +752,11 @@ namespace Urho
         /// <returns>True if both instances are equal; false otherwise.</returns>
         public bool Equals(Quaternion other)
         {
-            return Xyz == other.Xyz && W == other.W;
+            double tolerance = 0.00001;
+            return Math.Abs(X - other.X) < tolerance &&
+                Math.Abs(Y - other.Y) < tolerance &&
+                Math.Abs(Z - other.Z) < tolerance &&
+                Math.Abs(W - other.W) < tolerance;
         }
 
         #endregion
