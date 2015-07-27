@@ -82,8 +82,8 @@ class _20_HugeObjectCount : Sample
         else
         {
             scene.Clear(true, true);
-            boxNodes.Clear();
         }
+        boxNodes = new List<Node>();
 
         // Create the Octree component to the scene so that drawable objects can be rendered. Use default volume
         // (-1000, -1000, -1000) to (1000, 1000, 1000)

@@ -65,7 +65,7 @@
     <Compile Include="Samples\InProgress\11_Physics.cs" />
     <Compile Include="Samples\InProgress\13_Ragdolls.cs" />
     <Compile Include="Samples\InProgress\14_SoundEffects.cs" />
-    <Compile Include="Samples\InProgress\20_HugeObjectCount.cs" />
+    <Compile Include="Samples\Done\20_HugeObjectCount.cs" />
     <Compile Include="Samples\InProgress\24_Urho2DSprite.cs" />
     <Compile Include="Samples\InProgress\25_Urho2DParticle.cs" />
     <Compile Include="Samples\InProgress\30_LightAnimation.cs" />
@@ -83,7 +83,7 @@
     <Compile Include="sample-lib.cs" />
     <Compile Include="sample.cs" />
     <Compile Include="Samples\InProgress\06_SkeletalAnimation.cs" />
-    <Compile Include="Samples\InProgress\04_StaticScene.cs" />
+    <Compile Include="Samples\Done\04_StaticScene.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
