@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Urho;
 
 class _20_HugeObjectCount : Sample
 {
     private Scene scene;
-    private bool drawDebug;
     private Camera camera;
     private bool animate;
     private bool useGroups;
@@ -29,7 +29,7 @@ class _20_HugeObjectCount : Sample
             {    
                 // Toggle animation with space
                 Input input = Input;
-                if (input.GetKeyPress(' '))//KEY_SPACE
+                if (input.GetKeyPress(KEY_SPACE))
                     animate = !animate;
 
                 // Toggle grouped / ungrouped mode
@@ -38,29 +38,19 @@ class _20_HugeObjectCount : Sample
                     useGroups = !useGroups;
                     CreateScene();
                 }
+
                 SimpleMoveCamera(args.TimeStep);
-                if (Input.GetKeyDown(' '))
-                    drawDebug = !drawDebug;
 
                 if (animate)
                     AnimateObjects(args.TimeStep);
-            });
-
-        SubscribeToPostRenderUpdate(args =>
-            {
-                // If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
-                // bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
-                // bones properly
-                if (drawDebug)
-                    Renderer.DrawDebugGeometry(false);
             });
     }
 
     private void AnimateObjects(float timeStep)
     {
-        const float ROTATE_SPEED = 15.0f;
+        const float rotateSpeed = 15.0f;
         // Rotate about the Z axis (roll)
-        Quaternion rotateQuat = Quaternion.FromAxisAngle(Vector3.UnitZ, ROTATE_SPEED * timeStep);
+        Quaternion rotateQuat = Quaternion.FromAxisAngle(Vector3.UnitZ, rotateSpeed * timeStep);
 
         foreach (var boxNode in boxNodes)
         {
@@ -82,6 +72,8 @@ class _20_HugeObjectCount : Sample
         else
         {
             scene.Clear(true, true);
+            boxNodes.Clear();
+            GC.Collect(); //recreation of scene with a lot of nodes
         }
         boxNodes = new List<Node>();
 
@@ -123,8 +115,8 @@ class _20_HugeObjectCount : Sample
         }
         else
         {
-            light.Color=new Color(0.6f, 0.6f, 0.6f);
-            light.SpecularIntensity=1.5f;
+            light.Color = new Color(0.6f, 0.6f, 0.6f);
+            light.SpecularIntensity = 1.5f;
 
             // Create StaticModelGroups in the scene
             StaticModelGroup lastGroup = null;
@@ -152,14 +144,14 @@ class _20_HugeObjectCount : Sample
             }
         }
 
+        // Create the camera. Create it outside the scene so that we can clear the whole scene without affecting it
         if (CameraNode == null)
         {
             // Create the camera. Limit far clip distance to match the fog
-            CameraNode = scene.CreateChild("Camera");
+            CameraNode = new Node(Context);
+            CameraNode.Position = new Vector3(0.0f, 10.0f, -100.0f);
             camera = CameraNode.CreateComponent<Camera>();
             camera.FarClip = 300.0f;
-            // Set an initial position for the camera scene node above the plane
-            CameraNode.Position = new Vector3(0.0f, 10.0f, -100.0f);
         }
     }
 }
