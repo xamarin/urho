@@ -40,13 +40,7 @@ namespace Urho
 		{
 			return VertexBuffer_GetElementOffset1 ((uint)elementMask, element);
 		}
-
-		public uint ElementMask {
-			get {
-				return GetElementMask ();
-			}
-		}
-		
+	
 		public ElementMask ElementMaskEnum {
 			get {
 				return (ElementMask)GetElementMask ();

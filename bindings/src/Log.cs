@@ -16,25 +16,11 @@ namespace Urho
 
 	public partial class Log
 	{
-		public static void Write (int level, string message)
-		{
-			Log_Write (level, message);
-		}
-		
 		public static void Write (LogLevel level, string message)
 		{
 			Log_Write ((int)level, message);
 		}
-
-		public int Level {
-			get {
-				return GetLevel ();
-			}
-			set {
-				SetLevel (value);
-			}
-		}
-		
+        
 		public LogLevel LogLevel {
 			get {
 				return (LogLevel)GetLevel ();
