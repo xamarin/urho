@@ -81,15 +81,13 @@
     <Compile Include="Samples\InProgress\39_CrowdNavigation.cs" />
     <Compile Include="Samples\InProgress\38_SceneAndUILoad.cs" />
     <Compile Include="Samples\InProgress\05_AnimatingScene.cs" />
-    <Compile Include="Samples\InProgress\01_HelloWorld.cs" />
+    <Compile Include="Samples\Done\01_HelloWorld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sample-lib.cs" />
     <Compile Include="sample.cs" />
     <Compile Include="Samples\InProgress\06_SkeletalAnimation.cs" />
     <Compile Include="Samples\InProgress\04_StaticScene.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Samples\Done\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

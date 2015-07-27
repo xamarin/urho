@@ -3,17 +3,16 @@ using Urho;
 
 public static class QuaternionExtensions
 {
-    public const float M_EPSILON = 0.000001f;
-
     public static Quaternion FromRotationTo(Vector3 start, Vector3 end)
     {
         Quaternion result = new Quaternion();
         start.Normalize();
         end.Normalize();
-        
+
+        const float epsilon = 0.000001f;
         float d = Vector3.Dot(start, end);
     
-        if (d > -1.0f + M_EPSILON)
+        if (d > -1.0f + epsilon)
         {
             Vector3 c = Vector3.Cross(start, end);
             float s = (float) Math.Sqrt((1.0f + d) * 2.0f);
@@ -27,7 +26,7 @@ public static class QuaternionExtensions
         else
         {
             Vector3 axis = Vector3.Cross(Vector3.UnitX, start);
-            if (axis.Length < M_EPSILON)
+            if (axis.Length < epsilon)
                 axis = Vector3.Cross(Vector3.UnitY, start);
 
             return FromAngleAxis(180.0f, axis);

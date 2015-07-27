@@ -100,13 +100,19 @@ public class Sample : Application {
 		return v;
 	}
 
-	Random r = new Random();
-	public float NextRandom (float min=-100, float max=100)
-	{
-		return (float)((r.NextDouble () * (max-min)) + min);
-	}
-	
-	void CreateLogo ()
+    readonly Random random = new Random();
+    /// Return a random float between 0.0 (inclusive) and 1.0 (exclusive.)
+    public float NextRandom() { return (float)random.NextDouble(); }
+    /// Return a random float between 0.0 and range, inclusive from both ends.
+    public float NextRandom(float range) { return (float)random.NextDouble() * range; }
+    /// Return a random float between min and max, inclusive from both ends.
+    public float NextRandom(float min, float max) { return (float)((random.NextDouble() * (max - min)) + min); }
+    /// Return a random integer between 0 and range - 1.
+    public int NextRandom(int range) { return random.Next(0, 2); }
+    /// Return a random integer between min and max - 1.
+    public int NextRandom(int min, int max) { return random.Next(min, max); }
+
+    void CreateLogo ()
 	{
 		cache = ResourceCache;
 		var logoTexture = cache.GetTexture2D ("Textures/LogoLarge.png");
