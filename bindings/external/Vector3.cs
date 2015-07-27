@@ -263,6 +263,13 @@ namespace Urho
 
         #endregion
 
+        public void Abs()
+        {
+            X = Math.Abs(X);
+            Y = Math.Abs(Y);
+            Z = Math.Abs(Z);
+        }
+
         #region public void NormalizeFast()
 
         /// <summary>
