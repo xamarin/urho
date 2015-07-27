@@ -27,10 +27,22 @@ namespace Urho {
 	public class RigidBody {
 		public RigidBody (IntPtr handle) {}
 	}
-	public partial struct WorkItem {
-		public WorkItem (IntPtr p)
-		{
-		}
-				
-	}
+
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe partial struct WorkItem
+    {
+        [DllImport("mono-urho")]
+        internal static extern IntPtr WorkItem_WorkItem();
+
+        public WorkItem(IntPtr p)
+        {
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe partial struct RefCount
+    {
+        [DllImport("mono-urho")]
+        internal static extern IntPtr RefCount_RefCount();
+    }
 }

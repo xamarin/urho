@@ -108,15 +108,8 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Color {
 		public float R, G, B, A;
-		public Color ()
-		{
-			R = 1.0f;
-			G = 1.0f;
-			B = 1.0f;
-			A = 1.0f;
-		}
 
-		public Color (float r, float g, float b, float a = 1f)
+		public Color (float r = 1f, float g = 1f, float b = 1f, float a = 1f)
 		{
 			R = r;
 			G = g;

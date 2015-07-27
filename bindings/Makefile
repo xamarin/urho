@@ -155,7 +155,6 @@ GENERATED_SOURCES =	\
 	generated/Profiler.cs		\
 	generated/PropertySet2D.cs	\
 	generated/RayQueryLevel.cs	\
-	generated/RefCount.cs		\
 	generated/RefCounted.cs		\
 	generated/RenderCommandSortMode.cs	\
 	generated/RenderCommandType.cs	\
@@ -245,7 +244,6 @@ GENERATED_SOURCES =	\
 	generated/Viewport.cs		\
 	generated/Window.cs		\
 	generated/WindowDragMode.cs	\
-	generated/WorkItem.cs		\
 	generated/WorkQueue.cs		\
 	generated/WrapMode.cs		\
 	generated/XMLFile.cs		\
