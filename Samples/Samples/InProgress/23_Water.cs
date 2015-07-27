@@ -42,9 +42,9 @@ class _23_Water : Sample
         // Create a mathematical plane to represent the water in calculations
 
 #warning MISSIN_API 
-        waterPlane = Vector4Extensions.FromNormalAndPointVectors(waterNode.WorldRotation.MutliplyWithVector3(new Vector3(0.0f, 1.0f, 0.0f)), waterNode.WorldPosition);
+        waterPlane = Vector4Extensions.FromNormalAndPointVectors(waterNode.WorldRotation * new Vector3(0.0f, 1.0f, 0.0f), waterNode.WorldPosition);
         // Create a downward biased plane for reflection view clipping. Biasing is necessary to avoid too aggressive clipping
-        waterClipPlane = Vector4Extensions.FromNormalAndPointVectors(waterNode.WorldRotation.MutliplyWithVector3(new Vector3(0.0f, 1.0f, 0.0f)), waterNode.WorldPosition -
+        waterClipPlane = Vector4Extensions.FromNormalAndPointVectors(waterNode.WorldRotation * new Vector3(0.0f, 1.0f, 0.0f), waterNode.WorldPosition -
             new Vector3(0.0f, 0.1f, 0.0f));
 
         // Create camera for water reflection

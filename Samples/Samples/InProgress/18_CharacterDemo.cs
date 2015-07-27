@@ -75,23 +75,23 @@ class _18_CharacterDemo : Sample
         float limitPitch = 0f;////Clamp(character_.controls_.pitch_, -45.0f, 45.0f);
         Quaternion headDir = rot * Quaternion.FromAxisAngle(new Vector3(1.0f, 0.0f, 0.0f), limitPitch);
         // This could be expanded to look at an arbitrary target, now just look at a point in front
-        Vector3 headWorldTarget = headNode.WorldPosition + headDir.MutliplyWithVector3(new Vector3(0.0f, 0.0f, 1.0f));
+        Vector3 headWorldTarget = headNode.WorldPosition + headDir * new Vector3(0.0f, 0.0f, 1.0f);
         headNode.LookAt(headWorldTarget, new Vector3(0.0f, 1.0f, 0.0f), TransformSpace.TS_WORLD);
         // Correct head orientation because LookAt assumes Z = forward, but the bone has been authored differently (Y = forward)
         headNode.Rotate(new Quaternion(0.0f, 90.0f, 90.0f), TransformSpace.TS_LOCAL);
 
         if (firstPerson_)
         {
-            CameraNode.Position = headNode.WorldPosition + rot.MutliplyWithVector3(new Vector3(0.0f, 0.15f, 0.2f));
+            CameraNode.Position = headNode.WorldPosition + rot * new Vector3(0.0f, 0.15f, 0.2f);
             CameraNode.Rotation = dir;
         }
         else
         {
             // Third person camera: position behind the character
-            Vector3 aimPoint = characterNode.Position + rot.MutliplyWithVector3(new Vector3(0.0f, 1.7f, 0.0f));
+            Vector3 aimPoint = characterNode.Position + rot * new Vector3(0.0f, 1.7f, 0.0f);
 
             // Collide camera ray with static physics objects (layer bitmask 2) to ensure we see the character properly
-            Vector3 rayDir = dir.MutliplyWithVector3(new Vector3(0f, 0f, -1f));
+            Vector3 rayDir = dir * new Vector3(0f, 0f, -1f);
 #warning MISSING_API RaycastSingle
             ////float rayDistance = touch_ != null ? touch_.cameraDistance_ : CAMERA_INITIAL_DIST;
             ////PhysicsRaycastResult result;

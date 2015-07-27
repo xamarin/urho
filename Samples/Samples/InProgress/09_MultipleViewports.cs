@@ -158,9 +158,7 @@ class _09_MultipleViewports : Sample
         // Parent the rear camera node to the front camera node and turn it 180 degrees to face backward
         // Here, we use the angle-axis constructor for Quaternion instead of the usual Euler angles
         rearCameraNode = CameraNode.CreateChild("RearCamera");
-#warning MISSING_API //Quaternion ctor
-        //rearCameraNode_.Rotate(new Quaternion(180.0f, Urho.Vector3::UP));
-        rearCameraNode.Rotate(QuaternionExtensions.FromAngleAxis(180.0f, Vector3.UnitY), TransformSpace.TS_LOCAL);
+        rearCameraNode.Rotate(Quaternion.FromAxisAngle(Vector3.UnitY, 180.0f), TransformSpace.TS_LOCAL);
 
         Camera rearCamera = rearCameraNode.CreateComponent<Camera>();
         rearCamera.FarClip = 300.0f;

@@ -212,7 +212,7 @@ class _19_VehicleDemo : Sample
             position.Y = terrain.GetHeight(position) - 0.1f;
             objectNode.Position = (position);
             // Create a rotation quaternion from up vector to terrain normal
-            objectNode.Rotation = QuaternionExtensions.FromRotationTo(Vector3.UnitY, terrain.GetNormal(position));
+            objectNode.Rotation = Quaternion.FromRotationTo(Vector3.UnitY, terrain.GetNormal(position));
             objectNode.SetScale(3.0f);
             StaticModel sm = objectNode.CreateComponent<StaticModel>();
             sm.Model = (cache.GetModel("Models/Mushroom.mdl"));

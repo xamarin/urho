@@ -281,7 +281,7 @@ class _17_SceneReplication : Sample
                 const float CAMERA_DISTANCE = 5.0f;
 
                 // Move camera some distance away from the ball
-                CameraNode.Position = (ballNode.Position + CameraNode.Rotation.MutliplyWithVector3(new Vector3(0f, 0f, -1f)) * CAMERA_DISTANCE);
+                CameraNode.Position = (ballNode.Position + CameraNode.Rotation * new Vector3(0f, 0f, -1f) * CAMERA_DISTANCE);
                 showInstructions = true;
             }
         }

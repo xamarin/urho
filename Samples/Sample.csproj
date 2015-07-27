@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\Colors.cs" />
-    <Compile Include="Extensions\QuaternionExtensions.cs" />
     <Compile Include="Extensions\Vector3Extensions.cs" />
     <Compile Include="Extensions\Vector4Extensions.cs" />
     <Compile Include="Samples\InProgress\02_HelloGUI.cs" />
