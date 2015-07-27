@@ -11,7 +11,7 @@ class Demo {
 		//new _01_HelloWorld (c).Run ();
 		//new _04_StaticScene (c).Run ();
 		//new _05_AnimatingScene (c).Run ();
-		new _06_SkeletalAnimation (c).Run ();
+		new _23_Water(c).Run ();
 	}
 }
 
