@@ -257,6 +257,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/AttributeInfo.cs		\
 	src/Component.cs		\
 	src/Input.cs			\
+	src/Log.cs			\
 	src/Node.cs			\
 	src/Object.cs			\
 	src/PodVector.cs		\
