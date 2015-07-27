@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Urho</RootNamespace>
+    <AssemblyName>Urho</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>3021</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="generated\Animatable.cs" />
+    <Compile Include="generated\AnimatedModel.cs" />
+    <Compile Include="generated\AnimatedSprite2D.cs" />
+    <Compile Include="generated\Animation.cs" />
+    <Compile Include="generated\Animation2D.cs" />
+    <Compile Include="generated\AnimationController.cs" />
+    <Compile Include="generated\AnimationSet2D.cs" />
+    <Compile Include="generated\AnimationState.cs" />
+    <Compile Include="generated\Application.cs" />
+    <Compile Include="generated\AsyncLoadState.cs" />
+    <Compile Include="generated\AttributeAccessor.cs" />
+    <Compile Include="generated\AttributeAnimationInfo.cs" />
+    <Compile Include="generated\Audio.cs" />
+    <Compile Include="generated\BillboardSet.cs" />
+    <Compile Include="generated\BlendMode.cs" />
+    <Compile Include="generated\BodyType2D.cs" />
+    <Compile Include="generated\BorderImage.cs" />
+    <Compile Include="generated\BufferedSoundStream.cs" />
+    <Compile Include="generated\Button.cs" />
+    <Compile Include="generated\Camera.cs" />
+    <Compile Include="generated\CheckBox.cs" />
+    <Compile Include="generated\CollisionBox2D.cs" />
+    <Compile Include="generated\CollisionChain2D.cs" />
+    <Compile Include="generated\CollisionCircle2D.cs" />
+    <Compile Include="generated\CollisionEdge2D.cs" />
+    <Compile Include="generated\CollisionPolygon2D.cs" />
+    <Compile Include="generated\CollisionShape2D.cs" />
+    <Compile Include="generated\CompareMode.cs" />
+    <Compile Include="generated\Component.cs" />
+    <Compile Include="generated\CompressedFormat.cs" />
+    <Compile Include="generated\Connection.cs" />
+    <Compile Include="generated\UrhoConsole.cs" />
+    <Compile Include="generated\ConstantBuffer.cs" />
+    <Compile Include="generated\Constraint2D.cs" />
+    <Compile Include="generated\ConstraintDistance2D.cs" />
+    <Compile Include="generated\ConstraintFriction2D.cs" />
+    <Compile Include="generated\ConstraintGear2D.cs" />
+    <Compile Include="generated\ConstraintMotor2D.cs" />
+    <Compile Include="generated\ConstraintMouse2D.cs" />
+    <Compile Include="generated\ConstraintPrismatic2D.cs" />
+    <Compile Include="generated\ConstraintPulley2D.cs" />
+    <Compile Include="generated\ConstraintRevolute2D.cs" />
+    <Compile Include="generated\ConstraintRope2D.cs" />
+    <Compile Include="generated\ConstraintWeld2D.cs" />
+    <Compile Include="generated\ConstraintWheel2D.cs" />
+    <Compile Include="generated\Context.cs" />
+    <Compile Include="generated\Corner.cs" />
+    <Compile Include="generated\CreateMode.cs" />
+    <Compile Include="generated\CrowdAgent.cs" />
+    <Compile Include="generated\CrowdAgentState.cs" />
+    <Compile Include="generated\CrowdTargetState.cs" />
+    <Compile Include="generated\CubeMapFace.cs" />
+    <Compile Include="generated\CubeMapLayout.cs" />
+    <Compile Include="generated\CullMode.cs" />
+    <Compile Include="generated\Cursor.cs" />
+    <Compile Include="generated\CursorShape.cs" />
+    <Compile Include="generated\CustomGeometry.cs" />
+    <Compile Include="generated\DebugHud.cs" />
+    <Compile Include="generated\DebugRenderer.cs" />
+    <Compile Include="generated\DecalSet.cs" />
+    <Compile Include="generated\DeferredLightPSVariation.cs" />
+    <Compile Include="generated\DeferredLightVSVariation.cs" />
+    <Compile Include="generated\DetourCrowdManager.cs" />
+    <Compile Include="generated\Drawable.cs" />
+    <Compile Include="generated\Drawable2D.cs" />
+    <Compile Include="generated\DropDownList.cs" />
+    <Compile Include="generated\DynamicNavigationMesh.cs" />
+    <Compile Include="generated\EmitterType.cs" />
+    <Compile Include="generated\EmitterType2D.cs" />
+    <Compile Include="generated\Engine.cs" />
+    <Compile Include="generated\FONT_TYPE.cs" />
+    <Compile Include="generated\FaceCameraMode.cs" />
+    <Compile Include="generated\File.cs" />
+    <Compile Include="generated\FileMode.cs" />
+    <Compile Include="generated\FileSelector.cs" />
+    <Compile Include="generated\FileSystem.cs" />
+    <Compile Include="generated\FileWatcher.cs" />
+    <Compile Include="generated\FillMode.cs" />
+    <Compile Include="generated\FocusMode.cs" />
+    <Compile Include="generated\Font.cs" />
+    <Compile Include="generated\FontFace.cs" />
+    <Compile Include="generated\FontFaceBitmap.cs" />
+    <Compile Include="generated\FontFaceFreeType.cs" />
+    <Compile Include="generated\FrustumPlane.cs" />
+    <Compile Include="generated\Geometry.cs" />
+    <Compile Include="generated\GeometryType.cs" />
+    <Compile Include="generated\Graphics.cs" />
+    <Compile Include="generated\HighlightMode.cs" />
+    <Compile Include="generated\HorizontalAlignment.cs" />
+    <Compile Include="generated\Image.cs" />
+    <Compile Include="generated\IndexBuffer.cs" />
+    <Compile Include="generated\Input.cs" />
+    <Compile Include="generated\InterpMethod.cs" />
+    <Compile Include="generated\InterpolationMode.cs" />
+    <Compile Include="generated\Intersection.cs" />
+    <Compile Include="generated\LayoutMode.cs" />
+    <Compile Include="generated\Light.cs" />
+    <Compile Include="generated\LightPSVariation.cs" />
+    <Compile Include="generated\LightType.cs" />
+    <Compile Include="generated\LightVSVariation.cs" />
+    <Compile Include="generated\LineEdit.cs" />
+    <Compile Include="generated\ListView.cs" />
+    <Compile Include="generated\LoadMode.cs" />
+    <Compile Include="generated\LockState.cs" />
+    <Compile Include="generated\Log.cs" />
+    <Compile Include="generated\LogicComponent.cs" />
+    <Compile Include="generated\LoopMode2D.cs" />
+    <Compile Include="generated\Material.cs" />
+    <Compile Include="generated\Menu.cs" />
+    <Compile Include="generated\MessageBox.cs" />
+    <Compile Include="generated\Model.cs" />
+    <Compile Include="generated\MouseMode.cs" />
+    <Compile Include="generated\NavArea.cs" />
+    <Compile Include="generated\Navigable.cs" />
+    <Compile Include="generated\NavigationMesh.cs" />
+    <Compile Include="generated\NavigationPushiness.cs" />
+    <Compile Include="generated\NavigationQuality.cs" />
+    <Compile Include="generated\NavmeshPartitionType.cs" />
+    <Compile Include="generated\Network.cs" />
+    <Compile Include="generated\Node.cs" />
+    <Compile Include="generated\UrhoObject.cs" />
+    <Compile Include="generated\ObjectAnimation.cs" />
+    <Compile Include="generated\ObjectFactory.cs" />
+    <Compile Include="generated\Obstacle.cs" />
+    <Compile Include="generated\OcclusionBuffer.cs" />
+    <Compile Include="generated\Octree.cs" />
+    <Compile Include="generated\OffMeshConnection.cs" />
+    <Compile Include="generated\OggVorbisSoundStream.cs" />
+    <Compile Include="generated\Orientation.cs" />
+    <Compile Include="generated\Orientation2D.cs" />
+    <Compile Include="generated\PListFile.cs" />
+    <Compile Include="generated\PListValueType.cs" />
+    <Compile Include="generated\PackageFile.cs" />
+    <Compile Include="generated\ParticleEffect.cs" />
+    <Compile Include="generated\ParticleEffect2D.cs" />
+    <Compile Include="generated\ParticleEmitter.cs" />
+    <Compile Include="generated\ParticleEmitter2D.cs" />
+    <Compile Include="generated\Pass.cs" />
+    <Compile Include="generated\PassLightingMode.cs" />
+    <Compile Include="generated\PhysicsWorld2D.cs" />
+    <Compile Include="generated\PrimitiveType.cs" />
+    <Compile Include="generated\Profiler.cs" />
+    <Compile Include="generated\PropertySet2D.cs" />
+    <Compile Include="generated\RayQueryLevel.cs" />
+    <Compile Include="generated\RefCounted.cs" />
+    <Compile Include="generated\RenderCommandSortMode.cs" />
+    <Compile Include="generated\RenderCommandType.cs" />
+    <Compile Include="generated\RenderPath.cs" />
+    <Compile Include="generated\RenderSurface.cs" />
+    <Compile Include="generated\RenderSurfaceUpdateMode.cs" />
+    <Compile Include="generated\RenderTargetSizeMode.cs" />
+    <Compile Include="generated\Renderer.cs" />
+    <Compile Include="generated\Renderer2D.cs" />
+    <Compile Include="generated\Resource.cs" />
+    <Compile Include="generated\ResourceCache.cs" />
+    <Compile Include="generated\ResourceRequest.cs" />
+    <Compile Include="generated\ResourceRouter.cs" />
+    <Compile Include="generated\RigidBody2D.cs" />
+    <Compile Include="generated\Scene.cs" />
+    <Compile Include="generated\ScrollBar.cs" />
+    <Compile Include="generated\ScrollView.cs" />
+    <Compile Include="generated\Serializable.cs" />
+    <Compile Include="generated\Shader.cs" />
+    <Compile Include="generated\ShaderParameterAnimationInfo.cs" />
+    <Compile Include="generated\ShaderParameterGroup.cs" />
+    <Compile Include="generated\ShaderPrecache.cs" />
+    <Compile Include="generated\ShaderProgram.cs" />
+    <Compile Include="generated\ShaderType.cs" />
+    <Compile Include="generated\ShaderVariation.cs" />
+    <Compile Include="generated\Skybox.cs" />
+    <Compile Include="generated\Slider.cs" />
+    <Compile Include="generated\SmoothedTransform.cs" />
+    <Compile Include="generated\Sound.cs" />
+    <Compile Include="generated\SoundListener.cs" />
+    <Compile Include="generated\SoundSource.cs" />
+    <Compile Include="generated\SoundSource3D.cs" />
+    <Compile Include="generated\SoundStream.cs" />
+    <Compile Include="generated\SplinePath.cs" />
+    <Compile Include="generated\Sprite.cs" />
+    <Compile Include="generated\Sprite2D.cs" />
+    <Compile Include="generated\SpriteSheet2D.cs" />
+    <Compile Include="generated\State.cs" />
+    <Compile Include="generated\StaticModel.cs" />
+    <Compile Include="generated\StaticModelGroup.cs" />
+    <Compile Include="generated\StaticSprite2D.cs" />
+    <Compile Include="generated\StencilOp.cs" />
+    <Compile Include="generated\Technique.cs" />
+    <Compile Include="generated\Terrain.cs" />
+    <Compile Include="generated\TerrainPatch.cs" />
+    <Compile Include="generated\Text.cs" />
+    <Compile Include="generated\Text3D.cs" />
+    <Compile Include="generated\TextEffect.cs" />
+    <Compile Include="generated\Texture.cs" />
+    <Compile Include="generated\Texture2D.cs" />
+    <Compile Include="generated\Texture3D.cs" />
+    <Compile Include="generated\TextureAddressMode.cs" />
+    <Compile Include="generated\TextureCoordinate.cs" />
+    <Compile Include="generated\TextureCube.cs" />
+    <Compile Include="generated\TextureFilterMode.cs" />
+    <Compile Include="generated\TextureUnit.cs" />
+    <Compile Include="generated\TextureUsage.cs" />
+    <Compile Include="generated\Tile2D.cs" />
+    <Compile Include="generated\TileMap2D.cs" />
+    <Compile Include="generated\TileMapLayer2D.cs" />
+    <Compile Include="generated\TileMapLayerType2D.cs" />
+    <Compile Include="generated\TileMapObject2D.cs" />
+    <Compile Include="generated\TileMapObjectType2D.cs" />
+    <Compile Include="generated\Time.cs" />
+    <Compile Include="generated\TmxFile2D.cs" />
+    <Compile Include="generated\TmxImageLayer2D.cs" />
+    <Compile Include="generated\TmxLayer2D.cs" />
+    <Compile Include="generated\TmxObjectGroup2D.cs" />
+    <Compile Include="generated\TmxTileLayer2D.cs" />
+    <Compile Include="generated\ToolTip.cs" />
+    <Compile Include="generated\TransformSpace.cs" />
+    <Compile Include="generated\TraversalMode.cs" />
+    <Compile Include="generated\Type.cs" />
+    <Compile Include="generated\UI.cs" />
+    <Compile Include="generated\UIElement.cs" />
+    <Compile Include="generated\UnknownComponent.cs" />
+    <Compile Include="generated\UpdateGeometryType.cs" />
+    <Compile Include="generated\ValueAnimation.cs" />
+    <Compile Include="generated\ValueAnimationInfo.cs" />
+    <Compile Include="generated\VariantType.cs" />
+    <Compile Include="generated\VertexBuffer.cs" />
+    <Compile Include="generated\VertexElement.cs" />
+    <Compile Include="generated\VertexLightVSVariation.cs" />
+    <Compile Include="generated\VerticalAlignment.cs" />
+    <Compile Include="generated\View.cs" />
+    <Compile Include="generated\View3D.cs" />
+    <Compile Include="generated\Viewport.cs" />
+    <Compile Include="generated\Window.cs" />
+    <Compile Include="generated\WindowDragMode.cs" />
+    <Compile Include="generated\WorkQueue.cs" />
+    <Compile Include="generated\WrapMode.cs" />
+    <Compile Include="generated\XMLFile.cs" />
+    <Compile Include="generated\Zone.cs" />
+    <Compile Include="generated\Object.Events.cs" />
+    <Compile Include="src\Application.cs" />
+    <Compile Include="src\AttributeInfo.cs" />
+    <Compile Include="src\Component.cs" />
+    <Compile Include="src\Input.cs" />
+    <Compile Include="src\Log.cs" />
+    <Compile Include="src\VertexBuffer.cs" />
+    <Compile Include="src\Node.cs" />
+    <Compile Include="src\Object.cs" />
+    <Compile Include="src\UrhoMap.cs" />
+    <Compile Include="src\RefCounted.cs" />
+    <Compile Include="src\ResourceCache.cs" />
+    <Compile Include="src\Runtime.cs" />
+    <Compile Include="src\StringHash.cs" />
+    <Compile Include="src\Stubs.cs" />
+    <Compile Include="src\Structs.cs" />
+    <Compile Include="src\UIElement.cs" />
+    <Compile Include="external\Vector3.cs" />
+    <Compile Include="external\MathHelper.cs" />
+    <Compile Include="external\Matrix3.cs" />
+    <Compile Include="external\Matrix4.cs" />
+    <Compile Include="external\Matrix4d.cs" />
+    <Compile Include="external\Quaternion.cs" />
+    <Compile Include="external\Quaterniond.cs" />
+    <Compile Include="external\Vector2d.cs" />
+    <Compile Include="external\Vector3d.cs" />
+    <Compile Include="external\Vector4d.cs" />
+    <Compile Include="external\Vector2.cs" />
+    <Compile Include="external\Vector4.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
