@@ -81,18 +81,18 @@ class _35_SignedDistanceFieldText : Sample
             mushroomTitleText.Text="Mushroom " + i;
             mushroomTitleText.SetFont(cache.GetFont("Fonts/BlueHighway.sdf"), 24);
 
-            mushroomTitleText.SetColor(Colors.Red);
+            mushroomTitleText.SetColor(Color.Red);
 
             if (i % 3 == 1)
             {
-                mushroomTitleText.SetColor(Colors.Green);
+                mushroomTitleText.SetColor(Color.Green);
                 mushroomTitleText.TextEffect= TextEffect.TE_SHADOW;
 #warning MISSIN_API Text3D::SetEffect
                 ////mushroomTitleText.SetEffect(new Color(new Color(0.5f, 0.5f, 0.5f)));
             }
             else if (i % 3 == 2)
             {
-                mushroomTitleText.SetColor(Colors.Yellow);
+                mushroomTitleText.SetColor(Color.Yellow);
                 mushroomTitleText.TextEffect = TextEffect.TE_STROKE;
 #warning MISSIN_API Text3D::SetEffect
                 ////mushroomTitleText.SetEffect(new Color(new Color(0.5f, 0.5f, 0.5f)));

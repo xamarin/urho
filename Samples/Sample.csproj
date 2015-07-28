@@ -17,7 +17,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <ConsolePause>false</ConsolePause>
     <EnvironmentVariables>
       <EnvironmentVariables>
@@ -25,6 +25,7 @@
       </EnvironmentVariables>
     </EnvironmentVariables>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>full</DebugType>
@@ -39,7 +40,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\Colors.cs" />
     <Compile Include="Samples\InProgress\02_HelloGUI.cs" />
     <Compile Include="Samples\InProgress\03_Sprites.cs" />
     <Compile Include="Samples\InProgress\12_PhysicsStressTest.cs" />
@@ -87,6 +87,9 @@
       <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
       <Name>Urho</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
