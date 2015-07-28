@@ -46,10 +46,10 @@ class _19_VehicleDemo : Sample
                     if (ui.FocusElement == null)
                     {
 #warning MISSING_API Controls, Input::GetTouch, Scene::LoadXML, Scene::SaveXML
-                        ////        vehicle_.controls_.Set(CTRL_FORWARD, input.GetKeyDown('W'));
-                        ////    vehicle_.controls_.Set(CTRL_BACK, input.GetKeyDown('S'));
-                        ////    vehicle_.controls_.Set(CTRL_LEFT, input.GetKeyDown('A'));
-                        ////    vehicle_.controls_.Set(CTRL_RIGHT, input.GetKeyDown('D'));
+                        ////        vehicle_.controls_.Set(CTRL_FORWARD, input.GetKeyDown(Keys.W));
+                        ////    vehicle_.controls_.Set(CTRL_BACK, input.GetKeyDown(Key.S));
+                        ////    vehicle_.controls_.Set(CTRL_LEFT, input.GetKeyDown(Key.A));
+                        ////    vehicle_.controls_.Set(CTRL_RIGHT, input.GetKeyDown(Key.D));
 
                         ////    // Add yaw & pitch from the mouse motion or touch input. Used only for the camera, does not affect motion
                         ////    if (TouchEnabled)

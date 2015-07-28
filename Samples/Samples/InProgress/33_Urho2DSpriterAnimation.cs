@@ -43,22 +43,22 @@ class _33_Urho2DSpriterAnimation : Sample
         const float MOVE_SPEED = 4.0f;
 
         // Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
-        if (input.GetKeyDown('W'))
+        if (input.GetKeyDown(Key.W))
             CameraNode.Translate(Vector3.UnitY * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown('S'))
+        if (input.GetKeyDown(Key.S))
             CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown('A'))
+        if (input.GetKeyDown(Key.A))
             CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown('D'))
+        if (input.GetKeyDown(Key.D))
             CameraNode.Translate(Vector3.UnitX * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
 
-        if (input.GetKeyDown(KEY_PAGEUP))
+        if (input.GetKeyDown(Key.PageUp))
         {
             Camera camera = CameraNode.GetComponent<Camera>();
             camera.Zoom = (camera.Zoom * 1.01f);
         }
 
-        if (input.GetKeyDown(KEY_PAGEDOWN))
+        if (input.GetKeyDown(Key.PageDown))
         {
             Camera camera = CameraNode.GetComponent<Camera>();
             camera.Zoom = (camera.Zoom * 0.99f);

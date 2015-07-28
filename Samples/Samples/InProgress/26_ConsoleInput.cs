@@ -88,7 +88,7 @@ class _26_ConsoleInput : Sample
     private void HandleEscKeyDown(KeyDownEventArgs args)
     {
         // Unlike the other samples, exiting the engine when ESC is pressed instead of just closing the console
-        if (args.Key == KEY_ESC)
+        if (args.Key == (int) Key.Esc)
             Engine.Exit();
     }
 

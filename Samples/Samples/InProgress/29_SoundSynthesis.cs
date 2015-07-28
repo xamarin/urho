@@ -41,9 +41,9 @@ class _29_SoundSynthesis : Sample
             {
                 // Use keys to control the filter constant
                 Input input = Input;
-                if (input.GetKeyDown(KEY_UP))
+                if (input.GetKeyDown(Key.Up))
                     filter += args.TimeStep * 0.5f;
-                if (input.GetKeyDown(KEY_DOWN))
+                if (input.GetKeyDown(Key.Down))
                     filter -= args.TimeStep * 0.5f;
                 filter = Clamp(filter, 0.01f, 1.0f);
 

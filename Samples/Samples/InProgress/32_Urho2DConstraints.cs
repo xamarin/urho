@@ -32,18 +32,18 @@ class _32_Urho2DConstraints : Sample
                 SimpleMoveCamera(args.TimeStep);
 
                 var input = Input;
-                if (input.GetKeyDown(KEY_PAGEUP))
+                if (input.GetKeyDown(Key.PageUp))
                     camera.Zoom = (camera.Zoom * 1.01f);
 
-                if (input.GetKeyDown(KEY_PAGEDOWN))
+                if (input.GetKeyDown(Key.PageDown))
                     camera.Zoom = (camera.Zoom * 0.99f);
 
                 // Toggle physics debug geometry with space
-                if (input.GetKeyPress(KEY_SPACE))
+                if (input.GetKeyPress(Key.Space))
                     drawDebug = !drawDebug;
 
                 // Save scene
-                if (input.GetKeyPress(KEY_F5))
+                if (input.GetKeyPress(Key.F5))
                 {
                     File saveFile=new File(Context, FileSystem.ProgramDir + "Data/Scenes/Constraints.xml",  FileMode.FILE_WRITE);
 #warning MISSIN_API SaveXML

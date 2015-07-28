@@ -37,44 +37,6 @@ public class Sample : Application {
 #warning MISSIN_API //constant
     public const float PIXEL_SIZE = 0.01f;
 
-#warning MISSING_API //constants for Input::GetKeyDown
-    public const int KEY_PAGEUP = 1073741899;
-    public const int KEY_PAGEDOWN = 1073741902;
-    public const int KEY_SPACE = 32;
-    public const int KEY_F5 = 1073741886;
-    public const int KEY_F7 = 1073741888;
-    public const int KEY_ESC = 27;
-    public const int KEY_UP = 0;
-    public const int KEY_DOWN = 0;
-    //more in InputEvents.h
-
-#warning MISSING_API //enum for Log::Write
-    public const int LOG_RAW = -1;
-    public const int LOG_DEBUG = 0;
-    public const int LOG_INFO = 1;
-    public const int LOG_WARNING = 2;
-    public const int LOG_ERROR = 3;
-    public const int LOG_NONE = 4;
-
-
-#warning MISSING_API //enum for VertexBuffer::SetSize //[Flag]
-    public const uint MASK_NONE = 0x0;
-    public const uint MASK_POSITION = 0x1;
-    public const uint MASK_NORMAL = 0x2;
-    public const uint MASK_COLOR = 0x4;
-    public const uint MASK_TEXCOORD1 = 0x8;
-    public const uint MASK_TEXCOORD2 = 0x10;
-    public const uint MASK_CUBETEXCOORD1 = 0x20;
-    public const uint MASK_CUBETEXCOORD2 = 0x40;
-    public const uint MASK_TANGENT = 0x80;
-    public const uint MASK_BLENDWEIGHTS = 0x100;
-    public const uint MASK_BLENDINDICES = 0x200;
-    public const uint MASK_INSTANCEMATRIX1 = 0x400;
-    public const uint MASK_INSTANCEMATRIX2 = 0x800;
-    public const uint MASK_INSTANCEMATRIX3 = 0x1000;
-    public const uint MASK_DEFAULT = 0xffffffff;
-    public const uint NO_ELEMENT = 0xffffffff;
-
 #warning MISSING_API //enum for Input::GetQualifierDown
     public const int QUAL_SHIFT = 1;
     public const int QUAL_CTRL = 2;
@@ -334,13 +296,13 @@ public class Sample : Application {
             CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
 	    }
 
-	    if (input.GetKeyDown ('W'))
+	    if (input.GetKeyDown (Key.W))
 			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-		if (input.GetKeyDown ('S'))
+		if (input.GetKeyDown (Key.S))
 			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-		if (input.GetKeyDown ('A'))
+		if (input.GetKeyDown (Key.A))
 			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-		if (input.GetKeyDown ('D'))
+		if (input.GetKeyDown (Key.D))
 			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 	}
 

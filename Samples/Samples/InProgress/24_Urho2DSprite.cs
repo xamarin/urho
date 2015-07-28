@@ -36,13 +36,13 @@ class _24_Urho2DSprite : Sample
 
                 SimpleMoveCamera(args.TimeStep);
                 var input = Input;
-                if (input.GetKeyDown(KEY_PAGEUP))
+                if (input.GetKeyDown(Key.PageUp))
                 {
                     Camera camera = CameraNode.GetComponent<Camera>();
                     camera.Zoom=camera.Zoom * 1.01f;
                 }
 
-                if (input.GetKeyDown(KEY_PAGEDOWN))
+                if (input.GetKeyDown(Key.PageDown))
                 {
                     Camera camera = CameraNode.GetComponent<Camera>();
                     camera.Zoom=camera.Zoom * 0.99f;

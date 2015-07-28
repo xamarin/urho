@@ -27,12 +27,12 @@ class _09_MultipleViewports : Sample
             SimpleMoveCamera(args.TimeStep);
 
             var effectRenderPath = Renderer.GetViewport(0).RenderPath;
-            if (Input.GetKeyPress('B'))
+            if (Input.GetKeyPress(Key.B))
                 effectRenderPath.ToggleEnabled("Bloom");
-            if (Input.GetKeyPress('F'))
+            if (Input.GetKeyPress(Key.F))
                 effectRenderPath.ToggleEnabled("FXAA2");
 
-            if (Input.GetKeyDown(' '))
+            if (Input.GetKeyDown(Key.Space))
                 drawDebug = !drawDebug;
         });
 
@@ -166,9 +166,7 @@ class _09_MultipleViewports : Sample
         // "view override flags" for this. We could also disable eg. shadows or force low material quality
         // if we wanted
 
-#warning MISSING_API //constant
-        const uint VO_DISABLE_OCCLUSION = 0x4;
-        rearCamera.ViewOverrideFlags = VO_DISABLE_OCCLUSION;
+        rearCamera.ViewOverrideFlags = ViewOverrideFlags.DisableOcclusion;
 
         // Set an initial position for the front camera scene node above the plane
         CameraNode.Position = new Vector3(0.0f, 5.0f, 0.0f);

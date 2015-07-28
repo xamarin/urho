@@ -26,7 +26,7 @@ class _23_Water : Sample
         SubscribeToUpdate(args =>
             {
                 SimpleMoveCamera(args.TimeStep);
-                if (Input.GetKeyDown(' '))
+                if (Input.GetKeyDown(Key.Space))
                     drawDebug = !drawDebug;
             });
     }

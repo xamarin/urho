@@ -29,11 +29,11 @@ class _20_HugeObjectCount : Sample
             {    
                 // Toggle animation with space
                 Input input = Input;
-                if (input.GetKeyPress(KEY_SPACE))
+                if (input.GetKeyPress(Key.Space))
                     animate = !animate;
 
                 // Toggle grouped / ungrouped mode
-                if (input.GetKeyPress('G'))
+                if (input.GetKeyPress(Key.G))
                 {
                     useGroups = !useGroups;
                     CreateScene();

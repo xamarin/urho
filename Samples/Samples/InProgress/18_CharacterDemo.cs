@@ -127,10 +127,10 @@ class _18_CharacterDemo : Sample
 #warning MISSING_API character_.controls_, Input::GetTouch
                 ////if (touch_ == null || !touch_.useGyroscope_)
                 ////{
-                ////    character_.controls_.Set(CTRL_FORWARD, input.GetKeyDown('W'));
-                ////    character_.controls_.Set(CTRL_BACK, input.GetKeyDown('S'));
-                ////    character_.controls_.Set(CTRL_LEFT, input.GetKeyDown('A'));
-                ////    character_.controls_.Set(CTRL_RIGHT, input.GetKeyDown('D'));
+                ////    character_.controls_.Set(CTRL_FORWARD, input.GetKeyDown(Keys.W));
+                ////    character_.controls_.Set(CTRL_BACK, input.GetKeyDown(Key.S));
+                ////    character_.controls_.Set(CTRL_LEFT, input.GetKeyDown(Key.A));
+                ////    character_.controls_.Set(CTRL_RIGHT, input.GetKeyDown(Key.D));
                 ////}
                 ////character_.controls_.Set(CTRL_JUMP, input.GetKeyDown(KEY_SPACE));
 
@@ -161,21 +161,21 @@ class _18_CharacterDemo : Sample
                 ////character_.controls_.pitch_ = Clamp(character_.controls_.pitch_, -80.0f, 80.0f);
 
                 // Switch between 1st and 3rd person
-                if (input.GetKeyPress('F'))
+                if (input.GetKeyPress(Key.F))
                     firstPerson_ = !firstPerson_;
 
                 // Turn on/off gyroscope on mobile platform
-                if (touch_ != null && input.GetKeyPress('G'))
+                if (touch_ != null && input.GetKeyPress(Key.G))
                     touch_.useGyroscope_ = !touch_.useGyroscope_;
 
                 // Check for loading / saving the scene
-                if (input.GetKeyPress(KEY_F5))
+                if (input.GetKeyPress(Key.F5))
                 {
                     File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml", FileMode.FILE_WRITE);
 #warning MISSING_API Scene::SaveXML
                     ////scene.SaveXML(saveFile);
                 }
-                if (input.GetKeyPress(KEY_F7))
+                if (input.GetKeyPress(Key.F7))
                 {
                     File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml", FileMode.FILE_READ);
 #warning MISSING_API Scene::LoadXML

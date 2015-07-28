@@ -43,7 +43,7 @@ class _13_Ragdolls : Sample
                 scene.LoadXML(loadFile);
             }*/
 
-            if (Input.GetKeyDown(' '))
+            if (Input.GetKeyDown(Key.Space))
                 drawDebug = !drawDebug;
         });
 

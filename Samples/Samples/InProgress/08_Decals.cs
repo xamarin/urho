@@ -26,7 +26,7 @@ class _08_Decals : Sample
         SubscribeToUpdate(args =>
         {
             SimpleMoveCamera(args.TimeStep);
-            if (Input.GetKeyDown(' '))
+            if (Input.GetKeyDown(Key.Space))
                 drawDebug = !drawDebug;
             if (UI.Cursor.IsVisible() && Input.GetMouseButtonPress(MouseButton.Left))
                 PaintDecal();

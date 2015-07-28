@@ -29,7 +29,7 @@ class _15_Navigation : Sample
             {
                 MoveCamera(args.TimeStep);
                 FollowPath(args.TimeStep);
-                if (Input.GetKeyDown(' '))
+                if (Input.GetKeyDown(Key.Space))
                     drawDebug = !drawDebug;
             });
 
@@ -91,13 +91,13 @@ class _15_Navigation : Sample
         }
 
         // Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
-        if (input.GetKeyDown('W'))
+        if (input.GetKeyDown(Key.W))
             CameraNode.Translate(new Vector3(0, 0, 1) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown('S'))
+        if (input.GetKeyDown(Key.S))
             CameraNode.Translate(new Vector3(0, 0, -1) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown('A'))
+        if (input.GetKeyDown(Key.A))
             CameraNode.Translate(new Vector3(1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown('D'))
+        if (input.GetKeyDown(Key.D))
             CameraNode.Translate(new Vector3(-1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
 
         // Set destination or teleport with left mouse button
@@ -108,7 +108,7 @@ class _15_Navigation : Sample
             AddOrRemoveObject();
 
         // Toggle debug geometry with space
-        if (input.GetKeyPress(KEY_SPACE))
+        if (input.GetKeyPress(Key.Space))
             drawDebug = !drawDebug;
     }
 

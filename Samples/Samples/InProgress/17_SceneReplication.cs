@@ -317,10 +317,10 @@ class _17_SceneReplication : Sample
             ////// Only apply WASD controls if there is no focused UI element
             ////if (!ui.FocusElement)
             ////{
-            ////    controls.Set(CTRL_FORWARD, input.GetKeyDown('W'));
-            ////    controls.Set(CTRL_BACK, input.GetKeyDown('S'));
-            ////    controls.Set(CTRL_LEFT, input.GetKeyDown('A'));
-            ////    controls.Set(CTRL_RIGHT, input.GetKeyDown('D'));
+            ////    controls.Set(CTRL_FORWARD, input.GetKeyDown(Keys.W));
+            ////    controls.Set(CTRL_BACK, input.GetKeyDown(Key.S));
+            ////    controls.Set(CTRL_LEFT, input.GetKeyDown(Key.A));
+            ////    controls.Set(CTRL_RIGHT, input.GetKeyDown(Key.D));
             ////}
 
             ////serverConnection.SetControls(controls);

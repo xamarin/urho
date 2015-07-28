@@ -29,7 +29,7 @@ class _34_DynamicGeometry : Sample
         SubscribeToUpdate(args =>
         {
             SimpleMoveCamera(args.TimeStep);
-            if (Input.GetKeyDown(' '))
+            if (Input.GetKeyDown(Key.Space))
                 animate_ = !animate_;
 
             if (animate_)
@@ -106,7 +106,7 @@ class _34_DynamicGeometry : Sample
         Model originalModel = cache.GetModel("Models/Box.mdl");
         if (originalModel == null)
         {
-            Log.Write(LOG_ERROR, "Model not found, cannot initialize example scene");
+            Log.Write(LogLevel.Error, "Model not found, cannot initialize example scene");
             return;
         }
         // Get the vertex buffer from the first geometry's first LOD level
@@ -144,7 +144,7 @@ class _34_DynamicGeometry : Sample
         }
         else
         {
-            Log.Write(LOG_ERROR, "Failed to lock the model vertex buffer to get original vertices");
+            Log.Write(LogLevel.Error, "Failed to lock the model vertex buffer to get original vertices");
             return;
         }
         
@@ -231,9 +231,8 @@ class _34_DynamicGeometry : Sample
 
             // Shadowed buffer needed for raycasts to work, and so that data can be automatically restored on device loss
             vb.SetShadowed(true);
-            vb.SetSize(numVertices, MASK_POSITION | MASK_NORMAL, false);
-#warning MISSING_API VertexBuffer::SetData
-            //vb.SetData(vertexData);
+            vb.SetSize(numVertices, ElementMask.Position | ElementMask.Normal, false);
+            vb.SetData(vertexData);
 
             ib.SetShadowed(true);
             ib.SetSize(numVertices, false, false);

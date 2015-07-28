@@ -30,20 +30,20 @@ class _12_PhysicsStressTest : Sample
                     SpawnObject();
 
                 // Check for loading / saving the scene
-                if (input.GetKeyPress(KEY_F5))
+                if (input.GetKeyPress(Key.F5))
                 {
                     File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.FILE_WRITE);
 #warning MISSING_API SaveXML
                     ////scene.SaveXML(saveFile);
                 }
-                if (input.GetKeyPress(KEY_F7))
+                if (input.GetKeyPress(Key.F7))
                 {
                     File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.FILE_READ);
 #warning MISSING_API LoadXML
                     ////scene.LoadXML(loadFile);
                 }
 
-                if (Input.GetKeyDown(' '))
+                if (Input.GetKeyDown(Key.Space))
                     drawDebug = !drawDebug;
             });
 

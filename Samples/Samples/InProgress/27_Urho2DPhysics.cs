@@ -23,13 +23,13 @@ class _27_Urho2DPhysics : Sample
             {
                 SimpleMoveCamera(args.TimeStep, false, 4f);
 
-                if (Input.GetKeyDown(KEY_PAGEUP))
+                if (Input.GetKeyDown(Key.PageUp))
                 {
                     Camera camera = CameraNode.GetComponent<Camera>();
                     camera.Zoom = (camera.Zoom * 1.01f);
                 }
 
-                if (Input.GetKeyDown(KEY_PAGEDOWN))
+                if (Input.GetKeyDown(Key.PageDown))
                 {
                     Camera camera = CameraNode.GetComponent<Camera>();
                     camera.Zoom = (camera.Zoom * 0.99f);
