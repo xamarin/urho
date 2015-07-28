@@ -90,10 +90,10 @@ class _37_UIDrag : Sample
         UI ui = UI;
 
         // Construct new Text object, set string to display and font to use
-        var instructionText = ui.Root.CreateChild<Text>(Text.TypeStatic);
-#warning MISSING_API Text::Text
-        ////instructionText.Text = ("Drag on the buttons to move them around.\nMulti- button drag also supported.");
+        var instructionText = new Text(Context);
+        instructionText.Value = "Drag on the buttons to move them around.\nMulti- button drag also supported.";
         instructionText.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
+        ui.Root.AddChild(instructionText);
 
         // Position the text relative to the screen center
         instructionText.HorizontalAlignment = HorizontalAlignment.HA_CENTER;

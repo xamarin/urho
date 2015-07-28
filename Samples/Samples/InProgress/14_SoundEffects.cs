@@ -36,16 +36,17 @@ class _14_SoundEffects : Sample
         Font font = cache.GetFont("Fonts/Anonymous Pro.ttf");
     
         // Create the button and center the text onto it
-        Button button = root.CreateChild<Button>(Button.TypeStatic);
+        Button button = new Button(Context);
         button.SetStyleAuto(null);
         button.SetPosition(x, y);
         button.SetSize(xSize, ySize);
+        root.AddChild(button);
 
-        Text buttonText = button.CreateChild<Text>(Text.TypeStatic);
+        Text buttonText = new Text(Context);
         buttonText.SetAlignment(HorizontalAlignment.HA_CENTER, VerticalAlignment.VA_CENTER);
         buttonText.SetFont(font, 12);
-#warning MISSING_API
-        ////buttonText.SetText(text);
+        button.AddChild(buttonText);
+        buttonText.Value = text;
     
         return button;
     }
@@ -56,28 +57,23 @@ class _14_SoundEffects : Sample
         ResourceCache cache = ResourceCache;
         Font font = cache.GetFont("Fonts/Anonymous Pro.ttf");    
         // Create text and slider below it
-        Text sliderText = root.CreateChild<Text>(Text.TypeStatic);
+        Text sliderText = new Text(Context);
         sliderText.SetPosition(x, y);
         sliderText.SetFont(font, 12);
-#warning MISSING_API
-        ////sliderText.SetText(text);
+        sliderText.Value = text;
+        root.AddChild(sliderText);
 
-        Slider slider = root.CreateChild<Slider>(Slider.TypeStatic);
+        Slider slider = new Slider(Context);
         slider.SetStyleAuto(null);
         slider.SetPosition(x, y + 20);
         slider.SetSize(xSize, ySize);
         // Use 0-1 range for controlling sound/music master volume
         slider.Range=1.0f;
+        root.AddChild(slider);
     
         return slider;
     }
     
-    private void SetupViewport()
-    {
-        var renderer = Renderer;
-        renderer.SetViewport(0, new Viewport(Context, scene, CameraNode.GetComponent<Camera>(), null));
-    }
-
     private void CreateUI()
     {
         var cache = ResourceCache;

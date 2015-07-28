@@ -30,11 +30,12 @@ class _30_LightAnimation : Sample
         UI.Root.AddChild(t);
 
         // Animating text
-        Text text = UI.Root.CreateChild<Text>(Text.TypeStatic, "animatingText");
+        Text text = new Text(Context);
         text.SetFont(font, 15);
         text.HorizontalAlignment = HorizontalAlignment.HA_CENTER;
         text.VerticalAlignment = VerticalAlignment.VA_CENTER;
         text.SetPosition(0, UI.Root.Height/4 + 20);
+        UI.Root.AddChild(text);
     }
 
     private void SubscribeToEvents()

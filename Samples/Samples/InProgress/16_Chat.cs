@@ -50,16 +50,19 @@ class _16_Chat : Sample
         root.SetDefaultStyle(uiStyle);
 
         Font font = cache.GetFont("Fonts/Anonymous Pro.ttf");
-        chatHistoryText = root.CreateChild<Text>(Text.TypeStatic);
+        chatHistoryText = new Text(Context);
         chatHistoryText.SetFont(font, 12);
+        root.AddChild(chatHistoryText);
 
-        buttonContainer = root.CreateChild<UIElement>(UIElement.TypeStatic);
+        buttonContainer = new UIElement(Context);
         buttonContainer.SetFixedSize(graphics.Width, 20);
         buttonContainer.SetPosition(0, graphics.Height - 20);
         buttonContainer.LayoutMode=LayoutMode.LM_HORIZONTAL;
+        root.AddChild(buttonContainer);
 
-        textEdit = buttonContainer.CreateChild<LineEdit>(LineEdit.TypeStatic);
+        textEdit = new LineEdit(Context); 
         textEdit.SetStyleAuto(null);
+        textEdit.AddChild(buttonContainer);
 
         sendButton = CreateButton("Send", 70);
         connectButton = CreateButton("Connect", 90);
@@ -102,17 +105,18 @@ class _16_Chat : Sample
     {
         var cache = ResourceCache;
         Font font = cache.GetFont("Fonts/Anonymous Pro.ttf");
-    
-        Button button = buttonContainer.CreateChild<Button>(Button.TypeStatic);
+
+        Button button = new Button(Context);
         button.SetStyleAuto(null);
         button.SetFixedWidth(width);
+        buttonContainer.AddChild(button);
     
-        var buttonText = button.CreateChild<Text>(Text.TypeStatic);
+        var buttonText = new Text(Context);
         buttonText.SetFont(font, 12);
         buttonText.SetAlignment(HorizontalAlignment.HA_CENTER, VerticalAlignment.VA_CENTER);
+        button.AddChild(buttonText);
 
-#warning MISSING_API Button::Text
-        ////buttonText.Text = text;
+        buttonText.Value = text;
     
         return button;
     }

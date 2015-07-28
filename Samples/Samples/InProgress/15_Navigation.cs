@@ -136,13 +136,12 @@ class _15_Navigation : Sample
         cursor.SetPosition(graphics.Width / 2, graphics.Height / 2);
 
         // Construct new Text object, set string to display and font to use
-        var instructionText = ui.Root.CreateChild<Text>(Text.TypeStatic);
-#warning MISSING_API Text::Text
-        ////instructionText.Text =
-        ////    "Use WASD keys to move, RMB to rotate view\n" +
-        ////    "LMB to set destination, SHIFT+LMB to teleport\n" +
-        ////    "MMB to add or remove obstacles\n" +
-        ////    "Space to toggle debug geometry";
+        var instructionText = new Text(Context);
+        instructionText.Value =
+            "Use WASD keys to move, RMB to rotate view\n" +
+            "LMB to set destination, SHIFT+LMB to teleport\n" +
+            "MMB to add or remove obstacles\n" +
+            "Space to toggle debug geometry";
 
         instructionText.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
         // The text has multiple rows. Center them in relation to each other
@@ -152,6 +151,7 @@ class _15_Navigation : Sample
         instructionText.HorizontalAlignment = HorizontalAlignment.HA_CENTER;
         instructionText.VerticalAlignment = VerticalAlignment.VA_CENTER;
         instructionText.SetPosition(0, ui.Root.Height / 4);
+        ui.Root.AddChild(instructionText);
     }
 
     private void CreateScene()

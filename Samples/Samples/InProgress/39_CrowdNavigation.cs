@@ -42,15 +42,14 @@ class _39_CrowdNavigation : Sample
         cursor.SetPosition(graphics.Width / 2, graphics.Height / 2);
 
         // Construct new Text object, set string to display and font to use
-        var instructionText = ui.Root.CreateChild<Text>(Text.TypeStatic);
+        var instructionText = new Text(Context);
 
-#warning MISSING_API Text::Text
-        /*instructionText.Text = 
+        instructionText.Value = 
             "Use WASD keys to move, RMB to rotate view\n" +
             "LMB to set destination, SHIFT+LMB to spawn a Jack\n" +
             "MMB to add or remove obstacles\n" +
             "F5 to save scene, F7 to load\n" +
-            "Space to toggle debug geometry";*/
+            "Space to toggle debug geometry";
 
         instructionText.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
         // The text has multiple rows. Center them in relation to each other
@@ -60,6 +59,7 @@ class _39_CrowdNavigation : Sample
         instructionText.HorizontalAlignment = HorizontalAlignment.HA_CENTER;
         instructionText.VerticalAlignment = VerticalAlignment.VA_CENTER;
         instructionText.SetPosition(0, ui.Root.Height / 4);
+        ui.Root.AddChild(instructionText);
     }
 
 

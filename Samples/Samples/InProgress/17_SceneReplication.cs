@@ -160,9 +160,8 @@ class _17_SceneReplication : Sample
         cursor.SetPosition(graphics.Width / 2, graphics.Height / 2);
 
         // Construct the instructions text element
-        instructionsText_ = ui.Root.CreateChild<Text>(Text.TypeStatic);
-#warning MISSING_API
-        ////instructionsText_.Text = "Use WASD keys to move and RMB to rotate view";
+        instructionsText_ = new Text(Context);
+        instructionsText_.Value = "Use WASD keys to move and RMB to rotate view";
         instructionsText_.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
         // Position the text relative to the screen center
         instructionsText_.HorizontalAlignment = HorizontalAlignment.HA_CENTER;
@@ -170,14 +169,17 @@ class _17_SceneReplication : Sample
         instructionsText_.SetPosition(0, graphics.Height / 4);
         // Hide until connected
         instructionsText_.SetVisible(false);
+        ui.Root.AddChild(instructionsText_);
 
-        buttonContainer_ = root.CreateChild<UIElement>(UIElement.TypeStatic);
+        buttonContainer_ = new UIElement(Context);
         buttonContainer_.SetFixedSize(500, 20);
         buttonContainer_.SetPosition(20, 20);
         buttonContainer_.LayoutMode = (LayoutMode.LM_HORIZONTAL);
+        root.AddChild(buttonContainer_);
 
-        textEdit_ = buttonContainer_.CreateChild<LineEdit>(LineEdit.TypeStatic);
+        textEdit_ = new LineEdit(Context);
         textEdit_.SetStyleAuto(null);
+        buttonContainer_.AddChild(textEdit_);
 
         connectButton_ = CreateButton("Connect", 90);
         disconnectButton_ = CreateButton("Disconnect", 100);
@@ -191,15 +193,16 @@ class _17_SceneReplication : Sample
         var cache = ResourceCache;
         Font font = cache.GetFont("Fonts/Anonymous Pro.ttf");
 
-        Button button = buttonContainer_.CreateChild<Button>(Button.TypeStatic);
+        Button button = new Button(Context);
         button.SetStyleAuto(null);
         button.SetFixedWidth(width);
+        buttonContainer_.AddChild(button);
 
-        var buttonText = button.CreateChild<Text>(Text.TypeStatic);
+        var buttonText = new Text(Context);
         buttonText.SetFont(font, 12);
         buttonText.SetAlignment(HorizontalAlignment.HA_CENTER, VerticalAlignment.VA_CENTER);
-#warning MISSING_API
-        ////buttonText.Text = text;
+        buttonText.Value = text;
+        button.AddChild(buttonText);
 
         return button;
     }
