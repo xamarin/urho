@@ -258,7 +258,6 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Enums.cs			\
 	src/Input.cs			\
 	src/Log.cs			\
-	src/VertexBuffer.cs		\
 	src/Node.cs			\
 	src/Object.cs			\
 	src/PodVector.cs		\

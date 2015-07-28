@@ -993,6 +993,29 @@ namespace SharpieBinder
 						break;
 					}
 					break;
+				case "VertexBuffer":
+					switch (decl.Name) {
+					case "SetSize":
+						if (currentParamCount == 1 && paramName == "elementMask") {
+							parameter = new SimpleType ("ElementMask");
+							parameterReference = new CastExpression (new PrimitiveType ("uint"), parameterReference);
+						}
+						break;
+					case "GetVertexSize":
+						if (currentParamCount == 0 && paramName == "elementMask") {
+							parameter = new SimpleType ("ElementMask");
+							parameterReference = new CastExpression (new PrimitiveType ("uint"), parameterReference);
+						}
+						break;
+					case "GetElementOffset":
+						if (currentParamCount == 0 && paramName == "elementMask") {
+							parameter = new SimpleType ("ElementMask");
+							parameterReference = new CastExpression (new PrimitiveType ("uint"), parameterReference);
+						}
+						break;
+					break;
+					}
+					break;
 				case "Log":
 					switch (decl.Name) {
 					case "Write":
@@ -1277,6 +1300,15 @@ namespace SharpieBinder
 								gs.MethodReturn = new SimpleType ("ViewOverrideFlags");
 								valueReference = new CastExpression (new PrimitiveType ("uint"), valueReference);
 								invokeGetter = new CastExpression (new SimpleType ("ViewOverrideFlags"), invokeGetter);
+								break;
+							}
+							break;
+						case "VertexBuffer":
+							switch (pname) {
+							case "ElementMask":
+								gs.MethodReturn = new SimpleType ("ElementMask");
+								valueReference = new CastExpression (new PrimitiveType ("uint"), valueReference);
+								invokeGetter = new CastExpression (new SimpleType ("ElementMask"), invokeGetter);
 								break;
 							}
 							break;
