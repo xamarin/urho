@@ -22,7 +22,6 @@ public class Sample : Application {
     protected float Yaw, Pitch;
 	protected bool TouchEnabled;
 	protected Node CameraNode;
-	protected Scene Scene;
 	protected Sprite LogoSprite;
 		
 	ResourceCache cache;

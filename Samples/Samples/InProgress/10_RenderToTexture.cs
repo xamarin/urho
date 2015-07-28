@@ -3,15 +3,11 @@
 class _10_RenderToTexture : Sample
 {
     private Scene scene;
-    private Camera camera;
     private Scene rttScene;
     private Node rttCameraNode;
 
     public _10_RenderToTexture(Context ctx) : base(ctx)
     {
-#warning MISSING_API
-        //context->RegisterFactory<Rotator>();
-        //Context.RegisterFactory();
     }
 
     public override void Start()
@@ -71,7 +67,8 @@ class _10_RenderToTexture : Sample
 
                 // Add our custom Rotator component which will rotate the scene node each frame, when the scene sends its update event.
                 // Simply set same rotation speed for all objects
-                Rotator rotator = boxNode.CreateComponent<Rotator>();
+                Rotator rotator = new Rotator(Context);
+                boxNode.AddComponent(rotator);
                 rotator.SetRotationSpeed(new Vector3(10.0f, 20.0f, 30.0f));
             }
 
@@ -165,7 +162,7 @@ class _10_RenderToTexture : Sample
 
             // Create the camera. Limit far clip distance to match the fog
             CameraNode = scene.CreateChild("Camera");
-            camera = CameraNode.CreateComponent<Camera>();
+            var camera = CameraNode.CreateComponent<Camera>();
             camera.FarClip = 300.0f;
             // Set an initial position for the camera scene node above the plane
             CameraNode.Position = new Vector3(0.0f, 7.0f, -30.0f);

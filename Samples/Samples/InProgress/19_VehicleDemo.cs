@@ -281,8 +281,6 @@ public class Vehicle : LogicComponent
 
         private void RegisterObject(Context context)
         {
-#warning MISSING_API RegisterFactory<> generic
-            ////context.RegisterFactory<Vehicle>();
 
 #warning MISSING_API RegisterAttribute
             ////ATTRIBUTE("Controls Yaw", float, controls_.yaw_, 0.0f, AM_DEFAULT);
