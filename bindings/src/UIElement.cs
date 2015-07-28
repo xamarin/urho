@@ -14,7 +14,26 @@ using System.Reflection;
 
 namespace Urho {
 	
-	public partial class UIElement {
+	public partial class UIElement
+	{
+	    Dictionary<string, object> varMap = null; 
+
+	    public void SetVar(string key, object obj)
+	    {
+	        if (varMap == null) //create inner dictionary on demand
+                varMap = new Dictionary<string, object>();
+	        varMap[key] = obj;
+	    }
+
+	    public object GetVar(string key)
+	    {
+	        if (varMap == null)
+	            return null;
+
+	        object obj;
+	        varMap.TryGetValue(key, out obj);
+	        return obj;
+	    }
 
 		public T CreateChild<T> (StringHash code, string name = "", uint index = UInt32.MaxValue) where T:UIElement
 		{
