@@ -236,8 +236,7 @@ class _34_DynamicGeometry : Sample
 
             ib.SetShadowed(true);
             ib.SetSize(numVertices, false, false);
-#warning MISSING_API IndexBuffer::SetData
-            //ib.SetData(indexData);
+            ib.SetData(indexData);
 
             geom.SetVertexBuffer(0, vb, uint.MaxValue);
             geom.IndexBuffer=ib;

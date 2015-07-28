@@ -289,6 +289,7 @@
     <Compile Include="src\Enums.cs" />
     <Compile Include="src\Input.cs" />
     <Compile Include="src\Log.cs" />
+    <Compile Include="src\IndexBufer.cs" />
     <Compile Include="src\VertexBuffer.cs" />
     <Compile Include="src\Node.cs" />
     <Compile Include="src\Object.cs" />

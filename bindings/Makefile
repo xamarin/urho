@@ -237,6 +237,7 @@ GENERATED_SOURCES =	\
 	generated/ValueAnimationInfo.cs	\
 	generated/VariantType.cs	\
 	generated/VertexBuffer.cs	\
+	generated/IndexBuffer.cs	\
 	generated/VertexElement.cs	\
 	generated/VertexLightVSVariation.cs	\
 	generated/VerticalAlignment.cs	\

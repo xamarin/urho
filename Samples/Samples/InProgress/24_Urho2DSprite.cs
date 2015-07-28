@@ -6,16 +6,13 @@ class _24_Urho2DSprite : Sample
     private Scene scene;
     private Camera camera;
     private List<Node> spriteNodes;
-    private const uint NUM_SPRITES = 200;
+    private const uint NumSprites = 200;
 
 #warning MISSIN_API //constant
     private const float PIXEL_SIZE = 0.01f;
 
-
-#warning MISSIN_API (constructor accepting string)
-    private static readonly StringHash VAR_MOVESPEED = new StringHash("MoveSpeed".GetHashCode());
-    private static readonly StringHash VAR_ROTATESPEED = new StringHash("RotateSpeed".GetHashCode());
-
+    private const string VarMovespeed = "MoveSpeed";
+    private const string VarRotatespeed = "RotateSpeed";
 
     public _24_Urho2DSprite(Context ctx) : base(ctx) { }
 
@@ -32,8 +29,6 @@ class _24_Urho2DSprite : Sample
     {
         SubscribeToUpdate(args =>
             {
-#warning MISSING_API //constant
-
                 SimpleMoveCamera(args.TimeStep);
                 var input = Input;
                 if (input.GetKeyDown(Key.PageUp))
@@ -120,7 +115,7 @@ class _24_Urho2DSprite : Sample
         float halfWidth = graphics.Width * 0.5f * PIXEL_SIZE;
         float halfHeight = graphics.Height * 0.5f * PIXEL_SIZE;
 
-        for (uint i = 0; i < NUM_SPRITES; ++i)
+        for (uint i = 0; i < NumSprites; ++i)
         {
             Node spriteNode = scene.CreateChild("StaticSprite2D");
             spriteNode.Position = (new Vector3(NextRandom(-halfWidth, halfWidth), NextRandom(-halfHeight, halfHeight), 0.0f));

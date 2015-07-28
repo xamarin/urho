@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Samples\InProgress\02_HelloGUI.cs" />
-    <Compile Include="Samples\InProgress\03_Sprites.cs" />
+    <Compile Include="Samples\Done\03_Sprites.cs" />
     <Compile Include="Samples\InProgress\12_PhysicsStressTest.cs" />
     <Compile Include="Samples\InProgress\15_Navigation.cs" />
     <Compile Include="Samples\InProgress\16_Chat.cs" />
