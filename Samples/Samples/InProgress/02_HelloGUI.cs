@@ -82,8 +82,7 @@ class _02_HelloGUI : Sample
         // Create the Window title Text
         var windowTitle = new Text(Context);
         windowTitle.Name="WindowTitle";
-#warning MISSING_API Text::Text
-        //windowTitle.SetText("Hello GUI!");
+        windowTitle.Value = "Hello GUI!";
 
         // Create the Window's close button
         Button buttonClose = new Button(Context);
@@ -131,8 +130,7 @@ class _02_HelloGUI : Sample
         var toolTipText = new Text(Context);
         textHolder.AddChild(toolTipText);
         toolTipText.SetStyle("ToolTipText", null);
-#warning MISSING_API Text::Text
-        //toolTipText.SetText("Please drag me!");
+        toolTipText.Value = "Please drag me!";
 
         // Subscribe draggableFish to Drag Events (in order to make it draggable)
         // See "Event list" in documentation's Main Page for reference on available Events and their eventData
@@ -179,7 +177,6 @@ class _02_HelloGUI : Sample
         }
 
         // Update the Window's title text
-#warning MISSING_API Text::Text
-        //windowTitle.SetText("Hello " + name + "!");
+        windowTitle.Value = "Hello " + name + "!";
     }
 }

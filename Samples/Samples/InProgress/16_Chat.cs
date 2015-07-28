@@ -131,7 +131,6 @@ class _16_Chat : Sample
         for (int i = 0; i < chatHistory.Count; ++i)
             allRows += chatHistory[i] + "\n";
 
-#warning MISSING_API Text::Text
         ////chatHistoryText_.Text = allRows;
     }
 

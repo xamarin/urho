@@ -43,7 +43,6 @@ class _25_Urho2DParticle : Sample
             Camera camera = CameraNode.GetComponent<Camera>();
             particleNode.Position=(camera.ScreenToWorldPoint(new Vector3((float)x / graphics.Width, (float)y / graphics.Height, 10.0f)));
         }
-
     }
 
     private void SetupViewport()

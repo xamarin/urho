@@ -78,7 +78,7 @@ class _09_MultipleViewports : Sample
         // The viewport index must be greater in that case, otherwise the view would be left behind
         IntRect rect = new IntRect(graphics.Width*2/3, 32, graphics.Width - 32, graphics.Height/3);
 
-#warning MISSING_API (Viewport constructor)
+#warning MISSING_API (Viewport constructor) accepting rect
         Viewport rearViewport = new Viewport(Context, scene, rearCameraNode.GetComponent<Camera>(), null);
 
         renderer.SetViewport(1, rearViewport);

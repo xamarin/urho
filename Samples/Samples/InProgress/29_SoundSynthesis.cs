@@ -31,7 +31,7 @@ class _29_SoundSynthesis : Sample
     {
         base.Start();
         CreateSound();
-        SimpleCreateInstructions("Use cursor up and down to control sound filtering");
+        CreateInstructions();
         SubscribeToEvents();
     }
 
@@ -47,12 +47,33 @@ class _29_SoundSynthesis : Sample
                     filter -= args.TimeStep * 0.5f;
                 filter = Clamp(filter, 0.01f, 1.0f);
 
-#warning MISSING_API Text::Text
-                ////instructionText_.Text = "Use cursor up and down to control sound filtering\nCoefficient: " + filter_;
+                instructionText.Value = "Use cursor up and down to control sound filtering\nCoefficient: " + filter;
 
                 UpdateSound();
             });
     }
+
+
+    private void CreateInstructions()
+    {
+        var cache = ResourceCache;
+        UI ui = UI;
+
+        // Construct new Text object, set string to display and font to use
+        instructionText = new Text(Context);
+        instructionText.Value = ("Use cursor up and down to control sound filtering");
+        instructionText.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
+
+        // Position the text relative to the screen center
+        instructionText.TextAlignment = HorizontalAlignment.HA_CENTER;
+        instructionText.HorizontalAlignment = HorizontalAlignment.HA_CENTER;
+        instructionText.VerticalAlignment = VerticalAlignment.VA_CENTER;
+        instructionText.SetPosition(0, ui.Root.Height/4);
+
+        ui.Root.AddChild(instructionText);
+    }
+
+
 
     private void CreateSound()
     {

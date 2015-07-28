@@ -137,7 +137,7 @@ class _23_Water : Sample
             objectNode.Position = position;
             // Create a rotation quaternion from up vector to terrain normal
 #warning MONO CRASHES HERE ON terrain.GetNormal(position) call:
-            //objectNode.Rotation = QuaternionExtensions.FromRotationTo(new Vector3(0.0f, 1.0f, 0.0f), terrain.GetNormal(position));
+            //objectNode.Rotation = Quaternion.FromRotationTo(new Vector3(0.0f, 1.0f, 0.0f), terrain.GetNormal(position));
             objectNode.SetScale(5.0f);
             var obj = objectNode.CreateComponent<StaticModel>();
             obj.Model = cache.GetModel("Models/Box.mdl");
