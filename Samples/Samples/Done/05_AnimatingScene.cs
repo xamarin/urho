@@ -6,15 +6,19 @@ class _05_AnimatingScene : Sample {
     Camera camera;
     public _05_AnimatingScene (Context c) : base (c) {}
 
-    class Rotator : Component {
+    class Rotator : Component
+    {
         public Rotator (Context ctx) : base (ctx)
         {
             SubscribeToSceneUpdate (SceneUpdate);
         }
+
         public Vector3 RotationSpeed { get; set; }
+
         void SceneUpdate (SceneUpdateEventArgs args)
         {
-            Node.Rotate (new Quaternion (RotationSpeed.X * args.TimeStep,
+            Node.Rotate (new Quaternion (
+                RotationSpeed.X * args.TimeStep,
                 RotationSpeed.Y * args.TimeStep,
                 RotationSpeed.Z * args.TimeStep),
                 TransformSpace.TS_LOCAL);
@@ -23,7 +27,6 @@ class _05_AnimatingScene : Sample {
 	
     void CreateScene ()
     {
-        var r = new Random ();
         var cache = ResourceCache;
         scene = new Scene (Context);
 

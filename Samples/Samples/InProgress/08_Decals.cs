@@ -139,7 +139,7 @@ class _08_Decals : Sample
 
         Ray cameraRay = camera.GetScreenRay((float) pos.X/graphics.Width, (float) pos.Y/graphics.Height);
         //scene.GetComponent<Octree>().Ray
-#warning MISSING_API
+#warning MISSING_API 
         // Pick only geometry objects, not eg. zones or lights, only get the first (closest) hit
         /*PODVector<RayQueryResult> results;
         RayOctreeQuery query(results, cameraRay, RAY_TRIANGLE, maxDistance, DRAWABLE_GEOMETRY);

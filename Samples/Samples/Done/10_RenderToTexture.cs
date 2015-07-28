@@ -170,11 +170,14 @@ class _10_RenderToTexture : Sample
     }
 }
 
-public class Rotator : LogicComponent
+public class Rotator : Component
 {
     private Vector3 rotationSpeed;
 
-    public Rotator(Context c) : base(c) {}
+    public Rotator(Context c) : base(c)
+    {
+        SubscribeToUpdate(args => Update(args.TimeStep));
+    }
 
     public void SetRotationSpeed(Vector3 vector)
     {

@@ -4,9 +4,6 @@ class _14_SoundEffects : Sample
 {
     private Scene scene;
 
-    // Custom variable identifier for storing sound effect name within the UI element
-    // const StringHash VAR_SOUNDRESOURCE("SoundResource");
-
     readonly string[] soundNames = {
         "Fist",
         "Explosion",
@@ -84,19 +81,12 @@ class _14_SoundEffects : Sample
         XMLFile uiStyle = cache.GetXmlFile("UI/DefaultStyle.xml");
         // Set style to the UI root so that elements will inherit it
         root.SetDefaultStyle(uiStyle);
-
-#warning MISSING_API //enum?
-        const string SOUND_EFFECT = "Effect";
-        const string SOUND_MUSIC = "Music";
-
         
         // Create buttons for playing back sounds
         for (int i = 0; i < soundNames.Length; ++i)
         {
             Button b = CreateButton(i * 140 + 20, 20, 120, 40, soundNames[i]);
             // Store the sound effect resource name as a custom variable into the button
-#warning MISSING_API
-            ////b.SetVar(VAR_SOUNDRESOURCE, soundResourceNames[i]);
             
             var j = i; //avoid closure
             SubscribeToPressed(args =>
@@ -138,7 +128,7 @@ class _14_SoundEffects : Sample
                     Node musicNode = scene.CreateChild("Music");
                     SoundSource musicSource = musicNode.CreateComponent<SoundSource>();
                     // Set the sound type to music so that master volume control works correctly
-                    musicSource.SetSoundType(SOUND_MUSIC);
+                    musicSource.SetSoundType(SoundType.Music.ToString());
                     musicSource.Play(music);
                 }
                 else if (args.Element == stopMusicButton)
@@ -152,22 +142,22 @@ class _14_SoundEffects : Sample
 
         // Create sliders for controlling sound and music master volume
         var soundSlider = CreateSlider(20, 140, 200, 20, "Sound Volume");
-        soundSlider.Value=audio.GetMasterGain(SOUND_EFFECT);
+        soundSlider.Value=audio.GetMasterGain(SoundType.Effect.ToString());
         
         var musicSlider = CreateSlider(20, 200, 200, 20, "Music Volume");
-        musicSlider.Value=audio.GetMasterGain(SOUND_MUSIC);
+        musicSlider.Value=audio.GetMasterGain(SoundType.Music.ToString());
         
         SubscribeToSliderChanged(args =>
         {
             if (args.Element == soundSlider)
             {
                 float newVolume = args.Value;
-                Audio.SetMasterGain(SOUND_EFFECT, newVolume);
+                Audio.SetMasterGain(SoundType.Effect.ToString(), newVolume);
             }
             else if (args.Element == musicSlider)
             {
                 float newVolume = args.Value;
-                Audio.SetMasterGain(SOUND_MUSIC, newVolume);
+                Audio.SetMasterGain(SoundType.Music.ToString(), newVolume);
             }
         });
     }
