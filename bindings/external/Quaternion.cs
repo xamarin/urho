@@ -522,6 +522,41 @@ namespace Urho
 
         #endregion
 
+        #region FromRotationTo
+
+        public static Quaternion FromRotationTo(Vector3 start, Vector3 end)
+        {
+            Quaternion result = new Quaternion();
+            start.Normalize();
+            end.Normalize();
+
+            const float epsilon = 0.000001f;
+            float d = Vector3.Dot(start, end);
+
+            if (d > -1.0f + epsilon)
+            {
+                Vector3 c = Vector3.Cross(start, end);
+                float s = (float)Math.Sqrt((1.0f + d) * 2.0f);
+                float invS = 1.0f / s;
+
+                result.X = c.X * invS;
+                result.Y = c.Y * invS;
+                result.Z = c.Z * invS;
+                result.W = 0.5f * s;
+            }
+            else
+            {
+                Vector3 axis = Vector3.Cross(Vector3.UnitX, start);
+                if (axis.Length < epsilon)
+                    axis = Vector3.Cross(Vector3.UnitY, start);
+
+                return FromAxisAngle(axis, 180.0f);
+            }
+            return result;
+        }
+
+        #endregion
+
         #region Slerp
 
         /// <summary>
@@ -652,6 +687,20 @@ namespace Urho
         public static Quaternion operator *(float scale, Quaternion quaternion)
         {
             return new Quaternion(quaternion.X * scale, quaternion.Y * scale, quaternion.Z * scale, quaternion.W * scale);
+        }        
+        
+        /// <summary>
+        /// Multiplies an instance by a vector3.
+        /// </summary>
+        /// <param name="quaternion">The instance.</param>
+        /// <param name="vector">The vector.</param>
+        /// <returns>A new instance containing the result of the calculation.</returns>
+        public static Vector3 operator *(Quaternion quaternion, Vector3 vector)
+        {
+            var qVec = new Vector3(quaternion.X, quaternion.Y, quaternion.Z);
+            var cross1 = Vector3.Cross(qVec, vector);
+            var cross2 = Vector3.Cross(qVec, cross1);
+            return vector + 2.0f * cross1 * quaternion.W + cross2;
         }
 
         /// <summary>

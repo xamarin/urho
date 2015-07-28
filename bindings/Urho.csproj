@@ -284,6 +284,7 @@
     <Compile Include="src\Application.cs" />
     <Compile Include="src\AttributeInfo.cs" />
     <Compile Include="src\Component.cs" />
+    <Compile Include="src\Enums.cs" />
     <Compile Include="src\Input.cs" />
     <Compile Include="src\Log.cs" />
     <Compile Include="src\VertexBuffer.cs" />
