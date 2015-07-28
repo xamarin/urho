@@ -3,12 +3,10 @@ using Urho;
 
 class _03_Sprites : Sample
 {
-    private Scene scene;
-    private bool drawDebug;
-    private List<Sprite> sprites_;
-    private Camera camera;
+    private readonly List<Sprite> sprites = new List<Sprite>();
     // Number of sprites to draw
-    private const uint NUM_SPRITES = 100;
+    private const uint NumSprites = 100;
+    private const string VarVelocity = "Velocity";
 
     public _03_Sprites(Context ctx) : base(ctx) { }
 
@@ -36,7 +34,7 @@ class _03_Sprites : Sample
         // Get the Urho3D fish texture
         Texture2D decalTex = cache.GetTexture2D("Textures/UrhoDecal.dds");
 
-        for (uint i = 0; i < NUM_SPRITES; ++i)
+        for (uint i = 0; i < NumSprites; ++i)
         {
             // Create a new sprite, set it to use the texture
             Sprite sprite=new Sprite(Context);
@@ -61,42 +59,42 @@ class _03_Sprites : Sample
             ui.Root.AddChild(sprite);
 
             // Store sprite's velocity as a custom variable
-#warning MISSING_API SetVar
-            //sprite.SetVar(VAR_VELOCITY, new Vector2(NextRandom(200.0f) - 100.0f, NextRandom(200.0f) - 100.0f));
+            sprite.SetVar(VarVelocity, new Vector2(NextRandom(200.0f) - 100.0f, NextRandom(200.0f) - 100.0f));
 
             // Store sprites to our own container for easy movement update iteration
-            sprites_.Add(sprite);
+            sprites.Add(sprite);
         }
     }
 
     private void MoveSprites(float timeStep)
     {
         var graphics = Graphics;
-        float width = (float)graphics.Width;
-        float height = (float)graphics.Height;
+        int width = graphics.Width;
+        int height = graphics.Height;
 
         // Go through all sprites
-        for (int i = 0; i < sprites_.Count; ++i)
-        {
-            Sprite sprite = sprites_[i];
 
+        foreach (var sprite in sprites)
+        {
             // Rotate
             float newRot = sprite.Rotation + timeStep * 30.0f;
             sprite.Rotation=newRot;
 
-            // Move, wrap around rendering window edges
-#warning MISSING_API GetVar
-            //IntVector2 newPos = spritePosition + sprite.GetVar(VAR_VELOCITY).GetVector2() * timeStep;
-            //if (newPos.X < 0.0f)
-            //    newPos.X += width;
-            //if (newPos.X >= width)
-            //    newPos.X -= width;
-            //if (newPos.Y < 0.0f)
-            //    newPos.Y += height;
-            //if (newPos.Y >= height)
-            //    newPos.Y -= height;
-            //sprite.Position = (newPos);
+            var vector = (Vector2) sprite.GetVar(VarVelocity);
+
+            var x = vector.X * timeStep + sprite.Position.X;
+            var y = vector.Y * timeStep + sprite.Position.Y;
+
+            if (x < 0.0f)
+                x += width;
+            if (x >= width)
+                x -= width;
+            if (y < 0.0f)
+                y += height;
+            if (y >= height)
+                y -= height;
+
+            sprite.Position = new IntVector2((int) x, (int) y);
         }
     }
-
 }
