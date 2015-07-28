@@ -132,6 +132,17 @@ namespace Urho {
 			B = source.B;
 			A = alpha;
 		}
+
+		public static Color White = new Color (1, 1, 1);
+		public static Color Gray = new Color (0.5f, 0.5f, 0.5f);
+		public static Color Black = new Color (0.0f, 0.0f, 0.0f);
+		public static Color Red = new Color (1.0f, 0.0f, 0.0f);
+		public static Color Green = new Color (0.0f, 1.0f, 0.0f);
+		public static Color Blue = new Color (0.0f, 0.0f, 1.0f);
+		public static Color Cyan = new Color (0.0f, 1.0f, 1.0f);
+		public static Color Magenta = new Color (1.0f, 0.0f, 1.0f);
+		public static Color Yellow = new Color (1.0f, 1.0f, 0.0f);
+		public static Color Transparent = new Color (0.0f, 0.0f, 0.0f, 0.0f);
 	}
 
 	[StructLayout (LayoutKind.Sequential)]

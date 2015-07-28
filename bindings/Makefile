@@ -5,7 +5,8 @@
 #
 URHO_DIR=/cvs/Urho3D
 mono64=/mono
-OBJSHARPIE_BIN=/cvs/ObjectiveSharpie//llvm/_install/bin
+OBJSHARPIE=/cvs/ObjectiveSharpie
+OBJSHARPIE_BIN=$(OBJSHARPIE)/llvm/_install/bin
 URHO_FLAGS=-I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet
 URHO_LIBS=-L$(URHO_DIR)/lib -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices -lUrho3D -ldl -lpthread 
 NO_CLS_WARNINGS=-nowarn:3021
@@ -254,9 +255,10 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Application.cs		\
 	src/AttributeInfo.cs		\
 	src/Component.cs		\
+	src/Enums.cs			\
 	src/Input.cs			\
 	src/Log.cs			\
-	src/VertexBuffer.cs			\
+	src/VertexBuffer.cs		\
 	src/Node.cs			\
 	src/Object.cs			\
 	src/PodVector.cs		\
@@ -288,8 +290,11 @@ all: check-links Urho.pch Urho.dll libmono-urho.dylib sample.exe
 
 run: gen-bind Urho.dll
 
-$(GENERATED_SOURCES): Urho.pch ../SharpieBinder/bin/Debug/SharpieBinder.exe
-	$(mono64)/bin/mono --debug ../SharpieBinder/bin/Debug/SharpieBinder.exe
+$(GENERATED_SOURCES): Urho.pch ../SharpieBinder/bin/Debug/SharpieBinder.exe libclang-mono.dylib
+	DYLD_LIBRARY_PATH=. $(mono64)/bin/mono --debug ../SharpieBinder/bin/Debug/SharpieBinder.exe
+
+libclang-mono.dylib: 
+	if test $(OBJSHARPIE)/bin/x64/Internal/libclang-mono.dylib -nt libclang-mono.dylib; then cp $(OBJSHARPIE)/bin/x64/Internal/libclang-mono.dylib .; fi
 
 Urho.dll: $(SOURCES) Makefile 
 	mcs $(NO_CLS_WARNINGS) -unsafe -out:Urho.dll -target:library -debug $(SOURCES)

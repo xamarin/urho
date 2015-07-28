@@ -264,13 +264,13 @@ public class Sample : Application {
 		Pitch = Clamp (Pitch, -90, 90);
 
 		CameraNode.Rotation = new Quaternion (Pitch, Yaw, 0);
-		if (input.GetKeyDown ('W'))
+		if (input.GetKeyDown (Key.W))
 			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-		if (input.GetKeyDown ('S'))
+		if (input.GetKeyDown (Key.S))
 			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-		if (input.GetKeyDown ('A'))
+		if (input.GetKeyDown (Key.A))
 			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-		if (input.GetKeyDown ('D'))
+		if (input.GetKeyDown (Key.D))
 			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 	}
 

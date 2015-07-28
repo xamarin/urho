@@ -345,7 +345,7 @@ class SkeletalAnimation : Sample {
 		// Handle keyboard input, mouse/touch input, and handle spacebar to debug
 		SubscribeToUpdate (args => {
 			SimpleMoveCamera (args.TimeStep);
-			if (Input.GetKeyDown (' '))
+			if (Input.GetKeyDown (Key.Space))
 				drawDebug = !drawDebug;
 		});
 

@@ -38,8 +38,8 @@ namespace Urho
     {
         #region Fields
 
-        double w;
         Vector3d xyz;
+        double w;
 
         #endregion
 

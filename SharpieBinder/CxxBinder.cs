@@ -955,7 +955,9 @@ namespace SharpieBinder
 				invoke.Arguments.Add(new IdentifierExpression("handle"));
 			bool first = true;
 			int anonymousParameterNameCount = 1;
+			int currentParamCount = -1;
 			foreach (var param in decl.Parameters) {
+				currentParamCount++;
 				AstType pinvokeParameter, parameter;
 				WrapKind wrapKind;
 
@@ -971,6 +973,40 @@ namespace SharpieBinder
 				if (paramName == "" || paramName == null)
 					paramName = "param" + (anonymousParameterNameCount++);
 
+				Expression parameterReference = new IdentifierExpression (paramName);
+				switch (currentType.Name) {
+				case "Input":
+					switch (decl.Name) {
+					case "GetMouseButtonDown":
+					case "GetMouseButtonPress":
+						parameter = new SimpleType ("MouseButton");
+						parameterReference = new CastExpression (new PrimitiveType ("int"), parameterReference);
+						break;
+					case "GetKeyPress":
+					case "GetKeyDown":
+					case "GetScancodeFromKey":
+					case "GetKeyName":
+						if (currentParamCount == 0 && paramName == "key") {
+							parameter = new SimpleType ("Key");
+							parameterReference = new CastExpression (new PrimitiveType ("int"), parameterReference);
+						}
+						break;
+					}
+					break;
+				case "Log":
+					switch (decl.Name) {
+					case "Write":
+						if (currentParamCount == 0 && paramName == "level") {
+							parameter = new SimpleType ("LogLevel");
+							parameterReference = new CastExpression (new PrimitiveType ("int"), parameterReference);
+						}
+						break;
+					}
+					break;
+				}
+
+
+
 				if (constructor == null)
 					method.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
 				else
@@ -979,21 +1015,21 @@ namespace SharpieBinder
 				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName, pinvokeMod));
 				switch (wrapKind) {
 				case WrapKind.None:
-					invoke.Arguments.Add(new IdentifierExpression(paramName));
+					invoke.Arguments.Add(parameterReference);
 					break;
 				case WrapKind.HandleMember:
-					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), new IdentifierExpression (paramName)), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
+					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
 						csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".handle"));
 					invoke.Arguments.Add (cond);
 					break;
 				case WrapKind.EventHandler:
-					invoke.Arguments.Add(new IdentifierExpression(paramName));
+					invoke.Arguments.Add(parameterReference);
 					break;
 				case WrapKind.StringHash:
 					invoke.Arguments.Add (csParser.ParseExpression (paramName + ".Code"));
 					break;
 				case WrapKind.RefBlittable:
-					invoke.Arguments.Add (new DirectionExpression (FieldDirection.Ref, new IdentifierExpression (paramName)));
+					invoke.Arguments.Add (new DirectionExpression (FieldDirection.Ref, parameterReference));
 					break;
 				case WrapKind.VectorSharedPtr:
 					throw new NotImplementedException ("Vector marshaling not supported for parameters yet");
@@ -1188,6 +1224,9 @@ namespace SharpieBinder
 			foreach (var typeKV in ScanBaseTypes.allProperties) {
 				foreach (var propNameKV in typeKV.Value) {
 					foreach (var gs in propNameKV.Value.Values) {
+						Expression valueReference = new IdentifierExpression ("value");
+						Expression invokeGetter = new InvocationExpression (new IdentifierExpression (RemapMemberName (gs.Getter.Parent.Name, gs.Getter.Name)));
+
 						string pname = gs.Name;
 						Modifiers mods = 0;
 						switch (typeKV.Key) {
@@ -1231,6 +1270,16 @@ namespace SharpieBinder
 								mods = Modifiers.New;
 							#endif
 							break;
+
+						case "Camera":
+							switch (pname) {
+							case "ViewOverrideFlags":
+								gs.MethodReturn = new SimpleType ("ViewOverrideFlags");
+								valueReference = new CastExpression (new PrimitiveType ("uint"), valueReference);
+								invokeGetter = new CastExpression (new SimpleType ("ViewOverrideFlags"), invokeGetter);
+								break;
+							}
+							break;
 						}
 
 						var p = new PropertyDeclaration()
@@ -1243,7 +1292,7 @@ namespace SharpieBinder
 						p.Getter = new Accessor()
 						{
 							Body = new BlockStatement() {
-								new ReturnStatement (new InvocationExpression (new IdentifierExpression (RemapMemberName (gs.Getter.Parent.Name, gs.Getter.Name))))
+								new ReturnStatement (invokeGetter)
 							}
 						};
 						if (gs.Setter != null) {
@@ -1251,7 +1300,7 @@ namespace SharpieBinder
 							{
 								Body = new BlockStatement()
 								{
-									new InvocationExpression (new IdentifierExpression (gs.Setter.Name), new IdentifierExpression ("value"))
+									new InvocationExpression (new IdentifierExpression (gs.Setter.Name), valueReference)
 								}
 							};
 						}
