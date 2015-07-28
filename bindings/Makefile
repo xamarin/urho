@@ -282,6 +282,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	external/Vector3d.cs		\
 	external/Vector4d.cs		\
 	external/Vector2.cs		\
+	external/IntVector2.cs		\
 	external/Vector3.cs		\
 	external/Vector4.cs
 

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="external\IntVector2.cs" />
     <Compile Include="generated\ShapeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="generated\Animatable.cs" />

@@ -9,7 +9,7 @@ namespace Urho
 		public void SetData (short [] vertexData)
 		{
 			unsafe {
-			fixed (float *p = &vertexData [0]){
+			fixed (short *p = &vertexData [0]){
 				SetData ((void *) p);
 			}
 			}

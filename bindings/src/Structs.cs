@@ -9,16 +9,6 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct IntVector2 {
-		public int X, Y;
-		public IntVector2 (int x, int y)
-		{
-			X = x;
-			Y = y;
-		}
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
 	public struct IntRect {
 		public int Left, Top, Right, Bottom;
 		public IntRect (int left, int top, int right, int bottom)
