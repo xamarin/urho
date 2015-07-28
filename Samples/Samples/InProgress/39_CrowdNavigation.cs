@@ -182,20 +182,8 @@ class _39_CrowdNavigation : Sample
 
             // Redetermine which nodes are "jacks" and "mushrooms"
             jackNodes_.Clear();
-
-#warning MISSING_API GetChildrenWithComponent
-            ////PODVector<Node> nodes;
-            ////scene.GetChildrenWithComponent<CrowdAgent>(nodes, true);
-            ////for (uint i = 0; i < nodes.Size(); ++i)
-            ////{
-            ////    jackNodes_.Push(Node(nodes[i]));
-            ////}
-            ////mushroomNodes_.Clear();
-            ////scene.GetChildrenWithComponent<Obstacle>(nodes, true);
-            ////for (uint i = 0; i < nodes.Size(); ++i)
-            ////{
-            ////    mushroomNodes_.Push(Node(nodes[i]));
-            ////}
+            jackNodes_.AddRange(scene.GetChildrenWithComponent<CrowdAgent>(true));
+            mushroomNodes_.AddRange(scene.GetChildrenWithComponent<Obstacle>(true));
         }
 
         // Toggle debug geometry with space

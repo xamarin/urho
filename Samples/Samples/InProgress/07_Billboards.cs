@@ -40,36 +40,27 @@ class _07_Billboards : Sample
 
     private void AnimateScene(float timeStep)
     {
-#warning MISSIN_API
-        /*scene.Children[]
-
-
-        // Get the light and billboard scene nodes
-        PODVector<Node> lightNodes;
-        PODVector<Node> billboardNodes;
-        scene_->GetChildrenWithComponent<Light>(lightNodes);
-        scene_->GetChildrenWithComponent<BillboardSet>(billboardNodes);
+        var lightNodes = scene.GetChildrenWithComponent<Light>();
+        var billboardNodes = scene.GetChildrenWithComponent<BillboardSet>();
 
         const float LIGHT_ROTATION_SPEED = 20.0f;
         const float BILLBOARD_ROTATION_SPEED = 50.0f;
 
-        // Rotate the lights around the world Y-axis
-        for (unsigned i = 0; i < lightNodes.Size(); ++i)
-            lightNodes[i]->Rotate(Quaternion(0.0f, LIGHT_ROTATION_SPEED * timeStep, 0.0f), TS_WORLD);
-
-        // Rotate the individual billboards within the billboard sets, then recommit to make the changes visible
-        for (unsigned i = 0; i < billboardNodes.Size(); ++i)
+        foreach (var lightNode in lightNodes)
         {
-            BillboardSet* billboardObject = billboardNodes[i]->GetComponent<BillboardSet>();
+            lightNode.Rotate(new Quaternion(0f, LIGHT_ROTATION_SPEED * timeStep, 0f), TransformSpace.TS_WORLD);
+        }
 
-            for (unsigned j = 0; j < billboardObject->GetNumBillboards(); ++j)
+        foreach (var billboardNode in billboardNodes)
+        {
+            var billboardSet = billboardNode.GetComponent<BillboardSet>();
+            for (uint i = 0; i < billboardSet.NumBillboards; i++)
             {
-                Billboard* bb = billboardObject->GetBillboard(j);
-                bb->rotation_ += BILLBOARD_ROTATION_SPEED * timeStep;
+                var bb = billboardSet.GetBillboardSafe(i).Value;
+                bb.Rotation += BILLBOARD_ROTATION_SPEED*timeStep;
             }
-
-            billboardObject->Commit();
-        }*/
+            billboardSet.Commit();
+        }
     }
 
     private void SetupViewport()

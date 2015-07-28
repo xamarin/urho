@@ -20,9 +20,9 @@ namespace Urho {
 	}
 	
 	public partial class Node {
-		static Component []ZeroArray = new Component[0];
+		static Node[] ZeroArray = new Node[0];
 			
-		public Component[] GetChildrenWithComponents<T> (bool recursive = false) where T: Component
+		public Node[] GetChildrenWithComponent<T> (bool recursive = false) where T: Component
 		{
 			var stringhash = Runtime.LookupStringHash (typeof (T));
 			int count;
@@ -30,10 +30,10 @@ namespace Urho {
 			if (ptr == null)
 				return ZeroArray;
 			
-			var res = new Component [count];
+			var res = new Node[count];
 			for (int i = 0; i < count; i++){
 				var node = Marshal.ReadIntPtr (ptr, i);
-				res [i] = Runtime.LookupObject<T> (node);
+				res [i] = Runtime.LookupObject<Node> (node);
 			}
 			return res;
 		}
