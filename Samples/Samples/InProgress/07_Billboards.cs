@@ -153,12 +153,11 @@ class _07_Billboards : Sample
 
             for (uint j = 0; j < NUM_BILLBOARDS; ++j)
             {
-#warning MISSIN_API
-                /*Billboard* bb = billboardObject.GetBillboard(j);
-                bb.position_ = Vector3(NextRandom(12.0f) - 6.0f, NextRandom(8.0f) - 4.0f, NextRandom(12.0f) - 6.0f);
-                bb.size_ = Vector2(NextRandom(2.0f) + 3.0f, NextRandom(2.0f) + 3.0f);
-                bb.rotation_ = Random() * 360.0f;
-                bb.enabled_ = true;*/
+                var bb = billboardObject.GetBillboardSafe(j).Value;
+                bb.Position = new Vector3(NextRandom(12.0f) - 6.0f, NextRandom(8.0f) - 4.0f, NextRandom(12.0f) - 6.0f);
+                bb.Size = new Vector2(NextRandom(2.0f) + 3.0f, NextRandom(2.0f) + 3.0f);
+                bb.Rotation = NextRandom() * 360.0f;
+                bb.Enabled = true;
             }
 
             // After modifying the billboards, they need to be "commited" so that the BillboardSet updates its internals
