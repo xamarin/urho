@@ -340,7 +340,7 @@ namespace SharpieBinder
 					// from those classes into the generated class
 					//
 					if (baseName == "GPUObject" || baseName == "Thread" || baseName == "Octant" ||
-					   baseName == "b2Draw" || baseName == "b2ContactListener")
+						baseName == "b2Draw" || baseName == "b2ContactListener" || baseName == "btIDebugDraw" || baseName == "btMotionState")
 						continue;
 
 					if (currentType.BaseTypes.Count > 0)
@@ -521,7 +521,7 @@ namespace SharpieBinder
 			if (s.Contains("EventHandler**")) {
 				return true;
 			}
-			if (s.Contains("b2"))
+			if (s.Contains("b2") || s.Contains ("bt"))
 				return true;
 			if (s.StartsWith("dt"))
 				return true;
@@ -530,6 +530,8 @@ namespace SharpieBinder
 			if (qt.ToString().Contains("kNet::SharedPtr"))
 				return true;
 			if (s.Contains("XMLElement"))
+				return true;
+			if (s.Contains ("CollisionGeometryData"))
 				return true;
 
 			return false;

@@ -21,13 +21,6 @@ namespace Urho {
 		IntPtr Handle { get; }
 	}
 
-	public class PhysicsWorld {
-		public PhysicsWorld (IntPtr handle) {}
-	}
-	public class RigidBody {
-		public RigidBody (IntPtr handle) {}
-	}
-
     [StructLayout(LayoutKind.Sequential)]
     public unsafe partial struct WorkItem
     {

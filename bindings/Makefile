@@ -37,12 +37,16 @@ GENERATED_SOURCES =	\
 	generated/CollisionChain2D.cs	\
 	generated/CollisionCircle2D.cs	\
 	generated/CollisionEdge2D.cs	\
+	generated/CollisionEventMode.cs	\
+	generated/CollisionGeometryData.cs\
 	generated/CollisionPolygon2D.cs	\
+	generated/CollisionShape.cs	\
 	generated/CollisionShape2D.cs	\
 	generated/CompareMode.cs	\
 	generated/Component.cs		\
 	generated/CompressedFormat.cs	\
 	generated/Connection.cs		\
+	generated/Constraint.cs		\
 	generated/UrhoConsole.cs	\
 	generated/ConstantBuffer.cs	\
 	generated/Constraint2D.cs	\
@@ -55,6 +59,7 @@ GENERATED_SOURCES =	\
 	generated/ConstraintPulley2D.cs	\
 	generated/ConstraintRevolute2D.cs\
 	generated/ConstraintRope2D.cs	\
+	generated/ConstraintType.cs	\
 	generated/ConstraintWeld2D.cs	\
 	generated/ConstraintWheel2D.cs	\
 	generated/Context.cs		\
@@ -151,6 +156,7 @@ GENERATED_SOURCES =	\
 	generated/ParticleEmitter2D.cs	\
 	generated/Pass.cs		\
 	generated/PassLightingMode.cs	\
+	generated/PhysicsWorld.cs	\
 	generated/PhysicsWorld2D.cs	\
 	generated/PrimitiveType.cs	\
 	generated/Profiler.cs		\
@@ -169,6 +175,7 @@ GENERATED_SOURCES =	\
 	generated/ResourceCache.cs	\
 	generated/ResourceRequest.cs	\
 	generated/ResourceRouter.cs	\
+	generated/RigidBody.cs		\
 	generated/RigidBody2D.cs	\
 	generated/Scene.cs		\
 	generated/ScrollBar.cs		\
@@ -181,6 +188,7 @@ GENERATED_SOURCES =	\
 	generated/ShaderProgram.cs	\
 	generated/ShaderType.cs		\
 	generated/ShaderVariation.cs	\
+	generated/ShapeType.cs		\
 	generated/Skybox.cs		\
 	generated/Slider.cs		\
 	generated/SmoothedTransform.cs	\
