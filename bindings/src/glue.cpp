@@ -84,7 +84,11 @@ extern "C" {
 		return foo.Value ();
 	}
 	
-
+	Skeleton *AnimatedModel_GetSkeleton (AnimatedModel *model)
+	{
+		return &model->GetSkeleton ();
+	}
+	
 	//
 	// returns: null on no matches
 	// otherwise, a pointer that should be released with free() that

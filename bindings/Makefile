@@ -101,27 +101,26 @@ GENERATED_SOURCES =	\
 	generated/FontFaceBitmap.cs	\
 	generated/FontFaceFreeType.cs	\
 	generated/FrustumPlane.cs	\
-	generated/Geometry.cs	\
+	generated/Geometry.cs		\
 	generated/GeometryType.cs	\
-	generated/Graphics.cs	\
+	generated/Graphics.cs		\
 	generated/HighlightMode.cs	\
 	generated/HorizontalAlignment.cs	\
-	generated/Image.cs	\
-	generated/IndexBuffer.cs	\
-	generated/Input.cs	\
+	generated/Image.cs		\
+	generated/Input.cs		\
 	generated/InterpMethod.cs	\
 	generated/InterpolationMode.cs	\
 	generated/Intersection.cs	\
-	generated/LayoutMode.cs	\
-	generated/Light.cs	\
+	generated/LayoutMode.cs		\
+	generated/Light.cs		\
 	generated/LightPSVariation.cs	\
-	generated/LightType.cs	\
+	generated/LightType.cs		\
 	generated/LightVSVariation.cs	\
-	generated/LineEdit.cs	\
-	generated/ListView.cs	\
-	generated/LoadMode.cs	\
-	generated/LockState.cs	\
-	generated/Log.cs	\
+	generated/LineEdit.cs		\
+	generated/ListView.cs		\
+	generated/LoadMode.cs		\
+	generated/LockState.cs		\
+	generated/Log.cs		\
 	generated/LogicComponent.cs	\
 	generated/LoopMode2D.cs	\
 	generated/Material.cs	\
@@ -189,6 +188,7 @@ GENERATED_SOURCES =	\
 	generated/ShaderType.cs		\
 	generated/ShaderVariation.cs	\
 	generated/ShapeType.cs		\
+	generated/Skeleton.cs		\
 	generated/Skybox.cs		\
 	generated/Slider.cs		\
 	generated/SmoothedTransform.cs	\
@@ -275,11 +275,11 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/RefCounted.cs		\
 	src/ResourceCache.cs		\
 	src/Runtime.cs			\
+	src/Skeleton.cs			\
 	src/StringHash.cs		\
 	src/Stubs.cs			\
 	src/Structs.cs			\
 	src/UIElement.cs		\
-	external/Vector3.cs		\
 	external/MathHelper.cs		\
 	external/Matrix3.cs		\
 	external/Matrix4.cs		\

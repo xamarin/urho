@@ -194,6 +194,18 @@ namespace Urho {
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Bone {
+		public UrhoString Name;
+		public int NameHash;
+		public uint ParentIndex;
+		public Vector3 InitialPosition;
+		public Quaternion InitialRotation;
+		public Vector3 InitialScale;
+		public Matrix3x4 OffsetMatrix;
+		public bool Animated;
+		public char CollisionMask;
+		public float Radius;
+		public BoundingBox BoundingBox;
+		private WeakPtr Node;
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?

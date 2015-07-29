@@ -92,7 +92,8 @@ namespace SharpieBinder
 				["Urho3D::RefCounted"] = new BaseNodeType(Bind),
 				["Urho3D::RefCount"] = new BaseNodeType(Bind),
 				["Urho3D::String"] = new BaseNodeType(Bind),
-				["Urho3D::XMLElement"] = new BaseNodeType(Bind)
+				["Urho3D::XMLElement"] = new BaseNodeType(Bind),
+				["Urho3D::Skeleton"] = new BaseNodeType(Bind)
 			};
 			cbindingStream = File.CreateText(Path.Combine(outputDir, "binding.cpp"));
 			podStream = File.CreateText (Path.Combine (outputDir, "PodVectors.cs"));
@@ -301,7 +302,7 @@ namespace SharpieBinder
 		{
 			// Quick and dirty: it really should use our manually curated list of known value types,
 			// but for now, this will do
-			if (decl.Name == "String")
+			if (decl.Name == "String" || decl.Name == "Skeleton")
 				return false;
 
 			if (decl.TagKind == TagDeclKind.Struct || !(decl.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted) || decl == ScanBaseTypes.UrhoRefCounted))
@@ -572,6 +573,7 @@ namespace SharpieBinder
 
 			var cleanType = CleanType(qt);
 			var cleanTypeStr = cleanType.ToString();
+
 			switch (cleanTypeStr) {
 			case "const char *":
 				lowLevel = new PrimitiveType("string");
@@ -742,7 +744,7 @@ namespace SharpieBinder
 		{
 			switch (currentType.Name) {
 			case "Graphics":
-				if (decl.Name == "GetShader") 
+				if (decl.Name == "GetShader")
 					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
 				break;
 			case "Node":
@@ -762,6 +764,16 @@ namespace SharpieBinder
 				case "Stop":
 					return true;
 				}
+				break;
+			case "Skeleton":
+				switch (decl.Name) {
+				case "GetBone":
+					if (decl.Parameters.First ().ToString ().Contains ("const char *"))
+						return false;
+					return true;
+
+				}
+				
 				break;
 			}
 
@@ -859,8 +871,14 @@ namespace SharpieBinder
 			string pinvoke_name = MakeName(currentType.Name) + "_" + methodName;
 			var isConstructor = decl is CXXConstructorDecl;
 
-			if (isConstructor)
-				pinvokeReturn = new SimpleType("IntPtr");
+			if (isConstructor) {
+				pinvokeReturn = new SimpleType ("IntPtr");
+
+				// Do not bind a default constructor for Skeleton
+				if (currentType.Name == "Skeleton")
+					return;
+			}
+
 			var pinvoke = new MethodDeclaration
 			{
 				Name = pinvoke_name,

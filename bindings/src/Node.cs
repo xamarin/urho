@@ -27,7 +27,7 @@ namespace Urho {
 			var stringhash = Runtime.LookupStringHash (typeof (T));
 			int count;
 			var ptr = NodeHelper.urho_node_get_components (handle, stringhash.Code, recursive ? 1 : 0, out count);
-			if (ptr == null)
+			if (ptr == IntPtr.Zero)
 				return ZeroArray;
 			
 			var res = new Node[count];

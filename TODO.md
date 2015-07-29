@@ -10,6 +10,17 @@ Binding
 Missing Bindings
 ----------------
 
+Skeleton
+--------
+
+This is a base class that is usually passed and returned by reference, this means
+that the storage is usually associated with another object.   If we were to surface
+this as a pointer to the object, then we could introduce cases where the owning object
+is destroyed, but our skeleton points to invalid memory.  
+
+Options include creating Skeleton instances that keep a reference to the containing
+object that returned it (luckily, few AnimatedModel and Model).  
+
 PODVector
 ---------
 
