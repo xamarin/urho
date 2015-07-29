@@ -78,6 +78,13 @@ extern "C" {
 		return strdup (GetPlatform().CString ());
 	}
 
+	unsigned urho_stringhash_from_string (const char *p)
+	{
+		StringHash foo (p);
+		return foo.Value ();
+	}
+	
+
 	//
 	// returns: null on no matches
 	// otherwise, a pointer that should be released with free() that

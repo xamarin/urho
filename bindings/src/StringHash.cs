@@ -11,6 +11,14 @@ namespace Urho {
 			this.Code = code;
 		}
 
+		public StringHash (string str)
+		{
+			this.Code = urho_stringhash_from_string (str);
+		}
+
+		[DllImport ("mono-urho")]
+		extern static int urho_stringhash_from_string (string str);
+		
 		public override string ToString ()
 		{
 			return $"StringHash({Code:x})";
