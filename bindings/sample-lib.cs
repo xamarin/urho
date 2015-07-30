@@ -127,16 +127,16 @@ public class Sample : Application {
 	{
 		WriteLine ("KeyEvent: " + e.Key);
 		switch (e.Key){
-		case 27: // ESC
+		case Key.Esc: // ESC
 			if (this.Console.IsVisible ())
 				this.Console.SetVisible (false);
 			else
 				Engine.Exit ();
 			return;
-		case 1073741882: // F1
+		case Key.F1: // F1
 			console.Toggle ();
 			return;
-		case 1073741883: // F2
+		case Key.F2: // F2
 			debugHud.ToggleAll ();
 			return;
 		}
@@ -145,27 +145,27 @@ public class Sample : Application {
 		
 		var renderer = Renderer;
 		switch (e.Key){
-		case '1':
+		case Key.N0:
 			var quality = renderer.TextureQuality;
 			++quality;
 			if (quality > 2)
 				quality = 0;
 			renderer.TextureQuality = quality;
 			break;
-		case '2':
+		case Key.N2:
 			var mquality = renderer.MaterialQuality;
 			++mquality;
 			if (mquality > 2)
 				mquality = 0;
 			renderer.MaterialQuality = mquality;
 			break;
-		case '3':
+		case Key.N3:
 			renderer.SpecularLighting = !renderer.SpecularLighting;
 			break;
-		case '4':
+		case Key.N4:
 			renderer.DrawShadows = !renderer.DrawShadows;
 			break;
-		case '5':
+		case Key.N5:
 			var shadowMapSize = renderer.ShadowMapSize;
 			shadowMapSize *= 2;
 			if (shadowMapSize > 2048)
@@ -174,7 +174,7 @@ public class Sample : Application {
 			break;
 
 			// shadow depth and filtering quality
-		case '6':
+		case Key.N6:
 			var q = renderer.ShadowQuality;
 			q++;
 			if (q > 3)
@@ -183,18 +183,18 @@ public class Sample : Application {
 			break;
 
 			// occlusion culling
-		case '7':
+		case Key.N7:
 			var o = !(renderer.MaxOccluderTriangles > 0);
 			renderer.MaxOccluderTriangles = o ? 5000 : 0;
 			break;
 
 			// instancing
-		case '8':
+		case Key.N8:
 			renderer.DynamicInstancing = !renderer.DynamicInstancing;
 			break;
 
 			// screenshot
-		case '9':
+		case Key.N9:
 			var screenshot = new Image (Context);
 
 			// Pending "Image&" binding

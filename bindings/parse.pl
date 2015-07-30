@@ -41,13 +41,18 @@ while (<>){
 	print CPP "}\n\n";
 	while (<>){
 	    chop;
+	    $cast = "";
 	    if (/PARAM/){
 		($pc,$pn,$pt) = $_ =~ /PARAM\((\w+), ?(\w+).*\/\/\W*(\w+(\W+\w+)?)/;
 		$cspt = $plain = &mapType ($pt);
+		if (/P_KEY.*Key/){
+		    $cspt = "Key";
+		    $cast = "(Key)";
+		}
 		$plain =~ s/ .*//;
 		$hashgetters{$pc} = $en;
 
-		print CS "        public $cspt $pn => UrhoMap.get_$plain (handle, UrhoHash.$pc);\n";
+		print CS "        public $cspt $pn =>$cast UrhoMap.get_$plain (handle, UrhoHash.$pc);\n";
 	    }
 	    if (/}/){
 		print CS "    }\n\n";

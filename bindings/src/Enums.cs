@@ -37,11 +37,11 @@ namespace Urho {
 		Default = 0xffffffff,
 	}
 
-    public enum SoundType {
-        Master,
-        Effect,
-        Ambient,
-        Voice,
-        Music
-    }
+	public enum SoundType {
+		Master,
+		Effect,
+		Ambient,
+		Voice,
+		Music
+	}
 }
