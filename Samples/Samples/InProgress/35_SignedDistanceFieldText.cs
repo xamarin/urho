@@ -87,15 +87,13 @@ class _35_SignedDistanceFieldText : Sample
             {
                 mushroomTitleText.SetColor(Color.Green);
                 mushroomTitleText.TextEffect= TextEffect.TE_SHADOW;
-#warning MISSIN_API Text3D::SetEffect
-                ////mushroomTitleText.SetEffect(new Color(new Color(0.5f, 0.5f, 0.5f)));
+                mushroomTitleText.EffectColor = new Color(0.5f, 0.5f, 0.5f);
             }
             else if (i % 3 == 2)
             {
                 mushroomTitleText.SetColor(Color.Yellow);
                 mushroomTitleText.TextEffect = TextEffect.TE_STROKE;
-#warning MISSIN_API Text3D::SetEffect
-                ////mushroomTitleText.SetEffect(new Color(new Color(0.5f, 0.5f, 0.5f)));
+                mushroomTitleText.EffectColor = new Color(0.5f, 0.5f, 0.5f);
             }
 
             mushroomTitleText.SetAlignment(HorizontalAlignment.HA_CENTER, VerticalAlignment.VA_CENTER);
