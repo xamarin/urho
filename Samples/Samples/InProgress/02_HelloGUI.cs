@@ -99,7 +99,11 @@ class _02_HelloGUI : Sample
         windowTitle.SetStyleAuto(null);
         buttonClose.SetStyle("CloseButton", null);
 
-        SubscribeToReleased(HandleClosePressed);
+        SubscribeToReleased(args =>
+            {
+                if (args.Element == buttonClose)
+                    Engine.Exit();
+            });
 
         // Subscribe also to all UI mouse clicks just to see where we have clicked
         SubscribeToUIMouseClick(HandleControlClicked);
@@ -152,11 +156,6 @@ class _02_HelloGUI : Sample
 
     private void HandleDragEnd(DragEndEventArgs args) // For reference (not used here)
     {
-    }
-
-    private void HandleClosePressed(ReleasedEventArgs args)
-    {
-        Engine.Exit();
     }
 
     private void HandleControlClicked(UIMouseClickEventArgs args)
