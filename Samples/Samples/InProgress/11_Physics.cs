@@ -12,7 +12,10 @@ class _11_Physics : Sample
     {
         base.Start();
         CreateScene();
-        SimpleCreateInstructionsWithWASD("\nSpace to toggle debug geometry");
+        SimpleCreateInstructionsWithWASD(
+            "\nLMB to spawn physics objects\n" +
+            "F5 to save scene, F7 to load\n" +
+            "Space to toggle physics debug geometry");
         SetupViewport();
         SubscribeToEvents();
     }

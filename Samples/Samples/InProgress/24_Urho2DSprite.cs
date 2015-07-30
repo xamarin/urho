@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Urho;
 
 class _24_Urho2DSprite : Sample
 {
     private Scene scene;
-    private Camera camera;
-    private List<Node> spriteNodes;
+    private List<NodeInfo> spriteNodes;
     private const uint NumSprites = 200;
-
-    private const string VarMovespeed = "MoveSpeed";
-    private const string VarRotatespeed = "RotateSpeed";
 
     public _24_Urho2DSprite(Context ctx) : base(ctx) { }
 
@@ -41,37 +38,29 @@ class _24_Urho2DSprite : Sample
                 }
 
                 var graphics = Graphics;
-                float halfWidth = (float)graphics.Width * 0.5f * PIXEL_SIZE;
-                float halfHeight = (float)graphics.Height * 0.5f * PIXEL_SIZE;
+                float halfWidth = graphics.Width * 0.5f * PIXEL_SIZE;
+                float halfHeight = graphics.Height * 0.5f * PIXEL_SIZE;
 
-                for (int i = 0; i < spriteNodes.Count; ++i)
+                foreach (var nodeInfo in spriteNodes)
                 {
-                    var node = spriteNodes[i];
-
-                    Vector3 position = node.Position;
-#warning MISSING_API //GetVar
-                    Vector3 moveSpeed = Vector3.Zero; //node.GetVar(VAR_MOVESPEED).GetVector3();
+                    Vector3 position = nodeInfo.Node.Position;
+                    Vector3 moveSpeed = nodeInfo.MoveSpeed;
                     Vector3 newPosition = position + moveSpeed * args.TimeStep;
                     if (newPosition.X < -halfWidth || newPosition.X > halfWidth)
                     {
                         newPosition.X = position.X;
                         moveSpeed.X = -moveSpeed.X;
-#warning MISSING_API //SetVar
-                        //node.SetVar(VAR_MOVESPEED, moveSpeed);
+                        nodeInfo.MoveSpeed = moveSpeed;
                     }
                     if (newPosition.Y < -halfHeight || newPosition.Y > halfHeight)
                     {
                         newPosition.Y = position.Y;
                         moveSpeed.Y = -moveSpeed.Y;
-#warning MISSING_API //SetVar
-                        //node.SetVar(VAR_MOVESPEED, moveSpeed);
+                        nodeInfo.MoveSpeed = moveSpeed;
                     }
 
-                    node.Position = (newPosition);
-
-#warning MISSING_API //GetVar
-                    float rotateSpeed = 1.0f;//node.GetVar(VAR_ROTATESPEED).GetFloat();
-                    node.Roll(rotateSpeed * args.TimeStep, TransformSpace.TS_LOCAL);
+                    nodeInfo.Node.Position = (newPosition);
+                    nodeInfo.Node.Roll(nodeInfo.RotateSpeed * args.TimeStep, TransformSpace.TS_LOCAL);
                 }
 
             });
@@ -90,6 +79,7 @@ class _24_Urho2DSprite : Sample
     {
         scene = new Scene(Context);
         scene.CreateComponent<Octree>();
+        spriteNodes = new List<NodeInfo>((int) NumSprites);
 
         // Create camera node
         CameraNode = scene.CreateChild("Camera");
@@ -124,15 +114,8 @@ class _24_Urho2DSprite : Sample
             staticSprite.BlendMode = BlendMode.BLEND_ALPHA;
             // Set sprite
             staticSprite.Sprite=sprite;
-
-#warning MISSIN_API SetVar
-            ////// Set move speed
-            ////spriteNode.SetVar(VAR_MOVESPEED, new Vector3(NextRandom(-2.0f, 2.0f), NextRandom(-2.0f, 2.0f), 0.0f));
-            ////// Set rotate speed
-            ////spriteNode.SetVar(VAR_ROTATESPEED, NextRandom(-90.0f, 90.0f));
-
             // Add to sprite node vector
-            spriteNodes.Add(spriteNode);
+            spriteNodes.Add(new NodeInfo(spriteNode, new Vector3(NextRandom(-2.0f, 2.0f), NextRandom(-2.0f, 2.0f), 0.0f), NextRandom(-90.0f, 90.0f)));
         }
 
         // Get animation set
@@ -147,5 +130,19 @@ class _24_Urho2DSprite : Sample
         // Set animation
         animatedSprite.SetAnimation(animationSet, "idle", LoopMode2D.LM_DEFAULT);
 
+    }
+
+    class NodeInfo
+    {
+        public Node Node { get; set; }
+        public Vector3 MoveSpeed { get; set; }
+        public float RotateSpeed { get; set; }
+
+        public NodeInfo(Node node, Vector3 moveSpeed, float rotateSpeed)
+        {
+            Node = node;
+            MoveSpeed = moveSpeed;
+            RotateSpeed = rotateSpeed;
+        }
     }
 }

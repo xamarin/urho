@@ -1,13 +1,17 @@
-﻿using Urho;
+﻿using System.Collections.Generic;
+using Urho;
 
 class _37_UIDrag : Sample
 {
     public _37_UIDrag(Context ctx) : base(ctx) { }
 
+    private Dictionary<UIElement, ElementInfo> elements; 
+
     public override void Start()
     {
         base.Start();
         
+        elements = new Dictionary<UIElement, ElementInfo>();
         // Set mouse visible
         
         string platform = Urho.Runtime.Platform;
@@ -114,43 +118,34 @@ class _37_UIDrag : Sample
         int ly = args.Y;
 
         IntVector2 p = element.Position;
-#warning MISSING_API UIElement::Var, Text::Text
-        ////element.SetVar("START", p);
-        ////element.SetVar("DELTA", new IntVector2(p.X - lx, p.Y - ly));
+        elements[element] = new ElementInfo(element, p, new IntVector2(p.X - lx, p.Y - ly), args.Buttons);
 
-        ////int buttons = args.Buttons;
-        ////element.SetVar("BUTTONS", buttons);
+        int buttons = args.Buttons;
 
-        ////var t = (Text)element.GetChild("Text", false);
-        ////t.Text="Drag Begin Buttons: " + buttons;
+        var t = (Text)element.GetChild("Text", false);
+        t.Value = "Drag Begin Buttons: " + buttons;
 
-        ////t = (Text)element.GetChild("Num Touch", false);
-        ////t.Text="Number of buttons: " + args.NumButtons;
+        t = (Text)element.GetChild("Num Touch", false);
+        t.Value = "Number of buttons: " + args.NumButtons;
     }
 
     private void HandleDragMove(DragMoveEventArgs args)
     {
-#warning MISSING_API UIElement::Var, Text::Text
-        ////Button element = (Button)args.Element;
-        ////int buttons = args.Buttons;
-        ////IntVector2 d = element.GetVar("DELTA").GetIntVector2();
-        ////int X = args.X + d.X;
-        ////int Y = args.Y + d.Y;
-        ////int BUTTONS = element.GetVar("BUTTONS").GetInt();
+        var element = elements[args.Element];
+        int buttons = args.Buttons;
+        IntVector2 d = element.Delta;
+        int x = args.X + d.X;
+        int y = args.Y + d.Y;
+        var t = (Text)element.Element.GetChild("Event Touch", false);
+        t.Value = "Drag Move Buttons: " + buttons;
 
-        ////var t = (Text)element.GetChild("Event Touch", false);
-        ////t.Text = "Drag Move Buttons: " + buttons;
-
-        ////if (buttons == BUTTONS)
-        ////    element.Position=new IntVector2(X, Y);
+        if (buttons == element.Buttons)
+            element.Element.Position = new IntVector2(x, y);
     }
 
     private void HandleDragCancel(DragCancelEventArgs args)
     {
-        Button element = (Button)args.Element;
-#warning MISSING_API UIElement::Var
-        ////IntVector2 P = element.GetVar("START").GetIntVector2();
-        ////element.Position=(P);
+        args.Element.Position = elements[args.Element].Start;
     }
 
     private void HandleDragEnd(DragEndEventArgs args)
@@ -168,22 +163,38 @@ class _37_UIDrag : Sample
         uint n = input.NumTouches;
         for (uint i = 0; i < n; i++)
         {
-#warning MISSING_API Input::GetTouch, Text::Text
-            ////var t = (Text)root.GetChild("Touch " + i, false);
-            ////TouchState ts = input.GetTouch(i);
-            ////t.Text = "Touch " + ts.touchID_;
+            var text = (Text)root.GetChild("Touch " + i, false);
+            TouchState ts;
+            input.TryGetTouch(i, out ts);
+            text.Value = "Touch " + ts.TouchID;
 
-            ////IntVector2 pos = ts.position_;
-            ////pos.Y -= 30;
+            IntVector2 pos = ts.Position;
+            pos.Y -= 30;
 
-            ////t.Position = (pos);
-            ////t.SetVisible(true);
+            text.Position = (pos);
+            text.SetVisible(true);
         }
 
         for (uint i = n; i < 10; i++)
         {
-            var t = (Text)root.GetChild("Touch " + i, false);
-            t.SetVisible(false);
+            var text = (Text)root.GetChild("Touch " + i, false);
+            text.SetVisible(false);
+        }
+    }
+
+    class ElementInfo
+    {
+        public UIElement Element { get; set; }
+        public IntVector2 Start { get; set; }
+        public IntVector2 Delta { get; set; }
+        public int Buttons { get; set; }
+
+        public ElementInfo(UIElement element, IntVector2 start, IntVector2 delta, int buttons)
+        {
+            Element = element;
+            Start = start;
+            Delta = delta;
+            Buttons = buttons;
         }
     }
 
