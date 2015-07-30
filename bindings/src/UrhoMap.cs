@@ -102,7 +102,17 @@ namespace Urho {
 		{
 			throw new Exception ("Not implemented, as we need to figure out serializable mapping");
 		}
-		
+
+		[DllImport ("mono-urho")]
+		extern static IntPtr urho_map_get_buffer (IntPtr handle, int stringHash, out IntPtr buffer, out int size);
+		static public CollisionData [] get_CollisionData (IntPtr handle, int stringHash)
+		{
+			IntPtr buffer;
+			int size;
+			urho_map_get_buffer (handle, stringHash, out buffer, out size);
+			return CollisionData.FromContactData (buffer, size);
+		}
+
 		[DllImport ("mono-urho")]
 		extern static String urho_map_get_String (IntPtr handle, int stringHash);
 		static public String get_String (IntPtr handle, int stringHash)

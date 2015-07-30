@@ -21,6 +21,7 @@ sub mapType {
     return "uint" if $t eq "unsigned";
     return "float" if $t eq "Float";
     return "IntPtr" if $t eq "User-defined";
+    return "CollisionData []" if $pt eq "Buffer containing";
     return "IntPtr" if $t eq "Buffer";
     return $t;
 }
@@ -31,7 +32,7 @@ while (<>){
     next if (/#define/);
     if (/EVENT\(/){
 	($ec,$en) = $_ =~ /EVENT\((\w+), ?(\w+)/;
-	print CS "    public struct ${en}EventArgs {\n";
+	print CS "    public partial struct ${en}EventArgs {\n";
 	print CS "        internal IntPtr handle;\n";
 	print CPP "void urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
 	print CPP "{\n";
@@ -42,10 +43,11 @@ while (<>){
 	    chop;
 	    if (/PARAM/){
 		($pc,$pn,$pt) = $_ =~ /PARAM\((\w+), ?(\w+).*\/\/\W*(\w+(\W+\w+)?)/;
-		$cspt = &mapType ($pt);
+		$cspt = $plain = &mapType ($pt);
+		$plain =~ s/ .*//;
 		$hashgetters{$pc} = $en;
 
-		print CS "        public $cspt $pn => UrhoMap.get_$cspt (handle, UrhoHash.$pc);\n";
+		print CS "        public $cspt $pn => UrhoMap.get_$plain (handle, UrhoHash.$pc);\n";
 	    }
 	    if (/}/){
 		print CS "    }\n\n";

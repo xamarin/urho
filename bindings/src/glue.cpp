@@ -68,6 +68,14 @@ extern "C" {
 		return map [h].GetUInt ();
 	}
 
+	void urho_map_get_buffer (VariantMap &map, int hash, void **buffer, unsigned *size)
+	{
+		StringHash h (hash);
+		PODVector<unsigned char> p (map [h].GetBuffer ());
+		*size  = p.Size ();
+		*buffer = (void *) &p.Front();
+	}
+
 	void *TouchState_GetTouchedElement (TouchState *state)
 	{
 		return (void *) state->GetTouchedElement ();
@@ -88,7 +96,7 @@ extern "C" {
 	{
 		return &model->GetSkeleton ();
 	}
-	
+
 	//
 	// returns: null on no matches
 	// otherwise, a pointer that should be released with free() that
