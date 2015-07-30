@@ -45,8 +45,6 @@ class _26_ConsoleInput : Sample
 
         // Show the console by default, make it large. Console will show the text edit field when there is at least one
         // subscriber for the console command event
-
-#warning MISSING_API Console
         var console = Console;
         console.NumRows = (uint) (Graphics.Height / 16);
         console.NumBufferedRows = 2 * console.NumRows;
@@ -88,7 +86,7 @@ class _26_ConsoleInput : Sample
     private void HandleEscKeyDown(KeyDownEventArgs args)
     {
         // Unlike the other samples, exiting the engine when ESC is pressed instead of just closing the console
-        if (args.Key == Key.Esc)
+        if (args.Key == (int)Key.Esc)
             Engine.Exit();
     }
 

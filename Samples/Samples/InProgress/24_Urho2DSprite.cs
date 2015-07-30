@@ -8,9 +8,6 @@ class _24_Urho2DSprite : Sample
     private List<Node> spriteNodes;
     private const uint NumSprites = 200;
 
-#warning MISSIN_API //constant
-    private const float PIXEL_SIZE = 0.01f;
-
     private const string VarMovespeed = "MoveSpeed";
     private const string VarRotatespeed = "RotateSpeed";
 

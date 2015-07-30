@@ -82,7 +82,7 @@ class _12_PhysicsStressTest : Sample
         body.Mass = 0.25f;
         body.Friction = 0.75f;
         CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
-        shape.SetBox(Vector3.One);
+        shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
 
         const float OBJECT_VELOCITY = 10.0f;
 
@@ -138,7 +138,7 @@ class _12_PhysicsStressTest : Sample
             /*RigidBody* body = */
             floorNode.CreateComponent<RigidBody>();
             CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
-            shape.SetBox(Vector3.One);
+            shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
         }
 
         {
@@ -155,11 +155,10 @@ class _12_PhysicsStressTest : Sample
                 mushroomObject.SetMaterial(cache.GetMaterial("Materials/Mushroom.xml"));
                 mushroomObject.CastShadows=true;
 
-                /*RigidBody* body = */
                 mushroomNode.CreateComponent<RigidBody>();
                 CollisionShape shape = mushroomNode.CreateComponent<CollisionShape>();
                 // By default the highest LOD level will be used, the LOD level can be passed as an optional parameter
-                shape.SetTriangleMesh(mushroomObject.Model);
+                shape.SetTriangleMesh(mushroomObject.Model, 0, Vector3.One, Vector3.Zero, Quaternion.Identity);
             }
         }
 
@@ -182,7 +181,7 @@ class _12_PhysicsStressTest : Sample
                 // Disable collision event signaling to reduce CPU load of the physics simulation
                 body.CollisionEventMode = CollisionEventMode.COLLISION_NEVER;
                 CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
-                shape.SetBox(Vector3.One);
+                shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
             }
         }
 

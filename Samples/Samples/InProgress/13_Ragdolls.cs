@@ -23,38 +23,38 @@ class _13_Ragdolls : Sample
     private void SubscribeToEvents()
     {
         SubscribeToUpdate(args =>
-        {
-            SimpleMoveCamera(args.TimeStep);
-            var input = Input;
-                // "Shoot" a physics object with left mousebutton
-            if (input.GetMouseButtonPress(MouseButton.Left))
-                SpawnObject();
-
-            // Check for loading / saving the scene
-#warning MISSING_API
-            /*if (input.GetKeyPress(KEY_F5))
             {
-                File saveFile(Context, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", FILE_WRITE);
-                scene.SaveXML(saveFile);
-            }
-            if (input.GetKeyPress(KEY_F7))
-            {
-                File loadFile(context_, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", FILE_READ);
-                scene.LoadXML(loadFile);
-            }*/
+                SimpleMoveCamera(args.TimeStep);
+                var input = Input;
+                    // "Shoot" a physics object with left mousebutton
+                if (input.GetMouseButtonPress(MouseButton.Left))
+                    SpawnObject();
 
-            if (Input.GetKeyDown(Key.Space))
-                drawDebug = !drawDebug;
-        });
+                // Check for loading / saving the scene
+    #warning MISSING_API
+                /*if (input.GetKeyPress(KEY_F5))
+                {
+                    File saveFile(Context, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", FILE_WRITE);
+                    scene.SaveXML(saveFile);
+                }
+                if (input.GetKeyPress(KEY_F7))
+                {
+                    File loadFile(context_, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", FILE_READ);
+                    scene.LoadXML(loadFile);
+                }*/
+
+                if (Input.GetKeyDown(Key.Space))
+                    drawDebug = !drawDebug;
+            });
 
         SubscribeToPostRenderUpdate(args =>
-        {
-            // If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
-            // bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
-            // bones properly
-            if (drawDebug)
-                Renderer.DrawDebugGeometry(false);
-        });
+            {
+                // If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
+                // bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
+                // bones properly
+                if (drawDebug)
+                    Renderer.DrawDebugGeometry(false);
+            });
     }
     
     private void SetupViewport()
@@ -112,7 +112,7 @@ class _13_Ragdolls : Sample
             CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
             // Set a box shape of size 1 x 1 x 1 for collision. The shape will be scaled with the scene node scale, so the
             // rendering and physics representation sizes should match (the box model is also 1 x 1 x 1.)
-            shape.SetBox(Vector3.One);
+            shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
         }
 
         // Create animated models
@@ -140,7 +140,7 @@ class _13_Ragdolls : Sample
                 CollisionShape shape = modelNode.CreateComponent<CollisionShape>();
                 // Create the capsule shape with an offset so that it is correctly aligned with the model, which
                 // has its origin at the feet
-                shape.SetCapsule(0.7f, 2.0f, new Vector3(0.0f, 1.0f, 0.0f));
+                shape.SetCapsule(0.7f, 2.0f, new Vector3(0.0f, 1.0f, 0.0f), Quaternion.Identity);
 
                 // Create a custom component that reacts to collisions and creates the ragdoll
                 modelNode.CreateComponent<CreateRagdoll>();
@@ -175,7 +175,7 @@ class _13_Ragdolls : Sample
         body.Mass = 1.0f;
         body.RollingFriction = 0.15f;
         CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
-        shape.SetSphere(1.0f);
+        shape.SetSphere(1.0f, Vector3.Zero, Quaternion.Identity);
     
         const float OBJECT_VELOCITY = 10.0f;
     
@@ -193,139 +193,144 @@ class CreateRagdoll : Component
     {
         // If the node pointer is non-null, this component has been created into a scene node. Subscribe to physics collisions that
         // concern this scene node
-        //if (node != null)
-            //SubscribeToEvent(node, E_NODECOLLISION, HANDLER(CreateRagdoll, HandleNodeCollision));
+        if (node != null)
+            SubscribeToNodeCollision(HandleNodeCollision);
     }
 
-#warning MISSING_API
-/*void HandleNodeCollision(StringHash eventType, VariantMap& eventData)
-{
-    // Get the other colliding body, make sure it is moving (has nonzero mass)
-    RigidBody otherBody = static_cast<RigidBody*>(eventData[P_OTHERBODY].GetPtr());
-
-    if (otherBody.GetMass() > 0.0f)
+    void HandleNodeCollision(NodeCollisionEventArgs args)
     {
-        // We do not need the physics components in the AnimatedModel's root scene node anymore
-        node_.RemoveComponent<RigidBody>();
-        node_.RemoveComponent<CollisionShape>();
-        
-        // Create RigidBody & CollisionShape components to bones
-        CreateRagdollBone("Bip01_Pelvis", SHAPE_BOX, new Vector3(0.3f, 0.2f, 0.25f), new Vector3(0.0f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 0.0f));
-        CreateRagdollBone("Bip01_Spine1", SHAPE_BOX, new Vector3(0.35f, 0.2f, 0.3f), new Vector3(0.15f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 0.0f));
-        CreateRagdollBone("Bip01_L_Thigh", SHAPE_CAPSULE, new Vector3(0.175f, 0.45f, 0.175f), new Vector3(0.25f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 90.0f));
-        CreateRagdollBone("Bip01_R_Thigh", SHAPE_CAPSULE, new Vector3(0.175f, 0.45f, 0.175f), new Vector3(0.25f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 90.0f));
-        CreateRagdollBone("Bip01_L_Calf", SHAPE_CAPSULE, new Vector3(0.15f, 0.55f, 0.15f), new Vector3(0.25f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 90.0f));
-        CreateRagdollBone("Bip01_R_Calf", SHAPE_CAPSULE, new Vector3(0.15f, 0.55f, 0.15f), new Vector3(0.25f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 90.0f));
-        CreateRagdollBone("Bip01_Head", SHAPE_BOX, new Vector3(0.2f, 0.2f, 0.2f), new Vector3(0.1f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 0.0f));
-        CreateRagdollBone("Bip01_L_UpperArm", SHAPE_CAPSULE, new Vector3(0.15f, 0.35f, 0.15f), new Vector3(0.1f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 90.0f));
-        CreateRagdollBone("Bip01_R_UpperArm", SHAPE_CAPSULE, new Vector3(0.15f, 0.35f, 0.15f), new Vector3(0.1f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 90.0f));
-        CreateRagdollBone("Bip01_L_Forearm", SHAPE_CAPSULE, new Vector3(0.125f, 0.4f, 0.125f), new Vector3(0.2f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 90.0f));
-        CreateRagdollBone("Bip01_R_Forearm", SHAPE_CAPSULE, new Vector3(0.125f, 0.4f, 0.125f), new Vector3(0.2f, 0.0f, 0.0f),
-            new Quaternion(0.0f, 0.0f, 90.0f));
-        
-        // Create Constraints between bones
-        CreateRagdollConstraint("Bip01_L_Thigh", "Bip01_Pelvis", CONSTRAINT_CONETWIST, Vector3::BACK, Vector3::FORWARD,
-            new Vector2(45.0f, 45.0f), new Vector2.Zero);
-        CreateRagdollConstraint("Bip01_R_Thigh", "Bip01_Pelvis", CONSTRAINT_CONETWIST, Vector3::BACK, Vector3::FORWARD,
-            new Vector2(45.0f, 45.0f), new Vector2.Zero);
-        CreateRagdollConstraint("Bip01_L_Calf", "Bip01_L_Thigh", CONSTRAINT_HINGE, Vector3::BACK, Vector3::BACK,
-            new Vector2(90.0f, 0.0f), new Vector2.Zero);
-        CreateRagdollConstraint("Bip01_R_Calf", "Bip01_R_Thigh", CONSTRAINT_HINGE, Vector3::BACK, Vector3::BACK,
-            new Vector2(90.0f, 0.0f), new Vector2.Zero);
-        CreateRagdollConstraint("Bip01_Spine1", "Bip01_Pelvis", CONSTRAINT_HINGE, Vector3::FORWARD, Vector3::FORWARD,
-            new Vector2(45.0f, 0.0f), new Vector2(-10.0f, 0.0f));
-        CreateRagdollConstraint("Bip01_Head", "Bip01_Spine1", CONSTRAINT_CONETWIST, Vector3::LEFT, Vector3::LEFT,
-            new Vector2(0.0f, 30.0f), new Vector2.Zero);
-        CreateRagdollConstraint("Bip01_L_UpperArm", "Bip01_Spine1", CONSTRAINT_CONETWIST, Vector3::DOWN, Vector3::UP,
-            new Vector2(45.0f, 45.0f), new Vector2.Zero, false);
-        CreateRagdollConstraint("Bip01_R_UpperArm", "Bip01_Spine1", CONSTRAINT_CONETWIST, Vector3::DOWN, Vector3::UP,
-            new Vector2(45.0f, 45.0f), new Vector2.Zero, false);
-        CreateRagdollConstraint("Bip01_L_Forearm", "Bip01_L_UpperArm", CONSTRAINT_HINGE, Vector3::BACK, Vector3::BACK,
-            new Vector2(90.0f, 0.0f), new Vector2.Zero);
-        CreateRagdollConstraint("Bip01_R_Forearm", "Bip01_R_UpperArm", CONSTRAINT_HINGE, Vector3::BACK, Vector3::BACK,
-            new Vector2(90.0f, 0.0f), new Vector2.Zero);
-        
-        // Disable keyframe animation from all bones so that they will not interfere with the ragdoll
-        AnimatedModel model = GetComponent<AnimatedModel>();
-        Skeleton skeleton = model.GetSkeleton();
-        for (unsigned i = 0; i < skeleton.GetNumBones(); ++i)
-            skeleton.GetBone(i).animated_ = false;
-        
-        // Finally remove self from the scene node. Note that this must be the last operation performed in the function
-        Remove();
-    }
-}*/
+        // Get the other colliding body, make sure it is moving (has nonzero mass)
+        RigidBody otherBody = args.OtherBody;
 
-#warning MISSING_API
-/*void CreateRagdollBone(string boneName, ShapeType type, const Vector3& size, const Vector3& position,
-    const Quaternion& rotation)
-{
-    // Find the correct child scene node recursively
-    Node boneNode = node_.GetChild(boneName, true);
-    if (!boneNode)
-    {
-        LOGWARNING("Could not find bone " + boneName + " for creating ragdoll physics components");
-        return;
+        if (otherBody.Mass > 0.0f)
+        {
+                // We do not need the physics components in the AnimatedModel's root scene node anymore
+#warning MISSING_API Node::RemoveComponent<> generic
+            ////Node.RemoveComponent<RigidBody>();
+            ////Node.RemoveComponent<CollisionShape>();
+        
+            // Create RigidBody & CollisionShape components to bones
+            CreateRagdollBone("Bip01_Pelvis", ShapeType.SHAPE_BOX, new Vector3(0.3f, 0.2f, 0.25f), new Vector3(0.0f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 0.0f));
+            CreateRagdollBone("Bip01_Spine1", ShapeType.SHAPE_BOX, new Vector3(0.35f, 0.2f, 0.3f), new Vector3(0.15f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 0.0f));
+            CreateRagdollBone("Bip01_L_Thigh", ShapeType.SHAPE_CAPSULE, new Vector3(0.175f, 0.45f, 0.175f), new Vector3(0.25f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 90.0f));
+            CreateRagdollBone("Bip01_R_Thigh", ShapeType.SHAPE_CAPSULE, new Vector3(0.175f, 0.45f, 0.175f), new Vector3(0.25f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 90.0f));
+            CreateRagdollBone("Bip01_L_Calf", ShapeType.SHAPE_CAPSULE, new Vector3(0.15f, 0.55f, 0.15f), new Vector3(0.25f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 90.0f));
+            CreateRagdollBone("Bip01_R_Calf", ShapeType.SHAPE_CAPSULE, new Vector3(0.15f, 0.55f, 0.15f), new Vector3(0.25f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 90.0f));
+            CreateRagdollBone("Bip01_Head", ShapeType.SHAPE_BOX, new Vector3(0.2f, 0.2f, 0.2f), new Vector3(0.1f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 0.0f));
+            CreateRagdollBone("Bip01_L_UpperArm", ShapeType.SHAPE_CAPSULE, new Vector3(0.15f, 0.35f, 0.15f), new Vector3(0.1f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 90.0f));
+            CreateRagdollBone("Bip01_R_UpperArm", ShapeType.SHAPE_CAPSULE, new Vector3(0.15f, 0.35f, 0.15f), new Vector3(0.1f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 90.0f));
+            CreateRagdollBone("Bip01_L_Forearm", ShapeType.SHAPE_CAPSULE, new Vector3(0.125f, 0.4f, 0.125f), new Vector3(0.2f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 90.0f));
+            CreateRagdollBone("Bip01_R_Forearm", ShapeType.SHAPE_CAPSULE, new Vector3(0.125f, 0.4f, 0.125f), new Vector3(0.2f, 0.0f, 0.0f),
+                new Quaternion(0.0f, 0.0f, 90.0f));
+        
+            Vector3 back = new Vector3(0f, 0f, -1f);
+            Vector3 forward = new Vector3(0f, 0f, 1f);
+            Vector3 left = new Vector3(-1f, 0f, 0f);
+            Vector3 down = new Vector3(0f, -1f, 0f);
+            Vector3 up = new Vector3(0f, 1f, 0f);
+
+                // Create Constraints between bones
+            CreateRagdollConstraint("Bip01_L_Thigh", "Bip01_Pelvis", ConstraintType.CONSTRAINT_CONETWIST, back, forward,
+                new Vector2(45.0f, 45.0f), Vector2.Zero);
+            CreateRagdollConstraint("Bip01_R_Thigh", "Bip01_Pelvis", ConstraintType.CONSTRAINT_CONETWIST, back, forward,
+                new Vector2(45.0f, 45.0f), Vector2.Zero);
+            CreateRagdollConstraint("Bip01_L_Calf", "Bip01_L_Thigh", ConstraintType.CONSTRAINT_HINGE, back, back,
+                new Vector2(90.0f, 0.0f), Vector2.Zero);
+            CreateRagdollConstraint("Bip01_R_Calf", "Bip01_R_Thigh", ConstraintType.CONSTRAINT_HINGE, back, back,
+                new Vector2(90.0f, 0.0f), Vector2.Zero);
+            CreateRagdollConstraint("Bip01_Spine1", "Bip01_Pelvis", ConstraintType.CONSTRAINT_HINGE, forward, forward,
+                new Vector2(45.0f, 0.0f), new Vector2(-10.0f, 0.0f));
+            CreateRagdollConstraint("Bip01_Head", "Bip01_Spine1", ConstraintType.CONSTRAINT_CONETWIST, left, left,
+                new Vector2(0.0f, 30.0f), Vector2.Zero);
+            CreateRagdollConstraint("Bip01_L_UpperArm", "Bip01_Spine1", ConstraintType.CONSTRAINT_CONETWIST, down, up,
+                new Vector2(45.0f, 45.0f), Vector2.Zero, false);
+            CreateRagdollConstraint("Bip01_R_UpperArm", "Bip01_Spine1", ConstraintType.CONSTRAINT_CONETWIST, down, up,
+                new Vector2(45.0f, 45.0f), Vector2.Zero, false);
+            CreateRagdollConstraint("Bip01_L_Forearm", "Bip01_L_UpperArm", ConstraintType.CONSTRAINT_HINGE, back, back,
+                new Vector2(90.0f, 0.0f), Vector2.Zero);
+            CreateRagdollConstraint("Bip01_R_Forearm", "Bip01_R_UpperArm", ConstraintType.CONSTRAINT_HINGE, back, back,
+                new Vector2(90.0f, 0.0f), Vector2.Zero);
+        
+            // Disable keyframe animation from all bones so that they will not interfere with the ragdoll
+            AnimatedModel model = GetComponent<AnimatedModel>();
+            Skeleton skeleton = model.Skeleton;
+            for (uint i = 0; i < skeleton.NumBones; ++i)
+            {
+#warning MISSING_API Skeleton::GetBone
+                    //skeleton.GetBone(i).animated_ = false;
+            }
+        
+            // Finally remove self from the scene node. Note that this must be the last operation performed in the function
+            Remove();
+        }
     }
+
+    private void CreateRagdollBone(string boneName, ShapeType type, Vector3 size, Vector3 position, Quaternion rotation)
+    {
+        // Find the correct child scene node recursively
+        Node boneNode = Node.GetChild(boneName, true);
+        if (boneNode == null)
+        {
+            Log.Write(LogLevel.Warning, "Could not find bone " + boneName + " for creating ragdoll physics components");
+            return;
+        }
     
-    RigidBody* body = boneNode.CreateComponent<RigidBody>();
-    // Set mass to make movable
-    body.SetMass(1.0f);
-    // Set damping parameters to smooth out the motion
-    body.SetLinearDamping(0.05f);
-    body.SetAngularDamping(0.85f);
-    // Set rest thresholds to ensure the ragdoll rigid bodies come to rest to not consume CPU endlessly
-    body.SetLinearRestThreshold(1.5f);
-    body.SetAngularRestThreshold(2.5f);
+        RigidBody body = boneNode.CreateComponent<RigidBody>();
+        // Set mass to make movable
+        body.Mass = 1.0f;
+        // Set damping parameters to smooth out the motion
+        body.LinearDamping = 0.05f;
+        body.AngularDamping = 0.85f;
+        // Set rest thresholds to ensure the ragdoll rigid bodies come to rest to not consume CPU endlessly
+        body.LinearRestThreshold = 1.5f;
+        body.AngularRestThreshold = 2.5f;
 
-    CollisionShape* shape = boneNode.CreateComponent<CollisionShape>();
-    // We use either a box or a capsule shape for all of the bones
-    if (type == SHAPE_BOX)
-        shape.SetBox(size, position, rotation);
-    else
-        shape.SetCapsule(size.x_, size.y_, position, rotation);
-}*/
+        CollisionShape shape = boneNode.CreateComponent<CollisionShape>();
+        // We use either a box or a capsule shape for all of the bones
+        if (type == ShapeType.SHAPE_BOX)
+            shape.SetBox(size, position, rotation);
+        else
+            shape.SetCapsule(size.X, size.Y, position, rotation);
+    }
 
-#warning MISSING_API
-/*void CreateRagdollConstraint(string boneName, string parentName, ConstraintType type,
-    const Vector3& axis, const Vector3& parentAxis, const Vector2& highLimit, const Vector2& lowLimit,
-    bool disableCollision)
-{
-    Node boneNode = node_.GetChild(boneName, true);
-    Node parentNode = node_.GetChild(parentName, true);
-    if (!boneNode)
+    private void CreateRagdollConstraint(string boneName, string parentName, ConstraintType type,
+        Vector3 axis, Vector3 parentAxis, Vector2 highLimit, Vector2 lowLimit, bool disableCollision = true)
     {
-        LOGWARNING("Could not find bone " + boneName + " for creating ragdoll constraint");
-        return;
-    }
-    if (!parentNode)
-    {
-        LOGWARNING("Could not find bone " + parentName + " for creating ragdoll constraint");
-        return;
-    }
+        Node boneNode = Node.GetChild(boneName, true);
+        Node parentNode = Node.GetChild(parentName, true);
+        if (boneNode == null)
+        {
+            Log.Write(LogLevel.Warning, "Could not find bone " + boneName + " for creating ragdoll constraint");
+            return;
+        }
+        if (parentNode == null)
+        {
+            Log.Write(LogLevel.Warning, "Could not find bone " + parentName + " for creating ragdoll constraint");
+            return;
+        }
     
-    Constraint constraint = boneNode.CreateComponent<Constraint>();
-    constraint.SetConstraintType(type);
-    // Most of the constraints in the ragdoll will work better when the connected bodies don't collide against each other
-    constraint.SetDisableCollision(disableCollision);
-    // The connected body must be specified before setting the world position
-    constraint.SetOtherBody(parentNode.GetComponent<RigidBody>());
-    // Position the constraint at the child bone we are connecting
-    constraint.SetWorldPosition(boneNode.GetWorldPosition());
-    // Configure axes and limits
-    constraint.SetAxis(axis);
-    constraint.SetOtherAxis(parentAxis);
-    constraint.SetHighLimit(highLimit);
-    constraint.SetLowLimit(lowLimit);
-}*/
+        Constraint constraint = boneNode.CreateComponent<Constraint>();
+        constraint.ConstraintType = type;
+        // Most of the constraints in the ragdoll will work better when the connected bodies don't collide against each other
+        constraint.DisableCollision = disableCollision;
+        // The connected body must be specified before setting the world position
+        constraint.OtherBody = parentNode.GetComponent<RigidBody>();
+        // Position the constraint at the child bone we are connecting
+        constraint.SetWorldPosition(boneNode.WorldPosition);
+        // Configure axes and limits
+        constraint.SetAxis(axis);
+        constraint.SetOtherAxis(parentAxis);
+        constraint.HighLimit = highLimit;
+        constraint.LowLimit = lowLimit;
+    }
 }

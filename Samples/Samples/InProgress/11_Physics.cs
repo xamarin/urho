@@ -96,13 +96,12 @@ class _11_Physics : Sample
             // Make the floor physical by adding RigidBody and CollisionShape components. The RigidBody's default
             // parameters make the object static (zero mass.) Note that a CollisionShape by itself will not participate
             // in the physics simulation
-            /*RigidBody* body = */
 
             floorNode.CreateComponent<RigidBody>(); 
             CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
             ////// Set a box shape of size 1 x 1 x 1 for collision. The shape will be scaled with the scene node scale, so the
             ////// rendering and physics representation sizes should match (the box model is also 1 x 1 x 1.)
-            shape.SetBox(Vector3.One);
+            shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
         }
 
         {
@@ -121,12 +120,11 @@ class _11_Physics : Sample
                     // Create RigidBody and CollisionShape components like above. Give the RigidBody mass to make it movable
                     // and also adjust friction. The actual mass is not important; only the mass ratios between colliding 
                     // objects are significant
-#warning MISSING_API
                     RigidBody body = boxNode.CreateComponent<RigidBody>();
                     body.Mass=1.0f;
                     body.Friction=0.75f;
                     CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
-                    shape.SetBox(Vector3.One);
+                    shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
                 }
             }
         }

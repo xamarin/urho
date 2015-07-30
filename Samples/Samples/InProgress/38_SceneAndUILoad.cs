@@ -95,15 +95,13 @@ class _38_SceneAndUILoad : Sample
     private void ToggleLight1()
     {
         Node lightNode = scene.GetChild("Light1", true);
-        if (lightNode != null)
-            lightNode.SetEnabled(!lightNode.IsEnabled());
+        lightNode?.SetEnabled(!lightNode.IsEnabled());
     }
 
     private void ToggleLight2()
     {
         Node lightNode = scene.GetChild("Light2", true);
-        if (lightNode != null)
-            lightNode.SetEnabled(!lightNode.IsEnabled());
+        lightNode?.SetEnabled(!lightNode.IsEnabled());
     }
 
 }
