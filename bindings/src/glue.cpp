@@ -76,6 +76,13 @@ extern "C" {
 		*buffer = (void *) &p.Front();
 	}
 
+	int Network_Connect (Network *net, const char *ptr, short port, Scene *scene)
+	{
+		String s(ptr);
+		
+		return net->Connect (s, port, scene) ? 1 : 0;
+	}
+	
 	void *TouchState_GetTouchedElement (TouchState *state)
 	{
 		return (void *) state->GetTouchedElement ();

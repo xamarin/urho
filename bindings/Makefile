@@ -265,10 +265,11 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/AttributeInfo.cs		\
 	src/Collision.cs		\
 	src/Component.cs		\
+	src/Connection.cs		\
 	src/Enums.cs			\
 	src/Input.cs			\
 	src/Log.cs			\
-	src/VertexBuffer.cs		\
+	src/Network.cs			\
 	src/Node.cs			\
 	src/Object.cs			\
 	src/PodVector.cs		\
@@ -281,6 +282,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Stubs.cs			\
 	src/Structs.cs			\
 	src/UIElement.cs		\
+	src/VertexBuffer.cs		\
 	external/MathHelper.cs		\
 	external/Matrix3.cs		\
 	external/Matrix4.cs		\
