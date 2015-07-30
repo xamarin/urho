@@ -8,6 +8,10 @@ class _11_Physics : Sample
 
     public _11_Physics(Context ctx) : base(ctx) { }
 
+
+#warning REVISE IMPLEMENTATION! SpawnObject is missing (and instructions)
+
+
     public override void Start()
     {
         base.Start();
