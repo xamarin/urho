@@ -443,26 +443,16 @@ class _18_CharacterDemo : Sample
 
         private void HandleNodeCollision(NodeCollisionEventArgs args)
         {
-#warning MISSING_API IntPtr to MemoryBuffer
-            ////// Check collision contacts and see if character is standing on ground (look for a contact that has near vertical normal)
-            ////MemoryBuffer contacts(eventData[P_CONTACTS].GetBuffer());
-    
-            ////while (!contacts.IsEof())
-            ////{
-            ////    Vector3 contactPosition = contacts.ReadVector3();
-            ////    Vector3 contactNormal = contacts.ReadVector3();
-            ////    /*float contactDistance = */
-            ////    contacts.ReadFloat();
-            ////    /*float contactImpulse = */contacts.ReadFloat();
-        
-            ////    // If contact is below node center and mostly vertical, assume it's a ground contact
-            ////    if (contactPosition.Y< (Node.Position.Y + 1.0f))
-            ////    {
-            ////        float level = Math.Abs(contactNormal.Y);
-            ////        if (level > 0.75)
-            ////            onGround_ = true;
-            ////    }
-            ////}
+            foreach (var contact in args.Contacts)
+            {
+                // If contact is below node center and mostly vertical, assume it's a ground contact
+                if (contact.ContactPosition.Y < (Node.Position.Y + 1.0f))
+                {
+                    float level = Math.Abs(contact.ContactNormal.Y);
+                    if (level > 0.75)
+                        onGround_ = true;
+                }
+            }
         }
 
     }
