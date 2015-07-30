@@ -459,12 +459,13 @@ namespace SharpieBinder
 
 			switch (ctstring) {
 			case "const class Urho3D::Vector3 &":
+			case "const class Urho3D::IntRect &":
+			case "const class Urho3D::Color &":
 			case "const class Urho3D::Vector2 &":
 			case "const class Urho3D::Vector4 &":
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::Quaternion &":
 			case "const class Urho3D::BoundingBox &":
-			case "const class Urho3D::Color &":
 			case "const struct Urho3D::BiasParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 				return false;
@@ -534,7 +535,8 @@ namespace SharpieBinder
 				return true;
 			if (s.Contains ("CollisionGeometryData"))
 				return true;
-
+			if (s.Contains ("SDL"))
+				return true;
 			return false;
 		}
 
@@ -604,6 +606,7 @@ namespace SharpieBinder
 			case "const class Urho3D::BoundingBox &":
 			case "const class Urho3D::Color &":
 			case "const class Urho3D::IntVector2 &":
+			case "const class Urho3D::IntRect &":
 				int p = cleanTypeStr.IndexOf ("::");
 				int q = cleanTypeStr.IndexOf (" ", p + 2);
 				var simpleType = cleanTypeStr.Substring (p + 2, q - p - 2);
