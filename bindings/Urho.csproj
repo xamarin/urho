@@ -43,7 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="external\IntVector2.cs" />
+    <Compile Include="generated\CollisionEventMode.cs" />
+    <Compile Include="generated\CollisionGeometryData.cs" />
+    <Compile Include="generated\CollisionShape.cs" />
+    <Compile Include="generated\Constraint.cs" />
+    <Compile Include="generated\ConstraintType.cs" />
+    <Compile Include="generated\IndexBuffer.cs" />
+    <Compile Include="generated\PhysicsWorld.cs" />
+    <Compile Include="generated\RigidBody.cs" />
     <Compile Include="generated\ShapeType.cs" />
+    <Compile Include="generated\Skeleton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="generated\Animatable.cs" />
     <Compile Include="generated\AnimatedModel.cs" />
@@ -135,7 +144,6 @@
     <Compile Include="generated\HighlightMode.cs" />
     <Compile Include="generated\HorizontalAlignment.cs" />
     <Compile Include="generated\Image.cs" />
-    <Compile Include="generated\IndexBuffer.cs" />
     <Compile Include="generated\Input.cs" />
     <Compile Include="generated\InterpMethod.cs" />
     <Compile Include="generated\InterpolationMode.cs" />
@@ -286,12 +294,15 @@
     <Compile Include="src\Application.cs" />
     <Compile Include="src\AttributeInfo.cs" />
     <Compile Include="src\BillboardSet.cs" />
+    <Compile Include="src\Collision.cs" />
     <Compile Include="src\Component.cs" />
+    <Compile Include="src\Connection.cs" />
     <Compile Include="src\Enums.cs" />
     <Compile Include="src\Input.cs" />
     <Compile Include="src\Log.cs" />
     <Compile Include="src\IndexBufer.cs" />
-    <Compile Include="src\VertexBuffer.cs" />
+    <Compile Include="src\Network.cs" />
+    <Compile Include="src\Skeleton.cs" />
     <Compile Include="src\Node.cs" />
     <Compile Include="src\Object.cs" />
     <Compile Include="src\UrhoMap.cs" />
@@ -314,6 +325,7 @@
     <Compile Include="external\Vector4d.cs" />
     <Compile Include="external\Vector2.cs" />
     <Compile Include="external\Vector4.cs" />
+    <Compile Include="src\VertexBuffer.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
