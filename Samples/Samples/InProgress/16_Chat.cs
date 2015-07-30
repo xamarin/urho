@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text;
 using Urho;
 
 class _16_Chat : Sample
@@ -163,15 +164,10 @@ class _16_Chat : Sample
     
         if (serverConnection != null)
         {
-            // A VectorBuffer object is convenient for constructing a message to send
-
-#warning MISSING_API VectorBuffer
-            ////VectorBuffer msg;
-            ////msg.WriteString(text);
-            ////// Send the chat message as in-order and reliable
-            ////serverConnection.SendMessage(MSG_CHAT, true, true, msg);
+            // Send the chat message as in-order and reliable
+            serverConnection.SendMessage(MSG_CHAT, true, true, Encoding.UTF8.GetBytes(text));
             // Empty the text edit after sending
-            textEdit.Text=String.Empty;
+            textEdit.Text = string.Empty;
         }
     }
 
