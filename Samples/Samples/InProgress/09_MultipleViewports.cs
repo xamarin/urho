@@ -77,9 +77,7 @@ class _09_MultipleViewports : Sample
         // Set up the rear camera viewport on top of the front view ("rear view mirror")
         // The viewport index must be greater in that case, otherwise the view would be left behind
         IntRect rect = new IntRect(graphics.Width*2/3, 32, graphics.Width - 32, graphics.Height/3);
-
-#warning MISSING_API (Viewport constructor) accepting rect
-        Viewport rearViewport = new Viewport(Context, scene, rearCameraNode.GetComponent<Camera>(), null);
+        Viewport rearViewport = new Viewport(Context, scene, rearCameraNode.GetComponent<Camera>(), rect, null);
 
         renderer.SetViewport(1, rearViewport);
     }
