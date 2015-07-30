@@ -240,13 +240,12 @@ class _18_CharacterDemo : Sample
         sm.Model = cache.GetModel("Models/Box.mdl");
         sm.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
 
-#warning MISSING_API RigidBody, CollisionShape
-        ////RigidBody body = floorNode.CreateComponent<RigidBody>();
-        ////// Use collision layer bit 2 to mark world scenery. This is what we will raycast against to prevent camera from going
-        ////// inside geometry
-        ////body.SetCollisionLayer(2);
-        ////CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
-        ////shape.SetBox(Vector3.One);
+        RigidBody body = floorNode.CreateComponent<RigidBody>();
+        // Use collision layer bit 2 to mark world scenery. This is what we will raycast against to prevent camera from going
+        // inside geometry
+        body.CollisionLayer = 2;
+        CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
+        shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
 
         // Create mushrooms of varying sizes
         const uint NUM_MUSHROOMS = 60;
@@ -261,11 +260,10 @@ class _18_CharacterDemo : Sample
             o.SetMaterial(cache.GetMaterial("Materials/Mushroom.xml"));
             o.CastShadows = true;
 
-#warning MISSING_API RigidBody, CollisionShape
-            ////RigidBody body = objectNode.CreateComponent<RigidBody>();
-            ////body.SetCollisionLayer(2);
-            ////CollisionShape shape = objectNode.CreateComponent<CollisionShape>();
-            ////shape.SetTriangleMesh(o.GetModel(), 0);
+            body = objectNode.CreateComponent<RigidBody>();
+            body.CollisionLayer = 2;
+            shape = objectNode.CreateComponent<CollisionShape>();
+            shape.SetTriangleMesh(o.Model, 0, Vector3.One, Vector3.Zero, Quaternion.Identity);
         }
 
         // Create movable boxes. Let them fall from the sky at first
@@ -283,13 +281,12 @@ class _18_CharacterDemo : Sample
             o.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
             o.CastShadows = true;
 
-#warning MISSING_API RigidBody, CollisionShape
-            ////RigidBody body = objectNode.CreateComponent<RigidBody>();
-            ////body.SetCollisionLayer(2);
-            ////// Bigger boxes will be heavier and harder to move
-            ////body.SetMass(scale * 2.0f);
-            ////CollisionShape shape = objectNode.CreateComponent<CollisionShape>();
-            ////shape.SetBox(Vector3.One);
+            body = objectNode.CreateComponent<RigidBody>();
+            body.CollisionLayer = 2;
+            // Bigger boxes will be heavier and harder to move
+            body.Mass = scale * 2.0f;
+            shape = objectNode.CreateComponent<CollisionShape>();
+            shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
         }
     }
 
@@ -307,25 +304,25 @@ class _18_CharacterDemo : Sample
         obj.CastShadows = true;
         objectNode.CreateComponent<AnimationController>();
 
-#warning MISSING_API AnimatedModel::GetSkeleton(), RigidBody, CollisionShape
-        ////// Set the head bone for manual control
+#warning MISSING_API AnimatedModel::GetSkeleton()
+        // Set the head bone for manual control
         ////obj.GetSkeleton().GetBone("Bip01_Head").animated_ = false;
 
-        ////// Create rigidbody, and set non-zero mass so that the body becomes dynamic
-        ////RigidBody body = objectNode.CreateComponent<RigidBody>();
-        ////body.SetCollisionLayer(1);
-        ////body.SetMass(1.0f);
+        // Create rigidbody, and set non-zero mass so that the body becomes dynamic
+        RigidBody body = objectNode.CreateComponent<RigidBody>();
+        body.CollisionLayer = 1;
+        body.Mass = 1.0f;
 
-        ////// Set zero angular factor so that physics doesn't turn the character on its own.
-        ////// Instead we will control the character yaw manually
-        ////body.SetAngularFactor(Vector3.Zero);
+        // Set zero angular factor so that physics doesn't turn the character on its own.
+        // Instead we will control the character yaw manually
+        body.SetAngularFactor(Vector3.Zero);
 
-        ////// Set the rigidbody to signal collision also when in rest, so that we get ground collisions properly
-        ////body.SetCollisionEventMode(COLLISION_ALWAYS);
+        // Set the rigidbody to signal collision also when in rest, so that we get ground collisions properly
+        body.CollisionEventMode = CollisionEventMode.COLLISION_ALWAYS;
 
-        ////// Set a capsule shape for collision
-        ////CollisionShape shape = objectNode.CreateComponent<CollisionShape>();
-        ////shape.SetCapsule(0.7f, 1.8f, new Vector3(0.0f, 0.9f, 0.0f));
+        // Set a capsule shape for collision
+        CollisionShape shape = objectNode.CreateComponent<CollisionShape>();
+        shape.SetCapsule(0.7f, 1.8f, new Vector3(0.0f, 0.9f, 0.0f), Quaternion.Identity);
 
         // Create the character logic component, which takes care of steering the rigidbody
         // Remember it so that we can set the controls. Use a WeakPtr because the scene hierarchy already owns it

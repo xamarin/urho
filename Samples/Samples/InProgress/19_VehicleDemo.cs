@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Urho;
 
 class _19_VehicleDemo : Sample
@@ -155,8 +156,7 @@ class _19_VehicleDemo : Sample
 
         // Create scene subsystem components
         scene.CreateComponent<Octree>();
-#warning MISSING_API
-        ////scene.CreateComponent<PhysicsWorld>();
+        scene.CreateComponent<PhysicsWorld>();
 
         // Create camera and define viewport. We will be doing load / save, so it's convenient to create the camera outside the scene,
         // so that it won't be destroyed and recreated, and we don't have to redefine the viewport on load
@@ -197,11 +197,10 @@ class _19_VehicleDemo : Sample
         // terrain patches and other objects behind it
         terrain.SetOccluder(true);
 
-#warning MISSING_API
-        ////RigidBody body = terrainNode.CreateComponent<RigidBody>();
-        ////body.SetCollisionLayer(2); // Use layer bitmask 2 for static geometry
-        ////CollisionShape shape = terrainNode.CreateComponent<CollisionShape>();
-        ////shape.SetTerrain();
+        RigidBody body = terrainNode.CreateComponent<RigidBody>();
+        body.CollisionLayer = 2; // Use layer bitmask 2 for static geometry
+        CollisionShape shape = terrainNode.CreateComponent<CollisionShape>();
+        shape.SetTerrain(0);
 
         // Create 1000 mushrooms in the terrain. Always face outward along the terrain normal
         const uint NUM_MUSHROOMS = 1000;
@@ -219,11 +218,10 @@ class _19_VehicleDemo : Sample
             sm.SetMaterial(cache.GetMaterial("Materials/Mushroom.xml"));
             sm.CastShadows = true;
 
-#warning MISSING_API
-            ////RigidBody body = objectNode.CreateComponent<RigidBody>();
-            ////body.SetCollisionLayer(2);
-            ////CollisionShape shape = objectNode.CreateComponent<CollisionShape>();
-            ////shape.SetTriangleMesh(sm.Model, 0);
+            body = objectNode.CreateComponent<RigidBody>();
+            body.CollisionLayer = 2;
+            shape = objectNode.CreateComponent<CollisionShape>();
+            shape.SetTriangleMesh(sm.Model, 0, Vector3.One, Vector3.Zero, Quaternion.Identity);
         }
     }
 
@@ -254,9 +252,8 @@ public class Vehicle : LogicComponent
         Node rearRight_;
 
         // Steering axle constraints.
-#warning MISSING_API Constraint
-        ////Constraint frontLeftAxis_;
-        ////Constraint frontRightAxis_;
+        Constraint frontLeftAxis_;
+        Constraint frontRightAxis_;
 
         // Hull and wheel rigid bodies.
         RigidBody hullBody_;
@@ -304,10 +301,7 @@ public class Vehicle : LogicComponent
             frontRight_ = scene.GetNode(frontRightID_);
             rearLeft_ = scene.GetNode(rearLeftID_);
             rearRight_ = scene.GetNode(rearRightID_);
-
-#warning MISSING_API Controls, RigidBody
-            ////hullBody_ = Node.GetComponent<RigidBody>();
-
+            hullBody_ = Node.GetComponent<RigidBody>();
             GetWheelComponents();
         }
 
@@ -327,70 +321,72 @@ public class Vehicle : LogicComponent
             ////if (controls_.buttons_ & CTRL_BACK)
             ////    accelerator = -0.5f;
 
-            ////// When steering, wake up the wheel rigidbodies so that their orientation is updated
-            ////if (newSteering != 0.0f)
-            ////{
-            ////    frontLeftBody_.Activate();
-            ////    frontRightBody_.Activate();
-            ////    steering_ = steering_ * 0.95f + newSteering * 0.05f;
-            ////}
-            ////else
-            ////    steering_ = steering_ * 0.8f + newSteering * 0.2f;
+            // When steering, wake up the wheel rigidbodies so that their orientation is updated
+            if (newSteering != 0.0f)
+            {
+                frontLeftBody_.Activate();
+                frontRightBody_.Activate();
+                steering_ = steering_ * 0.95f + newSteering * 0.05f;
+            }
+            else
+                steering_ = steering_ * 0.8f + newSteering * 0.2f;
 
-            ////// Set front wheel angles
-            ////Quaternion steeringRot(0, steering_ * MAX_WHEEL_ANGLE, 0);
-            ////frontLeftAxis_.SetOtherAxis(steeringRot * Vector3::LEFT);
-            ////frontRightAxis_.SetOtherAxis(steeringRot * Vector3.UnitX);
+            // Set front wheel angles
+            Quaternion steeringRot = new Quaternion(0, steering_ * MAX_WHEEL_ANGLE, 0);
+            frontLeftAxis_.SetOtherAxis(steeringRot * new Vector3(-1f, 0f, 0f));
+            frontRightAxis_.SetOtherAxis(steeringRot * Vector3.UnitX);
 
-            ////Quaternion hullRot = hullBody_.GetRotation();
-            ////if (accelerator != 0.0f)
-            ////{
-            ////    // Torques are applied in world space, so need to take the vehicle & wheel rotation into account
-            ////    Vector3 torqueVec = Vector3(ENGINE_POWER * accelerator, 0.0f, 0.0f);
+            Quaternion hullRot = hullBody_.Rotation;
+            if (accelerator != 0.0f)
+            {
+                // Torques are applied in world space, so need to take the vehicle & wheel rotation into account
+                Vector3 torqueVec = new Vector3(ENGINE_POWER * accelerator, 0.0f, 0.0f);
 
-            ////    frontLeftBody_.ApplyTorque(hullRot * steeringRot * torqueVec);
-            ////    frontRightBody_.ApplyTorque(hullRot * steeringRot * torqueVec);
-            ////    rearLeftBody_.ApplyTorque(hullRot * torqueVec);
-            ////    rearRightBody_.ApplyTorque(hullRot * torqueVec);
-            ////}
+                frontLeftBody_.ApplyTorque(hullRot * steeringRot * torqueVec);
+                frontRightBody_.ApplyTorque(hullRot * steeringRot * torqueVec);
+                rearLeftBody_.ApplyTorque(hullRot * torqueVec);
+                rearRightBody_.ApplyTorque(hullRot * torqueVec);
+            }
 
-            ////// Apply downforce proportional to velocity
-            ////Vector3 localVelocity = hullRot.Inverse() * hullBody_.GetLinearVelocity();
-            ////hullBody_.ApplyForce(hullRot * Vector3::DOWN * Abs(localVelocity.Z) * DOWN_FORCE);
+            // Apply downforce proportional to velocity
+#warning MISSING_API Quaternion::Inverse()
+            ////Vector3 localVelocity = hullRot.Inverse() * hullBody_.LinearVelocity;
+            ////hullBody_.ApplyForce(hullRot * new Vector3(0f, -1f, 0f) * Math.Abs(localVelocity.Z) * DOWN_FORCE);
         }
 
         public void Init()
         {
             // This function is called only from the main program when initially creating the vehicle, not on scene load
 
-#warning RigidBody, CollisionShape
-            ////var cache = ResourceCache;
-            ////var node_ = Node;
-            ////StaticModel hullObject = node_.CreateComponent<StaticModel>();
-            ////hullBody_ = node_.CreateComponent<RigidBody>();
-            ////CollisionShape hullShape = node_.CreateComponent<CollisionShape>();
+#warning ResourceCache
+            var cache = new ResourceCache(Context);
+            var node_ = Node;
+            StaticModel hullObject = node_.CreateComponent<StaticModel>();
+            hullBody_ = node_.CreateComponent<RigidBody>();
+            CollisionShape hullShape = node_.CreateComponent<CollisionShape>();
 
-            ////node_.Scale = new Vector3(1.5f, 1.0f, 3.0f);
-            ////hullObject.Model = cache.GetModel("Models/Box.mdl");
-            ////hullObject.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
-            ////hullObject.CastShadows = true;
-            ////hullShape.SetBox(Vector3.One);
-            ////hullBody_.SetMass(4.0f);
-            ////hullBody_.SetLinearDamping(0.2f); // Some air resistance
-            ////hullBody_.SetAngularDamping(0.5f);
-            ////hullBody_.SetCollisionLayer(1);
+            node_.Scale = new Vector3(1.5f, 1.0f, 3.0f);
+            hullObject.Model = cache.GetModel("Models/Box.mdl");
+            hullObject.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
+            hullObject.CastShadows = true;
+            hullShape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
+            hullBody_.Mass = 4.0f;
+            hullBody_.LinearDamping = 0.2f; // Some air resistance
+            hullBody_.AngularDamping = 0.5f;
+            hullBody_.CollisionLayer = 1;
 
-            InitWheel("FrontLeft", new Vector3(-0.6f, -0.4f, 0.3f), frontLeft_, out frontLeftID_);
-            InitWheel("FrontRight", new Vector3(0.6f, -0.4f, 0.3f), frontRight_, out frontRightID_);
-            InitWheel("RearLeft", new Vector3(-0.6f, -0.4f, -0.3f), rearLeft_, out rearLeftID_);
-            InitWheel("RearRight", new Vector3(0.6f, -0.4f, -0.3f), rearRight_, out rearRightID_);
+            InitWheel("FrontLeft", new Vector3(-0.6f, -0.4f, 0.3f), out frontLeft_, out frontLeftID_);
+            InitWheel("FrontRight", new Vector3(0.6f, -0.4f, 0.3f), out frontRight_, out frontRightID_);
+            InitWheel("RearLeft", new Vector3(-0.6f, -0.4f, -0.3f), out rearLeft_, out rearLeftID_);
+            InitWheel("RearRight", new Vector3(0.6f, -0.4f, -0.3f), out rearRight_, out rearRightID_);
 
             GetWheelComponents();
         }
 
-        private void InitWheel(string name, Vector3 offset, Node wheelNode, out uint wheelNodeID)
+        private void InitWheel(string name, Vector3 offset, out Node wheelNode, out uint wheelNodeId)
         {
-            ////var cache = ResourceCache;
+#warning ResourceCache
+            var cache = new ResourceCache(Context);
 
             // Note: do not parent the wheel to the hull scene node. Instead create it on the root level and let the physics
             // constraint keep it together
@@ -399,42 +395,40 @@ public class Vehicle : LogicComponent
             wheelNode.Rotation = Node.Rotation * (offset.X >= 0.0 ? new Quaternion(0.0f, 0.0f, -90.0f) : new Quaternion(0.0f, 0.0f, 90.0f));
             wheelNode.Scale = new Vector3(0.8f, 0.5f, 0.8f);
             // Remember the ID for serialization
-            wheelNodeID = wheelNode.ID;
+            wheelNodeId = wheelNode.ID;
     
             StaticModel wheelObject = wheelNode.CreateComponent<StaticModel>();
-#warning MISSING_API RigidBody, Constraint, CollisionShape
-            ////RigidBody wheelBody = wheelNode.CreateComponent<RigidBody>();
-            ////CollisionShape wheelShape = wheelNode.CreateComponent<CollisionShape>();
-            ////Constraint wheelConstraint = wheelNode.CreateComponent<Constraint>();
+            RigidBody wheelBody = wheelNode.CreateComponent<RigidBody>();
+            CollisionShape wheelShape = wheelNode.CreateComponent<CollisionShape>();
+            Constraint wheelConstraint = wheelNode.CreateComponent<Constraint>();
 
-            ////wheelObject.Model=(cache.GetModel("Models/Cylinder.mdl"));
-            ////wheelObject.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
-            ////wheelObject.CastShadows = true;
-            ////wheelShape.SetSphere(1.0f);
-            ////wheelBody.Friction=(1.0f);
-            ////wheelBody.SetMass(1.0f);
-            ////wheelBody.SetLinearDamping(0.2f); // Some air resistance
-            ////wheelBody.SetAngularDamping(0.75f); // Could also use rolling friction
-            ////wheelBody.SetCollisionLayer(1);
-            ////wheelConstraint.SetConstraintType(CONSTRAINT_HINGE);
-            ////wheelConstraint.SetOtherBody(GetComponent<RigidBody>()); // Connect to the hull body
-            ////wheelConstraint.SetWorldPosition(wheelNode.Position); // Set constraint's both ends at wheel's location
-            ////wheelConstraint.SetAxis(Vector3.UnitY); // Wheel rotates around its local Y-axis
-            ////wheelConstraint.SetOtherAxis(offset.X >= 0.0 ? Vector3.UnitX : Vector3::LEFT); // Wheel's hull axis points either left or right
-            ////wheelConstraint.SetLowLimit(new Vector2(-180.0f, 0.0f)); // Let the wheel rotate freely around the axis
-            ////wheelConstraint.SetHighLimit(new Vector2(180.0f, 0.0f));
-            ////wheelConstraint.SetDisableCollision(true); // Let the wheel intersect the vehicle hull
+            wheelObject.Model = (cache.GetModel("Models/Cylinder.mdl"));
+            wheelObject.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
+            wheelObject.CastShadows = true;
+            wheelShape.SetSphere(1.0f, Vector3.Zero, Quaternion.Identity);
+            wheelBody.Friction = (1.0f);
+            wheelBody.Mass = 1.0f;
+            wheelBody.LinearDamping = 0.2f; // Some air resistance
+            wheelBody.AngularDamping = 0.75f; // Could also use rolling friction
+            wheelBody.CollisionLayer = 1;
+            wheelConstraint.ConstraintType = ConstraintType.CONSTRAINT_HINGE;
+            wheelConstraint.OtherBody = GetComponent<RigidBody>(); // Connect to the hull body
+            wheelConstraint.SetWorldPosition(wheelNode.Position); // Set constraint's both ends at wheel's location
+            wheelConstraint.SetAxis(Vector3.UnitY); // Wheel rotates around its local Y-axis
+            wheelConstraint.SetOtherAxis(offset.X >= 0.0 ? Vector3.UnitX : new Vector3(-1f, 0f, 0f)); // Wheel's hull axis points either left or right
+            wheelConstraint.LowLimit = new Vector2(-180.0f, 0.0f); // Let the wheel rotate freely around the axis
+            wheelConstraint.HighLimit = new Vector2(180.0f, 0.0f);
+            wheelConstraint.DisableCollision = true; // Let the wheel intersect the vehicle hull
         }
 
         private void GetWheelComponents()
         {
-#warning MISSING_API RigidBody, Constraint
-            //frontLeftAxis_ = frontLeft_.GetComponent<Constraint>();
-            //frontRightAxis_ = frontRight_.GetComponent<Constraint>();
-            //frontLeftBody_ = frontLeft_.GetComponent<RigidBody>();
-            //frontRightBody_ = frontRight_.GetComponent<RigidBody>();
-            //rearLeftBody_ = rearLeft_.GetComponent<RigidBody>();
-            //rearRightBody_ = rearRight_.GetComponent<RigidBody>();
+            frontLeftAxis_ = frontLeft_.GetComponent<Constraint>();
+            frontRightAxis_ = frontRight_.GetComponent<Constraint>();
+            frontLeftBody_ = frontLeft_.GetComponent<RigidBody>();
+            frontRightBody_ = frontRight_.GetComponent<RigidBody>();
+            rearLeftBody_ = rearLeft_.GetComponent<RigidBody>();
+            rearRightBody_ = rearRight_.GetComponent<RigidBody>();
         }
 
     }

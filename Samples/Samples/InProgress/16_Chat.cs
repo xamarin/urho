@@ -205,7 +205,7 @@ class _16_Chat : Sample
     private void HandleStartServer()
     {
         Network network = Network;
-        network.StartServer(CHAT_SERVER_PORT);
+        network.StartServer((ushort)CHAT_SERVER_PORT);
     
         UpdateButtons();
     }
