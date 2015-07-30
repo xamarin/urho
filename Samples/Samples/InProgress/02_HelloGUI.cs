@@ -68,8 +68,7 @@ class _02_HelloGUI : Sample
 
         // Set Window size and layout settings
         window.SetMinSize(384, 192);
-#warning MISSING_API UIElement::SetLayout
-        ////window_.SetLayout(LM_VERTICAL, 6, new IntRect(6, 6, 6, 6));
+        window.SetLayout(LayoutMode.LM_VERTICAL, 6, new IntRect(6, 6, 6, 6));
         window.SetAlignment(HorizontalAlignment.HA_CENTER, VerticalAlignment.VA_CENTER);
         window.Name="Window";
 
@@ -148,8 +147,7 @@ class _02_HelloGUI : Sample
     private void HandleDragMove(DragMoveEventArgs args)
     {
         IntVector2 dragCurrentPosition = new IntVector2(args.X, args.Y);
-#warning MISSING_API IntVector2 overloaded operators +, -
-        //args.Element.Position =  (dragCurrentPosition - dragBeginPosition_);
+        args.Element.Position =  dragCurrentPosition - dragBeginPosition;
     }
 
     private void HandleDragEnd(DragEndEventArgs args) // For reference (not used here)

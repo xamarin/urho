@@ -73,8 +73,7 @@ class _13_Ragdolls : Sample
         // exist before creating drawable components, the PhysicsWorld must exist before creating physics components.
         // Finally, create a DebugRenderer component so that we can draw physics debug geometry
         scene.CreateComponent<Octree>();
-#warning MISSING_API
-        ////scene.CreateComponent<PhysicsWorld>();
+        scene.CreateComponent<PhysicsWorld>();
         scene.CreateComponent<DebugRenderer>();
     
         // Create a Zone component for ambient lighting & fog control
@@ -106,17 +105,16 @@ class _13_Ragdolls : Sample
             floorObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
 
             // Make the floor physical by adding RigidBody and CollisionShape components
-#warning MISSING_API
-            ////RigidBody body = floorNode.CreateComponent<RigidBody>();
-            ////// We will be spawning spherical objects in this sample. The ground also needs non-zero rolling friction so that
-            ////// the spheres will eventually come to rest
-            ////body.RollingFriction(0.15f);
-            ////CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
-            ////// Set a box shape of size 1 x 1 x 1 for collision. The shape will be scaled with the scene node scale, so the
-            ////// rendering and physics representation sizes should match (the box model is also 1 x 1 x 1.)
-            ////shape.Box(Vector3.One);
+            RigidBody body = floorNode.CreateComponent<RigidBody>();
+            // We will be spawning spherical objects in this sample. The ground also needs non-zero rolling friction so that
+            // the spheres will eventually come to rest
+            body.RollingFriction = 0.15f;
+            CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
+            // Set a box shape of size 1 x 1 x 1 for collision. The shape will be scaled with the scene node scale, so the
+            // rendering and physics representation sizes should match (the box model is also 1 x 1 x 1.)
+            shape.SetBox(Vector3.One);
         }
-    
+
         // Create animated models
         for (int z = -1; z <= 1; ++z)
         {
@@ -132,19 +130,18 @@ class _13_Ragdolls : Sample
                 // Set the model to also update when invisible to avoid staying invisible when the model should come into
                 // view, but does not as the bounding box is not updated
                 modelObject.UpdateInvisible=true;
-            
+
                 // Create a rigid body and a collision shape. These will act as a trigger for transforming the
                 // model into a ragdoll when hit by a moving object
-#warning MISSING_API
-                ////RigidBody body = modelNode.CreateComponent<RigidBody>();
-                ////// The Trigger mode makes the rigid body only detect collisions, but impart no forces on the
-                ////// colliding objects
-                ////body.Trigger(true);
-                ////CollisionShape shape = modelNode.CreateComponent<CollisionShape>();
-                ////// Create the capsule shape with an offset so that it is correctly aligned with the model, which
-                ////// has its origin at the feet
-                ////shape.Capsule(0.7f, 2.0f, new Vector3(0.0f, 1.0f, 0.0f));
-            
+                RigidBody body = modelNode.CreateComponent<RigidBody>();
+                // The Trigger mode makes the rigid body only detect collisions, but impart no forces on the
+                // colliding objects
+                body.SetTrigger(true);
+                CollisionShape shape = modelNode.CreateComponent<CollisionShape>();
+                // Create the capsule shape with an offset so that it is correctly aligned with the model, which
+                // has its origin at the feet
+                shape.SetCapsule(0.7f, 2.0f, new Vector3(0.0f, 1.0f, 0.0f));
+
                 // Create a custom component that reacts to collisions and creates the ragdoll
                 modelNode.CreateComponent<CreateRagdoll>();
             }
@@ -174,18 +171,17 @@ class _13_Ragdolls : Sample
         boxObject.SetMaterial(cache.GetMaterial("Materials/StoneSmall.xml"));
         boxObject.CastShadows=true;
 
-#warning MISSING_API
-        /*RigidBody body = boxNode.CreateComponent<RigidBody>();
-        body.SetMass(1.0f);
-        body.SetRollingFriction(0.15f);
-        CollisionShape* shape = boxNode.CreateComponent<CollisionShape>();
+        RigidBody body = boxNode.CreateComponent<RigidBody>();
+        body.Mass = 1.0f;
+        body.RollingFriction = 0.15f;
+        CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
         shape.SetSphere(1.0f);
     
         const float OBJECT_VELOCITY = 10.0f;
     
         // Set initial velocity for the RigidBody based on camera forward vector. Add also a slight up component
         // to overcome gravity better
-        body.SetLinearVelocity(CameraNode.GetRotation() * Vector3(0.0f, 0.25f, 1.0f) * OBJECT_VELOCITY);*/
+        body.SetLinearVelocity(CameraNode.Rotation * new Vector3(0.0f, 0.25f, 1.0f) * OBJECT_VELOCITY);
     }
 }
 

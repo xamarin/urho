@@ -53,8 +53,7 @@ class _11_Physics : Sample
         // exist before creating drawable components, the PhysicsWorld must exist before creating physics components.
         // Finally, create a DebugRenderer component so that we can draw physics debug geometry
         scene.CreateComponent<Octree>();
-#warning MISSING_API
-        ////scene.CreateComponent<PhysicsWorld>();
+        scene.CreateComponent<PhysicsWorld>();
         scene.CreateComponent<DebugRenderer>();
 
         // Create a Zone component for ambient lighting & fog control
@@ -99,12 +98,11 @@ class _11_Physics : Sample
             // in the physics simulation
             /*RigidBody* body = */
 
-#warning MISSING_API
-            ////floorNode.CreateComponent<RigidBody>(); 
-            ////CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
+            floorNode.CreateComponent<RigidBody>(); 
+            CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
             ////// Set a box shape of size 1 x 1 x 1 for collision. The shape will be scaled with the scene node scale, so the
             ////// rendering and physics representation sizes should match (the box model is also 1 x 1 x 1.)
-            ////shape.Box(Vector3.One);
+            shape.SetBox(Vector3.One);
         }
 
         {
@@ -124,11 +122,11 @@ class _11_Physics : Sample
                     // and also adjust friction. The actual mass is not important; only the mass ratios between colliding 
                     // objects are significant
 #warning MISSING_API
-                    ////RigidBody body = boxNode.CreateComponent<RigidBody>();
-                    ////body.Mass(1.0f);
-                    ////body.Friction(0.75f);
-                    ////CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
-                    ////shape.Box(Vector3.One);
+                    RigidBody body = boxNode.CreateComponent<RigidBody>();
+                    body.Mass=1.0f;
+                    body.Friction=0.75f;
+                    CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
+                    shape.SetBox(Vector3.One);
                 }
             }
         }

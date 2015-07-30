@@ -78,18 +78,17 @@ class _12_PhysicsStressTest : Sample
         boxObject.CastShadows=true;
 
         // Create physics components, use a smaller mass also
-#warning MISSING_API RigidBody, CollisionShape
-        ////RigidBody body = boxNode.CreateComponent<RigidBody>();
-        ////body.SetMass(0.25f);
-        ////body.Friction = 0.75f;
-        ////CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
-        ////shape.SetBox(Vector3.One);
+        RigidBody body = boxNode.CreateComponent<RigidBody>();
+        body.Mass = 0.25f;
+        body.Friction = 0.75f;
+        CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
+        shape.SetBox(Vector3.One);
 
-        ////const float OBJECT_VELOCITY = 10.0f;
+        const float OBJECT_VELOCITY = 10.0f;
 
-        ////// Set initial velocity for the RigidBody based on camera forward vector. Add also a slight up component
-        ////// to overcome gravity better
-        ////body.SetLinearVelocity(CameraNode.GetRotation() * Vector3(0.0f, 0.25f, 1.0f) * OBJECT_VELOCITY);
+        // Set initial velocity for the RigidBody based on camera forward vector. Add also a slight up component
+        // to overcome gravity better
+        body.SetLinearVelocity(CameraNode.Rotation * new Vector3(0.0f, 0.25f, 1.0f) * OBJECT_VELOCITY);
     }
 
 
@@ -104,8 +103,7 @@ class _12_PhysicsStressTest : Sample
         // exist before creating drawable components, the PhysicsWorld must exist before creating physics components.
         // Finally, create a DebugRenderer component so that we can draw physics debug geometry
         scene.CreateComponent<Octree>();
-#warning MISSING_API PhysicsWorld is not derived from Component
-        //scene.CreateComponent<PhysicsWorld>();
+        scene.CreateComponent<PhysicsWorld>();
         scene.CreateComponent<DebugRenderer>();
 
         // Create a Zone component for ambient lighting & fog control
@@ -138,10 +136,9 @@ class _12_PhysicsStressTest : Sample
 
             // Make the floor physical by adding RigidBody and CollisionShape components
             /*RigidBody* body = */
-#warning MISSING_API RigidBody, CollisionShape
-            ////floorNode.CreateComponent<RigidBody>();
-            ////CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
-            ////shape.SetBox(Vector3.One);
+            floorNode.CreateComponent<RigidBody>();
+            CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
+            shape.SetBox(Vector3.One);
         }
 
         {
@@ -159,11 +156,10 @@ class _12_PhysicsStressTest : Sample
                 mushroomObject.CastShadows=true;
 
                 /*RigidBody* body = */
-#warning MISSING_API RigidBody, CollisionShape
-                ////mushroomNode.CreateComponent<RigidBody>();
-                ////CollisionShape shape = mushroomNode.CreateComponent<CollisionShape>();
-                ////// By default the highest LOD level will be used, the LOD level can be passed as an optional parameter
-                ////shape.SetTriangleMesh(mushroomObject.GetModel());
+                mushroomNode.CreateComponent<RigidBody>();
+                CollisionShape shape = mushroomNode.CreateComponent<CollisionShape>();
+                // By default the highest LOD level will be used, the LOD level can be passed as an optional parameter
+                shape.SetTriangleMesh(mushroomObject.Model);
             }
         }
 
@@ -180,14 +176,13 @@ class _12_PhysicsStressTest : Sample
                 boxObject.CastShadows=true;
 
                 // Give the RigidBody mass to make it movable and also adjust friction
-#warning MISSING_API RigidBody, CollisionShape
-                ////RigidBody body = boxNode.CreateComponent<RigidBody>();
-                ////body.SetMass(1.0f);
-                ////body.Friction = 1.0f;
-                ////// Disable collision event signaling to reduce CPU load of the physics simulation
-                ////body.SetCollisionEventMode(COLLISION_NEVER);
-                ////CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
-                ////shape.SetBox(Vector3.One);
+                RigidBody body = boxNode.CreateComponent<RigidBody>();
+                body.Mass = 1.0f;
+                body.Friction = 1.0f;
+                // Disable collision event signaling to reduce CPU load of the physics simulation
+                body.CollisionEventMode = CollisionEventMode.COLLISION_NEVER;
+                CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
+                shape.SetBox(Vector3.One);
             }
         }
 
