@@ -14,7 +14,7 @@ using namespace Urho3D;
 
 extern "C" {
 
-	void * urho_map_urho_map_get_ptr (VariantMap &map, int hash)
+	void * urho_map_get_ptr (VariantMap &map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetVoidPtr ();
