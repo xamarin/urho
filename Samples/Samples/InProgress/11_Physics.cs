@@ -4,12 +4,8 @@ class _11_Physics : Sample
 {
     private Scene scene;
     private bool drawDebug;
-    private Camera camera;
 
     public _11_Physics(Context ctx) : base(ctx) { }
-
-
-#warning REVISE IMPLEMENTATION! SpawnObject is missing (and instructions)
 
 
     public override void Start()
@@ -25,8 +21,27 @@ class _11_Physics : Sample
     {
         SubscribeToUpdate(args =>
         {
+            var input = Input;
             SimpleMoveCamera(args.TimeStep);
-            if (Input.GetKeyDown(Key.Space))
+
+            if (input.GetMouseButtonPress(MouseButton.Left))
+                SpawnObject();
+
+            if (input.GetKeyPress(Key.F5))
+            {
+                File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.FILE_WRITE);
+#warning MISSING_API SaveXML
+                ////scene.SaveXML(saveFile);
+            }
+            if (input.GetKeyPress(Key.F7))
+            {
+                File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.FILE_READ);
+#warning MISSING_API LoadXML
+                ////scene.LoadXML(loadFile);
+            }
+
+
+            if (input.GetKeyDown(Key.Space))
                 drawDebug = !drawDebug;
         });
 
@@ -136,9 +151,34 @@ class _11_Physics : Sample
 
         // Create the camera. Limit far clip distance to match the fog
         CameraNode = scene.CreateChild("Camera");
-        camera = CameraNode.CreateComponent<Camera>();
+        var camera = CameraNode.CreateComponent<Camera>();
         camera.FarClip = 500.0f;
         // Set an initial position for the camera scene node above the plane
         CameraNode.Position = new Vector3(0.0f, 5.0f, -20.0f);
+    }
+
+    public void SpawnObject()
+    {
+        var cache = ResourceCache;
+
+        var boxNode = scene.CreateChild("SmallBox");
+        boxNode.Position = CameraNode.Position;
+        boxNode.Rotation = CameraNode.Rotation;
+        boxNode.SetScale(0.25f);
+
+        StaticModel boxModel = boxNode.CreateComponent<StaticModel>();
+        boxModel.Model = cache.GetModel("Models/Box.mdl");
+        boxModel.SetMaterial(cache.GetMaterial("Materials/StoneEnvMapSmall.xml"));
+        boxModel.CastShadows = true;
+
+        var body = boxNode.CreateComponent<RigidBody>();
+        body.Mass = 0.25f;
+        body.Friction = 0.75f;
+        var shape = boxNode.CreateComponent<CollisionShape>();
+        shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
+
+        const float OBJECT_VELOCITY = 10.0f;
+
+        body.SetLinearVelocity(CameraNode.Rotation * new Vector3(0f, 0.25f, 1f) * OBJECT_VELOCITY);
     }
 }
