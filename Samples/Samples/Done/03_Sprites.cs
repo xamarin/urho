@@ -3,10 +3,9 @@ using Urho;
 
 class _03_Sprites : Sample
 {
-    private readonly List<Sprite> sprites = new List<Sprite>();
+    private readonly Dictionary<Sprite, Vector2> spritesWithVelocities = new Dictionary<Sprite, Vector2>();
     // Number of sprites to draw
     private const uint NumSprites = 100;
-    private const string VarVelocity = "Velocity";
 
     public _03_Sprites(Context ctx) : base(ctx) { }
 
@@ -58,11 +57,8 @@ class _03_Sprites : Sample
             // Add as a child of the root UI element
             ui.Root.AddChild(sprite);
 
-            // Store sprite's velocity as a custom variable
-            sprite.SetVar(VarVelocity, new Vector2(NextRandom(200.0f) - 100.0f, NextRandom(200.0f) - 100.0f));
-
             // Store sprites to our own container for easy movement update iteration
-            sprites.Add(sprite);
+            spritesWithVelocities[sprite] = new Vector2(NextRandom(200.0f) - 100.0f, NextRandom(200.0f) - 100.0f);
         }
     }
 
@@ -74,13 +70,14 @@ class _03_Sprites : Sample
 
         // Go through all sprites
 
-        foreach (var sprite in sprites)
+        foreach (var item in spritesWithVelocities)
         {
+            var sprite = item.Key;
+            var vector = item.Value;
+
             // Rotate
             float newRot = sprite.Rotation + timeStep * 30.0f;
             sprite.Rotation=newRot;
-
-            var vector = (Vector2) sprite.GetVar(VarVelocity);
 
             var x = vector.X * timeStep + sprite.Position.X;
             var y = vector.Y * timeStep + sprite.Position.Y;
