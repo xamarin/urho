@@ -61,7 +61,7 @@
     <Compile Include="Samples\Done\10_RenderToTexture.cs" />
     <Compile Include="Samples\InProgress\11_Physics.cs" />
     <Compile Include="Samples\InProgress\13_Ragdolls.cs" />
-    <Compile Include="Samples\InProgress\14_SoundEffects.cs" />
+    <Compile Include="Samples\Done\14_SoundEffects.cs" />
     <Compile Include="Samples\Done\20_HugeObjectCount.cs" />
     <Compile Include="Samples\InProgress\24_Urho2DSprite.cs" />
     <Compile Include="Samples\InProgress\25_Urho2DParticle.cs" />
