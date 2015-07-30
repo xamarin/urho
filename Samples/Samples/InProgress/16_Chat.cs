@@ -8,7 +8,7 @@ class _16_Chat : Sample
     // Identifier for the chat network messages
     const int MSG_CHAT = 32;
     // UDP port we will use
-    const ushort CHAT_SERVER_PORT = 2345;
+    const short CHAT_SERVER_PORT = 2345;
 
     /// Strings printed so far.
     List<string> chatHistory = new List<string>();
@@ -187,8 +187,7 @@ class _16_Chat : Sample
         // Connect to server, do not specify a client scene as we are not using scene replication, just messages.
         // At connect time we could also send identity parameters (such as username) in a VariantMap, but in this
         // case we skip it for simplicity
-#warning MISSING_API Network::Connect
-        ////network.Connect(address, CHAT_SERVER_PORT, 0);
+        network.Connect(address, CHAT_SERVER_PORT, null);
     
         UpdateButtons();
     }
