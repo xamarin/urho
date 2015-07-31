@@ -3,6 +3,7 @@ open CPP,">generated/events.cpp" || die;
 print CS "using System;\n";
 print CS "using System.Runtime.InteropServices;\n";
 print CS "namespace Urho {\n\n";
+print CS "\tdelegate void ObjectCallbackSignature (IntPtr data, int stringhash, IntPtr variantMap);\n";
 print CPP "#define URHO3D_OPENGL\n";
 print CPP "#include \"../AllUrho.h\"\n";
 print CPP "#include \"../src/glue.h\"\n";
@@ -61,7 +62,7 @@ while (<>){
 		print CS "    }\n\n";
 		print CS "    public partial class UrhoObject {\n"; 
 		print CS "         [DllImport(\"mono-urho\")]\n";
-		print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, Action<IntPtr,int,IntPtr> act, IntPtr data);\n";
+		print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
                 print CS "         public Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
 		print CS "         {\n";
 		print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";

@@ -3,7 +3,9 @@
 //
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
+#ifndef _MSC_VER
+#   include <unistd.h>
+#endif
 #define URHO3D_OPENGL
 #include "../AllUrho.h"
 #include "glue.h"

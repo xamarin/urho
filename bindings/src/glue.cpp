@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
+#ifndef _MSC_VER
+#   include <unistd.h>
+#endif
 #include <stdlib.h>
 #define URHO3D_OPENGL
 #include "../AllUrho.h"
@@ -71,7 +73,7 @@ extern "C" {
 	}
 	
 	DllExport
-	uint urho_map_get_uint (VariantMap& map, int hash)
+	unsigned int urho_map_get_uint (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetUInt ();
