@@ -44,6 +44,12 @@ namespace Urho {
 			return Runtime.LookupObject<T> (ptr);
 		}
 
+		public void RemoveComponent<T> ()
+		{
+			var stringHash = Runtime.LookupStringHash (typeof (T));
+			RemoveComponent (stringHash);
+		}
+
 		public T CreateComponent<T> (CreateMode mode = CreateMode.REPLICATED, uint id = 0) where T:Component
 		{
 			var stringhash = Runtime.LookupStringHash (typeof (T));
