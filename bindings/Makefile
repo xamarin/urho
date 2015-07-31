@@ -263,6 +263,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	generated/Object.Events.cs	\
 	src/Application.cs		\
 	src/AttributeInfo.cs		\
+	src/BufferedSoundStream.cs	\
 	src/Collision.cs		\
 	src/Component.cs		\
 	src/Connection.cs		\
