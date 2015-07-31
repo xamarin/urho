@@ -1,3 +1,9 @@
+#ifdef _MSC_VER
+#define DllExport __stdcall__   __declspec( dllexport )
+#else
+#define DllExport
+#endif
+
 #include <Urho3D/Urho3D.h>
 #include <Urho3D/Audio/Audio.h>
 #include <Urho3D/Audio/AudioDefs.h>

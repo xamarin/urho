@@ -35,7 +35,7 @@ while (<>){
 	($ec,$en) = $_ =~ /EVENT\((\w+), ?(\w+)/;
 	print CS "    public partial struct ${en}EventArgs {\n";
 	print CS "        internal IntPtr handle;\n";
-	print CPP "void *urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
+	print CPP "DllExport void *urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
 	print CPP "{\n";
 	print CPP "\tUrho3D::Object *receiver = (Urho3D::Object *) _receiver;\n";
 	print CPP "\tNotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::$ec);\n";

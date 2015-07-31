@@ -10,11 +10,13 @@
 using namespace Urho3D;
 
 extern "C" {
+	DllExport
 	int VectorSharedPtr_Count (Vector<SharedPtr<Object> > *vector)
 	{
 		return vector->Size ();
 	}
 
+	DllExport
 	void *VectorSharedPtr_GetIdx (Vector<SharedPtr<Object> > *vector, int idx)
 	{
 		if (idx < 0 || idx > vector->Size ())

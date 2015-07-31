@@ -14,60 +14,70 @@ using namespace Urho3D;
 
 extern "C" {
 
+	DllExport
 	void * urho_map_get_ptr (VariantMap &map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetVoidPtr ();
 	}
 	
+	DllExport
 	Urho3D::String urho_map_get_String (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetString ();
 	}
 	
+	DllExport
 	int urho_map_get_StringHash (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetStringHash ().Value ();
 	}
 	
+	DllExport
 	Variant urho_map_get_Variant (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h];
 	}
 	
+	DllExport
 	Vector3 urho_map_get_Vector3 (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetVector3 ();
 	}
 
+	DllExport
 	bool urho_map_get_bool (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetBool ();
 	}
 	
+	DllExport
 	float urho_map_get_float (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetFloat ();
 	}
 		
+	DllExport
 	int urho_map_get_int (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetInt ();
 	}
 	
+	DllExport
 	uint urho_map_get_uint (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetUInt ();
 	}
 
+	DllExport
 	void urho_map_get_buffer (VariantMap &map, int hash, void **buffer, unsigned *size)
 	{
 		StringHash h (hash);
@@ -76,12 +86,14 @@ extern "C" {
 		*buffer = (void *) &p.Front();
 	}
 
+	DllExport
 	void urho_unsubscribe (NotificationProxy *proxy)
 	{
 		proxy->Unsub ();
 	}
 	
 
+	DllExport
 	int Network_Connect (Network *net, const char *ptr, short port, Scene *scene)
 	{
 		String s(ptr);
@@ -89,22 +101,26 @@ extern "C" {
 		return net->Connect (s, port, scene) ? 1 : 0;
 	}
 	
+	DllExport
 	void *TouchState_GetTouchedElement (TouchState *state)
 	{
 		return (void *) state->GetTouchedElement ();
 	}
 
+	DllExport
 	const char *Urho_GetPlatform ()
 	{
 		return strdup (GetPlatform().CString ());
 	}
 
+	DllExport
 	unsigned urho_stringhash_from_string (const char *p)
 	{
 		StringHash foo (p);
 		return foo.Value ();
 	}
 	
+	DllExport
 	Skeleton *AnimatedModel_GetSkeleton (AnimatedModel *model)
 	{
 		return &model->GetSkeleton ();
@@ -116,6 +132,7 @@ extern "C" {
 	// contains a first element (pointer sized) with the number of elements
 	// followed by the number of pointers
 	//
+	DllExport
 	void *urho_node_get_components (Node *node, int code, int recursive, int *count)
 	{
 		PODVector<Node*> dest;

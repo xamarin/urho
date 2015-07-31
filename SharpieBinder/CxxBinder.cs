@@ -124,19 +124,19 @@ namespace SharpieBinder
 			foreach (var p in podClasses) {
 				Console.WriteLine (p);
 				var flatName = FlattenVectorName (p);
-				pn ("{0}* {1}_new ()", p, flatName);
+				pn ("DllExport {0}* {1}_new ()", p, flatName);
 				pn ("{");
 				pn ("\treturn new {0} ();", p.Replace ("class ", "").Trim ());
 				pn ("}\n\n");
-				pn ($"void {flatName}_destroy ({p} *obj)");
+				pn ($"DllExport void {flatName}_destroy ({p} *obj)");
 				pn ("{");
 				pn ("\tdelete obj;");
 				pn ("}\n");
-				pn ($"int ${flatName}_count ({p} *obj)");
+				pn ($"DllExport int ${flatName}_count ({p} *obj)");
 				pn ("{");
 				pn ($"\treturn obj->Size ();");
 				pn ("}");
-				pn ($"void *${flatName}_item ({p} *obj, int idx)");
+				pn ($"DllExport void *${flatName}_item ({p} *obj, int idx)");
 				pn ("{");
 				pn ("\treturn &(*obj)[idx];");
 				pn ("}");
@@ -927,9 +927,9 @@ namespace SharpieBinder
 			}
 			
 			if (isConstructor)
-				p($"void *\n{pinvoke_name} (");
+				p($"DllExport void *\n{pinvoke_name} (");
 			else 
-				p($"{creturnType}\n{pinvoke_name} (");
+				p($"DllExport {creturnType}\n{pinvoke_name} (");
 
 			if (decl.IsStatic) {
 				cinvoke.Append($"{decl.Parent.Name}::{decl.Name} (");
