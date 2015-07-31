@@ -7,6 +7,7 @@ print CPP "#define URHO3D_OPENGL\n";
 print CPP "#include \"../AllUrho.h\"\n";
 print CPP "#include \"../src/glue.h\"\n";
 print CPP "extern \"C\" {\n";
+print CPP "void urho_unsubscribe (NotificationProxy *proxy);\n";
 
 sub mapType {
     my ($pt) = @_;
@@ -34,10 +35,12 @@ while (<>){
 	($ec,$en) = $_ =~ /EVENT\((\w+), ?(\w+)/;
 	print CS "    public partial struct ${en}EventArgs {\n";
 	print CS "        internal IntPtr handle;\n";
-	print CPP "void urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
+	print CPP "void *urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
 	print CPP "{\n";
 	print CPP "\tUrho3D::Object *receiver = (Urho3D::Object *) _receiver;\n";
-	print CPP "\treceiver->SubscribeToEvent (Urho3D::$ec, new NotificationProxy (receiver, callback, data));\n";
+	print CPP "\tNotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::$ec);\n";
+	print CPP "\treceiver->SubscribeToEvent (Urho3D::$ec, proxy);\n";
+	print CPP "\treturn proxy;\n";
 	print CPP "}\n\n";
 	while (<>){
 	    chop;
@@ -58,12 +61,13 @@ while (<>){
 		print CS "    }\n\n";
 		print CS "    public partial class UrhoObject {\n"; 
 		print CS "         [DllImport(\"mono-urho\")]\n";
-		print CS "         extern static void urho_subscribe_$en (IntPtr target, Action<IntPtr,int,IntPtr> act, IntPtr data);\n";
-                print CS "         public void SubscribeTo$en (Action<${en}EventArgs> handler)\n";
+		print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, Action<IntPtr,int,IntPtr> act, IntPtr data);\n";
+                print CS "         public Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
 		print CS "         {\n";
 		print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";
-	        print CS "              GCHandle gch = GCHandle.Alloc (proxy);\n";
-		print CS "              urho_subscribe_$en (handle, ObjectCallback, GCHandle.ToIntPtr (gch));\n";
+		print CS "              var s = new Subscription (proxy);\n";
+		print CS "              s.UnmanagedProxy = urho_subscribe_$en (handle, ObjectCallback, GCHandle.ToIntPtr (s.gch));\n";
+		print CS "              return s;\n";
 		print CS "         }\n";
                 print CS "    }\n\n";
 	    }

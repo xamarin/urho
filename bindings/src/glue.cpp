@@ -76,6 +76,12 @@ extern "C" {
 		*buffer = (void *) &p.Front();
 	}
 
+	void urho_unsubscribe (NotificationProxy *proxy)
+	{
+		proxy->Unsub ();
+	}
+	
+
 	int Network_Connect (Network *net, const char *ptr, short port, Scene *scene)
 	{
 		String s(ptr);
@@ -124,12 +130,6 @@ extern "C" {
 		return t;
 	}
 	
-void *
-create_notification (Object *receiver, HandlerFunctionPtr callback, void *data)
-{
-	return (void *) new NotificationProxy (receiver, callback, data);
-}
-
 #if false
 
 	// Stuff to check interop
