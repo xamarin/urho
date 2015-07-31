@@ -116,8 +116,7 @@ class _29_SoundSynthesis : Sample
         }
 
         // Queue buffer to the stream for playback
-#warning MISSING_API AddData IntPtr
-        ////soundStream_.AddData(newData, numSamples * sizeof(signed short));
+        soundStream.AddData(newData, (int)numSamples * sizeof(short));
     }
 
     private float Lerp(float lhs, float rhs, float t) //TODO: move to MathHleper
