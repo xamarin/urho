@@ -1036,29 +1036,6 @@ namespace SharpieBinder
 							parameterReference = new CastExpression (new PrimitiveType ("uint"), parameterReference);
 						}
 						break;
-					break;
-					}
-					break;
-				case "SoundSource":
-					switch (decl.Name) {
-					case "SetSoundType":
-						if (currentParamCount == 1 && paramName == "type") {
-							parameter = new SimpleType ("SoundType");
-							parameterReference = new InvocationExpression(new MemberReferenceExpression(parameterReference, "ToString"));
-						}
-						break;
-					break;
-					}
-					break;
-				case "Audio":
-					switch (decl.Name) {
-					case "GetMasterGain":
-						if (currentParamCount == 1 && paramName == "type") {
-							parameter = new SimpleType ("SoundType");
-							parameterReference = new InvocationExpression(new MemberReferenceExpression(parameterReference, "ToString"));
-						}
-						break;
-					break;
 					}
 					break;
 				case "Log":
