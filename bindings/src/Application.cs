@@ -9,13 +9,15 @@ using System.Runtime.InteropServices;
 namespace Urho {
 	
 	public partial class Application {
+		public delegate void ActionIntPtr (IntPtr value);
+		
 		[DllImport ("mono-urho")]
-		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, Action<IntPtr> setup, Action<IntPtr> start, Action<IntPtr> stop);
+		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop);
 
 		//
 		// Supports the simple style with callbacks
 		//
-		public Application (Context context, Action<IntPtr> setup, Action<IntPtr> start, Action<IntPtr> stop) : base (UrhoObjectFlag.Empty)
+		public Application (Context context, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
 				throw new ArgumentNullException ("context");
