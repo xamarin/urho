@@ -19,7 +19,7 @@ class _28_Urho2DPhysicsRope : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args =>
+        var updateEventToken = SubscribeToUpdate(args =>
             {
                 SimpleMoveCamera(args.TimeStep, false, 4f);
 
@@ -38,9 +38,8 @@ class _28_Urho2DPhysicsRope : Sample
 #warning MISSING_API GetComponent generic
                 ((PhysicsWorld2D)scene.GetComponent(PhysicsWorld2D.TypeStatic)).DrawDebugGeometry();
             });
-
-#warning MISSING_API UnsubscribeFromEvent
-        ////UnsubscribeFromEvent(E_SCENEUPDATE);
+        
+        updateEventToken.Unsubscribe();
     }
 
     private void SetupViewport()

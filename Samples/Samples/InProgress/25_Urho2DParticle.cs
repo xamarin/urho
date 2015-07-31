@@ -21,9 +21,9 @@ class _25_Urho2DParticle : Sample
     private void SubscribeToEvents()
     {
         SubscribeToMouseMove(args =>
-        {
-            HandleMouseMove(args.X, args.Y);
-        });
+            {
+                HandleMouseMove(args.X, args.Y);
+            });
 
         if (TouchEnabled)
             SubscribeToTouchMove(args =>

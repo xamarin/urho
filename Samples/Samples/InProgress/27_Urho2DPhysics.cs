@@ -19,7 +19,7 @@ class _27_Urho2DPhysics : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args =>
+        var updateEventToken = SubscribeToUpdate(args =>
             {
                 SimpleMoveCamera(args.TimeStep, false, 4f);
 
@@ -36,8 +36,7 @@ class _27_Urho2DPhysics : Sample
                 }
             });
 
-#warning MISSING_API UnsubscribeFromEvent
-        ////UnsubscribeFromEvent(E_SCENEUPDATE);
+        updateEventToken.Unsubscribe();
     }
 
     private void SetupViewport()

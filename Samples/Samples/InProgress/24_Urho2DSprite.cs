@@ -21,7 +21,7 @@ class _24_Urho2DSprite : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args =>
+        var updateEventToken = SubscribeToUpdate(args =>
             {
                 SimpleMoveCamera(args.TimeStep);
                 var input = Input;
@@ -65,8 +65,7 @@ class _24_Urho2DSprite : Sample
 
             });
 
-#warning MISSIN_API 
-        //UnsubscribeFromEvent(E_SCENEUPDATE); //is it   new StringHash("E_SCENEUPDATE") ?
+        updateEventToken.Unsubscribe();
     }
     
     private void SetupViewport()
