@@ -9,6 +9,8 @@
 *.user
 *.sln.docstates
 *.userprefs
+*.sdf
+*.opensdf
 
 
 # ReSharper is a .NET coding add-in
