@@ -103,9 +103,7 @@ class _32_Urho2DConstraints : Sample
         {
             StaticSprite2D staticSprite = pickedNode.GetComponent<StaticSprite2D>();
             staticSprite.Color = (new Color(1.0f, 1.0f, 1.0f, 1.0f)); // Restore picked sprite color
-
-#warning MISSING_API RemoveComponent<> (generic)
-            pickedNode.RemoveComponent(ConstraintMouse2D.TypeStatic); // Remove temporary constraint
+            pickedNode.RemoveComponent<ConstraintMouse2D>(); // Remove temporary constraint
             pickedNode = null;
         }
 
@@ -180,9 +178,7 @@ class _32_Urho2DConstraints : Sample
         {
             StaticSprite2D staticSprite = pickedNode.GetComponent<StaticSprite2D>();
             staticSprite.Color = (new Color(1.0f, 1.0f, 1.0f, 1.0f)); // Restore picked sprite color
-
-#warning MISSING_API RemoveComponent<> (generic)
-            pickedNode.RemoveComponent(ConstraintMouse2D.TypeStatic); // Remove temporary constraint
+            pickedNode.RemoveComponent<ConstraintMouse2D>(); 
             pickedNode = null;
         }
 
@@ -330,10 +326,10 @@ class _32_Urho2DConstraints : Sample
 
         ConstraintFriction2D constraintFriction = boxFrictionNode.CreateComponent<ConstraintFriction2D>(); // Apply ConstraintDistance2D to box
         constraintFriction.OtherBody=ballFrictionNode.GetComponent<RigidBody2D>(); // Constraint ball to box
-                                                                                       //constraintFriction.SetOwnerBodyAnchor(boxNode.GetPosition2D());
-                                                                                       //constraintFriction.SetOtherBodyAnchor(ballNode.GetPosition2D());
-                                                                                       //constraintFriction.SetMaxForce(10.0f); // ballBody.mass * gravity
-                                                                                       //constraintDistance.SetMaxTorque(10.0f); // ballBody.mass * radius * gravity
+        //constraintFriction.SetOwnerBodyAnchor(boxNode.GetPosition2D());
+        //constraintFriction.SetOtherBodyAnchor(ballNode.GetPosition2D());
+        //constraintFriction.SetMaxForce(10.0f); // ballBody.mass * gravity
+        //constraintDistance.SetMaxTorque(10.0f); // ballBody.mass * radius * gravity
 
         // Create a ConstraintGear2D
         CreateFlag("ConstraintGear2D", -4.97f, -1.0f); // Display Text3D flag

@@ -204,10 +204,9 @@ class CreateRagdoll : Component
 
         if (otherBody.Mass > 0.0f)
         {
-                // We do not need the physics components in the AnimatedModel's root scene node anymore
-#warning MISSING_API Node::RemoveComponent<> generic
-            ////Node.RemoveComponent<RigidBody>();
-            ////Node.RemoveComponent<CollisionShape>();
+            // We do not need the physics components in the AnimatedModel's root scene node anymore
+            Node.RemoveComponent<RigidBody>();
+            Node.RemoveComponent<CollisionShape>();
         
             // Create RigidBody & CollisionShape components to bones
             CreateRagdollBone("Bip01_Pelvis", ShapeType.SHAPE_BOX, new Vector3(0.3f, 0.2f, 0.25f), new Vector3(0.0f, 0.0f, 0.0f),
