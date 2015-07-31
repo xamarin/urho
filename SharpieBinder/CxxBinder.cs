@@ -937,7 +937,7 @@ namespace SharpieBinder
 			} else if (isConstructor) {
 				cinvoke.Append($"new {decl.Name} (");
 			} else {
-				p($"{decl.Parent.Name} *_target");
+				p($"Urho3D::{decl.Parent.Name} *_target");
 				if (decl.Parameters.Count() > 0)
 					p(", ");
 				cinvoke.Append($"_target->{decl.Name} (");
