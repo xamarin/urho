@@ -5,6 +5,10 @@
 #endif
 
 #include <Urho3D/Urho3D.h>
+#include <Urho3D/Urho2D/TileMapLayer2D.h>
+#include <Urho3D/Urho2D/TmxFile2D.h>
+#include <Urho3D/UI/MessageBox.h>
+
 #include <Urho3D/Audio/Audio.h>
 #include <Urho3D/Audio/AudioDefs.h>
 #include <Urho3D/Audio/BufferedSoundStream.h>
@@ -206,7 +210,6 @@
 #include <Urho3D/UI/LineEdit.h>
 #include <Urho3D/UI/ListView.h>
 #include <Urho3D/UI/Menu.h>
-#include <Urho3D/UI/MessageBox.h>
 #include <Urho3D/UI/ScrollBar.h>
 #include <Urho3D/UI/ScrollView.h>
 #include <Urho3D/UI/Slider.h>
@@ -254,6 +257,9 @@
 #include <Urho3D/Urho2D/StaticSprite2D.h>
 #include <Urho3D/Urho2D/TileMap2D.h>
 #include <Urho3D/Urho2D/TileMapDefs2D.h>
-#include <Urho3D/Urho2D/TileMapLayer2D.h>
-#include <Urho3D/Urho2D/TmxFile2D.h>
 #include <Urho3D/Urho2D/Urho2D.h>
+
+// Workaround Windows defining these
+#undef GetObject
+#undef MessageBox
+#undef GetMessage
