@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="external\IntVector2.cs" />
+    <Compile Include="external\Plane.cs" />
     <Compile Include="generated\CollisionEventMode.cs" />
     <Compile Include="generated\CollisionGeometryData.cs" />
     <Compile Include="generated\CollisionShape.cs" />

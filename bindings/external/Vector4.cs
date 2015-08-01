@@ -160,19 +160,6 @@ namespace Urho
             W = v.W;
         }
 
-        /// <summary>
-        /// Constructs a new Vector4 from the normal and point.
-        /// </summary>
-        public Vector4(Vector3 normal, Vector3 point)
-        {
-            normal.Normalize();
-            normal.Abs();
-            X = normal.X;
-            Y = normal.Y;
-            Z = normal.Z;
-            W = Vector3.Dot(normal, point);
-        }
-
         #endregion
 
         #region Public Members

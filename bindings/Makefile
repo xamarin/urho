@@ -299,7 +299,8 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	external/Vector2.cs		\
 	external/IntVector2.cs		\
 	external/Vector3.cs		\
-	external/Vector4.cs
+	external/Vector4.cs		\
+	external/Plane.cs
 
 CXXFLAGS=-g -Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS)
 
