@@ -771,9 +771,10 @@ namespace SharpieBinder
 			case "Skeleton":
 				switch (decl.Name) {
 				case "GetBone":
-					if (decl.Parameters.First ().ToString ().Contains ("const char *"))
-						return false;
-					return true;
+					
+					if (decl.Parameters.First ().QualType.ToString ().Contains ("String &"))
+						return true;
+					return false;
 
 				}
 				
