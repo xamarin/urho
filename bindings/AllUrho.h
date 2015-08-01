@@ -1,5 +1,5 @@
 #ifdef _MSC_VER
-#define DllExport __stdcall__   __declspec( dllexport )
+#define DllExport __declspec( dllexport )
 #else
 #define DllExport
 #endif

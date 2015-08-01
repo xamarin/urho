@@ -129,7 +129,7 @@ extern "C" {
 	}
 
 	DllExport
-	uint Controls_GetButtons (Controls *controls)
+	unsigned Controls_GetButtons (Controls *controls)
 	{
 		return controls->buttons_;
 	}
