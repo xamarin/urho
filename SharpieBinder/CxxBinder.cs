@@ -93,7 +93,7 @@ namespace SharpieBinder
 				["Urho3D::RefCount"] = new BaseNodeType(Bind),
 				["Urho3D::String"] = new BaseNodeType(Bind),
 				["Urho3D::XMLElement"] = new BaseNodeType(Bind),
-				["Urho3D::Skeleton"] = new BaseNodeType(Bind)
+				["Urho3D::Skeleton"] = new BaseNodeType(Bind),
 			};
 			cbindingStream = File.CreateText(Path.Combine(outputDir, "binding.cpp"));
 			podStream = File.CreateText (Path.Combine (outputDir, "PodVectors.cs"));

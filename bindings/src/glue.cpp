@@ -128,6 +128,61 @@ extern "C" {
 		return &model->GetSkeleton ();
 	}
 
+	DllExport
+	uint Controls_GetButtons (Controls *controls)
+	{
+		return controls->buttons_;
+	}
+
+	DllExport
+	void Controls_SetButtons (Controls *controls, unsigned value)
+	{
+		controls->buttons_ = value;
+	}
+	
+	DllExport
+	float Controls_GetYaw (Controls *controls)
+	{
+		return controls->yaw_;
+	}
+
+	DllExport
+	void Controls_SetYaw (Controls *controls, float value)
+	{
+		controls->yaw_ = value;
+	}
+
+	DllExport
+	float Controls_GetPitch (Controls *controls)
+	{
+		return controls->pitch_;
+	}
+
+	DllExport
+	void Controls_SetPitch (Controls *controls, float value)
+	{
+		controls->pitch_ = value;
+	}
+
+	DllExport void
+	Controls_Reset (Urho3D::Controls *_target)
+	{
+		_target->Reset ();
+	}
+	
+	DllExport void
+	Controls_Set (Urho3D::Controls *_target, unsigned int buttons, bool down)
+	{
+		_target->Set (buttons, down);
+	}
+	
+	DllExport bool
+	Controls_IsDown (Urho3D::Controls *_target, unsigned int button)
+	{
+		return _target->IsDown (button);
+	}
+	
+		
 	//
 	// returns: null on no matches
 	// otherwise, a pointer that should be released with free() that

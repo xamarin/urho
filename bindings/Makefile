@@ -266,6 +266,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/BufferedSoundStream.cs	\
 	src/Collision.cs		\
 	src/Component.cs		\
+	src/Controls.cs			\
 	src/Connection.cs		\
 	src/Enums.cs			\
 	src/Input.cs			\
