@@ -4,11 +4,9 @@ using Urho;
 class _33_Urho2DSpriterAnimation : Sample
 {
     private Scene scene;
-    private bool drawDebug;
-
-    private Node spriteNode_;
-    private int animationIndex_ = 0;
-    private static readonly string[] animationNames =
+    private Node spriteNode;
+    private int animationIndex;
+    private static readonly string[] AnimationNames =
         {
             "idle",
             "run",
@@ -40,17 +38,17 @@ class _33_Urho2DSpriterAnimation : Sample
         Input input = Input;
 
         // Movement speed as world units per second
-        const float MOVE_SPEED = 4.0f;
+        const float moveSpeed = 4.0f;
 
         // Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
         if (input.GetKeyDown(Key.W))
-            CameraNode.Translate(Vector3.UnitY * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+            CameraNode.Translate(Vector3.UnitY * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
         if (input.GetKeyDown(Key.S))
-            CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+            CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
         if (input.GetKeyDown(Key.A))
-            CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+            CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
         if (input.GetKeyDown(Key.D))
-            CameraNode.Translate(Vector3.UnitX * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+            CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 
         if (input.GetKeyDown(Key.PageUp))
         {
@@ -68,21 +66,17 @@ class _33_Urho2DSpriterAnimation : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args =>
-            {
-                MoveCamera(args.TimeStep);
-            });
+        SubscribeToUpdate(args => MoveCamera(args.TimeStep));
 
         SubscribeToMouseButtonDown(args =>
             {
-                AnimatedSprite2D animatedSprite = spriteNode_.GetComponent<AnimatedSprite2D>();
-                animationIndex_ = (animationIndex_ + 1) % 7;
-                animatedSprite.SetAnimation(animationNames[animationIndex_], LoopMode2D.LM_FORCE_LOOPED);
+                AnimatedSprite2D animatedSprite = spriteNode.GetComponent<AnimatedSprite2D>();
+                animationIndex = (animationIndex + 1) % 7;
+                animatedSprite.SetAnimation(AnimationNames[animationIndex], LoopMode2D.LM_FORCE_LOOPED);
             });
 
-#warning MISSING_API UnsubscribeFromEvent
         // Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
-        ////UnsubscribeFromEvent(E_SCENEUPDATE);
+        SceneUpdateEventToken.Unsubscribe();
     }
     
     private void SetupViewport()
@@ -113,10 +107,9 @@ class _33_Urho2DSpriterAnimation : Sample
         if (animationSet == null)
             return;
 
-        spriteNode_ = scene.CreateChild("SpriterAnimation");
+        spriteNode = scene.CreateChild("SpriterAnimation");
 
-        AnimatedSprite2D animatedSprite = spriteNode_.CreateComponent<AnimatedSprite2D>();
-        animatedSprite.SetAnimation(animationSet, animationNames[animationIndex_], LoopMode2D.LM_DEFAULT);
-
+        AnimatedSprite2D animatedSprite = spriteNode.CreateComponent<AnimatedSprite2D>();
+        animatedSprite.SetAnimation(animationSet, AnimationNames[animationIndex], LoopMode2D.LM_DEFAULT);
     }
 }

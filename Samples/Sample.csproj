@@ -68,7 +68,7 @@
     <Compile Include="Samples\InProgress\30_LightAnimation.cs" />
     <Compile Include="Samples\InProgress\31_MaterialAnimation.cs" />
     <Compile Include="Samples\InProgress\32_Urho2DConstraints.cs" />
-    <Compile Include="Samples\InProgress\33_Urho2DSpriterAnimation.cs" />
+    <Compile Include="Samples\Done\33_Urho2DSpriterAnimation.cs" />
     <Compile Include="Samples\InProgress\34_DynamicGeometry.cs" />
     <Compile Include="Samples\Done\35_SignedDistanceFieldText.cs" />
     <Compile Include="Samples\InProgress\36_Urho2DTileMap.cs" />
