@@ -384,6 +384,8 @@ class Demo {
 		//new HelloWorld (c).Run ();
 		//new StaticScene (c).Run ();
 		//new AnimatingScene (c).Run ();
+		var a = new RenderPath ();
+		var b = a.Clone ();
 		new SkeletalAnimation (c).Run ();
 	}
 }

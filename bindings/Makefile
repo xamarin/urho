@@ -277,6 +277,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/PodVector.cs		\
 	src/UrhoMap.cs			\
 	src/RefCounted.cs		\
+	src/RenderPath.cs		\
 	src/ResourceCache.cs		\
 	src/Runtime.cs			\
 	src/Skeleton.cs			\

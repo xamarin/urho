@@ -205,7 +205,17 @@ extern "C" {
 	{
 		delete controls;
 	}
-	
+
+	DllExport RenderPath *
+	RenderPath_Clone (RenderPath *p)
+	{
+		auto copy = p->Clone ();
+		auto plain = copy.Get ();
+		copy.Detach ();
+		delete plain;
+		return plain;
+	}
+	       
 	//
 	// returns: null on no matches
 	// otherwise, a pointer that should be released with free() that

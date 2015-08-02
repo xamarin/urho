@@ -10,17 +10,6 @@ Binding
 Missing Bindings
 ----------------
 
-Skeleton
---------
-
-This is a base class that is usually passed and returned by reference, this means
-that the storage is usually associated with another object.   If we were to surface
-this as a pointer to the object, then we could introduce cases where the owning object
-is destroyed, but our skeleton points to invalid memory.  
-
-Options include creating Skeleton instances that keep a reference to the containing
-object that returned it (luckily, few AnimatedModel and Model).  
-
 PODVector
 ---------
 
@@ -48,16 +37,6 @@ subclassing our framework classes (because then, we can relinquish our
 reference safely, as we can always recreate it if needed).
 
 
-
-Wanted
-------
-Bring OpenTK data types to replace the ones in the quick and dirty implementation (Vectors, Quaternions, etc)
-
-EventArgsFoo => FooEventArgs
-----------------------------
-
-Current naming is backwards
-
 C# code Registration
 --------------------
 
@@ -81,16 +60,8 @@ overrides the CreateObject() method with one that uses C# to create the object a
 The sole point of this is to allow the idiom: foo->CreateObject<XX>
 instead of doing "new XX(Context)" followed by an AddComponent.
 
-Sample Problem
---------------
-
-See above for "C# Code Registartion" for some background.
-
-The AnimationSample currently just subscribes to an event on the cube
-element to perform the rotation, instead of creating a custom class that 
-can override methods, and then allow the user to set properties from C#.
-
-What we need to do is implement something like LogicComponent or ScriptComponent
+ALTERNATIVE: provide a managed implementation for the registration
+of managed code, and invoke code directly.
 
 Blessing of Objects
 -------------------
@@ -108,13 +79,6 @@ Scale overloads
 
 Node's scale overloads does not cope well with the get/set autogenerator
 
-Node.CreateCompoennt
---------------------
-
-Currently using the ugly StringHash API, and since we can not call methods
-through type interfaces, the challenge is then to find a way where we can 
-quickly look this up, based on a type.
-
 API
 ---
 Produce default parameters
@@ -126,37 +90,13 @@ Need support most derived object creation in Runtime.LookupObject.
 
 Bind
 ----
-[ ] Support for the EngineParameters
-[ ] Support for the command line arguments
 [ ] Input/inputEvents constant definitions.
-[ ] Color&
+
 
 WorkItem issues
 ---------------
-
 structs that subclass RefCounted should be bound as classes, see
 WorkItem (which is currently surfaced as a struct)
-
-Build
------
-PhysicsWorld and RigidBody are pending, since they surface some bt data types
-that I do not currently bind.
-
-Structures
-----------
-
-Should fix code generation for structures, they should likely use
-"ref" to initialize themselves?
-
-Enumerations
-------------
-
-They currently just dump the name, we need to dump the value
-
-We should also likely dump the values as constants, and use the
-constants inside real enumeration definitions (because trying to
-prettify this automatically is a lot of work for little gain,
-85 or so enumerations)
 
 Generator
 =========
