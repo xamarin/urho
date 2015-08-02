@@ -155,9 +155,9 @@ public class Sample : Application {
 		WriteLine ("KeyEvent: " + e.Key);
 		switch (e.Key){
 		case Key.Esc: // ESC
-			if (this.Console.IsVisible ())
+			/*if (this.Console.IsVisible ())
 				this.Console.SetVisible (false);
-			else
+			else*/
 				Engine.Exit ();
 			return;
 		case Key.F1: // F1
@@ -300,9 +300,9 @@ public class Sample : Application {
 		if (input.GetKeyDown (Key.S))
 			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 		if (input.GetKeyDown (Key.A))
-			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-		if (input.GetKeyDown (Key.D))
 			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+		if (input.GetKeyDown (Key.D))
+			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 	}
 
 	protected void SimpleCreateInstructionsWithWASD (string extra = "")

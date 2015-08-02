@@ -3,12 +3,10 @@
 class _23_Water : Sample
 {
     private Scene scene;
-    private bool drawDebug;
-    private Camera camera;
     private Node waterNode;
     private Node reflectionCameraNode;
-    private Vector4 waterPlane;
-    private Vector4 waterClipPlane;
+    private Plane waterPlane;
+    private Plane waterClipPlane;
 
     public _23_Water(Context ctx) : base(ctx) { }
 
@@ -24,11 +22,11 @@ class _23_Water : Sample
     private void SubscribeToEvents()
     {
         SubscribeToUpdate(args =>
-            {
-                SimpleMoveCamera(args.TimeStep);
-                if (Input.GetKeyDown(Key.Space))
-                    drawDebug = !drawDebug;
-            });
+        {
+            SimpleMoveCamera(args.TimeStep);
+            var camera = reflectionCameraNode.GetComponent<Camera>();
+            camera.AspectRatio = (float)Graphics.Width / Graphics.Height;
+        });
     }
     
     private void SetupViewport()
@@ -41,26 +39,26 @@ class _23_Water : Sample
 
         // Create a mathematical plane to represent the water in calculations
 
-        waterPlane = new Vector4(waterNode.WorldRotation * new Vector3(0.0f, 1.0f, 0.0f), waterNode.WorldPosition);
+        waterPlane = new Plane(waterNode.WorldRotation * new Vector3(0.0f, 1.0f, 0.0f), waterNode.WorldPosition);
         // Create a downward biased plane for reflection view clipping. Biasing is necessary to avoid too aggressive clipping
-        waterClipPlane = new Vector4(waterNode.WorldRotation * new Vector3(0.0f, 1.0f, 0.0f), waterNode.WorldPosition - new Vector3(0.0f, 0.1f, 0.0f));
+        waterClipPlane = new Plane(waterNode.WorldRotation * new Vector3(0.0f, 1.0f, 0.0f), waterNode.WorldPosition - new Vector3(0.0f, 0.1f, 0.0f));
 
         // Create camera for water reflection
         // It will have the same farclip and position as the main viewport camera, but uses a reflection plane to modify
         // its position when rendering
         reflectionCameraNode = CameraNode.CreateChild();
         var reflectionCamera = reflectionCameraNode.CreateComponent<Camera>();
-        reflectionCamera.FarClip =750.0f;
-        reflectionCamera.ViewMask=0x7fffffff; // Hide objects with only bit 31 in the viewmask (the water plane)
-        reflectionCamera.AutoAspectRatio=false;
-        reflectionCamera.UseReflection=true;
-        reflectionCamera.SetReflectionPlaneAttr(waterPlane);
-        reflectionCamera.UseClipping=true; // Enable clipping of geometry behind water plane
-        reflectionCamera.SetClipPlaneAttr(waterClipPlane);
+        reflectionCamera.FarClip = 750.0f;
+        reflectionCamera.ViewMask= 0x7fffffff; // Hide objects with only bit 31 in the viewmask (the water plane)
+        reflectionCamera.AutoAspectRatio = false;
+        reflectionCamera.UseReflection = true;
+        reflectionCamera.SetReflectionPlane(waterPlane);
+        reflectionCamera.UseClipping = true; // Enable clipping of geometry behind water plane
+        reflectionCamera.SetClipPlane(waterClipPlane);
         // The water reflection texture is rectangular. Set reflection camera aspect ratio to match
-        reflectionCamera.AspectRatio =(float)graphics.Width / graphics.Height;
+        reflectionCamera.AspectRatio = (float)graphics.Width / graphics.Height;
         // View override flags could be used to optimize reflection rendering. For example disable shadows
-        //reflectionCamera.SetViewOverrideFlags(VO_DISABLE_SHADOWS);
+        //reflectionCamera.ViewOverrideFlags = ViewOverrideFlags.DisableShadows;
 
         // Create a texture and setup viewport for water reflection. Assign the reflection texture to the diffuse
         // texture unit of the water material
@@ -79,7 +77,6 @@ class _23_Water : Sample
     {
         var cache = ResourceCache;
         scene = new Scene(Context);
-
 
         // Create octree, use default volume (-1000, -1000, -1000) to (1000, 1000, 1000)
         scene.CreateComponent<Octree>();
@@ -136,8 +133,7 @@ class _23_Water : Sample
             position.Y = terrain.GetHeight(position) + 2.25f;
             objectNode.Position = position;
             // Create a rotation quaternion from up vector to terrain normal
-#warning MONO CRASHES HERE ON terrain.GetNormal(position) call:
-            //objectNode.Rotation = Quaternion.FromRotationTo(new Vector3(0.0f, 1.0f, 0.0f), terrain.GetNormal(position));
+            objectNode.Rotation = Quaternion.FromRotationTo(new Vector3(0.0f, 1.0f, 0.0f), terrain.GetNormal(position));
             objectNode.SetScale(5.0f);
             var obj = objectNode.CreateComponent<StaticModel>();
             obj.Model = cache.GetModel("Models/Box.mdl");
@@ -158,7 +154,7 @@ class _23_Water : Sample
 
         // Create the camera. Limit far clip distance to match the fog
         CameraNode = new Node(Context);
-        camera = CameraNode.CreateComponent<Camera>();
+        var camera = CameraNode.CreateComponent<Camera>();
         camera.FarClip = 750.0f;
         // Set an initial position for the camera scene node above the plane
         CameraNode.Position = new Vector3(0.0f, 7.0f, -20.0f);
