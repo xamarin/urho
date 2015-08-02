@@ -39,7 +39,7 @@ private:
 };
 
 extern "C" {
-void *
+DllExport void *
 ApplicationProxy_ApplicationProxy (Urho3D::Context *context, callback_t setup, callback_t start, callback_t stop);
 
 }

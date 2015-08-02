@@ -81,7 +81,7 @@ print CS "// Hash Getters\n";
 print CS "internal class UrhoHash {\n";
 foreach $pc (keys %hashgetters){
     $en = $hashgetters{$pc};
-    print CPP "int urho_hash_get_$pc ()\n{\n";
+    print CPP "DllExport int urho_hash_get_$pc ()\n{\n";
     print CPP "\treturn Urho3D::$en::$pc.Value ();\n}\n\n";
     print CS "        [DllImport(\"mono-urho\")]\n";
     print CS "        extern static int urho_hash_get_$pc ();\n";
