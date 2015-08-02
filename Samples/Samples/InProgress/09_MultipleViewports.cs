@@ -62,7 +62,7 @@ class _09_MultipleViewports : Sample
         // for example with the effect name to allow easy toggling on and off. We start with the effects
         // disabled.
         var cache = ResourceCache;
-        RenderPath effectRenderPath = viewport.RenderPath;//Clone??
+        RenderPath effectRenderPath = viewport.RenderPath.Clone();
         effectRenderPath.Append(cache.GetXmlFile("PostProcess/Bloom.xml"));
         effectRenderPath.Append(cache.GetXmlFile("PostProcess/FXAA2.xml"));
         // Make the bloom mixing parameter more pronounced
