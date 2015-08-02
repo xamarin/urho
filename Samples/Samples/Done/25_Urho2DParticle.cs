@@ -13,26 +13,19 @@ class _25_Urho2DParticle : Sample
         base.Start();
         CreateScene();
         Input.SetMouseVisible(true, false);
-        SimpleCreateInstructions("Space to toggle debug geometry");
+        SimpleCreateInstructions("Use mouse/touch to move the particle.");
         SetupViewport();
         SubscribeToEvents();
     }
 
     private void SubscribeToEvents()
     {
-        SubscribeToMouseMove(args =>
-            {
-                HandleMouseMove(args.X, args.Y);
-            });
+        SubscribeToMouseMove(args => HandleMouseMove(args.X, args.Y));
 
         if (TouchEnabled)
-            SubscribeToTouchMove(args =>
-            {
-                HandleMouseMove(args.X, args.Y);
-            });
+            SubscribeToTouchMove(args => HandleMouseMove(args.X, args.Y));
 
-#warning MISSIN_API 
-        //UnsubscribeFromEvent(E_SCENEUPDATE); //is it   new StringHash("E_SCENEUPDATE") ?
+        SceneUpdateEventToken.Unsubscribe();
     }
 
     private void HandleMouseMove(int x, int y)

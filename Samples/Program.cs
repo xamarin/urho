@@ -7,13 +7,13 @@ class Program {
 
     static void Main()
     {
-        Environment.CurrentDirectory = "/cvs/Urho3D/bin";
+        Environment.CurrentDirectory = @"C:\Projects\UrhoGen\bin";
 
         var c = new Context();
         Sample sample = null;
 
         //sample = new _02_HelloGUI(c);
-        sample = new _20_HugeObjectCount(c);
+        sample = new _25_Urho2DParticle(c);
         //sample = AskUserForSampleNumber(c);
 
         var code = sample.Run();
