@@ -17,7 +17,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <ConsolePause>false</ConsolePause>
     <EnvironmentVariables>
       <EnvironmentVariables>
@@ -77,8 +77,8 @@
     <Compile Include="Samples\Done\05_AnimatingScene.cs" />
     <Compile Include="Samples\Done\01_HelloWorld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sample-lib.cs" />
-    <Compile Include="sample.cs" />
+    <Compile Include="Sample.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Samples\Done\06_SkeletalAnimation.cs" />
     <Compile Include="Samples\Done\04_StaticScene.cs" />
   </ItemGroup>
