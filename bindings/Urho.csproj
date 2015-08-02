@@ -299,11 +299,14 @@
     <Compile Include="src\Collision.cs" />
     <Compile Include="src\Component.cs" />
     <Compile Include="src\Connection.cs" />
+    <Compile Include="src\Controls.cs" />
     <Compile Include="src\Enums.cs" />
     <Compile Include="src\Input.cs" />
     <Compile Include="src\Log.cs" />
     <Compile Include="src\IndexBufer.cs" />
+    <Compile Include="src\Model.cs" />
     <Compile Include="src\Network.cs" />
+    <Compile Include="src\RenderPath.cs" />
     <Compile Include="src\Skeleton.cs" />
     <Compile Include="src\Node.cs" />
     <Compile Include="src\Object.cs" />
