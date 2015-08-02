@@ -156,8 +156,7 @@ class _34_DynamicGeometry : Sample
                 Node node = scene.CreateChild("Object");
                 node.Position = (new Vector3(x * 2.0f, 0.0f, y * 2.0f));
                 StaticModel sm = node.CreateComponent<StaticModel>();
-#warning MISSING_API Model::Clone
-                Model cloneModel = null;//originalModel.Clone();
+                Model cloneModel = originalModel.Clone();
                 sm.Model = (cloneModel);
                 // Store the cloned vertex buffer that we will modify when animating
                 animatingBuffers_.Add(cloneModel.GetGeometry(0, 0).GetVertexBuffer(0));
