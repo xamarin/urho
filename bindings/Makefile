@@ -271,6 +271,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Enums.cs			\
 	src/Input.cs			\
 	src/Log.cs			\
+	src/Model.cs			\
 	src/Network.cs			\
 	src/Node.cs			\
 	src/Object.cs			\

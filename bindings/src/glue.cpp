@@ -212,7 +212,17 @@ extern "C" {
 		auto copy = p->Clone ();
 		auto plain = copy.Get ();
 		copy.Detach ();
-		delete plain;
+		delete copy;
+		return plain;
+	}
+	
+	DllExport Model *
+	Model_Clone (Model *m)
+	{
+		auto copy = m->Clone ();
+		auto plain = copy.Get ();
+		copy.Detach ();
+		delete copy;
 		return plain;
 	}
 	       
