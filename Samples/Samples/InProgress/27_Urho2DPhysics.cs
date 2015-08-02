@@ -19,24 +19,38 @@ class _27_Urho2DPhysics : Sample
 
     private void SubscribeToEvents()
     {
-        var updateEventToken = SubscribeToUpdate(args =>
+        SubscribeToUpdate(args =>
             {
-                SimpleMoveCamera(args.TimeStep, false, 4f);
+                var timeStep = args.TimeStep;
+                const float cameraMoveSpeed = 4f;
 
-                if (Input.GetKeyDown(Key.PageUp))
+                if (UI.FocusElement != null)
+                    return;
+                var input = Input;
+
+                if (input.GetKeyDown(Key.W))
+                    CameraNode.Translate(new Vector3(0, 1, 0) * cameraMoveSpeed * timeStep, TransformSpace.TS_LOCAL);
+                if (input.GetKeyDown(Key.S))
+                    CameraNode.Translate(new Vector3(0, -1, 0) * cameraMoveSpeed * timeStep, TransformSpace.TS_LOCAL);
+                if (input.GetKeyDown(Key.A))
+                    CameraNode.Translate(new Vector3(-1, 0, 0) * cameraMoveSpeed * timeStep, TransformSpace.TS_LOCAL);
+                if (input.GetKeyDown(Key.D))
+                    CameraNode.Translate(new Vector3(1, 0, 0) * cameraMoveSpeed * timeStep, TransformSpace.TS_LOCAL);
+
+                if (input.GetKeyDown(Key.PageUp))
                 {
                     Camera camera = CameraNode.GetComponent<Camera>();
-                    camera.Zoom = (camera.Zoom * 1.01f);
+                    camera.Zoom = camera.Zoom * 1.01f;
                 }
 
-                if (Input.GetKeyDown(Key.PageDown))
+                if (input.GetKeyDown(Key.PageDown))
                 {
                     Camera camera = CameraNode.GetComponent<Camera>();
-                    camera.Zoom = (camera.Zoom * 0.99f);
+                    camera.Zoom = camera.Zoom * 0.99f;
                 }
             });
-
-        updateEventToken.Unsubscribe();
+        
+        SceneUpdateEventToken.Unsubscribe();
     }
 
     private void SetupViewport()
@@ -63,7 +77,6 @@ class _27_Urho2DPhysics : Sample
         camera.Zoom = 1.2f * Math.Min((float)graphics.Width / 1280.0f, (float)graphics.Height / 800.0f); // Set zoom according to user's resolution to ensure full visibility (initial zoom (1.2) is set for full visibility at 1280x800 resolution)
 
         // Create 2D physics world component
-        /*PhysicsWorld2D* physicsWorld = */
         scene.CreateComponent<PhysicsWorld2D>();
 
         var cache = ResourceCache;
@@ -96,7 +109,7 @@ class _27_Urho2DPhysics : Sample
 
             // Create rigid body
             RigidBody2D body = node.CreateComponent<RigidBody2D>();
-            body.BodyType= BodyType2D.BT_DYNAMIC;
+            body.BodyType = BodyType2D.BT_DYNAMIC; //https://github.com/xamarin/urho/issues/49
 
             StaticSprite2D staticSprite = node.CreateComponent<StaticSprite2D>();
 

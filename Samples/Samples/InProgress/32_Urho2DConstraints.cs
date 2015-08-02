@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using Urho;
 
 class _32_Urho2DConstraints : Sample
@@ -12,6 +8,12 @@ class _32_Urho2DConstraints : Sample
     private Camera camera;
     private RigidBody2D dummyBody;
     private Node pickedNode;
+    private Subscription mouseDownEventToken;
+    private Subscription touchBeginEventToken;
+    private Subscription touchMoveEventToken;
+    private Subscription touchEndEventToken;
+    private Subscription mouseMoveEventToken;
+    private Subscription mouseButtonUpToken;
 
     public _32_Urho2DConstraints(Context ctx) : base(ctx) { }
 
@@ -60,15 +62,16 @@ class _32_Urho2DConstraints : Sample
                     scene.GetComponent<PhysicsWorld2D>().DrawDebugGeometry();
             });
 
-        SubscribeToMouseButtonDown(HandleMouseButtonDown);
+        mouseDownEventToken = SubscribeToMouseButtonDown(HandleMouseButtonDown);
 
 
         // Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
-#warning MISSIN_API E_SCENEUPDATE
-        //UnsubscribeFromEvent(E_SCENEUPDATE);
+        SceneUpdateEventToken.Unsubscribe();
 
         if (TouchEnabled)
-            SubscribeToTouchBegin(HandleTouchBegin3);
+        {
+            touchBeginEventToken = SubscribeToTouchBegin(HandleTouchBegin3);
+        }
     }
 
     private void HandleTouchBegin3(TouchBeginEventArgs args)
@@ -93,8 +96,8 @@ class _32_Urho2DConstraints : Sample
             constraintMouse.DampingRatio=0;
         }
 
-        SubscribeToTouchMove(HandleTouchMove3);
-        SubscribeToTouchEnd(HandleTouchEnd3);
+        touchMoveEventToken = SubscribeToTouchMove(HandleTouchMove3);
+        touchEndEventToken = SubscribeToTouchEnd(HandleTouchEnd3);
     }
 
     private void HandleTouchEnd3(TouchEndEventArgs args)
@@ -107,10 +110,8 @@ class _32_Urho2DConstraints : Sample
             pickedNode = null;
         }
 
-
-#warning MISSIN_API E_TOUCHMOVE, E_TOUCHEND
-        //UnsubscribeFromEvent(E_TOUCHMOVE);
-        //UnsubscribeFromEvent(E_TOUCHEND);
+        touchMoveEventToken?.Unsubscribe();
+        touchEndEventToken?.Unsubscribe();
     }
 
     private void HandleTouchMove3(TouchMoveEventArgs args)
@@ -126,12 +127,9 @@ class _32_Urho2DConstraints : Sample
 
     private void HandleMouseButtonDown(MouseButtonDownEventArgs args)
     {
-#warning MISSIN_API constant
-        const uint M_MAX_UNSIGNED = 0xffffffff;
-
         Input input = Input;
         PhysicsWorld2D physicsWorld = scene.GetComponent<PhysicsWorld2D>();
-        RigidBody2D rigidBody = physicsWorld.GetRigidBody(input.MousePosition.X, input.MousePosition.Y, M_MAX_UNSIGNED); // Raycast for RigidBody2Ds to pick
+        RigidBody2D rigidBody = physicsWorld.GetRigidBody(input.MousePosition.X, input.MousePosition.Y, uint.MaxValue); // Raycast for RigidBody2Ds to pick
         if (rigidBody != null)
         {
             pickedNode = rigidBody.Node;
@@ -148,8 +146,8 @@ class _32_Urho2DConstraints : Sample
             constraintMouse.DampingRatio=0.0f;
         }
 
-        SubscribeToMouseMove(HandleMouseMove);
-        SubscribeToMouseButtonUp(HandleMouseButtonUp);
+        mouseMoveEventToken = SubscribeToMouseMove(HandleMouseMove);
+        mouseButtonUpToken = SubscribeToMouseButtonUp(HandleMouseButtonUp);
     }
 
     private Vector2 GetMousePositionXY()
@@ -182,9 +180,8 @@ class _32_Urho2DConstraints : Sample
             pickedNode = null;
         }
 
-#warning MISSING_API E_MOUSEMOVE, E_MOUSEBUTTONUP
-        //UnsubscribeFromEvent(E_MOUSEMOVE);
-        //UnsubscribeFromEvent(E_MOUSEBUTTONUP);
+        mouseMoveEventToken?.Unsubscribe();
+        mouseButtonUpToken?.Unsubscribe();
     }
 
     private void SetupViewport()
@@ -211,10 +208,7 @@ class _32_Urho2DConstraints : Sample
         camera.SetOrthographic(true);
 
         var graphics = Graphics;
-
-#warning MISSIN_API //constant
-    const float PIXEL_SIZE = 0.01f;
-
+        
         camera.OrthoSize=(float)graphics.Height * PIXEL_SIZE;
         camera.Zoom=1.2f * Math.Min((float)graphics.Width / 1280.0f, (float)graphics.Height / 800.0f); // Set zoom according to user's resolution to ensure full visibility (initial zoom (1.2) is set for full visibility at 1280x800 resolution)
 
@@ -289,7 +283,6 @@ class _32_Urho2DConstraints : Sample
         RigidBody2D polygonBody = polygon.CreateComponent<RigidBody2D>();
         polygonBody.BodyType= BodyType2D.BT_DYNAMIC;
         CollisionPolygon2D polygonShape = polygon.CreateComponent<CollisionPolygon2D>();
-        // TODO: create from PODVector<Vector2> using SetVertices()
         polygonShape.VertexCount=6; // Set number of vertices (mandatory when using SetVertex())
         polygonShape.SetVertex(0, new Vector2(-0.8f, -0.3f));
         polygonShape.SetVertex(1, new Vector2(0.5f, -0.8f));
@@ -326,10 +319,6 @@ class _32_Urho2DConstraints : Sample
 
         ConstraintFriction2D constraintFriction = boxFrictionNode.CreateComponent<ConstraintFriction2D>(); // Apply ConstraintDistance2D to box
         constraintFriction.OtherBody=ballFrictionNode.GetComponent<RigidBody2D>(); // Constraint ball to box
-        //constraintFriction.SetOwnerBodyAnchor(boxNode.GetPosition2D());
-        //constraintFriction.SetOtherBodyAnchor(ballNode.GetPosition2D());
-        //constraintFriction.SetMaxForce(10.0f); // ballBody.mass * gravity
-        //constraintDistance.SetMaxTorque(10.0f); // ballBody.mass * radius * gravity
 
         // Create a ConstraintGear2D
         CreateFlag("ConstraintGear2D", -4.97f, -1.0f); // Display Text3D flag
@@ -519,5 +508,4 @@ class _32_Urho2DConstraints : Sample
         var cache = ResourceCache;
         flag3D.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
     }
-
 }
