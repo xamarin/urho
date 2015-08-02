@@ -143,7 +143,7 @@ class _13_Ragdolls : Sample
                 shape.SetCapsule(0.7f, 2.0f, new Vector3(0.0f, 1.0f, 0.0f), Quaternion.Identity);
 
                 // Create a custom component that reacts to collisions and creates the ragdoll
-                modelNode.CreateComponent<CreateRagdoll>();
+                modelNode.AddComponent(new CreateRagdoll(Context));
             }
         }
     

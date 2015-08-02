@@ -88,8 +88,7 @@ class _17_SceneReplication : Sample
         // Create octree and physics world with default settings. Create them as local so that they are not needlessly replicated
         // when a client connects
         scene.CreateComponent<Octree>(CreateMode.LOCAL);
-#warning MISSING_API
-        ////scene.CreateComponent<PhysicsWorld>(CreateMode.LOCAL);
+        scene.CreateComponent<PhysicsWorld>(CreateMode.LOCAL);
 
         // All static scene content and the camera are also created as local, so that they are unaffected by scene replication and are
         // not removed from the client upon connection. Create a Zone component first for ambient lighting & fog control.
@@ -120,11 +119,10 @@ class _17_SceneReplication : Sample
                 floorObject.Model = (cache.GetModel("Models/Box.mdl"));
                 floorObject.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
 
-#warning MISSING_API
-                ////RigidBody body = floorNode.CreateComponent<RigidBody>();
-                ////body.Friction = 1.0f;
-                ////CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
-                ////shape.SetBox(Vector3.One);
+                RigidBody body = floorNode.CreateComponent<RigidBody>();
+                body.Friction = 1.0f;
+                CollisionShape shape = floorNode.CreateComponent<CollisionShape>();
+                shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
             }
         }
 
@@ -232,16 +230,15 @@ class _17_SceneReplication : Sample
         ballObject.Model = (cache.GetModel("Models/Sphere.mdl"));
         ballObject.SetMaterial(cache.GetMaterial("Materials/StoneSmall.xml"));
 
-#warning MISSING_API
         // Create the physics components
-        ////RigidBody body = ballNode.CreateComponent<RigidBody>();
-        ////body.SetMass(1.0f);
-        ////body.Friction = (1.0f);
-        ////// In addition to friction, use motion damping so that the ball can not accelerate limitlessly
-        ////body.SetLinearDamping(0.5f);
-        ////body.SetAngularDamping(0.5f);
-        ////CollisionShape shape = ballNode.CreateComponent<CollisionShape>();
-        ////shape.SetSphere(1.0f);
+        RigidBody body = ballNode.CreateComponent<RigidBody>();
+        body.Mass = 1.0f;
+        body.Friction = (1.0f);
+        // In addition to friction, use motion damping so that the ball can not accelerate limitlessly
+        body.LinearDamping = 0.5f;
+        body.AngularDamping = 0.5f;
+        CollisionShape shape = ballNode.CreateComponent<CollisionShape>();
+        shape.SetSphere(1.0f, Vector3.Zero, Quaternion.Identity);
 
         // Create a random colored point light at the ball so that can see better where is going
         Light light = ballNode.CreateComponent<Light>();
