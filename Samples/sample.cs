@@ -23,8 +23,12 @@ public class Sample : Application {
 	protected bool TouchEnabled;
 	protected Node CameraNode;
 	protected Sprite LogoSprite;
-		
-	ResourceCache cache;
+    protected Subscription KeyDownEventToken;
+    protected Subscription SceneUpdateEventToken;
+
+    UrhoConsole console;
+    DebugHud debugHud;
+    ResourceCache cache;
 	UI ui;
 
 #warning MISSING_API Missing enum for UpdateEventMask
@@ -106,10 +110,8 @@ public class Sample : Application {
 		Graphics.WindowTitle = "Mono Urho3D Sample";
 	}
 
-	UrhoConsole console;
-	DebugHud debugHud;
-	
-	void CreateConsoleAndDebugHud ()
+
+    void CreateConsoleAndDebugHud ()
 	{
 		var xml = cache.GetXmlFile ("UI/DefaultStyle.xml");
 		console = Engine.CreateConsole ();
@@ -271,8 +273,8 @@ public class Sample : Application {
 		CreateLogo ();
 		SetWindowAndTitleIcon ();
 		CreateConsoleAndDebugHud ();
-		SubscribeToKeyDown (HandleKeyDown);
-		SubscribeToSceneUpdate (HandleSceneUpdate);
+		KeyDownEventToken = SubscribeToKeyDown (HandleKeyDown);
+		SceneUpdateEventToken = SubscribeToSceneUpdate (HandleSceneUpdate);
 	}
 
 	protected void SimpleMoveCamera (float timeStep, bool withMouse = true, float moveSpeed = 20f, bool moveIfCursorHiddenOnly = false)
