@@ -182,7 +182,30 @@ extern "C" {
 		return _target->IsDown (button);
 	}
 	
-		
+	DllExport const Controls *
+	Connection_GetControls (Connection *conn)
+	{
+		return &conn->GetControls ();
+	}
+
+	DllExport void
+	Connection_SetControls (Connection *conn, Controls *ctl)
+	{
+		conn->SetControls (*ctl);
+	}
+
+	DllExport Controls *
+	Controls_Create ()
+	{
+		return new Controls ();
+	}
+
+	DllExport void
+	Controls_Destroy (Controls *controls)
+	{
+		delete controls;
+	}
+	
 	//
 	// returns: null on no matches
 	// otherwise, a pointer that should be released with free() that

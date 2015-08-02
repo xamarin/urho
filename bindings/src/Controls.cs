@@ -3,15 +3,42 @@ using System.Runtime.InteropServices;
 
 namespace Urho {
 	public partial class Controls {
+		// If null, we own the unmanaged value
+		// This is not-null when this is created from a pointer to another object, so we use this to keep the other object alive.
 		Connection connection;
-		IntPtr handle;
+		internal IntPtr handle;
 
 		internal Controls (Connection connection, IntPtr handle)
 		{
 			this.connection = connection;
 			this.handle = handle;
 		}
+
+		public Controls ()
+		{
+			handle = Controls_Create ();
+			connection = null;
+		}
+
+		static void ReleaseControl (IntPtr h)
+		{
+			Application.InvokeOnMain (delegate { Controls_Destroy (h); });
+		}
 		
+		~Controls ()
+		{
+			if (connection == null){
+				ReleaseControl (handle);
+				handle = IntPtr.Zero;
+			}
+		}
+		
+		[DllImport ("mono-urho")]
+		extern static void Controls_Destroy (IntPtr handle);
+		
+		[DllImport ("mono-urho")]
+		extern static IntPtr Controls_Create ();
+
 		[DllImport ("mono-urho")]
 		extern static uint Controls_GetButtons (IntPtr handle);
 

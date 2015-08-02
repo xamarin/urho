@@ -4,11 +4,14 @@
 // This is done by using an ApplicationProxy in C++ that bubbles up
 //
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace Urho {
 	
 	public partial class Application {
+		static object invokerLock;
+		static List<Action> invokeOnMain = new List<Action> ();
 		public delegate void ActionIntPtr (IntPtr value);
 		
 		[DllImport ("mono-urho")]
@@ -26,6 +29,25 @@ namespace Urho {
 			Runtime.RegisterObject (this);
 		}
 
+		static public void InvokeOnMain (Action action)
+		{
+			lock (invokerLock)
+				invokeOnMain.Add (action);
+		}
+
+		void RunOnMainThread ()
+		{
+			lock (invokerLock){
+				var count = invokeOnMain.Count;
+				if (count > 0){
+					foreach (var a in invokeOnMain)
+						a ();
+					invokeOnMain.Clear ();
+				}
+					
+			}
+		}
+		
 		public Application (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
