@@ -20,7 +20,7 @@ namespace Urho {
 	}
 	
 	public partial class UserComponent  {
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, Action<IntPtr> setup, Action<IntPtr> start, Action<IntPtr> stop);
 
 		public Application (Context context) : base (UrhoObjectFlag.Empty)

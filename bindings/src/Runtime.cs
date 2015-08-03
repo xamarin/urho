@@ -87,7 +87,7 @@ namespace Urho {
 			return hash;
 		}
 
-		[DllImport ("mono-urho", EntryPoint="Urho_GetPlatform")]
+		[DllImport ("mono-urho", EntryPoint="Urho_GetPlatform", CallingConvention=CallingConvention.Cdecl)]
 		extern static string GetPlatform();
 
 		static string platform;
@@ -106,13 +106,13 @@ namespace Urho {
 	}
 
 	internal static class Vectors {
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		internal extern static int VectorSharedPtr_Count (IntPtr h);
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		internal extern static IntPtr VectorSharedPtr_GetIdx (IntPtr h, int idx);
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		internal extern static void VectorSharedPtr_SetIdx (IntPtr h, int idx, IntPtr v);
 		
 	
@@ -206,7 +206,7 @@ namespace Urho {
 			gch = GCHandle.Alloc (proxy);
 		}
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static void urho_unsubscribe (IntPtr notificationProxy);
 		
 		public void Unsubscribe ()

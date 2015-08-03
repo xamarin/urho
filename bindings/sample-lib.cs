@@ -11,10 +11,10 @@ using Urho;
 using System;
 
 public class Sample : Application {
-	[DllImport ("mono-urho")]
+	[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 	extern static void check (IntPtr p);
 
-	[DllImport ("mono-urho")]
+	[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 	extern static void check2 (ref Vector3 p);
 
 	const float TouchSensitivity = 2;
@@ -208,10 +208,10 @@ public class Sample : Application {
 	[StructLayout(LayoutKind.Sequential)]
 	struct Vector3i { public int X, Y, Z; }
 	
-	[DllImport ("mono-urho")]
+	[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 	extern unsafe static Vector3i getVector3 ();
 
-	[DllImport ("mono-urho")]
+	[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 	public extern unsafe static IntVector2 Test2 (IntPtr handle);
 
 	unsafe void Test ()

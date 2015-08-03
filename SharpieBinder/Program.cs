@@ -24,8 +24,6 @@ namespace SharpieBinder
 				//args = new String[] { "/Users/miguel/Dropbox/UrhoBindings/test.pch" };
 			}
 
-
-			Console.WriteLine ("here2");
 			var reader = new AstReader ();
 			var binder = new CxxBinder(output);
 			var lookup = new ScanBaseTypes ();

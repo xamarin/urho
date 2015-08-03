@@ -20,7 +20,7 @@ namespace Urho {
 
 	public partial class AnimatedModel {
 		
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr AnimatedModel_GetSkeleton (IntPtr handle);
 		
 		public Skeleton Skeleton {

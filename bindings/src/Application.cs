@@ -14,7 +14,7 @@ namespace Urho {
 		static List<Action> invokeOnMain = new List<Action> ();
 		public delegate void ActionIntPtr (IntPtr value);
 		
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop);
 
 		//
@@ -212,7 +212,7 @@ namespace Urho {
 			}
 		}
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr Application_GetEngine (IntPtr handle);
 		Engine engine;
 		public Engine Engine {

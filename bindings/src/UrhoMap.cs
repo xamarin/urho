@@ -6,7 +6,7 @@ namespace Urho {
 	//
 
 	internal static class UrhoMap  {
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr urho_map_get_ptr (IntPtr handle, int stringHash);
 		static public IntPtr get_Buffer (IntPtr handle, int stringHash)
 		{
@@ -103,7 +103,7 @@ namespace Urho {
 			throw new Exception ("Not implemented, as we need to figure out serializable mapping");
 		}
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr urho_map_get_buffer (IntPtr handle, int stringHash, out IntPtr buffer, out int size);
 		static public CollisionData [] get_CollisionData (IntPtr handle, int stringHash)
 		{
@@ -113,14 +113,14 @@ namespace Urho {
 			return CollisionData.FromContactData (buffer, size);
 		}
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static String urho_map_get_String (IntPtr handle, int stringHash);
 		static public String get_String (IntPtr handle, int stringHash)
 		{
 			return urho_map_get_String (handle, stringHash);
 		}
 		
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static int urho_map_get_StringHash (IntPtr handle, int stringHash);
 		static public StringHash get_StringHash (IntPtr handle, int stringHash)
 		{
@@ -132,14 +132,14 @@ namespace Urho {
 			return new Texture (urho_map_get_ptr (handle, stringHash));
 		}
 	
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static Variant urho_map_get_Variant (IntPtr handle, int stringHash);
 		static public Variant get_Variant (IntPtr handle, int stringHash)
 		{
 			return urho_map_get_Variant (handle, stringHash);
 		}
 		
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static Vector3 urho_map_get_Vector3 (IntPtr handle, int stringHash);
 		static public Vector3 get_Vector3 (IntPtr handle, int stringHash)
 		{
@@ -161,28 +161,28 @@ namespace Urho {
 			return new WorkItem (urho_map_get_ptr (handle, stringHash));
 		}
 		
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static bool urho_map_get_bool (IntPtr handle, int stringHash);
 		static public bool get_bool (IntPtr handle, int stringHash)
 		{
 			return urho_map_get_bool (handle, stringHash);
 		}
 		
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static float urho_map_get_float (IntPtr handle, int stringHash);
 		static public float get_float (IntPtr handle, int stringHash)
 		{
 			return urho_map_get_float (handle, stringHash);
 		}
 		
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static int urho_map_get_int (IntPtr handle, int stringHash);
 		static public int get_int (IntPtr handle, int stringHash)
 		{
 			return urho_map_get_int (handle, stringHash);
 		}
 		
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static uint urho_map_get_uint (IntPtr handle, int stringHash);
 		static public uint get_uint (IntPtr handle, int stringHash)
 		{

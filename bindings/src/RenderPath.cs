@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Urho {
 	public partial class RenderPath {
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr RenderPath_Clone (IntPtr handle);
 		
 		public RenderPath Clone ()

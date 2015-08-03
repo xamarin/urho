@@ -160,7 +160,7 @@ namespace Urho {
 		public float Pressure;
 		private WeakPtr _TouchedElement;
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr TouchState_GetTouchedElement (ref TouchState state);
 		
 		public UIElement TouchedElement ()

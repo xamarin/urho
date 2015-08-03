@@ -26,10 +26,10 @@ namespace Urho {
 			return $"[CollisionData: Position={ContactPosition}, Normal={ContactNormal}, Distance={ContactDistance}, Impuse={ContactImpulse}";
 		}
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static int MemoryStream_Size (IntPtr data);
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static int MemoryStream_GetData (IntPtr data);
 		
 		internal static CollisionData [] FromContactData (IntPtr data, int size)

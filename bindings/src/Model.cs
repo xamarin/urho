@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Urho {
 	public partial class Model {
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr Model_Clone (IntPtr handle);
 		
 		public Model Clone ()

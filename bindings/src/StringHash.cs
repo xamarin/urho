@@ -16,7 +16,7 @@ namespace Urho {
 			this.Code = urho_stringhash_from_string (str);
 		}
 
-		[DllImport ("mono-urho")]
+		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static int urho_stringhash_from_string (string str);
 		
 		public override string ToString ()

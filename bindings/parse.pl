@@ -61,7 +61,7 @@ while (<>){
 	    if (/}/){
 		print CS "    }\n\n";
 		print CS "    public partial class UrhoObject {\n"; 
-		print CS "         [DllImport(\"mono-urho\")]\n";
+		print CS "         [DllImport(\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]\n";
 		print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
                 print CS "         public Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
 		print CS "         {\n";
@@ -83,7 +83,7 @@ foreach $pc (keys %hashgetters){
     $en = $hashgetters{$pc};
     print CPP "DllExport int urho_hash_get_$pc ()\n{\n";
     print CPP "\treturn Urho3D::$en::$pc.Value ();\n}\n\n";
-    print CS "        [DllImport(\"mono-urho\")]\n";
+    print CS "        [DllImport(\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]\n";
     print CS "        extern static int urho_hash_get_$pc ();\n";
     print CS "        static int _$pc;\n";
     print CS "        internal static int $pc { get { if (_$pc == 0){ _$pc = urho_hash_get_$pc (); } return _$pc; }}\n\n";
