@@ -917,7 +917,7 @@ namespace SharpieBinder
 				break;
 			case "const class Urho3D::String &":
 				creturnType = "const char *";
-				marshalReturn = "({0}).CString ()";
+				marshalReturn = "strdup(({0}).CString ())"; //TODO: check if it adds an overhead
 				break;
 			case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::Vector2 &":
