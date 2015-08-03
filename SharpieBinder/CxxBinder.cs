@@ -465,6 +465,7 @@ namespace SharpieBinder
 			case "const class Urho3D::Vector4 &":
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::Quaternion &":
+			case "const class Urho3D::Plane &":
 			case "const class Urho3D::BoundingBox &":
 			case "const struct Urho3D::BiasParameters &":
 			case "const struct Urho3D::CascadeParameters &":
@@ -603,6 +604,7 @@ namespace SharpieBinder
 			case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::Vector4 &":
 			case "const class Urho3D::Quaternion &":
+			case "const class Urho3D::Plane &":
 			case "const class Urho3D::BoundingBox &":
 			case "const class Urho3D::Color &":
 			case "const class Urho3D::IntVector2 &":
@@ -922,6 +924,7 @@ namespace SharpieBinder
 			case "const class Urho3D::Vector4 &":
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::Quaternion &":
+			case "const class Urho3D::Plane &":
 			case "const class Urho3D::BoundingBox &":
 			case "const class Urho3D::Color &":
 				creturnType = "Interop" + creturnType.Substring (18, creturnType.Length - 19);
