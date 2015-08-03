@@ -36,5 +36,10 @@ namespace Interop {
 		Vector3 min, max;
 		bool defined;
 	};
+
+	struct Plane {
+		Vector3 normal, absNormal;
+		float d;
+	};
 }
 #endif
