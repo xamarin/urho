@@ -1,9 +1,8 @@
-using System;
 using Urho;
 
 class _05_AnimatingScene : Sample {
     Scene scene;
-    Camera camera;
+
     public _05_AnimatingScene (Context c) : base (c) {}
 
     class Rotator : Component
@@ -15,7 +14,7 @@ class _05_AnimatingScene : Sample {
 
         public Vector3 RotationSpeed { get; set; }
 
-        void SceneUpdate (SceneUpdateEventArgs args)
+        public void SceneUpdate(SceneUpdateEventArgs args)
         {
             Node.Rotate (new Quaternion (
                 RotationSpeed.X * args.TimeStep,
@@ -47,13 +46,12 @@ class _05_AnimatingScene : Sample {
         zone.FogStart = 10;
         zone.FogEnd = 100;
     
-        var NUM_OBJECTS = 2000;
-        for (var i = 0; i < NUM_OBJECTS; ++i){
+        const int numObjects = 2000;
+        for (var i = 0; i < numObjects; ++i){
             Node boxNode = scene.CreateChild("Box");
-            boxNode.Position = new Vector3(NextRandom (), NextRandom (), NextRandom ());
-            System.Console.WriteLine ("At {0}", boxNode.Position);
+            boxNode.Position = new Vector3(NextRandom (200f) - 100f, NextRandom (200f) - 100f, NextRandom (200f) - 100f);
             // Orient using random pitch, yaw and roll Euler angles
-            boxNode.Rotation = new Quaternion(NextRandom(0, 360.0f), NextRandom(0,360.0f), NextRandom(0,360.0f));
+            boxNode.Rotation = new Quaternion(NextRandom(360.0f), NextRandom(360.0f), NextRandom(360.0f));
             var boxObject = boxNode.CreateComponent<StaticModel>();
             boxObject.Model = cache.GetModel("Models/Box.mdl");
             boxObject.SetMaterial (cache.GetMaterial("Materials/Stone.xml"));
@@ -65,13 +63,14 @@ class _05_AnimatingScene : Sample {
             // Now we simply set same rotation speed for all objects
 
             var rotationSpeed = new Vector3(10.0f, 20.0f, 30.0f);
-#if true
+#if !true
             // First style: use a Rotator instance, which is a component subclass, and
             // add it to the boxNode.
             var rotator = new Rotator (Context) {
                 RotationSpeed = rotationSpeed
             };
             boxNode.AddComponent (rotator);
+            rotators.Add(rotator);
 #else
     //
     // Or directly, hook up to an existing object and attach some code via a
@@ -88,7 +87,7 @@ class _05_AnimatingScene : Sample {
         // Create the camera. Let the starting position be at the world origin. As the fog limits maximum visible distance, we can
         // bring the far clip plane closer for more effective culling of distant objects
         CameraNode = scene.CreateChild("Camera");
-        camera = CameraNode.CreateComponent<Camera>();
+        var camera = CameraNode.CreateComponent<Camera>();
         camera.FarClip = 100.0f;
     
         // Create a point light to the camera scene node
@@ -101,7 +100,7 @@ class _05_AnimatingScene : Sample {
     void SetupViewport ()
     {
         var renderer = Renderer;
-        renderer.SetViewport (0, new Viewport (Context, scene, camera, null));
+        renderer.SetViewport (0, new Viewport (Context, scene, CameraNode.GetComponent<Camera>(), null));
     }
 
     public override void Start ()
@@ -110,7 +109,6 @@ class _05_AnimatingScene : Sample {
         CreateScene ();
         SimpleCreateInstructionsWithWASD ();
         SetupViewport ();
-        SubscribeToUpdate (args => SimpleMoveCamera3D (args.TimeStep));
+        SubscribeToUpdate (args => SimpleMoveCamera3D(args.TimeStep));
     }
-
 }

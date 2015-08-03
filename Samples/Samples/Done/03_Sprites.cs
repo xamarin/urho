@@ -18,10 +18,7 @@ class _03_Sprites : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args =>
-            {
-                MoveSprites(args.TimeStep);
-            });
+        SubscribeToUpdate(args => MoveSprites(args.TimeStep));
     }
 
     private void CreateSprites()
@@ -40,7 +37,7 @@ class _03_Sprites : Sample
             sprite.Texture=decalTex;
 
             // The UI root element is as big as the rendering window, set random position within it
-            sprite.Position=new IntVector2((int)NextRandom() * graphics.Width, (int)NextRandom() * graphics.Height);
+            sprite.Position=new IntVector2((int)(NextRandom() * graphics.Width), (int)(NextRandom() * graphics.Height));
 
             // Set sprite size & hotspot in its center
             sprite.Size=new IntVector2(128, 128);

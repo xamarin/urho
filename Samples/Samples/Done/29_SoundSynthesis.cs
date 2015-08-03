@@ -61,7 +61,7 @@ class _29_SoundSynthesis : Sample
 
         // Construct new Text object, set string to display and font to use
         instructionText = new Text(Context);
-        instructionText.Value = ("Use cursor up and down to control sound filtering");
+        instructionText.Value = ("Use arrow up and down to control sound filtering");
         instructionText.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
 
         // Position the text relative to the screen center
@@ -116,7 +116,7 @@ class _29_SoundSynthesis : Sample
         }
 
         // Queue buffer to the stream for playback
-        soundStream.AddData(newData, (int)numSamples * sizeof(short));
+        soundStream.AddData(newData, 0, newData.Length);
     }
 
     private float Lerp(float lhs, float rhs, float t) //TODO: move to MathHleper
