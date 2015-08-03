@@ -12,6 +12,8 @@ namespace Urho {
 	public partial class Application {
 		static object invokerLock;
 		static List<Action> invokeOnMain = new List<Action> ();
+
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
 		
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
