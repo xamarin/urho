@@ -17,26 +17,26 @@ public class Sample : Application {
 	[DllImport ("mono-urho")]
 	extern static void check2 (ref Vector3 p);
 
-    protected const float TouchSensitivity = 2;
+	protected const float TouchSensitivity = 2;
 
-    protected float Yaw, Pitch;
+	protected float Yaw, Pitch;
 	protected bool TouchEnabled;
 	protected Node CameraNode;
 	protected Sprite LogoSprite;
-    protected Subscription KeyDownEventToken;
-    protected Subscription SceneUpdateEventToken;
-
-    UrhoConsole console;
-    DebugHud debugHud;
-    ResourceCache cache;
+	protected Subscription KeyDownEventToken;
+	protected Subscription SceneUpdateEventToken;
+	
+	UrhoConsole console;
+	DebugHud debugHud;
+	ResourceCache cache;
 	UI ui;
-
+	
 #warning MISSING_API Missing enum for UpdateEventMask
-    public const byte USE_UPDATE = 0x1;
-    public const byte USE_POSTUPDATE = 0x2;
-    public const byte USE_FIXEDUPDATE = 0x4;
-    public const byte USE_FIXEDPOSTUPDATE = 0x8;
-
+	public const byte USE_UPDATE = 0x1;
+	public const byte USE_POSTUPDATE = 0x2;
+	public const byte USE_FIXEDUPDATE = 0x4;
+	public const byte USE_FIXEDPOSTUPDATE = 0x8;
+	
 #warning MISSIN_API //constant
     public const float PIXEL_SIZE = 0.01f;
 
@@ -64,19 +64,19 @@ public class Sample : Application {
 		return v;
 	}
 
-    readonly Random random = new Random();
-    /// Return a random float between 0.0 (inclusive) and 1.0 (exclusive.)
-    public float NextRandom() { return (float)random.NextDouble(); }
-    /// Return a random float between 0.0 and range, inclusive from both ends.
-    public float NextRandom(float range) { return (float)random.NextDouble() * range; }
-    /// Return a random float between min and max, inclusive from both ends.
-    public float NextRandom(float min, float max) { return (float)((random.NextDouble() * (max - min)) + min); }
-    /// Return a random integer between 0 and range - 1.
-    public int NextRandom(int range) { return random.Next(0, 2); }
-    /// Return a random integer between min and max - 1.
-    public int NextRandom(int min, int max) { return random.Next(min, max); }
-
-    void CreateLogo ()
+	readonly Random random = new Random();
+	/// Return a random float between 0.0 (inclusive) and 1.0 (exclusive.)
+	public float NextRandom() { return (float)random.NextDouble(); }
+	/// Return a random float between 0.0 and range, inclusive from both ends.
+	public float NextRandom(float range) { return (float)random.NextDouble() * range; }
+	/// Return a random float between min and max, inclusive from both ends.
+	public float NextRandom(float min, float max) { return (float)((random.NextDouble() * (max - min)) + min); }
+	/// Return a random integer between 0 and range - 1.
+	public int NextRandom(int range) { return random.Next(0, 2); }
+	/// Return a random integer between min and max - 1.
+	public int NextRandom(int min, int max) { return random.Next(min, max); }
+	
+	void CreateLogo ()
 	{
 		cache = ResourceCache;
 		var logoTexture = cache.GetTexture2D ("Textures/LogoLarge.png");
@@ -97,12 +97,12 @@ public class Sample : Application {
 		LogoSprite.Priority = -100;
 	}
 
-    protected bool IsLogoVisible
-    {
-        get { return LogoSprite.IsVisible(); }
-        set { LogoSprite.SetVisible(value); }
-    }
-
+	protected bool IsLogoVisible
+	{
+		get { return LogoSprite.IsVisible(); }
+		set { LogoSprite.SetVisible(value); }
+	}
+	
 	void SetWindowAndTitleIcon ()
 	{
 		var icon = cache.GetImage ("Textures/UrhoIcon.png");
@@ -111,7 +111,7 @@ public class Sample : Application {
 	}
 
 
-    void CreateConsoleAndDebugHud ()
+	void CreateConsoleAndDebugHud ()
 	{
 		var xml = cache.GetXmlFile ("UI/DefaultStyle.xml");
 		console = Engine.CreateConsole ();
@@ -308,18 +308,18 @@ public class Sample : Application {
 
 	protected void SimpleCreateInstructionsWithWASD (string extra = "")
 	{
-	    SimpleCreateInstructions("Use WASD keys and mouse/touch to move" + extra);
-    }
-
-    protected void SimpleCreateInstructions(string text = "")
-    {
-        var t = new Text(Context)
-        {
-            Value = text,
-            HorizontalAlignment = HorizontalAlignment.HA_CENTER,
-            VerticalAlignment = VerticalAlignment.VA_CENTER
-        };
-        t.SetFont(ResourceCache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
-        UI.Root.AddChild(t);
-    }
+		SimpleCreateInstructions("Use WASD keys and mouse/touch to move" + extra);
+	}
+	
+	protected void SimpleCreateInstructions(string text = "")
+	{
+		var t = new Text(Context)
+		{
+			Value = text,
+			HorizontalAlignment = HorizontalAlignment.HA_CENTER,
+			VerticalAlignment = VerticalAlignment.VA_CENTER
+		};
+		t.SetFont(ResourceCache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
+		UI.Root.AddChild(t);
+	}
 }
