@@ -134,11 +134,12 @@ class _06_SkeletalAnimation : Sample {
     void SubscribeToEvents ()
     {
         // Handle keyboard input, mouse/touch input, and handle spacebar to debug
-        SubscribeToUpdate (args => {
-                                       SimpleMoveCamera (args.TimeStep);
-                                       if (Input.GetKeyDown (Key.Space))
-                                           drawDebug = !drawDebug;
-        });
+        SubscribeToUpdate(args =>
+            {
+                SimpleMoveCamera3D(args.TimeStep);
+                if (Input.GetKeyDown(Key.Space))
+                    drawDebug = !drawDebug;
+            });
 
         // Subscribe HandlePostRenderUpdate() function for
         // processing the post-render update event, sent after
@@ -146,14 +147,15 @@ class _06_SkeletalAnimation : Sample {
         // calls for the viewports (but before actually
         // executing them.) We will request debug geometry
         // rendering during that event
-		
-        SubscribeToPostRenderUpdate (args => {
-                                                 // If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
-                                                 // bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
-                                                 // bones properly
-                                                 if (drawDebug)
-                                                     Renderer.DrawDebugGeometry (false);
-        });
+
+        SubscribeToPostRenderUpdate(args =>
+            {
+                // If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
+                // bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
+                // bones properly
+                if (drawDebug)
+                    Renderer.DrawDebugGeometry(false);
+            });
     }
 
     public override void Start ()

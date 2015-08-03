@@ -23,7 +23,7 @@ class _23_Water : Sample
     {
         SubscribeToUpdate(args =>
         {
-            SimpleMoveCamera(args.TimeStep);
+            SimpleMoveCamera3D(args.TimeStep);
             var camera = reflectionCameraNode.GetComponent<Camera>();
             camera.AspectRatio = (float)Graphics.Width / Graphics.Height;
         });

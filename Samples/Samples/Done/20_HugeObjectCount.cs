@@ -39,7 +39,7 @@ class _20_HugeObjectCount : Sample
                     CreateScene();
                 }
 
-                SimpleMoveCamera(args.TimeStep);
+                SimpleMoveCamera3D(args.TimeStep);
 
                 if (animate)
                     AnimateObjects(args.TimeStep);

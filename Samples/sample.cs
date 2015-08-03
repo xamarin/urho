@@ -277,24 +277,56 @@ public class Sample : Application {
 		SceneUpdateEventToken = SubscribeToSceneUpdate (HandleSceneUpdate);
 	}
 
-	protected void SimpleMoveCamera (float timeStep, bool withMouse = true, float moveSpeed = 20f, bool moveIfCursorHiddenOnly = false)
+    protected void SimpleMoveCamera2D (float timeStep)
+    {
+        // Do not move if the UI has a focused element (the console)
+        if (UI.FocusElement != null)
+            return;
+
+        Input input = Input;
+
+        // Movement speed as world units per second
+        const float moveSpeed = 4.0f;
+
+        // Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
+        if (input.GetKeyDown(Key.W))
+            CameraNode.Translate(Vector3.UnitY * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+        if (input.GetKeyDown(Key.S))
+            CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+        if (input.GetKeyDown(Key.A))
+            CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+        if (input.GetKeyDown(Key.D))
+            CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+
+        if (input.GetKeyDown(Key.PageUp))
+        {
+            Camera camera = CameraNode.GetComponent<Camera>();
+            camera.Zoom = (camera.Zoom * 1.01f);
+        }
+
+        if (input.GetKeyDown(Key.PageDown))
+        {
+            Camera camera = CameraNode.GetComponent<Camera>();
+            camera.Zoom = (camera.Zoom * 0.99f);
+        }
+    }
+
+	protected void SimpleMoveCamera3D (float timeStep)
 	{
 		const float mouseSensitivity = .1f;
 		
 		if (UI.FocusElement != null)
 			return;
 		var input = Input;
+	    const float moveSpeed = 40f;
 
-	    if (withMouse && !(moveIfCursorHiddenOnly && UI.Cursor.IsVisible()))
-        {
-            var mouseMove = input.MouseMove;
-            //var mouseMove = Test2 (input.Handle);
-            Yaw += mouseSensitivity * mouseMove.X;
-            Pitch += mouseSensitivity * mouseMove.Y;
-            Pitch = Clamp(Pitch, -90, 90);
+        var mouseMove = input.MouseMove;
+        //var mouseMove = Test2 (input.Handle);
+        Yaw += mouseSensitivity * mouseMove.X;
+        Pitch += mouseSensitivity * mouseMove.Y;
+        Pitch = Clamp(Pitch, -90, 90);
 
-            CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
-	    }
+        CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
 
 	    if (input.GetKeyDown (Key.W))
 			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);

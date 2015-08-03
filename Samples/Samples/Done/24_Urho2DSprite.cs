@@ -23,33 +23,7 @@ class _24_Urho2DSprite : Sample
     {
         SubscribeToUpdate(args =>
             {
-                var timeStep = args.TimeStep;
-                const float cameraMoveSpeed = 4f;
-
-                if (UI.FocusElement != null)
-                    return;
-                var input = Input;
-
-                if (input.GetKeyDown(Key.W))
-                    CameraNode.Translate(new Vector3(0, 1, 0) * cameraMoveSpeed * timeStep, TransformSpace.TS_LOCAL);
-                if (input.GetKeyDown(Key.S))
-                    CameraNode.Translate(new Vector3(0, -1, 0) * cameraMoveSpeed * timeStep, TransformSpace.TS_LOCAL);
-                if (input.GetKeyDown(Key.A))
-                    CameraNode.Translate(new Vector3(-1, 0, 0) * cameraMoveSpeed * timeStep, TransformSpace.TS_LOCAL);
-                if (input.GetKeyDown(Key.D))
-                    CameraNode.Translate(new Vector3(1, 0, 0) * cameraMoveSpeed * timeStep, TransformSpace.TS_LOCAL);
-
-                if (input.GetKeyDown(Key.PageUp))
-                {
-                    Camera camera = CameraNode.GetComponent<Camera>();
-                    camera.Zoom=camera.Zoom * 1.01f;
-                }
-
-                if (input.GetKeyDown(Key.PageDown))
-                {
-                    Camera camera = CameraNode.GetComponent<Camera>();
-                    camera.Zoom=camera.Zoom * 0.99f;
-                }
+                SimpleMoveCamera2D(args.TimeStep);
 
                 var graphics = Graphics;
                 float halfWidth = graphics.Width * 0.5f * PIXEL_SIZE;

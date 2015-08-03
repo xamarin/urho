@@ -24,7 +24,7 @@ class _13_Ragdolls : Sample
     {
         SubscribeToUpdate(args =>
             {
-                SimpleMoveCamera(args.TimeStep);
+                SimpleMoveCamera3D(args.TimeStep);
                 var input = Input;
                     // "Shoot" a physics object with left mousebutton
                 if (input.GetMouseButtonPress(MouseButton.Left))

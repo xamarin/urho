@@ -20,7 +20,7 @@ class _35_SignedDistanceFieldText : Sample
     {
         SubscribeToUpdate(args =>
         {
-            SimpleMoveCamera(args.TimeStep);
+            SimpleMoveCamera3D(args.TimeStep);
         });
     }
     

@@ -25,7 +25,7 @@ class _11_Physics : Sample
         SubscribeToUpdate(args =>
         {
             var input = Input;
-            SimpleMoveCamera(args.TimeStep);
+            SimpleMoveCamera3D(args.TimeStep);
 
             if (input.GetMouseButtonPress(MouseButton.Left))
                 SpawnObject();

@@ -24,7 +24,7 @@ class _09_MultipleViewports : Sample
     {
         SubscribeToUpdate(args =>
         {
-            SimpleMoveCamera(args.TimeStep);
+            SimpleMoveCamera3D(args.TimeStep);
 
             var effectRenderPath = Renderer.GetViewport(0).RenderPath;
             if (Input.GetKeyPress(Key.B))

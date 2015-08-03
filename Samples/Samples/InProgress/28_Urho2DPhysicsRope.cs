@@ -19,27 +19,13 @@ class _28_Urho2DPhysicsRope : Sample
 
     private void SubscribeToEvents()
     {
-        var updateEventToken = SubscribeToUpdate(args =>
+        SubscribeToUpdate(args =>
             {
-                SimpleMoveCamera(args.TimeStep, false, 4f);
-
-                if (Input.GetKeyDown(Key.PageUp))
-                {
-                    Camera camera = CameraNode.GetComponent<Camera>();
-                    camera.Zoom = (camera.Zoom * 1.01f);
-                }
-
-                if (Input.GetKeyDown(Key.PageDown))
-                {
-                    Camera camera = CameraNode.GetComponent<Camera>();
-                    camera.Zoom = (camera.Zoom * 0.99f);
-                }
-
-#warning MISSING_API GetComponent generic
-                ((PhysicsWorld2D)scene.GetComponent(PhysicsWorld2D.TypeStatic)).DrawDebugGeometry();
+                SimpleMoveCamera2D(args.TimeStep);
+                scene.GetComponent<PhysicsWorld2D>().DrawDebugGeometry();
             });
         
-        updateEventToken.Unsubscribe();
+        SceneUpdateEventToken.Unsubscribe();
     }
 
     private void SetupViewport()
@@ -56,13 +42,13 @@ class _28_Urho2DPhysicsRope : Sample
         // Create camera node
         CameraNode = scene.CreateChild("Camera");
         // Set camera's position
-        CameraNode.Position = (new Vector3(0.0f, 5.0f, -10.0f));
+        CameraNode.Position = new Vector3(0.0f, 5.0f, -10.0f);
 
         Camera camera = CameraNode.CreateComponent<Camera>();
         camera.SetOrthographic(true);
 
         var graphics = Graphics;
-        camera.OrthoSize=graphics.Height * 0.05f;
+        camera.OrthoSize = graphics.Height * 0.05f;
         camera.Zoom = 1.5f * Math.Min(graphics.Width / 1280.0f, graphics.Height / 800.0f); // Set zoom according to user's resolution to ensure full visibility (initial zoom (1.5) is set for full visibility at 1280x800 resolution)
 
         // Create 2D physics world component
@@ -86,7 +72,7 @@ class _28_Urho2DPhysicsRope : Sample
 
             // Create rigid body
             RigidBody2D body = node.CreateComponent<RigidBody2D>();
-            body.BodyType= BodyType2D.BT_DYNAMIC;
+            body.BodyType= BodyType2D.BT_DYNAMIC; //https://github.com/xamarin/urho/issues/49
 
             // Create box
             CollisionBox2D box = node.CreateComponent<CollisionBox2D>();
@@ -98,31 +84,31 @@ class _28_Urho2DPhysicsRope : Sample
             if (i == NUM_OBJECTS - 1)
             {
                 node.Position = new Vector3(1.0f * i, y, 0.0f);
-                body.AngularDamping=0.4f;
+                body.AngularDamping = 0.4f;
                 box.SetSize(3.0f, 3.0f);
-                box.Density=100.0f;
-                box.CategoryBits=0x0002;
+                box.Density = 100.0f;
+                box.CategoryBits = 0x0002;
             }
             else
             {
                 node.Position = new Vector3(0.5f + 1.0f * i, y, 0.0f);
                 box.SetSize(1.0f, 0.25f);
-                box.Density=20.0f;
-                box.CategoryBits=0x0001;
+                box.Density = 20.0f;
+                box.CategoryBits = 0x0001;
             }
 
             ConstraintRevolute2D joint = node.CreateComponent<ConstraintRevolute2D>();
-            joint.OtherBody=prevBody;
-            joint.Anchor=new Vector2(i, y);
-            joint.CollideConnected=false;
+            joint.OtherBody = prevBody;
+            joint.Anchor = new Vector2(i, y);
+            joint.CollideConnected = false;
 
             prevBody = body;
         }
 
         ConstraintRope2D constraintRope = groundNode.CreateComponent<ConstraintRope2D>();
-        constraintRope.OtherBody=prevBody;
+        constraintRope.OtherBody = prevBody;
         constraintRope.OwnerBodyAnchor=new Vector2(0.0f, y);
-        constraintRope.MaxLength=NUM_OBJECTS - 1.0f + 0.01f;
+        constraintRope.MaxLength = NUM_OBJECTS - 1.0f + 0.01f;
 
     }
 }

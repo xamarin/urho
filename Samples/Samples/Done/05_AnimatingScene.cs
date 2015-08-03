@@ -110,7 +110,7 @@ class _05_AnimatingScene : Sample {
         CreateScene ();
         SimpleCreateInstructionsWithWASD ();
         SetupViewport ();
-        SubscribeToUpdate (args => SimpleMoveCamera (args.TimeStep));
+        SubscribeToUpdate (args => SimpleMoveCamera3D (args.TimeStep));
     }
 
 }

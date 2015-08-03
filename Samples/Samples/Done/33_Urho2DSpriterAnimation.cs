@@ -29,44 +29,9 @@ class _33_Urho2DSpriterAnimation : Sample
         SubscribeToEvents();
     }
 
-    void MoveCamera(float timeStep)
-    {
-        // Do not move if the UI has a focused element (the console)
-        if (UI.FocusElement != null)
-            return;
-
-        Input input = Input;
-
-        // Movement speed as world units per second
-        const float moveSpeed = 4.0f;
-
-        // Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
-        if (input.GetKeyDown(Key.W))
-            CameraNode.Translate(Vector3.UnitY * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.S))
-            CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.A))
-            CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.D))
-            CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-
-        if (input.GetKeyDown(Key.PageUp))
-        {
-            Camera camera = CameraNode.GetComponent<Camera>();
-            camera.Zoom = (camera.Zoom * 1.01f);
-        }
-
-        if (input.GetKeyDown(Key.PageDown))
-        {
-            Camera camera = CameraNode.GetComponent<Camera>();
-            camera.Zoom = (camera.Zoom * 0.99f);
-        }
-    }
-
-
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args => MoveCamera(args.TimeStep));
+        SubscribeToUpdate(args => SimpleMoveCamera2D(args.TimeStep));
 
         SubscribeToMouseButtonDown(args =>
             {

@@ -22,7 +22,7 @@ class _07_Billboards : Sample
     {
         SubscribeToUpdate(args =>
         {
-            SimpleMoveCamera(args.TimeStep);
+            SimpleMoveCamera3D(args.TimeStep);
             AnimateScene(args.TimeStep);
             if (Input.GetKeyDown(Key.Space))
                 drawDebug = !drawDebug;

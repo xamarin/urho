@@ -65,7 +65,7 @@ class _04_StaticScene : Sample {
 
     void UpdateHandler (UpdateEventArgs args)
     {
-        SimpleMoveCamera (args.TimeStep);
+        SimpleMoveCamera3D (args.TimeStep);
     }
 	
     public _04_StaticScene (Context c) : base (c) {}

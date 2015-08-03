@@ -25,7 +25,7 @@ class _08_Decals : Sample
     {
         SubscribeToUpdate(args =>
         {
-            SimpleMoveCamera(args.TimeStep);
+            SimpleMoveCamera3D(args.TimeStep);
             if (Input.GetKeyDown(Key.Space))
                 drawDebug = !drawDebug;
             if (UI.Cursor.IsVisible() && Input.GetMouseButtonPress(MouseButton.Left))

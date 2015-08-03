@@ -28,7 +28,7 @@ class _34_DynamicGeometry : Sample
     {
         SubscribeToUpdate(args =>
         {
-            SimpleMoveCamera(args.TimeStep);
+            SimpleMoveCamera3D(args.TimeStep);
             if (Input.GetKeyDown(Key.Space))
                 animate_ = !animate_;
 

@@ -83,7 +83,7 @@ class _38_SceneAndUILoad : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args => SimpleMoveCamera(args.TimeStep));
+        SubscribeToUpdate(args => SimpleMoveCamera3D(args.TimeStep));
     }
     
     private void SetupViewport()

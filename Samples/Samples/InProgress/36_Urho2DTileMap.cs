@@ -19,46 +19,11 @@ class _36_Urho2DTileMap : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args => MoveCamera(args.TimeStep));
+        SubscribeToUpdate(args => SimpleMoveCamera2D(args.TimeStep));
 
         // Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
         SceneUpdateEventToken.Unsubscribe();
     }
-
-    private void MoveCamera(float timeStep)
-    {
-        // Do not move if the UI has a focused element (the console)
-        if (UI.FocusElement != null)
-            return;
-
-        Input input = Input;
-
-        // Movement speed as world units per second
-        const float MOVE_SPEED = 4.0f;
-
-        // Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
-        if (input.GetKeyDown(Key.W))
-            CameraNode.Translate(new Vector3(0, 0, 1) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.S))
-            CameraNode.Translate(new Vector3(0, 0, -1) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.A))
-            CameraNode.Translate(new Vector3(1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.D))
-            CameraNode.Translate(new Vector3(-1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
-
-        if (input.GetKeyDown(Key.PageUp))
-        {
-            Camera camera = CameraNode.GetComponent<Camera>();
-            camera.Zoom = (camera.Zoom * 1.01f);
-        }
-
-        if (input.GetKeyDown(Key.PageDown))
-        {
-            Camera camera = CameraNode.GetComponent<Camera>();
-            camera.Zoom = (camera.Zoom * 0.99f);
-        }
-    }
-
 
     private void SetupViewport()
     {
