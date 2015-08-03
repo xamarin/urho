@@ -16,7 +16,6 @@ namespace Urho {
 
 
 		// Invoked by the subscribe methods
-		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		static void ObjectCallback (IntPtr data, int stringHash, IntPtr variantMap)
 		{
 			GCHandle gch = GCHandle.FromIntPtr(data);
