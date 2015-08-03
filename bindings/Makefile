@@ -369,5 +369,5 @@ deb: sample.exe libmono-urho.dylib
 	DYLD_LIBRARY_PATH=. gdb --args $(mono64)/bin/mono --debug sample.exe
 
 clean:
-	-rm sample.exe Urho.dll Urho.dll libmono-urho.dylib *.o d 
+	-rm sample.exe Urho.dll Urho.dll libmono-urho.dylib *.o d *pch
 
