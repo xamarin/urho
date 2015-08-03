@@ -5,8 +5,6 @@ using Urho;
 class _36_Urho2DTileMap : Sample
 {
     private Scene scene;
-    private bool drawDebug;
-    private Camera camera;
 
     public _36_Urho2DTileMap(Context ctx) : base(ctx) { }
 
@@ -21,14 +19,10 @@ class _36_Urho2DTileMap : Sample
 
     private void SubscribeToEvents()
     {
-        SubscribeToUpdate(args =>
-        {
-            SimpleMoveCamera(args.TimeStep);
-        });
+        SubscribeToUpdate(args => MoveCamera(args.TimeStep));
 
         // Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
-#warning MISSING_API E_SCENEUPDATE
-        ////UnsubscribeFromEvent(E_SCENEUPDATE);
+        SceneUpdateEventToken.Unsubscribe();
     }
 
     private void MoveCamera(float timeStep)
