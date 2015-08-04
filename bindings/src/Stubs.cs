@@ -21,21 +21,21 @@ namespace Urho {
 		IntPtr Handle { get; }
 	}
 
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe partial struct WorkItem
-    {
-        [DllImport("mono-urho", CallingConvention=CallingConvention.Cdecl)]
-        internal static extern IntPtr WorkItem_WorkItem();
+	[StructLayout(LayoutKind.Sequential)]
+	public unsafe partial struct WorkItem
+	{
+		[DllImport("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern IntPtr WorkItem_WorkItem();
 
-        public WorkItem(IntPtr p)
-        {
-        }
-    }
+		public WorkItem(IntPtr p)
+		{
+		}
+	}
 
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe partial struct RefCount
-    {
-        [DllImport("mono-urho", CallingConvention=CallingConvention.Cdecl)]
-        internal static extern IntPtr RefCount_RefCount();
-    }
+	[StructLayout(LayoutKind.Sequential)]
+	public unsafe partial struct RefCount
+	{
+		[DllImport("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		internal static extern IntPtr RefCount_RefCount();
+	}
 }

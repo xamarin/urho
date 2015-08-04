@@ -38,15 +38,15 @@ public class Sample : Application {
 	public const byte USE_FIXEDPOSTUPDATE = 0x8;
 	
 #warning MISSIN_API //constant
-    public const float PIXEL_SIZE = 0.01f;
+	public const float PIXEL_SIZE = 0.01f;
 
 #warning MISSING_API //enum for Input::GetQualifierDown
-    public const int QUAL_SHIFT = 1;
-    public const int QUAL_CTRL = 2;
-    public const int QUAL_ALT = 4;
-    public const int QUAL_ANY = 8;
+	public const int QUAL_SHIFT = 1;
+	public const int QUAL_CTRL = 2;
+	public const int QUAL_ALT = 4;
+	public const int QUAL_ANY = 8;
 
-    public Sample (Context ctx) : base (ctx)
+	public Sample (Context ctx) : base (ctx)
 	{
 	}
 
@@ -277,39 +277,39 @@ public class Sample : Application {
 		SceneUpdateEventToken = SubscribeToSceneUpdate (HandleSceneUpdate);
 	}
 
-    protected void SimpleMoveCamera2D (float timeStep)
-    {
-        // Do not move if the UI has a focused element (the console)
-        if (UI.FocusElement != null)
-            return;
+	protected void SimpleMoveCamera2D (float timeStep)
+	{
+		// Do not move if the UI has a focused element (the console)
+		if (UI.FocusElement != null)
+			return;
 
-        Input input = Input;
+		Input input = Input;
 
-        // Movement speed as world units per second
-        const float moveSpeed = 4.0f;
+		// Movement speed as world units per second
+		const float moveSpeed = 4.0f;
 
-        // Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
-        if (input.GetKeyDown(Key.W))
-            CameraNode.Translate(Vector3.UnitY * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.S))
-            CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.A))
-            CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
-        if (input.GetKeyDown(Key.D))
-            CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+		// Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
+		if (input.GetKeyDown(Key.W))
+			CameraNode.Translate(Vector3.UnitY * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+		if (input.GetKeyDown(Key.S))
+			CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+		if (input.GetKeyDown(Key.A))
+			CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+		if (input.GetKeyDown(Key.D))
+			CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 
-        if (input.GetKeyDown(Key.PageUp))
-        {
-            Camera camera = CameraNode.GetComponent<Camera>();
-            camera.Zoom = (camera.Zoom * 1.01f);
-        }
+		if (input.GetKeyDown(Key.PageUp))
+		{
+			Camera camera = CameraNode.GetComponent<Camera>();
+			camera.Zoom = (camera.Zoom * 1.01f);
+		}
 
-        if (input.GetKeyDown(Key.PageDown))
-        {
-            Camera camera = CameraNode.GetComponent<Camera>();
-            camera.Zoom = (camera.Zoom * 0.99f);
-        }
-    }
+		if (input.GetKeyDown(Key.PageDown))
+		{
+			Camera camera = CameraNode.GetComponent<Camera>();
+			camera.Zoom = (camera.Zoom * 0.99f);
+		}
+	}
 
 	protected void SimpleMoveCamera3D (float timeStep)
 	{
@@ -318,17 +318,17 @@ public class Sample : Application {
 		if (UI.FocusElement != null)
 			return;
 		var input = Input;
-	    const float moveSpeed = 40f;
+		const float moveSpeed = 40f;
 
-        var mouseMove = input.MouseMove;
-        //var mouseMove = Test2 (input.Handle);
-        Yaw += mouseSensitivity * mouseMove.X;
-        Pitch += mouseSensitivity * mouseMove.Y;
-        Pitch = Clamp(Pitch, -90, 90);
+		var mouseMove = input.MouseMove;
+		//var mouseMove = Test2 (input.Handle);
+		Yaw += mouseSensitivity * mouseMove.X;
+		Pitch += mouseSensitivity * mouseMove.Y;
+		Pitch = Clamp(Pitch, -90, 90);
 
-        CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
+		CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
 
-	    if (input.GetKeyDown (Key.W))
+		if (input.GetKeyDown (Key.W))
 			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
 		if (input.GetKeyDown (Key.S))
 			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
