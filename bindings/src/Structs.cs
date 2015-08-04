@@ -23,20 +23,21 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Rect {
 		public Vector2 Min, Max;
-		public bool Defined;
+		public byte _defined; //bool is not blittable.
+		public bool Defined { get { return _defined != 0; } set { _defined = (byte)(value ? 1 : 0); } }
 
 		public Rect (int left, int top, int right, int bottom)
 		{
 			Min = new Vector2 (left, top);
 			Max = new Vector2 (right, bottom);
-			Defined = true;
+			_defined = 1;
 		}
 		
 		public Rect (Vector2 min, Vector2 max)
 		{
 			Min = min;
 			Max = max;
-			Defined = true;
+			_defined = 1;
 		}
 	}
 
@@ -260,7 +261,8 @@ namespace Urho {
 		public Rect UV;
 		public Color Color;
 		public float Rotation;
-		public bool Enabled;
+		public byte _enabled; //bool is not blittable.
+		public bool Enabled { get { return _enabled != 0; } set { _enabled = (byte)(value ? 1 : 0); } }
 		public float SortDistance;
 	}
 
