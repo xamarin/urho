@@ -14,23 +14,27 @@ namespace Urho {
 		}
 		
 		static public Camera get_Camera (IntPtr handle, int stringHash)
-		{
-			return new Camera (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new Camera(ptr);
 		}
 		
 		static public Component get_Component (IntPtr handle, int stringHash)
-		{
-			return new Component (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new Component(ptr);
 		}
 		
 		static public Connection get_Connection (IntPtr handle, int stringHash)
-		{
-			return new Connection (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new Connection(ptr);
 		}
 		
 		static public CrowdAgent get_CrowdAgent (IntPtr handle, int stringHash)
-		{
-			return new CrowdAgent (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new CrowdAgent(ptr);
 		}
 		
 		static public IntPtr get_IntPtr (IntPtr handle, int stringHash)
@@ -39,63 +43,74 @@ namespace Urho {
 		}
 		
 		static public MouseMode get_MouseMode (IntPtr handle, int stringHash)
-		{
-			return (MouseMode) urho_map_get_int (handle, stringHash);
+        {
+            return (MouseMode) urho_map_get_int (handle, stringHash);
 		}
 		
 		static public NavigationMesh get_NavigationMesh (IntPtr handle, int stringHash)
-		{
-			return new NavigationMesh (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new NavigationMesh(ptr);
 		}
 		
 		static public Node get_Node (IntPtr handle, int stringHash)
-		{
-			return new Node (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new Node(ptr);
 		}
 		
 		static public UrhoObject get_Object (IntPtr handle, int stringHash)
-		{
-			return new UrhoObject (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new UrhoObject(ptr);
 		}
 		
 		static public Obstacle get_Obstacle (IntPtr handle, int stringHash)
-		{
-			return new Obstacle (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new Obstacle(ptr);
 		}
 
 		static public PhysicsWorld get_PhysicsWorld (IntPtr handle, int stringHash)
-		{
-			return new PhysicsWorld (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new PhysicsWorld(ptr);
 		}
 		
 		static public PhysicsWorld2D get_PhysicsWorld2D (IntPtr handle, int stringHash)
-		{
-			return new PhysicsWorld2D (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new PhysicsWorld2D(ptr);
 		}
 		
 		static public RenderSurface get_RenderSurface (IntPtr handle, int stringHash)
-		{
-			return new RenderSurface (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new RenderSurface(ptr);
 		}
 		
 		static public Resource get_Resource  (IntPtr handle, int stringHash)
-		{
-			return new Resource (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new Resource(ptr);
 		}
 		
 		static public RigidBody get_RigidBody (IntPtr handle, int stringHash)
-		{
-			return new RigidBody (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new RigidBody(ptr);
 		}
 		
 		static public RigidBody2D get_RigidBody2D (IntPtr handle, int stringHash)
-		{
-			return new RigidBody2D (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new RigidBody2D(ptr);
 		}
 		
 		static public Scene get_Scene (IntPtr handle, int stringHash)
-		{
-			return new Scene (urho_map_get_ptr (handle, stringHash));
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new Scene(ptr);
 		}
 		
 		static public Serializable get_Serializable (IntPtr handle, int stringHash)
@@ -128,9 +143,10 @@ namespace Urho {
 		}
 		
 		static public Texture get_Texture (IntPtr handle, int stringHash)
-		{
-			return new Texture (urho_map_get_ptr (handle, stringHash));
-		}
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new Texture(ptr);
+        }
 	
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static Variant urho_map_get_Variant (IntPtr handle, int stringHash);
@@ -147,16 +163,18 @@ namespace Urho {
 		}
 		
 		static public View get_View (IntPtr handle, int stringHash)
-		{
-			return new View (urho_map_get_ptr (handle, stringHash));
-		}
+        {
+            var ptr = urho_map_get_ptr(handle, stringHash);
+            return ptr == IntPtr.Zero ? null : new View(ptr);
+        }
 		
 		static public UIElement get_UIElement (IntPtr handle, int stringHash)
 		{
-			return new UIElement (urho_map_get_ptr (handle, stringHash));
+		    var ptr = urho_map_get_ptr (handle, stringHash);
+		    return ptr == IntPtr.Zero ? null : new UIElement (ptr);
 		}
-		
-		static public WorkItem get_WorkItem (IntPtr handle, int stringHash)
+
+	    static public WorkItem get_WorkItem (IntPtr handle, int stringHash)
 		{
 			return new WorkItem (urho_map_get_ptr (handle, stringHash));
 		}

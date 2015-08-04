@@ -4,6 +4,7 @@
 //
 using System;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using System.Threading;
 
 namespace Urho {
@@ -98,12 +99,16 @@ namespace Urho {
 
 		public override int GetHashCode ()
 		{
-			return (int) handle;
+		    if (IntPtr.Size == 8) //means 64bit
+		    {
+		        return unchecked ((int) (long) handle);
+		    }
+		    return (int) handle;
 		}
-		
-		~RefCounted ()
+
+	    ~RefCounted ()
 		{
 			Dispose (false);
 		}
-	}
+    }
 }
