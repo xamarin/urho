@@ -911,6 +911,9 @@ namespace SharpieBinder
 			string creturnType = CleanTypeCplusplus(decl.ReturnQualType);
 
 			switch (creturnType) {
+			case "bool":
+				creturnType = "int";
+				break;
 			case "Urho3D::StringHash":
 				creturnType = "int";
 				marshalReturn = "({0}).Value ()";
