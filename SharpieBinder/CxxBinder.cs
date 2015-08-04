@@ -1092,6 +1092,9 @@ namespace SharpieBinder
 				var ctype = CleanTypeCplusplus (param.QualType);
 				string paramInvoke = paramName;
 				switch (ctype) {
+				case "bool":
+					ctype = "int";
+					break;
 				case "const class Urho3D::String &":
 					ctype = "const char *";
 					paramInvoke = $"Urho3D::String({paramInvoke})";

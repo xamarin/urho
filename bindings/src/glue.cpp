@@ -171,7 +171,7 @@ extern "C" {
 	}
 	
 	DllExport void
-	Controls_Set (Urho3D::Controls *_target, unsigned int buttons, bool down)
+	Controls_Set (Urho3D::Controls *_target, unsigned int buttons, int down)
 	{
 		_target->Set (buttons, down);
 	}
