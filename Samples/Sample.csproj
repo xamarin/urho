@@ -53,7 +53,7 @@
     <Compile Include="Samples\InProgress\27_Urho2DPhysics.cs" />
     <Compile Include="Samples\InProgress\28_Urho2DPhysicsRope.cs" />
     <Compile Include="Samples\Done\29_SoundSynthesis.cs" />
-    <Compile Include="Samples\InProgress\37_UIDrag.cs" />
+    <Compile Include="Samples\Done\37_UIDrag.cs" />
     <Compile Include="Samples\InProgress\07_Billboards.cs" />
     <Compile Include="Samples\Done\23_Water.cs" />
     <Compile Include="Samples\InProgress\08_Decals.cs" />

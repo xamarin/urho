@@ -112,7 +112,7 @@ class _37_UIDrag : Sample
 
     private void HandleDragBegin(DragBeginEventArgs args)
     {
-        Button element = (Button)args.Element;
+        var element = args.Element;
 
         int lx = args.X;
         int ly = args.Y;
@@ -150,7 +150,6 @@ class _37_UIDrag : Sample
 
     private void HandleDragEnd(DragEndEventArgs args)
     {
-        Button element = (Button)args.Element;
     }
 
     private void HandleUpdate(UpdateEventArgs args)
@@ -177,7 +176,7 @@ class _37_UIDrag : Sample
 
         for (uint i = n; i < 10; i++)
         {
-            var text = (Text)root.GetChild("Touch " + i, false);
+            var text = root.GetChild("Touch " + i, false);
             text.SetVisible(false);
         }
     }
