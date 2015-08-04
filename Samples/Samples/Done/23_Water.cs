@@ -52,10 +52,9 @@ class _23_Water : Sample
         reflectionCamera.ViewMask= 0x7fffffff; // Hide objects with only bit 31 in the viewmask (the water plane)
         reflectionCamera.AutoAspectRatio = false;
         reflectionCamera.UseReflection = true;
-#warning MISSING_API: Camera.SetReflectionPlane, Camera.SetClipPlane
-        /*reflectionCamera.SetReflectionPlane(waterPlane);
+        reflectionCamera.ReflectionPlane = waterPlane;
         reflectionCamera.UseClipping = true; // Enable clipping of geometry behind water plane
-        reflectionCamera.SetClipPlane(waterClipPlane);*/
+        reflectionCamera.ClipPlane = waterClipPlane;
         // The water reflection texture is rectangular. Set reflection camera aspect ratio to match
         reflectionCamera.AspectRatio = (float)graphics.Width / graphics.Height;
         // View override flags could be used to optimize reflection rendering. For example disable shadows

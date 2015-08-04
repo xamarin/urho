@@ -5,6 +5,7 @@ class _02_HelloGUI : Sample
     private Window window;
     private UIElement uiRoot;
     private IntVector2 dragBeginPosition;
+    private Button draggableFish;
 
     public _02_HelloGUI(Context ctx) : base(ctx)
     {
@@ -115,7 +116,7 @@ class _02_HelloGUI : Sample
         var graphics = Graphics;
 
         // Create a draggable Fish button
-        Button draggableFish = new Button(Context);
+        draggableFish = new Button(Context);
         draggableFish.Texture=cache.GetTexture2D("Textures/UrhoDecal.dds"); // Set texture
         draggableFish.BlendMode= BlendMode.BLEND_ADD;
         draggableFish.SetSize(128, 128);
@@ -144,14 +145,20 @@ class _02_HelloGUI : Sample
 
     private void HandleDragBegin(DragBeginEventArgs args)
     {
-        // Get UIElement relative position where input (touch or click) occured (top-left = IntVector2(0,0))
-        dragBeginPosition = new IntVector2(args.ElementX, args.ElementY);
+        if (args.Element == draggableFish)
+        {
+            // Get UIElement relative position where input (touch or click) occured (top-left = IntVector2(0,0))
+            dragBeginPosition = new IntVector2(args.ElementX, args.ElementY);
+        }
     }
 
     private void HandleDragMove(DragMoveEventArgs args)
     {
-        IntVector2 dragCurrentPosition = new IntVector2(args.X, args.Y);
-        args.Element.Position =  dragCurrentPosition - dragBeginPosition;
+        if (args.Element == draggableFish)
+        {
+            IntVector2 dragCurrentPosition = new IntVector2(args.X, args.Y);
+            args.Element.Position = dragCurrentPosition - dragBeginPosition;
+        }
     }
 
     private void HandleDragEnd(DragEndEventArgs args) // For reference (not used here)
