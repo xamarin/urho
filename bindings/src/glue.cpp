@@ -52,7 +52,7 @@ extern "C" {
 	}
 
 	DllExport
-	bool urho_map_get_bool (VariantMap& map, int hash)
+	int urho_map_get_bool (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
 		return map [h].GetBool ();
@@ -176,7 +176,7 @@ extern "C" {
 		_target->Set (buttons, down);
 	}
 	
-	DllExport bool
+	DllExport int
 	Controls_IsDown (Urho3D::Controls *_target, unsigned int button)
 	{
 		return _target->IsDown (button);
