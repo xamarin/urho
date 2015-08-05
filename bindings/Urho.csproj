@@ -305,6 +305,7 @@
     <Compile Include="src\Log.cs" />
     <Compile Include="src\IndexBufer.cs" />
     <Compile Include="src\Model.cs" />
+    <Compile Include="src\NavigationMesh.cs" />
     <Compile Include="src\Network.cs" />
     <Compile Include="src\RenderPath.cs" />
     <Compile Include="src\Skeleton.cs" />

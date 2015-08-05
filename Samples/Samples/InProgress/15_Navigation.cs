@@ -263,8 +263,7 @@ class _15_Navigation : Sample
 			{
 				// Calculate path from Jack's current position to the end point
 				endPos_ = pathPos;
-#warning MISSING_API NavigationMesh::FindPath
-				////navMesh.FindPath(currentPath_, jackNode_.Position, endPos_);
+				currentPath_ = new List<Vector3>(navMesh.FindPath(jackNode_.Position, endPos_));
 			}
 		}
 	}
@@ -296,9 +295,8 @@ class _15_Navigation : Sample
 			// Rebuild part of the navigation mesh, then recalculate path if applicable
 			NavigationMesh navMesh = scene.GetComponent<NavigationMesh>();
 			navMesh.Build(updateBox);
-#warning MISSING_API NavigationMesh::FindPath
-			////if (currentPath_.Count > 0)
-			////    navMesh.FindPath(currentPath_, jackNode_Position, endPos_);
+			if (currentPath_.Count > 0)
+				currentPath_ = new List<Vector3>(navMesh.FindPath(jackNode_.Position, endPos_));
 		}
 	}
 

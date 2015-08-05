@@ -276,6 +276,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Node.cs			\
 	src/Object.cs			\
 	src/PodVector.cs		\
+	src/NavigationMesh.cs		\
 	src/UrhoMap.cs			\
 	src/RefCounted.cs		\
 	src/RenderPath.cs		\

@@ -246,6 +246,21 @@ extern "C" {
 		}
 		return t;
 	}
+
+	DllExport
+	void *urho_navigationmesh_findpath(NavigationMesh * navMesh, const class Urho3D::Vector3 & start, const class Urho3D::Vector3 & end, int *count)
+	{
+		PODVector<Vector3> dest;
+		navMesh->FindPath(dest, start, end);
+		if (dest.Size() == 0)
+			return NULL;
+		*count = dest.Size();
+		void **t = (void **)malloc(sizeof(Vector3*)*dest.Size());
+		for (int i = 0; i < dest.Size(); i++) {
+			t[i] = &dest[i];
+		}
+		return t;
+	}
 	
 #if false
 
