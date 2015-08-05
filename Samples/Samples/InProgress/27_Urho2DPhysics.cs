@@ -80,7 +80,7 @@ class _27_Urho2DPhysics : Sample
 
 			// Create rigid body
 			RigidBody2D body = node.CreateComponent<RigidBody2D>();
-			body.BodyType = BodyType2D.BT_DYNAMIC; //https://github.com/xamarin/urho/issues/49
+			body.BodyType = BodyType2D.Dynamic; //https://github.com/xamarin/urho/issues/49
 
 			StaticSprite2D staticSprite = node.CreateComponent<StaticSprite2D>();
 

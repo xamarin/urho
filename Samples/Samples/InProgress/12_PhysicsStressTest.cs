@@ -32,13 +32,13 @@ class _12_PhysicsStressTest : Sample
 				// Check for loading / saving the scene
 				if (input.GetKeyPress(Key.F5))
 				{
-					File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.FILE_WRITE);
+					File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.Write);
 #warning MISSING_API SaveXML
 					////scene.SaveXML(saveFile);
 				}
 				if (input.GetKeyPress(Key.F7))
 				{
-					File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.FILE_READ);
+					File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.Read);
 #warning MISSING_API LoadXML
 					////scene.LoadXML(loadFile);
 				}
@@ -179,7 +179,7 @@ class _12_PhysicsStressTest : Sample
 				body.Mass = 1.0f;
 				body.Friction = 1.0f;
 				// Disable collision event signaling to reduce CPU load of the physics simulation
-				body.CollisionEventMode = CollisionEventMode.COLLISION_NEVER;
+				body.CollisionEventMode = CollisionEventMode.Never;
 				CollisionShape shape = boxNode.CreateComponent<CollisionShape>();
 				shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
 			}

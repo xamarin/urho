@@ -54,7 +54,7 @@ class _20_HugeObjectCount : Sample
 
 		foreach (var boxNode in boxNodes)
 		{
-			boxNode.Rotate(rotateQuat, TransformSpace.TS_LOCAL);
+			boxNode.Rotate(rotateQuat, TransformSpace.Local);
 		}
 	}
 

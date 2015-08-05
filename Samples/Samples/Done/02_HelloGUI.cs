@@ -118,7 +118,7 @@ class _02_HelloGUI : Sample
 		// Create a draggable Fish button
 		draggableFish = new Button(Context);
 		draggableFish.Texture=cache.GetTexture2D("Textures/UrhoDecal.dds"); // Set texture
-		draggableFish.BlendMode= BlendMode.BLEND_ADD;
+		draggableFish.BlendMode= BlendMode.Add;
 		draggableFish.SetSize(128, 128);
 		draggableFish.SetPosition((graphics.Width - draggableFish.Width) / 2, 200);
 		draggableFish.Name="Fish";

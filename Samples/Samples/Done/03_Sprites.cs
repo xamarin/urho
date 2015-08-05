@@ -49,7 +49,7 @@ class _03_Sprites : Sample
 
 			// Set random color and additive blending mode
 			sprite.SetColor(new Color(NextRandom(0.5f) + 0.5f, NextRandom(0.5f) + 0.5f, NextRandom(0.5f) + 0.5f));
-			sprite.BlendMode= BlendMode.BLEND_ADD;
+			sprite.BlendMode= BlendMode.Add;
 
 			// Add as a child of the root UI element
 			ui.Root.AddChild(sprite);

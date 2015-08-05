@@ -87,12 +87,12 @@ class _17_SceneReplication : Sample
 		
 		// Create octree and physics world with default settings. Create them as local so that they are not needlessly replicated
 		// when a client connects
-		scene.CreateComponent<Octree>(CreateMode.LOCAL);
-		scene.CreateComponent<PhysicsWorld>(CreateMode.LOCAL);
+		scene.CreateComponent<Octree>(CreateMode.Local);
+		scene.CreateComponent<PhysicsWorld>(CreateMode.Local);
 
 		// All static scene content and the camera are also created as local, so that they are unaffected by scene replication and are
 		// not removed from the client upon connection. Create a Zone component first for ambient lighting & fog control.
-		Node zoneNode = scene.CreateChild("Zone", CreateMode.LOCAL, 0);
+		Node zoneNode = scene.CreateChild("Zone", CreateMode.Local, 0);
 		Zone zone = zoneNode.CreateComponent<Zone>();
 		zone.SetBoundingBox(new BoundingBox(-1000.0f, 1000.0f));
 		zone.AmbientColor=new Color(0.1f, 0.1f, 0.1f);
@@ -100,7 +100,7 @@ class _17_SceneReplication : Sample
 		zone.FogEnd = 300.0f;
 
 		// Create a directional light without shadows
-		Node lightNode = scene.CreateChild("DirectionalLight", CreateMode.LOCAL, 0);
+		Node lightNode = scene.CreateChild("DirectionalLight", CreateMode.Local, 0);
 		lightNode.SetDirection(new Vector3(0.5f, -1.0f, 0.5f));
 		Light light = lightNode.CreateComponent<Light>();
 		light.LightType = LightType.LIGHT_DIRECTIONAL;
@@ -112,7 +112,7 @@ class _17_SceneReplication : Sample
 		{
 			for (int x = -20; x <= 20; ++x)
 			{
-				Node floorNode = scene.CreateChild("FloorTile", CreateMode.LOCAL, 0);
+				Node floorNode = scene.CreateChild("FloorTile", CreateMode.Local, 0);
 				floorNode.Position = new Vector3(x * 20.2f, -0.5f, y * 20.2f);
 				floorNode.Scale = new Vector3(20.0f, 1.0f, 20.0f);
 				StaticModel floorObject = floorNode.CreateComponent<StaticModel>();
@@ -131,7 +131,7 @@ class _17_SceneReplication : Sample
 		// network messages. Furthermore, because the client removes all replicated scene nodes when connecting to a server scene,
 		// the screen would become blank if the camera node was replicated (as only the locally created camera is assigned to a
 		// viewport in SetupViewports() below)
-		CameraNode = scene.CreateChild("Camera", CreateMode.LOCAL, 0);
+		CameraNode = scene.CreateChild("Camera", CreateMode.Local, 0);
 		Camera camera = CameraNode.CreateComponent<Camera>();
 		camera.FarClip = 300.0f;
 

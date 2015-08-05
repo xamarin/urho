@@ -49,7 +49,7 @@ class _07_Billboards : Sample
 
 		foreach (var lightNode in lightNodes.Skip(5))
 		{
-			lightNode.Rotate(new Quaternion(0f, LIGHT_ROTATION_SPEED * timeStep, 0f), TransformSpace.TS_WORLD);
+			lightNode.Rotate(new Quaternion(0f, LIGHT_ROTATION_SPEED * timeStep, 0f), TransformSpace.World);
 		}
 
 		foreach (var billboardNode in billboardNodes)

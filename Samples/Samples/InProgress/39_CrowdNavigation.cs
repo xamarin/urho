@@ -151,13 +151,13 @@ class _39_CrowdNavigation : Sample
 
 		// Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
 		if (input.GetKeyDown(Key.W))
-			CameraNode.Translate(new Vector3(0, 0, 1) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(0, 0, 1) * MOVE_SPEED * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.S))
-			CameraNode.Translate(new Vector3(0, 0, -1) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(0, 0, -1) * MOVE_SPEED * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.A))
-			CameraNode.Translate(new Vector3(1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.D))
-			CameraNode.Translate(new Vector3(-1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(-1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.Local);
 
 		// Set destination or spawn a new jack with left mouse button
 		if (input.GetMouseButtonPress(MouseButton.Left))
@@ -170,13 +170,13 @@ class _39_CrowdNavigation : Sample
 		// directory
 		if (input.GetKeyPress(Key.F5))
 		{
-			File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", FileMode.FILE_WRITE);
+			File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", FileMode.Write);
 #warning MISSING_API Scene::SaveXML
 			//scene.SaveXML(saveFile);
 		}
 		if (input.GetKeyPress(Key.F7))
 		{
-			File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", FileMode.FILE_READ);
+			File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", FileMode.Read);
 #warning MISSING_API Scene::LoadXML
 			//scene.LoadXML(loadFile);
 

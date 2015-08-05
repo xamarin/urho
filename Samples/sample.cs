@@ -290,13 +290,13 @@ public class Sample : Application {
 
 		// Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
 		if (input.GetKeyDown(Key.W))
-			CameraNode.Translate(Vector3.UnitY * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(Vector3.UnitY * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.S))
-			CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(0.0f, -1.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.A))
-			CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(-1.0f, 0.0f, 0.0f) * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.D))
-			CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep, TransformSpace.Local);
 
 		if (input.GetKeyDown(Key.PageUp))
 		{
@@ -329,13 +329,13 @@ public class Sample : Application {
 		CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
 
 		if (input.GetKeyDown (Key.W))
-			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown (Key.S))
-			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown (Key.A))
-			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown (Key.D))
-			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.Local);
 	}
 
 	protected void SimpleCreateInstructionsWithWASD (string extra = "")

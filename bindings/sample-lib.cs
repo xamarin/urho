@@ -265,13 +265,13 @@ public class Sample : Application {
 
 		CameraNode.Rotation = new Quaternion (Pitch, Yaw, 0);
 		if (input.GetKeyDown (Key.W))
-			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(0,0,1) * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown (Key.S))
-			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(0,0,-1) * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown (Key.A))
-			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(1,0,0) * moveSpeed * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown (Key.D))
-			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate (new Vector3(-1,0,0) * moveSpeed * timeStep, TransformSpace.Local);
 	}
 
 	protected void SimpleCreateInstructions (string extra = "")

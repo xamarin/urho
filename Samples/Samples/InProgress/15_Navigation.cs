@@ -92,13 +92,13 @@ class _15_Navigation : Sample
 
 		// Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
 		if (input.GetKeyDown(Key.W))
-			CameraNode.Translate(new Vector3(0, 0, 1) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(0, 0, 1) * MOVE_SPEED * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.S))
-			CameraNode.Translate(new Vector3(0, 0, -1) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(0, 0, -1) * MOVE_SPEED * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.A))
-			CameraNode.Translate(new Vector3(1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.D))
-			CameraNode.Translate(new Vector3(-1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.TS_LOCAL);
+			CameraNode.Translate(new Vector3(-1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.Local);
 
 		// Set destination or teleport with left mouse button
 		if (input.GetMouseButtonPress(MouseButton.Left))
@@ -256,7 +256,7 @@ class _15_Navigation : Sample
 			{
 				// Teleport
 				currentPath_.Clear();
-				jackNode_.LookAt(new Vector3(pathPos.X, jackNode_.Position.Y, pathPos.Z), Vector3.UnitY, TransformSpace.TS_WORLD);
+				jackNode_.LookAt(new Vector3(pathPos.X, jackNode_.Position.Y, pathPos.Z), Vector3.UnitY, TransformSpace.World);
 				jackNode_.Position = (pathPos);
 			}
 			else
@@ -362,8 +362,8 @@ class _15_Navigation : Sample
 			if (move > distance)
 				move = distance;
 
-			jackNode_.LookAt(nextWaypoint, Vector3.UnitY, TransformSpace.TS_WORLD);
-			jackNode_.Translate(Vector3.UnitZ * move, TransformSpace.TS_LOCAL);
+			jackNode_.LookAt(nextWaypoint, Vector3.UnitY, TransformSpace.World);
+			jackNode_.Translate(Vector3.UnitZ * move, TransformSpace.Local);
 
 			// Remove waypoint if reached it
 			if (distance < 0.1f)

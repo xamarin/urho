@@ -76,9 +76,9 @@ class _18_CharacterDemo : Sample
 		Quaternion headDir = rot * Quaternion.FromAxisAngle(new Vector3(1.0f, 0.0f, 0.0f), limitPitch);
 		// This could be expanded to look at an arbitrary target, now just look at a point in front
 		Vector3 headWorldTarget = headNode.WorldPosition + headDir * new Vector3(0.0f, 0.0f, 1.0f);
-		headNode.LookAt(headWorldTarget, new Vector3(0.0f, 1.0f, 0.0f), TransformSpace.TS_WORLD);
+		headNode.LookAt(headWorldTarget, new Vector3(0.0f, 1.0f, 0.0f), TransformSpace.World);
 		// Correct head orientation because LookAt assumes Z = forward, but the bone has been authored differently (Y = forward)
-		headNode.Rotate(new Quaternion(0.0f, 90.0f, 90.0f), TransformSpace.TS_LOCAL);
+		headNode.Rotate(new Quaternion(0.0f, 90.0f, 90.0f), TransformSpace.Local);
 
 		if (firstPerson_)
 		{
@@ -171,13 +171,13 @@ class _18_CharacterDemo : Sample
 				// Check for loading / saving the scene
 				if (input.GetKeyPress(Key.F5))
 				{
-					File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml", FileMode.FILE_WRITE);
+					File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml", FileMode.Write);
 #warning MISSING_API Scene::SaveXML
 					////scene.SaveXML(saveFile);
 				}
 				if (input.GetKeyPress(Key.F7))
 				{
-					File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml", FileMode.FILE_READ);
+					File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml", FileMode.Read);
 #warning MISSING_API Scene::LoadXML
 					////scene.LoadXML(loadFile);
 					// After loading we have to reacquire the weak pointer to the Character component, as it has been recreated
@@ -318,7 +318,7 @@ class _18_CharacterDemo : Sample
 		body.SetAngularFactor(Vector3.Zero);
 
 		// Set the rigidbody to signal collision also when in rest, so that we get ground collisions properly
-		body.CollisionEventMode = CollisionEventMode.COLLISION_ALWAYS;
+		body.CollisionEventMode = CollisionEventMode.Always;
 
 		// Set a capsule shape for collision
 		CollisionShape shape = objectNode.CreateComponent<CollisionShape>();

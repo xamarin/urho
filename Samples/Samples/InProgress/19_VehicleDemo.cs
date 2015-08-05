@@ -81,12 +81,12 @@ class _19_VehicleDemo : Sample
 						////    // Check for loading / saving the scene
 						////    if (input.GetKeyPress(KEY_F5))
 						////    {
-						////        File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml", FileMode.FILE_WRITE);
+						////        File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml", FileMode.Write);
 						////        scene.SaveXML(saveFile);
 						////    }
 						////    if (input.GetKeyPress(KEY_F7))
 						////    {
-						////        File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml", FileMode.FILE_READ);
+						////        File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml", FileMode.Read);
 						////        scene.LoadXML(loadFile);
 						////        // After loading we have to reacquire the weak pointer to the Vehicle component, as it has been recreated
 						////        // Simply find the vehicle's scene node by name as there's only one of them
@@ -411,7 +411,7 @@ public class Vehicle : LogicComponent
 			wheelBody.LinearDamping = 0.2f; // Some air resistance
 			wheelBody.AngularDamping = 0.75f; // Could also use rolling friction
 			wheelBody.CollisionLayer = 1;
-			wheelConstraint.ConstraintType = ConstraintType.CONSTRAINT_HINGE;
+			wheelConstraint.ConstraintType = ConstraintType.Hinge;
 			wheelConstraint.OtherBody = GetComponent<RigidBody>(); // Connect to the hull body
 			wheelConstraint.SetWorldPosition(wheelNode.Position); // Set constraint's both ends at wheel's location
 			wheelConstraint.SetAxis(Vector3.UnitY); // Wheel rotates around its local Y-axis

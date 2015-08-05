@@ -32,13 +32,13 @@ class _11_Physics : Sample
 
 			if (input.GetKeyPress(Key.F5))
 			{
-				File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.FILE_WRITE);
+				File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.Write);
 #warning MISSING_API SaveXML
 				////scene.SaveXML(saveFile);
 			}
 			if (input.GetKeyPress(Key.F7))
 			{
-				File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.FILE_READ);
+				File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.Read);
 #warning MISSING_API LoadXML
 				////scene.LoadXML(loadFile);
 			}

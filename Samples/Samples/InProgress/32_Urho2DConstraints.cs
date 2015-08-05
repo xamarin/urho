@@ -47,7 +47,7 @@ class _32_Urho2DConstraints : Sample
 				// Save scene
 				if (input.GetKeyPress(Key.F5))
 				{
-					File saveFile=new File(Context, FileSystem.ProgramDir + "Data/Scenes/Constraints.xml",  FileMode.FILE_WRITE);
+					File saveFile=new File(Context, FileSystem.ProgramDir + "Data/Scenes/Constraints.xml",  FileMode.Write);
 #warning MISSIN_API SaveXML
 					////scene.SaveXML(saveFile);
 				}
@@ -250,7 +250,7 @@ class _32_Urho2DConstraints : Sample
 		StaticSprite2D boxSprite = box.CreateComponent<StaticSprite2D>();
 		boxSprite.Sprite=cache.GetSprite2D("Urho2D/Box.png");
 		RigidBody2D boxBody = box.CreateComponent<RigidBody2D>();
-		boxBody.BodyType= BodyType2D.BT_DYNAMIC;
+		boxBody.BodyType= BodyType2D.Dynamic;
 		boxBody.LinearDamping=0.0f;
 		boxBody.AngularDamping=0.0f;
 		CollisionBox2D shape = box.CreateComponent<CollisionBox2D>(); // Create box shape
@@ -265,7 +265,7 @@ class _32_Urho2DConstraints : Sample
 		StaticSprite2D ballSprite = ball.CreateComponent<StaticSprite2D>();
 		ballSprite.Sprite=cache.GetSprite2D("Urho2D/Ball.png");
 		RigidBody2D ballBody = ball.CreateComponent<RigidBody2D>();
-		ballBody.BodyType= BodyType2D.BT_DYNAMIC;
+		ballBody.BodyType= BodyType2D.Dynamic;
 		ballBody.LinearDamping=0.0f;
 		ballBody.AngularDamping=0.0f;
 		CollisionCircle2D ballShape = ball.CreateComponent<CollisionCircle2D>(); // Create circle shape
@@ -281,7 +281,7 @@ class _32_Urho2DConstraints : Sample
 		StaticSprite2D polygonSprite = polygon.CreateComponent<StaticSprite2D>();
 		polygonSprite.Sprite=cache.GetSprite2D("Urho2D/Aster.png");
 		RigidBody2D polygonBody = polygon.CreateComponent<RigidBody2D>();
-		polygonBody.BodyType= BodyType2D.BT_DYNAMIC;
+		polygonBody.BodyType= BodyType2D.Dynamic;
 		CollisionPolygon2D polygonShape = polygon.CreateComponent<CollisionPolygon2D>();
 		polygonShape.VertexCount=6; // Set number of vertices (mandatory when using SetVertex())
 		polygonShape.SetVertex(0, new Vector2(-0.8f, -0.3f));
@@ -296,8 +296,8 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a ConstraintDistance2D
 		CreateFlag("ConstraintDistance2D", -4.97f, 3.0f); // Display Text3D flag
-		Node boxDistanceNode = box.Clone(CreateMode.REPLICATED);
-		Node ballDistanceNode = ball.Clone(CreateMode.REPLICATED);
+		Node boxDistanceNode = box.Clone(CreateMode.Replicated);
+		Node ballDistanceNode = ball.Clone(CreateMode.Replicated);
 		RigidBody2D ballDistanceBody = ballDistanceNode.GetComponent<RigidBody2D>();
 		boxDistanceNode.Position = (new Vector3(-4.5f, 2.0f, 0.0f));
 		ballDistanceNode.Position = (new Vector3(-3.0f, 2.0f, 0.0f));
@@ -312,8 +312,8 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a ConstraintFriction2D ********** Not functional. From Box2d samples it seems that 2 anchors are required, Urho2D only provides 1, needs investigation ***********
 		CreateFlag("ConstraintFriction2D", 0.03f, 1.0f); // Display Text3D flag
-		Node boxFrictionNode = box.Clone(CreateMode.REPLICATED);
-		Node ballFrictionNode = ball.Clone(CreateMode.REPLICATED);
+		Node boxFrictionNode = box.Clone(CreateMode.Replicated);
+		Node ballFrictionNode = ball.Clone(CreateMode.Replicated);
 		boxFrictionNode.Position = (new Vector3(0.5f, 0.0f, 0.0f));
 		ballFrictionNode.Position = (new Vector3(1.5f, 0.0f, 0.0f));
 
@@ -322,14 +322,14 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a ConstraintGear2D
 		CreateFlag("ConstraintGear2D", -4.97f, -1.0f); // Display Text3D flag
-		Node baseNode = box.Clone(CreateMode.REPLICATED);
+		Node baseNode = box.Clone(CreateMode.Replicated);
 		RigidBody2D tempBody = baseNode.GetComponent<RigidBody2D>(); // Get body to make it static
-		tempBody.BodyType= BodyType2D.BT_STATIC;
+		tempBody.BodyType= BodyType2D.Static;
 		baseNode.Position = (new Vector3(-3.7f, -2.5f, 0.0f));
-		Node ball1Node = ball.Clone(CreateMode.REPLICATED);
+		Node ball1Node = ball.Clone(CreateMode.Replicated);
 		ball1Node.Position = (new Vector3(-4.5f, -2.0f, 0.0f));
 		RigidBody2D ball1Body = ball1Node.GetComponent<RigidBody2D>();
-		Node ball2Node = ball.Clone(CreateMode.REPLICATED);
+		Node ball2Node = ball.Clone(CreateMode.Replicated);
 		ball2Node.Position = (new Vector3(-3.0f, -2.0f, 0.0f));
 		RigidBody2D ball2Body = ball2Node.GetComponent<RigidBody2D>();
 
@@ -350,14 +350,14 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a vehicle from a compound of 2 ConstraintWheel2Ds
 		CreateFlag("ConstraintWheel2Ds compound", -2.45f, -1.0f); // Display Text3D flag
-		Node car = box.Clone(CreateMode.REPLICATED);
+		Node car = box.Clone(CreateMode.Replicated);
 		car.Scale=new Vector3(4.0f, 1.0f, 0.0f);
 		car.Position = (new Vector3(-1.2f, -2.3f, 0.0f));
 		StaticSprite2D tempSprite = car.GetComponent<StaticSprite2D>(); // Get car Sprite in order to draw it on top
 		tempSprite.OrderInLayer=0; // Draw car on top of the wheels (set to -1 to draw below)
-		Node ball1WheelNode = ball.Clone(CreateMode.REPLICATED);
+		Node ball1WheelNode = ball.Clone(CreateMode.Replicated);
 		ball1WheelNode.Position = (new Vector3(-1.6f, -2.5f, 0.0f));
-		Node ball2WheelNode = ball.Clone(CreateMode.REPLICATED);
+		Node ball2WheelNode = ball.Clone(CreateMode.Replicated);
 		ball2WheelNode.Position = (new Vector3(-0.8f, -2.5f, 0.0f));
 
 		ConstraintWheel2D wheel1 = car.CreateComponent<ConstraintWheel2D>();
@@ -378,10 +378,10 @@ class _32_Urho2DConstraints : Sample
 
 		// ConstraintMotor2D
 		CreateFlag("ConstraintMotor2D", 2.53f, -1.0f); // Display Text3D flag
-		Node boxMotorNode = box.Clone(CreateMode.REPLICATED);
+		Node boxMotorNode = box.Clone(CreateMode.Replicated);
 		tempBody = boxMotorNode.GetComponent<RigidBody2D>(); // Get body to make it static
-		tempBody.BodyType = BodyType2D.BT_STATIC;
-		Node ballMotorNode = ball.Clone(CreateMode.REPLICATED);
+		tempBody.BodyType = BodyType2D.Static;
+		Node ballMotorNode = ball.Clone(CreateMode.Replicated);
 		boxMotorNode.Position = (new Vector3(3.8f, -2.1f, 0.0f));
 		ballMotorNode.Position = (new Vector3(3.8f, -1.5f, 0.0f));
 
@@ -399,10 +399,10 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a ConstraintPrismatic2D
 		CreateFlag("ConstraintPrismatic2D", 2.53f, 3.0f); // Display Text3D flag
-		Node boxPrismaticNode = box.Clone(CreateMode.REPLICATED);
+		Node boxPrismaticNode = box.Clone(CreateMode.Replicated);
 		tempBody = boxPrismaticNode.GetComponent<RigidBody2D>(); // Get body to make it static
-		tempBody.BodyType = BodyType2D.BT_STATIC;
-		Node ballPrismaticNode = ball.Clone(CreateMode.REPLICATED);
+		tempBody.BodyType = BodyType2D.Static;
+		Node ballPrismaticNode = ball.Clone(CreateMode.Replicated);
 		boxPrismaticNode.Position = new Vector3(3.3f, 2.5f, 0.0f);
 		ballPrismaticNode.Position = new Vector3(4.3f, 2.0f, 0.0f);
 
@@ -418,8 +418,8 @@ class _32_Urho2DConstraints : Sample
 
 		// ConstraintPulley2D
 		CreateFlag("ConstraintPulley2D", 0.03f, 3.0f); // Display Text3D flag
-		Node boxPulleyNode = box.Clone(CreateMode.REPLICATED);
-		Node ballPulleyNode = ball.Clone(CreateMode.REPLICATED);
+		Node boxPulleyNode = box.Clone(CreateMode.Replicated);
+		Node ballPulleyNode = ball.Clone(CreateMode.Replicated);
 		boxPulleyNode.Position = (new Vector3(0.5f, 2.0f, 0.0f));
 		ballPulleyNode.Position = (new Vector3(2.0f, 2.0f, 0.0f));
 
@@ -433,10 +433,10 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a ConstraintRevolute2D
 		CreateFlag("ConstraintRevolute2D", -2.45f, 3.0f); // Display Text3D flag
-		Node boxRevoluteNode = box.Clone(CreateMode.REPLICATED);
+		Node boxRevoluteNode = box.Clone(CreateMode.Replicated);
 		tempBody = boxRevoluteNode.GetComponent<RigidBody2D>(); // Get body to make it static
-		tempBody.BodyType = BodyType2D.BT_STATIC;
-		Node ballRevoluteNode = ball.Clone(CreateMode.REPLICATED);
+		tempBody.BodyType = BodyType2D.Static;
+		Node ballRevoluteNode = ball.Clone(CreateMode.Replicated);
 		boxRevoluteNode.Position = (new Vector3(-2.0f, 1.5f, 0.0f));
 		ballRevoluteNode.Position = (new Vector3(-1.0f, 2.0f, 0.0f));
 
@@ -452,10 +452,10 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a ConstraintRope2D
 		CreateFlag("ConstraintRope2D", -4.97f, 1.0f); // Display Text3D flag
-		Node boxRopeNode = box.Clone(CreateMode.REPLICATED);
+		Node boxRopeNode = box.Clone(CreateMode.Replicated);
 		tempBody = boxRopeNode.GetComponent<RigidBody2D>();
-		tempBody.BodyType = BodyType2D.BT_STATIC;
-		Node ballRopeNode = ball.Clone(CreateMode.REPLICATED);
+		tempBody.BodyType = BodyType2D.Static;
+		Node ballRopeNode = ball.Clone(CreateMode.Replicated);
 		boxRopeNode.Position = (new Vector3(-3.7f, 0.7f, 0.0f));
 		ballRopeNode.Position = (new Vector3(-4.5f, 0.0f, 0.0f));
 
@@ -467,8 +467,8 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a ConstraintWeld2D
 		CreateFlag("ConstraintWeld2D", -2.45f, 1.0f); // Display Text3D flag
-		Node boxWeldNode = box.Clone(CreateMode.REPLICATED);
-		Node ballWeldNode = ball.Clone(CreateMode.REPLICATED);
+		Node boxWeldNode = box.Clone(CreateMode.Replicated);
+		Node ballWeldNode = ball.Clone(CreateMode.Replicated);
 		boxWeldNode.Position = (new Vector3(-0.5f, 0.0f, 0.0f));
 		ballWeldNode.Position = (new Vector3(-2.0f, 0.0f, 0.0f));
 
@@ -480,8 +480,8 @@ class _32_Urho2DConstraints : Sample
 
 		// Create a ConstraintWheel2D
 		CreateFlag("ConstraintWheel2D", 2.53f, 1.0f); // Display Text3D flag
-		Node boxWheelNode = box.Clone(CreateMode.REPLICATED);
-		Node ballWheelNode = ball.Clone(CreateMode.REPLICATED);
+		Node boxWheelNode = box.Clone(CreateMode.Replicated);
+		Node ballWheelNode = ball.Clone(CreateMode.Replicated);
 		boxWheelNode.Position = (new Vector3(3.8f, 0.0f, 0.0f));
 		ballWheelNode.Position = (new Vector3(3.8f, 0.9f, 0.0f));
 

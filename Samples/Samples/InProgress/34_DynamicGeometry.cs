@@ -239,7 +239,7 @@ class _34_DynamicGeometry : Sample
 
 			geom.SetVertexBuffer(0, vb, uint.MaxValue);
 			geom.IndexBuffer=ib;
-			geom.SetDrawRange(PrimitiveType.TRIANGLE_LIST, 0, numVertices, true);
+			geom.SetDrawRange(PrimitiveType.TriangleList, 0, numVertices, true);
 
 			fromScratchModel.NumGeometries=1;
 			fromScratchModel.SetGeometry(0, 0, geom);

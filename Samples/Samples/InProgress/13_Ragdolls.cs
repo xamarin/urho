@@ -34,12 +34,12 @@ class _13_Ragdolls : Sample
 	#warning MISSING_API
 				/*if (input.GetKeyPress(KEY_F5))
 				{
-					File saveFile(Context, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", FILE_WRITE);
+					File saveFile(Context, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", Write);
 					scene.SaveXML(saveFile);
 				}
 				if (input.GetKeyPress(KEY_F7))
 				{
-					File loadFile(context_, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", FILE_READ);
+					File loadFile(context_, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", Read);
 					scene.LoadXML(loadFile);
 				}*/
 
@@ -239,25 +239,25 @@ class CreateRagdoll : Component
 			Vector3 up = new Vector3(0f, 1f, 0f);
 
 				// Create Constraints between bones
-			CreateRagdollConstraint("Bip01_L_Thigh", "Bip01_Pelvis", ConstraintType.CONSTRAINT_CONETWIST, back, forward,
+			CreateRagdollConstraint("Bip01_L_Thigh", "Bip01_Pelvis", ConstraintType.ConeTwist, back, forward,
 				new Vector2(45.0f, 45.0f), Vector2.Zero);
-			CreateRagdollConstraint("Bip01_R_Thigh", "Bip01_Pelvis", ConstraintType.CONSTRAINT_CONETWIST, back, forward,
+			CreateRagdollConstraint("Bip01_R_Thigh", "Bip01_Pelvis", ConstraintType.ConeTwist, back, forward,
 				new Vector2(45.0f, 45.0f), Vector2.Zero);
-			CreateRagdollConstraint("Bip01_L_Calf", "Bip01_L_Thigh", ConstraintType.CONSTRAINT_HINGE, back, back,
+			CreateRagdollConstraint("Bip01_L_Calf", "Bip01_L_Thigh", ConstraintType.Hinge, back, back,
 				new Vector2(90.0f, 0.0f), Vector2.Zero);
-			CreateRagdollConstraint("Bip01_R_Calf", "Bip01_R_Thigh", ConstraintType.CONSTRAINT_HINGE, back, back,
+			CreateRagdollConstraint("Bip01_R_Calf", "Bip01_R_Thigh", ConstraintType.Hinge, back, back,
 				new Vector2(90.0f, 0.0f), Vector2.Zero);
-			CreateRagdollConstraint("Bip01_Spine1", "Bip01_Pelvis", ConstraintType.CONSTRAINT_HINGE, forward, forward,
+			CreateRagdollConstraint("Bip01_Spine1", "Bip01_Pelvis", ConstraintType.Hinge, forward, forward,
 				new Vector2(45.0f, 0.0f), new Vector2(-10.0f, 0.0f));
-			CreateRagdollConstraint("Bip01_Head", "Bip01_Spine1", ConstraintType.CONSTRAINT_CONETWIST, left, left,
+			CreateRagdollConstraint("Bip01_Head", "Bip01_Spine1", ConstraintType.ConeTwist, left, left,
 				new Vector2(0.0f, 30.0f), Vector2.Zero);
-			CreateRagdollConstraint("Bip01_L_UpperArm", "Bip01_Spine1", ConstraintType.CONSTRAINT_CONETWIST, down, up,
+			CreateRagdollConstraint("Bip01_L_UpperArm", "Bip01_Spine1", ConstraintType.ConeTwist, down, up,
 				new Vector2(45.0f, 45.0f), Vector2.Zero, false);
-			CreateRagdollConstraint("Bip01_R_UpperArm", "Bip01_Spine1", ConstraintType.CONSTRAINT_CONETWIST, down, up,
+			CreateRagdollConstraint("Bip01_R_UpperArm", "Bip01_Spine1", ConstraintType.ConeTwist, down, up,
 				new Vector2(45.0f, 45.0f), Vector2.Zero, false);
-			CreateRagdollConstraint("Bip01_L_Forearm", "Bip01_L_UpperArm", ConstraintType.CONSTRAINT_HINGE, back, back,
+			CreateRagdollConstraint("Bip01_L_Forearm", "Bip01_L_UpperArm", ConstraintType.Hinge, back, back,
 				new Vector2(90.0f, 0.0f), Vector2.Zero);
-			CreateRagdollConstraint("Bip01_R_Forearm", "Bip01_R_UpperArm", ConstraintType.CONSTRAINT_HINGE, back, back,
+			CreateRagdollConstraint("Bip01_R_Forearm", "Bip01_R_UpperArm", ConstraintType.Hinge, back, back,
 				new Vector2(90.0f, 0.0f), Vector2.Zero);
 		
 			// Disable keyframe animation from all bones so that they will not interfere with the ragdoll

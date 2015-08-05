@@ -20,7 +20,7 @@ class _05_AnimatingScene : Sample {
 				RotationSpeed.X * args.TimeStep,
 				RotationSpeed.Y * args.TimeStep,
 				RotationSpeed.Z * args.TimeStep),
-				TransformSpace.TS_LOCAL);
+				TransformSpace.Local);
 		}
 	}
 	
@@ -80,7 +80,7 @@ class _05_AnimatingScene : Sample {
 				boxNode.Rotate (new Quaternion (rotationSpeed.X * args.TimeStep,
 								rotationSpeed.Y * args.TimeStep,
 								rotationSpeed.Z * args.TimeStep),
-					TransformSpace.TS_LOCAL);
+					TransformSpace.Local);
 			});
 #endif
 		}

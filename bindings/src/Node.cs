@@ -38,7 +38,7 @@ namespace Urho {
 			return res;
 		}
 		
-		public T CreateComponent<T> (StringHash type, CreateMode mode = CreateMode.REPLICATED, uint id = 0) where T:Component
+		public T CreateComponent<T> (StringHash type, CreateMode mode = CreateMode.Replicated, uint id = 0) where T:Component
 		{
 			var ptr = Node_CreateComponent (handle, type.Code, mode, id);
 			return Runtime.LookupObject<T> (ptr);
@@ -50,7 +50,7 @@ namespace Urho {
 			RemoveComponent (stringHash);
 		}
 
-		public T CreateComponent<T> (CreateMode mode = CreateMode.REPLICATED, uint id = 0) where T:Component
+		public T CreateComponent<T> (CreateMode mode = CreateMode.Replicated, uint id = 0) where T:Component
 		{
 			var stringhash = Runtime.LookupStringHash (typeof (T));
 			var ptr = Node_CreateComponent (handle, stringhash.Code, mode, id);
@@ -59,11 +59,11 @@ namespace Urho {
 
 		public void AddComponent (Component component, uint id = 0)
 		{
-			AddComponent (component, id, CreateMode.REPLICATED);
+			AddComponent (component, id, CreateMode.Replicated);
 		}
 		
 		// Parameters are swapped, so I can use default parameters vs the other method signature
-		public Node CreateChild (string name = "", uint id = 0, CreateMode mode = CreateMode.REPLICATED)
+		public Node CreateChild (string name = "", uint id = 0, CreateMode mode = CreateMode.Replicated)
 		{
 			return CreateChild (name, mode, id);
 		}

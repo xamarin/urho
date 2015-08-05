@@ -22,12 +22,12 @@ class _06_SkeletalAnimation : Sample {
 		public void SceneUpdate (SceneUpdateEventArgs args)
 		{
 			// This moves the character position
-			Node.Translate (Vector3.UnitZ * MoveSpeed * args.TimeStep, TransformSpace.TS_LOCAL);
+			Node.Translate (Vector3.UnitZ * MoveSpeed * args.TimeStep, TransformSpace.Local);
 
 			// If in risk of going outside the plane, rotate the model right
 			var pos = Node.Position;
 			if (pos.X < Bounds.Min.X || pos.X > Bounds.Max.X || pos.Z < Bounds.Min.Z || pos.Z > Bounds.Max.Z)
-				Node.Yaw (RotationSpeed * args.TimeStep, TransformSpace.TS_LOCAL);
+				Node.Yaw (RotationSpeed * args.TimeStep, TransformSpace.Local);
 
 			// Get the model's first (only) animation
 			// state and advance its time. Note the

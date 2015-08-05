@@ -186,6 +186,6 @@ public class Rotator : Component
 
 	public void Update(float timeStep)
 	{
-		Node.Rotate(new Quaternion(rotationSpeed.X * timeStep, rotationSpeed.Y * timeStep, rotationSpeed.Z * timeStep), TransformSpace.TS_LOCAL);       
+		Node.Rotate(new Quaternion(rotationSpeed.X * timeStep, rotationSpeed.Y * timeStep, rotationSpeed.Z * timeStep), TransformSpace.Local);       
 	}
 }

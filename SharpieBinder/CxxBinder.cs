@@ -26,6 +26,89 @@ using System.Text;
 
 namespace SharpieBinder
 {
+	public static class StringUtil {
+		public static string DropPrefix (this string w)
+		{
+			var j = w.IndexOf ("_");
+			var prefix = w.Substring (0, j+1);
+			return w.DropPrefix (prefix);
+		}
+
+		public static string DropPrefix (this string w, string prefix)
+		{
+			if (w.StartsWith (prefix))
+				return w.Substring (prefix.Length);
+			Console.WriteLine ("Can not drop prefix {0} from {1}", prefix, w);
+			return w;
+		}
+
+		public static string Remap (string source)
+		{
+			switch (source) {
+			case "TraversingLink":
+				return "TraversingLink";
+			case "Conetwist":
+				return "ConeTwist";
+			case "Waitingforqueue":
+				return "WaitingForQueue";
+			case "Waitingforpath":
+				return "WaitingForPath";
+			case "Lookat":
+				return "LookAt";
+			case "Readwrite":
+				return "ReadWrite";
+			case "Notfocusable":
+				return "NotFocusable";
+			case "Resetfocus":
+				return "ResetFocus";
+			case "Premulalpha":
+				return "PremultipliedAlpha";
+			case "Subtractalpha":
+				return "SubtractAlpha";
+			case "Invdestalpha":
+				return "InvDestAlpha";
+			case "Notequal":
+				return "NotEqual";
+			case "Lessequal":
+				return "LessEqual";
+			case "Greaterequal":
+				return "GreaterEqual";
+			case "Bottomleft":
+				return "BottomLeft";
+			case "Topleft":
+				return "TopLeft";
+			case "Topright":
+				return "Topright";
+			case "Bottomright":
+				return "BottomRight";
+			case "Horizontalnvidia":
+				return "HorizontalNvidia";
+			case "Horizontalcross":
+				return "HorizontalCross";
+			case "Verticalcross":
+				return "VerticalCross";
+			
+
+			}
+			return source;
+		}
+
+		public static string PascalCase (this string w)
+		{
+			var elements = w.Split ('_');
+			return string.Join ("", w.Split ('_').Select (x => Remap (Capitalize (x))));
+		}
+
+		public static string Capitalize (this string w)
+		{
+			if (w.Length == 0)
+				return "";
+			if (w.Length > 1)
+				return Char.ToUpper (w [0]) + w.Substring (1).ToLower ();
+			return Char.ToUpper (w[0]).ToString ();
+		}
+	}
+
 	class CxxBinder : AstVisitor
 	{
 		CSharpParser csParser = new CSharpParser();
@@ -233,6 +316,48 @@ namespace SharpieBinder
 		HashSet<string> currentTypeNames = new HashSet<string>();
 		int uniqueMethodName;
 		Dictionary<string, TypeDeclaration> allTypes = new Dictionary<string, TypeDeclaration>();
+		public HashSet<string> unhandledEnums = new HashSet<string> ();
+
+		 string RemapEnumName (string type, string value)
+		{
+			if (value.StartsWith ("MAX_"))
+				return null;
+			
+			switch (type) {
+			case "AsyncLoadState":
+			case "BodyType2D":
+			case "CollisionEventMode":
+			case "CompressedMode":
+			case "CreateMode":
+			case "ConstraintType":
+			case "CompareMode":
+			case "BlendMode":
+			case "Corner":
+			case "CubeMapFace":
+			case "CubeMapLayout":
+			case "CullMode":
+			case "EmitterType":
+			case "FileMode":
+			case "FONT_TYPE":
+			case "FaceCameraMode":
+			case "GeometricType":
+			case "TransformSpace":
+				return value.DropPrefix ().PascalCase ();
+			case "EmitterTypeGravity":
+			case "EmitterType2D":
+				return value.DropPrefix ().DropPrefix ().PascalCase ();
+			case "DebugDrawModes":
+				return value.DropPrefix ();
+			case "CrowdTargetState":
+				return value.DropPrefix ().DropPrefix ().DropPrefix ().PascalCase ();
+			case "PrimitiveType":
+				return value.PascalCase ();
+			default:
+				unhandledEnums.Add (type);
+				break;
+			}
+			return value;
+		}
 
 		public override void VisitEnumDecl(EnumDecl decl, VisitKind visitKind)
 		{
@@ -250,11 +375,12 @@ namespace SharpieBinder
 			});
 
 			foreach (var constantDecl in decl.Decls<EnumConstantDecl>()) {
-				var valueName = constantDecl.Name;
+				var valueName = RemapEnumName (typeName, constantDecl.Name);
 
 				switch (valueName) {
 				// LIST HERE ANY Values we want to skip
 				case "foo":
+				case null:
 					continue;
 
 				}
@@ -269,7 +395,7 @@ namespace SharpieBinder
 					if ((ul & 0xffffffff) == ul)
 						value = new PrimitiveExpression ((int)ul);
 					else
-						throw new NotImplementedException ($"Got a {ul} value which will not fit on an int, you must manually handle this case in the generator");
+						throw new NotImplementedException ($"Got a {ul} value which will not fit on an int, you must manually handle this case in the generatorg");
 					enumValue.Initializer = value;
 				}
 				currentType.Members.Add(enumValue);

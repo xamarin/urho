@@ -48,7 +48,7 @@ class _24_Urho2DSprite : Sample
 					}
 
 					nodeInfo.Node.Position = (newPosition);
-					nodeInfo.Node.Roll(nodeInfo.RotateSpeed * args.TimeStep, TransformSpace.TS_LOCAL);
+					nodeInfo.Node.Roll(nodeInfo.RotateSpeed * args.TimeStep, TransformSpace.Local);
 				}
 
 			});
@@ -98,7 +98,7 @@ class _24_Urho2DSprite : Sample
 			// Set random color
 			staticSprite.Color = (new Color(NextRandom(1.0f), NextRandom(1.0f), NextRandom(1.0f), 1.0f));
 			// Set blend mode
-			staticSprite.BlendMode = BlendMode.BLEND_ALPHA;
+			staticSprite.BlendMode = BlendMode.Alpha;
 			// Set sprite
 			staticSprite.Sprite=sprite;
 			// Add to sprite node vector

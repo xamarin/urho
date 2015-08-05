@@ -45,6 +45,8 @@ namespace SharpieBinder
 				File.WriteAllText (output + "/" + st.FileName, st.ToString ());
 				//File.WriteAllText (output + "/" + st.FileName + ".c"
 			}
+			foreach (var a in binder.unhandledEnums)
+				Console.WriteLine ("Missing special Enum processing for {0}", a);
 			Console.WriteLine($"Dumped data into {output}");
 			binder.Close ();
 			return 0;
