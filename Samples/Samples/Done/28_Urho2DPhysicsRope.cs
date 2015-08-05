@@ -72,7 +72,7 @@ class _28_Urho2DPhysicsRope : Sample
 
 			// Create rigid body
 			RigidBody2D body = node.CreateComponent<RigidBody2D>();
-			body.BodyType= BodyType2D.Dynamic; //https://github.com/xamarin/urho/issues/49
+			body.BodyType= BodyType2D.Dynamic;
 
 			// Create box
 			CollisionBox2D box = node.CreateComponent<CollisionBox2D>();
