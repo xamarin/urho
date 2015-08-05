@@ -15,7 +15,10 @@ namespace SharpieBinder
 			Directory.CreateDirectory (output);
 			Console.WriteLine(Environment.CurrentDirectory);
 
-			Console.WriteLine("This needs a 64-bit Mono to run, and libclang-mono.dylib in /usr/lib");
+			if (System.Runtime.InteropServices.Marshal.SizeOf(typeof (IntPtr)) == 4) {
+				Console.Error.WriteLine ("This needs a 64-bit Mono to run, and libclang-mono.dylib in /usr/lib");
+				return 1;
+			}
 
 			if (args.Length == 0) {
 				//Console.Error.WriteLine ("error: provide a PCH file to dump");

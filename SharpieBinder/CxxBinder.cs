@@ -259,8 +259,20 @@ namespace SharpieBinder
 
 				}
 				var x = new EnumMemberDeclaration();
+				var enumValue = new EnumMemberDeclaration { Name = valueName };
+				if (constantDecl.InitExpr != null) {
+					APSInt v;
 
-				currentType.Members.Add(new EnumMemberDeclaration { Name = valueName });
+					constantDecl.InitExpr.EvaluateAsInt (decl.AstContext, out v);
+					var ul = v.GetLimitedValue ();
+					PrimitiveExpression value;
+					if ((ul & 0xffffffff) == ul)
+						value = new PrimitiveExpression ((int)ul);
+					else
+						throw new NotImplementedException ($"Got a {ul} value which will not fit on an int, you must manually handle this case in the generator");
+					enumValue.Initializer = value;
+				}
+				currentType.Members.Add(enumValue);
 			}
 		}
 
