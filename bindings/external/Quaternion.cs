@@ -67,37 +67,37 @@ namespace Urho
 			: this(new Vector3(x, y, z), w)
 		{ }
 
-	// From Euler angles
-	public Quaternion (float x, float y, float z)
-	{
-		const float M_DEGTORAD_2 = (float)Math.PI / 360.0f;
-		x *= M_DEGTORAD_2;
-		y *= M_DEGTORAD_2;
-		z *= M_DEGTORAD_2;
-		float sinX = (float)Math.Sin(x);
-		float cosX = (float)Math.Cos(x);
-		float sinY = (float)Math.Sin(y);
-		float cosY = (float)Math.Cos(y);
-		float sinZ = (float)Math.Sin(z);
-		float cosZ = (float)Math.Cos(z);
+		// From Euler angles
+		public Quaternion (float x, float y, float z)
+		{
+			const float M_DEGTORAD_2 = (float)Math.PI / 360.0f;
+			x *= M_DEGTORAD_2;
+			y *= M_DEGTORAD_2;
+			z *= M_DEGTORAD_2;
+			float sinX = (float)Math.Sin(x);
+			float cosX = (float)Math.Cos(x);
+			float sinY = (float)Math.Sin(y);
+			float cosY = (float)Math.Cos(y);
+			float sinZ = (float)Math.Sin(z);
+			float cosZ = (float)Math.Cos(z);
 
-		xyz = new Vector3(cosY * sinX * cosZ + sinY * cosX * sinZ,
-				  sinY * cosX * cosZ - cosY * sinX * sinZ,
-				  cosY * cosX * sinZ - sinY * sinX * cosZ);
-		w = cosY * cosX * cosZ + sinY * sinX * sinZ;
-	}
+			xyz = new Vector3(cosY * sinX * cosZ + sinY * cosX * sinZ,
+					  sinY * cosX * cosZ - cosY * sinX * sinZ,
+					  cosY * cosX * sinZ - sinY * sinX * cosZ);
+			w = cosY * cosX * cosZ + sinY * sinX * sinZ;
+		}
 	
 		public Quaternion (ref Matrix3 matrix)
 		{
 			double scale = System.Math.Pow(matrix.Determinant, 1.0d / 3.0d);
-		float x, y, z;
+			float x, y, z;
 		
 			w = (float) (System.Math.Sqrt(System.Math.Max(0, scale + matrix[0, 0] + matrix[1, 1] + matrix[2, 2])) / 2);
 			x = (float) (System.Math.Sqrt(System.Math.Max(0, scale + matrix[0, 0] - matrix[1, 1] - matrix[2, 2])) / 2);
 			y = (float) (System.Math.Sqrt(System.Math.Max(0, scale - matrix[0, 0] + matrix[1, 1] - matrix[2, 2])) / 2);
 			z = (float) (System.Math.Sqrt(System.Math.Max(0, scale - matrix[0, 0] - matrix[1, 1] + matrix[2, 2])) / 2);
 
-		xyz = new Vector3 (x, y, z);
+			xyz = new Vector3 (x, y, z);
 		
 			if (matrix[2, 1] - matrix[1, 2] < 0) X = -X;
 			if (matrix[0, 2] - matrix[2, 0] < 0) Y = -Y;
@@ -237,6 +237,40 @@ namespace Urho
 			Xyz *= scale;
 			W *= scale;
 		}
+
+		#endregion
+
+		#region EulerAngles
+
+		public Vector3 ToEulerAngles()
+		{
+			// Derivation from http://www.geometrictools.com/Documentation/EulerAngles.pdf
+			// Order of rotations: Z first, then X, then Y
+			float check = 2.0f*(-Y*Z + W*X);
+			const float radToDeg = 180f/(float) Math.PI;
+
+			if (check < -0.995f)
+			{
+				return new Vector3(-90f, 0f, -(float)Math.Atan2(2.0f * (X * Z - W * Y), 1.0f - 2.0f * (Y * Y + Z * Z)) * radToDeg);
+			}
+			else if (check > 0.995f)
+			{
+				return new Vector3(90f, 0f, (float)Math.Atan2(2.0f * (X * Z - W * Y), 1.0f - 2.0f * (Y * Y + Z * Z)) * radToDeg);
+			}
+			else
+			{
+				return new Vector3(
+					(float)Math.Asin(check) * radToDeg,
+					(float)Math.Atan2(2.0f * (X * Z - W * Y), 1.0f - 2.0f * (X * X + Y * Y)) * radToDeg,
+					(float)Math.Atan2(2.0f * (X * Y - W * Z), 1.0f - 2.0f * (X * X + Z * Z)) * radToDeg);
+			}
+		}
+
+		public float YawAngle => ToEulerAngles().Y;
+
+		public float PitchAngle => ToEulerAngles().X;
+
+		public float RollAngle => ToEulerAngles().Z;
 
 		#endregion
 
@@ -392,11 +426,11 @@ namespace Urho
 			result = new Quaternion(quaternion.X * scale, quaternion.Y * scale, quaternion.Z * scale, quaternion.W * scale);
 		}
 
-	[Obsolete ("Use the overload without the ref float scale")]
+		[Obsolete ("Use the overload without the ref float scale")]
 		public static void Multiply(ref Quaternion quaternion, ref float scale, out Quaternion result)
-	{
+		{
 			result = new Quaternion(quaternion.X * scale, quaternion.Y * scale, quaternion.Z * scale, quaternion.W * scale);		
-	}
+		}
 	
 		/// <summary>
 		/// Multiplies an instance by a scalar.

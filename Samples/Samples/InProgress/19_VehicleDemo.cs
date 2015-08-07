@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using Urho;
 
 class _19_VehicleDemo : Sample
 {
 	private Scene scene;
-	private bool drawDebug;
-	private Camera camera;
-	private Vehicle vehicle_;
+	private Vehicle vehicle;
 
 	const float CAMERA_DISTANCE = 10.0f;
 
 	public _19_VehicleDemo(Context ctx) : base(ctx)
 	{
-		Vehicle.RegisterObject(ctx);
 	}
 
 	public override void Start()
@@ -39,87 +35,84 @@ class _19_VehicleDemo : Sample
 			{
 				Input input = Input;
 
-				if (vehicle_ != null)
+				if (vehicle != null)
 				{
 					UI ui = UI;
 
 					// Get movement controls and assign them to the vehicle component. If UI has a focused element, clear controls
 					if (ui.FocusElement == null)
 					{
-#warning MISSING_API Controls, Input::GetTouch, Scene::LoadXML, Scene::SaveXML
-						////        vehicle_.controls_.Set(CTRL_FORWARD, input.GetKeyDown(Keys.W));
-						////    vehicle_.controls_.Set(CTRL_BACK, input.GetKeyDown(Key.S));
-						////    vehicle_.controls_.Set(CTRL_LEFT, input.GetKeyDown(Key.A));
-						////    vehicle_.controls_.Set(CTRL_RIGHT, input.GetKeyDown(Key.D));
+						vehicle.Controls.Set(Vehicle.CTRL_FORWARD, input.GetKeyDown(Key.W));
+						vehicle.Controls.Set(Vehicle.CTRL_BACK, input.GetKeyDown(Key.S));
+						vehicle.Controls.Set(Vehicle.CTRL_LEFT, input.GetKeyDown(Key.A));
+						vehicle.Controls.Set(Vehicle.CTRL_RIGHT, input.GetKeyDown(Key.D));
 
-						////    // Add yaw & pitch from the mouse motion or touch input. Used only for the camera, does not affect motion
-						////    if (TouchEnabled)
-						////    {
-						////        for (uint i = 0; i < input.GetNumTouches(); ++i)
-						////        {
-						////            TouchState* state = input.GetTouch(i);
-						////            if (!state.touchedElement_)    // Touch on empty space
-						////            {
-						////                Camera camera = CameraNode.GetComponent<Camera>();
-						////                if (!camera)
-						////                    return;
+						// Add yaw & pitch from the mouse motion or touch input. Used only for the camera, does not affect motion
+						if (TouchEnabled)
+						{
+							for (uint i = 0; i < input.NumTouches; ++i)
+							{
+								TouchState state;
+								if (input.TryGetTouch(i, out state))
+								{
+									Camera camera = CameraNode.GetComponent<Camera>();
+									if (camera == null)
+										return;
 
-						////                var graphics = Graphics;
-						////                vehicle_.controls_.yaw_ += TOUCH_SENSITIVITY * camera.GetFov() / graphics.Height * state.delta_.X;
-						////                vehicle_.controls_.pitch_ += TOUCH_SENSITIVITY * camera.GetFov() / graphics.Height * state.delta_.Y;
-						////            }
-						////        }
-						////    }
-						////    else
-						////    {
-						////        vehicle_.controls_.yaw_ += (float)input.GetMouseMoveX() * YAW_SENSITIVITY;
-						////        vehicle_.controls_.pitch_ += (float)input.GetMouseMoveY() * YAW_SENSITIVITY;
-						////    }
-						////    // Limit pitch
-						////    vehicle_.controls_.pitch_ = Clamp(vehicle_.controls_.pitch_, 0.0f, 80.0f);
+									var graphics = Graphics;
+									vehicle.Controls.Yaw += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.X;
+									vehicle.Controls.Pitch += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.Y;
+								}
+							}
+						}
+						else
+						{
+							vehicle.Controls.Yaw += (float)input.MouseMoveX * Vehicle.YAW_SENSITIVITY;
+							vehicle.Controls.Pitch += (float)input.MouseMoveY * Vehicle.YAW_SENSITIVITY;
+						}
+						// Limit pitch
+						vehicle.Controls.Pitch = Clamp(vehicle.Controls.Pitch, 0.0f, 80.0f);
 
-						////    // Check for loading / saving the scene
-						////    if (input.GetKeyPress(KEY_F5))
-						////    {
-						////        File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml", FileMode.Write);
-						////        scene.SaveXML(saveFile);
-						////    }
-						////    if (input.GetKeyPress(KEY_F7))
-						////    {
-						////        File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml", FileMode.Read);
-						////        scene.LoadXML(loadFile);
-						////        // After loading we have to reacquire the weak pointer to the Vehicle component, as it has been recreated
-						////        // Simply find the vehicle's scene node by name as there's only one of them
-						////        Node vehicleNode = scene.GetChild("Vehicle", true);
-						////        if (vehicleNode != null)
-						////            vehicle_ = vehicleNode.GetComponent<Vehicle>();
-						////    }
-						////}
-						////else
-						////    vehicle_.controls_.Set(CTRL_FORWARD | CTRL_BACK | CTRL_LEFT | CTRL_RIGHT, false);
+						// Check for loading / saving the scene
+						if (input.GetKeyPress(Key.F5))
+						{
+							//File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml", FileMode.Write);
+							//scene.SaveXML(saveFile);
+						}
+						if (input.GetKeyPress(Key.F7))
+						{
+							//File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml", FileMode.Read);
+							//scene.LoadXML(loadFile);
+							// After loading we have to reacquire the weak pointer to the Vehicle component, as it has been recreated
+							// Simply find the vehicle's scene node by name as there's only one of them
+							Node vehicleNode = scene.GetChild("Vehicle", true);
+							if (vehicleNode != null)
+								vehicle = vehicleNode.GetComponent<Vehicle>();
+						}
 					}
+					else
+						vehicle.Controls.Set(Vehicle.CTRL_FORWARD | Vehicle.CTRL_BACK | Vehicle.CTRL_LEFT | Vehicle.CTRL_RIGHT, false);
 				}
 			});
 
 		SubscribeToPostRenderUpdate(args =>
 			{
-				if (vehicle_ == null)
+				if (vehicle == null)
 					return;
 
-				Node vehicleNode = vehicle_.Node;
+				Node vehicleNode = vehicle.Node;
 
 				// Physics update has completed. Position camera behind vehicle
-#warning MISSING_API
-				////Quaternion dir = new Quaternion(vehicleNode.Rotation.YawAngle(), Vector3.UnitY);
-				////dir = dir * new Quaternion(vehicle_.controls_.yaw_, Vector3.UnitY);
-				////dir = dir * new Quaternion(vehicle_.controls_.pitch_, Vector3.UnitX);
+				Quaternion dir = new Quaternion(Vector3.UnitY, vehicleNode.Rotation.YawAngle);
+				dir = dir * new Quaternion(Vector3.UnitY, vehicle.Controls.Yaw);
+				dir = dir * new Quaternion(Vector3.UnitX, vehicle.Controls.Pitch);
 
-				////Vector3 cameraTargetPos = vehicleNode.Position - dir * new Vector3(0.0f, 0.0f, CAMERA_DISTANCE);
+				Vector3 cameraTargetPos = vehicleNode.Position - dir * new Vector3(0.0f, 0.0f, CAMERA_DISTANCE);
 				Vector3 cameraStartPos = vehicleNode.Position;
 
 				// Raycast camera against static objects (physics collision mask 2)
 				// and move it closer to the vehicle if something in between
-#warning MISSING_API
+#warning MISSING_API RaycastSingle
 				////Ray cameraRay = new Ray(cameraStartPos, cameraTargetPos -cameraStartPos);
 				////float cameraRayLength = (cameraTargetPos - cameraStartPos).Length;
 				////PhysicsRaycastResult result;
@@ -131,9 +124,8 @@ class _19_VehicleDemo : Sample
 				////CameraNode.Rotation = dir;
 			});
 
-#warning MISSING_API
 		// Unsubscribe the SceneUpdate event from base class as the camera node is being controlled in HandlePostUpdate() in this sample
-		////UnsubscribeFromEvent(E_SCENEUPDATE);
+		SceneUpdateEventToken.Unsubscribe();
 	}
 
 	private void CreateVehicle()
@@ -142,9 +134,10 @@ class _19_VehicleDemo : Sample
 		vehicleNode.Position = (new Vector3(0.0f, 5.0f, 0.0f));
 
 		// Create the vehicle logic component
-		vehicle_ = vehicleNode.CreateComponent<Vehicle>(Vehicle.TypeStatic);
+		vehicle = new Vehicle(Context, ResourceCache); 
+		vehicleNode.AddComponent(vehicle);
 		// Create the rendering and physics components
-		vehicle_.Init();
+		vehicle.Init();
 	}
 
 
@@ -226,54 +219,55 @@ class _19_VehicleDemo : Sample
 	}
 
 
-/// <summary>
-/// Vehicle component, responsible for physical movement according to controls.
-/// </summary>
-public class Vehicle : LogicComponent
+	/// <summary>
+	/// Vehicle component, responsible for physical movement according to controls.
+	/// </summary>
+	public class Vehicle : Component
 	{
-		const int CTRL_FORWARD = 1;
-		const int CTRL_BACK = 2;
-		const int CTRL_LEFT = 4;
-		const int CTRL_RIGHT = 8;
+		private readonly ResourceCache cache;
+		public const int CTRL_FORWARD = 1;
+		public const int CTRL_BACK = 2;
+		public const int CTRL_LEFT = 4;
+		public const int CTRL_RIGHT = 8;
 
-		const float YAW_SENSITIVITY = 0.1f;
-		const float ENGINE_POWER = 10.0f;
-		const float DOWN_FORCE = 10.0f;
-		const float MAX_WHEEL_ANGLE = 22.5f;
+		public const float YAW_SENSITIVITY = 0.1f;
+		public const float ENGINE_POWER = 10.0f;
+		public float DOWN_FORCE = 10.0f;
+		public const float MAX_WHEEL_ANGLE = 22.5f;
 
-		/// Movement controls.
-#warning MISSING_API Controls
-		////Controls controls_;
+		// Movement controls.
+		public Controls Controls => new Controls();
 
 		// Wheel scene nodes.
-		Node frontLeft_;
-		Node frontRight_;
-		Node rearLeft_;
-		Node rearRight_;
+		Node frontLeft;
+		Node frontRight;
+		Node rearLeft;
+		Node rearRight;
 
 		// Steering axle constraints.
-		Constraint frontLeftAxis_;
-		Constraint frontRightAxis_;
+		Constraint frontLeftAxis;
+		Constraint frontRightAxis;
 
 		// Hull and wheel rigid bodies.
-		RigidBody hullBody_;
-		RigidBody frontLeftBody_;
-		RigidBody frontRightBody_;
-		RigidBody rearLeftBody_;
-		RigidBody rearRightBody_;
+		RigidBody hullBody;
+		RigidBody frontLeftBody;
+		RigidBody frontRightBody;
+		RigidBody rearLeftBody;
+		RigidBody rearRightBody;
 
 		// IDs of the wheel scene nodes for serialization.
-		uint frontLeftID_;
-		uint frontRightID_;
-		uint rearLeftID_;
-		uint rearRightID_;
+		uint frontLeftId;
+		uint frontRightId;
+		uint rearLeftId;
+		uint rearRightId;
 
 		/// Current left/right steering amount (-1 to 1.)
-		float steering_;
+		float steering;
 
-		public Vehicle(Context context) : base(context)
+		public Vehicle(Context context, ResourceCache cache) : base(context)
 		{
-			UpdateEventMask = USE_FIXEDUPDATE;
+			this.cache = cache;
+			//UpdateEventMask = USE_FIXEDUPDATE;
 		}
 
 		private void RegisterObject(Context context)
@@ -297,11 +291,11 @@ public class Vehicle : LogicComponent
 			// as well as all required physics components
 			Scene scene = Scene;
 
-			frontLeft_ = scene.GetNode(frontLeftID_);
-			frontRight_ = scene.GetNode(frontRightID_);
-			rearLeft_ = scene.GetNode(rearLeftID_);
-			rearRight_ = scene.GetNode(rearRightID_);
-			hullBody_ = Node.GetComponent<RigidBody>();
+			frontLeft = scene.GetNode(frontLeftId);
+			frontRight = scene.GetNode(frontRightId);
+			rearLeft = scene.GetNode(rearLeftId);
+			rearRight = scene.GetNode(rearRightId);
+			hullBody = Node.GetComponent<RigidBody>();
 			GetWheelComponents();
 		}
 
@@ -311,83 +305,75 @@ public class Vehicle : LogicComponent
 			float accelerator = 0.0f;
 
 			// Read controls
-#warning MISSING_API Controls, RigidBody
-			////if (controls_.buttons_ & CTRL_LEFT)
-			////    newSteering = -1.0f;
-			////if (controls_.buttons_ & CTRL_RIGHT)
-			////    newSteering = 1.0f;
-			////if (controls_.buttons_ & CTRL_FORWARD)
-			////    accelerator = 1.0f;
-			////if (controls_.buttons_ & CTRL_BACK)
-			////    accelerator = -0.5f;
+			if ((Controls.Buttons & CTRL_LEFT) != 0)
+				newSteering = -1.0f;
+			if ((Controls.Buttons & CTRL_RIGHT) != 0)
+				newSteering = 1.0f;
+			if ((Controls.Buttons & CTRL_FORWARD) != 0)
+				accelerator = 1.0f;
+			if ((Controls.Buttons & CTRL_BACK) != 0)
+				accelerator = -0.5f;
 
 			// When steering, wake up the wheel rigidbodies so that their orientation is updated
 			if (newSteering != 0.0f)
 			{
-				frontLeftBody_.Activate();
-				frontRightBody_.Activate();
-				steering_ = steering_ * 0.95f + newSteering * 0.05f;
+				frontLeftBody.Activate();
+				frontRightBody.Activate();
+				steering = steering * 0.95f + newSteering * 0.05f;
 			}
 			else
-				steering_ = steering_ * 0.8f + newSteering * 0.2f;
+				steering = steering * 0.8f + newSteering * 0.2f;
 
 			// Set front wheel angles
-			Quaternion steeringRot = new Quaternion(0, steering_ * MAX_WHEEL_ANGLE, 0);
-			frontLeftAxis_.SetOtherAxis(steeringRot * new Vector3(-1f, 0f, 0f));
-			frontRightAxis_.SetOtherAxis(steeringRot * Vector3.UnitX);
+			Quaternion steeringRot = new Quaternion(0, steering * MAX_WHEEL_ANGLE, 0);
+			frontLeftAxis.SetOtherAxis(steeringRot * new Vector3(-1f, 0f, 0f));
+			frontRightAxis.SetOtherAxis(steeringRot * Vector3.UnitX);
 
-			Quaternion hullRot = hullBody_.Rotation;
+			Quaternion hullRot = hullBody.Rotation;
 			if (accelerator != 0.0f)
 			{
 				// Torques are applied in world space, so need to take the vehicle & wheel rotation into account
 				Vector3 torqueVec = new Vector3(ENGINE_POWER * accelerator, 0.0f, 0.0f);
 
-				frontLeftBody_.ApplyTorque(hullRot * steeringRot * torqueVec);
-				frontRightBody_.ApplyTorque(hullRot * steeringRot * torqueVec);
-				rearLeftBody_.ApplyTorque(hullRot * torqueVec);
-				rearRightBody_.ApplyTorque(hullRot * torqueVec);
+				frontLeftBody.ApplyTorque(hullRot * steeringRot * torqueVec);
+				frontRightBody.ApplyTorque(hullRot * steeringRot * torqueVec);
+				rearLeftBody.ApplyTorque(hullRot * torqueVec);
+				rearRightBody.ApplyTorque(hullRot * torqueVec);
 			}
 
 			// Apply downforce proportional to velocity
-#warning MISSING_API Quaternion::Inverse()
-			////Vector3 localVelocity = hullRot.Inverse() * hullBody_.LinearVelocity;
-			////hullBody_.ApplyForce(hullRot * new Vector3(0f, -1f, 0f) * Math.Abs(localVelocity.Z) * DOWN_FORCE);
+			Vector3 localVelocity = Quaternion.Invert(hullRot) * hullBody.LinearVelocity;
+			hullBody.ApplyForce(hullRot * new Vector3(0f, -1f, 0f) * Math.Abs(localVelocity.Z) * DOWN_FORCE);
 		}
 
 		public void Init()
 		{
 			// This function is called only from the main program when initially creating the vehicle, not on scene load
+			var node = Node;
+			StaticModel hullObject = node.CreateComponent<StaticModel>();
+			hullBody = node.CreateComponent<RigidBody>();
+			CollisionShape hullShape = node.CreateComponent<CollisionShape>();
 
-#warning ResourceCache
-			var cache = new ResourceCache(Context);
-			var node_ = Node;
-			StaticModel hullObject = node_.CreateComponent<StaticModel>();
-			hullBody_ = node_.CreateComponent<RigidBody>();
-			CollisionShape hullShape = node_.CreateComponent<CollisionShape>();
-
-			node_.Scale = new Vector3(1.5f, 1.0f, 3.0f);
+			node.Scale = new Vector3(1.5f, 1.0f, 3.0f);
 			hullObject.Model = cache.GetModel("Models/Box.mdl");
 			hullObject.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
 			hullObject.CastShadows = true;
 			hullShape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
-			hullBody_.Mass = 4.0f;
-			hullBody_.LinearDamping = 0.2f; // Some air resistance
-			hullBody_.AngularDamping = 0.5f;
-			hullBody_.CollisionLayer = 1;
+			hullBody.Mass = 4.0f;
+			hullBody.LinearDamping = 0.2f; // Some air resistance
+			hullBody.AngularDamping = 0.5f;
+			hullBody.CollisionLayer = 1;
 
-			InitWheel("FrontLeft", new Vector3(-0.6f, -0.4f, 0.3f), out frontLeft_, out frontLeftID_);
-			InitWheel("FrontRight", new Vector3(0.6f, -0.4f, 0.3f), out frontRight_, out frontRightID_);
-			InitWheel("RearLeft", new Vector3(-0.6f, -0.4f, -0.3f), out rearLeft_, out rearLeftID_);
-			InitWheel("RearRight", new Vector3(0.6f, -0.4f, -0.3f), out rearRight_, out rearRightID_);
+			InitWheel("FrontLeft", new Vector3(-0.6f, -0.4f, 0.3f), out frontLeft, out frontLeftId);
+			InitWheel("FrontRight", new Vector3(0.6f, -0.4f, 0.3f), out frontRight, out frontRightId);
+			InitWheel("RearLeft", new Vector3(-0.6f, -0.4f, -0.3f), out rearLeft, out rearLeftId);
+			InitWheel("RearRight", new Vector3(0.6f, -0.4f, -0.3f), out rearRight, out rearRightId);
 
 			GetWheelComponents();
 		}
 
 		private void InitWheel(string name, Vector3 offset, out Node wheelNode, out uint wheelNodeId)
 		{
-#warning ResourceCache
-			var cache = new ResourceCache(Context);
-
 			// Note: do not parent the wheel to the hull scene node. Instead create it on the root level and let the physics
 			// constraint keep it together
 			wheelNode = Scene.CreateChild(name);
@@ -423,13 +409,12 @@ public class Vehicle : LogicComponent
 
 		private void GetWheelComponents()
 		{
-			frontLeftAxis_ = frontLeft_.GetComponent<Constraint>();
-			frontRightAxis_ = frontRight_.GetComponent<Constraint>();
-			frontLeftBody_ = frontLeft_.GetComponent<RigidBody>();
-			frontRightBody_ = frontRight_.GetComponent<RigidBody>();
-			rearLeftBody_ = rearLeft_.GetComponent<RigidBody>();
-			rearRightBody_ = rearRight_.GetComponent<RigidBody>();
+			frontLeftAxis = frontLeft.GetComponent<Constraint>();
+			frontRightAxis = frontRight.GetComponent<Constraint>();
+			frontLeftBody = frontLeft.GetComponent<RigidBody>();
+			frontRightBody = frontRight.GetComponent<RigidBody>();
+			rearLeftBody = rearLeft.GetComponent<RigidBody>();
+			rearRightBody = rearRight.GetComponent<RigidBody>();
 		}
-
 	}
 }
