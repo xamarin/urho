@@ -32,7 +32,7 @@ namespace Urho {
 			
 			var res = new Node[count];
 			for (int i = 0; i < count; i++){
-				var node = Marshal.ReadIntPtr (ptr, i);
+				var node = Marshal.ReadIntPtr(ptr, i * IntPtr.Size);
 				res [i] = Runtime.LookupObject<Node> (node);
 			}
 			return res;
