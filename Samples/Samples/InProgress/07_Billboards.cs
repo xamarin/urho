@@ -6,7 +6,6 @@ class _07_Billboards : Sample
 {
 	private Scene scene;
 	private bool drawDebug;
-	private Camera camera;
 
 	public _07_Billboards(Context ctx) : base(ctx) {}
 
@@ -39,7 +38,7 @@ class _07_Billboards : Sample
 		});
 	}
 
-	private void AnimateScene(float timeStep)
+	private unsafe void AnimateScene(float timeStep)
 	{
 		var lightNodes = scene.GetChildrenWithComponent<Light>();
 		var billboardNodes = scene.GetChildrenWithComponent<BillboardSet>();
@@ -47,7 +46,7 @@ class _07_Billboards : Sample
 		const float LIGHT_ROTATION_SPEED = 20.0f;
 		const float BILLBOARD_ROTATION_SPEED = 50.0f;
 
-		foreach (var lightNode in lightNodes.Skip(5))
+		foreach (var lightNode in lightNodes)
 		{
 			lightNode.Rotate(new Quaternion(0f, LIGHT_ROTATION_SPEED * timeStep, 0f), TransformSpace.World);
 		}
@@ -57,8 +56,9 @@ class _07_Billboards : Sample
 			var billboardSet = billboardNode.GetComponent<BillboardSet>();
 			for (uint i = 0; i < billboardSet.NumBillboards; i++)
 			{
-				var bb = billboardSet.GetBillboardSafe(i).Value;
-				bb.Rotation += BILLBOARD_ROTATION_SPEED*timeStep;
+				//NOTE: temp working solution. TODO: avoid using "unsafe"
+				Billboard* bb = billboardSet.GetBillboard(i);
+				bb->Rotation += BILLBOARD_ROTATION_SPEED*timeStep;
 			}
 			billboardSet.Commit();
 		}
@@ -70,7 +70,7 @@ class _07_Billboards : Sample
 		renderer.SetViewport(0, new Viewport(Context, scene, CameraNode.GetComponent<Camera>(), null));
 	}
 
-	private void CreateScene()
+	private unsafe void CreateScene()
 	{
 		var cache = ResourceCache;
 		scene = new Scene(Context);
@@ -90,6 +90,7 @@ class _07_Billboards : Sample
 		var lightNode = scene.CreateChild("DirectionalLight");
 		lightNode.SetDirection(new Vector3(0.5f, -1.0f, 0.5f));
 		var light = lightNode.CreateComponent<Light>();
+		light.LightType = LightType.LIGHT_DIRECTIONAL;
 		light.Color = new Color(0.2f, 0.2f, 0.2f);
 		light.SpecularIntensity = 1.0f;
 
@@ -102,11 +103,11 @@ class _07_Billboards : Sample
 				floorNode.Scale = new Vector3(20.0f, 1.0f, 20.0f);
 				var floorObject = floorNode.CreateComponent<StaticModel>();
 				floorObject.Model = cache.GetModel("Models/Box.mdl");
-				floorObject.Model = cache.GetModel("Materials/Stone.xml");
+				floorObject.SetMaterial(cache.GetMaterial("Materials/Stone.xml"));
 			}
 		}
 
-
+		
 		// Create groups of mushrooms, which act as shadow casters
 		const uint NUM_MUSHROOMGROUPS = 25;
 		const uint NUM_MUSHROOMS = 25;
@@ -145,11 +146,12 @@ class _07_Billboards : Sample
 
 			for (uint j = 0; j < NUM_BILLBOARDS; ++j)
 			{
-				var bb = billboardObject.GetBillboardSafe(j).Value;
-				bb.Position = new Vector3(NextRandom(12.0f) - 6.0f, NextRandom(8.0f) - 4.0f, NextRandom(12.0f) - 6.0f);
-				bb.Size = new Vector2(NextRandom(2.0f) + 3.0f, NextRandom(2.0f) + 3.0f);
-				bb.Rotation = NextRandom() * 360.0f;
-				bb.Enabled = true;
+				//NOTE: temp working solution. TODO: avoid using "unsafe"
+				Billboard* bb = billboardObject.GetBillboard(j);
+				bb->Position = new Vector3(NextRandom(12.0f) - 6.0f, NextRandom(8.0f) - 4.0f, NextRandom(12.0f) - 6.0f);
+				bb->Size = new Vector2(NextRandom(2.0f) + 3.0f, NextRandom(2.0f) + 3.0f);
+				bb->Rotation = NextRandom()*360.0f;
+				bb->Enabled = true;
 			}
 
 			// After modifying the billboards, they need to be "commited" so that the BillboardSet updates its internals
@@ -194,7 +196,7 @@ class _07_Billboards : Sample
 
 		// Create the camera. Limit far clip distance to match the fog
 		CameraNode = scene.CreateChild("Camera");
-		camera = CameraNode.CreateComponent<Camera>();
+		var camera = CameraNode.CreateComponent<Camera>();
 		camera.FarClip = 300.0f;
 		// Set an initial position for the camera scene node above the plane
 		CameraNode.Position = new Vector3(0.0f, 5.0f, 0.0f);

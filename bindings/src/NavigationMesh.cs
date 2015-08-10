@@ -18,7 +18,7 @@ namespace Urho
 			var res = new Vector3[count];
 			for (int i = 0; i < count; i++)
 			{
-				var vectorPtr = Marshal.ReadIntPtr(ptr, i);
+				var vectorPtr = Marshal.ReadIntPtr(ptr, i * IntPtr.Size);
 				var vector = (Vector3)Marshal.PtrToStructure(vectorPtr, typeof (Vector3));
 				res[i] = vector;
 			}
