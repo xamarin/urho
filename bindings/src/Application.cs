@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 namespace Urho {
 	
 	public partial class Application {
-		static object invokerLock;
+		static object invokerLock = new object();
 		static List<Action> invokeOnMain = new List<Action> ();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
