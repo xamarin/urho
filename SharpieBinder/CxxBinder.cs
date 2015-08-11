@@ -899,6 +899,10 @@ namespace SharpieBinder
 				if (decl.Name == "SetShaderParameter") //strange method. it has overloads for all basic types and an overload with "Variant"... (it shouldn't have Variant or should have ONLY Variant)
 					return decl.Parameters.Any (p => p.QualType.ToString ().Contains ("const class Urho3D::Variant &"));
 				break;
+			case "DebugHud":
+				if (decl.Name == "SetAppStats") //it has overloads with String and Variant (that also can handle String)
+					return decl.Parameters.Any (p => p.QualType.ToString ().Contains ("const class Urho3D::Variant &"));
+				break;
 			case "Node":
 				if (decl.Name == "GetChild")
 					return decl.Parameters.First ().QualType.ToString () == "const char *";
