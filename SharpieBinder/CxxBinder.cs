@@ -1398,18 +1398,28 @@ namespace SharpieBinder
 					dllImportItem.Name += index;
 					var variantParam = dllImportItem.Parameters.First(p => p.ToString().Contains(variantArgDef));
 					variantParam.Type = new SimpleType(item.Value);
-					currentType.Members.Add(dllImportItem);
+					variantParam.ParameterModifier = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+                    currentType.Members.Add(dllImportItem);
 
 					var clonedMethod = (MethodDeclaration)method.Clone();
 					variantParam = clonedMethod.Parameters.First(p => p.ToString().Contains(variantArgDef));
 					variantParam.Type = new SimpleType(item.Value);
 
 					//add 'index' to all EntryPoint invocations inside the method (no mater how complex method body is):
+					//and 'ref' keyword for the argument
 					clonedMethod.Body.Descendants
 						.OfType<InvocationExpression>()
 						.Where(ie => ie.Target is IdentifierExpression && ((IdentifierExpression)ie.Target).Identifier == originalEntryPointName)
 						.ToList()
-						.ForEach(ie => ((IdentifierExpression)ie.Target).Identifier += index);
+						.ForEach(ie =>
+							{
+								var argument = ie.Arguments.OfType<IdentifierExpression>().First(arg => arg.Identifier == variantParam.Name);
+								ie.Arguments.Remove(argument);
+								ie.Arguments.Add(new DirectionExpression(FieldDirection.Ref, argument));
+
+								var exp = (IdentifierExpression)ie.Target;
+								exp.Identifier += index;
+							});
 
 					currentType.Members.Add(clonedMethod);
 
