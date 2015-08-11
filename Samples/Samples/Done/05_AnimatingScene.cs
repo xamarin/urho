@@ -1,7 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
 using Urho;
 
 class _05_AnimatingScene : Sample {
 	Scene scene;
+	List<Rotator> rotators = new List<Rotator>();
 
 	public _05_AnimatingScene (Context c) : base (c) {}
 
@@ -9,7 +12,6 @@ class _05_AnimatingScene : Sample {
 	{
 		public Rotator (Context ctx) : base (ctx)
 		{
-			SubscribeToSceneUpdate (SceneUpdate);
 		}
 
 		public Vector3 RotationSpeed { get; set; }
@@ -63,7 +65,7 @@ class _05_AnimatingScene : Sample {
 			// Now we simply set same rotation speed for all objects
 
 			var rotationSpeed = new Vector3(10.0f, 20.0f, 30.0f);
-#if !true
+
 			// First style: use a Rotator instance, which is a component subclass, and
 			// add it to the boxNode.
 			var rotator = new Rotator (Context) {
@@ -71,18 +73,7 @@ class _05_AnimatingScene : Sample {
 			};
 			boxNode.AddComponent (rotator);
 			rotators.Add(rotator);
-#else
-	//
-	// Or directly, hook up to an existing object and attach some code via a
-	// subscription
-			boxObject.SubscribeToSceneUpdate (args =>
-			{
-				boxNode.Rotate (new Quaternion (rotationSpeed.X * args.TimeStep,
-								rotationSpeed.Y * args.TimeStep,
-								rotationSpeed.Z * args.TimeStep),
-					TransformSpace.Local);
-			});
-#endif
+
 		}
 		// Create the camera. Let the starting position be at the world origin. As the fog limits maximum visible distance, we can
 		// bring the far clip plane closer for more effective culling of distant objects
@@ -109,6 +100,15 @@ class _05_AnimatingScene : Sample {
 		CreateScene ();
 		SimpleCreateInstructionsWithWASD ();
 		SetupViewport ();
-		SubscribeToUpdate (args => SimpleMoveCamera3D(args.TimeStep));
+		SubscribeToUpdate (args =>
+			{
+				SimpleMoveCamera3D(args.TimeStep);
+			});
+	}
+
+	protected override void OnSceneUpdate(SceneUpdateEventArgs args)
+	{
+		rotators.ToList().ForEach(r => r.SceneUpdate(args));
+		base.OnSceneUpdate(args);
 	}
 }

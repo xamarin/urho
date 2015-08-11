@@ -10,6 +10,9 @@ using System.Runtime.InteropServices;
 namespace Urho {
 	
 	public partial class Application {
+		private readonly ActionIntPtr setup;
+		private readonly ActionIntPtr start;
+		private readonly ActionIntPtr stop;
 		static object invokerLock = new object();
 		static List<Action> invokeOnMain = new List<Action> ();
 
@@ -24,11 +27,20 @@ namespace Urho {
 		//
 		public Application (Context context, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop) : base (UrhoObjectFlag.Empty)
 		{
+			//keep reference to callbacks as long as the App is live
+			this.setup = setup;
+			this.start = start;
+			this.stop = stop;
+
 			if (context == null)
 				throw new ArgumentNullException ("context");
-			
+
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setup, start, stop);
 			Runtime.RegisterObject (this);
+		}
+
+		public Application(Context context) : this(context, ProxySetup, ProxyStart, ProxyStop)
+		{
 		}
 
 		static public void InvokeOnMain (Action action)
@@ -48,14 +60,6 @@ namespace Urho {
 				}
 					
 			}
-		}
-		
-		public Application (Context context) : base (UrhoObjectFlag.Empty)
-		{
-			if (context == null)
-				throw new ArgumentNullException ("context");
-			handle = ApplicationProxy_ApplicationProxy (context.Handle, ProxySetup, ProxyStart, ProxyStop);
-			Runtime.RegisterObject (this);
 		}
 		
 
