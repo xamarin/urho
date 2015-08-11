@@ -7,10 +7,10 @@ class _39_CrowdNavigation : Sample
 	private Scene scene;
 	private bool drawDebug;
 	private Camera camera;
-	private List<Vector3> currentPath_;
+	private List<Vector3> currentPath_ = new List<Vector3>();
 	private Vector3 endPos_;
-	private List<Node> jackNodes_;
-	private List<Node> mushroomNodes_;
+	private List<Node> jackNodes_ = new List<Node>();
+	private List<Node> mushroomNodes_ = new List<Node>();
 	private float pitch_;
 	private float yaw_;
 

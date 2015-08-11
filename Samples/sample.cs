@@ -124,6 +124,7 @@ public class Sample : Application {
 
 	void HandleSceneUpdate (SceneUpdateEventArgs args)
 	{
+		OnSceneUpdate(args);
 		if (!TouchEnabled || CameraNode == null)
 			return;
 
@@ -150,7 +151,11 @@ public class Sample : Application {
 			}
 		}
 	}
-	
+
+	protected virtual void OnSceneUpdate(SceneUpdateEventArgs args)
+	{
+	}
+
 	void HandleKeyDown (KeyDownEventArgs e)
 	{
 		WriteLine ("KeyEvent: " + e.Key);
@@ -263,12 +268,12 @@ public class Sample : Application {
 
 	public override void Start ()
 	{
-		switch (Runtime.Platform){
+		/*switch (Runtime.Platform){
 		case "Android":
 		case "iOS":
 			InitTouchInput ();
 			break;
-		}
+		}*/
 		//Test ();
 		CreateLogo ();
 		SetWindowAndTitleIcon ();
