@@ -1,4 +1,4 @@
-		open CS,">generated/Object.Events.cs" || die;
+open CS,">generated/Object.Events.cs" || die;
 open CPP,">generated/events.cpp" || die;
 print CS "using System;\n";
 print CS "using System.Runtime.InteropServices;\n";
