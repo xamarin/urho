@@ -583,6 +583,13 @@ namespace SharpieBinder
 		static HashSet<string> podClasses = new HashSet<string> ();
 		static HashSet<string> missingPodClasses = new HashSet<string> ();
 
+		static bool IsVariantType(QualType qt)
+		{
+			var ct = CleanType(qt);
+			var ctstring = ct.ToString();
+			return ctstring == "const class Urho3D::Variant &";
+		}
+
 		// Temporary, just to help us get the bindings bootstrapped
 		// 
 		// This limits which C++ types we can bind, and lets us progressively add more
@@ -889,6 +896,8 @@ namespace SharpieBinder
 			case "Graphics":
 				if (decl.Name == "GetShader")
 					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
+				if (decl.Name == "SetShaderParameter") //strange method. it has overloads for all basic types and an overload with "Variant"... (it shouldn't have Variant or should have ONLY Variant)
+					return decl.Parameters.Any (p => p.QualType.ToString ().Contains ("const class Urho3D::Variant &"));
 				break;
 			case "Node":
 				if (decl.Name == "GetChild")
@@ -970,15 +979,24 @@ namespace SharpieBinder
 
 			// Temporary: while we add support for other things, just to debug things
 			// remove types we do not support
-			foreach (var p in decl.Parameters) {
-				if (IsUnsupportedType(p.QualType, returnType: false)) {
+			int variantArgumentsCount = 0;
+			foreach (var p in decl.Parameters)
+			{
+				bool isVariantArgument = IsVariantType(p.QualType);
+				if (isVariantArgument)
+					variantArgumentsCount++;
 
+				if (IsUnsupportedType(p.QualType, returnType: false) && !isVariantArgument)
+				{
 					//Console.WriteLine($"Bailing out on {p.QualType} from {decl.QualifiedName}");
 					return false;
 				}
 			}
-			if (IsUnsupportedType(decl.ReturnQualType, returnType: true)) {
-				
+
+			if (variantArgumentsCount > 1)
+				return false; //it won't be easy to handle if it has more than one Variant argument
+
+			if (IsUnsupportedType(decl.ReturnQualType, returnType: true)) {//variant return type is not support yet
 				//Console.WriteLine($"RETURN Bailing out on {decl.ReturnQualType} from {decl.QualifiedName}");
 				return false;
 			}
@@ -989,6 +1007,8 @@ namespace SharpieBinder
 		{
 			if (!MethodIsBindable (decl, visitKind))
 				return;
+
+			var cmethodBuilder = new StringBuilder();
 
 			AstType pinvokeReturn, methodReturn;
 			WrapKind returnIsWrapped;
@@ -1041,7 +1061,6 @@ namespace SharpieBinder
 			dllImport.Arguments.Add (new AssignmentExpression (new IdentifierExpression ("CallingConvention"), csParser.ParseExpression ("CallingConvention.Cdecl")));
 
 			pinvoke.Attributes.Add(new AttributeSection(dllImport));
-			currentType.Members.Add(pinvoke);
 
 			// The C counterpart
 			var cinvoke = new StringBuilder();
@@ -1082,11 +1101,12 @@ namespace SharpieBinder
 				marshalReturn = "*((" + creturnType + " *) &({0}))";
 				break;				
 			}
-			
+
+			const string methodNameSuffix = "%MethodSuffix%";
 			if (isConstructor)
-				p($"DllExport void *\n{pinvoke_name} (");
-			else 
-				p($"DllExport {creturnType}\n{pinvoke_name} (");
+				cmethodBuilder.Append($"DllExport void *\n{pinvoke_name}{methodNameSuffix} (");
+			else
+				cmethodBuilder.Append($"DllExport {creturnType}\n{pinvoke_name}{methodNameSuffix} (");
 
 			if (decl.IsStatic) {
 				cinvoke.Append($"{decl.Parent.Name}::{decl.Name} (");
@@ -1094,9 +1114,9 @@ namespace SharpieBinder
 			} else if (isConstructor) {
 				cinvoke.Append($"new {decl.Name} (");
 			} else {
-				p($"Urho3D::{decl.Parent.Name} *_target");
+				cmethodBuilder.Append($"Urho3D::{decl.Parent.Name} *_target");
 				if (decl.Parameters.Count() > 0)
-					p(", ");
+					cmethodBuilder.Append(", ");
 				cinvoke.Append($"_target->{decl.Name} (");
 			}
 
@@ -1143,7 +1163,7 @@ namespace SharpieBinder
 
 				if (!first) {
 					cinvoke.Append(", ");
-					p(", ");
+					cmethodBuilder.Append(", ");
 				} else
 					first = false;
 
@@ -1253,16 +1273,16 @@ namespace SharpieBinder
 					break;
 				}
 
-				p($"{ctype} {paramName}");
+				cmethodBuilder.Append($"{ctype} {paramName}");
 				cinvoke.Append($"{paramInvoke}");
 			}
 			cinvoke.Append(")");
-			p(")\n{\n\t");
+			cmethodBuilder.Append(")\n{\n\t");
 
 			if (method != null && methodReturn is Sharpie.Bind.Types.VoidType) {
 				method.Body.Add(invoke);
 				//	pn ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
-				pn ($"{cinvoke.ToString()};");
+				cmethodBuilder.AppendLine($"{cinvoke.ToString()};");
 			} else {
 				ReturnStatement ret = null;
 				Expression returnExpression;
@@ -1326,15 +1346,88 @@ namespace SharpieBinder
 					}
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());
-				//pn ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
-				pn($"return {rstr};");
+				//cmethodBuilder.AppendLine ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
+				cmethodBuilder.AppendLine($"return {rstr};");
 			}
-			pn("}\n");
+			cmethodBuilder.AppendLine("}\n");
 
-			if (method == null)
-				currentType.Members.Add(constructor);
+			var code = cmethodBuilder.ToString();
+
+			const string variantArgDef = "const class Urho3D::Variant &";
+
+			//if methods contains Variant argument -- replace it with overloads
+			if (code.Contains(variantArgDef))
+			{
+				var variantSupportedTypes = new Dictionary<string, string>
+				{
+					//C++ - C# types map
+					{"const class Urho3D::Vector3 &", "Vector3"},
+					{"const class Urho3D::IntRect &", "IntRect"},
+					{"const class Urho3D::Color &", "Color"},
+					{"const class Urho3D::Vector2 &", "Vector2"},
+					{"const class Urho3D::Vector4 &", "Vector4"},
+					{"const class Urho3D::IntVector2 &", "IntVector2"},
+					{"const class Urho3D::Quaternion &", "Quaternion"},
+
+					//TODO: String, Matrix, Bool,  etc
+					//see Variant.cpp for the full list of supported types
+					//{"int", "int"},
+					//{"float", "float"},
+					//{"const char *", "string"},
+				};
+
+				pn("// Urho3D::Variant overloads begin:");
+				int index = 0;
+				foreach (var item in variantSupportedTypes)
+				{
+					//C:
+					p(code
+						.Replace(variantArgDef, item.Key)
+						.Replace(methodNameSuffix, index.ToString()));
+					//methodNameSuffix to avoid error:
+					//  error C2733: second C linkage of overloaded function 'function name' not allowed.
+
+					//C#:
+
+					var dllImportItem = (MethodDeclaration)pinvoke.Clone();
+					var originalEntryPointName = dllImportItem.Name;
+					dllImportItem.Name += index;
+					var variantParam = dllImportItem.Parameters.First(p => p.ToString().Contains(variantArgDef));
+					variantParam.Type = new SimpleType(item.Value);
+					currentType.Members.Add(dllImportItem);
+
+					var clonedMethod = (MethodDeclaration)method.Clone();
+					variantParam = clonedMethod.Parameters.First(p => p.ToString().Contains(variantArgDef));
+					variantParam.Type = new SimpleType(item.Value);
+
+					//add 'index' to all EntryPoint invocations inside the method (no mater how complex method body is):
+					clonedMethod.Body.Descendants
+						.OfType<InvocationExpression>()
+						.Where(ie => ie.Target is IdentifierExpression && ((IdentifierExpression)ie.Target).Identifier == originalEntryPointName)
+						.ToList()
+						.ForEach(ie => ((IdentifierExpression)ie.Target).Identifier += index);
+
+					currentType.Members.Add(clonedMethod);
+
+					index++;
+				}
+				pn("// Urho3D::Variant overloads end.");
+			}
+			//method does not have "Variant" arguments
 			else
-				currentType.Members.Add(method);
+			{
+				//C:
+				pn(code.Replace(methodNameSuffix, string.Empty));
+
+				//C#:
+
+				currentType.Members.Add(pinvoke);
+
+				if (method == null)
+					currentType.Members.Add(constructor);
+				else
+					currentType.Members.Add(method);
+			}
 		}
 
 		void ScanBases(TypeDeclaration td, Func<TypeDeclaration, bool> cback)
