@@ -7,7 +7,7 @@ class _15_Navigation : Sample
 	private bool drawDebug;
 	private Camera camera;
 	private Node jackNode_;
-	private List<Vector3> currentPath_;
+	private List<Vector3> currentPath_ = new List<Vector3>();
 	private Vector3 endPos_;
 	private float yaw_;
 	private float pitch_;
@@ -96,9 +96,9 @@ class _15_Navigation : Sample
 		if (input.GetKeyDown(Key.S))
 			CameraNode.Translate(new Vector3(0, 0, -1) * MOVE_SPEED * timeStep, TransformSpace.Local);
 		if (input.GetKeyDown(Key.A))
-			CameraNode.Translate(new Vector3(1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.Local);
-		if (input.GetKeyDown(Key.D))
 			CameraNode.Translate(new Vector3(-1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.Local);
+		if (input.GetKeyDown(Key.D))
+			CameraNode.Translate(new Vector3(1, 0, 0) * MOVE_SPEED * timeStep, TransformSpace.Local);
 
 		// Set destination or teleport with left mouse button
 		if (input.GetMouseButtonPress(MouseButton.Left))
@@ -320,6 +320,7 @@ class _15_Navigation : Sample
 	{
 		hitDrawable = null;
 		hitPos = new Vector3();
+		return true;
 
 		UI ui = UI;
 		IntVector2 pos = ui.CursorPosition;
@@ -328,8 +329,8 @@ class _15_Navigation : Sample
 			return false;
 
 		var graphics = Graphics;
-		Camera camera = CameraNode.GetComponent<Camera>();
-		Ray cameraRay = camera.GetScreenRay((float)pos.X / graphics.Width, (float)pos.Y / graphics.Height);
+		//Camera camera = CameraNode.GetComponent<Camera>();
+		//Ray cameraRay = camera.GetScreenRay((float)pos.X / graphics.Width, (float)pos.Y / graphics.Height);
 		// Pick only geometry objects, not eg. zones or lights, only get the first (closest) hit
 
 #warning MISSING_API RaycastSingle

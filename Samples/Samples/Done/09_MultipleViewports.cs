@@ -32,7 +32,7 @@ class _09_MultipleViewports : Sample
 			if (Input.GetKeyPress(Key.F))
 				effectRenderPath.ToggleEnabled("FXAA2");
 
-			if (Input.GetKeyDown(Key.Space))
+			if (Input.GetKeyPress(Key.Space))
 				drawDebug = !drawDebug;
 		});
 
@@ -66,8 +66,7 @@ class _09_MultipleViewports : Sample
 		effectRenderPath.Append(cache.GetXmlFile("PostProcess/Bloom.xml"));
 		effectRenderPath.Append(cache.GetXmlFile("PostProcess/FXAA2.xml"));
 		// Make the bloom mixing parameter more pronounced
-#warning MISSING_API
-		//effectRenderPath.SetShaderParameter("BloomMix", new Vector2(0.9f, 0.6f));
+		effectRenderPath.SetShaderParameter("BloomMix", new Vector2(0.9f, 0.6f));
 
 
 		effectRenderPath.SetEnabled("Bloom", false);

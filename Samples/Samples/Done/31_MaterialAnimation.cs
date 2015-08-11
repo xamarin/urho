@@ -12,7 +12,7 @@ class _31_MaterialAnimation : Sample
 	{
 		base.Start();
 		CreateScene();
-		SimpleCreateInstructionsWithWASD("\nSpace to toggle debug geometry");
+		SimpleCreateInstructionsWithWASD();
 		SetupViewport();
 		SubscribeToEvents();
 	}
@@ -81,11 +81,10 @@ class _31_MaterialAnimation : Sample
 		// Apply shader parameter animation to material
 		ValueAnimation specColorAnimation=new ValueAnimation(Context);
 
-#warning MISSING_API SetKeyFrame
-		////specColorAnimation.SetKeyFrame(0.0f, new Color(0.1f, 0.1f, 0.1f, 16.0f));
-		////specColorAnimation.SetKeyFrame(1.0f, new Color(1.0f, 0.0f, 0.0f, 2.0f));
-		////specColorAnimation.SetKeyFrame(2.0f, new Color(1.0f, 1.0f, 0.0f, 2.0f));
-		////specColorAnimation.SetKeyFrame(3.0f, new Color(0.1f, 0.1f, 0.1f, 16.0f));
+		specColorAnimation.SetKeyFrame(0.0f, new Color(0.1f, 0.1f, 0.1f, 16.0f));
+		specColorAnimation.SetKeyFrame(1.0f, new Color(1.0f, 0.0f, 0.0f, 2.0f));
+		specColorAnimation.SetKeyFrame(2.0f, new Color(1.0f, 1.0f, 0.0f, 2.0f));
+		specColorAnimation.SetKeyFrame(3.0f, new Color(0.1f, 0.1f, 0.1f, 16.0f));
 		// Optionally associate material with scene to make sure shader parameter animation respects scene time scale
 		mushroomMat.Scene=scene;
 		mushroomMat.SetShaderParameterAnimation("MatSpecColor", specColorAnimation, WrapMode.WM_LOOP, 1.0f);

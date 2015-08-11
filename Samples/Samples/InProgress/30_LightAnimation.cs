@@ -100,12 +100,11 @@ class _30_LightAnimation : Sample
 		// Set spline tension
 		positionAnimation.SplineTension=0.7f;
 
-#warning MISSING_API: SetKeyFrame
-		//positionAnimation.SetKeyFrame(0.0f, Vector3(-30.0f, 5.0f, -30.0f));
-		//positionAnimation.SetKeyFrame(1.0f, Vector3(30.0f, 5.0f, -30.0f));
-		//positionAnimation.SetKeyFrame(2.0f, Vector3(30.0f, 5.0f, 30.0f));
-		//positionAnimation.SetKeyFrame(3.0f, Vector3(-30.0f, 5.0f, 30.0f));
-		//positionAnimation.SetKeyFrame(4.0f, Vector3(-30.0f, 5.0f, -30.0f));
+		positionAnimation.SetKeyFrame(0.0f, new Vector3(-30.0f, 5.0f, -30.0f));
+		positionAnimation.SetKeyFrame(1.0f, new Vector3(30.0f, 5.0f, -30.0f));
+		positionAnimation.SetKeyFrame(2.0f, new Vector3(30.0f, 5.0f, 30.0f));
+		positionAnimation.SetKeyFrame(3.0f, new Vector3(-30.0f, 5.0f, 30.0f));
+		positionAnimation.SetKeyFrame(4.0f, new Vector3(-30.0f, 5.0f, -30.0f));
 		// Set position animation
 		lightAnimation.AddAttributeAnimation("Position", positionAnimation, WrapMode.WM_LOOP, 1f);
 
@@ -121,12 +120,11 @@ class _30_LightAnimation : Sample
 
 		// Create light color animation
 		ValueAnimation colorAnimation=new ValueAnimation(Context);
-#warning MISSING_API: SetKeyFrame
-		//colorAnimation.SetKeyFrame(0.0f, Colors.White);
-		//colorAnimation.SetKeyFrame(1.0f, Colors.Red);
-		//colorAnimation.SetKeyFrame(2.0f, Colors.Yellow);
-		//colorAnimation.SetKeyFrame(3.0f, Colors.Green);
-		//colorAnimation.SetKeyFrame(4.0f, Colors.White);
+		colorAnimation.SetKeyFrame(0.0f, Color.White);
+		colorAnimation.SetKeyFrame(1.0f, Color.Red);
+		colorAnimation.SetKeyFrame(2.0f, Color.Yellow);
+		colorAnimation.SetKeyFrame(3.0f, Color.Green);
+		colorAnimation.SetKeyFrame(4.0f, Color.White);
 		// Set Light component's color animation
 		lightAnimation.AddAttributeAnimation("@Light/Color", colorAnimation, WrapMode.WM_LOOP, 1f);
 

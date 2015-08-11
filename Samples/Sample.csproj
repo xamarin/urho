@@ -57,7 +57,7 @@
     <Compile Include="Samples\InProgress\07_Billboards.cs" />
     <Compile Include="Samples\Done\23_Water.cs" />
     <Compile Include="Samples\InProgress\08_Decals.cs" />
-    <Compile Include="Samples\InProgress\09_MultipleViewports.cs" />
+    <Compile Include="Samples\Done\09_MultipleViewports.cs" />
     <Compile Include="Samples\Done\10_RenderToTexture.cs" />
     <Compile Include="Samples\InProgress\11_Physics.cs" />
     <Compile Include="Samples\InProgress\13_Ragdolls.cs" />
