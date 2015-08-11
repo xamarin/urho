@@ -1,4 +1,4 @@
-open CS,">generated/Object.Events.cs" || die;
+		open CS,">generated/Object.Events.cs" || die;
 open CPP,">generated/events.cpp" || die;
 print CS "using System;\n";
 print CS "using System.Runtime.InteropServices;\n";
@@ -61,15 +61,15 @@ while (<>){
 	    if (/}/){
 		print CS "    }\n\n";
 		print CS "    public partial class UrhoObject {\n"; 
-		print CS "    private ObjectCallbackSignature $enCallback"; 
+		print CS "         ObjectCallbackSignature callback${en};\n";
 		print CS "         [DllImport(\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]\n";
 		print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
                 print CS "         public Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
 		print CS "         {\n";
 		print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";
 		print CS "              var s = new Subscription (proxy);\n";
-		print CS "              $enCallback = ObjectCallback";
-		print CS "              s.UnmanagedProxy = urho_subscribe_$en (handle, $enCallback, GCHandle.ToIntPtr (s.gch));\n";
+		print CS "              callback${en} = ObjectCallback;\n";
+		print CS "              s.UnmanagedProxy = urho_subscribe_$en (handle, callback${en}, GCHandle.ToIntPtr (s.gch));\n";
 		print CS "              return s;\n";
 		print CS "         }\n";
                 print CS "    }\n\n";
