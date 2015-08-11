@@ -31,7 +31,7 @@ class _32_Urho2DConstraints : Sample
 	{
 		SubscribeToUpdate(args =>
 			{
-				SimpleMoveCamera3D(args.TimeStep);
+				SimpleMoveCamera2D(args.TimeStep);
 
 				var input = Input;
 				if (input.GetKeyDown(Key.PageUp))
