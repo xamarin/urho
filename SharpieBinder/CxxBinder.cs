@@ -1068,7 +1068,17 @@ namespace SharpieBinder
 			case "const class Urho3D::Plane &":
 			case "const class Urho3D::BoundingBox &":
 			case "const class Urho3D::Color &":
-				creturnType = "Interop" + creturnType.Substring (18, creturnType.Length - 19);
+				
+			case "Urho3D::Vector3":
+			case "Urho3D::Vector2":
+			case "Urho3D::Vector4":
+			case "Urho3D::IntVector2":
+			case "Urho3D::Quaternion":
+			case "Urho3D::Plane":
+			case "Urho3D::BoundingBox":
+			case "Urho3D::Color":
+				var nsIndex = creturnType.IndexOf ("Urho3D::") + "Urho3D".Length;
+				creturnType = "Interop" + creturnType.Remove (0, nsIndex).Trim ('&', ' ') + " ";
 				marshalReturn = "*((" + creturnType + " *) &({0}))";
 				break;				
 			}
