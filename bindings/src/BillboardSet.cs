@@ -9,7 +9,7 @@ namespace Urho {
                 Billboard* result = BillboardSet_GetBillboard (handle, index);
 				if (result == null)
 					return null;
-				return new BillboardWrapper(result);
+				return new BillboardWrapper(this, result);
 			}
 		}
 	}
