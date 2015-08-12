@@ -38,7 +38,7 @@ class _07_Billboards : Sample
 		});
 	}
 
-	private unsafe void AnimateScene(float timeStep)
+	private void AnimateScene(float timeStep)
 	{
 		var lightNodes = scene.GetChildrenWithComponent<Light>();
 		var billboardNodes = scene.GetChildrenWithComponent<BillboardSet>();
@@ -56,9 +56,8 @@ class _07_Billboards : Sample
 			var billboardSet = billboardNode.GetComponent<BillboardSet>();
 			for (uint i = 0; i < billboardSet.NumBillboards; i++)
 			{
-				//NOTE: temp working solution. TODO: avoid using "unsafe"
-				Billboard* bb = billboardSet.GetBillboard(i);
-				bb->Rotation += BILLBOARD_ROTATION_SPEED*timeStep;
+				var bb = billboardSet.GetBillboardSafe(i);
+				bb.Rotation += BILLBOARD_ROTATION_SPEED*timeStep;
 			}
 			billboardSet.Commit();
 		}
@@ -70,7 +69,7 @@ class _07_Billboards : Sample
 		renderer.SetViewport(0, new Viewport(Context, scene, CameraNode.GetComponent<Camera>(), null));
 	}
 
-	private unsafe void CreateScene()
+	private void CreateScene()
 	{
 		var cache = ResourceCache;
 		scene = new Scene(Context);
@@ -147,11 +146,11 @@ class _07_Billboards : Sample
 			for (uint j = 0; j < NUM_BILLBOARDS; ++j)
 			{
 				//NOTE: temp working solution. TODO: avoid using "unsafe"
-				Billboard* bb = billboardObject.GetBillboard(j);
-				bb->Position = new Vector3(NextRandom(12.0f) - 6.0f, NextRandom(8.0f) - 4.0f, NextRandom(12.0f) - 6.0f);
-				bb->Size = new Vector2(NextRandom(2.0f) + 3.0f, NextRandom(2.0f) + 3.0f);
-				bb->Rotation = NextRandom()*360.0f;
-				bb->Enabled = true;
+				var bb = billboardObject.GetBillboardSafe(j);
+				bb.Position = new Vector3(NextRandom(12.0f) - 6.0f, NextRandom(8.0f) - 4.0f, NextRandom(12.0f) - 6.0f);
+				bb.Size = new Vector2(NextRandom(2.0f) + 3.0f, NextRandom(2.0f) + 3.0f);
+				bb.Rotation = NextRandom()*360.0f;
+				bb.Enabled = true;
 			}
 
 			// After modifying the billboards, they need to be "commited" so that the BillboardSet updates its internals

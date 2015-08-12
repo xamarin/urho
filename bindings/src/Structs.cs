@@ -265,6 +265,25 @@ namespace Urho {
 		public bool Enabled { get { return _enabled != 0; } set { _enabled = (byte)(value ? 1 : 0); } }
 		public float SortDistance;
 	}
+	
+	[StructLayout(LayoutKind.Sequential)]
+	public unsafe class BillboardWrapper
+	{
+		private readonly Billboard* bb;
+
+		public BillboardWrapper(Billboard* bb)
+		{
+			this.bb = bb;
+		}
+
+		public Vector3 Position { get { return bb->Position; } set { bb->Position = value; } }
+		public Vector2 Size { get { return bb->Size; } set { bb->Size = value; } }
+		public Rect UV { get { return bb->UV; } set { bb->UV = value; } }
+		public Color Color { get { return bb->Color; } set { bb->Color = value; } }
+		public float Rotation { get { return bb->Rotation; } set { bb->Rotation = value; } }
+		public bool Enabled { get { return bb->Enabled; } set { bb->Enabled = value; } }
+		public float SortDistance { get { return bb->SortDistance; } set { bb->SortDistance = value; } }
+	}
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
