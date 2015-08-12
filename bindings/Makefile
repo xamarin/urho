@@ -288,6 +288,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Structs.cs			\
 	src/UIElement.cs		\
 	src/VertexBuffer.cs		\
+	src/NativeToManagedStringMarshaler.cs	\
 	external/MathHelper.cs		\
 	external/Matrix3.cs		\
 	external/Matrix4.cs		\
