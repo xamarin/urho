@@ -1103,10 +1103,12 @@ namespace SharpieBinder
 				var nsIndex = creturnType.IndexOf ("Urho3D::") + "Urho3D".Length;
 				creturnType = "Interop" + creturnType.Remove (0, nsIndex).Trim ('&', ' ') + " ";
 				marshalReturn = "*((" + creturnType + " *) &({0}))";
-				break;				
+				break;
 			}
 
 			const string methodNameSuffix = "%MethodSuffix%";
+			const string variantConverterMask = "%VariantConvertor%";
+
 			if (isConstructor)
 				cmethodBuilder.Append($"DllExport void *\n{pinvoke_name}{methodNameSuffix} (");
 			else
@@ -1275,6 +1277,9 @@ namespace SharpieBinder
 					ctype = "int";
 					paramInvoke = $"Urho3D::StringHash({paramInvoke})";
 					break;
+				case "const class Urho3D::Variant &":
+					paramInvoke = $"{variantConverterMask}({paramInvoke})";
+					break;
 				}
 
 				cmethodBuilder.Append($"{ctype} {paramName}");
@@ -1363,22 +1368,21 @@ namespace SharpieBinder
 			if (code.Contains(variantArgDef))
 			{
 				var variantSupportedTypes = new Dictionary<string, string>
-				{
-					//C++ - C# types map
-					{"const class Urho3D::Vector3 &", "Vector3"},
-					{"const class Urho3D::IntRect &", "IntRect"},
-					{"const class Urho3D::Color &", "Color"},
-					{"const class Urho3D::Vector2 &", "Vector2"},
-					{"const class Urho3D::Vector4 &", "Vector4"},
-					{"const class Urho3D::IntVector2 &", "IntVector2"},
-					{"const class Urho3D::Quaternion &", "Quaternion"},
-
-					//TODO: String, Matrix, Bool,  etc
-					//see Variant.cpp for the full list of supported types
-					//{"int", "int"},
-					//{"float", "float"},
-					//{"const char *", "string"},
-				};
+					{
+						//C++ - C# types map
+						{"const class Urho3D::Vector3 &", "Vector3"},
+						{"const class Urho3D::IntRect &", "IntRect"},
+						{"const class Urho3D::Color &", "Color"},
+						{"const class Urho3D::Vector2 &", "Vector2"},
+						{"const class Urho3D::Vector4 &", "Vector4"},
+						{"const class Urho3D::IntVector2 &", "IntVector2"},
+						{"const class Urho3D::Quaternion &", "Quaternion"},
+						{"int", "int"},
+						{"float", "float"},
+						{"const char *", "string"},
+						//TODO: Matrix, StringHash?
+					};
+				var primitiveTypes = new[] { "int", "float", "string" };
 
 				pn("// Urho3D::Variant overloads begin:");
 				int index = 0;
@@ -1387,23 +1391,37 @@ namespace SharpieBinder
 					//C:
 					p(code
 						.Replace(variantArgDef, item.Key)
-						.Replace(methodNameSuffix, index.ToString()));
+						.Replace(methodNameSuffix, index.ToString())
+						.Replace(variantConverterMask, item.Key == "const char *" ? "Urho3D::String" : string.Empty));
 					//methodNameSuffix to avoid error:
 					//  error C2733: second C linkage of overloaded function 'function name' not allowed.
 
 					//C#:
+					var isPrimitive = primitiveTypes.Contains(item.Value);
+
+					AstType argumentType;
+					var argumentModifier = ICSharpCode.NRefactory.CSharp.ParameterModifier.None;
+					if (!isPrimitive)
+					{
+						argumentType = new SimpleType(item.Value);
+						argumentModifier = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+					}
+					else
+					{
+						argumentType = new PrimitiveType(item.Value);
+					}
 
 					var dllImportItem = (MethodDeclaration)pinvoke.Clone();
 					var originalEntryPointName = dllImportItem.Name;
 					dllImportItem.Name += index;
 					var variantParam = dllImportItem.Parameters.First(p => p.ToString().Contains(variantArgDef));
-					variantParam.Type = new SimpleType(item.Value);
-					variantParam.ParameterModifier = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-                    currentType.Members.Add(dllImportItem);
+					variantParam.Type = argumentType.Clone();
+					variantParam.ParameterModifier = argumentModifier;
+					currentType.Members.Add(dllImportItem);
 
 					var clonedMethod = (MethodDeclaration)method.Clone();
 					variantParam = clonedMethod.Parameters.First(p => p.ToString().Contains(variantArgDef));
-					variantParam.Type = new SimpleType(item.Value);
+					variantParam.Type = argumentType.Clone();
 
 					//add 'index' to all EntryPoint invocations inside the method (no mater how complex method body is):
 					//and 'ref' keyword for the argument
@@ -1413,9 +1431,13 @@ namespace SharpieBinder
 						.ToList()
 						.ForEach(ie =>
 							{
-								var argument = ie.Arguments.OfType<IdentifierExpression>().First(arg => arg.Identifier == variantParam.Name);
-								ie.Arguments.Remove(argument);
-								ie.Arguments.Add(new DirectionExpression(FieldDirection.Ref, argument));
+								if (!isPrimitive)
+								{
+									//non-primitive types should be marked with 'ref' keyword
+									var argument = ie.Arguments.OfType<IdentifierExpression>().First(arg => arg.Identifier == variantParam.Name);
+									ie.Arguments.Remove(argument);
+									ie.Arguments.Add(new DirectionExpression(FieldDirection.Ref, argument));
+								}
 
 								var exp = (IdentifierExpression)ie.Target;
 								exp.Identifier += index;
@@ -1431,10 +1453,11 @@ namespace SharpieBinder
 			else
 			{
 				//C:
-				pn(code.Replace(methodNameSuffix, string.Empty));
+				pn(code
+					.Replace(methodNameSuffix, string.Empty)
+					.Replace(variantConverterMask, string.Empty));
 
 				//C#:
-
 				currentType.Members.Add(pinvoke);
 
 				if (method == null)
