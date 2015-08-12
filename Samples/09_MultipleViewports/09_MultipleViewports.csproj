@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProjectGuid>{BEBD93B7-AA59-4281-98AC-13A64F9E4A43}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Urho</RootNamespace>
+    <AssemblyName>Urho.MultipleViewports</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="DYLD_LIBRARY_PATH" value="/cvs/urho/bindings" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Sample.cs">
+      <Link>Sample.cs</Link>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="MultipleViewports.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\bindings\Urho.csproj">
+      <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
+      <Name>Urho</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

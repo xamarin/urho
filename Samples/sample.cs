@@ -48,6 +48,8 @@ public class Sample : Application {
 
 	public Sample (Context ctx) : base (ctx)
 	{
+		Environment.CurrentDirectory = "/cvs/Urho3D/bin"; //Mac
+		//Environment.CurrentDirectory = @"C:\Projects\urho_x64\bin"; //Windows
 	}
 
 	public override void Setup ()
