@@ -603,8 +603,6 @@ namespace SharpieBinder
 				return false;
 
 			switch (ctstring) {
-			case "class Urho3D::Serializer &":
-			case "class Urho3D::Deserializer &":
             case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::IntRect &":
 			case "const class Urho3D::Color &":
@@ -763,16 +761,6 @@ namespace SharpieBinder
 				lowLevel = new SimpleType (simpleType);
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				wrapKind = WrapKind.RefBlittable;
-				return;
-			case "class Urho3D::Serializer &":
-				highLevel = new SimpleType("ISerializer");
-				lowLevel = new SimpleType("IntPtr");
-				wrapKind = WrapKind.HandleMember;
-				return;
-			case "class Urho3D::Deserializer &":
-				highLevel = new SimpleType("IDeserializer");
-				lowLevel = new SimpleType("IntPtr");
-				wrapKind = WrapKind.HandleMember;
 				return;
 			case "const struct Urho3D::BiasParameters &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;

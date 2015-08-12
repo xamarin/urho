@@ -7,7 +7,6 @@ class _11_Physics : Sample
 
 	public _11_Physics(Context ctx) : base(ctx) { }
 
-
 	public override void Start()
 	{
 		base.Start();
@@ -32,19 +31,14 @@ class _11_Physics : Sample
 
 			if (input.GetKeyPress(Key.F5))
 			{
-				File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.Write);
-#warning MISSING_API SaveXML
-				////scene.SaveXML(saveFile);
+				scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/Physics.xml", "\t");
 			}
 			if (input.GetKeyPress(Key.F7))
 			{
-				File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.Read);
-#warning MISSING_API LoadXML
-				////scene.LoadXML(loadFile);
+				scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/Physics.xml");
 			}
 
-
-			if (input.GetKeyDown(Key.Space))
+			if (input.GetKeyPress(Key.Space))
 				drawDebug = !drawDebug;
 		});
 

@@ -93,8 +93,21 @@ extern "C" {
 	{
 		proxy->Unsub ();
 	}
-	
 
+	DllExport int
+	Scene_LoadXML(Urho3D::Scene *_target, const char * file)
+	{
+		File loadFile(_target->GetContext(), Urho3D::String(file), FILE_READ);
+		return _target->LoadXML(loadFile);
+	}
+
+	DllExport int
+	Scene_SaveXML(Urho3D::Scene *_target, const char * file, const char * indentation)
+	{
+		File saveFile(_target->GetContext(), Urho3D::String(file), FILE_WRITE);
+		return _target->SaveXML(saveFile, Urho3D::String(indentation));
+	}
+	
 	DllExport
 	int Network_Connect (Network *net, const char *ptr, short port, Scene *scene)
 	{

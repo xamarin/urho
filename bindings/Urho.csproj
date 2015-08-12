@@ -309,6 +309,7 @@
     <Compile Include="src\NavigationMesh.cs" />
     <Compile Include="src\Network.cs" />
     <Compile Include="src\RenderPath.cs" />
+    <Compile Include="src\Scene.cs" />
     <Compile Include="src\Skeleton.cs" />
     <Compile Include="src\Node.cs" />
     <Compile Include="src\Object.cs" />

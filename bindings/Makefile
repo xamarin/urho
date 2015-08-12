@@ -274,6 +274,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/Model.cs			\
 	src/Network.cs			\
 	src/Node.cs			\
+	src/Scene.cs			\
 	src/Object.cs			\
 	src/PodVector.cs		\
 	src/NavigationMesh.cs		\
