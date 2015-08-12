@@ -1087,18 +1087,7 @@ namespace SharpieBinder
 			case "Urho3D::String":
 			case "const class Urho3D::String &":
 				creturnType = "const char *";
-				marshalReturn = "({0}).CString ()";
-
-				//apply custom marshaller for methods returning strings
-                var customMarshallerAttr = new Attribute { Type = new SimpleType("MarshalAs") };
-				customMarshallerAttr.Arguments.Add(csParser.ParseExpression("UnmanagedType.CustomMarshaler"));
-				customMarshallerAttr.Arguments.Add(new AssignmentExpression(new IdentifierExpression("MarshalTypeRef"), csParser.ParseExpression("typeof(NativeToManagedStringMarshaler)")));
-				var attributeSection = new AttributeSection
-					{
-						AttributeTarget = "return",
-						Attributes = {customMarshallerAttr},
-					};
-				pinvoke.Attributes.Add(attributeSection);
+				marshalReturn = "strdup(({0}).CString ())";
 				break;
 			case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::Vector2 &":
