@@ -170,16 +170,11 @@ class _39_CrowdNavigation : Sample
 		// directory
 		if (input.GetKeyPress(Key.F5))
 		{
-			File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", FileMode.Write);
-#warning MISSING_API Scene::SaveXML
-			//scene.SaveXML(saveFile);
+			scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", "\t");
 		}
 		if (input.GetKeyPress(Key.F7))
 		{
-			File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", FileMode.Read);
-#warning MISSING_API Scene::LoadXML
-			//scene.LoadXML(loadFile);
-
+			scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml");
 			// Redetermine which nodes are "jacks" and "mushrooms"
 			jackNodes_.Clear();
 			jackNodes_.AddRange(scene.GetChildrenWithComponent<CrowdAgent>(true));

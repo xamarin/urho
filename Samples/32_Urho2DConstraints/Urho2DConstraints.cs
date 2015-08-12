@@ -47,11 +47,8 @@ class _32_Urho2DConstraints : Sample
 				// Save scene
 				if (input.GetKeyPress(Key.F5))
 				{
-					File saveFile=new File(Context, FileSystem.ProgramDir + "Data/Scenes/Constraints.xml",  FileMode.Write);
-#warning MISSIN_API SaveXML
-					////scene.SaveXML(saveFile);
+					scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/Constraints.xml", "\t");
 				}
-
 			});
 		SubscribeToPostRenderUpdate(args =>
 			{

@@ -32,15 +32,11 @@ class _12_PhysicsStressTest : Sample
 				// Check for loading / saving the scene
 				if (input.GetKeyPress(Key.F5))
 				{
-					File saveFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.Write);
-#warning MISSING_API SaveXML
-					////scene.SaveXML(saveFile);
+					scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", "\t");
 				}
 				if (input.GetKeyPress(Key.F7))
 				{
-					File loadFile = new File(Context, FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", FileMode.Read);
-#warning MISSING_API LoadXML
-					////scene.LoadXML(loadFile);
+					scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml");
 				}
 
 				if (Input.GetKeyDown(Key.Space))

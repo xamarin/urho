@@ -31,17 +31,14 @@ class _13_Ragdolls : Sample
 					SpawnObject();
 
 				// Check for loading / saving the scene
-	#warning MISSING_API
-				/*if (input.GetKeyPress(KEY_F5))
+				if (input.GetKeyPress(Key.F5))
 				{
-					File saveFile(Context, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", Write);
-					scene.SaveXML(saveFile);
+					scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/Ragdolls.xml", "\t");
 				}
-				if (input.GetKeyPress(KEY_F7))
+				if (input.GetKeyPress(Key.F7))
 				{
-					File loadFile(context_, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/Ragdolls.xml", Read);
-					scene.LoadXML(loadFile);
-				}*/
+					scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/Ragdolls.xml");
+				}
 
 				if (Input.GetKeyDown(Key.Space))
 					drawDebug = !drawDebug;
