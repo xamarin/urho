@@ -1096,6 +1096,7 @@ namespace SharpieBinder
 				creturnType = "int";
 				marshalReturn = "({0}).Value ()";
 				break;
+			case "Urho3D::String":
 			case "const class Urho3D::String &":
 				creturnType = "const char *";
 				marshalReturn = "({0}).CString ()";
