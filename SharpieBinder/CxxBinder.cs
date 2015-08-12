@@ -603,7 +603,9 @@ namespace SharpieBinder
 				return false;
 
 			switch (ctstring) {
-			case "const class Urho3D::Vector3 &":
+			case "class Urho3D::Serializer &":
+			case "class Urho3D::Deserializer &":
+            case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::IntRect &":
 			case "const class Urho3D::Color &":
 			case "const class Urho3D::Vector2 &":
@@ -762,6 +764,16 @@ namespace SharpieBinder
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				wrapKind = WrapKind.RefBlittable;
 				return;
+			case "class Urho3D::Serializer &":
+				highLevel = new SimpleType("ISerializer");
+				lowLevel = new SimpleType("IntPtr");
+				wrapKind = WrapKind.HandleMember;
+				return;
+			case "class Urho3D::Deserializer &":
+				highLevel = new SimpleType("IDeserializer");
+				lowLevel = new SimpleType("IntPtr");
+				wrapKind = WrapKind.HandleMember;
+				return;
 			case "const struct Urho3D::BiasParameters &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				highLevel = new SimpleType ("BiasParameters");
@@ -892,6 +904,11 @@ namespace SharpieBinder
 		// Avoid generating methods that conflict in their signatures after we turn Urho::String into string
 		bool SkipMethod (CXXMethodDecl decl)
 		{
+			/*//DEBUG specific method
+			if (currentType.Name == "Scene" && decl.Name == "SaveXML")
+				return false;
+			return true;*/
+
 			switch (currentType.Name) {
 			case "Graphics":
 				if (decl.Name == "GetShader")
@@ -1247,7 +1264,7 @@ namespace SharpieBinder
 					break;
 				case WrapKind.HandleMember:
 					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
-						csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".handle"));
+						csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".Handle"));
 					invoke.Arguments.Add (cond);
 					break;
 				case WrapKind.EventHandler:
