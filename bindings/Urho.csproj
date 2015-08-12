@@ -296,6 +296,7 @@
     <Compile Include="src\AttributeInfo.cs" />
     <Compile Include="src\BillboardSet.cs" />
     <Compile Include="src\BufferedSoundStream.cs" />
+    <Compile Include="src\NativeToManagedStringMarshaler.cs" />
     <Compile Include="src\Collision.cs" />
     <Compile Include="src\Component.cs" />
     <Compile Include="src\Connection.cs" />

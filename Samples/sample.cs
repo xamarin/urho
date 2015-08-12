@@ -268,12 +268,13 @@ public class Sample : Application {
 
 	public override void Start ()
 	{
-		/*switch (Runtime.Platform){
+		var platform = Runtime.Platform;
+		switch (platform){
 		case "Android":
 		case "iOS":
 			InitTouchInput ();
 			break;
-		}*/
+		}
 		//Test ();
 		CreateLogo ();
 		SetWindowAndTitleIcon ();
