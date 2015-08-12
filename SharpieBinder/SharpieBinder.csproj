@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,24 +30,23 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.NRefactory, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.CSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\ICSharpCode.NRefactory.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.Xml">
+      <HintPath>libs\ICSharpCode.NRefactory.Xml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="Clang">
       <HintPath>..\..\..\..\..\cvs\ObjectiveSharpie\Clang.Sample\bin\Debug\Clang.dll</HintPath>
     </Reference>
     <Reference Include="Sharpie.Bind">
       <HintPath>..\..\..\..\..\cvs\ObjectiveSharpie\Sharpie.Bind\obj\x64\Internal\Sharpie.Bind.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.NRefactory.Cecil">
-      <HintPath>packages\Bridge.NRefactory.5.5.1\lib\ICSharpCode.NRefactory.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.NRefactory.CSharp">
-      <HintPath>packages\Bridge.NRefactory.5.5.1\lib\ICSharpCode.NRefactory.CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>packages\Bridge.NRefactory.5.5.1\lib\ICSharpCode.NRefactory.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.dll</HintPath>
