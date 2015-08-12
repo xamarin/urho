@@ -3,35 +3,34 @@
 class _30_LightAnimation : Sample
 {
 	private Scene scene;
-	private bool drawDebug;
-	private Camera camera;
 
 	public _30_LightAnimation(Context ctx) : base(ctx) { }
 
 	public override void Start()
 	{
 		base.Start();
-		CreateScene();
 		SetupInstructions();
+		CreateScene();
 		SetupViewport();
 		SubscribeToEvents();
 	}
 
 	private void SetupInstructions()
 	{
-		var t = new Text(Context)
+		var instructions = new Text(Context)
 			{
 				Value = "Use WASD keys and mouse/touch to move",
 				HorizontalAlignment = HorizontalAlignment.HA_CENTER,
 				VerticalAlignment = VerticalAlignment.VA_CENTER
 			};
 		var font = ResourceCache.GetFont("Fonts/Anonymous Pro.ttf");
-		t.SetFont(font, 15);
-		UI.Root.AddChild(t);
+		instructions.SetFont(font, 15);
+		UI.Root.AddChild(instructions);
 
 		// Animating text
 		Text text = new Text(Context);
-		text.SetFont(font, 15);
+		text.Name = "animatingText";
+        text.SetFont(font, 15);
 		text.HorizontalAlignment = HorizontalAlignment.HA_CENTER;
 		text.VerticalAlignment = VerticalAlignment.VA_CENTER;
 		text.SetPosition(0, UI.Root.Height/4 + 20);
@@ -40,21 +39,7 @@ class _30_LightAnimation : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-		{
-			SimpleMoveCamera3D(args.TimeStep);
-			if (Input.GetKeyDown(Key.Space))
-				drawDebug = !drawDebug;
-		});
-
-		SubscribeToPostRenderUpdate(args =>
-		{
-			// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
-			// bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
-			// bones properly
-			if (drawDebug)
-				Renderer.DrawDebugGeometry(false);
-		});
+		SubscribeToUpdate(args => SimpleMoveCamera3D(args.TimeStep));
 	}
 	
 	private void SetupViewport()
@@ -110,13 +95,13 @@ class _30_LightAnimation : Sample
 
 		// Create text animation
 		ValueAnimation textAnimation=new ValueAnimation(Context);
-#warning MISSING_API: SetKeyFrame
-		//textAnimation.SetKeyFrame(0.0f, "WHITE");
-		//textAnimation.SetKeyFrame(1.0f, "RED");
-		//textAnimation.SetKeyFrame(2.0f, "YELLOW");
-		//textAnimation.SetKeyFrame(3.0f, "GREEN");
-		//textAnimation.SetKeyFrame(4.0f, "WHITE");
-		UI.Root.GetChild("animatingText", false).SetAttributeAnimation("Text", textAnimation, WrapMode.WM_LOOP, 1f);
+		textAnimation.SetKeyFrame(0.0f, "WHITE");
+		textAnimation.SetKeyFrame(1.0f, "RED");
+		textAnimation.SetKeyFrame(2.0f, "YELLOW");
+		textAnimation.SetKeyFrame(3.0f, "GREEN");
+		textAnimation.SetKeyFrame(4.0f, "WHITE");
+		var uiElement = UI.Root.GetChild("animatingText", false);
+		uiElement.SetAttributeAnimation("Text", textAnimation, WrapMode.WM_LOOP, 1f);
 
 		// Create light color animation
 		ValueAnimation colorAnimation=new ValueAnimation(Context);
@@ -156,6 +141,5 @@ class _30_LightAnimation : Sample
 
 		// Set an initial position for the camera scene node above the plane
 		CameraNode.Position = (new Vector3(0.0f, 5.0f, 0.0f));
-
 	}
 }

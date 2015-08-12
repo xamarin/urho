@@ -65,8 +65,8 @@
     <Compile Include="Samples\Done\20_HugeObjectCount.cs" />
     <Compile Include="Samples\Done\24_Urho2DSprite.cs" />
     <Compile Include="Samples\Done\25_Urho2DParticle.cs" />
-    <Compile Include="Samples\InProgress\30_LightAnimation.cs" />
-    <Compile Include="Samples\InProgress\31_MaterialAnimation.cs" />
+    <Compile Include="Samples\Done\30_LightAnimation.cs" />
+    <Compile Include="Samples\Done\31_MaterialAnimation.cs" />
     <Compile Include="Samples\InProgress\32_Urho2DConstraints.cs" />
     <Compile Include="Samples\Done\33_Urho2DSpriterAnimation.cs" />
     <Compile Include="Samples\InProgress\34_DynamicGeometry.cs" />
