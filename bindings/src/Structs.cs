@@ -269,10 +269,12 @@ namespace Urho {
 	[StructLayout(LayoutKind.Sequential)]
 	public unsafe class BillboardWrapper
 	{
-		private readonly Billboard* bb;
+		readonly object bbHolder;
+		readonly Billboard* bb;
 
-		public BillboardWrapper(Billboard* bb)
+		public BillboardWrapper(object bbHolder, Billboard* bb)
 		{
+			this.bbHolder = bbHolder;
 			this.bb = bb;
 		}
 
