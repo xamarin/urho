@@ -22,34 +22,34 @@ class _11_Physics : Sample
 	private void SubscribeToEvents()
 	{
 		SubscribeToUpdate(args =>
-		{
-			var input = Input;
-			SimpleMoveCamera3D(args.TimeStep);
-
-			if (input.GetMouseButtonPress(MouseButton.Left))
-				SpawnObject();
-
-			if (input.GetKeyPress(Key.F5))
 			{
-				scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/Physics.xml", "\t");
-			}
-			if (input.GetKeyPress(Key.F7))
-			{
-				scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/Physics.xml");
-			}
+				var input = Input;
+				SimpleMoveCamera3D(args.TimeStep);
 
-			if (input.GetKeyPress(Key.Space))
-				drawDebug = !drawDebug;
-		});
+				if (input.GetMouseButtonPress(MouseButton.Left))
+					SpawnObject();
+
+				if (input.GetKeyPress(Key.F5))
+				{
+					scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/Physics.xml");
+				}
+				if (input.GetKeyPress(Key.F7))
+				{
+					scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/Physics.xml");
+				}
+
+				if (input.GetKeyPress(Key.Space))
+					drawDebug = !drawDebug;
+			});
 
 		SubscribeToPostRenderUpdate(args =>
-		{
-			// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
-			// bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
-			// bones properly
-			if (drawDebug)
-				Renderer.DrawDebugGeometry(false);
-		});
+			{
+				// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
+				// bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
+				// bones properly
+				if (drawDebug)
+					Renderer.DrawDebugGeometry(false);
+			});
 	}
 	
 	private void SetupViewport()

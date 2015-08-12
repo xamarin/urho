@@ -16,7 +16,7 @@ namespace Urho
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool Scene_SaveXML(IntPtr handle, string file, string indentation);
 
-		public bool SaveXML(string file, string indentation)
+		public bool SaveXML(string file, string indentation = "\t")
 		{
 			return Scene_SaveXML(handle, file, indentation);
 		}
