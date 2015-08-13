@@ -51,23 +51,21 @@ class _36_Urho2DTileMap : Sample
 		var cache = ResourceCache;
 		// Get tmx file
 		TmxFile2D tmxFile = cache.GetTmxFile2D("Urho2D/isometric_grass_and_water.tmx");
-		if (tmxFile==null)
+		if (tmxFile == null)
 			return;
 
-		Node tileMapNode=scene.CreateChild("TileMap");
-		tileMapNode.Position = (new Vector3(0.0f, 0.0f, -1.0f));
+		Node tileMapNode = scene.CreateChild("TileMap");
+		tileMapNode.Position = new Vector3(0.0f, 0.0f, -1.0f);
 
 		TileMap2D tileMap = tileMapNode.CreateComponent<TileMap2D>();
 		// Set animation
-		tileMap.TmxFile=tmxFile;
+		tileMap.TmxFile = tmxFile;
 
 		// Set camera's position
-
-#warning MISSING_API TileMap2D::GetInfo();
-		////const TileMapInfo2D&info = tileMap.GetInfo();
-		////float x = info.GetMapWidth() * 0.5f;
-		////float y = info.GetMapHeight() * 0.5f;
-		////CameraNode.Position = (new Vector3(x, y, -10.0f));
+		TileMapInfo2D info = tileMap.Info;
+		float x = info.MapWidth * 0.5f;
+		float y = info.MapHeight * 0.5f;
+		CameraNode.Position = new Vector3(x, y, -10.0f);
 
 	}
 }

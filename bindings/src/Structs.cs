@@ -243,7 +243,19 @@ namespace Urho {
 		public int Height;
 		public float TileWidth;
 		public float TileHeight;
-	};
+
+		//calculated properties:
+		public float MapWidth => Width * TileWidth;
+		public float MapHeight
+		{
+			get
+			{
+				if (Orientation == Orientation2D.O_STAGGERED)
+					return (Height + 1) * 0.5f * TileHeight;
+				return Height * TileHeight;
+			}
+		}
+	}
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]

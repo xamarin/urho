@@ -614,7 +614,8 @@ namespace SharpieBinder
 			case "const class Urho3D::BoundingBox &":
 			case "const struct Urho3D::BiasParameters &":
 			case "const struct Urho3D::CascadeParameters &":
-				return false;
+			case "const struct Urho3D::TileMapInfo2D &":
+					return false;
 			}
 
 			if (returnType) {
@@ -754,6 +755,7 @@ namespace SharpieBinder
 			case "const class Urho3D::Color &":
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::IntRect &":
+			case "const struct Urho3D::TileMapInfo2D &":
 				int p = cleanTypeStr.IndexOf ("::");
 				int q = cleanTypeStr.IndexOf (" ", p + 2);
 				var simpleType = cleanTypeStr.Substring (p + 2, q - p - 2);
@@ -1088,6 +1090,9 @@ namespace SharpieBinder
 			case "const class Urho3D::String &":
 				creturnType = "const char *";
 				marshalReturn = "strdup(({0}).CString ())";
+				break;
+			case "const struct Urho3D::TileMapInfo2D &":
+				creturnType = "Urho3D::TileMapInfo2D";
 				break;
 			case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::Vector2 &":
