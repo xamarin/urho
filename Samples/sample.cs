@@ -48,8 +48,8 @@ public class Sample : Application {
 
 	public Sample (Context ctx) : base (ctx)
 	{
-		Environment.CurrentDirectory = "/cvs/Urho3D/bin"; //Mac
-		//Environment.CurrentDirectory = @"C:\Projects\urho_x64\bin"; //Windows
+		//Environment.CurrentDirectory = "/cvs/Urho3D/bin"; //Mac
+		Environment.CurrentDirectory = @"C:\Projects\urho_x64\bin"; //Windows
 	}
 
 	public override void Setup ()
@@ -174,6 +174,13 @@ public class Sample : Application {
 		case Key.F2: // F2
 			debugHud.ToggleAll ();
 			return;
+
+		// GC tests
+		case Key.N0:
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+			GC.Collect();
+			break;
 		}
 		if (UI.FocusElement == null)
 			return;
