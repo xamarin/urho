@@ -234,6 +234,16 @@ namespace Urho {
 		public float Radius { get { return b->Radius; } set { b->Radius = value; } }
 		public BoundingBox BoundingBox { get { return b->BoundingBox; } set { b->BoundingBox = value; } }
 	}
+	
+	// DEBATABLE: maybe we should let the binder handle it?
+	[StructLayout(LayoutKind.Sequential)]
+	public	struct TileMapInfo2D {
+		public Orientation2D Orientation;
+		public int Width;
+		public int Height;
+		public float TileWidth;
+		public float TileHeight;
+	};
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
