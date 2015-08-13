@@ -12,34 +12,79 @@ class _08_Decals : Sample
 	{
 		base.Start();
 		CreateScene();
-		SimpleCreateInstructionsWithWASD(
-			"\nSpace to toggle debug geometry" +
-			"LMB to paint decals, RMB to rotate view\n" +
-			"Space to toggle debug geometry\n" + 
-			"7 to toggle occlusion culling");
+		CreateUI();
 		SetupViewport();
 		SubscribeToEvents();
+	}
+
+	private void CreateUI()
+	{
+		var cache = ResourceCache;
+		var ui = UI;
+		var graphics = Graphics;
+
+		var style = cache.GetXmlFile("UI/DefaultStyle.xml");
+		var cursor = new Cursor(Context);
+		cursor.SetStyleAuto(style);
+		ui.Cursor = cursor;
+		cursor.SetPosition(graphics.Width / 2, graphics.Height / 2);
+
+		SimpleCreateInstructionsWithWASD(
+			"\nLMB to paint decals, RMB to rotate view\n" +
+			"Space to toggle debug geometry\n" +
+			"7 to toggle occlusion culling");
 	}
 
 	private void SubscribeToEvents()
 	{
 		SubscribeToUpdate(args =>
-		{
-			SimpleMoveCamera3D(args.TimeStep);
-			if (Input.GetKeyDown(Key.Space))
-				drawDebug = !drawDebug;
-			if (UI.Cursor.IsVisible() && Input.GetMouseButtonPress(MouseButton.Left))
-				PaintDecal();
-		});
+			{
+				var timeStep = args.TimeStep;
+				UI ui = UI;
+				var input = Input;
+				ui.Cursor.SetVisible(!input.GetMouseButtonDown(MouseButton.Right));
+
+				const float mouseSensitivity = .1f;
+				const float moveSpeed = 40f;
+
+				if (UI.FocusElement != null)
+					return;
+
+				if (!ui.Cursor.IsVisible())
+				{
+					var mouseMove = input.MouseMove;
+					//var mouseMove = Test2 (input.Handle);
+					Yaw += mouseSensitivity*mouseMove.X;
+					Pitch += mouseSensitivity*mouseMove.Y;
+					Pitch = Clamp(Pitch, -90, 90);
+				}
+
+				CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
+
+				if (input.GetKeyDown(Key.W))
+					CameraNode.Translate(new Vector3(0, 0, 1) * moveSpeed * timeStep, TransformSpace.Local);
+				if (input.GetKeyDown(Key.S))
+					CameraNode.Translate(new Vector3(0, 0, -1) * moveSpeed * timeStep, TransformSpace.Local);
+				if (input.GetKeyDown(Key.A))
+					CameraNode.Translate(new Vector3(-1, 0, 0) * moveSpeed * timeStep, TransformSpace.Local);
+				if (input.GetKeyDown(Key.D))
+					CameraNode.Translate(new Vector3(1, 0, 0) * moveSpeed * timeStep, TransformSpace.Local);
+
+				if (Input.GetKeyPress(Key.Space))
+					drawDebug = !drawDebug;
+
+				if (UI.Cursor.IsVisible() && Input.GetMouseButtonPress(MouseButton.Left))
+					PaintDecal();
+			});
 
 		SubscribeToPostRenderUpdate(args =>
-		{
-			// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
-			// bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
-			// bones properly
-			if (drawDebug)
-				Renderer.DrawDebugGeometry(false);
-		});
+			{
+				// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
+				// bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
+				// bones properly
+				if (drawDebug)
+					Renderer.DrawDebugGeometry(false);
+			});
 	}
 	
 	private void SetupViewport()
@@ -128,10 +173,10 @@ class _08_Decals : Sample
 	{
 		hitDrawable = null;
 		hitPos = Vector3.Zero;
-
+		
 		var graphics = Graphics;
-
 		var ui = UI;
+
 		IntVector2 pos = ui.CursorPosition; 
 		// Check the cursor is visible and there is no UI element in front of the cursor
 		if (!ui.Cursor.IsVisible() || ui.GetElementAt(pos, true) != null)

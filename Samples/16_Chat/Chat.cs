@@ -127,12 +127,7 @@ class _16_Chat : Sample
 		chatHistory.RemoveAt(0);
 		chatHistory.Add(row);
 
-		// Concatenate all the rows in history
-		string allRows = String.Empty;
-		for (int i = 0; i < chatHistory.Count; ++i)
-			allRows += chatHistory[i] + "\n";
-
-		////chatHistoryText_.Text = allRows;
+		chatHistoryText.Value = string.Join("\n", chatHistory) + "\n";
 	}
 
 	private void UpdateButtons()

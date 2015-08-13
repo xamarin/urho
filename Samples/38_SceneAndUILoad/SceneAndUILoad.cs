@@ -32,9 +32,7 @@ class _38_SceneAndUILoad : Sample
 
 		// Load scene content prepared in the editor (XML format). GetFile() returns an open file from the resource system
 		// which scene.LoadXML() will read
-#warning MISSING_API ResourceCache::GetFile, Scene::LoadXml
-		////File file = cache.GetFile("Scenes/SceneLoadExample.xml");
-		////scene.LoadXML(file);
+		scene.LoadXML("Scenes/SceneLoadExample.xml");
 
 		// Create the camera (not included in the scene file)
 		CameraNode = scene.CreateChild("Camera");
@@ -64,7 +62,7 @@ class _38_SceneAndUILoad : Sample
 
 		// Load UI content prepared in the editor and add to the UI hierarchy
 #warning MISSING_API UI::LoadLayout
-		UIElement layoutRoot = null; ////ui.LoadLayout(cache.GetXmlFile("UI/UILoadExample.xml"));
+		/*UIElement layoutRoot = null; ////ui.LoadLayout(cache.GetXmlFile("UI/UILoadExample.xml"));
 		ui.Root.AddChild(layoutRoot);
 
 		// Subscribe to button actions (toggle scene lights when pressed then released)
@@ -77,7 +75,7 @@ class _38_SceneAndUILoad : Sample
 					ToggleLight1();
 				if (args.Element == button2)
 					ToggleLight2();
-			});
+			});*/
 	}
 
 

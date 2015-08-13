@@ -25,6 +25,13 @@ class _17_SceneReplication : Sample
 	/// ID of own controllable object (client only.)
 	uint clientObjectID_;
 
+
+	public const int CTRL_FORWARD = 1;
+	public const int CTRL_BACK = 2;
+	public const int CTRL_LEFT = 4;
+	public const int CTRL_RIGHT = 8;
+
+
 	public const ushort SERVER_PORT = 2345;
 #warning MISSING_API StringHash(String)
 	//static StringHash E_CLIENTOBJECTID("ClientObjectID");
@@ -308,63 +315,62 @@ class _17_SceneReplication : Sample
 		{
 			UI ui = UI;
 			Input input = Input;
-#warning MISSING_API Controls
-			////Controls controls;
+			Controls controls = new Controls();
 
-			////// Copy mouse yaw
-			////controls._yaw = Yaw;
+			// Copy mouse yaw
+			controls.Yaw = Yaw;
 
-			////// Only apply WASD controls if there is no focused UI element
-			////if (!ui.FocusElement)
-			////{
-			////    controls.Set(CTRL_FORWARD, input.GetKeyDown(Keys.W));
-			////    controls.Set(CTRL_BACK, input.GetKeyDown(Key.S));
-			////    controls.Set(CTRL_LEFT, input.GetKeyDown(Key.A));
-			////    controls.Set(CTRL_RIGHT, input.GetKeyDown(Key.D));
-			////}
+			// Only apply WASD controls if there is no focused UI element
+			if (ui.FocusElement == null)
+			{
+				controls.Set(CTRL_FORWARD, input.GetKeyDown(Key.W));
+				controls.Set(CTRL_BACK, input.GetKeyDown(Key.S));
+				controls.Set(CTRL_LEFT, input.GetKeyDown(Key.A));
+				controls.Set(CTRL_RIGHT, input.GetKeyDown(Key.D));
+			}
 
-			////serverConnection.SetControls(controls);
+			serverConnection.Controls = controls;
 			// In case the server wants to do position-based interest management using the NetworkPriority components, we should also
 			// tell it our observer (camera) position. In this sample it is not in use, but eg. the NinjaSnowWar game uses it
-			serverConnection.Position = (CameraNode.Position);
+			serverConnection.Position = CameraNode.Position;
 		}
 		// Server: apply controls to client objects
 		else if (network.IsServerRunning())
 		{
-#warning MISSING_API Network::GetClientConnections, RigidBody
-			////var connections = network.GetClientConnections();
+#warning MISSING_API Network::GetClientConnections
+			//var connections = network.GetClientConnections();
 
-			////for (int i = 0; i < connections.Size(); ++i)
-			////{
-			////    Connection connection = connections[i];
-			////    // Get the object this connection is controlling
-			////    Node ballNode = serverObjects_[connection];
-			////    if (ballNode == null)
-			////        continue;
+			for (int i = 0; i < 1;/*connections.Size();*/ ++i)
+			{
+				Connection connection = null;//connections[i];
+				// Get the object this connection is controlling
+				Node ballNode = serverObjects_[connection];
+				if (ballNode == null)
+					continue;
 
-			////    RigidBody body = ballNode.GetComponent<RigidBody>();
+				RigidBody body = ballNode.GetComponent<RigidBody>();
 
-			////    // Get the last controls sent by the client
-			////    var controls = connection.GetControls();
-			////    // Torque is relative to the forward vector
-			////    Quaternion rotation = new Quaternion(0.0f, controls.yaw_, 0.0f);
+				// Get the last controls sent by the client
+				var controls = connection.Controls;
+				// Torque is relative to the forward vector
+				Quaternion rotation = new Quaternion(0.0f, controls.Yaw, 0.0f);
 
-			////    const float MOVE_TORQUE = 3.0f;
+				const float MOVE_TORQUE = 3.0f;
 
-			////    // Movement torque is applied before each simulation step, which happen at 60 FPS. This makes the simulation
-			////    // independent from rendering framerate. We could also apply forces (which would enable in-air control),
-			////    // but want to emphasize that it's a ball which should only control its motion by rolling along the ground
-			////    if (controls.buttons_ & CTRL_FORWARD)
-			////        body.ApplyTorque(rotation * Vector3.UnitX * MOVE_TORQUE);
-			////    if (controls.buttons_ & CTRL_BACK)
-			////        body.ApplyTorque(rotation * Vector3::LEFT * MOVE_TORQUE);
-			////    if (controls.buttons_ & CTRL_LEFT)
-			////        body.ApplyTorque(rotation * Vector3.UnitZ * MOVE_TORQUE);
-			////    if (controls.buttons_ & CTRL_RIGHT)
-			////        body.ApplyTorque(rotation * Vector3::BACK * MOVE_TORQUE);
-			////}
+				// Movement torque is applied before each simulation step, which happen at 60 FPS. This makes the simulation
+				// independent from rendering framerate. We could also apply forces (which would enable in-air control),
+				// but want to emphasize that it's a ball which should only control its motion by rolling along the ground
+				if ((controls.Buttons & CTRL_FORWARD) != 0)
+					body.ApplyTorque(rotation * Vector3.UnitX * MOVE_TORQUE);
+				if ((controls.Buttons & CTRL_BACK) != 0)
+					body.ApplyTorque(rotation * new Vector3(-1, 0, 0) * MOVE_TORQUE);
+				if ((controls.Buttons & CTRL_LEFT) != 0)
+					body.ApplyTorque(rotation * Vector3.UnitZ * MOVE_TORQUE);
+				if ((controls.Buttons & CTRL_RIGHT) != 0)
+					body.ApplyTorque(rotation * new Vector3(0, 0, -1) * MOVE_TORQUE);
+			}
+		}
 	}
-}
 
 	private void HandleConnect()
 	{
