@@ -1,3 +1,4 @@
+	using System.Runtime.InteropServices;
 	using Urho;
 
 class _13_Ragdolls : Sample
@@ -140,12 +141,9 @@ class _13_Ragdolls : Sample
 				shape.SetCapsule(0.7f, 2.0f, new Vector3(0.0f, 1.0f, 0.0f), Quaternion.Identity);
 
 				// Create a custom component that reacts to collisions and creates the ragdoll
-				modelNode.AddComponent(new CreateRagdoll(Context));
+				modelNode.AddComponent(new CreateRagdoll(Context, body));
 			}
 		}
-	
-
-
 
 		// Create the camera. Limit far clip distance to match the fog
 		CameraNode = new Node(Context);
@@ -184,18 +182,19 @@ class _13_Ragdolls : Sample
 
 class CreateRagdoll : Component
 {
-	public CreateRagdoll(Context context) : base(context) {}
+	private readonly RigidBody body;
 
-	public void OnNodeSet(Node node)
+	public CreateRagdoll(Context context, RigidBody body) : base(context)
 	{
-		// If the node pointer is non-null, this component has been created into a scene node. Subscribe to physics collisions that
-		// concern this scene node
-		if (node != null)
-			SubscribeToNodeCollision(HandleNodeCollision);
+		this.body = body;
+		SubscribeToNodeCollision(HandleNodeCollision);
 	}
 
 	void HandleNodeCollision(NodeCollisionEventArgs args)
 	{
+		if (args.Body != body)
+			return;
+
 		// Get the other colliding body, make sure it is moving (has nonzero mass)
 		RigidBody otherBody = args.OtherBody;
 
@@ -262,8 +261,8 @@ class CreateRagdoll : Component
 			Skeleton skeleton = model.Skeleton;
 			for (uint i = 0; i < skeleton.NumBones; ++i)
 			{
-#warning MISSING_API Skeleton::GetBone
-					//skeleton.GetBone(i).animated_ = false;
+				//var offset = Marshal.OffsetOf(typeof(Bone), "_animated");
+				skeleton.GetBoneSafe(i).Animated = false;
 			}
 		
 			// Finally remove self from the scene node. Note that this must be the last operation performed in the function
