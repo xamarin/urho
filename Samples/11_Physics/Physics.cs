@@ -146,12 +146,15 @@ class _11_Physics : Sample
 		}
 
 
-		// Create the camera. Limit far clip distance to match the fog
-		CameraNode = scene.CreateChild("Camera");
-		var camera = CameraNode.CreateComponent<Camera>();
+
+		// Create the camera. Limit far clip distance to match the fog. Note: now we actually create the camera node outside
+		// the scene, because we want it to be unaffected by scene load / save
+		CameraNode = new Node(Context);
+		Camera camera = CameraNode.CreateComponent<Camera>();
 		camera.FarClip = 500.0f;
-		// Set an initial position for the camera scene node above the plane
-		CameraNode.Position = new Vector3(0.0f, 5.0f, -20.0f);
+
+		// Set an initial position for the camera scene node above the floor
+		CameraNode.Position = (new Vector3(0.0f, 5.0f, -20.0f));
 	}
 
 	public void SpawnObject()

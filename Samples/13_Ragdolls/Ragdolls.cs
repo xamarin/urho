@@ -40,7 +40,7 @@ class _13_Ragdolls : Sample
 					scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/Ragdolls.xml");
 				}
 
-				if (Input.GetKeyDown(Key.Space))
+				if (Input.GetKeyPress(Key.Space))
 					drawDebug = !drawDebug;
 			});
 
@@ -148,7 +148,7 @@ class _13_Ragdolls : Sample
 
 
 		// Create the camera. Limit far clip distance to match the fog
-		CameraNode = scene.CreateChild("Camera");
+		CameraNode = new Node(Context);
 		camera = CameraNode.CreateComponent<Camera>();
 		camera.FarClip = 300.0f;
 		// Set an initial position for the camera scene node above the plane
