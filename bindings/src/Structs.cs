@@ -62,20 +62,21 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct BoundingBox {
 		public Vector3 Min, Max;
-		public bool Defined;
+		public byte _defined; //bool is not blittable.
+		public bool Defined { get { return _defined != 0; } set { _defined = (byte)(value ? 1 : 0); } }
 
 		public BoundingBox (float min, float max)
 		{
 			Min = new Vector3 (min, min, min);
 			Max = new Vector3 (max, max, max);
-			Defined = true;
+			_defined = 1;
 		}
 
 		public BoundingBox (Vector3 min, Vector3 max)
 		{
 			Min = min;
 			Max = max;
-			Defined = true;
+			_defined = 1;
 		}
 	}
 
@@ -202,11 +203,36 @@ namespace Urho {
 		public Quaternion InitialRotation;
 		public Vector3 InitialScale;
 		public Matrix3x4 OffsetMatrix;
-		public bool Animated;
-		public char CollisionMask;
+		public byte _animated; //bool is not blittable.
+		public bool Animated { get { return _animated != 0; } set { _animated = (byte)(value ? 1 : 0); } }
+		public int CollisionMask;
 		public float Radius;
 		public BoundingBox BoundingBox;
 		private WeakPtr Node;
+	}
+
+	public unsafe class BoneWrapper
+	{
+		readonly object objHolder;
+		readonly Bone* b;
+
+		public BoneWrapper(object objHolder, Bone* bone)
+		{
+			this.objHolder = objHolder;
+			this.b = bone;
+		}
+
+		public UrhoString Name { get { return b->Name; } set { b->Name = value; } }
+		public int NameHash { get { return b->NameHash; } set { b->NameHash = value; } }
+		public uint ParentIndex { get { return b->ParentIndex; } set { b->ParentIndex = value; } }
+		public Vector3 InitialPosition { get { return b->InitialPosition; } set { b->InitialPosition = value; } }
+		public Quaternion InitialRotation { get { return b->InitialRotation; } set { b->InitialRotation = value; } }
+		public Vector3 InitialScale { get { return b->InitialScale; } set { b->InitialScale = value; } }
+		public Matrix3x4 OffsetMatrix { get { return b->OffsetMatrix; } set { b->OffsetMatrix = value; } }
+		public bool Animated { get { return b->Animated; } set { b->Animated = value; } }
+		public int CollisionMask { get { return b->CollisionMask; } set { b->CollisionMask = value; } }
+		public float Radius { get { return b->Radius; } set { b->Radius = value; } }
+		public BoundingBox BoundingBox { get { return b->BoundingBox; } set { b->BoundingBox = value; } }
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?
@@ -266,7 +292,6 @@ namespace Urho {
 		public float SortDistance;
 	}
 	
-	[StructLayout(LayoutKind.Sequential)]
 	public unsafe class BillboardWrapper
 	{
 		readonly object bbHolder;
@@ -314,7 +339,11 @@ namespace Urho {
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
-	public struct UrhoString {
+	public struct UrhoString
+	{
+		public uint Length;
+		public uint Capacity;
+		public IntPtr Buffer;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]

@@ -15,7 +15,17 @@ namespace Urho {
 		{
 			this.handle = handle;
 		}
-		
+
+		public BoneWrapper GetBoneSafe(uint index)
+		{
+			unsafe
+			{
+				Bone* result = Skeleton_GetBone(handle, index);
+				if (result == null)
+					return null;
+				return new BoneWrapper(this, result);
+			}
+		}
 	}
 
 	public partial class AnimatedModel {
