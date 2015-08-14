@@ -24,7 +24,7 @@
         <Variable name="DYLD_LIBRARY_PATH" value="/cvs/urho/bindings" />
       </EnvironmentVariables>
     </EnvironmentVariables>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
