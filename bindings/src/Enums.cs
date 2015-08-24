@@ -44,4 +44,12 @@ namespace Urho {
 		Voice,
 		Music
 	}
+
+	public enum DrawableFlags : uint {
+		Geometry = 0x1,
+		Light = 0x2,
+		Zone = 0x4,
+		Geometry2D = 0x8,
+		Any = 0xff,
+	}
 }

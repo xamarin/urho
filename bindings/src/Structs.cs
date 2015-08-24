@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Ray {
+		public Vector3 Origin;
+		public Vector3 Direction;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -234,7 +236,23 @@ namespace Urho {
 		public float Radius { get { return b->Radius; } set { b->Radius = value; } }
 		public BoundingBox BoundingBox { get { return b->BoundingBox; } set { b->BoundingBox = value; } }
 	}
-	
+
+	// DEBATABLE: maybe we should let the binder handle it?
+	[StructLayout(LayoutKind.Sequential)]
+	public struct RayQueryResult {
+		public Vector3 Position;
+		public Vector3 Normal;
+		public float Distance;
+
+		public IntPtr _drawablePtr;
+		public Drawable Drawable => new Drawable(_drawablePtr);
+
+		public IntPtr _nodePtr;
+		public Node Node => new Node(_nodePtr);
+
+		public uint SubObject;
+	}
+
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout(LayoutKind.Sequential)]
 	public	struct TileMapInfo2D {

@@ -226,11 +226,11 @@ namespace SharpieBinder
 
 				ps.WriteLine ("\t\t[DllImport (\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]");
 				ps.WriteLine ($"\t\tinternal extern static IntPtr {flatName}_new ();");
-				ps.WriteLine ("\t\t[DllImport (\"mono-urho\"), CallingConvention=CallingConvention.Cdecl]");
+				ps.WriteLine ("\t\t[DllImport (\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]");
 				ps.WriteLine ($"\t\tinternal extern static void {flatName}_destroy (IntPtr handle);");
-				ps.WriteLine ("\t\t[DllImport (\"mono-urho\"), CallingConvention=CallingConvention.Cdecl]");
+				ps.WriteLine ("\t\t[DllImport (\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]");
 				ps.WriteLine ($"\t\tinternal extern static int {flatName}_count (IntPtr handle);");
-				ps.WriteLine ("\t\t[DllImport (\"mono-urho\"), CallingConvention=CallingConvention.Cdecl]");
+				ps.WriteLine ("\t\t[DllImport (\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]");
 				ps.WriteLine ($"\t\tinternal extern static IntPtr {flatName}_item (IntPtr handle, int item);");
 				var elementType = p.Replace ("PODVEctor<class ", "").Trim ('>', '*', ' ');
 			}

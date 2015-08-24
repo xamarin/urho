@@ -308,6 +308,8 @@
     <Compile Include="src\Model.cs" />
     <Compile Include="src\NavigationMesh.cs" />
     <Compile Include="src\Network.cs" />
+    <Compile Include="src\PodVector.cs" />
+    <Compile Include="src\Octree.cs" />
     <Compile Include="src\RenderPath.cs" />
     <Compile Include="src\Scene.cs" />
     <Compile Include="src\Skeleton.cs" />

@@ -284,6 +284,7 @@ SOURCES = $(GENERATED_SOURCES) 		\
 	src/ResourceCache.cs		\
 	src/Runtime.cs			\
 	src/Skeleton.cs			\
+	src/Octree.cs			\
 	src/StringHash.cs		\
 	src/Stubs.cs			\
 	src/Structs.cs			\

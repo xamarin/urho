@@ -24,6 +24,8 @@ extern "C" {
 	}
 	
 	DllExport
+
+
 	Urho3D::String urho_map_get_String (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
@@ -237,6 +239,24 @@ extern "C" {
 		copy.Detach ();
 		delete copy;
 		return plain;
+	}
+
+	DllExport RayQueryResult *
+	Octree_RaycastSingle(Octree *octree, const Urho3D::Ray & ray, const Urho3D::RayQueryLevel & level, float maxDistance, unsigned int flags, unsigned int viewMask, int *count) {
+		PODVector<RayQueryResult> results;
+		auto size = sizeof(RayQueryResult);
+		RayOctreeQuery query(results, ray, RAY_TRIANGLE, maxDistance, flags, viewMask);
+		octree->RaycastSingle(query);
+
+		if (results.Size() == 0)
+			return NULL;
+
+		RayQueryResult * result = new RayQueryResult[results.Size()];
+		*count = results.Size();
+		for (int i = 0; i < results.Size(); i++) {
+			result[i] = results[i];
+		}
+		return result;
 	}
 	       
 	//
