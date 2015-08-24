@@ -10,6 +10,15 @@ namespace Urho {
 		public Vector3 Direction;
 	}
 
+	[StructLayout(LayoutKind.Sequential)]
+	public struct PhysicsRaycastResult {
+		public Vector3 Position;
+		public Vector3 Normal;
+		public float Distance;
+		private IntPtr bodyPtr;
+		public RigidBody Body => bodyPtr == IntPtr.Zero ? null : new RigidBody(bodyPtr);
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct IntRect {
 		public int Left, Top, Right, Bottom;
@@ -186,6 +195,40 @@ namespace Urho {
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct JoystickState {
+		public IntPtr JoystickPtr;
+		public IntPtr JoystickIdPtr;
+		public IntPtr ControllerPtr;
+		public IntPtr ScreenJoystickPtr;
+		public UIElement ScreenJoystick => ScreenJoystickPtr == IntPtr.Zero ? null : new UIElement(ScreenJoystickPtr);
+        public UrhoString Name;
+		public VectorBase Buttons;
+		public VectorBase ButtonPress;
+		public VectorBase Axes;
+		public VectorBase Hats;
+
+		public bool GetButtonDown(int position) => Axes.ToArray<byte>()[position] != 0;
+		public bool GetButtonPress(int position) => Axes.ToArray<byte>()[position] != 0;
+		public float GetAxisPosition(int position) => Axes.ToArray<float>()[position];
+		public int GetHatPosition(int position) => Axes.ToArray<int>()[position];
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct VectorBase {
+		public uint Size;
+		public uint Capacity;
+		public IntPtr Buffer;
+
+		public T[] ToArray<T>() where T : struct 
+		{
+			T[] result = new T[Size];
+			var typeSize = Marshal.SizeOf(typeof (T));
+			for (int i = 0; i < Size; i++)
+			{
+				var ptr = Marshal.ReadIntPtr(Buffer, typeSize*i);
+				result[i] = (T)Marshal.PtrToStructure(ptr, typeof (T));
+			}
+			return result;
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -245,7 +288,7 @@ namespace Urho {
 		public float Distance;
 
 		public IntPtr _drawablePtr;
-		public Drawable Drawable => new Drawable(_drawablePtr);
+		public Drawable Drawable => _drawablePtr == IntPtr.Zero ? null : new Drawable(_drawablePtr);
 
 		public IntPtr _nodePtr;
 		public Node Node => new Node(_nodePtr);
