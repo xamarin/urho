@@ -1,3 +1,4 @@
+using System.Linq;
 using Urho;
 
 class _08_Decals : Sample
@@ -183,20 +184,14 @@ class _08_Decals : Sample
 			return false;
 
 		Ray cameraRay = camera.GetScreenRay((float) pos.X/graphics.Width, (float) pos.Y/graphics.Height);
-		//scene.GetComponent<Octree>().Ray
-#warning MISSING_API 
-		// Pick only geometry objects, not eg. zones or lights, only get the first (closest) hit
-		/*PODVector<RayQueryResult> results;
-		RayOctreeQuery query(results, cameraRay, RAY_TRIANGLE, maxDistance, DRAWABLE_GEOMETRY);
-		scene_->GetComponent<Octree>()->RaycastSingle(query);
-		if (results.Size())
+		var results = scene.GetComponent<Octree>().RaycastSingle(cameraRay, RayQueryLevel.RAY_TRIANGLE, maxDistance, DrawableFlags.Geometry, uint.MaxValue);
+		if (results != null && results.Any())
 		{
-			RayQueryResult & result = results[0];
-			hitPos = result.position_;
-			hitDrawable = result.drawable_;
+			var first = results.First();
+			hitPos = first.Position;
+			hitDrawable = first.Drawable;
 			return true;
-		}*/
-
+		}
 		return false;
 	}
 
@@ -210,7 +205,7 @@ class _08_Decals : Sample
 			var targetNode = hitDrawable.Node;
 			var decal = targetNode.GetComponent<DecalSet>();
 
-			if (decal != null)
+			if (decal == null)
 			{
 				var cache = ResourceCache;
 				decal = targetNode.CreateComponent<DecalSet>();
