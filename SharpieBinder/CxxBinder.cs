@@ -615,6 +615,8 @@ namespace SharpieBinder
 			case "const struct Urho3D::BiasParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 			case "const struct Urho3D::TileMapInfo2D &":
+			case "struct Urho3D::PhysicsRaycastResult &":
+			case "const class Urho3D::Ray &":
 					return false;
 			}
 
@@ -756,12 +758,19 @@ namespace SharpieBinder
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::IntRect &":
 			case "const struct Urho3D::TileMapInfo2D &":
+			case "const class Urho3D::Ray &":
 				int p = cleanTypeStr.IndexOf ("::");
 				int q = cleanTypeStr.IndexOf (" ", p + 2);
 				var simpleType = cleanTypeStr.Substring (p + 2, q - p - 2);
 				highLevel = new SimpleType (simpleType);
 				lowLevel = new SimpleType (simpleType);
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				wrapKind = WrapKind.RefBlittable;
+				return;
+			case "struct Urho3D::PhysicsRaycastResult &":
+				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				highLevel = new SimpleType ("PhysicsRaycastResult");
+				lowLevel = new SimpleType ("PhysicsRaycastResult");
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "const struct Urho3D::BiasParameters &":
