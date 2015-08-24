@@ -101,9 +101,9 @@ class _19_VehicleDemo : Sample
 				Node vehicleNode = vehicle.Node;
 
 				// Physics update has completed. Position camera behind vehicle
-				Quaternion dir = new Quaternion(Vector3.UnitY, vehicleNode.Rotation.YawAngle);
-				dir = dir * new Quaternion(Vector3.UnitY, vehicle.Controls.Yaw);
-				dir = dir * new Quaternion(Vector3.UnitX, vehicle.Controls.Pitch);
+				Quaternion dir = Quaternion.FromAxisAngle(Vector3.UnitY, vehicleNode.Rotation.YawAngle);
+				dir = dir * Quaternion.FromAxisAngle(Vector3.UnitY, vehicle.Controls.Yaw);
+				dir = dir * Quaternion.FromAxisAngle(Vector3.UnitX, vehicle.Controls.Pitch);
 
 				Vector3 cameraTargetPos = vehicleNode.Position - dir * new Vector3(0.0f, 0.0f, CAMERA_DISTANCE);
 				Vector3 cameraStartPos = vehicleNode.Position;
