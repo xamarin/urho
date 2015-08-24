@@ -541,17 +541,12 @@ namespace Urho
 		/// <returns></returns>
 		public static Quaternion FromAxisAngle(Vector3 axis, float angle)
 		{
-			if (axis.LengthSquared == 0.0f)
-				return Identity;
-
-			Quaternion result = Identity;
-
-			angle *= 0.5f;
 			axis.Normalize();
-			result.Xyz = axis * (float)System.Math.Sin(angle);
-			result.W = (float)System.Math.Cos(angle);
+			angle *= (float)Math.PI /360f;
+			var sinAngle = (float)Math.Sin(angle);
+			var cosAngle = (float)Math.Cos(angle);
 
-			return Normalize(result);
+			return new Quaternion(axis.X * sinAngle, axis.Y * sinAngle, axis.Z * sinAngle, cosAngle);
 		}
 
 		#endregion
