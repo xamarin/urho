@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using Urho;
 
 class _15_Navigation : Sample
 {
 	private Scene scene;
 	private bool drawDebug;
-	private Camera camera;
 	private Node jackNode_;
 	private List<Vector3> currentPath_ = new List<Vector3>();
 	private Vector3 endPos_;
@@ -29,8 +29,6 @@ class _15_Navigation : Sample
 			{
 				MoveCamera(args.TimeStep);
 				FollowPath(args.TimeStep);
-				if (Input.GetKeyDown(Key.Space))
-					drawDebug = !drawDebug;
 			});
 
 		SubscribeToPostRenderUpdate(args =>
@@ -111,7 +109,6 @@ class _15_Navigation : Sample
 		if (input.GetKeyPress(Key.Space))
 			drawDebug = !drawDebug;
 	}
-
 
 	private void SetupViewport()
 	{
@@ -263,7 +260,8 @@ class _15_Navigation : Sample
 			{
 				// Calculate path from Jack's current position to the end point
 				endPos_ = pathPos;
-				currentPath_ = new List<Vector3>(navMesh.FindPath(jackNode_.Position, endPos_));
+				var result = navMesh.FindPath(jackNode_.Position, endPos_);
+				currentPath_ = new List<Vector3>(result);
 			}
 		}
 	}
@@ -320,7 +318,6 @@ class _15_Navigation : Sample
 	{
 		hitDrawable = null;
 		hitPos = new Vector3();
-		return true;
 
 		UI ui = UI;
 		IntVector2 pos = ui.CursorPosition;
@@ -329,21 +326,17 @@ class _15_Navigation : Sample
 			return false;
 
 		var graphics = Graphics;
-		//Camera camera = CameraNode.GetComponent<Camera>();
-		//Ray cameraRay = camera.GetScreenRay((float)pos.X / graphics.Width, (float)pos.Y / graphics.Height);
+		Camera camera = CameraNode.GetComponent<Camera>();
+		Ray cameraRay = camera.GetScreenRay((float)pos.X / graphics.Width, (float)pos.Y / graphics.Height);
 		// Pick only geometry objects, not eg. zones or lights, only get the first (closest) hit
-
-#warning MISSING_API RaycastSingle
-		////PODVector<RayQueryResult> results;
-		////RayOctreeQuery query(results, cameraRay, RAY_TRIANGLE, maxDistance, DRAWABLE_GEOMETRY);
-		////scene.GetComponent<Octree>().RaycastSingle(query);
-		////if (results.Size())
-		////{
-		////    RayQueryResult & result = results[0];
-		////    hitPos = result.position_;
-		////    hitDrawable = result.drawable_;
-		////    return true;
-		////}
+		var results = scene.GetComponent<Octree>().RaycastSingle(cameraRay, RayQueryLevel.RAY_TRIANGLE, maxDistance, DrawableFlags.Geometry, uint.MaxValue);
+		if (results != null && results.Any())
+		{
+			var first = results.First();
+			hitPos = first.Position;
+			hitDrawable = first.Drawable;
+			return true;
+		}
 
 		return false;
 	}
