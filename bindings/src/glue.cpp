@@ -7,6 +7,7 @@
 #define URHO3D_OPENGL
 #include "../AllUrho.h"
 #include "glue.h"
+#include "../src/interop.h"
 using namespace Urho3D;
 
 //
@@ -280,19 +281,20 @@ extern "C" {
 		return t;
 	}
 
-	DllExport
-	void *urho_navigationmesh_findpath(NavigationMesh * navMesh, const class Urho3D::Vector3 & start, const class Urho3D::Vector3 & end, int *count)
+	DllExport Interop::Vector3 *
+	urho_navigationmesh_findpath(NavigationMesh * navMesh, const class Urho3D::Vector3 & start, const class Urho3D::Vector3 & end, int *count)
 	{
 		PODVector<Vector3> dest;
 		navMesh->FindPath(dest, start, end);
 		if (dest.Size() == 0)
 			return NULL;
 		*count = dest.Size();
-		void **t = (void **)malloc(sizeof(Vector3*)*dest.Size());
+		Interop::Vector3 * results = new Interop::Vector3[dest.Size()];
 		for (int i = 0; i < dest.Size(); i++) {
-			t[i] = &dest[i];
+			auto vector = *((Interop::Vector3  *) &(dest[i]));
+			results[i] = vector;
 		}
-		return t;
+		return results;
 	}
 	
 #if false

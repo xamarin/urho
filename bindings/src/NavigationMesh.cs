@@ -13,15 +13,18 @@ namespace Urho
 			int count;
 			var ptr = urho_navigationmesh_findpath(Handle, start, end, out count);
 			if (ptr == IntPtr.Zero)
-				return null;
-			
+				return new Vector3[0];
+
 			var res = new Vector3[count];
+
+			int structSize = Marshal.SizeOf(typeof(Vector3));
 			for (int i = 0; i < count; i++)
 			{
-				var vectorPtr = Marshal.ReadIntPtr(ptr, i * IntPtr.Size);
-				var vector = (Vector3)Marshal.PtrToStructure(vectorPtr, typeof (Vector3));
-				res[i] = vector;
+				IntPtr data = new IntPtr(ptr.ToInt64() + structSize * i);
+				Vector3 item = (Vector3)Marshal.PtrToStructure(data, typeof(Vector3));
+				res[i] = item;
 			}
+			
 			return res;
 		}
     }
