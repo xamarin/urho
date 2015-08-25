@@ -77,11 +77,11 @@ class _19_VehicleDemo : Sample
 						// Check for loading / saving the scene
 						if (input.GetKeyPress(Key.F5))
 						{
-							scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml");
+							scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml");
 						}
 						if (input.GetKeyPress(Key.F7))
 						{
-							scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml");
+							scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml");
 							// After loading we have to reacquire the weak pointer to the Vehicle component, as it has been recreated
 							// Simply find the vehicle's scene node by name as there's only one of them
 							Node vehicleNode = scene.GetChild("Vehicle", true);

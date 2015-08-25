@@ -32,11 +32,11 @@ class _12_PhysicsStressTest : Sample
 				// Check for loading / saving the scene
 				if (input.GetKeyPress(Key.F5))
 				{
-					scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", "\t");
+					scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", "\t");
 				}
 				if (input.GetKeyPress(Key.F7))
 				{
-					scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml");
+					scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml");
 				}
 
 				if (Input.GetKeyDown(Key.Space))

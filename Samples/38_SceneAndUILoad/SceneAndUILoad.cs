@@ -10,7 +10,6 @@ class _38_SceneAndUILoad : Sample
 	{
 		base.Start();
 
-
 		// Create the scene content
 		CreateScene();
 
@@ -32,14 +31,14 @@ class _38_SceneAndUILoad : Sample
 
 		// Load scene content prepared in the editor (XML format). GetFile() returns an open file from the resource system
 		// which scene.LoadXML() will read
-		scene.LoadXML("Scenes/SceneLoadExample.xml");
+		scene.LoadXmlFromCache(cache, "Scenes/SceneLoadExample.xml");
 
 		// Create the camera (not included in the scene file)
 		CameraNode = scene.CreateChild("Camera");
 		CameraNode.CreateComponent<Camera>();
 
 		// Set an initial position for the camera scene node above the plane
-		CameraNode.Position = (new Vector3(0.0f, 2.0f, -10.0f));
+		CameraNode.Position = new Vector3(0.0f, 2.0f, -10.0f);
 	}
 
 	private void CreateUI()
@@ -61,13 +60,11 @@ class _38_SceneAndUILoad : Sample
 		cursor.SetPosition(graphics.Width / 2, graphics.Height / 2);
 
 		// Load UI content prepared in the editor and add to the UI hierarchy
-#warning MISSING_API UI::LoadLayout
-		/*UIElement layoutRoot = null; ////ui.LoadLayout(cache.GetXmlFile("UI/UILoadExample.xml"));
-		ui.Root.AddChild(layoutRoot);
+		ui.LoadLayoutToElement(ui.Root, cache, "UI/UILoadExample.xml");
 
 		// Subscribe to button actions (toggle scene lights when pressed then released)
-		var button1 = (Button)layoutRoot.GetChild("ToggleLight1", true);
-		var button2 = (Button)layoutRoot.GetChild("ToggleLight2", true);
+		var button1 = ui.Root.GetChild("ToggleLight1", true);
+		var button2 = ui.Root.GetChild("ToggleLight2", true);
 
 		SubscribeToReleased(args =>
 			{
@@ -75,13 +72,13 @@ class _38_SceneAndUILoad : Sample
 					ToggleLight1();
 				if (args.Element == button2)
 					ToggleLight2();
-			});*/
+			});
 	}
 
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args => SimpleMoveCamera3D(args.TimeStep));
+		SubscribeToUpdate(args => SimpleMoveCamera2D(args.TimeStep));
 	}
 	
 	private void SetupViewport()

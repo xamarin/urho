@@ -168,11 +168,11 @@ class _18_CharacterDemo : Sample
 
 				if (input.GetKeyPress(Key.F5))
 				{
-					scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml", "\t");
+					scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml", "\t");
 				}
 				if (input.GetKeyPress(Key.F7))
 				{
-					scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml");
+					scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/CharacterDemo.xml");
 					Node characterNode = scene.GetChild("Jack", true);
 					if (characterNode != null)
 					{

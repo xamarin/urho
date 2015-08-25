@@ -170,11 +170,11 @@ class _39_CrowdNavigation : Sample
 		// directory
 		if (input.GetKeyPress(Key.F5))
 		{
-			scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", "\t");
+			scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml", "\t");
 		}
 		if (input.GetKeyPress(Key.F7))
 		{
-			scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml");
+			scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/CrowdNavigation.xml");
 		}
 
 		// Toggle debug geometry with space

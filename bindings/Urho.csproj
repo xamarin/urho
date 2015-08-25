@@ -315,6 +315,7 @@
     <Compile Include="src\Skeleton.cs" />
     <Compile Include="src\Node.cs" />
     <Compile Include="src\Object.cs" />
+    <Compile Include="src\UI.cs" />
     <Compile Include="src\UrhoMap.cs" />
     <Compile Include="src\RefCounted.cs" />
     <Compile Include="src\ResourceCache.cs" />

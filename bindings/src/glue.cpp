@@ -97,13 +97,27 @@ extern "C" {
 		proxy->Unsub ();
 	}
 
+	DllExport void
+	UI_LoadLayoutToElement(Urho3D::UI *_target, Urho3D::UIElement *to, Urho3D::ResourceCache *cache, const char * name)
+	{		
+		SharedPtr<UIElement> layoutRoot = _target->LoadLayout(cache->GetResource<XMLFile>(name));
+		to->AddChild(layoutRoot);
+	}
+
+	DllExport int
+	Scene_LoadXMLFromCache(Urho3D::Scene *_target, Urho3D::ResourceCache *cache, const char * name)
+	{
+		SharedPtr<File> file = cache->GetFile(name);
+		return _target->LoadXML(*file);
+	}
+
 	DllExport int
 	Scene_LoadXML(Urho3D::Scene *_target, const char * file)
 	{
 		File loadFile(_target->GetContext(), Urho3D::String(file), FILE_READ);
 		return _target->LoadXML(loadFile);
 	}
-
+	
 	DllExport int
 	Scene_SaveXML(Urho3D::Scene *_target, const char * file, const char * indentation)
 	{

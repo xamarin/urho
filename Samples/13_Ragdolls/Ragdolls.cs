@@ -34,11 +34,11 @@ class _13_Ragdolls : Sample
 				// Check for loading / saving the scene
 				if (input.GetKeyPress(Key.F5))
 				{
-					scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/Ragdolls.xml", "\t");
+					scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/Ragdolls.xml", "\t");
 				}
 				if (input.GetKeyPress(Key.F7))
 				{
-					scene.LoadXML(FileSystem.ProgramDir + "Data/Scenes/Ragdolls.xml");
+					scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/Ragdolls.xml");
 				}
 
 				if (Input.GetKeyPress(Key.Space))

@@ -47,7 +47,7 @@ class _32_Urho2DConstraints : Sample
 				// Save scene
 				if (input.GetKeyPress(Key.F5))
 				{
-					scene.SaveXML(FileSystem.ProgramDir + "Data/Scenes/Constraints.xml", "\t");
+					scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/Constraints.xml", "\t");
 				}
 			});
 		SubscribeToPostRenderUpdate(args =>
