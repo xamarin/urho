@@ -1,10 +1,9 @@
 ﻿using System;
 using static _18_CharacterDemo;
-using static Sample;
 
 namespace Urho
 {
-	public class Character : LogicComponent
+	public class Character : Component
 	{
 		/// Movement controls. Assigned by the main program each frame.
 		public Controls Controls { get; set; } = new Controls();
@@ -16,24 +15,12 @@ namespace Urho
 		/// In air timer. Due to possible physics inaccuracy, character can be off ground for max. 1/10 second and still be allowed to move.
 		float inAirTimer;
 
-		private RigidBody body;
+		RigidBody body;
+		AnimationController animCtrl;
 
 		public Character(Context context) : base(context)
 		{
 			okToJump = true;
-			UpdateEventMask = USE_FIXEDUPDATE;
-		}
-
-		private void RegisterObject(Context context)
-		{
-#warning MISSING_API
-			////// These macros register the class attributes to the Context for automatic load / save handling.
-			////// We specify the Default attribute mode which means it will be used both for saving into file, and network replication
-			////ATTRIBUTE("Controls Yaw", float, controls_.yaw_, 0.0f, AM_DEFAULT);
-			////ATTRIBUTE("Controls Pitch", float, controls_.pitch_, 0.0f, AM_DEFAULT);
-			////ATTRIBUTE("On Ground", bool, onGround_, false, AM_DEFAULT);
-			////ATTRIBUTE("OK To Jump", bool, okToJump_, true, AM_DEFAULT);
-			////ATTRIBUTE("In Air Timer", float, inAirTimer_, 0.0f, AM_DEFAULT);
 		}
 
 		public void Start()
@@ -44,8 +31,7 @@ namespace Urho
 
 		public void FixedUpdate(float timeStep)
 		{
-			/// \todo Could cache the components for faster access instead of finding them each frame
-			AnimationController animCtrl = GetComponent<AnimationController>();
+			animCtrl = animCtrl ?? GetComponent<AnimationController>();
 			body = body ?? GetComponent<RigidBody>();
 
 			// Update the in air timer. Reset if grounded
