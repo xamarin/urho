@@ -729,7 +729,7 @@ namespace Urho
 			var qVec = new Vector3(quaternion.X, quaternion.Y, quaternion.Z);
 			var cross1 = Vector3.Cross(qVec, vector);
 			var cross2 = Vector3.Cross(qVec, cross1);
-			return vector + 2.0f * cross1 * quaternion.W + cross2;
+			return vector + 2.0f * (cross1 * quaternion.W + cross2);
 		}
 
 		/// <summary>
