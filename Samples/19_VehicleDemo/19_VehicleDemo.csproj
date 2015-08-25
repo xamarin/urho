@@ -34,6 +34,7 @@
     <Compile Include="..\Sample.cs">
       <Link>Sample.cs</Link>
     </Compile>
+    <Compile Include="Vehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="VehicleDemo.cs" />
   </ItemGroup>

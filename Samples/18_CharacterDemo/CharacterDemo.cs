@@ -95,7 +95,7 @@ class _18_CharacterDemo : Sample
 			float rayDistance = touch != null ? touch.CameraDistance : CAMERA_INITIAL_DIST;
 
 			PhysicsRaycastResult result = new PhysicsRaycastResult();
-			scene.GetComponent<PhysicsWorld>().RaycastSingle(ref result, new Ray { Origin = aimPoint, Direction = rayDir }, rayDistance, 2);
+			scene.GetComponent<PhysicsWorld>().RaycastSingle(ref result, new Ray(aimPoint, rayDir), rayDistance, 2);
 			if (result.Body != null)
 				rayDistance = Math.Min(rayDistance, result.Distance);
 			rayDistance = Clamp(rayDistance, CAMERA_MIN_DIST, CAMERA_MAX_DIST);
