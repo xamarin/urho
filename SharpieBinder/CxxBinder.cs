@@ -26,92 +26,10 @@ using System.Text;
 
 namespace SharpieBinder
 {
-	public static class StringUtil {
-		public static string DropPrefix (this string w)
-		{
-			var j = w.IndexOf ("_");
-			var prefix = w.Substring (0, j+1);
-			return w.DropPrefix (prefix);
-		}
-
-		public static string DropPrefix (this string w, string prefix)
-		{
-			if (w.StartsWith (prefix))
-				return w.Substring (prefix.Length);
-			Console.WriteLine ("Can not drop prefix {0} from {1}", prefix, w);
-			return w;
-		}
-
-		public static string Remap (string source)
-		{
-			switch (source) {
-			case "TraversingLink":
-				return "TraversingLink";
-			case "Conetwist":
-				return "ConeTwist";
-			case "Waitingforqueue":
-				return "WaitingForQueue";
-			case "Waitingforpath":
-				return "WaitingForPath";
-			case "Lookat":
-				return "LookAt";
-			case "Readwrite":
-				return "ReadWrite";
-			case "Notfocusable":
-				return "NotFocusable";
-			case "Resetfocus":
-				return "ResetFocus";
-			case "Premulalpha":
-				return "PremultipliedAlpha";
-			case "Subtractalpha":
-				return "SubtractAlpha";
-			case "Invdestalpha":
-				return "InvDestAlpha";
-			case "Notequal":
-				return "NotEqual";
-			case "Lessequal":
-				return "LessEqual";
-			case "Greaterequal":
-				return "GreaterEqual";
-			case "Bottomleft":
-				return "BottomLeft";
-			case "Topleft":
-				return "TopLeft";
-			case "Topright":
-				return "Topright";
-			case "Bottomright":
-				return "BottomRight";
-			case "Horizontalnvidia":
-				return "HorizontalNvidia";
-			case "Horizontalcross":
-				return "HorizontalCross";
-			case "Verticalcross":
-				return "VerticalCross";
-			
-
-			}
-			return source;
-		}
-
-		public static string PascalCase (this string w)
-		{
-			var elements = w.Split ('_');
-			return string.Join ("", w.Split ('_').Select (x => Remap (Capitalize (x))));
-		}
-
-		public static string Capitalize (this string w)
-		{
-			if (w.Length == 0)
-				return "";
-			if (w.Length > 1)
-				return Char.ToUpper (w [0]) + w.Substring (1).ToLower ();
-			return Char.ToUpper (w[0]).ToString ();
-		}
-	}
-
 	class CxxBinder : AstVisitor
 	{
 		CSharpParser csParser = new CSharpParser();
+
 		public static Clang.Ast.Type CleanType(QualType qt)
 		{
 			var et = qt.Type as ElaboratedType;
@@ -119,6 +37,7 @@ namespace SharpieBinder
 				return qt.Type;
 			return et.UnqualifiedDesugaredType;
 		}
+
 		public static string CleanTypeCplusplus(QualType qt)
 		{
 			var s = CleanType(qt).ToString();
@@ -137,6 +56,7 @@ namespace SharpieBinder
 
 			return s;
 		}
+
 		class BaseNodeType
 		{
 			public CXXRecordDecl Decl { get; set; }
@@ -162,7 +82,6 @@ namespace SharpieBinder
 		readonly List<SyntaxTree> syntaxTrees = new List<SyntaxTree>();
 		readonly Dictionary<string, BaseNodeType> baseNodeTypes;
 
-		TypeDeclaration astVisitorType;
 		TypeDeclaration currentType;
 		StreamWriter cbindingStream;
 		StreamWriter podStream;
@@ -248,37 +167,12 @@ namespace SharpieBinder
 			cbindingStream = null;
 		}
 
-		public void p(string fmt, params object[] args)
-		{
-			if (args.Length == 0)
-				cbindingStream.Write(fmt);
-			else
-				cbindingStream.Write(String.Format(fmt, args));
-		}
-
-		public void pn(string fmt, params object[] args)
-		{
-			if (args.Length == 0)
-				cbindingStream.WriteLine(fmt);
-			else
-				cbindingStream.WriteLine(String.Format(fmt, args));
-		}
-
 		public IEnumerable<SyntaxTree> Generate()
 		{
 			foreach (var syntaxTree in syntaxTrees) {
 				//syntaxTree.AcceptVisitor(new Sharpie.Bind.Massagers.GenerateUsingStatementsMassager());
-
 				yield return syntaxTree;
 			}
-		}
-
-		CXXRecordDecl GetRootDecl(CXXRecordDecl decl)
-		{
-			return baseNodeTypes.Values.FirstOrDefault(node =>
-								   node.Decl != null &&
-								   node.Decl.Name != "DeclContext" &&
-								   decl.IsDerivedFrom(node.Decl))?.Decl;
 		}
 
 		void PushType(TypeDeclaration typeDeclaration)
@@ -313,12 +207,13 @@ namespace SharpieBinder
 			uniqueMethodName = 0;
 			ns.Members.Add(currentType = typeDeclaration);
 		}
+
 		HashSet<string> currentTypeNames = new HashSet<string>();
 		int uniqueMethodName;
 		Dictionary<string, TypeDeclaration> allTypes = new Dictionary<string, TypeDeclaration>();
 		public HashSet<string> unhandledEnums = new HashSet<string> ();
 
-		 string RemapEnumName (string type, string value)
+		string RemapEnumName (string type, string value)
 		{
 			if (value.StartsWith ("MAX_"))
 				return null;
@@ -401,7 +296,6 @@ namespace SharpieBinder
 				currentType.Members.Add(enumValue);
 			}
 		}
-
 
 		public override void VisitCXXRecordDecl(CXXRecordDecl decl, VisitKind visitKind)
 		{
@@ -560,22 +454,7 @@ namespace SharpieBinder
 			if (type.IsGenericType)
 				name = name.Substring(0, name.IndexOf('`'));
 
-			return CreateAstType(name, type.GetGenericArguments().Select(at => GenerateReflectedType(at)));
-		}
-
-		static string MakeName(string typeName)
-		{
-			return typeName;
-		}
-
-		// Removes the "const" and "&" from a typename string definition 
-		static string DropConstAndReference (string tname)
-		{
-			if (tname.StartsWith ("const")) 
-				tname = tname.Substring ("const".Length);
-			// strip the &
-			tname = tname.Substring (0, tname.Length - 1);
-			return tname.Trim ();
+			return CreateAstType(name, type.GetGenericArguments().Select(GenerateReflectedType));
 		}
 
 		const string ConstStringReference = "const class Urho3D::String &";
@@ -644,7 +523,7 @@ namespace SharpieBinder
 				// The & at the end is redundant, Urho always uses PODVector & on parameters
 				// but there for future proofing.
 				if (ctstring.Contains ("PODVector<") && ctstring.EndsWith ("&")) {
-					string plainPodClass = DropConstAndReference (ctstring);
+					string plainPodClass = StringUtil.DropConstAndReference (ctstring);
 					// Now, white list the classes we know about, for now
 					// we are going to bind the ones that are UrhoObjects 
 					switch (plainPodClass) {
@@ -1052,7 +931,7 @@ namespace SharpieBinder
 			//
 			// PInvoke declaration + C counterpart declaration
 			//
-			string pinvoke_name = MakeName(currentType.Name) + "_" + methodName;
+			string pinvoke_name = currentType.Name + "_" + methodName;
 			var isConstructor = decl is CXXConstructorDecl;
 
 			if (isConstructor) {
@@ -1072,14 +951,9 @@ namespace SharpieBinder
 			if (!decl.IsStatic && !isConstructor)
 				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
 
-			var dllImport = new Attribute()
-			{
-				Type = new SimpleType("DllImport")
-			};
+			var dllImport = new Attribute { Type = new SimpleType("DllImport") };
 			dllImport.Arguments.Add (new PrimitiveExpression ("mono-urho"));
-
 			dllImport.Arguments.Add (new AssignmentExpression (new IdentifierExpression ("CallingConvention"), csParser.ParseExpression ("CallingConvention.Cdecl")));
-
 			pinvoke.Attributes.Add(new AttributeSection(dllImport));
 
 			// The C counterpart
@@ -1141,7 +1015,7 @@ namespace SharpieBinder
 				cinvoke.Append($"new {decl.Name} (");
 			} else {
 				cmethodBuilder.Append($"Urho3D::{decl.Parent.Name} *_target");
-				if (decl.Parameters.Count() > 0)
+				if (decl.Parameters.Any())
 					cmethodBuilder.Append(", ");
 				cinvoke.Append($"_target->{decl.Name} (");
 			}
@@ -1196,7 +1070,7 @@ namespace SharpieBinder
 				LookupMarshalTypes(param.QualType, out pinvokeParameter, out pinvokeMod, out parameter, out methodMod, out wrapKind);
 
 				string paramName = param.Name;
-				if (paramName == "" || paramName == null)
+				if (string.IsNullOrEmpty(paramName))
 					paramName = "param" + (anonymousParameterNameCount++);
 
 				Expression parameterReference = new IdentifierExpression (paramName);
@@ -1524,7 +1398,7 @@ namespace SharpieBinder
 					var property = member as PropertyDeclaration;
 					ScanBases(typeDeclaration, baseType =>
 					{
-						foreach (var baseProperty in baseType.Members.Where(x => x is PropertyDeclaration).Select(x => x as PropertyDeclaration)) {
+						foreach (var baseProperty in baseType.Members.OfType<PropertyDeclaration>()) {
 							if (baseProperty.Name == property.Name) {
 								UpdateMembers(baseProperty, property);
 								return true;
@@ -1539,7 +1413,7 @@ namespace SharpieBinder
 						return;
 					ScanBases(typeDeclaration, baseType =>
 					{
-						foreach (var baseMethod in baseType.Members.Where(x => x is MethodDeclaration).Select(x => x as MethodDeclaration)) {
+						foreach (var baseMethod in baseType.Members.OfType<MethodDeclaration>()) {
 							if (baseMethod.Name != method.Name)
 								continue;
 
@@ -1568,10 +1442,10 @@ namespace SharpieBinder
 			});
 
 			ForAllMembers((typeDeclaration, member) =>
-		   {
-			   if (member.Modifiers.HasFlag(Modifiers.Virtual | Modifiers.Override))
-				   member.Modifiers = member.Modifiers & ~Modifiers.Virtual;
-		   });
+			{
+				if (member.Modifiers.HasFlag(Modifiers.Virtual | Modifiers.Override))
+					member.Modifiers = member.Modifiers & ~Modifiers.Virtual;
+			});
 		}
 
 		public void GenerateProperties()
@@ -1676,175 +1550,22 @@ namespace SharpieBinder
 				}
 			}
 		}
-	}
 
-	//
-	// Finds a few types that we use later to make decisions, and scans for methods for get/set patterns
-	//
-	class ScanBaseTypes : AstVisitor
-	{
-		// 
-		// These are the types that we have to lookup earlier, before we run the scan in CxxBinder
-		//
-		static public CXXRecordDecl UrhoRefCounted, EventHandlerType;
 
-		// Provides a way of mapping names to declarations, we load this as we process
-		// and use this information later in CxxBinder
-		public static Dictionary<string, CXXRecordDecl> nameToDecl = new Dictionary<string, CXXRecordDecl>();
-
-		public override void VisitCXXRecordDecl(CXXRecordDecl decl, VisitKind visitKind)
+		void p(string fmt, params object[] args)
 		{
-			if (visitKind != VisitKind.Enter || !decl.IsCompleteDefinition || decl.Name == null)
-				return;
-
-			nameToDecl[decl.QualifiedName] = decl;
-			switch (decl.QualifiedName) {
-			case "Urho3D::RefCounted":
-				UrhoRefCounted = decl;
-				break;
-			case "Urho3D::EventHandler":
-				EventHandlerType = decl;
-				break;
-			}
+			if (args.Length == 0)
+				cbindingStream.Write(fmt);
+			else
+				cbindingStream.Write(String.Format(fmt, args));
 		}
 
-		public class GetterSetter
+		void pn(string fmt, params object[] args)
 		{
-			public CXXMethodDecl Getter, Setter;
-			public TypeDeclaration HostType;
-			public AstType MethodReturn;
-			public string Name;
-		}
-
-		// typeName to propertyName to returnType to GetterSetter pairs
-		public static Dictionary<string, Dictionary<string, Dictionary<QualType, GetterSetter>>> allProperties =
-			new Dictionary<string, Dictionary<string, Dictionary<QualType, GetterSetter>>>();
-
-		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
-		{
-			if (visitKind != VisitKind.Enter)
-				return;
-
-			var isConstructor = decl is CXXConstructorDecl;
-			if (decl is CXXDestructorDecl || isConstructor)
-				return;
-
-			if (decl.IsCopyAssignmentOperator || decl.IsMoveAssignmentOperator)
-				return;
-
-			if (decl.Parent == null)
-				return;
-			if (!decl.Parent.QualifiedName.StartsWith("Urho3D::"))
-				return;
-
-			// Only get methods prefixed with Get with no parameters
-			// and Set methods that return void and take a single parameter
-			var name = decl.Name;
-
-			// Handle Get methods that are not really getters
-			// This is a get method that does not get anything
-
-			QualType type;
-			if (name.StartsWith("Get")) {
-				if (decl.Parameters.Count() != 0)
-					return;
-				if (decl.ReturnQualType.ToString() == "void")
-					return;
-
-				type = decl.ReturnQualType;
-			} else if (name.StartsWith("Set")) {
-				if (decl.Parameters.Count() != 1)
-					return;
-				if (!(decl.ReturnQualType.Bind() is Sharpie.Bind.Types.VoidType))
-					return;
-				if ((name == "SetTypeName" || name == "SetType") && decl.Parent.Name == "UnknownComponent")
-					return;
-				if (decl.Access != AccessSpecifier.Public)
-					return;
-				type = decl.Parameters.FirstOrDefault().QualType;
-			} else
-				return;
-
-			Dictionary<string, Dictionary<QualType, GetterSetter>> typeProperties;
-			if (!allProperties.TryGetValue(decl.Parent.Name, out typeProperties)) {
-				typeProperties = new Dictionary<string, Dictionary<QualType, GetterSetter>>();
-				allProperties[decl.Parent.Name] = typeProperties;
-			}
-			var propName = name.Substring(3);
-
-			Dictionary<QualType, GetterSetter> property;
-
-			if (!typeProperties.TryGetValue(propName, out property)) {
-				property = new Dictionary<QualType, GetterSetter>();
-				typeProperties[propName] = property;
-			}
-			GetterSetter gs;
-			if (!property.TryGetValue(type, out gs)) {
-				gs = new GetterSetter() { Name = propName };
-			}
-
-			if (name.StartsWith("Get")) {
-
-				if (gs.Getter != null)
-					throw new Exception("Can not happen");
-				gs.Getter = decl;
-			} else {
-				if (gs.Setter != null) {
-					throw new Exception("Can not happen");
-				}
-				gs.Setter = decl;
-			}
-			property[type] = gs;
-		}
-
-		// Contains a list of all methods that will be part of a property
-		static Dictionary<CXXMethodDecl, GetterSetter> allPropertyMethods = new Dictionary<CXXMethodDecl, GetterSetter>();
-
-		public static GetterSetter GetPropertyInfo(CXXMethodDecl decl)
-		{
-			GetterSetter gs;
-			if (allPropertyMethods.TryGetValue(decl, out gs))
-				return gs;
-			return null;
-		}
-
-		//
-		// After we collected the information, remove pairs that only had a setter, but no getter
-		//
-		public void PrepareProperties()
-		{
-			var typeRemovals = new List<string>();
-			foreach (var typeKV in allProperties) {
-				var propertyRemovals = new List<string>();
-				foreach (var propNameKV in typeKV.Value) {
-					var qualTypeRemoval = new List<QualType>();
-					foreach (var propTypeKV in propNameKV.Value) {
-						if (propTypeKV.Value.Getter == null)
-							qualTypeRemoval.Add(propTypeKV.Key);
-					}
-					foreach (var qualType in qualTypeRemoval)
-						propNameKV.Value.Remove(qualType);
-					if (propNameKV.Value.Count == 0)
-						propertyRemovals.Add(propNameKV.Key);
-				}
-				foreach (var property in propertyRemovals)
-					typeKV.Value.Remove(property);
-
-				if (typeKV.Value.Count == 0)
-					typeRemovals.Add(typeKV.Key);
-			}
-			foreach (var type in typeRemovals)
-				allProperties.Remove(type);
-
-			foreach (var typeKV in allProperties) {
-				foreach (var propNameKV in typeKV.Value) {
-					foreach (var gs in propNameKV.Value.Values) {
-						allPropertyMethods[gs.Getter] = gs;
-						if (gs.Setter != null)
-							allPropertyMethods[gs.Setter] = gs;
-					}
-				}
-			}
+			if (args.Length == 0)
+				cbindingStream.WriteLine(fmt);
+			else
+				cbindingStream.WriteLine(String.Format(fmt, args));
 		}
 	}
 }
