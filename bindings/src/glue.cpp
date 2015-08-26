@@ -25,12 +25,10 @@ extern "C" {
 	}
 	
 	DllExport
-
-
-	Urho3D::String urho_map_get_String (VariantMap& map, int hash)
+	const char * urho_map_get_String (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
-		return map [h].GetString ();
+		return strdup(map [h].GetString ().CString());
 	}
 	
 	DllExport
@@ -273,7 +271,19 @@ extern "C" {
 		}
 		return result;
 	}
-	       
+
+	DllExport void 
+	Console_OpenConsoleWindow()
+	{
+		OpenConsoleWindow();
+	}
+
+	DllExport const char * 
+	Console_GetConsoleInput()
+	{
+		return strdup(GetConsoleInput().CString());
+	}
+
 	//
 	// returns: null on no matches
 	// otherwise, a pointer that should be released with free() that
