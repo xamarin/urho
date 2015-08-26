@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 namespace Urho {
 	//
@@ -8,11 +9,7 @@ namespace Urho {
 	internal static class UrhoMap  {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr urho_map_get_ptr (IntPtr handle, int stringHash);
-		static public IntPtr get_Buffer (IntPtr handle, int stringHash)
-		{
-			return urho_map_get_ptr (handle, stringHash);
-		}
-		
+
 		static public Camera get_Camera (IntPtr handle, int stringHash)
 		{
 			var ptr = urho_map_get_ptr(handle, stringHash);
@@ -119,13 +116,22 @@ namespace Urho {
 		}
 
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
-		extern static IntPtr urho_map_get_buffer (IntPtr handle, int stringHash, out IntPtr buffer, out int size);
+		extern static IntPtr urho_map_get_buffer (IntPtr handle, int stringHash, out int size);
 		static public CollisionData [] get_CollisionData (IntPtr handle, int stringHash)
 		{
 			IntPtr buffer;
 			int size;
-			urho_map_get_buffer (handle, stringHash, out buffer, out size);
+			buffer = urho_map_get_buffer (handle, stringHash, out size);
 			return CollisionData.FromContactData (buffer, size);
+		}
+
+		static public byte[] get_Buffer(IntPtr handle, int stringHash)
+		{
+			int size;
+			var buffer = urho_map_get_buffer(handle, stringHash, out size);
+			var bytes = new byte[size];
+			Marshal.Copy(buffer, bytes, 0, size);
+			return bytes;
 		}
 
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
