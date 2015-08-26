@@ -10,9 +10,7 @@ namespace Urho {
 		{
 			if (address == null)
 				throw new ArgumentNullException ("address");
-			if (scene == null)
-				throw new ArgumentNullException ("scene");
-			return Network_Connect (handle, address, port, scene.Handle) != 0;
+			return Network_Connect (handle, address, port, scene?.Handle ?? IntPtr.Zero) != 0;
 		}
 	}
 	

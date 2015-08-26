@@ -56,8 +56,7 @@ class _26_ConsoleInput : Sample
 		Input.SetMouseVisible(true, false);
 
 		// Open the operating system console window (for stdin / stdout) if not open yet
-#warning MISSING_API OpenConsoleWindow
-		////OpenConsoleWindow();
+		UrhoConsole.OpenConsoleWindow();
 
 		// Initialize game and print the welcome message
 		StartGame();
@@ -68,19 +67,17 @@ class _26_ConsoleInput : Sample
 
 	private void HandleConsoleCommand(ConsoleCommandEventArgs args)
 	{
-		if (args.Id == GetType().Name)
+		//var id = args.Id;
+		//if (args.Id == GetType().Name)
 			HandleInput(args.Command);
 	}
 
 	private void HandleUpdate(UpdateEventArgs args)
 	{
 		// Check if there is input from stdin
-
-
-#warning MISSING_API GetConsoleInput
-		////string input = GetConsoleInput();
-		////if (!string.IsNullOrEmpty(input))
-		////    HandleInput(input);
+		string input = UrhoConsole.GetConsoleInput();
+		if (!string.IsNullOrEmpty(input))
+			HandleInput(input);
 	}
 
 	private void HandleEscKeyDown(KeyDownEventArgs args)

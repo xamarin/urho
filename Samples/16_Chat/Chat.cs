@@ -56,14 +56,14 @@ class _16_Chat : Sample
 		root.AddChild(chatHistoryText);
 
 		buttonContainer = new UIElement(Context);
+		root.AddChild(buttonContainer);
 		buttonContainer.SetFixedSize(graphics.Width, 20);
 		buttonContainer.SetPosition(0, graphics.Height - 20);
 		buttonContainer.LayoutMode=LayoutMode.LM_HORIZONTAL;
-		root.AddChild(buttonContainer);
 
 		textEdit = new LineEdit(Context); 
 		textEdit.SetStyleAuto(null);
-		textEdit.AddChild(buttonContainer);
+		buttonContainer.AddChild(textEdit);
 
 		sendButton = CreateButton("Send", 70);
 		connectButton = CreateButton("Connect", 90);
@@ -108,14 +108,14 @@ class _16_Chat : Sample
 		Font font = cache.GetFont("Fonts/Anonymous Pro.ttf");
 
 		Button button = new Button(Context);
+		buttonContainer.AddChild(button);
 		button.SetStyleAuto(null);
 		button.SetFixedWidth(width);
-		buttonContainer.AddChild(button);
 	
 		var buttonText = new Text(Context);
+		button.AddChild(buttonText);
 		buttonText.SetFont(font, 12);
 		buttonText.SetAlignment(HorizontalAlignment.HA_CENTER, VerticalAlignment.VA_CENTER);
-		button.AddChild(buttonText);
 
 		buttonText.Value = text;
 	
@@ -124,7 +124,8 @@ class _16_Chat : Sample
 
 	private void ShowChatText(string row)
 	{
-		chatHistory.RemoveAt(0);
+		//if (chatHistory.Count > 0)
+		//	chatHistory.RemoveAt(0);
 		chatHistory.Add(row);
 
 		chatHistoryText.Value = string.Join("\n", chatHistory) + "\n";
@@ -205,34 +206,28 @@ class _16_Chat : Sample
 		UpdateButtons();
 	}
 
-	private void HandleNetworkMessage(NetworkMessageEventArgs args)
+	private unsafe void HandleNetworkMessage(NetworkMessageEventArgs args)
 	{
 		Network network = Network;
 	
 		int msgID = args.MessageID;
 		if (msgID == MSG_CHAT)
 		{
-#warning MISSING_API MemoryBuffer (MemoryStream?)
-			////// Use a MemoryBuffer to read the message data so that there is no unnecessary copying
-			////MemoryBuffer msg = new MemoryBuffer(args.Data);
-			////string text = msg.ReadString();
-			Marshal.PtrToStringUni(args.Data, 100);//???
+			var textBytes = args.Data;
+			var text = Encoding.ASCII.GetString(textBytes);
+			
+			// If we are the server, prepend the sender's IP address and port and echo to everyone
+			// If we are a client, just display the message
+			if (network.IsServerRunning())
+			{
+				Connection sender = args.Connection;
+				text = sender + " " + text;
+				// Broadcast as in-order and reliable
+				fixed (byte* p = textBytes)
+					network.BroadcastMessage(MSG_CHAT, true, true, p, (uint) textBytes.Length, 0);
+			}
 
-			////// If we are the server, prepend the sender's IP address and port and echo to everyone
-			////// If we are a client, just display the message
-			////if (network.IsServerRunning())
-			////{
-			////    Connection sender = args.Connection;
-
-			////    text = sender.ToString() + " " + text;
-
-			////    VectorBuffer sendMsg;
-			////    sendMsg.WriteString(text);
-			////    // Broadcast as in-order and reliable
-			////    network.BroadcastMessage(MSG_CHAT, true, true, sendMsg);
-			////}
-
-			////ShowChatText(text);
+			ShowChatText(text);
 		}
 	}
 
