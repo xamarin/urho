@@ -24,7 +24,7 @@ sub mapType {
     return "float" if $t eq "Float";
     return "IntPtr" if $t eq "User-defined";
     return "CollisionData []" if $pt eq "Buffer containing";
-    return "IntPtr" if $t eq "Buffer";
+    return "byte []" if $t eq "Buffer";
     return $t;
 }
 
@@ -54,6 +54,9 @@ while (<>){
 		    $cast = "(Key)";
 		}
 		$plain =~ s/ .*//;
+        if ($plain eq "byte"){
+            $plain = "Buffer";
+        }
 		$hashgetters{$pc} = $en;
 
 		print CS "        public $cspt $pn =>$cast UrhoMap.get_$plain (handle, UrhoHash.$pc);\n";
