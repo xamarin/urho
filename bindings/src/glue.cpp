@@ -84,15 +84,12 @@ extern "C" {
 	urho_map_get_buffer (VariantMap &map, int hash, unsigned *size)
 	{
 		StringHash h (hash);
-		auto a = sizeof(unsigned char);
 		PODVector<unsigned char> p (map [h].GetBuffer ());
 		*size = p.Size();
-
 		unsigned char * result = new unsigned char[p.Size()];
 		for (int i = 0; i < p.Size(); i++) {
 			result[i] = p[i];
 		}
-		
 		return result;
 	}
 
