@@ -20,6 +20,7 @@ using ICSharpCode.NRefactory.CSharp;
 using System.Linq;
 using Attribute = ICSharpCode.NRefactory.CSharp.Attribute;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using Sharpie.Bind;
 using System.Text;
 
@@ -584,7 +585,8 @@ namespace SharpieBinder
 			EventHandler,		// 
 			StringHash,			// StringHash is handled specially (we surface StringHash, but we always pass an int/receive an int)
 			VectorSharedPtr,	// Used to marshal Vector pointers, by using an implementation of a IList<T> 
-			RefBlittable		// Used for blittable value types that are surfaced as reference classes
+			RefBlittable,		// Used for blittable value types that are surfaced as reference classes
+			MarshalPtrToString	// Used for strings used as return types (we use IntPtr instead of string to avoid Heap Corruption Exceptions)
 		}
 		// 
 		// Given a Clang QualType, returns the AstType to use to marshal, both for the 
@@ -619,11 +621,12 @@ namespace SharpieBinder
 			
 			case ConstStringReference:
 				if (isReturn) {
-					lowLevel = csParser.ParseTypeReference("string");
-					highLevel = csParser.ParseTypeReference("string");
+					lowLevel = new PrimitiveType("IntPtr");
+					highLevel = new PrimitiveType("string");
+					wrapKind = WrapKind.MarshalPtrToString;
 					return;
 				} else {
-					lowLevel = csParser.ParseTypeReference("string");
+					lowLevel = new PrimitiveType("string");
 					highLevel = new PrimitiveType("string");
 					return;
 				}
@@ -1204,6 +1207,9 @@ namespace SharpieBinder
 				case WrapKind.StringHash:
 					returnExpression = new ObjectCreateExpression (new SimpleType ("StringHash"), invoke);
 					break;
+				case WrapKind.MarshalPtrToString:
+					returnExpression = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Marshal"), "PtrToStringAnsi"), invoke);
+						break;
 				case WrapKind.VectorSharedPtr:
 					var cacheName = "_" + method.Name + "_cache";
 					var f = new FieldDeclaration () {

@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 namespace Urho {
-	//
-	// Helper functions to return elements from a VariantMap
-	//
 
+	/// <summary>
+	/// Helper functions to return elements from a VariantMap
+	/// </summary>
 	internal static class UrhoMap  {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr urho_map_get_ptr (IntPtr handle, int stringHash);
@@ -119,9 +118,8 @@ namespace Urho {
 		extern static IntPtr urho_map_get_buffer (IntPtr handle, int stringHash, out int size);
 		static public CollisionData [] get_CollisionData (IntPtr handle, int stringHash)
 		{
-			IntPtr buffer;
 			int size;
-			buffer = urho_map_get_buffer (handle, stringHash, out size);
+			var buffer = urho_map_get_buffer (handle, stringHash, out size);
 			return CollisionData.FromContactData (buffer, size);
 		}
 
@@ -135,10 +133,10 @@ namespace Urho {
 		}
 
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
-		extern static String urho_map_get_String (IntPtr handle, int stringHash);
-		static public String get_String (IntPtr handle, int stringHash)
+		extern static IntPtr urho_map_get_String (IntPtr handle, int stringHash);
+		static public string get_String (IntPtr handle, int stringHash)
 		{
-			return urho_map_get_String (handle, stringHash);
+			return Marshal.PtrToStringAnsi(urho_map_get_String (handle, stringHash));
 		}
 		
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]

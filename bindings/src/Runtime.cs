@@ -88,14 +88,13 @@ namespace Urho {
 		}
 
 		[DllImport ("mono-urho", EntryPoint="Urho_GetPlatform", CallingConvention=CallingConvention.Cdecl)]
-		[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(NativeToManagedStringMarshaler))]
-		extern static string GetPlatform();
+		extern static IntPtr GetPlatform();
 
 		static string platform;
 		public static string Platform {
 			get {
 				if (platform == null)
-					platform = GetPlatform ();
+					platform = Marshal.PtrToStringAnsi(GetPlatform ());
 				return platform;
 			}
 		}
