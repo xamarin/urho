@@ -381,8 +381,7 @@ class _17_SceneReplication : Sample
 
 		// Connect to server, specify scene to use as a client for replication
 		clientObjectID_ = 0; // Reset own object ID from possible previous connection
-#warning MISSING_API Network::Connect
-		////network.Connect(address, SERVER_PORT, scene);
+		network.Connect(address, (short)SERVER_PORT, scene);
 
 		UpdateButtons();
 	}

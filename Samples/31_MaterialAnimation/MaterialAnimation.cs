@@ -22,7 +22,7 @@ class _31_MaterialAnimation : Sample
 		SubscribeToUpdate(args =>
 		{
 			SimpleMoveCamera3D(args.TimeStep);
-			if (Input.GetKeyDown(Key.Space))
+			if (Input.GetKeyPress(Key.Space))
 				drawDebug = !drawDebug;
 		});
 

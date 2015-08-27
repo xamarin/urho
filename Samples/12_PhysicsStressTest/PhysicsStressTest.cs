@@ -39,7 +39,7 @@ class _12_PhysicsStressTest : Sample
 					scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml");
 				}
 
-				if (Input.GetKeyDown(Key.Space))
+				if (Input.GetKeyPress(Key.Space))
 					drawDebug = !drawDebug;
 			});
 

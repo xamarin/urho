@@ -24,7 +24,7 @@ class _07_Billboards : Sample
 		{
 			SimpleMoveCamera3D(args.TimeStep);
 			AnimateScene(args.TimeStep);
-			if (Input.GetKeyDown(Key.Space))
+			if (Input.GetKeyPress(Key.Space))
 				drawDebug = !drawDebug;
 		});
 
