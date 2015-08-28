@@ -49,8 +49,8 @@ namespace Urho
 
 		public SpeedState (Speed action, Node target) : base (action, target)
 		{
-			InnerActionState = (FiniteTimeActionState)action.InnerAction.StartAction (target);
-			Speed = action.SpeedValue;
+			this.InnerActionState = (FiniteTimeActionState)action.InnerAction.StartAction (target);
+			this.Speed = action.SpeedValue;
 		}
 
 		protected internal override void Stop ()

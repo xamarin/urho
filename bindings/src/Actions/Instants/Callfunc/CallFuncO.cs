@@ -11,14 +11,14 @@ namespace Urho
 
 		public CallFuncO()
 		{
-			Object = null;
-			CallFunctionO = null;
+			this.Object = null;
+			this.CallFunctionO = null;
 		}
 
 		public CallFuncO(Action<object> selector, object pObject) : this()
 		{
-			Object = pObject;
-			CallFunctionO = selector;
+			this.Object = pObject;
+			this.CallFunctionO = selector;
 		}
 
 		#endregion Constructors
