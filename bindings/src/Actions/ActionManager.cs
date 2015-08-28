@@ -34,15 +34,9 @@ namespace Urho
 		public void Dispose()
 		{
 			this.Dispose(true);
-
 			GC.SuppressFinalize(this);
 		}
-
-		public ActionManager()
-		{
-			//Application.Current.SubscribeToUpdate(args => Update(args.TimeStep));
-		}
-
+		
 		protected virtual void Dispose(bool disposing)
 		{
 			if (disposing)
@@ -78,12 +72,7 @@ namespace Urho
 							return action;
 						}
 					}
-					//Log.Log("CocosSharp : GetActionByTag: Tag " + tag + " not found");
 				}
-			}
-			else
-			{
-				//Log.Log("CocosSharp : GetActionByTag: Target not found");
 			}
 			return null;
 		}
@@ -111,12 +100,7 @@ namespace Urho
 							return actionState;
 						}
 					}
-					//Log.Log("CocosSharp : GetActionStateByTag: Tag " + tag + " not found");
 				}
-			}
-			else
-			{
-				//Log.Log("CocosSharp : GetActionStateByTag: Target not found");
 			}
 			return null;
 		}
@@ -202,7 +186,6 @@ namespace Urho
 				}
 			}
 
-			// issue #635
 			currentTarget = null;
 		}
 
@@ -297,7 +280,7 @@ namespace Urho
 					break;
 				}
 			}
-			Debug.Assert(!isActionRunning, "CocosSharp : Action is already running for this target.");
+			Debug.Assert(!isActionRunning, "Action is already running for this target.");
 			var state = action.StartAction(target);
 			element.ActionStates.Add(state);
 
@@ -368,14 +351,6 @@ namespace Urho
 				{
 					RemoveActionAtIndex(i, element);
 				}
-				else
-				{
-					//Log.Log("CocosSharp: removeAction: Action not found");
-				}
-			}
-			else
-			{
-				//Log.Log("CocosSharp: removeAction: Target not found");
 			}
 		}
 
@@ -431,15 +406,7 @@ namespace Urho
 						break;
 					}
 				}
-
-				//if (!actionFound)
-				//    Log.Log("CocosSharp : RemoveAction: Action not found");
 			}
-			else
-			{
-				//Log.Log("CocosSharp : RemoveAction: Target not found");
-			}
-
 		}
 
 		public void RemoveAction(int tag, Node target)
@@ -468,13 +435,6 @@ namespace Urho
 						break;
 					}
 				}
-
-				//if (!tagFound)
-				//    Log.Log("CocosSharp : removeActionByTag: Tag " + tag + " not found");
-			}
-			else
-			{
-				//Log.Log("CocosSharp : removeActionByTag: Target not found");
 			}
 		}
 

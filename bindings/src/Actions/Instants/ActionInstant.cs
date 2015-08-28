@@ -29,10 +29,7 @@ namespace Urho
 		{
 		}
 
-		public override bool IsDone 
-		{
-			get { return true; }
-		}
+		public override bool IsDone => true;
 
 		protected internal override void Step (float dt)
 		{

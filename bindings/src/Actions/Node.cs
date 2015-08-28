@@ -26,13 +26,12 @@ namespace Urho
 
 			var asyncAction = asyncActions.Length > 1 ? new Sequence(asyncActions) : asyncActions[0];
 
-			state = ActionManager.AddAction(asyncAction, this, !IsRunning);
+			state = Application.Current.ActionManager.AddAction(asyncAction, this, !IsRunning);
 			
 			return tcs.Task;
 		}
 
-		public ActionManager ActionManager { get; set; } = new ActionManager();
-
-		public bool IsRunning => true; // TODO: handle platform's Pause, Resume etc..
+		public bool IsRunning => true;
+// TODO: handle platform's Pause, Resume etc..
 	}
 }

@@ -58,7 +58,6 @@ namespace Urho
 			StartAngleX = rotation.X;
 			StartAngleY = rotation.Y;
 			StartAngleZ = rotation.Z;
-
 		}
 
 		public override void Update (float time)

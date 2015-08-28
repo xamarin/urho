@@ -14,13 +14,7 @@ namespace Urho {
 		readonly ActionIntPtr start;
 		readonly ActionIntPtr stop;
 		static readonly object invokerLock = new object();
-		static readonly List<System.Action> invokeOnMain = new List<System.Action> ();
-
-		static bool subsribedToUpdate;
-        static readonly Dictionary<ExecutionContextWithId, List<Action<UpdateEventArgs>>> UpdateSubscribers = new Dictionary<ExecutionContextWithId, List<Action<UpdateEventArgs>>>();
-
-		static bool subsribedToSceneUpdate;
-		static readonly Dictionary<ExecutionContextWithId, List<Action<SceneUpdateEventArgs>>> SceneUpdateSubscribers = new Dictionary<ExecutionContextWithId, List<Action<SceneUpdateEventArgs>>>();
+		static readonly List<Action> invokeOnMain = new List<Action>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -46,54 +40,22 @@ namespace Urho {
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setup, start, stop);
 			Runtime.RegisterObject (this);
 			Current = this;
-        }
+
+			SubscribeToUpdate(args =>
+				{
+					Update?.Invoke(args);
+					ActionManager.Update(args.TimeStep);
+				});
+			SubscribeToSceneUpdate(args => SceneUpdate?.Invoke(args));
+		}
 
 		public Application(Context context) : this(context, ProxySetup, ProxyStart, ProxyStop) { }
 
-		public static event Action<UpdateEventArgs> Update
-		{
-			add
-			{
-				UpdateSubscribers.AddToValueList(ExecutionContextWithId.FromCurrent(), value);
-				if (!subsribedToUpdate)
-				{
-					//subscribe once on first top-level subscription
-					Current.SubscribeToUpdate(args => ExecuteEventsInCapturedContexts(UpdateSubscribers, args));
-					subsribedToUpdate = true;
-				}
-			}
-			remove { UpdateSubscribers.RemoveFromAllValueLists(value); }
-			//O(n*k) complexity, but we have O(k) for invocation and O(1) for insertion
-		}
+		public static event Action<UpdateEventArgs> Update;
 
-		public static event Action<SceneUpdateEventArgs> SceneUpdate
-		{
-			add
-			{
-				SceneUpdateSubscribers.AddToValueList(ExecutionContextWithId.FromCurrent(), value);
-				if (!subsribedToSceneUpdate)
-				{
-					Current.SubscribeToSceneUpdate(args => ExecuteEventsInCapturedContexts(SceneUpdateSubscribers, args));
-					subsribedToSceneUpdate = true;
-				}
-			}
-			remove { SceneUpdateSubscribers.RemoveFromAllValueLists(value); }
-		}
+		public static event Action<SceneUpdateEventArgs> SceneUpdate;
 
-		/// <summary>
-		/// The event will be dispatched to all subscribers in the context they used on subscription
-		/// if multiply subscribers use the same context - event invocation will be aggregated
-		/// </summary>
-		private static void ExecuteEventsInCapturedContexts<TEventArgs>(Dictionary<ExecutionContextWithId, List<Action<TEventArgs>>> subscribers, TEventArgs args)
-		{
-			foreach (var subscriber in subscribers)
-			{
-				var originalContext = subscriber.Key;
-				originalContext.Dispatch(() => subscriber.Value.ForEach(sub => sub(args)));
-			}
-		}
-
-		static public void InvokeOnMain (System.Action action)
+		static public void InvokeOnMain (Action action)
 		{
 			lock (invokerLock)
 				invokeOnMain.Add (action);
@@ -110,7 +72,6 @@ namespace Urho {
 				}
 			}
 		}
-		
 
 		static Application GetApp (IntPtr h)
 		{
@@ -145,8 +106,9 @@ namespace Urho {
 		public virtual void Stop ()
 		{
 		}
-		
 
+		public ActionManager ActionManager { get; } = new ActionManager();
+		
 		//
 		// GetSubsystem helpers
 		//
@@ -154,7 +116,7 @@ namespace Urho {
 		public ResourceCache ResourceCache {
 			get {
 				if (resourceCache == null)
-					resourceCache = new Urho.ResourceCache (UrhoObject_GetSubsystem (handle, ResourceCache.TypeStatic.Code));
+					resourceCache = new ResourceCache (UrhoObject_GetSubsystem (handle, ResourceCache.TypeStatic.Code));
 				return resourceCache;
 			}
 		}
@@ -163,7 +125,7 @@ namespace Urho {
 		public UrhoConsole Console {
 			get {
 				if (console == null)
-					console = new Urho.UrhoConsole (UrhoObject_GetSubsystem (handle, UrhoConsole.TypeStatic.Code));
+					console = new UrhoConsole (UrhoObject_GetSubsystem (handle, UrhoConsole.TypeStatic.Code));
 				return console;
 			}
 		}
@@ -172,7 +134,7 @@ namespace Urho {
 		public Network Network {
 			get {
 				if (network == null)
-					network = new Urho.Network (UrhoObject_GetSubsystem (handle, Network.TypeStatic.Code));
+					network = new Network (UrhoObject_GetSubsystem (handle, Network.TypeStatic.Code));
 				return network;
 			}
 		}
@@ -181,7 +143,7 @@ namespace Urho {
 		public Time Time {
 			get {
 				if (time == null)
-					time = new Urho.Time (UrhoObject_GetSubsystem (handle, Time.TypeStatic.Code));
+					time = new Time (UrhoObject_GetSubsystem (handle, Time.TypeStatic.Code));
 				return time;
 			}
 		}
@@ -190,7 +152,7 @@ namespace Urho {
 		public WorkQueue WorkQueue {
 			get {
 				if (workQueue == null)
-					workQueue = new Urho.WorkQueue (UrhoObject_GetSubsystem (handle, WorkQueue.TypeStatic.Code));
+					workQueue = new WorkQueue (UrhoObject_GetSubsystem (handle, WorkQueue.TypeStatic.Code));
 				return workQueue;
 			}
 		}
@@ -199,7 +161,7 @@ namespace Urho {
 		public Profiler Profiler {
 			get {
 				if (profiler == null)
-					profiler = new Urho.Profiler (UrhoObject_GetSubsystem (handle, Profiler.TypeStatic.Code));
+					profiler = new Profiler (UrhoObject_GetSubsystem (handle, Profiler.TypeStatic.Code));
 				return profiler;
 			}
 		}
@@ -208,7 +170,7 @@ namespace Urho {
 		public FileSystem FileSystem {
 			get {
 				if (fileSystem == null)
-					fileSystem = new Urho.FileSystem (UrhoObject_GetSubsystem (handle, FileSystem.TypeStatic.Code));
+					fileSystem = new FileSystem (UrhoObject_GetSubsystem (handle, FileSystem.TypeStatic.Code));
 				return fileSystem;
 			}
 		}
@@ -217,7 +179,7 @@ namespace Urho {
 		public Log Log {
 			get {
 				if (log == null)
-					log = new Urho.Log (UrhoObject_GetSubsystem (handle, Log.TypeStatic.Code));
+					log = new Log (UrhoObject_GetSubsystem (handle, Log.TypeStatic.Code));
 				return log;
 			}
 		}
@@ -226,7 +188,7 @@ namespace Urho {
 		public Input Input {
 			get {
 				if (input == null)
-					input = new Urho.Input (UrhoObject_GetSubsystem (handle, Input.TypeStatic.Code));
+					input = new Input (UrhoObject_GetSubsystem (handle, Input.TypeStatic.Code));
 				return input;
 			}
 		}
@@ -235,7 +197,7 @@ namespace Urho {
 		public Audio Audio {
 			get {
 				if (audio == null)
-					audio = new Urho.Audio (UrhoObject_GetSubsystem (handle, Audio.TypeStatic.Code));
+					audio = new Audio (UrhoObject_GetSubsystem (handle, Audio.TypeStatic.Code));
 				return audio;
 			}
 		}
@@ -244,7 +206,7 @@ namespace Urho {
 		public UI UI {
 			get {
 				if (uI == null)
-					uI = new Urho.UI (UrhoObject_GetSubsystem (handle, UI.TypeStatic.Code));
+					uI = new UI (UrhoObject_GetSubsystem (handle, UI.TypeStatic.Code));
 				return uI;
 			}
 		}
@@ -253,7 +215,7 @@ namespace Urho {
 		public Graphics Graphics {
 			get {
 				if (graphics == null)
-					graphics = new Urho.Graphics (UrhoObject_GetSubsystem (handle, Graphics.TypeStatic.Code));
+					graphics = new Graphics (UrhoObject_GetSubsystem (handle, Graphics.TypeStatic.Code));
 				return graphics;
 			}
 		}
@@ -262,7 +224,7 @@ namespace Urho {
 		public Renderer Renderer {
 			get {
 				if (renderer == null)
-					renderer = new Urho.Renderer (UrhoObject_GetSubsystem (handle, Renderer.TypeStatic.Code));
+					renderer = new Renderer (UrhoObject_GetSubsystem (handle, Renderer.TypeStatic.Code));
 				return renderer;
 			}
 		}
@@ -273,7 +235,7 @@ namespace Urho {
 		public Engine Engine {
 			get {
 				if (engine == null)
-					engine = new Urho.Engine (Application_GetEngine (handle));
+					engine = new Engine (Application_GetEngine (handle));
 				return engine;
 			}
 		}
