@@ -83,6 +83,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "38_SceneAndUILoad", "Sample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "39_CrowdNavigation", "Samples\39_CrowdNavigation\39_CrowdNavigation.csproj", "{FFCEE2C8-B38B-4CFA-8519-B636438163E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "40_Actions", "Samples\40_Actions\40_Actions.csproj", "{EA2A5F12-B344-4D93-A7FC-0DD48A4047CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -207,6 +209,9 @@ Global
 		{FFCEE2C8-B38B-4CFA-8519-B636438163E8}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{FFCEE2C8-B38B-4CFA-8519-B636438163E8}.Debug|x64.ActiveCfg = Debug|x64
 		{FFCEE2C8-B38B-4CFA-8519-B636438163E8}.Debug|x64.Build.0 = Debug|x64
+		{EA2A5F12-B344-4D93-A7FC-0DD48A4047CA}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{EA2A5F12-B344-4D93-A7FC-0DD48A4047CA}.Debug|x64.ActiveCfg = Debug|x64
+		{EA2A5F12-B344-4D93-A7FC-0DD48A4047CA}.Debug|x64.Build.0 = Debug|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
