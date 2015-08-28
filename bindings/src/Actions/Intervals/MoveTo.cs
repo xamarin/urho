@@ -20,13 +20,11 @@ namespace Urho
 		protected internal override ActionState StartAction(Node target)
 		{
 			return new MoveToState (this, target);
-
 		}
 	}
 
 	public class MoveToState : MoveByState
 	{
-
 		public MoveToState (MoveTo action, Node target)
 			: base (action, target)
 		{ 
@@ -38,13 +36,10 @@ namespace Urho
 		{
 			if (Target != null)
 			{
-				Vector3 currentPos = Target.Position;
-
 				Vector3 newPos = StartPosition + PositionDelta * time;
 				Target.Position = newPos;
 				PreviousPosition = newPos;
 			}
 		}
 	}
-
 }

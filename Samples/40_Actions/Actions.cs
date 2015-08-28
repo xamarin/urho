@@ -31,6 +31,7 @@
 			lightNode.SetDirection(new Vector3(0.6f, -1.0f, 0.8f));
 			var light = lightNode.CreateComponent<Light>();
 			light.LightType = LightType.LIGHT_DIRECTIONAL;
+			light.CastShadows = true;
 
 			mushroom = scene.CreateChild("Mushroom");
 			mushroom.Position = new Vector3(0, 0, 0);
@@ -40,6 +41,7 @@
 			var mushroomObject = mushroom.CreateComponent<StaticModel>();
 			mushroomObject.Model = cache.GetModel("Models/Mushroom.mdl");
 			mushroomObject.SetMaterial(cache.GetMaterial("Materials/Mushroom.xml"));
+			mushroomObject.CastShadows = true;
 
 			CameraNode = scene.CreateChild("camera");
 			var camera = CameraNode.CreateComponent<Camera>();
@@ -61,11 +63,10 @@
 				new Parallel(moveRightAction, makeBiggerAction),
 				new Parallel(moveToInitialPositionAction, rotateYAction, makeBiggerAction.Reverse()));
 
-			JumpBy jump = new JumpBy(duration: 3, position: new Vector3(10, 0, 0), height: 8, jumps: 3);
-			MoveBy moveLeft = new MoveBy(duration: 3, position: new Vector3(-15, 0, 0));
-			Blink blink = new Blink(1, 1);
+			JumpBy jumpAction = new JumpBy(duration: 7, position: new Vector3(50, 0, 0), height: 8, jumps: 5);
+			moveToInitialPositionAction = new MoveTo(duration: 5, position: new Vector3(0, 0, 0));
 
-			await mushroom.RunActionsAsync(jump, new EaseElasticOut(moveLeft), new RepeatForever(blink));
+			await mushroom.RunActionsAsync(new EaseIn(jumpAction, 2), new EaseElasticOut(moveToInitialPositionAction));
 		}
 	}
 }
