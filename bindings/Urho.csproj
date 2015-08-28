@@ -332,6 +332,11 @@
     <Compile Include="src\Actions\Intervals\BezierBy.cs" />
     <Compile Include="src\Actions\Intervals\BezierTo.cs" />
     <Compile Include="src\Actions\Intervals\Blink.cs" />
+    <Compile Include="src\Actions\Intervals\FadeIn.cs" />
+    <Compile Include="src\Actions\Intervals\FadeOut.cs" />
+    <Compile Include="src\Actions\Intervals\FadeTo.cs" />
+    <Compile Include="src\Actions\Intervals\TintBy.cs" />
+    <Compile Include="src\Actions\Intervals\TintTo.cs" />
     <Compile Include="src\Actions\Intervals\DelayTime.cs" />
     <Compile Include="src\Actions\Intervals\ExtraAction.cs" />
     <Compile Include="src\Actions\Intervals\JumpBy.cs" />
