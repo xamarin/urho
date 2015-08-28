@@ -292,6 +292,9 @@
     <Compile Include="generated\XMLFile.cs" />
     <Compile Include="generated\Zone.cs" />
     <Compile Include="generated\Object.Events.cs" />
+    <Compile Include="src\Actions\Action.cs" />
+    <Compile Include="src\Actions\FiniteTimeAction.cs" />
+    <Compile Include="src\Actions\Interval\ScaleTo.cs" />
     <Compile Include="src\Application.cs" />
     <Compile Include="src\AttributeInfo.cs" />
     <Compile Include="src\BillboardSet.cs" />
@@ -337,6 +340,9 @@
     <Compile Include="external\Vector4d.cs" />
     <Compile Include="external\Vector2.cs" />
     <Compile Include="external\Vector4.cs" />
+    <Compile Include="src\Utils\GameTimer.cs" />
+    <Compile Include="src\Utils\EnumerableExtensions.cs" />
+    <Compile Include="src\Utils\ExecutionContextWithId.cs" />
     <Compile Include="src\VertexBuffer.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -10,11 +10,17 @@ using System.Runtime.InteropServices;
 namespace Urho {
 	
 	public partial class Application {
-		private readonly ActionIntPtr setup;
-		private readonly ActionIntPtr start;
-		private readonly ActionIntPtr stop;
-		static object invokerLock = new object();
-		static List<Action> invokeOnMain = new List<Action> ();
+		readonly ActionIntPtr setup;
+		readonly ActionIntPtr start;
+		readonly ActionIntPtr stop;
+		static readonly object invokerLock = new object();
+		static readonly List<Action> invokeOnMain = new List<Action> ();
+
+		static bool subsribedToUpdate;
+        static readonly Dictionary<ExecutionContextWithId, List<Action<UpdateEventArgs>>> UpdateSubscribers = new Dictionary<ExecutionContextWithId, List<Action<UpdateEventArgs>>>();
+
+		static bool subsribedToSceneUpdate;
+		static readonly Dictionary<ExecutionContextWithId, List<Action<SceneUpdateEventArgs>>> SceneUpdateSubscribers = new Dictionary<ExecutionContextWithId, List<Action<SceneUpdateEventArgs>>>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -22,25 +28,69 @@ namespace Urho {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop);
 
-		//
-		// Supports the simple style with callbacks
-		//
+		public static Application Current { get; private set; }
+
+		/// <summary>
+		/// Supports the simple style with callbacks
+		/// </summary>
 		public Application (Context context, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop) : base (UrhoObjectFlag.Empty)
 		{
-			//keep reference to callbacks as long as the App is live
+			//keep references to callbacks as long as the App is alive
 			this.setup = setup;
 			this.start = start;
 			this.stop = stop;
 
 			if (context == null)
-				throw new ArgumentNullException ("context");
+				throw new ArgumentNullException (nameof(context));
 
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setup, start, stop);
 			Runtime.RegisterObject (this);
+			Current = this;
+        }
+
+		public Application(Context context) : this(context, ProxySetup, ProxyStart, ProxyStop) { }
+
+		public static event Action<UpdateEventArgs> Update
+		{
+			add
+			{
+				UpdateSubscribers.AddToValueList(ExecutionContextWithId.FromCurrent(), value);
+				if (!subsribedToUpdate)
+				{
+					//subscribe once on first top-level subscription
+					Current.SubscribeToUpdate(args => ExecuteEventsInCapturedContexts(UpdateSubscribers, args));
+					subsribedToUpdate = true;
+				}
+			}
+			remove { UpdateSubscribers.RemoveFromAllValueLists(value); }
+			//O(n*k) complexity, but we have O(k) for invocation and O(1) for insertion
 		}
 
-		public Application(Context context) : this(context, ProxySetup, ProxyStart, ProxyStop)
+		public static event Action<SceneUpdateEventArgs> SceneUpdate
 		{
+			add
+			{
+				SceneUpdateSubscribers.AddToValueList(ExecutionContextWithId.FromCurrent(), value);
+				if (!subsribedToSceneUpdate)
+				{
+					Current.SubscribeToSceneUpdate(args => ExecuteEventsInCapturedContexts(SceneUpdateSubscribers, args));
+					subsribedToSceneUpdate = true;
+				}
+			}
+			remove { SceneUpdateSubscribers.RemoveFromAllValueLists(value); }
+		}
+
+		/// <summary>
+		/// The event will be dispatched to all subscribers in the context they used on subscription
+		/// if multiply subscribers use the same context - event invocation will be aggregated
+		/// </summary>
+		private static void ExecuteEventsInCapturedContexts<TEventArgs>(Dictionary<ExecutionContextWithId, List<Action<TEventArgs>>> subscribers, TEventArgs args)
+		{
+			foreach (var subscriber in subscribers)
+			{
+				var originalContext = subscriber.Key;
+				originalContext.Dispatch(() => subscriber.Value.ForEach(sub => sub(args)));
+			}
 		}
 
 		static public void InvokeOnMain (Action action)
@@ -58,7 +108,6 @@ namespace Urho {
 						a ();
 					invokeOnMain.Clear ();
 				}
-					
 			}
 		}
 		
