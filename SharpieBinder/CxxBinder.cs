@@ -651,6 +651,7 @@ namespace SharpieBinder
 				return;
 			case "struct Urho3D::PhysicsRaycastResult &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				highLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				highLevel = new SimpleType ("PhysicsRaycastResult");
 				lowLevel = new SimpleType ("PhysicsRaycastResult");
 				wrapKind = WrapKind.RefBlittable;
