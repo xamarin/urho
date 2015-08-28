@@ -23,7 +23,7 @@ namespace Urho
 				Thread.CurrentContext.ContextID, ExecutionContext.Capture());
 	    }
 
-	    public void Dispatch(Action action)
+	    public void Dispatch(System.Action action)
 	    {
 		    if (Thread.CurrentContext.ContextID != ContextId)
 		    {

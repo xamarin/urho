@@ -14,7 +14,7 @@ namespace Urho {
 		readonly ActionIntPtr start;
 		readonly ActionIntPtr stop;
 		static readonly object invokerLock = new object();
-		static readonly List<Action> invokeOnMain = new List<Action> ();
+		static readonly List<System.Action> invokeOnMain = new List<System.Action> ();
 
 		static bool subsribedToUpdate;
         static readonly Dictionary<ExecutionContextWithId, List<Action<UpdateEventArgs>>> UpdateSubscribers = new Dictionary<ExecutionContextWithId, List<Action<UpdateEventArgs>>>();
@@ -93,7 +93,7 @@ namespace Urho {
 			}
 		}
 
-		static public void InvokeOnMain (Action action)
+		static public void InvokeOnMain (System.Action action)
 		{
 			lock (invokerLock)
 				invokeOnMain.Add (action);

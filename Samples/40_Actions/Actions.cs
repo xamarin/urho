@@ -72,16 +72,16 @@ namespace Urho
 
 		private async void DoActions()
 		{
-			CCMoveBy moveForwardAction = new CCMoveBy(duration: 1.5f, position: new Vector3(0, 0, 15));
-			CCMoveBy moveLeftAction = new CCMoveBy(duration: 1.5f, position: new Vector3(10, 0, 0));
-			CCScaleBy makeBiggerAction = new CCScaleBy(duration: 1.5f, scale: 3);
-			CCRotateTo rotateYAction = new CCRotateTo(duration: 2f, deltaAngleX: 0, deltaAngleY: 5);
-			CCMoveTo moveToInitialPositionAction = new CCMoveTo(duration: 2, position: new Vector3(0, 0, 15));
+			MoveBy moveForwardAction = new MoveBy(duration: 1.5f, position: new Vector3(0, 0, 15));
+			MoveBy moveLeftAction = new MoveBy(duration: 1.5f, position: new Vector3(10, 0, 0));
+			ScaleBy makeBiggerAction = new ScaleBy(duration: 1.5f, scale: 3);
+			RotateTo rotateYAction = new RotateTo(duration: 2f, deltaAngleX: 0, deltaAngleY: 5);
+			MoveTo moveToInitialPositionAction = new MoveTo(duration: 2, position: new Vector3(0, 0, 15));
 
 			await mushroom.RunActionsAsync(
 				moveForwardAction,
-				new CCParallel(moveLeftAction, makeBiggerAction),
-				new CCParallel(moveToInitialPositionAction, rotateYAction, makeBiggerAction.Reverse()));
+				new Parallel(moveLeftAction, makeBiggerAction),
+				new Parallel(moveToInitialPositionAction, rotateYAction, makeBiggerAction.Reverse()));
 		}
 	}
 }
