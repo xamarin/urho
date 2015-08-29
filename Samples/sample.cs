@@ -24,7 +24,6 @@ public class Sample : Application {
 	protected Node CameraNode;
 	protected Sprite LogoSprite;
 	protected Subscription KeyDownEventToken;
-	protected Subscription SceneUpdateEventToken;
 	
 	UrhoConsole console;
 	DebugHud debugHud;
@@ -124,9 +123,8 @@ public class Sample : Application {
 		debugHud.DefaultStyle = xml;
 	}
 
-	void HandleSceneUpdate (SceneUpdateEventArgs args)
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
 	{
-		OnSceneUpdate(args);
 		if (!TouchEnabled || CameraNode == null)
 			return;
 
@@ -152,10 +150,6 @@ public class Sample : Application {
 					cursor.Position = state.Position;
 			}
 		}
-	}
-
-	protected virtual void OnSceneUpdate(SceneUpdateEventArgs args)
-	{
 	}
 
 	void HandleKeyDown (KeyDownEventArgs e)
@@ -289,7 +283,6 @@ public class Sample : Application {
 		SetWindowAndTitleIcon ();
 		CreateConsoleAndDebugHud ();
 		KeyDownEventToken = SubscribeToKeyDown (HandleKeyDown);
-		SceneUpdateEventToken = SubscribeToSceneUpdate (HandleSceneUpdate);
 	}
 
 	protected void SimpleMoveCamera2D (float timeStep)

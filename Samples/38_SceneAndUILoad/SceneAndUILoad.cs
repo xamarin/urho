@@ -18,9 +18,6 @@ class _38_SceneAndUILoad : Sample
 
 		// Setup the viewport for displaying the scene
 		SetupViewport();
-
-		// Subscribe to global events for camera movement
-		SubscribeToEvents();
 	}
 
 	private void CreateScene()
@@ -75,12 +72,11 @@ class _38_SceneAndUILoad : Sample
 			});
 	}
 
-
-	private void SubscribeToEvents()
+	protected override void OnUpdate(float timeStep)
 	{
-		SubscribeToUpdate(args => SimpleMoveCamera2D(args.TimeStep));
+		SimpleMoveCamera2D(timeStep);
 	}
-	
+
 	private void SetupViewport()
 	{
 		var renderer = Renderer;

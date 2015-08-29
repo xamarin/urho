@@ -32,27 +32,22 @@ class _29_SoundSynthesis : Sample
 		base.Start();
 		CreateSound();
 		CreateInstructions();
-		SubscribeToEvents();
 	}
-
-	private void SubscribeToEvents()
+	
+	protected override void OnUpdate(float timeStep)
 	{
-		SubscribeToUpdate(args =>
-			{
-				// Use keys to control the filter constant
-				Input input = Input;
-				if (input.GetKeyDown(Key.Up))
-					filter += args.TimeStep * 0.5f;
-				if (input.GetKeyDown(Key.Down))
-					filter -= args.TimeStep * 0.5f;
-				filter = Clamp(filter, 0.01f, 1.0f);
+		// Use keys to control the filter constant
+		Input input = Input;
+		if (input.GetKeyDown(Key.Up))
+			filter += timeStep * 0.5f;
+		if (input.GetKeyDown(Key.Down))
+			filter -= timeStep * 0.5f;
+		filter = Clamp(filter, 0.01f, 1.0f);
 
-				instructionText.Value = "Use cursor up and down to control sound filtering\nCoefficient: " + filter;
+		instructionText.Value = "Use cursor up and down to control sound filtering\nCoefficient: " + filter;
 
-				UpdateSound();
-			});
+		UpdateSound();
 	}
-
 
 	private void CreateInstructions()
 	{

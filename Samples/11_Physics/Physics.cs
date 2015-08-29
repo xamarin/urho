@@ -21,27 +21,6 @@ class _11_Physics : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-			{
-				var input = Input;
-				SimpleMoveCamera3D(args.TimeStep);
-
-				if (input.GetMouseButtonPress(MouseButton.Left))
-					SpawnObject();
-
-				if (input.GetKeyPress(Key.F5))
-				{
-					scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/Physics.xml");
-				}
-				if (input.GetKeyPress(Key.F7))
-				{
-					scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/Physics.xml");
-				}
-
-				if (input.GetKeyPress(Key.Space))
-					drawDebug = !drawDebug;
-			});
-
 		SubscribeToPostRenderUpdate(args =>
 			{
 				// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
@@ -51,7 +30,28 @@ class _11_Physics : Sample
 					Renderer.DrawDebugGeometry(false);
 			});
 	}
-	
+
+	protected override void OnUpdate(float timeStep)
+	{
+		var input = Input;
+		SimpleMoveCamera3D(timeStep);
+
+		if (input.GetMouseButtonPress(MouseButton.Left))
+			SpawnObject();
+
+		if (input.GetKeyPress(Key.F5))
+		{
+			scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/Physics.xml");
+		}
+		if (input.GetKeyPress(Key.F7))
+		{
+			scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/Physics.xml");
+		}
+
+		if (input.GetKeyPress(Key.Space))
+			drawDebug = !drawDebug;
+	}
+
 	private void SetupViewport()
 	{
 		var renderer = Renderer;

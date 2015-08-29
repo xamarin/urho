@@ -20,30 +20,26 @@ class _20_HugeObjectCount : Sample
 			"\nSpace to toggle animation\n" +
 			"G to toggle object group optimization");
 		SetupViewport();
-		SubscribeToEvents();
 	}
-
-	private void SubscribeToEvents()
+	
+	protected override void OnUpdate(float timeStep)
 	{
-		SubscribeToUpdate(args =>
-			{    
-				// Toggle animation with space
-				Input input = Input;
-				if (input.GetKeyPress(Key.Space))
-					animate = !animate;
+		// Toggle animation with space
+		Input input = Input;
+		if (input.GetKeyPress(Key.Space))
+			animate = !animate;
 
-				// Toggle grouped / ungrouped mode
-				if (input.GetKeyPress(Key.G))
-				{
-					useGroups = !useGroups;
-					CreateScene();
-				}
+		// Toggle grouped / ungrouped mode
+		if (input.GetKeyPress(Key.G))
+		{
+			useGroups = !useGroups;
+			CreateScene();
+		}
 
-				SimpleMoveCamera3D(args.TimeStep);
+		SimpleMoveCamera3D(timeStep);
 
-				if (animate)
-					AnimateObjects(args.TimeStep);
-			});
+		if (animate)
+			AnimateObjects(timeStep);
 	}
 
 	private void AnimateObjects(float timeStep)

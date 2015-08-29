@@ -25,12 +25,6 @@ class _15_Navigation : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-			{
-				MoveCamera(args.TimeStep);
-				FollowPath(args.TimeStep);
-			});
-
 		SubscribeToPostRenderUpdate(args =>
 			{
 				// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
@@ -57,6 +51,12 @@ class _15_Navigation : Sample
 					}
 				}
 			});
+	}
+
+	protected override void OnUpdate(float timeStep)
+	{
+		MoveCamera(timeStep);
+		FollowPath(timeStep);
 	}
 
 	private void MoveCamera(float timeStep)

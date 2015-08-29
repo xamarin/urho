@@ -22,28 +22,28 @@ class _09_MultipleViewports : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-		{
-			SimpleMoveCamera3D(args.TimeStep);
-
-			var effectRenderPath = Renderer.GetViewport(0).RenderPath;
-			if (Input.GetKeyPress(Key.B))
-				effectRenderPath.ToggleEnabled("Bloom");
-			if (Input.GetKeyPress(Key.F))
-				effectRenderPath.ToggleEnabled("FXAA2");
-
-			if (Input.GetKeyPress(Key.Space))
-				drawDebug = !drawDebug;
-		});
-
 		SubscribeToPostRenderUpdate(args =>
-		{
-			// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
-			// bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
-			// bones properly
-			if (drawDebug)
-				Renderer.DrawDebugGeometry(false);
-		});
+			{
+				// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
+				// bones. Note that debug geometry has to be separately requested each frame. Disable depth test so that we can see the
+				// bones properly
+				if (drawDebug)
+					Renderer.DrawDebugGeometry(false);
+			});
+	}
+
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera3D(timeStep);
+
+		var effectRenderPath = Renderer.GetViewport(0).RenderPath;
+		if (Input.GetKeyPress(Key.B))
+			effectRenderPath.ToggleEnabled("Bloom");
+		if (Input.GetKeyPress(Key.F))
+			effectRenderPath.ToggleEnabled("FXAA2");
+
+		if (Input.GetKeyPress(Key.Space))
+			drawDebug = !drawDebug;
 	}
 
 	private void SetupViewport()

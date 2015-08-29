@@ -16,19 +16,15 @@ class _23_Water : Sample
 		CreateScene();
 		SimpleCreateInstructionsWithWASD();
 		SetupViewport();
-		SubscribeToEvents();
-	}
-
-	private void SubscribeToEvents()
-	{
-		SubscribeToUpdate(args =>
-		{
-			SimpleMoveCamera3D(args.TimeStep);
-			var camera = reflectionCameraNode.GetComponent<Camera>();
-			camera.AspectRatio = (float)Graphics.Width / Graphics.Height;
-		});
 	}
 	
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera3D(timeStep);
+		var camera = reflectionCameraNode.GetComponent<Camera>();
+		camera.AspectRatio = (float)Graphics.Width / Graphics.Height;
+	}
+
 	private void SetupViewport()
 	{
 		var graphics = Graphics;

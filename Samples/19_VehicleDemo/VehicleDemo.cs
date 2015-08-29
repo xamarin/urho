@@ -32,68 +32,6 @@ class _19_VehicleDemo : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-			{
-				Input input = Input;
-
-				if (vehicle != null)
-				{
-					UI ui = UI;
-
-					// Get movement controls and assign them to the vehicle component. If UI has a focused element, clear controls
-					if (ui.FocusElement == null)
-					{
-						vehicle.Controls.Set(Vehicle.CTRL_FORWARD, input.GetKeyDown(Key.W));
-						vehicle.Controls.Set(Vehicle.CTRL_BACK, input.GetKeyDown(Key.S));
-						vehicle.Controls.Set(Vehicle.CTRL_LEFT, input.GetKeyDown(Key.A));
-						vehicle.Controls.Set(Vehicle.CTRL_RIGHT, input.GetKeyDown(Key.D));
-
-						// Add yaw & pitch from the mouse motion or touch input. Used only for the camera, does not affect motion
-						if (TouchEnabled)
-						{
-							for (uint i = 0; i < input.NumTouches; ++i)
-							{
-								TouchState state;
-								if (input.TryGetTouch(i, out state))
-								{
-									Camera camera = CameraNode.GetComponent<Camera>();
-									if (camera == null)
-										return;
-
-									var graphics = Graphics;
-									vehicle.Controls.Yaw += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.X;
-									vehicle.Controls.Pitch += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.Y;
-								}
-							}
-						}
-						else
-						{
-							vehicle.Controls.Yaw += (float)input.MouseMoveX * Vehicle.YAW_SENSITIVITY;
-							vehicle.Controls.Pitch += (float)input.MouseMoveY * Vehicle.YAW_SENSITIVITY;
-						}
-						// Limit pitch
-						vehicle.Controls.Pitch = Clamp(vehicle.Controls.Pitch, 0.0f, 80.0f);
-
-						// Check for loading / saving the scene
-						if (input.GetKeyPress(Key.F5))
-						{
-							scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml");
-						}
-						if (input.GetKeyPress(Key.F7))
-						{
-							scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml");
-							// After loading we have to reacquire the weak pointer to the Vehicle component, as it has been recreated
-							// Simply find the vehicle's scene node by name as there's only one of them
-							Node vehicleNode = scene.GetChild("Vehicle", true);
-							if (vehicleNode != null)
-								vehicle = vehicleNode.GetComponent<Vehicle>();
-						}
-					}
-					else
-						vehicle.Controls.Set(Vehicle.CTRL_FORWARD | Vehicle.CTRL_BACK | Vehicle.CTRL_LEFT | Vehicle.CTRL_RIGHT, false);
-				}
-			});
-
 		SubscribeToPostUpdate(args =>
 			{
 				if (vehicle == null)
@@ -124,13 +62,74 @@ class _19_VehicleDemo : Sample
 				CameraNode.Rotation = dir;
 			});
 
-		SubscribeToPhysicsPreStep(args =>
-			{
-				vehicle?.FixedUpdate(args.TimeStep);
-			});
+		SubscribeToPhysicsPreStep(args => vehicle?.FixedUpdate(args.TimeStep));
+	}
 
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
+	{
 		// Unsubscribe the SceneUpdate event from base class as the camera node is being controlled in HandlePostUpdate() in this sample
-		SceneUpdateEventToken.Unsubscribe();
+	}
+
+	protected override void OnUpdate(float timeStep)
+	{
+		Input input = Input;
+
+		if (vehicle != null)
+		{
+			UI ui = UI;
+
+			// Get movement controls and assign them to the vehicle component. If UI has a focused element, clear controls
+			if (ui.FocusElement == null)
+			{
+				vehicle.Controls.Set(Vehicle.CTRL_FORWARD, input.GetKeyDown(Key.W));
+				vehicle.Controls.Set(Vehicle.CTRL_BACK, input.GetKeyDown(Key.S));
+				vehicle.Controls.Set(Vehicle.CTRL_LEFT, input.GetKeyDown(Key.A));
+				vehicle.Controls.Set(Vehicle.CTRL_RIGHT, input.GetKeyDown(Key.D));
+
+				// Add yaw & pitch from the mouse motion or touch input. Used only for the camera, does not affect motion
+				if (TouchEnabled)
+				{
+					for (uint i = 0; i < input.NumTouches; ++i)
+					{
+						TouchState state;
+						if (input.TryGetTouch(i, out state))
+						{
+							Camera camera = CameraNode.GetComponent<Camera>();
+							if (camera == null)
+								return;
+
+							var graphics = Graphics;
+							vehicle.Controls.Yaw += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.X;
+							vehicle.Controls.Pitch += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.Y;
+						}
+					}
+				}
+				else
+				{
+					vehicle.Controls.Yaw += (float)input.MouseMoveX * Vehicle.YAW_SENSITIVITY;
+					vehicle.Controls.Pitch += (float)input.MouseMoveY * Vehicle.YAW_SENSITIVITY;
+				}
+				// Limit pitch
+				vehicle.Controls.Pitch = Clamp(vehicle.Controls.Pitch, 0.0f, 80.0f);
+
+				// Check for loading / saving the scene
+				if (input.GetKeyPress(Key.F5))
+				{
+					scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml");
+				}
+				if (input.GetKeyPress(Key.F7))
+				{
+					scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/VehicleDemo.xml");
+					// After loading we have to reacquire the weak pointer to the Vehicle component, as it has been recreated
+					// Simply find the vehicle's scene node by name as there's only one of them
+					Node vehicleNode = scene.GetChild("Vehicle", true);
+					if (vehicleNode != null)
+						vehicle = vehicleNode.GetComponent<Vehicle>();
+				}
+			}
+			else
+				vehicle.Controls.Set(Vehicle.CTRL_FORWARD | Vehicle.CTRL_BACK | Vehicle.CTRL_LEFT | Vehicle.CTRL_RIGHT, false);
+		}
 	}
 
 	private void CreateVehicle()

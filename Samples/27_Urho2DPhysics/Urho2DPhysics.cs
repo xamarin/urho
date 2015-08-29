@@ -14,14 +14,16 @@ class _27_Urho2DPhysics : Sample
 		CreateScene();
 		SimpleCreateInstructionsWithWASD(", use PageUp PageDown keys to zoom.");
 		SetupViewport();
-		SubscribeToEvents();
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
 	{
-		SubscribeToUpdate(args => SimpleMoveCamera2D(args.TimeStep));
-		
-		SceneUpdateEventToken.Unsubscribe();
+		//override Sample's behavior by no-op
+	}
+
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera2D(timeStep);
 	}
 
 	private void SetupViewport()

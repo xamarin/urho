@@ -21,28 +21,6 @@ class _12_PhysicsStressTest : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-			{
-				SimpleMoveCamera3D(args.TimeStep);
-				var input = Input;
-				// "Shoot" a physics object with left mousebutton
-				if (input.GetMouseButtonPress(MouseButton.Left))
-					SpawnObject();
-
-				// Check for loading / saving the scene
-				if (input.GetKeyPress(Key.F5))
-				{
-					scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", "\t");
-				}
-				if (input.GetKeyPress(Key.F7))
-				{
-					scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml");
-				}
-
-				if (Input.GetKeyPress(Key.Space))
-					drawDebug = !drawDebug;
-			});
-
 		SubscribeToPostRenderUpdate(args =>
 			{
 				// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
@@ -52,7 +30,29 @@ class _12_PhysicsStressTest : Sample
 					Renderer.DrawDebugGeometry(false);
 			});
 	}
-	
+
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera3D(timeStep);
+		var input = Input;
+		// "Shoot" a physics object with left mousebutton
+		if (input.GetMouseButtonPress(MouseButton.Left))
+			SpawnObject();
+
+		// Check for loading / saving the scene
+		if (input.GetKeyPress(Key.F5))
+		{
+			scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml", "\t");
+		}
+		if (input.GetKeyPress(Key.F7))
+		{
+			scene.LoadXml(FileSystem.ProgramDir + "Data/Scenes/PhysicsStressTest.xml");
+		}
+
+		if (Input.GetKeyPress(Key.Space))
+			drawDebug = !drawDebug;
+	}
+
 	private void SetupViewport()
 	{
 		var renderer = Renderer;

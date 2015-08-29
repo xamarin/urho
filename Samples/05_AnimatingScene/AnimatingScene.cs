@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Urho;
 
 class _05_AnimatingScene : Sample {
@@ -12,6 +11,7 @@ class _05_AnimatingScene : Sample {
 	{
 		public Rotator (Context ctx) : base (ctx)
 		{
+			Application.SceneUpdate += SceneUpdate;
 		}
 
 		public Vector3 RotationSpeed { get; set; }
@@ -100,15 +100,14 @@ class _05_AnimatingScene : Sample {
 		CreateScene ();
 		SimpleCreateInstructionsWithWASD ();
 		SetupViewport ();
-		SubscribeToUpdate (args =>
-			{
-				SimpleMoveCamera3D(args.TimeStep);
-			});
 	}
 
-	protected override void OnSceneUpdate(SceneUpdateEventArgs args)
+	protected override void OnUpdate(float timeStep)
 	{
-		rotators.ToList().ForEach(r => r.SceneUpdate(args));
-		base.OnSceneUpdate(args);
+		SimpleMoveCamera3D(timeStep);
+	}
+
+	protected override void OnSceneUpdate(float timeStep, Scene s)
+	{
 	}
 }

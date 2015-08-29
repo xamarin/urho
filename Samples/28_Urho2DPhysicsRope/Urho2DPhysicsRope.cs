@@ -14,18 +14,17 @@ class _28_Urho2DPhysicsRope : Sample
 		CreateScene();
 		SimpleCreateInstructionsWithWASD(", Use PageUp PageDown to zoom.");
 		SetupViewport();
-		SubscribeToEvents();
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
 	{
-		SubscribeToUpdate(args =>
-			{
-				SimpleMoveCamera2D(args.TimeStep);
-				scene.GetComponent<PhysicsWorld2D>().DrawDebugGeometry();
-			});
-		
-		SceneUpdateEventToken.Unsubscribe();
+		//override Sample's behavior by no-op
+	}
+
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera2D(timeStep);
+		scene.GetComponent<PhysicsWorld2D>().DrawDebugGeometry();
 	}
 
 	private void SetupViewport()

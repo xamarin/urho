@@ -16,15 +16,11 @@ class _10_RenderToTexture : Sample
 		CreateScene();
 		SimpleCreateInstructionsWithWASD();
 		SetupViewport();
-		SubscribeToEvents();
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnUpdate(float timeStep)
 	{
-		SubscribeToUpdate(args =>
-		{
-			SimpleMoveCamera3D(args.TimeStep);
-		});
+		SimpleMoveCamera3D(timeStep);
 	}
 
 	private void SetupViewport()
@@ -176,7 +172,7 @@ public class Rotator : Component
 
 	public Rotator(Context c) : base(c)
 	{
-		SubscribeToUpdate(args => Update(args.TimeStep));
+		Application.Update += args => Update(args.TimeStep);
 	}
 
 	public void SetRotationSpeed(Vector3 vector)

@@ -14,15 +14,16 @@ class _36_Urho2DTileMap : Sample
 		CreateScene();
 		SimpleCreateInstructionsWithWASD(", use PageUp PageDown keys to zoom.");
 		SetupViewport();
-		SubscribeToEvents();
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
 	{
-		SubscribeToUpdate(args => SimpleMoveCamera2D(args.TimeStep));
-
 		// Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
-		SceneUpdateEventToken.Unsubscribe();
+	}
+
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera2D(timeStep);
 	}
 
 	private void SetupViewport()

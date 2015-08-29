@@ -16,46 +16,44 @@ class _24_Urho2DSprite : Sample
 		CreateScene();
 		SimpleCreateInstructionsWithWASD("\nuse PageUp PageDown keys to zoom.");
 		SetupViewport();
-		SubscribeToEvents();
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
 	{
-		SubscribeToUpdate(args =>
-			{
-				SimpleMoveCamera2D(args.TimeStep);
-
-				var graphics = Graphics;
-				float halfWidth = graphics.Width * 0.5f * PIXEL_SIZE;
-				float halfHeight = graphics.Height * 0.5f * PIXEL_SIZE;
-
-				foreach (var nodeInfo in spriteNodes)
-				{
-					Vector3 position = nodeInfo.Node.Position;
-					Vector3 moveSpeed = nodeInfo.MoveSpeed;
-					Vector3 newPosition = position + moveSpeed * args.TimeStep;
-					if (newPosition.X < -halfWidth || newPosition.X > halfWidth)
-					{
-						newPosition.X = position.X;
-						moveSpeed.X = -moveSpeed.X;
-						nodeInfo.MoveSpeed = moveSpeed;
-					}
-					if (newPosition.Y < -halfHeight || newPosition.Y > halfHeight)
-					{
-						newPosition.Y = position.Y;
-						moveSpeed.Y = -moveSpeed.Y;
-						nodeInfo.MoveSpeed = moveSpeed;
-					}
-
-					nodeInfo.Node.Position = (newPosition);
-					nodeInfo.Node.Roll(nodeInfo.RotateSpeed * args.TimeStep, TransformSpace.Local);
-				}
-
-			});
-
-		SceneUpdateEventToken.Unsubscribe();
+		//overriding Sample's behavior by noop
 	}
-	
+
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera2D(timeStep);
+
+		var graphics = Graphics;
+		float halfWidth = graphics.Width * 0.5f * PIXEL_SIZE;
+		float halfHeight = graphics.Height * 0.5f * PIXEL_SIZE;
+
+		foreach (var nodeInfo in spriteNodes)
+		{
+			Vector3 position = nodeInfo.Node.Position;
+			Vector3 moveSpeed = nodeInfo.MoveSpeed;
+			Vector3 newPosition = position + moveSpeed * timeStep;
+			if (newPosition.X < -halfWidth || newPosition.X > halfWidth)
+			{
+				newPosition.X = position.X;
+				moveSpeed.X = -moveSpeed.X;
+				nodeInfo.MoveSpeed = moveSpeed;
+			}
+			if (newPosition.Y < -halfHeight || newPosition.Y > halfHeight)
+			{
+				newPosition.Y = position.Y;
+				moveSpeed.Y = -moveSpeed.Y;
+				nodeInfo.MoveSpeed = moveSpeed;
+			}
+
+			nodeInfo.Node.Position = (newPosition);
+			nodeInfo.Node.Roll(nodeInfo.RotateSpeed * timeStep, TransformSpace.Local);
+		}
+	}
+
 	private void SetupViewport()
 	{
 		var renderer = Renderer;

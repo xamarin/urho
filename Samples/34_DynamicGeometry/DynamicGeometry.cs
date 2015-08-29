@@ -20,20 +20,16 @@ class _34_DynamicGeometry : Sample
 		CreateScene();
 		SimpleCreateInstructionsWithWASD("\nSpace to toggle animation");
 		SetupViewport();
-		SubscribeToEvents();
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnUpdate(float timeStep)
 	{
-		SubscribeToUpdate(args =>
-			{
-				SimpleMoveCamera3D(args.TimeStep);
-				if (Input.GetKeyPress(Key.Space))
-					animate = !animate;
+		SimpleMoveCamera3D(timeStep);
+		if (Input.GetKeyPress(Key.Space))
+			animate = !animate;
 
-				if (animate)
-					AnimateObjects(args.TimeStep);
-			});
+		if (animate)
+			AnimateObjects(timeStep);
 	}
 
 	private void AnimateObjects(float timeStep)

@@ -38,46 +38,6 @@ class _08_Decals : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-			{
-				var timeStep = args.TimeStep;
-				UI ui = UI;
-				var input = Input;
-				ui.Cursor.SetVisible(!input.GetMouseButtonDown(MouseButton.Right));
-
-				const float mouseSensitivity = .1f;
-				const float moveSpeed = 40f;
-
-				if (UI.FocusElement != null)
-					return;
-
-				if (!ui.Cursor.IsVisible())
-				{
-					var mouseMove = input.MouseMove;
-					//var mouseMove = Test2 (input.Handle);
-					Yaw += mouseSensitivity*mouseMove.X;
-					Pitch += mouseSensitivity*mouseMove.Y;
-					Pitch = Clamp(Pitch, -90, 90);
-				}
-
-				CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
-
-				if (input.GetKeyDown(Key.W))
-					CameraNode.Translate(new Vector3(0, 0, 1) * moveSpeed * timeStep, TransformSpace.Local);
-				if (input.GetKeyDown(Key.S))
-					CameraNode.Translate(new Vector3(0, 0, -1) * moveSpeed * timeStep, TransformSpace.Local);
-				if (input.GetKeyDown(Key.A))
-					CameraNode.Translate(new Vector3(-1, 0, 0) * moveSpeed * timeStep, TransformSpace.Local);
-				if (input.GetKeyDown(Key.D))
-					CameraNode.Translate(new Vector3(1, 0, 0) * moveSpeed * timeStep, TransformSpace.Local);
-
-				if (Input.GetKeyPress(Key.Space))
-					drawDebug = !drawDebug;
-
-				if (UI.Cursor.IsVisible() && Input.GetMouseButtonPress(MouseButton.Left))
-					PaintDecal();
-			});
-
 		SubscribeToPostRenderUpdate(args =>
 			{
 				// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
@@ -87,7 +47,46 @@ class _08_Decals : Sample
 					Renderer.DrawDebugGeometry(false);
 			});
 	}
-	
+
+	protected override void OnUpdate(float timeStep)
+	{
+		UI ui = UI;
+		var input = Input;
+		ui.Cursor.SetVisible(!input.GetMouseButtonDown(MouseButton.Right));
+
+		const float mouseSensitivity = .1f;
+		const float moveSpeed = 40f;
+
+		if (UI.FocusElement != null)
+			return;
+
+		if (!ui.Cursor.IsVisible())
+		{
+			var mouseMove = input.MouseMove;
+			//var mouseMove = Test2 (input.Handle);
+			Yaw += mouseSensitivity * mouseMove.X;
+			Pitch += mouseSensitivity * mouseMove.Y;
+			Pitch = Clamp(Pitch, -90, 90);
+		}
+
+		CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
+
+		if (input.GetKeyDown(Key.W))
+			CameraNode.Translate(new Vector3(0, 0, 1) * moveSpeed * timeStep, TransformSpace.Local);
+		if (input.GetKeyDown(Key.S))
+			CameraNode.Translate(new Vector3(0, 0, -1) * moveSpeed * timeStep, TransformSpace.Local);
+		if (input.GetKeyDown(Key.A))
+			CameraNode.Translate(new Vector3(-1, 0, 0) * moveSpeed * timeStep, TransformSpace.Local);
+		if (input.GetKeyDown(Key.D))
+			CameraNode.Translate(new Vector3(1, 0, 0) * moveSpeed * timeStep, TransformSpace.Local);
+
+		if (Input.GetKeyPress(Key.Space))
+			drawDebug = !drawDebug;
+
+		if (UI.Cursor.IsVisible() && Input.GetMouseButtonPress(MouseButton.Left))
+			PaintDecal();
+	}
+
 	private void SetupViewport()
 	{
 		var renderer = Renderer;

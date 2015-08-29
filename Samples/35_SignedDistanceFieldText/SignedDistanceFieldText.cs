@@ -13,17 +13,13 @@ class _35_SignedDistanceFieldText : Sample
 		CreateScene();
 		SimpleCreateInstructionsWithWASD();
 		SetupViewport();
-		SubscribeToEvents();
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnUpdate(float timeStep)
 	{
-		SubscribeToUpdate(args =>
-		{
-			SimpleMoveCamera3D(args.TimeStep);
-		});
+		SimpleMoveCamera3D(timeStep);
 	}
-	
+
 	private void SetupViewport()
 	{
 		var renderer = Renderer;

@@ -31,19 +31,24 @@ class _33_Urho2DSpriterAnimation : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args => SimpleMoveCamera2D(args.TimeStep));
-
 		SubscribeToMouseButtonDown(args =>
 			{
 				AnimatedSprite2D animatedSprite = spriteNode.GetComponent<AnimatedSprite2D>();
 				animationIndex = (animationIndex + 1) % 7;
 				animatedSprite.SetAnimation(AnimationNames[animationIndex], LoopMode2D.LM_FORCE_LOOPED);
 			});
-
-		// Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
-		SceneUpdateEventToken.Unsubscribe();
 	}
-	
+
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
+	{
+		// Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
+	}
+
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera2D(timeStep);
+	}
+
 	private void SetupViewport()
 	{
 		var renderer = Renderer;

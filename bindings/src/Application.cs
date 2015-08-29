@@ -43,10 +43,19 @@ namespace Urho {
 
 			SubscribeToUpdate(args =>
 				{
+					var timeStep = args.TimeStep;
 					Update?.Invoke(args);
-					ActionManager.Update(args.TimeStep);
+					ActionManager.Update(timeStep);
+					OnUpdate(timeStep);
 				});
-			SubscribeToSceneUpdate(args => SceneUpdate?.Invoke(args));
+
+			SubscribeToSceneUpdate(args =>
+				{
+					var timeStep = args.TimeStep;
+					var scene = args.Scene;
+					SceneUpdate?.Invoke(args);
+					OnSceneUpdate(timeStep, scene);
+				});
 		}
 
 		public Application(Context context) : this(context, ProxySetup, ProxyStart, ProxyStop) { }
@@ -92,7 +101,7 @@ namespace Urho {
 		{
 			GetApp (h).Stop ();
 		}
-		
+
 		public virtual void Setup ()
 		{
 			System.Console.WriteLine ("Your application does not override the Setup method, where you configure the engine");
@@ -108,7 +117,11 @@ namespace Urho {
 		}
 
 		public ActionManager ActionManager { get; } = new ActionManager();
-		
+
+		protected virtual void OnSceneUpdate(float timeStep, Scene scene) { }
+
+		protected virtual void OnUpdate(float timeStep) { }
+
 		//
 		// GetSubsystem helpers
 		//

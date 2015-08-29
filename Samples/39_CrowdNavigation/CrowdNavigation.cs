@@ -56,14 +56,13 @@ class _39_CrowdNavigation : Sample
 		ui.Root.AddChild(instructionText);
 	}
 
+	protected override void OnUpdate(float timeStep)
+	{
+		MoveCamera(timeStep);
+	}
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-			{
-				MoveCamera(args.TimeStep);
-			});
-
 		SubscribeToPostRenderUpdate(args =>
 			{
 				if (drawDebug)

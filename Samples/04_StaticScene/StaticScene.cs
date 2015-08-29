@@ -11,7 +11,6 @@ class _04_StaticScene : Sample {
 		CreateScene ();
 		SimpleCreateInstructionsWithWASD ();
 		SetupViewport ();
-		SubscribeToUpdate (UpdateHandler);
 	}
 
 	void CreateScene ()
@@ -63,10 +62,10 @@ class _04_StaticScene : Sample {
 		renderer.SetViewport (0, new Viewport (Context, scene, camera, null));
 	}
 
-	void UpdateHandler (UpdateEventArgs args)
+	protected override void OnUpdate(float timeStep)
 	{
-		SimpleMoveCamera3D (args.TimeStep);
+		SimpleMoveCamera3D(timeStep);
 	}
-	
+
 	public _04_StaticScene (Context c) : base (c) {}
 }

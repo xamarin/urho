@@ -24,8 +24,11 @@ class _25_Urho2DParticle : Sample
 
 		if (TouchEnabled)
 			SubscribeToTouchMove(args => HandleMouseMove(args.X, args.Y));
+	}
 
-		SceneUpdateEventToken.Unsubscribe();
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
+	{
+		//override Sample's behavior by no-op
 	}
 
 	private void HandleMouseMove(int x, int y)
@@ -77,6 +80,5 @@ class _25_Urho2DParticle : Sample
 		Node greenSpiralNode = scene.CreateChild("GreenSpiral");
 		ParticleEmitter2D greenSpiralEmitter = greenSpiralNode.CreateComponent<ParticleEmitter2D>();
 		greenSpiralEmitter.Effect=greenSpiralEffect;
-
 	}
 }

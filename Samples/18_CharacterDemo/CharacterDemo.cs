@@ -46,12 +46,8 @@ class _18_CharacterDemo : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(HandleUpdate);
 		SubscribeToPostUpdate(HandlePostUpdate);
 		SubscribeToPhysicsPreStep(HandlePhysicsPreStep);
-		
-		// Unsubscribe the SceneUpdate event from base class as the camera node is being controlled in HandlePostUpdate() in this sample
-		SceneUpdateEventToken.Unsubscribe();
 	}
 
 	private void HandlePhysicsPreStep(PhysicsPreStepEventArgs args)
@@ -105,7 +101,12 @@ class _18_CharacterDemo : Sample
 		}
 	}
 
-	private void HandleUpdate(UpdateEventArgs args)
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
+	{
+		// Unsubscribe the SceneUpdate event from base class as the camera node is being controlled in HandlePostUpdate() in this sample
+	}
+
+	protected override void OnUpdate(float timeStep)
 	{
 		Input input = Input;
 

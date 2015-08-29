@@ -29,27 +29,6 @@ class _32_Urho2DConstraints : Sample
 
 	private void SubscribeToEvents()
 	{
-		SubscribeToUpdate(args =>
-			{
-				SimpleMoveCamera2D(args.TimeStep);
-
-				var input = Input;
-				if (input.GetKeyDown(Key.PageUp))
-					camera.Zoom = (camera.Zoom * 1.01f);
-
-				if (input.GetKeyDown(Key.PageDown))
-					camera.Zoom = (camera.Zoom * 0.99f);
-
-				// Toggle physics debug geometry with space
-				if (input.GetKeyPress(Key.Space))
-					drawDebug = !drawDebug;
-
-				// Save scene
-				if (input.GetKeyPress(Key.F5))
-				{
-					scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/Constraints.xml", "\t");
-				}
-			});
 		SubscribeToPostRenderUpdate(args =>
 			{
 				// If draw debug mode is enabled, draw viewport debug geometry, which will show eg. drawable bounding boxes and skeleton
@@ -60,14 +39,37 @@ class _32_Urho2DConstraints : Sample
 			});
 
 		mouseDownEventToken = SubscribeToMouseButtonDown(HandleMouseButtonDown);
-
-
-		// Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
-		SceneUpdateEventToken.Unsubscribe();
-
+		
 		if (TouchEnabled)
 		{
 			touchBeginEventToken = SubscribeToTouchBegin(HandleTouchBegin3);
+		}
+	}
+
+	protected override void OnSceneUpdate(float timeStep, Scene scene)
+	{
+		// Unsubscribe the SceneUpdate event from base class to prevent camera pitch and yaw in 2D sample
+	}
+
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera2D(timeStep);
+
+		var input = Input;
+		if (input.GetKeyDown(Key.PageUp))
+			camera.Zoom = (camera.Zoom * 1.01f);
+
+		if (input.GetKeyDown(Key.PageDown))
+			camera.Zoom = (camera.Zoom * 0.99f);
+
+		// Toggle physics debug geometry with space
+		if (input.GetKeyPress(Key.Space))
+			drawDebug = !drawDebug;
+
+		// Save scene
+		if (input.GetKeyPress(Key.F5))
+		{
+			scene.SaveXml(FileSystem.ProgramDir + "Data/Scenes/Constraints.xml", "\t");
 		}
 	}
 

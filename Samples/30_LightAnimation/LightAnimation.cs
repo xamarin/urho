@@ -12,7 +12,6 @@ class _30_LightAnimation : Sample
 		SetupInstructions();
 		CreateScene();
 		SetupViewport();
-		SubscribeToEvents();
 	}
 
 	private void SetupInstructions()
@@ -37,11 +36,11 @@ class _30_LightAnimation : Sample
 		UI.Root.AddChild(text);
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnUpdate(float timeStep)
 	{
-		SubscribeToUpdate(args => SimpleMoveCamera3D(args.TimeStep));
+		SimpleMoveCamera3D(timeStep);
 	}
-	
+
 	private void SetupViewport()
 	{
 		var renderer = Renderer;

@@ -16,7 +16,7 @@ class _06_SkeletalAnimation : Sample {
 			MoveSpeed = moveSpeed;
 			RotationSpeed = rotateSpeed;
 			Bounds = bounds;
-			SubscribeToSceneUpdate (SceneUpdate);
+			Application.SceneUpdate += SceneUpdate;
 		}
 
 		public void SceneUpdate (SceneUpdateEventArgs args)
@@ -131,16 +131,15 @@ class _06_SkeletalAnimation : Sample {
 		renderer.SetViewport (0, new Viewport (Context, scene, camera, null));
 	}
 
+	protected override void OnUpdate(float timeStep)
+	{
+		SimpleMoveCamera3D(timeStep);
+		if (Input.GetKeyPress(Key.Space))
+			drawDebug = !drawDebug;
+	}
+
 	void SubscribeToEvents ()
 	{
-		// Handle keyboard input, mouse/touch input, and handle spacebar to debug
-		SubscribeToUpdate(args =>
-			{
-				SimpleMoveCamera3D(args.TimeStep);
-				if (Input.GetKeyPress(Key.Space))
-					drawDebug = !drawDebug;
-			});
-
 		// Subscribe HandlePostRenderUpdate() function for
 		// processing the post-render update event, sent after
 		// Renderer subsystem is done with defining the draw

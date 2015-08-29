@@ -44,10 +44,10 @@
 			mushroomObject.SetMaterial(cache.GetMaterial("Materials/Mushroom.xml"));
 			mushroomObject.CastShadows = true;
 
-			var sprite = cache.GetSprite2D("Urho2D/Aster.png");
+			var sprite = cache.GetSprite2D("Urho2D/Ball.png");
 			spriteNode = scene.CreateChild("StaticSprite2D");
 			spriteNode.Position = new Vector3(0f, 10f, 10.0f);
-			spriteNode.SetScale(5f);
+			spriteNode.SetScale(8f);
 			var staticSprite = spriteNode.CreateComponent<StaticSprite2D>();
 			staticSprite.BlendMode = BlendMode.Alpha;
 			staticSprite.Sprite = sprite;
@@ -69,19 +69,19 @@
 			TintTo tintToBlue = new TintTo(duration: 1, red: 0, green: 0, blue: 1);
 			var spriteActionsTask = spriteNode.RunActionsAsync(fadeOut, fadeIn, tintToRed, tintToGreen, tintToBlue); //let's not await it here
 
+
 			MoveBy moveForwardAction = new MoveBy(duration: 1.5f, position: new Vector3(0, 0, 15));
 			MoveBy moveRightAction = new MoveBy(duration: 1.5f, position: new Vector3(10, 0, 0));
 			ScaleBy makeBiggerAction = new ScaleBy(duration: 1.5f, scale: 3);
 			RotateTo rotateYAction = new RotateTo(duration: 2f, deltaAngleX: 0, deltaAngleY: 5, deltaAngleZ: 0);
 			MoveTo moveToInitialPositionAction = new MoveTo(duration: 2, position: new Vector3(0, 0, 0));
-
 			await mushroomNode.RunActionsAsync(moveForwardAction,
 				new Parallel(moveRightAction, makeBiggerAction),
 				new Parallel(moveToInitialPositionAction, rotateYAction, makeBiggerAction.Reverse()));
 
+
 			JumpBy jumpAction = new JumpBy(duration: 7, position: new Vector3(50, 0, 0), height: 8, jumps: 5);
 			moveToInitialPositionAction = new MoveTo(duration: 5, position: new Vector3(0, 0, 0));
-
 			await mushroomNode.RunActionsAsync(new EaseIn(jumpAction, 2), new EaseElasticOut(moveToInitialPositionAction));
 			await spriteActionsTask;
 		}

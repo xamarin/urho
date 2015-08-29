@@ -39,7 +39,6 @@ class _26_ConsoleInput : Sample
 	{
 		base.Start();
 		SubscribeToConsoleCommand(HandleConsoleCommand);
-		SubscribeToUpdate(HandleUpdate);
 		SubscribeToKeyDown(HandleEscKeyDown);
 		IsLogoVisible = false;
 
@@ -72,7 +71,7 @@ class _26_ConsoleInput : Sample
 			HandleInput(args.Command);
 	}
 
-	private void HandleUpdate(UpdateEventArgs args)
+	protected override void OnUpdate(float timeStep)
 	{
 		// Check if there is input from stdin
 		string input = UrhoConsole.GetConsoleInput();

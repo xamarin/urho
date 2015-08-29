@@ -21,10 +21,6 @@ class _37_UIDrag : Sample
 		// Create the UI content
 		CreateGUI();
 		CreateInstructions();
-
-		// Hook up to the frame update events
-		SubscribeToEvents();
-
 	}
 
 	private void CreateGUI()
@@ -105,11 +101,6 @@ class _37_UIDrag : Sample
 		instructionText.SetPosition(0, ui.Root.Height/4);
 	}
 
-	private void SubscribeToEvents()
-	{
-		SubscribeToUpdate(HandleUpdate);
-	}
-
 	private void HandleDragBegin(DragBeginEventArgs args)
 	{
 		var element = args.Element;
@@ -152,7 +143,7 @@ class _37_UIDrag : Sample
 	{
 	}
 
-	private void HandleUpdate(UpdateEventArgs args)
+	protected override void OnUpdate(float timeStep)
 	{
 		UI ui = UI;
 		UIElement root = ui.Root;

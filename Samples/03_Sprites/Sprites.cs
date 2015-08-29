@@ -13,12 +13,11 @@ class _03_Sprites : Sample
 	{
 		base.Start();
 		CreateSprites();
-		SubscribeToEvents();
 	}
 
-	private void SubscribeToEvents()
+	protected override void OnUpdate(float timeStep)
 	{
-		SubscribeToUpdate(args => MoveSprites(args.TimeStep));
+		MoveSprites(timeStep);
 	}
 
 	private void CreateSprites()
