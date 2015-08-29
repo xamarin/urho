@@ -1,25 +1,27 @@
 using Urho;
 
-class _06_SkeletalAnimation : Sample {
+class _06_SkeletalAnimation : Sample
+{
 	Scene scene;
 	Camera camera;
 	bool drawDebug;
 	public _06_SkeletalAnimation (Context c) : base (c) {}
 
-	class Mover : Component {
-		public float MoveSpeed { get; private set; }
-		public float RotationSpeed { get; private set; }
-		public BoundingBox Bounds { get; private set; }
+	class Mover : Component
+	{
+		float MoveSpeed { get; }
+		float RotationSpeed { get; }
+		BoundingBox Bounds { get; }
 		
 		public Mover (Context ctx, float moveSpeed, float rotateSpeed, BoundingBox bounds) : base (ctx)
 		{
 			MoveSpeed = moveSpeed;
 			RotationSpeed = rotateSpeed;
 			Bounds = bounds;
-			Application.SceneUpdate += SceneUpdate;
+			Application.SceneUpdate += OnSceneUpdate;
 		}
 
-		public void SceneUpdate (SceneUpdateEventArgs args)
+		void OnSceneUpdate (SceneUpdateEventArgs args)
 		{
 			// This moves the character position
 			Node.Translate (Vector3.UnitZ * MoveSpeed * args.TimeStep, TransformSpace.Local);

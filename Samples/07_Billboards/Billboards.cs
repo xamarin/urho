@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Urho;
 
 class _07_Billboards : Sample
@@ -106,7 +105,6 @@ class _07_Billboards : Sample
 			}
 		}
 
-		
 		// Create groups of mushrooms, which act as shadow casters
 		const uint NUM_MUSHROOMGROUPS = 25;
 		const uint NUM_MUSHROOMS = 25;

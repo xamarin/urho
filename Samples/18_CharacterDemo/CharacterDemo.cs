@@ -116,8 +116,7 @@ class _18_CharacterDemo : Sample
 			character.Controls.Set(CTRL_FORWARD | CTRL_BACK | CTRL_LEFT | CTRL_RIGHT | CTRL_JUMP, false);
 
 			// Update controls using touch utility class
-			if (touch != null)
-				touch.UpdateTouches(character.Controls);
+			touch?.UpdateTouches(character.Controls);
 
 			// Update controls using keys
 			UI ui = UI;

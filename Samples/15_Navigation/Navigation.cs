@@ -4,13 +4,13 @@ using Urho;
 
 class _15_Navigation : Sample
 {
-	private Scene scene;
-	private bool drawDebug;
-	private Node jackNode_;
-	private List<Vector3> currentPath_ = new List<Vector3>();
-	private Vector3 endPos_;
-	private float yaw_;
-	private float pitch_;
+	Scene scene;
+	bool drawDebug;
+	Node jackNode;
+	List<Vector3> currentPath = new List<Vector3>();
+	Vector3 endPos;
+	float yaw;
+	float pitch;
 
 	public _15_Navigation(Context ctx) : base(ctx) { }
 
@@ -33,21 +33,21 @@ class _15_Navigation : Sample
 				if (drawDebug)
 					Renderer.DrawDebugGeometry(false);
 
-				if (currentPath_.Count > 0)
+				if (currentPath.Count > 0)
 				{
 					// Visualize the current calculated path
 					DebugRenderer debug = scene.GetComponent<DebugRenderer>();
-					debug.AddBoundingBox(new BoundingBox(endPos_ - new Vector3(0.1f, 0.1f, 0.1f), endPos_ + new Vector3(0.1f, 0.1f, 0.1f)),
+					debug.AddBoundingBox(new BoundingBox(endPos - new Vector3(0.1f, 0.1f, 0.1f), endPos + new Vector3(0.1f, 0.1f, 0.1f)),
 						new Color(1.0f, 1.0f, 1.0f), true);
 
 					// Draw the path with a small upward bias so that it does not clip into the surfaces
 					Vector3 bias = new Vector3(0.0f, 0.05f, 0.0f);
-					debug.AddLine(jackNode_.Position + bias, currentPath_[0] + bias, new Color(1.0f, 1.0f, 1.0f), true);
+					debug.AddLine(jackNode.Position + bias, currentPath[0] + bias, new Color(1.0f, 1.0f, 1.0f), true);
 
-					if (currentPath_.Count > 1)
+					if (currentPath.Count > 1)
 					{
-						for (int i = 0; i < currentPath_.Count - 1; ++i)
-							debug.AddLine(currentPath_[i] + bias, currentPath_[i + 1] + bias, new Color(1.0f, 1.0f, 1.0f), true);
+						for (int i = 0; i < currentPath.Count - 1; ++i)
+							debug.AddLine(currentPath[i] + bias, currentPath[i + 1] + bias, new Color(1.0f, 1.0f, 1.0f), true);
 					}
 				}
 			});
@@ -80,12 +80,12 @@ class _15_Navigation : Sample
 		if (!ui.Cursor.IsVisible())
 		{
 			IntVector2 mouseMove = input.MouseMove;
-			yaw_ += MOUSE_SENSITIVITY * mouseMove.X;
-			pitch_ += MOUSE_SENSITIVITY * mouseMove.Y;
-			pitch_ = Clamp(pitch_, -90.0f, 90.0f);
+			yaw += MOUSE_SENSITIVITY * mouseMove.X;
+			pitch += MOUSE_SENSITIVITY * mouseMove.Y;
+			pitch = Clamp(pitch, -90.0f, 90.0f);
 
 			// Construct new orientation for the camera scene node from yaw and pitch. Roll is fixed to zero
-			CameraNode.Rotation=new Quaternion(pitch_, yaw_, 0.0f);
+			CameraNode.Rotation=new Quaternion(pitch, yaw, 0.0f);
 		}
 
 		// Read WASD keys and move the camera scene node to the corresponding direction if they are pressed
@@ -210,9 +210,9 @@ class _15_Navigation : Sample
 		}
 
 		// Create Jack node that will follow the path
-		jackNode_ = scene.CreateChild("Jack");
-		jackNode_.Position = new Vector3(-5.0f, 0.0f, 20.0f);
-		AnimatedModel modelObject = jackNode_.CreateComponent<AnimatedModel>();
+		jackNode = scene.CreateChild("Jack");
+		jackNode.Position = new Vector3(-5.0f, 0.0f, 20.0f);
+		AnimatedModel modelObject = jackNode.CreateComponent<AnimatedModel>();
 		modelObject.Model = cache.GetModel("Models/Jack.mdl");
 		modelObject.SetMaterial(cache.GetMaterial("Materials/Jack.xml"));
 		modelObject.CastShadows=true;
@@ -252,16 +252,16 @@ class _15_Navigation : Sample
 			if (Input.GetQualifierDown(QUAL_SHIFT))
 			{
 				// Teleport
-				currentPath_.Clear();
-				jackNode_.LookAt(new Vector3(pathPos.X, jackNode_.Position.Y, pathPos.Z), Vector3.UnitY, TransformSpace.World);
-				jackNode_.Position = (pathPos);
+				currentPath.Clear();
+				jackNode.LookAt(new Vector3(pathPos.X, jackNode.Position.Y, pathPos.Z), Vector3.UnitY, TransformSpace.World);
+				jackNode.Position = (pathPos);
 			}
 			else
 			{
 				// Calculate path from Jack's current position to the end point
-				endPos_ = pathPos;
-				var result = navMesh.FindPath(jackNode_.Position, endPos_);
-				currentPath_ = new List<Vector3>(result);
+				endPos = pathPos;
+				var result = navMesh.FindPath(jackNode.Position, endPos);
+				currentPath = new List<Vector3>(result);
 			}
 		}
 	}
@@ -293,8 +293,8 @@ class _15_Navigation : Sample
 			// Rebuild part of the navigation mesh, then recalculate path if applicable
 			NavigationMesh navMesh = scene.GetComponent<NavigationMesh>();
 			navMesh.Build(updateBox);
-			if (currentPath_.Count > 0)
-				currentPath_ = new List<Vector3>(navMesh.FindPath(jackNode_.Position, endPos_));
+			if (currentPath.Count > 0)
+				currentPath = new List<Vector3>(navMesh.FindPath(jackNode.Position, endPos));
 		}
 	}
 
@@ -344,22 +344,22 @@ class _15_Navigation : Sample
 
 	private void FollowPath(float timeStep)
 	{
-		if (currentPath_.Count > 0)
+		if (currentPath.Count > 0)
 		{
-			Vector3 nextWaypoint = currentPath_[0]; // NB: currentPath[0] is the next waypoint in order
+			Vector3 nextWaypoint = currentPath[0]; // NB: currentPath[0] is the next waypoint in order
 
 			// Rotate Jack toward next waypoint to reach and move. Check for not overshooting the target
 			float move = 5.0f * timeStep;
-			float distance = (jackNode_.Position - nextWaypoint).Length;
+			float distance = (jackNode.Position - nextWaypoint).Length;
 			if (move > distance)
 				move = distance;
 
-			jackNode_.LookAt(nextWaypoint, Vector3.UnitY, TransformSpace.World);
-			jackNode_.Translate(Vector3.UnitZ * move, TransformSpace.Local);
+			jackNode.LookAt(nextWaypoint, Vector3.UnitY, TransformSpace.World);
+			jackNode.Translate(Vector3.UnitZ * move, TransformSpace.Local);
 
 			// Remove waypoint if reached it
 			if (distance < 0.1f)
-				currentPath_.RemoveAt(0);
+				currentPath.RemoveAt(0);
 		}
 	}
 
