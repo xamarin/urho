@@ -18,9 +18,15 @@ namespace Urho {
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
-		
+
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate int SdlCallback(IntPtr context);
+
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop);
+
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		extern static void RegisterSdlLauncher(SdlCallback callback);
 
 		public static Application Current { get; private set; }
 
@@ -59,6 +65,14 @@ namespace Urho {
 		}
 
 		public Application(Context context) : this(context, ProxySetup, ProxyStart, ProxyStop) { }
+
+		/// <summary>
+		/// Should be called in Android and IOS
+		/// </summary>
+		public static void RegisterSdlLauncher(Func<Application> appFactory)
+		{
+			RegisterSdlLauncher(_ => appFactory().Run());
+		}
 
 		public static event Action<UpdateEventArgs> Update;
 

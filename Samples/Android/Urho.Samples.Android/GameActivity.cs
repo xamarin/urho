@@ -7,7 +7,8 @@ namespace Urho.Samples.Droid
 	{
 		protected override bool OnLoadLibrary(IList<string> libraryNames)
 		{
-			return base.OnLoadLibrary(libraryNames);
+			//make sure you have Libs\[ABI]\libmono-urho.so file with ContentType=AndroidNativeLibrary
+			return base.OnLoadLibrary(new List<string> { "mono-urho" });
 		}
 	}
 }
