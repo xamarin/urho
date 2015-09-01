@@ -128,13 +128,10 @@ namespace Urho {
 
 		public unsafe bool TryGetTouch (uint idx, out TouchState state)
 		{
-			if (idx > 0)
-			{
-				var x = GetTouch (idx);
-				if (x != null){
-					state = *x;
-					return true;
-				}
+			var x = GetTouch (idx);
+			if (x != null){
+				state = *x;
+				return true;
 			}
 			state = new TouchState ();
 			return false;
