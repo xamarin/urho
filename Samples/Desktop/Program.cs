@@ -7,31 +7,45 @@ namespace Urho
 	{
 		static void Main(string[] args)
 		{
-			Environment.CurrentDirectory = @"..\..\Submodules\Urho3D\bin";
-
-			var sample = GetSampleFromUserInput();
+			Environment.CurrentDirectory = @"../../Submodules/Urho3D/bin";
+			Sample sample = null;
+#if __MonoCS__
+			if (args.Length > 0)
+			{
+				sample = ParseSampleFromNumber(args[0]);
+			}
+			else
+			{
+				sample = new _11_Physics(new Context());
+			}
+#else
+			while (sample == null)
+			{
+				Console.WriteLine("Enter a sample number [1-40]:");
+				sample = ParseSampleFromNumber(Console.ReadLine());
+			}
+#endif
 			var code = sample.Run();
 			Console.WriteLine($"Exit code: {code}. Press any key to exit...");
 			Console.ReadKey();
 		}
 
-		static Sample GetSampleFromUserInput()
+
+		static Sample ParseSampleFromNumber(string input)
 		{
-			Console.WriteLine("Enter a sample number [1-40]:");
 			var samples = typeof(Sample).Assembly.GetTypes().Where(t => t.BaseType == typeof(Sample)).ToArray();
-			string input = Console.ReadLine();
 			int number;
 			if (!int.TryParse(input, out number))
 			{
 				Console.WriteLine("Invalid format.");
-				return GetSampleFromUserInput();
+				return null;
 			}
 
 			var sample = samples.FirstOrDefault(s => s.Name.StartsWith($"_{number.ToString("00")}"));
 			if (sample == null)
 			{
 				Console.WriteLine("Sample was not found");
-				return GetSampleFromUserInput();
+				return null;
 			}
 
 			return (Sample)Activator.CreateInstance(sample, new Context());
