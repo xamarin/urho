@@ -1,7 +1,8 @@
 # The CMake executable.
 CMAKE_COMMAND = "C:/Program Files (x86)/CMake/bin/cmake.exe"
 
-ANDK_DIR = C:/Users/Egor/Documents/Android/ndk/android-ndk-r10d
+# ANDROID_NDK -- C:/Users/Egor/Documents/Android/ndk/android-ndk-r10d
+ANDK_DIR = $(ANDROID_NDK)
 ANDK_GCC = $(ANDK_DIR)/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-gcc.exe
 ANDK_GPP = $(ANDK_DIR)/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-g++.exe
 
@@ -17,22 +18,22 @@ CXX_FLAGS = -fexceptions -frtti -std=c++11 -fpermissive -fPIC --sysroot=$(ANDK_D
 CXX_DEFINES = -DANDROID -DHAVE_STDINT_H -DKNET_UNIX -DURHO3D_ANGELSCRIPT -DURHO3D_FILEWATCHER -DURHO3D_LOGGING -DURHO3D_NAVIGATION -DURHO3D_NETWORK -DURHO3D_OPENGL -DURHO3D_PHYSICS -DURHO3D_PROFILING -DURHO3D_SSE -DURHO3D_STATIC_DEFINE -DURHO3D_URHO2D -D_23_Water_EXPORTS
 
 
-ApplicationProxy.o: 
+AApplicationProxy.o: 
 	$(ANDK_GPP)   $(CXX_DEFINES) $(CXX_FLAGS) -o ApplicationProxy.cpp.o -c src/ApplicationProxy.cpp
 	
-glue.o: 
+AGlue.o: 
 	$(ANDK_GPP)   $(CXX_DEFINES) $(CXX_FLAGS) -o glue.cpp.o -c src/glue.cpp
 	
-vector.o: 
+AVector.o: 
 	$(ANDK_GPP)   $(CXX_DEFINES) $(CXX_FLAGS) -o Vector.cpp.o -c src/Vector.cpp
 	
-binding.o:
+ABinding.o:
 	$(ANDK_GPP)   $(CXX_DEFINES) $(CXX_FLAGS) -o binding.cpp.o -c generated/binding.cpp
 	
-events.o: 
+AEvents.o: 
 	$(ANDK_GPP)   $(CXX_DEFINES) $(CXX_FLAGS) -o events.cpp.o -c generated/events.cpp
 
-SDL.o:
+ASDL.o:
 	$(ANDK_GCC)  $(C_DEFINES) $(C_FLAGS) -o SDL_android_main.c.o $(URHO3D_SRC_DIR)/Source/ThirdParty/SDL/src/main/android/SDL_android_main.c 
 
 libUrho3D.a:
