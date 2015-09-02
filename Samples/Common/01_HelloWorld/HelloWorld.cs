@@ -25,8 +25,6 @@ public class _01_HelloWorld : Sample
 		// Create "Hello World" Text
 		CreateText();
 	}
-
-	protected override string JoystickLayoutPatch => JoystickLayoutPatches.Hidden;
-
+	
 	public _01_HelloWorld(Context c) : base(c) { }
 }
