@@ -1,0 +1,3 @@
+[submodule "Submodules/Urho3D"]
+	path = Submodules/Urho3D
+	url = git@github.com:urho3d/Urho3D.git
