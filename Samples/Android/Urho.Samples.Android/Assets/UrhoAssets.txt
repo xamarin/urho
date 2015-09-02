@@ -1,4 +1,5 @@
-Place here:
+Make sure you've pulled out the Urho3D submodule.
 
+These folders are added as links:
 - CoreData
 - Data
