@@ -52,7 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidNativeLibrary Include="Libs\x86\libmono-urho.so" />
+    <AndroidNativeLibrary Include="..\..\..\Bin\Android\x86\libmono-urho.so">
+      <Link>Libs\x86\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
     <None Include="Resources\AboutResources.txt" />
     <AndroidAsset Include="Assets\UrhoAssets.txt" />
   </ItemGroup>
