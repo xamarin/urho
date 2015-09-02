@@ -90,4 +90,6 @@ public class _03_Sprites : Sample
 			sprite.Position = new IntVector2((int) x, (int) y);
 		}
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.Hidden;
 }

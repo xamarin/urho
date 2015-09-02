@@ -191,4 +191,6 @@ public class _12_PhysicsStressTest : Sample
 		CameraNode.Position = (new Vector3(0.0f, 3.0f, -20.0f));
 
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithFireAndDebugButtons;
 }

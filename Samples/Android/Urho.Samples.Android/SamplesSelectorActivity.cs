@@ -8,12 +8,8 @@ using Android.Widget;
 namespace Urho.Samples.Droid
 {
 	[Activity(Label = "MonoUrho Samples", MainLauncher = true, Icon = "@drawable/icon", NoHistory = true)]
-	public class MainActivity : ListActivity
+	public class SamplesSelectorActivity : ListActivity
 	{
-		public const string LibraryNames = "libraryNames";
-		public const string PickedLibrary = "pickedLibrary";
-		public const int ObtainingLibnames = 1;
-
 		System.Type[] sampleTypes;
 
 		protected override void OnCreate(Bundle bundle)

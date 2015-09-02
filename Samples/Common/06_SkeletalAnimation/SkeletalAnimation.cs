@@ -167,4 +167,6 @@ public class _06_SkeletalAnimation : Sample
 		SetupViewport ();
 		SubscribeToEvents();
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithDebugButton;
 }

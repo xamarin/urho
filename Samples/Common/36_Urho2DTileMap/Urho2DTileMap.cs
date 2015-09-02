@@ -67,6 +67,7 @@ public class _36_Urho2DTileMap : Sample
 		float x = info.MapWidth * 0.5f;
 		float y = info.MapHeight * 0.5f;
 		CameraNode.Position = new Vector3(x, y, -10.0f);
-
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithZoomInAndOut;
 }

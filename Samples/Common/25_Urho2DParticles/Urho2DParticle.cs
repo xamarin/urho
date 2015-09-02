@@ -81,4 +81,6 @@ public class _25_Urho2DParticle : Sample
 		ParticleEmitter2D greenSpiralEmitter = greenSpiralNode.CreateComponent<ParticleEmitter2D>();
 		greenSpiralEmitter.Effect=greenSpiralEffect;
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.Hidden;
 }

@@ -110,4 +110,6 @@ public class _28_Urho2DPhysicsRope : Sample
 		constraintRope.MaxLength = NUM_OBJECTS - 1.0f + 0.01f;
 
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithZoomInAndOut;
 }

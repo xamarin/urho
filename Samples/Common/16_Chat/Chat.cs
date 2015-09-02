@@ -231,4 +231,5 @@ public class _16_Chat : Sample
 		}
 	}
 
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.Hidden;
 }

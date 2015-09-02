@@ -216,9 +216,17 @@ public class Sample : Application
 	{
 		TouchEnabled = true;
 		var layout = ResourceCache.GetXmlFile ("UI/ScreenJoystick_Samples.xml");
+		if (!string.IsNullOrEmpty(JoystickLayoutPatch))
+		{
+			XMLFile patchXmlFile = new XMLFile(Context);
+			patchXmlFile.FromString(JoystickLayoutPatch);
+			layout.Patch(patchXmlFile);
+		}
 		var screenJoystickIndex = Input.AddScreenJoystick (layout, ResourceCache.GetXmlFile ("UI/DefaultStyle.xml"));
 		Input.SetScreenJoystickVisible (screenJoystickIndex, true);
 	}
+
+	protected virtual string JoystickLayoutPatch => string.Empty;
 
 	public override void Start ()
 	{

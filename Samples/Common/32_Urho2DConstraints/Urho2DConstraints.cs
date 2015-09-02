@@ -507,4 +507,6 @@ public class _32_Urho2DConstraints : Sample
 		var cache = ResourceCache;
 		flag3D.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 15);
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithZoomInAndOut;
 }

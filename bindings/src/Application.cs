@@ -126,6 +126,7 @@ namespace Urho {
 
 		public virtual void Stop ()
 		{
+			//Engine.DumpResources(true);
 		}
 
 		public ActionManager ActionManager { get; } = new ActionManager();

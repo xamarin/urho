@@ -117,6 +117,8 @@ public class _24_Urho2DSprite : Sample
 
 	}
 
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithZoomInAndOut;
+
 	class NodeInfo
 	{
 		public Node Node { get; set; }

@@ -150,4 +150,7 @@ public class _20_HugeObjectCount : Sample
 			camera.FarClip = 300.0f;
 		}
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithGroupAndAnimationButtons;
+
 }

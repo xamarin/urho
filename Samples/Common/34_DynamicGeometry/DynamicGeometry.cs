@@ -250,4 +250,6 @@ public class _34_DynamicGeometry : Sample
 		Camera camera = CameraNode.CreateComponent<Camera>();
 		camera.FarClip = 300.0f;
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithZoomInAndOut;
 }

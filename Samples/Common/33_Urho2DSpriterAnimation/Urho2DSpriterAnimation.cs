@@ -82,4 +82,6 @@ public class _33_Urho2DSpriterAnimation : Sample
 		AnimatedSprite2D animatedSprite = spriteNode.CreateComponent<AnimatedSprite2D>();
 		animatedSprite.SetAnimation(animationSet, AnimationNames[animationIndex], LoopMode2D.LM_DEFAULT);
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithZoomInAndOut;
 }

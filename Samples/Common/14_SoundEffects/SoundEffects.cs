@@ -161,4 +161,6 @@ public class _14_SoundEffects : Sample
 				}
 			});
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.Hidden;
 }

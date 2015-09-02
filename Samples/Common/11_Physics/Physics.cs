@@ -181,4 +181,6 @@ public class _11_Physics : Sample
 
 		body.SetLinearVelocity(CameraNode.Rotation * new Vector3(0f, 0.25f, 1f) * OBJECT_VELOCITY);
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithFireAndDebugButtons;
 }

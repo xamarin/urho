@@ -240,4 +240,5 @@ public class _26_ConsoleInput : Sample
 		Log.WriteRaw(output + "\n", false);
 	}
 
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.Hidden;
 }

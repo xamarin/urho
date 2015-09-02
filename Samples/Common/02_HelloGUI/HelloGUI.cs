@@ -38,17 +38,17 @@ public class _02_HelloGUI : Sample
 	{
 		// Create a CheckBox
 		CheckBox checkBox = new CheckBox(Context);
-		checkBox.Name="CheckBox";
+		checkBox.Name = "CheckBox";
 
 		// Create a Button
 		Button button = new Button(Context);
-		button.Name="Button";
-		button.MinHeight=24;
+		button.Name = "Button";
+		button.MinHeight = 24;
 
 		// Create a LineEdit
 		LineEdit lineEdit = new LineEdit(Context);
-		lineEdit.Name="LineEdit";
-		lineEdit.MinHeight=24;
+		lineEdit.Name = "LineEdit";
+		lineEdit.MinHeight = 24;
 
 		// Add controls to Window
 		window.AddChild(checkBox);
@@ -71,22 +71,22 @@ public class _02_HelloGUI : Sample
 		window.SetMinSize(384, 192);
 		window.SetLayout(LayoutMode.LM_VERTICAL, 6, new IntRect(6, 6, 6, 6));
 		window.SetAlignment(HorizontalAlignment.HA_CENTER, VerticalAlignment.VA_CENTER);
-		window.Name="Window";
+		window.Name = "Window";
 
 		// Create Window 'titlebar' container
 		UIElement titleBar = new UIElement(Context);
 		titleBar.SetMinSize(0, 24);
 		titleBar.VerticalAlignment = VerticalAlignment.VA_TOP;
-		titleBar.LayoutMode= LayoutMode.LM_HORIZONTAL;
+		titleBar.LayoutMode = LayoutMode.LM_HORIZONTAL;
 
 		// Create the Window title Text
 		var windowTitle = new Text(Context);
-		windowTitle.Name="WindowTitle";
+		windowTitle.Name = "WindowTitle";
 		windowTitle.Value = "Hello GUI!";
 
 		// Create the Window's close button
 		Button buttonClose = new Button(Context);
-		buttonClose.Name="CloseButton";
+		buttonClose.Name = "CloseButton";
 
 		// Add the controls to the title bar
 		titleBar.AddChild(windowTitle);
@@ -101,10 +101,10 @@ public class _02_HelloGUI : Sample
 		buttonClose.SetStyle("CloseButton", null);
 
 		SubscribeToReleased(args =>
-			{
-				if (args.Element == buttonClose)
-					Engine.Exit();
-			});
+		{
+			if (args.Element == buttonClose)
+				Engine.Exit();
+		});
 
 		// Subscribe also to all UI mouse clicks just to see where we have clicked
 		SubscribeToUIMouseClick(HandleControlClicked);
@@ -117,17 +117,18 @@ public class _02_HelloGUI : Sample
 
 		// Create a draggable Fish button
 		draggableFish = new Button(Context);
-		draggableFish.Texture=cache.GetTexture2D("Textures/UrhoDecal.dds"); // Set texture
-		draggableFish.BlendMode= BlendMode.Add;
+		draggableFish.Texture = cache.GetTexture2D("Textures/UrhoDecal.dds"); // Set texture
+		draggableFish.BlendMode = BlendMode.Add;
 		draggableFish.SetSize(128, 128);
-		draggableFish.SetPosition((graphics.Width - draggableFish.Width) / 2, 200);
-		draggableFish.Name="Fish";
+		draggableFish.SetPosition((graphics.Width - draggableFish.Width)/2, 200);
+		draggableFish.Name = "Fish";
 		uiRoot.AddChild(draggableFish);
 
 		// Add a tooltip to Fish button
 		ToolTip toolTip = new ToolTip(Context);
 		draggableFish.AddChild(toolTip);
-		toolTip.Position = new IntVector2(draggableFish.Width + 5, draggableFish.Width / 2); // slightly offset from close button
+		toolTip.Position = new IntVector2(draggableFish.Width + 5, draggableFish.Width/2);
+			// slightly offset from close button
 		BorderImage textHolder = new BorderImage(Context);
 		toolTip.AddChild(textHolder);
 		textHolder.SetStyle("ToolTipBorderImage", null);
@@ -183,4 +184,6 @@ public class _02_HelloGUI : Sample
 		// Update the Window's title text
 		windowTitle.Value = "Hello " + name + "!";
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.Hidden;
 }

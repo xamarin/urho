@@ -119,4 +119,5 @@ public class _29_SoundSynthesis : Sample
 		return lhs*(1.0f - t) + rhs*t;
 	}
 
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithZoomInAndOutWithoutArrows;
 }

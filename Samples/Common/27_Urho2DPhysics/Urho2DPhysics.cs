@@ -116,6 +116,7 @@ public class _27_Urho2DPhysics : Sample
 				circle.Restitution=0.1f;
 			}
 		}
-
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithZoomInAndOut;
 }

@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameActivity.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="SamplesSelectorActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -249,10 +249,9 @@
     <AndroidAsset Include="Assets\Data\Urho2D\isometric_grass_and_water.tmx" />
     <AndroidAsset Include="Assets\Data\Urho2D\sun.pex" />
     <AndroidAsset Include="Assets\Data\Urho2D\imp\imp.scml" />
-    <None Include="GettingStarted.Xamarin" />
     <AndroidNativeLibrary Include="Libs\x86\libmono-urho.so" />
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="Assets\UrhoAssets.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

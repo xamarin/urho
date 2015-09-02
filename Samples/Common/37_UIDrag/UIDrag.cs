@@ -188,4 +188,5 @@ public class _37_UIDrag : Sample
 		}
 	}
 
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.Hidden;
 }

@@ -363,4 +363,73 @@ public class _15_Navigation : Sample
 		}
 	}
 
+	protected override string JoystickLayoutPatch =>
+		"<patch>" +
+		"    <add sel=\"/element\">" +
+		"        <element type=\"Button\">" +
+		"            <attribute name=\"Name\" value=\"Button3\" />" +
+		"            <attribute name=\"Position\" value=\"-120 -120\" />" +
+		"            <attribute name=\"Size\" value=\"96 96\" />" +
+		"            <attribute name=\"Horiz Alignment\" value=\"Right\" />" +
+		"            <attribute name=\"Vert Alignment\" value=\"Bottom\" />" +
+		"            <attribute name=\"Texture\" value=\"Texture2D;Textures/TouchInput.png\" />" +
+		"            <attribute name=\"Image Rect\" value=\"96 0 192 96\" />" +
+		"            <attribute name=\"Hover Image Offset\" value=\"0 0\" />" +
+		"            <attribute name=\"Pressed Image Offset\" value=\"0 0\" />" +
+		"            <element type=\"Text\">" +
+		"                <attribute name=\"Name\" value=\"Label\" />" +
+		"                <attribute name=\"Horiz Alignment\" value=\"Center\" />" +
+		"                <attribute name=\"Vert Alignment\" value=\"Center\" />" +
+		"                <attribute name=\"Color\" value=\"0 0 0 1\" />" +
+		"                <attribute name=\"Text\" value=\"Teleport\" />" +
+		"            </element>" +
+		"            <element type=\"Text\">" +
+		"                <attribute name=\"Name\" value=\"KeyBinding\" />" +
+		"                <attribute name=\"Text\" value=\"LSHIFT\" />" +
+		"            </element>" +
+		"            <element type=\"Text\">" +
+		"                <attribute name=\"Name\" value=\"MouseButtonBinding\" />" +
+		"                <attribute name=\"Text\" value=\"LEFT\" />" +
+		"            </element>" +
+		"        </element>" +
+		"        <element type=\"Button\">" +
+		"            <attribute name=\"Name\" value=\"Button4\" />" +
+		"            <attribute name=\"Position\" value=\"-120 -12\" />" +
+		"            <attribute name=\"Size\" value=\"96 96\" />" +
+		"            <attribute name=\"Horiz Alignment\" value=\"Right\" />" +
+		"            <attribute name=\"Vert Alignment\" value=\"Bottom\" />" +
+		"            <attribute name=\"Texture\" value=\"Texture2D;Textures/TouchInput.png\" />" +
+		"            <attribute name=\"Image Rect\" value=\"96 0 192 96\" />" +
+		"            <attribute name=\"Hover Image Offset\" value=\"0 0\" />" +
+		"            <attribute name=\"Pressed Image Offset\" value=\"0 0\" />" +
+		"            <element type=\"Text\">" +
+		"                <attribute name=\"Name\" value=\"Label\" />" +
+		"                <attribute name=\"Horiz Alignment\" value=\"Center\" />" +
+		"                <attribute name=\"Vert Alignment\" value=\"Center\" />" +
+		"                <attribute name=\"Color\" value=\"0 0 0 1\" />" +
+		"                <attribute name=\"Text\" value=\"Obstacles\" />" +
+		"            </element>" +
+		"            <element type=\"Text\">" +
+		"                <attribute name=\"Name\" value=\"MouseButtonBinding\" />" +
+		"                <attribute name=\"Text\" value=\"MIDDLE\" />" +
+		"            </element>" +
+		"        </element>" +
+		"    </add>" +
+		"    <remove sel=\"/element/element[./attribute[@name='Name' and @value='Button0']]/attribute[@name='Is Visible']\" />" +
+		"    <replace sel=\"/element/element[./attribute[@name='Name' and @value='Button0']]/element[./attribute[@name='Name' and @value='Label']]/attribute[@name='Text']/@value\">Set</replace>" +
+		"    <add sel=\"/element/element[./attribute[@name='Name' and @value='Button0']]\">" +
+		"        <element type=\"Text\">" +
+		"            <attribute name=\"Name\" value=\"MouseButtonBinding\" />" +
+		"            <attribute name=\"Text\" value=\"LEFT\" />" +
+		"        </element>" +
+		"    </add>" +
+		"    <remove sel=\"/element/element[./attribute[@name='Name' and @value='Button1']]/attribute[@name='Is Visible']\" />" +
+		"    <replace sel=\"/element/element[./attribute[@name='Name' and @value='Button1']]/element[./attribute[@name='Name' and @value='Label']]/attribute[@name='Text']/@value\">Debug</replace>" +
+		"    <add sel=\"/element/element[./attribute[@name='Name' and @value='Button1']]\">" +
+		"        <element type=\"Text\">" +
+		"            <attribute name=\"Name\" value=\"KeyBinding\" />" +
+		"            <attribute name=\"Text\" value=\"SPACE\" />" +
+		"        </element>" +
+		"    </add>" +
+		"</patch>";
 }

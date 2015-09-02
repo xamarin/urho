@@ -198,4 +198,6 @@ public class _07_Billboards : Sample
 		// Set an initial position for the camera scene node above the plane
 		CameraNode.Position = new Vector3(0.0f, 5.0f, 0.0f);
 	}
+
+	protected override string JoystickLayoutPatch => JoystickLayoutPatches.WithDebugButton;
 }
