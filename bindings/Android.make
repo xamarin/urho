@@ -1,13 +1,10 @@
-# The CMake executable.
-CMAKE_COMMAND = "C:/Program Files (x86)/CMake/bin/cmake.exe"
-
 # ANDROID_NDK -- C:/Users/Egor/Documents/Android/ndk/android-ndk-r10d
 ANDK_DIR = $(ANDROID_NDK)
 ANDK_GCC = $(ANDK_DIR)/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-gcc.exe
 ANDK_GPP = $(ANDK_DIR)/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-g++.exe
 
 URHO3D_ANDROID_DIR = C:/Projects/urho_android
-URHO3D_SRC_DIR = C:/Projects/Urho3D
+URHO3D_SRC_DIR = ../Submodules/Urho3D
 
 C_FLAGS = -fexceptions -fPIC --sysroot=$(ANDK_DIR)/platforms/android-12/arch-x86 -funwind-tables -funswitch-loops -finline-limit=300 -fsigned-char -no-canonical-prefixes -fdata-sections -ffunction-sections -Wa,--noexecstack  -fstack-protector -fomit-frame-pointer -fstrict-aliasing -O3 -DNDEBUG -isystem $(ANDK_DIR)/platforms/android-12/arch-x86/usr/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/4.9/include/backward -I$(URHO3D_ANDROID_DIR)/include -I$(URHO3D_ANDROID_DIR)/include/Urho3D/ThirdParty -I$(URHO3D_ANDROID_DIR)/include/Urho3D/ThirdParty/Bullet -I$(URHO3D_SRC_DIR)/Source/Samples 
 

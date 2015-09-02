@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using static System.Console;
 
 namespace Urho
 {
@@ -8,29 +9,27 @@ namespace Urho
 		static void Main(string[] args)
 		{
 			Environment.CurrentDirectory = @"..\..\Submodules\Urho3D\bin";
-
 			var sample = GetSampleFromUserInput();
 			var code = sample.Run();
-			Console.WriteLine($"Exit code: {code}. Press any key to exit...");
-			Console.ReadKey();
+			WriteLine($"Exit code: {code}. Press any key to exit...");
 		}
 
 		static Sample GetSampleFromUserInput()
 		{
-			Console.WriteLine("Enter a sample number [1-40]:");
+			WriteLine("Enter a sample number [1-40]:");
 			var samples = typeof(Sample).Assembly.GetTypes().Where(t => t.BaseType == typeof(Sample)).ToArray();
 			string input = Console.ReadLine();
 			int number;
 			if (!int.TryParse(input, out number))
 			{
-				Console.WriteLine("Invalid format.");
+				WriteLine("Invalid format.");
 				return GetSampleFromUserInput();
 			}
 
 			var sample = samples.FirstOrDefault(s => s.Name.StartsWith($"_{number.ToString("00")}"));
 			if (sample == null)
 			{
-				Console.WriteLine("Sample was not found");
+				WriteLine("Sample was not found");
 				return GetSampleFromUserInput();
 			}
 

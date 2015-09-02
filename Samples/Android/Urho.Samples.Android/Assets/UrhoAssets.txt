@@ -1,5 +1,12 @@
-Make sure you've pulled out the Urho3D submodule.
-
-These folders are added as links:
+Drop here these folders from "Submodules\Urho3D\bin":
 - CoreData
 - Data
+
+They will be added once Xamarin Studio supports adding directories by link:
+
+  <ItemGroup>
+    <AndroidAsset Include="..\..\..\Submodules\Urho3D\bin\Data\**\*.*">
+      <Link>Assets\Data\%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
