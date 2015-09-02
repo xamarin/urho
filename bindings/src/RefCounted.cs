@@ -4,7 +4,6 @@
 //
 using System;
 using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
 using System.Threading;
 
 namespace Urho {
@@ -40,7 +39,7 @@ namespace Urho {
 				if (Thread.CurrentThread == MainThread)
 					RefCounted.RefCounted_ReleaseRef (handle);
 				else
-					lock (deadHandles)
+				lock (deadHandles)
 						deadHandles.Add (handle);
 				handle = IntPtr.Zero;
 			}

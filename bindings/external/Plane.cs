@@ -3,7 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace Urho
 {
-	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public struct Plane
 	{

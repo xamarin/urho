@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,6 +11,7 @@
     <AssemblyName>Urho</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -363,7 +364,6 @@
     <Compile Include="src\Math\EaseMath.cs" />
     <Compile Include="src\Math\SplineMath.cs" />
     <Compile Include="src\UrhoConsole.cs" />
-    <Compile Include="src\NativeToManagedStringMarshaler.cs" />
     <Compile Include="src\Collision.cs" />
     <Compile Include="src\Component.cs" />
     <Compile Include="src\Connection.cs" />
@@ -403,17 +403,8 @@
     <Compile Include="external\Vector4d.cs" />
     <Compile Include="external\Vector2.cs" />
     <Compile Include="external\Vector4.cs" />
-    <Compile Include="src\Utils\EnumerableExtensions.cs" />
-    <Compile Include="src\Utils\ExecutionContextWithId.cs" />
     <Compile Include="src\VertexBuffer.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

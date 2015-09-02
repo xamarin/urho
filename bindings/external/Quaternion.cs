@@ -32,7 +32,6 @@ namespace Urho
 	/// <summary>
 	/// Represents a Quaternion.
 	/// </summary>
-	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public struct Quaternion : IEquatable<Quaternion>
 	{

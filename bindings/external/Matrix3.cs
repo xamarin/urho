@@ -29,7 +29,6 @@ namespace Urho
 {
 	// Todo: Remove this warning when the code goes public.
 	#pragma warning disable 3019
-	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public struct Matrix3 : IEquatable<Matrix3>
 	{
@@ -273,7 +272,7 @@ namespace Urho
 		/// <param name="floatArray">The array of floats for the components of the matrix.</param>
 		public Matrix3(float[] floatArray)
 		{
-			if (floatArray == null || floatArray.GetLength(0) < 9) throw new MissingFieldException();
+			if (floatArray == null || floatArray.GetLength(0) < 9) throw new InvalidOperationException();
 
 			this.R0C0 = floatArray[0];
 			this.R0C1 = floatArray[1];

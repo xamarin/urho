@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{792AF649-1BB3-4242-8BA3-61F67E357B18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Urho.Samples</RootNamespace>
+    <AssemblyName>Urho.Samples</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="01_HelloWorld\HelloWorld.cs" />
+    <Compile Include="02_HelloGUI\HelloGUI.cs" />
+    <Compile Include="03_Sprites\Sprites.cs" />
+    <Compile Include="04_StaticScene\StaticScene.cs" />
+    <Compile Include="05_AnimatingScene\AnimatingScene.cs" />
+    <Compile Include="06_SkeletalAnimation\SkeletalAnimation.cs" />
+    <Compile Include="07_Billboards\Billboards.cs" />
+    <Compile Include="08_Decals\Decals.cs" />
+    <Compile Include="09_MultipleViewports\MultipleViewports.cs" />
+    <Compile Include="10_RenderToTexture\RenderToTexture.cs" />
+    <Compile Include="11_Physics\Physics.cs" />
+    <Compile Include="12_PhysicsStressTest\PhysicsStressTest.cs" />
+    <Compile Include="13_Ragdolls\Ragdolls.cs" />
+    <Compile Include="14_SoundEffects\SoundEffects.cs" />
+    <Compile Include="15_Navigation\Navigation.cs" />
+    <Compile Include="16_Chat\Chat.cs" />
+    <Compile Include="18_CharacterDemo\Character.cs" />
+    <Compile Include="18_CharacterDemo\CharacterDemo.cs" />
+    <Compile Include="18_CharacterDemo\Touch.cs" />
+    <Compile Include="19_VehicleDemo\Vehicle.cs" />
+    <Compile Include="19_VehicleDemo\VehicleDemo.cs" />
+    <Compile Include="20_HugeObjectCount\HugeObjectCount.cs" />
+    <Compile Include="23_Water\Water.cs" />
+    <Compile Include="24_Urho2DSprite\Urho2DSprite.cs" />
+    <Compile Include="25_Urho2DParticles\Urho2DParticle.cs" />
+    <Compile Include="26_ConsoleInput\ConsoleInput.cs" />
+    <Compile Include="27_Urho2DPhysics\Urho2DPhysics.cs" />
+    <Compile Include="28_Urho2DPhysicsRope\Urho2DPhysicsRope.cs" />
+    <Compile Include="29_SoundSynthesis\SoundSynthesis.cs" />
+    <Compile Include="30_LightAnimation\LightAnimation.cs" />
+    <Compile Include="31_MaterialAnimation\MaterialAnimation.cs" />
+    <Compile Include="32_Urho2DConstraints\Urho2DConstraints.cs" />
+    <Compile Include="33_Urho2DSpriterAnimation\Urho2DSpriterAnimation.cs" />
+    <Compile Include="34_DynamicGeometry\DynamicGeometry.cs" />
+    <Compile Include="35_SignedDistanceFieldText\SignedDistanceFieldText.cs" />
+    <Compile Include="36_Urho2DTileMap\Urho2DTileMap.cs" />
+    <Compile Include="37_UIDrag\UIDrag.cs" />
+    <Compile Include="38_SceneAndUILoad\SceneAndUILoad.cs" />
+    <Compile Include="39_CrowdNavigation\CrowdNavigation.cs" />
+    <Compile Include="40_Actions\Actions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sample.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\bindings\Urho.csproj">
+      <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
+      <Name>Urho</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

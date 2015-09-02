@@ -7,7 +7,6 @@
 // Copyrigh 2015 Xamarin INc
 //
 using System;
-using static System.Console;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Reflection;

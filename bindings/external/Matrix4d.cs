@@ -30,7 +30,6 @@ namespace Urho
 	/// <summary>
 	/// Represents a 4x4 Matrix with double-precision components.
 	/// </summary>
-	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public struct Matrix4d : IEquatable<Matrix4d>
 	{

@@ -7,10 +7,9 @@
 // Copyrigh 2015 Xamarin INc
 //
 using System;
-using static System.Console;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace Urho {
 	
@@ -45,14 +44,12 @@ namespace Urho {
 				// which is our constructor that auto registers classes initialized manually from
 				// pointers
 				expecting = ptr;
-				var o =  (T)Activator.CreateInstance (
-					typeof(T), BindingFlags.Instance|BindingFlags.NonPublic, null, new object [] { ptr }, null);
-				if (expecting != IntPtr.Zero)
+				var o = (T)Activator.CreateInstance (typeof(T), BindingFlags.Instance|BindingFlags.NonPublic, null, new object [] { ptr }, null);
+                if (expecting != IntPtr.Zero)
 					knownObjects [ptr] = new WeakReference<RefCounted> (o);
 				expecting = IntPtr.Zero;
 				return o;
 			} catch {
-				Console.WriteLine ($"Failed to instantiate a {typeof (T)} from {Environment.StackTrace}");
 				throw;
 			}
 		}

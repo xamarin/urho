@@ -118,12 +118,10 @@ namespace Urho {
 
 		public virtual void Setup ()
 		{
-			System.Console.WriteLine ("Your application does not override the Setup method, where you configure the engine");
 		}
 
 		public virtual void Start ()
 		{
-			System.Console.WriteLine ("Your application does not override the Start method, where you have access to UI elements");
 		}
 
 		public virtual void Stop ()

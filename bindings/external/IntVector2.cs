@@ -30,7 +30,6 @@ namespace Urho
 	/// <remarks>
 	/// The IntVector2 structure is suitable for interoperation with unmanaged code requiring two consecutive ints.
 	/// </remarks>
-	[Serializable]
 	[StructLayout(LayoutKind.Sequential)]
 	public struct IntVector2 : IEquatable<IntVector2>
 	{
