@@ -26,7 +26,7 @@ _ReSharper*/
 [Oo]bj/
 /Samples/Build
 /Samples/Android/Urho.Samples.Android/Assets
-/Submodules/Urho3D_Windows
-/Submodules/Urho3D_Android
-/Submodules/Urho3D_Mac
-/Submodules/Urho3D_IOS
+/Urho3D/Urho3D_Windows
+/Urho3D/Urho3D_Android
+/Urho3D/Urho3D_Mac
+/Urho3D/Urho3D_IOS
