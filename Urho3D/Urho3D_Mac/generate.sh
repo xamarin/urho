@@ -1,0 +1,1 @@
+./../Source/cmake_macos.sh ../Urho3D_Mac -DURHO3D_64BIT=1
