@@ -1,4 +1,4 @@
-URHO_DIR=../Submodules/Urho3D_Mac
+URHO_DIR=../Urho3D/Urho3D_Mac
 URHO_FLAGS=-I$(URHO_DIR)/include -I$(URHO_DIR)/include/kNet  -I$(URHO_DIR)/include/Urho3D/ThirdParty 
 URHO_LIBS=-L$(URHO_DIR)/lib -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices -lUrho3D -ldl -lpthread 
 NO_CLS_WARNINGS=-nowarn:3021
