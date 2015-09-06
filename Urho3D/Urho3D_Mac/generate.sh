@@ -1,1 +1,0 @@
-../Source/./cmake_macosx.sh ../Urho3D_Mac

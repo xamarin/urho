@@ -7,7 +7,7 @@ namespace Urho
 	{
 		static void Main(string[] args)
 		{
-			Environment.CurrentDirectory = @"../../Submodules/Urho3D/bin";
+			Environment.CurrentDirectory = @"../../Urho3D/Source/bin";
 			Sample sample = null;
 #if __MonoCS__
 			if (args.Length > 0)
