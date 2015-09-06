@@ -1,1 +1,0 @@
-../Source/./cmake_ios.sh ../Urho3D_iOS
