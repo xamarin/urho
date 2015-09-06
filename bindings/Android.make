@@ -45,8 +45,8 @@ ASDL.o: CreateBin
 	$(ANDK_GCC)  $(C_DEFINES) $(C_FLAGS) -o $(BIN_DIR)/tmp/SDL_android_main.c.o   -c $(URHO3D_SRC_DIR)/Source/ThirdParty/SDL/src/main/android/SDL_android_main.c
 
 GenerateUrho3DAndroid:
-	$(URHO3D_SRC_DIR)/./cmake_android.sh $(URHO3D_ANDROID_DIR) -DANDROID_ABI=$(ABI)
-
+	cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android && cmake -E chdir ../Urho3D_Android cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=$(CURDIR)/$(URHO3D_SRC_DIR)/CMake/Toolchains/android.toolchain.cmake .../Urho3D_Android -DANDROID=1 $(CURDIR)/$(URHO3D_SRC_DIR)/
+	
 AlibUrho3D.a: GenerateUrho3DAndroid
 	cd $(URHO3D_ANDROID_DIR) && make Urho3D
 
