@@ -8,7 +8,7 @@ BIN_DIR = ../Bin/Desktop
 
 # generates project and compiles it twice for both 32 and 64 bit. then uses lipo to merge into fat binary
 FatLibUrho3d.a:
-	cd ../Urho3D/Urho3D_Mac && chmod +x compile_fat_static_lib.sh && ./compile_fat_static_lib.sh
+	cd ../Urho3D/Urho3D_Mac && ./compile_fat_static_lib.sh
 
 Maclibmono-urho.dylib: 
 	mkdir -p $(BIN_DIR)
