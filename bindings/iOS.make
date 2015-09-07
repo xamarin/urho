@@ -1,8 +1,8 @@
 # armv7s, arm64, i386 (set TARGET to iPhoneSimulator)
-ARCH=armv7s
+ARCH=i386
 
 # iPhoneOS, iPhoneSimulator
-TARGET=iPhoneOS
+TARGET=iPhoneSimulator
 SDK_VER=8.4
 MIN_IOS_VER=7.0
 
@@ -17,7 +17,7 @@ XCODE_FRAMEWORKS=$(TARGET_BASE)/Developer/SDKs/$(TARGET)$(SDK_VER).sdk/System/Li
 XCODE_INCLUDES=$(TARGET_BASE)/Developer/SDKs/$(TARGET)$(SDK_VER).sdk/usr/include
 XCODE_SDK=$(XCODE_BASE)/Developer/Platforms/$(TARGET).platform/Developer/SDKs/$(TARGET)$(SDK_VER).sdk
 
-CPP=clang -arch $(ARCH) -F$(XCODE_FRAMEWORKS) -I$(XCODE_INCLUDES) -miphoneos-version-min=$(MIN_IOS_VER) -isysroot $(XCODE_SDK) $(CXXFLAGS) 
+CPP=clang++ -arch $(ARCH) -F$(XCODE_FRAMEWORKS) -I$(XCODE_INCLUDES) -miphoneos-version-min=$(MIN_IOS_VER) -isysroot $(XCODE_SDK) $(CXXFLAGS) 
 
 # generates project and compiles it (doesn't work for i386 yet)
 libUrho3D.a:
