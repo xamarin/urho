@@ -9,15 +9,16 @@ namespace Urho
 		{
 			Environment.CurrentDirectory = @"../../Urho3D/Source/bin";
 			Sample sample = null;
-#if __MonoCS__
+
 			if (args.Length > 0)
 			{
 				sample = ParseSampleFromNumber(args[0]);
 			}
-			else
-			{
-				sample = new _11_Physics(new Context());
-			}
+
+//no ReadLine for Mac:
+#if __MonoCS__
+			if (args.Length == 0)
+				sample = new _23_Water(new Context());
 #else
 			while (sample == null)
 			{
@@ -25,7 +26,7 @@ namespace Urho
 				sample = ParseSampleFromNumber(Console.ReadLine());
 			}
 #endif
-			var code = sample.Run();
+			var code = sample?.Run();
 			Console.WriteLine($"Exit code: {code}. Press any key to exit...");
 			Console.ReadKey();
 		}
