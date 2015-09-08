@@ -17,7 +17,7 @@ libUrho3D_64.a: Urho3D_Mac
 	cd $(URHO3D_MAC_DIR) && xcodebuild ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO -target Urho3D -configuration Release && mv lib/libUrho3D.a lib/libUrho3D_64.a
 
 libUrho3D_Fat.a: libUrho3D_32.a libUrho3D_64.a
-cd $(URHO3D_MAC_DIR) && lipo -create lib/32libUrho3D.a lib/64libUrho3D.a -output lib/libUrho3D.a
+	cd $(URHO3D_MAC_DIR) && lipo -create lib/libUrho3D_32.a lib/libUrho3D_64.a -output lib/libUrho3D.a
 
 Maclibmono-urho.dylib: libUrho3D_Fat.a Macbinding.o Macglue.o Macevents.o MacApplicationProxy.o Macvector.o 
 	mkdir -p $(OUTPUT_DIR) && c++  $(ARCH) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o vector.o events.o ApplicationProxy.o
