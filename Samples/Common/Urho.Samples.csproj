@@ -90,7 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\bindings\Urho.csproj">
-      <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
+      <Project>{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}</Project>
       <Name>Urho</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,11 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\bindings\Urho.csproj">
-      <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
+      <Project>{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}</Project>
       <Name>Urho</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Urho.Samples.csproj">
-      <Project>{792af649-1bb3-4242-8ba3-61f67e357b18}</Project>
+      <Project>{792AF649-1BB3-4242-8BA3-61F67E357B18}</Project>
       <Name>Urho.Samples</Name>
     </ProjectReference>
   </ItemGroup>

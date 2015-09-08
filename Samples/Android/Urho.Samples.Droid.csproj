@@ -14,7 +14,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Assets\CoreData\" />
+    <Folder Include="Assets\Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -98,4 +100,1578 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Materials\DefaultGrey.xml">
+      <Link>Assets\CoreData\Materials\DefaultGrey.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\RenderPaths\Deferred.xml">
+      <Link>Assets\CoreData\RenderPaths\Deferred.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\RenderPaths\DeferredHWDepth.xml">
+      <Link>Assets\CoreData\RenderPaths\DeferredHWDepth.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\RenderPaths\Forward.xml">
+      <Link>Assets\CoreData\RenderPaths\Forward.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\RenderPaths\ForwardDepth.xml">
+      <Link>Assets\CoreData\RenderPaths\ForwardDepth.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\RenderPaths\ForwardHWDepth.xml">
+      <Link>Assets\CoreData\RenderPaths\ForwardHWDepth.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\RenderPaths\Prepass.xml">
+      <Link>Assets\CoreData\RenderPaths\Prepass.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\RenderPaths\PrepassHDR.xml">
+      <Link>Assets\CoreData\RenderPaths\PrepassHDR.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\RenderPaths\PrepassHWDepth.xml">
+      <Link>Assets\CoreData\RenderPaths\PrepassHWDepth.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\AutoExposure.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\AutoExposure.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Basic.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Basic.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Bloom.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Bloom.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\BloomHDR.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\BloomHDR.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Blur.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Blur.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\ColorCorrection.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\ColorCorrection.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\CopyFramebuffer.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\CopyFramebuffer.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\DeferredLight.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\DeferredLight.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Depth.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Depth.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\FXAA2.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\FXAA2.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\FXAA3.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\FXAA3.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Fog.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Fog.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\GammaCorrection.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\GammaCorrection.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\GreyScale.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\GreyScale.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Lighting.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Lighting.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\LitParticle.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\LitParticle.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\LitSolid.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\LitSolid.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\PostProcess.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\PostProcess.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\PrepassLight.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\PrepassLight.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Samplers.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Samplers.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\ScreenPos.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\ScreenPos.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Shadow.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Shadow.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Skybox.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Skybox.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Stencil.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Stencil.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\TerrainBlend.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\TerrainBlend.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Text.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Text.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Tonemap.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Tonemap.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Transform.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Transform.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Uniforms.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Uniforms.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Unlit.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Unlit.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Urho2D.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Urho2D.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Vegetation.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Vegetation.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\VegetationDepth.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\VegetationDepth.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\VegetationShadow.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\VegetationShadow.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\GLSL\Water.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Water.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\AutoExposure.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\AutoExposure.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Basic.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Basic.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Bloom.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Bloom.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\BloomHDR.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\BloomHDR.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Blur.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Blur.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\ClearFramebuffer.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\ClearFramebuffer.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\ColorCorrection.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\ColorCorrection.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\CopyFramebuffer.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\CopyFramebuffer.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\DeferredLight.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\DeferredLight.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Depth.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Depth.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\FXAA2.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\FXAA2.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\FXAA3.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\FXAA3.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Fog.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Fog.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\GammaCorrection.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\GammaCorrection.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\GreyScale.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\GreyScale.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Lighting.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Lighting.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\LitParticle.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\LitParticle.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\LitSolid.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\LitSolid.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\PostProcess.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\PostProcess.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\PrepassLight.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\PrepassLight.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Samplers.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Samplers.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\ScreenPos.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\ScreenPos.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Shadow.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Shadow.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Skybox.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Skybox.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Stencil.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Stencil.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\TerrainBlend.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\TerrainBlend.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Text.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Text.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Tonemap.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Tonemap.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Transform.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Transform.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Uniforms.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Uniforms.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Unlit.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Unlit.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Urho2D.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Urho2D.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Vegetation.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Vegetation.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\VegetationDepth.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\VegetationDepth.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\VegetationShadow.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\VegetationShadow.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Shaders\HLSL\Water.hlsl">
+      <Link>Assets\CoreData\Shaders\HLSL\Water.hlsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\Diff.xml">
+      <Link>Assets\CoreData\Techniques\Diff.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffAO.xml">
+      <Link>Assets\CoreData\Techniques\DiffAO.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffAOAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffAOAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffAOAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffAOAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffAdd.xml">
+      <Link>Assets\CoreData\Techniques\DiffAdd.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffAddAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffAddAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffEmissive.xml">
+      <Link>Assets\CoreData\Techniques\DiffEmissive.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffEmissiveAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffEmissiveAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffEnvCube.xml">
+      <Link>Assets\CoreData\Techniques\DiffEnvCube.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffEnvCubeAO.xml">
+      <Link>Assets\CoreData\Techniques\DiffEnvCubeAO.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffEnvCubeAOAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffEnvCubeAOAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffEnvCubeAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffEnvCubeAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffLightMap.xml">
+      <Link>Assets\CoreData\Techniques\DiffLightMap.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffLightMapAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffLightMapAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffLitParticleAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffLitParticleAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffMultiply.xml">
+      <Link>Assets\CoreData\Techniques\DiffMultiply.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormal.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormal.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAO.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalAO.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAOAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalAOAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAOAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalAOAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalEmissive.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalEmissive.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalEmissiveAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalEmissiveAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalEnvCube.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalEnvCube.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalEnvCubeAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalEnvCubeAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPacked.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPacked.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAO.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedAO.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAOAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedAOAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAOAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedAOAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedEmissive.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedEmissive.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedEmissiveAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedEmissiveAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedEnvCube.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedEnvCube.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedEnvCubeAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedEnvCubeAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedSpec.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedSpec.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedSpecAO.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedSpecAO.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedSpecAOAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedSpecAOAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedSpecAOAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedSpecAOAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedSpecAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedSpecAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedSpecAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedSpecAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedSpecEmissive.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedSpecEmissive.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedSpecEmissiveAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedSpecEmissiveAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalSpec.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalSpec.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalSpecAO.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalSpecAO.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalSpecAOAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalSpecAOAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalSpecAOAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalSpecAOAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalSpecAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalSpecAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalSpecAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalSpecAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalSpecEmissive.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalSpecEmissive.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffNormalSpecEmissiveAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalSpecEmissiveAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffOverlay.xml">
+      <Link>Assets\CoreData\Techniques\DiffOverlay.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffSkybox.xml">
+      <Link>Assets\CoreData\Techniques\DiffSkybox.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffSkyplane.xml">
+      <Link>Assets\CoreData\Techniques\DiffSkyplane.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffSpec.xml">
+      <Link>Assets\CoreData\Techniques\DiffSpec.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffSpecAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffSpecAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffSpecAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffSpecAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffUnlit.xml">
+      <Link>Assets\CoreData\Techniques\DiffUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffUnlitAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffUnlitAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffUnlitAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\DiffUnlitAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffVCol.xml">
+      <Link>Assets\CoreData\Techniques\DiffVCol.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffVColAdd.xml">
+      <Link>Assets\CoreData\Techniques\DiffVColAdd.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffVColAddAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffVColAddAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffVColMultiply.xml">
+      <Link>Assets\CoreData\Techniques\DiffVColMultiply.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\DiffVColUnlitAlpha.xml">
+      <Link>Assets\CoreData\Techniques\DiffVColUnlitAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTexture.xml">
+      <Link>Assets\CoreData\Techniques\NoTexture.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureAO.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureAO.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureAOAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureAOAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureAdd.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureAdd.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureAddAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureAddAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureEnvCube.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureEnvCube.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureEnvCubeAO.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureEnvCubeAO.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureEnvCubeAOAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureEnvCubeAOAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureEnvCubeAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureEnvCubeAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureMultiply.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureMultiply.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureNormal.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureNormal.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureNormalAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureNormalAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureNormalPacked.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureNormalPacked.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureNormalPackedAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureNormalPackedAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureOverlay.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureOverlay.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureUnlit.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureUnlitAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureUnlitAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureUnlitVCol.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureUnlitVCol.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureVCol.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureVCol.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureVColAdd.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureVColAdd.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureVColAddAlpha.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureVColAddAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\NoTextureVColMultiply.xml">
+      <Link>Assets\CoreData\Techniques\NoTextureVColMultiply.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\TerrainBlend.xml">
+      <Link>Assets\CoreData\Techniques\TerrainBlend.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\VegetationDiff.xml">
+      <Link>Assets\CoreData\Techniques\VegetationDiff.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\VegetationDiffAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\VegetationDiffAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\VegetationDiffUnlit.xml">
+      <Link>Assets\CoreData\Techniques\VegetationDiffUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\VegetationDiffUnlitAlphaMask.xml">
+      <Link>Assets\CoreData\Techniques\VegetationDiffUnlitAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Techniques\Water.xml">
+      <Link>Assets\CoreData\Techniques\Water.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\LUTIdentity.png">
+      <Link>Assets\CoreData\Textures\LUTIdentity.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\LUTIdentity.xml">
+      <Link>Assets\CoreData\Textures\LUTIdentity.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\Ramp.png">
+      <Link>Assets\CoreData\Textures\Ramp.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\Ramp.xml">
+      <Link>Assets\CoreData\Textures\Ramp.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\RampExtreme.png">
+      <Link>Assets\CoreData\Textures\RampExtreme.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\RampExtreme.xml">
+      <Link>Assets\CoreData\Textures\RampExtreme.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\RampWide.png">
+      <Link>Assets\CoreData\Textures\RampWide.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\RampWide.xml">
+      <Link>Assets\CoreData\Textures\RampWide.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\Spot.png">
+      <Link>Assets\CoreData\Textures\Spot.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\Spot.xml">
+      <Link>Assets\CoreData\Textures\Spot.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\SpotWide.png">
+      <Link>Assets\CoreData\Textures\SpotWide.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\CoreData\Textures\SpotWide.xml">
+      <Link>Assets\CoreData\Textures\SpotWide.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\CommandLine.txt">
+      <Link>Assets\Data\CommandLine.txt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\NinjaSnowWarShaders.xml">
+      <Link>Assets\Data\NinjaSnowWarShaders.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Fonts\Anonymous Pro.png">
+      <Link>Assets\Data\Fonts\Anonymous Pro.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Fonts\Anonymous Pro.sdf">
+      <Link>Assets\Data\Fonts\Anonymous Pro.sdf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Fonts\Anonymous Pro.ttf">
+      <Link>Assets\Data\Fonts\Anonymous Pro.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Fonts\BlueHighway.png">
+      <Link>Assets\Data\Fonts\BlueHighway.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Fonts\BlueHighway.sdf">
+      <Link>Assets\Data\Fonts\BlueHighway.sdf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Fonts\BlueHighway.ttf">
+      <Link>Assets\Data\Fonts\BlueHighway.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Fonts\OFL.txt">
+      <Link>Assets\Data\Fonts\OFL.txt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Fonts\read_me.html">
+      <Link>Assets\Data\Fonts\read_me.html</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\01_HelloWorld.lua">
+      <Link>Assets\Data\LuaScripts\01_HelloWorld.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\02_HelloGUI.lua">
+      <Link>Assets\Data\LuaScripts\02_HelloGUI.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\03_Sprites.lua">
+      <Link>Assets\Data\LuaScripts\03_Sprites.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\04_StaticScene.lua">
+      <Link>Assets\Data\LuaScripts\04_StaticScene.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\05_AnimatingScene.lua">
+      <Link>Assets\Data\LuaScripts\05_AnimatingScene.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\06_SkeletalAnimation.lua">
+      <Link>Assets\Data\LuaScripts\06_SkeletalAnimation.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\07_Billboards.lua">
+      <Link>Assets\Data\LuaScripts\07_Billboards.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\08_Decals.lua">
+      <Link>Assets\Data\LuaScripts\08_Decals.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\09_MultipleViewports.lua">
+      <Link>Assets\Data\LuaScripts\09_MultipleViewports.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\10_RenderToTexture.lua">
+      <Link>Assets\Data\LuaScripts\10_RenderToTexture.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\11_Physics.lua">
+      <Link>Assets\Data\LuaScripts\11_Physics.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\12_PhysicsStressTest.lua">
+      <Link>Assets\Data\LuaScripts\12_PhysicsStressTest.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\13_Ragdolls.lua">
+      <Link>Assets\Data\LuaScripts\13_Ragdolls.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\14_SoundEffects.lua">
+      <Link>Assets\Data\LuaScripts\14_SoundEffects.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\15_Navigation.lua">
+      <Link>Assets\Data\LuaScripts\15_Navigation.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\16_Chat.lua">
+      <Link>Assets\Data\LuaScripts\16_Chat.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\17_SceneReplication.lua">
+      <Link>Assets\Data\LuaScripts\17_SceneReplication.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\18_CharacterDemo.lua">
+      <Link>Assets\Data\LuaScripts\18_CharacterDemo.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\19_VehicleDemo.lua">
+      <Link>Assets\Data\LuaScripts\19_VehicleDemo.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\20_HugeObjectCount.lua">
+      <Link>Assets\Data\LuaScripts\20_HugeObjectCount.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\23_Water.lua">
+      <Link>Assets\Data\LuaScripts\23_Water.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\24_Urho2DSprite.lua">
+      <Link>Assets\Data\LuaScripts\24_Urho2DSprite.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\25_Urho2DParticle.lua">
+      <Link>Assets\Data\LuaScripts\25_Urho2DParticle.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\26_ConsoleInput.lua">
+      <Link>Assets\Data\LuaScripts\26_ConsoleInput.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\27_Urho2DPhysics.lua">
+      <Link>Assets\Data\LuaScripts\27_Urho2DPhysics.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\28_Urho2DPhysicsRope.lua">
+      <Link>Assets\Data\LuaScripts\28_Urho2DPhysicsRope.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\30_LightAnimation.lua">
+      <Link>Assets\Data\LuaScripts\30_LightAnimation.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\31_MaterialAnimation.lua">
+      <Link>Assets\Data\LuaScripts\31_MaterialAnimation.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\32_Urho2DConstraints.lua">
+      <Link>Assets\Data\LuaScripts\32_Urho2DConstraints.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\33_Urho2DSpriterAnimation.lua">
+      <Link>Assets\Data\LuaScripts\33_Urho2DSpriterAnimation.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\34_DynamicGeometry.lua">
+      <Link>Assets\Data\LuaScripts\34_DynamicGeometry.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\35_SignedDistanceFieldText.lua">
+      <Link>Assets\Data\LuaScripts\35_SignedDistanceFieldText.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\36_Urho2DTileMap.lua">
+      <Link>Assets\Data\LuaScripts\36_Urho2DTileMap.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\37_UIDrag.lua">
+      <Link>Assets\Data\LuaScripts\37_UIDrag.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\38_SceneAndUILoad.lua">
+      <Link>Assets\Data\LuaScripts\38_SceneAndUILoad.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\39_CrowdNavigation.lua">
+      <Link>Assets\Data\LuaScripts\39_CrowdNavigation.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\Rotator.lua">
+      <Link>Assets\Data\LuaScripts\Rotator.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\TestScene.lua">
+      <Link>Assets\Data\LuaScripts\TestScene.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\Utilities\Network.lua">
+      <Link>Assets\Data\LuaScripts\Utilities\Network.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\Utilities\Sample.lua">
+      <Link>Assets\Data\LuaScripts\Utilities\Sample.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\Utilities\ScriptCompiler.lua">
+      <Link>Assets\Data\LuaScripts\Utilities\ScriptCompiler.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\LuaScripts\Utilities\Touch.lua">
+      <Link>Assets\Data\LuaScripts\Utilities\Touch.lua</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\GreenTransparent.xml">
+      <Link>Assets\Data\Materials\GreenTransparent.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Jack.xml">
+      <Link>Assets\Data\Materials\Jack.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\JackEnvMap.xml">
+      <Link>Assets\Data\Materials\JackEnvMap.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\LitSmoke.xml">
+      <Link>Assets\Data\Materials\LitSmoke.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Mushroom.xml">
+      <Link>Assets\Data\Materials\Mushroom.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\MushroomEnvMap.xml">
+      <Link>Assets\Data\Materials\MushroomEnvMap.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\MushroomWind.xml">
+      <Link>Assets\Data\Materials\MushroomWind.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\MushroomWindUnlit.xml">
+      <Link>Assets\Data\Materials\MushroomWindUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Particle.xml">
+      <Link>Assets\Data\Materials\Particle.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Skybox.xml">
+      <Link>Assets\Data\Materials\Skybox.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Smoke.xml">
+      <Link>Assets\Data\Materials\Smoke.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Stone.xml">
+      <Link>Assets\Data\Materials\Stone.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\StoneEnvMap.xml">
+      <Link>Assets\Data\Materials\StoneEnvMap.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\StoneEnvMapSmall.xml">
+      <Link>Assets\Data\Materials\StoneEnvMapSmall.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\StoneSmall.xml">
+      <Link>Assets\Data\Materials\StoneSmall.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\StoneTiled.xml">
+      <Link>Assets\Data\Materials\StoneTiled.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\StoneTiledH.xml">
+      <Link>Assets\Data\Materials\StoneTiledH.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Terrain.xml">
+      <Link>Assets\Data\Materials\Terrain.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\UrhoDecal.xml">
+      <Link>Assets\Data\Materials\UrhoDecal.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\UrhoDecalAlpha.xml">
+      <Link>Assets\Data\Materials\UrhoDecalAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\VColUnlit.xml">
+      <Link>Assets\Data\Materials\VColUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Water.xml">
+      <Link>Assets\Data\Materials\Water.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Editor\BlueUnlit.xml">
+      <Link>Assets\Data\Materials\Editor\BlueUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Editor\BrightBlueUnlit.xml">
+      <Link>Assets\Data\Materials\Editor\BrightBlueUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Editor\BrightGreenUnlit.xml">
+      <Link>Assets\Data\Materials\Editor\BrightGreenUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Editor\BrightRedUnlit.xml">
+      <Link>Assets\Data\Materials\Editor\BrightRedUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Editor\GreenUnlit.xml">
+      <Link>Assets\Data\Materials\Editor\GreenUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Editor\RedUnlit.xml">
+      <Link>Assets\Data\Materials\Editor\RedUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\Editor\TexturedUnlit.xml">
+      <Link>Assets\Data\Materials\Editor\TexturedUnlit.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\NinjaSnowWar\CloudPlane.xml">
+      <Link>Assets\Data\Materials\NinjaSnowWar\CloudPlane.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\NinjaSnowWar\Ninja.xml">
+      <Link>Assets\Data\Materials\NinjaSnowWar\Ninja.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\NinjaSnowWar\Potion.xml">
+      <Link>Assets\Data\Materials\NinjaSnowWar\Potion.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\NinjaSnowWar\Snow.xml">
+      <Link>Assets\Data\Materials\NinjaSnowWar\Snow.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Materials\NinjaSnowWar\SnowCrate.xml">
+      <Link>Assets\Data\Materials\NinjaSnowWar\SnowCrate.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Box.mdl">
+      <Link>Assets\Data\Models\Box.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Cone.mdl">
+      <Link>Assets\Data\Models\Cone.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Cylinder.mdl">
+      <Link>Assets\Data\Models\Cylinder.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Dome.mdl">
+      <Link>Assets\Data\Models\Dome.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Jack.mdl">
+      <Link>Assets\Data\Models\Jack.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Jack_Walk.ani">
+      <Link>Assets\Data\Models\Jack_Walk.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Mushroom.mdl">
+      <Link>Assets\Data\Models\Mushroom.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Plane.mdl">
+      <Link>Assets\Data\Models\Plane.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Pyramid.mdl">
+      <Link>Assets\Data\Models\Pyramid.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Sphere.mdl">
+      <Link>Assets\Data\Models\Sphere.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\TeaPot.mdl">
+      <Link>Assets\Data\Models\TeaPot.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Torus.mdl">
+      <Link>Assets\Data\Models\Torus.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Editor\Axes.mdl">
+      <Link>Assets\Data\Models\Editor\Axes.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Editor\ImagePlane.mdl">
+      <Link>Assets\Data\Models\Editor\ImagePlane.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Editor\RotateAxes.mdl">
+      <Link>Assets\Data\Models\Editor\RotateAxes.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\Editor\ScaleAxes.mdl">
+      <Link>Assets\Data\Models\Editor\ScaleAxes.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\CloudPlane.mdl">
+      <Link>Assets\Data\Models\NinjaSnowWar\CloudPlane.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Level.mdl">
+      <Link>Assets\Data\Models\NinjaSnowWar\Level.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja.mdl">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Attack1.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Attack1.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Attack2.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Attack2.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Attack3.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Attack3.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Backflip.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Backflip.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Block.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Block.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Climb.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Climb.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Crouch.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Crouch.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Death1.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Death1.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Death2.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Death2.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_HighJump.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_HighJump.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Idle1.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Idle1.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Idle2.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Idle2.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Idle3.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Idle3.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Jump.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Jump.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_JumpNoHeight.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_JumpNoHeight.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Kick.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Kick.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_SideKick.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_SideKick.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Spin.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Spin.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Stealth.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Stealth.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Stealth.xml">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Stealth.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Walk.ani">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Walk.ani</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Ninja_Walk.xml">
+      <Link>Assets\Data\Models\NinjaSnowWar\Ninja_Walk.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\Potion.mdl">
+      <Link>Assets\Data\Models\NinjaSnowWar\Potion.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\SnowBall.mdl">
+      <Link>Assets\Data\Models\NinjaSnowWar\SnowBall.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Models\NinjaSnowWar\SnowCrate.mdl">
+      <Link>Assets\Data\Models\NinjaSnowWar\SnowCrate.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Music\Ninja Gods.ogg">
+      <Link>Assets\Data\Music\Ninja Gods.ogg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Objects\LightFlash.xml">
+      <Link>Assets\Data\Objects\LightFlash.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Objects\Ninja.xml">
+      <Link>Assets\Data\Objects\Ninja.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Objects\Potion.xml">
+      <Link>Assets\Data\Objects\Potion.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Objects\SnowBall.xml">
+      <Link>Assets\Data\Objects\SnowBall.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Objects\SnowCrate.xml">
+      <Link>Assets\Data\Objects\SnowCrate.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Particle\Disco.xml">
+      <Link>Assets\Data\Particle\Disco.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Particle\Fire.xml">
+      <Link>Assets\Data\Particle\Fire.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Particle\Smoke.xml">
+      <Link>Assets\Data\Particle\Smoke.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Particle\SmokeStack.xml">
+      <Link>Assets\Data\Particle\SmokeStack.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Particle\SnowExplosion.xml">
+      <Link>Assets\Data\Particle\SnowExplosion.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Particle\SnowExplosionBig.xml">
+      <Link>Assets\Data\Particle\SnowExplosionBig.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Particle\SnowExplosionFade.xml">
+      <Link>Assets\Data\Particle\SnowExplosionFade.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\AutoExposure.xml">
+      <Link>Assets\Data\PostProcess\AutoExposure.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\Bloom.xml">
+      <Link>Assets\Data\PostProcess\Bloom.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\BloomHDR.xml">
+      <Link>Assets\Data\PostProcess\BloomHDR.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\Blur.xml">
+      <Link>Assets\Data\PostProcess\Blur.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\ColorCorrection.xml">
+      <Link>Assets\Data\PostProcess\ColorCorrection.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\FXAA2.xml">
+      <Link>Assets\Data\PostProcess\FXAA2.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\FXAA3.xml">
+      <Link>Assets\Data\PostProcess\FXAA3.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\GammaCorrection.xml">
+      <Link>Assets\Data\PostProcess\GammaCorrection.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\GreyScale.xml">
+      <Link>Assets\Data\PostProcess\GreyScale.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\PostProcess\Tonemap.xml">
+      <Link>Assets\Data\PostProcess\Tonemap.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scenes\NinjaSnowWar.xml">
+      <Link>Assets\Data\Scenes\NinjaSnowWar.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scenes\SceneLoadExample.xml">
+      <Link>Assets\Data\Scenes\SceneLoadExample.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\01_HelloWorld.as">
+      <Link>Assets\Data\Scripts\01_HelloWorld.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\02_HelloGUI.as">
+      <Link>Assets\Data\Scripts\02_HelloGUI.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\03_Sprites.as">
+      <Link>Assets\Data\Scripts\03_Sprites.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\04_StaticScene.as">
+      <Link>Assets\Data\Scripts\04_StaticScene.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\05_AnimatingScene.as">
+      <Link>Assets\Data\Scripts\05_AnimatingScene.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\06_SkeletalAnimation.as">
+      <Link>Assets\Data\Scripts\06_SkeletalAnimation.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\07_Billboards.as">
+      <Link>Assets\Data\Scripts\07_Billboards.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\08_Decals.as">
+      <Link>Assets\Data\Scripts\08_Decals.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\09_MultipleViewports.as">
+      <Link>Assets\Data\Scripts\09_MultipleViewports.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\10_RenderToTexture.as">
+      <Link>Assets\Data\Scripts\10_RenderToTexture.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\11_Physics.as">
+      <Link>Assets\Data\Scripts\11_Physics.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\12_PhysicsStressTest.as">
+      <Link>Assets\Data\Scripts\12_PhysicsStressTest.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\13_Ragdolls.as">
+      <Link>Assets\Data\Scripts\13_Ragdolls.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\14_SoundEffects.as">
+      <Link>Assets\Data\Scripts\14_SoundEffects.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\15_Navigation.as">
+      <Link>Assets\Data\Scripts\15_Navigation.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\16_Chat.as">
+      <Link>Assets\Data\Scripts\16_Chat.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\17_SceneReplication.as">
+      <Link>Assets\Data\Scripts\17_SceneReplication.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\18_CharacterDemo.as">
+      <Link>Assets\Data\Scripts\18_CharacterDemo.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\19_VehicleDemo.as">
+      <Link>Assets\Data\Scripts\19_VehicleDemo.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\20_HugeObjectCount.as">
+      <Link>Assets\Data\Scripts\20_HugeObjectCount.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\23_Water.as">
+      <Link>Assets\Data\Scripts\23_Water.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\24_Urho2DSprite.as">
+      <Link>Assets\Data\Scripts\24_Urho2DSprite.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\25_Urho2DParticle.as">
+      <Link>Assets\Data\Scripts\25_Urho2DParticle.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\26_ConsoleInput.as">
+      <Link>Assets\Data\Scripts\26_ConsoleInput.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\27_Urho2DPhysics.as">
+      <Link>Assets\Data\Scripts\27_Urho2DPhysics.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\28_Urho2DPhysicsRope.as">
+      <Link>Assets\Data\Scripts\28_Urho2DPhysicsRope.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\30_LightAnimation.as">
+      <Link>Assets\Data\Scripts\30_LightAnimation.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\31_MaterialAnimation.as">
+      <Link>Assets\Data\Scripts\31_MaterialAnimation.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\32_Urho2DConstraints.as">
+      <Link>Assets\Data\Scripts\32_Urho2DConstraints.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\33_Urho2DSpriterAnimation.as">
+      <Link>Assets\Data\Scripts\33_Urho2DSpriterAnimation.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\34_DynamicGeometry.as">
+      <Link>Assets\Data\Scripts\34_DynamicGeometry.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\35_SignedDistanceFieldText.as">
+      <Link>Assets\Data\Scripts\35_SignedDistanceFieldText.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\36_Urho2DTileMap.as">
+      <Link>Assets\Data\Scripts\36_Urho2DTileMap.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\37_UIDrag.as">
+      <Link>Assets\Data\Scripts\37_UIDrag.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\38_SceneAndUILoad.as">
+      <Link>Assets\Data\Scripts\38_SceneAndUILoad.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\39_CrowdNavigation.as">
+      <Link>Assets\Data\Scripts\39_CrowdNavigation.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor.as">
+      <Link>Assets\Data\Scripts\Editor.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Rotator.as">
+      <Link>Assets\Data\Scripts\Rotator.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\AttributeEditor.as">
+      <Link>Assets\Data\Scripts\Editor\AttributeEditor.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorActions.as">
+      <Link>Assets\Data\Scripts\Editor\EditorActions.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorGizmo.as">
+      <Link>Assets\Data\Scripts\Editor\EditorGizmo.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorHierarchyWindow.as">
+      <Link>Assets\Data\Scripts\Editor\EditorHierarchyWindow.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorImport.as">
+      <Link>Assets\Data\Scripts\Editor\EditorImport.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorInspectorWindow.as">
+      <Link>Assets\Data\Scripts\Editor\EditorInspectorWindow.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorMaterial.as">
+      <Link>Assets\Data\Scripts\Editor\EditorMaterial.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorParticleEffect.as">
+      <Link>Assets\Data\Scripts\Editor\EditorParticleEffect.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorPreferences.as">
+      <Link>Assets\Data\Scripts\Editor\EditorPreferences.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorResourceBrowser.as">
+      <Link>Assets\Data\Scripts\Editor\EditorResourceBrowser.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorScene.as">
+      <Link>Assets\Data\Scripts\Editor\EditorScene.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorSecondaryToolbar.as">
+      <Link>Assets\Data\Scripts\Editor\EditorSecondaryToolbar.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorSettings.as">
+      <Link>Assets\Data\Scripts\Editor\EditorSettings.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorSoundType.as">
+      <Link>Assets\Data\Scripts\Editor\EditorSoundType.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorSpawn.as">
+      <Link>Assets\Data\Scripts\Editor\EditorSpawn.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorToolBar.as">
+      <Link>Assets\Data\Scripts\Editor\EditorToolBar.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorUI.as">
+      <Link>Assets\Data\Scripts\Editor\EditorUI.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorUIElement.as">
+      <Link>Assets\Data\Scripts\Editor\EditorUIElement.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Editor\EditorView.as">
+      <Link>Assets\Data\Scripts\Editor\EditorView.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\AIController.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\AIController.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\FootSteps.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\FootSteps.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\GameObject.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\GameObject.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\LightFlash.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\LightFlash.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\Ninja.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\Ninja.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\Player.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\Player.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\Potion.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\Potion.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\SnowBall.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\SnowBall.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\NinjaSnowWar\SnowCrate.as">
+      <Link>Assets\Data\Scripts\NinjaSnowWar\SnowCrate.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Utilities\Network.as">
+      <Link>Assets\Data\Scripts\Utilities\Network.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Utilities\Sample.as">
+      <Link>Assets\Data\Scripts\Utilities\Sample.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Scripts\Utilities\Touch.as">
+      <Link>Assets\Data\Scripts\Utilities\Touch.as</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Sounds\BigExplosion.wav">
+      <Link>Assets\Data\Sounds\BigExplosion.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Sounds\NutThrow.wav">
+      <Link>Assets\Data\Sounds\NutThrow.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Sounds\PlayerFist.wav">
+      <Link>Assets\Data\Sounds\PlayerFist.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Sounds\PlayerFistHit.wav">
+      <Link>Assets\Data\Sounds\PlayerFistHit.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Sounds\PlayerLand.wav">
+      <Link>Assets\Data\Sounds\PlayerLand.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Sounds\Powerup.wav">
+      <Link>Assets\Data\Sounds\Powerup.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Sounds\SmallExplosion.wav">
+      <Link>Assets\Data\Sounds\SmallExplosion.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\BrightDay1_NegX.dds">
+      <Link>Assets\Data\Textures\BrightDay1_NegX.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\BrightDay1_NegY.dds">
+      <Link>Assets\Data\Textures\BrightDay1_NegY.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\BrightDay1_NegZ.dds">
+      <Link>Assets\Data\Textures\BrightDay1_NegZ.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\BrightDay1_PosX.dds">
+      <Link>Assets\Data\Textures\BrightDay1_PosX.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\BrightDay1_PosY.dds">
+      <Link>Assets\Data\Textures\BrightDay1_PosY.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\BrightDay1_PosZ.dds">
+      <Link>Assets\Data\Textures\BrightDay1_PosZ.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Flare.dds">
+      <Link>Assets\Data\Textures\Flare.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\HeightMap.png">
+      <Link>Assets\Data\Textures\HeightMap.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Jack_body_color.jpg">
+      <Link>Assets\Data\Textures\Jack_body_color.jpg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Jack_face.jpg">
+      <Link>Assets\Data\Textures\Jack_face.jpg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Logo.png">
+      <Link>Assets\Data\Textures\Logo.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Logo.xml">
+      <Link>Assets\Data\Textures\Logo.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\LogoLarge.png">
+      <Link>Assets\Data\Textures\LogoLarge.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\LogoLarge.xml">
+      <Link>Assets\Data\Textures\LogoLarge.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Mushroom.dds">
+      <Link>Assets\Data\Textures\Mushroom.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\OldUI.png">
+      <Link>Assets\Data\Textures\OldUI.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\OldUI.xml">
+      <Link>Assets\Data\Textures\OldUI.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Skybox.xml">
+      <Link>Assets\Data\Textures\Skybox.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Smoke.dds">
+      <Link>Assets\Data\Textures\Smoke.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\StoneDiffuse.dds">
+      <Link>Assets\Data\Textures\StoneDiffuse.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\StoneNormal.dds">
+      <Link>Assets\Data\Textures\StoneNormal.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\TerrainDetail1.dds">
+      <Link>Assets\Data\Textures\TerrainDetail1.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\TerrainDetail2.dds">
+      <Link>Assets\Data\Textures\TerrainDetail2.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\TerrainDetail3.dds">
+      <Link>Assets\Data\Textures\TerrainDetail3.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\TerrainWeights.dds">
+      <Link>Assets\Data\Textures\TerrainWeights.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\TouchInput.png">
+      <Link>Assets\Data\Textures\TouchInput.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\UI.png">
+      <Link>Assets\Data\Textures\UI.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\UI.xml">
+      <Link>Assets\Data\Textures\UI.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\UrhoDecal.dds">
+      <Link>Assets\Data\Textures\UrhoDecal.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\UrhoDecalAlpha.dds">
+      <Link>Assets\Data\Textures\UrhoDecalAlpha.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\UrhoIcon.icns">
+      <Link>Assets\Data\Textures\UrhoIcon.icns</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\UrhoIcon.png">
+      <Link>Assets\Data\Textures\UrhoIcon.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\WaterNoise.dds">
+      <Link>Assets\Data\Textures\WaterNoise.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Editor\EditorIcons.png">
+      <Link>Assets\Data\Textures\Editor\EditorIcons.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Editor\EditorIcons.xml">
+      <Link>Assets\Data\Textures\Editor\EditorIcons.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\Editor\NoPreviewAvailable.png">
+      <Link>Assets\Data\Textures\Editor\NoPreviewAvailable.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\NinjaSnowWar\CloudPlane.dds">
+      <Link>Assets\Data\Textures\NinjaSnowWar\CloudPlane.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\NinjaSnowWar\HealthBarBorder.png">
+      <Link>Assets\Data\Textures\NinjaSnowWar\HealthBarBorder.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\NinjaSnowWar\HealthBarInside.png">
+      <Link>Assets\Data\Textures\NinjaSnowWar\HealthBarInside.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\NinjaSnowWar\Ninja.dds">
+      <Link>Assets\Data\Textures\NinjaSnowWar\Ninja.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\NinjaSnowWar\Sight.png">
+      <Link>Assets\Data\Textures\NinjaSnowWar\Sight.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\NinjaSnowWar\Sight.xml">
+      <Link>Assets\Data\Textures\NinjaSnowWar\Sight.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\NinjaSnowWar\Snow.dds">
+      <Link>Assets\Data\Textures\NinjaSnowWar\Snow.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Textures\NinjaSnowWar\SnowCrate.dds">
+      <Link>Assets\Data\Textures\NinjaSnowWar\SnowCrate.dds</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\DefaultStyle.xml">
+      <Link>Assets\Data\UI\DefaultStyle.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorContextMenu.xml">
+      <Link>Assets\Data\UI\EditorContextMenu.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorHierarchyWindow.xml">
+      <Link>Assets\Data\UI\EditorHierarchyWindow.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorIcons.xml">
+      <Link>Assets\Data\UI\EditorIcons.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorInspectorWindow.xml">
+      <Link>Assets\Data\UI\EditorInspectorWindow.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorInspector_Attribute.xml">
+      <Link>Assets\Data\UI\EditorInspector_Attribute.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorInspector_Style.xml">
+      <Link>Assets\Data\UI\EditorInspector_Style.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorInspector_Variable.xml">
+      <Link>Assets\Data\UI\EditorInspector_Variable.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorMaterialWindow.xml">
+      <Link>Assets\Data\UI\EditorMaterialWindow.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorParticleEffectWindow.xml">
+      <Link>Assets\Data\UI\EditorParticleEffectWindow.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorPreferencesDialog.xml">
+      <Link>Assets\Data\UI\EditorPreferencesDialog.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorQuickMenu.xml">
+      <Link>Assets\Data\UI\EditorQuickMenu.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorResourceBrowser.xml">
+      <Link>Assets\Data\UI\EditorResourceBrowser.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorResourceFilterWindow.xml">
+      <Link>Assets\Data\UI\EditorResourceFilterWindow.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorSettingsDialog.xml">
+      <Link>Assets\Data\UI\EditorSettingsDialog.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorSoundTypeWindow.xml">
+      <Link>Assets\Data\UI\EditorSoundTypeWindow.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorSpawnWindow.xml">
+      <Link>Assets\Data\UI\EditorSpawnWindow.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\EditorViewport.xml">
+      <Link>Assets\Data\UI\EditorViewport.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\MessageBox.xml">
+      <Link>Assets\Data\UI\MessageBox.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\OldStyle.xml">
+      <Link>Assets\Data\UI\OldStyle.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\ScreenJoystick.xml">
+      <Link>Assets\Data\UI\ScreenJoystick.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\ScreenJoystickSettings.xml">
+      <Link>Assets\Data\UI\ScreenJoystickSettings.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\ScreenJoystickSettings_NinjaSnowWar.xml">
+      <Link>Assets\Data\UI\ScreenJoystickSettings_NinjaSnowWar.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\ScreenJoystickSettings_Samples.xml">
+      <Link>Assets\Data\UI\ScreenJoystickSettings_Samples.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\ScreenJoystick_NinjaSnowWar.xml">
+      <Link>Assets\Data\UI\ScreenJoystick_NinjaSnowWar.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\ScreenJoystick_Samples.xml">
+      <Link>Assets\Data\UI\ScreenJoystick_Samples.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\UI\UILoadExample.xml">
+      <Link>Assets\Data\UI\UILoadExample.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\Aster.png">
+      <Link>Assets\Data\Urho2D\Aster.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\Ball.png">
+      <Link>Assets\Data\Urho2D\Ball.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\Box.png">
+      <Link>Assets\Data\Urho2D\Box.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\GoldIcon.png">
+      <Link>Assets\Data\Urho2D\GoldIcon.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\GoldIcon.scml">
+      <Link>Assets\Data\Urho2D\GoldIcon.scml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\GoldIcon.xml">
+      <Link>Assets\Data\Urho2D\GoldIcon.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\greenspiral.pex">
+      <Link>Assets\Data\Urho2D\greenspiral.pex</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\greenspiral.png">
+      <Link>Assets\Data\Urho2D\greenspiral.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\isometric_grass_and_water.png">
+      <Link>Assets\Data\Urho2D\isometric_grass_and_water.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\isometric_grass_and_water.tmx">
+      <Link>Assets\Data\Urho2D\isometric_grass_and_water.tmx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\sun.pex">
+      <Link>Assets\Data\Urho2D\sun.pex</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\sun.png">
+      <Link>Assets\Data\Urho2D\sun.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\GoldIcon\1.png">
+      <Link>Assets\Data\Urho2D\GoldIcon\1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\GoldIcon\2.png">
+      <Link>Assets\Data\Urho2D\GoldIcon\2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\GoldIcon\3.png">
+      <Link>Assets\Data\Urho2D\GoldIcon\3.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\GoldIcon\4.png">
+      <Link>Assets\Data\Urho2D\GoldIcon\4.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\GoldIcon\5.png">
+      <Link>Assets\Data\Urho2D\GoldIcon\5.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp.scml">
+      <Link>Assets\Data\Urho2D\imp\imp.scml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp.txt">
+      <Link>Assets\Data\Urho2D\imp\imp.txt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp.xml">
+      <Link>Assets\Data\Urho2D\imp\imp.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_all.png">
+      <Link>Assets\Data\Urho2D\imp\imp_all.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_all.xml">
+      <Link>Assets\Data\Urho2D\imp\imp_all.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_blood.png">
+      <Link>Assets\Data\Urho2D\imp\imp_blood.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_body.png">
+      <Link>Assets\Data\Urho2D\imp\imp_body.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_footbig.png">
+      <Link>Assets\Data\Urho2D\imp\imp_footbig.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_footsmall.png">
+      <Link>Assets\Data\Urho2D\imp\imp_footsmall.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_handbig.png">
+      <Link>Assets\Data\Urho2D\imp\imp_handbig.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_handsmall.png">
+      <Link>Assets\Data\Urho2D\imp\imp_handsmall.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_handthrow.png">
+      <Link>Assets\Data\Urho2D\imp\imp_handthrow.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_head.png">
+      <Link>Assets\Data\Urho2D\imp\imp_head.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_headangry.png">
+      <Link>Assets\Data\Urho2D\imp\imp_headangry.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Urho3D\Source\bin\Data\Urho2D\imp\imp_headblink.png">
+      <Link>Assets\Data\Urho2D\imp\imp_headblink.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
 </Project>
