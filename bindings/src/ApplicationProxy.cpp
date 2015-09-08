@@ -11,33 +11,60 @@
 
 using namespace Urho3D;
 sdl_callback sdlCallback;
-
-DllExport void *
-ApplicationProxy_ApplicationProxy (Context *context, callback_t setup, callback_t start, callback_t stop)
-{
-	return new ApplicationProxy (context, setup, start, stop);
-}
-
-DllExport void
-RegisterSdlLauncher(sdl_callback callback)
-{
-	sdlCallback = callback;
-}
+const char *sdlResourceDir;
+const char *sdlDocumentsDir;
 
 extern "C" {
-DllExport void *
-Application_GetEngine (ApplicationProxy *application)
-{
-	return application->GetEngine ();
-}
+	
+	DllExport void *
+	ApplicationProxy_ApplicationProxy (Context *context, callback_t setup, callback_t start, callback_t stop)
+	{
+		return new ApplicationProxy (context, setup, start, stop);
+	}
+
+	DllExport void *
+	Application_GetEngine (ApplicationProxy *application)
+	{
+		return application->GetEngine ();
+	}
+
+	DllExport void
+	RegisterSdlLauncher(sdl_callback callback)
+	{
+		sdlCallback = callback;
+	}
+
+	DllExport void
+	InitSdl(const char *resourceDir, const char *documentsDir)
+	{
+		sdlResourceDir = resourceDir;
+		sdlDocumentsDir = documentsDir;
+	}
 }
 
-#if defined(ANDROID) || defined(IOS)
-// Entry point for SDL (iOS and Android)
+//FileSystem.cpp uses these functions as external.
+#if defined(IOS)
+const char* SDL_IOS_GetResourceDir()
+{
+	return sdlResourceDir;
+}
+
+const char* SDL_IOS_GetDocumentsDir()
+{
+	return sdlDocumentsDir;
+}
+
+void SDL_IOS_LogMessage(const char *message)
+{
+}
+#endif
+
+#if defined(ANDROID)
+// Entry point for SDL (Android)
 int RunApplication()
 {
 	SharedPtr<Context> context(new Context());
-	return sdlCallback(context);// currentApp->Run();
+	return sdlCallback(context);
 }
 DEFINE_MAIN(RunApplication());
 #endif

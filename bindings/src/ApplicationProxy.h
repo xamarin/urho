@@ -3,7 +3,6 @@ class ApplicationProxy;
 typedef void(*callback_t)(ApplicationProxy *);
 typedef int(*sdl_callback)(Urho3D::Context *);
 
-
 class ApplicationProxy : public Urho3D::Application {
 public:
 	ApplicationProxy (Urho3D::Context *ctx, callback_t csetup, callback_t cstart, callback_t cstop) : Urho3D::Application (ctx)
@@ -40,10 +39,3 @@ private:
 	callback_t setup, start, stop;
 };
 
-extern "C" {
-DllExport void *
-ApplicationProxy_ApplicationProxy (Urho3D::Context *context, callback_t setup, callback_t start, callback_t stop);
-
-DllExport void
-RegisterSdlLauncher(sdl_callback callback);
-}
