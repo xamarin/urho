@@ -22,10 +22,6 @@ namespace Urho.Samples.iOS
 		//
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			window = new UIWindow(UIScreen.MainScreen.Bounds);
-
-			window.MakeKeyAndVisible();
-
 			string docs = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.All, true).FirstOrDefault();
 			string resources = NSBundle.MainBundle.ResourcePath;
 

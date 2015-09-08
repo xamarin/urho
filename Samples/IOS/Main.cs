@@ -7,7 +7,6 @@ namespace Urho.Samples.iOS
 		// This is the main entry point of the application.
 		static void Main(string[] args)
 		{
-			Urho.Application.RegisterSdlLauncher(() => new _23_Water(new Context()));
 			UIApplication.Main(args, null, "AppDelegate");
 		}
 	}
