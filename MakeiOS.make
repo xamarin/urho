@@ -2,9 +2,9 @@
 ARCH=i386
 SDK_VER=8.4
 MIN_IOS_VER=7.0
-OUTPUT_DIR=../Bin/iOS
-URHO_DIR=../Urho3D/Urho3D_iOS
-URHO_SOURCE_DIR=../Urho3D/Source
+OUTPUT_DIR=Bin/iOS
+URHO_DIR=Urho3D/Urho3D_iOS
+URHO_SOURCE_DIR=Urho3D/Source
 
 ifeq ($(ARCH), i386)
 TARGET=iPhoneSimulator
@@ -34,20 +34,20 @@ else
 	cd $(URHO_DIR) && xcodebuild ARCHS=$(ARCH) ONLY_ACTIVE_ARCH=NO -target Urho3D -configuration Release
 endif
 
-ioslibmono-urho.dylib: libUrho3D.a iosvector.o iosbinding.o iosglue.o iosevents.o iosApplicationProxy.o
+libmono-urho.dylib: libUrho3D.a vector.o binding.o glue.o events.o ApplicationProxy.o
 	mkdir -p $(OUTPUT_DIR) && $(CPP) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o vector.o events.o ApplicationProxy.o
 
-iosbinding.o: 
-	$(CPP) -c generated/binding.cpp 
+binding.o: 
+	$(CPP) -c bindings/generated/binding.cpp 
 
-iosglue.o: src/glue.cpp src/glue.h 
-	$(CPP) -c src/glue.cpp 
+glue.o:
+	$(CPP) -c bindings/src/glue.cpp 
 
-iosvector.o: src/vector.cpp src/glue.h 
-	$(CPP) -c src/vector.cpp 
+vector.o:
+	$(CPP) -c bindings/src/vector.cpp 
 
-iosevents.o: generated/events.cpp
-	$(CPP) -c generated/events.cpp
+events.o:
+	$(CPP) -c bindings/generated/events.cpp
 
-iosApplicationProxy.o: src/ApplicationProxy.cpp src/ApplicationProxy.h
-	$(CPP) -c src/ApplicationProxy.cpp
+ApplicationProxy.o:
+	$(CPP) -c bindings/src/ApplicationProxy.cpp
