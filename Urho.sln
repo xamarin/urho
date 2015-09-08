@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "bindings\Urho.cspro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{C6DFE49A-24F1-492C-870D-8396C46A1509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Droid", "Samples\Android\Urho.Samples.Android\Urho.Samples.Droid.csproj", "{9599B6A8-09DA-455C-9391-319A1FCDC5B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Droid", "Samples\Android\Urho.Samples.Droid.csproj", "{9599B6A8-09DA-455C-9391-319A1FCDC5B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Droid.SdlBinding", "Samples\Android\Urho.Samples.Android.SdlBinding\Urho.Samples.Droid.SdlBinding.csproj", "{8C31B058-C9A0-44D5-9BF5-9042BAD771B2}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples", "Samples\Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Desktop", "Samples\Desktop\Urho.Samples.Desktop.csproj", "{B0B898C4-3EB0-4F5F-BAA5-FCEFE66371D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.iOS", "Samples\IOS\Urho.Samples.iOS\Urho.Samples.iOS.csproj", "{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.iOS", "Samples\IOS\Urho.Samples.iOS.csproj", "{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
