@@ -59,7 +59,7 @@ void SDL_IOS_LogMessage(const char *message)
 }
 #endif
 
-#if defined(ANDROID)
+#if defined(ANDROID) || defined(IOS)
 // Entry point for SDL (Android)
 int RunApplication()
 {
