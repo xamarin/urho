@@ -35,7 +35,7 @@ else
 endif
 
 libmono-urho.dylib: libUrho3D.a vector.o binding.o glue.o events.o ApplicationProxy.o
-	mkdir -p $(OUTPUT_DIR) && $(CPP) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o vector.o events.o ApplicationProxy.o
+	mkdir -p $(OUTPUT_DIR) && $(CPP) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o vector.o events.o ApplicationProxy.o && rm *.o
 
 binding.o: 
 	$(CPP) -c bindings/generated/binding.cpp 
