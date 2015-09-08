@@ -28,6 +28,12 @@ namespace Urho {
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		extern static void RegisterSdlLauncher(SdlCallback callback);
 
+		[DllImport("mono-urho")]
+		extern static void InitSdl(string resDir, string docDir);
+
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		extern static void SDL_SetMainReady();
+
 		public static Application Current { get; private set; }
 
 		/// <summary>
@@ -72,6 +78,12 @@ namespace Urho {
 		public static void RegisterSdlLauncher(Func<Application> appFactory)
 		{
 			RegisterSdlLauncher(_ => appFactory().Run());
+		}
+
+		public static void InitializeSdl(string resDir, string docsDir)
+		{
+			InitSdl(resDir, docsDir);
+			SDL_SetMainReady();
 		}
 
 		public static event Action<UpdateEventArgs> Update;

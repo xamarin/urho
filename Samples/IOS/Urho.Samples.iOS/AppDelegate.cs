@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using System.Linq;
 using Foundation;
 using UIKit;
 
@@ -25,14 +22,22 @@ namespace Urho.Samples.iOS
 		//
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			// create a new window instance based on the screen size
 			window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-			// If you have defined a view, add it here:
-			// window.RootViewController  = navigationController;
-
-			// make the window visible
 			window.MakeKeyAndVisible();
+
+			string docs = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.All, true).FirstOrDefault();
+			string resources = NSBundle.MainBundle.ResourcePath;
+
+			Urho.Application.InitializeSdl(resources, docs);
+
+			window = new UIWindow(UIScreen.MainScreen.Bounds);
+			window.MakeKeyAndVisible();
+
+			NSFileManager.DefaultManager.ChangeCurrentDirectory(NSBundle.MainBundle.ResourcePath);
+
+			//ulike other platforms, Run here will release current thread once app is started
+			new _23_Water(new Context()).Run();
 
 			return true;
 		}
