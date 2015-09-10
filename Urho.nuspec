@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+       <id>MonoUrhoTest</id>
+       <version>0.1.1</version>
+       <title>Urho3D for Xamarin</title>
+       <authors>Xamarin</authors>
+       <owners>Xamarin</owners>
+       <licenseUrl>https://github.com/xamarin/urho/LICENSE.md</licenseUrl>
+       <projectUrl>https://github.com/xamarin/urho</projectUrl>
+       <iconUrl>https://habrastorage.org/files/147/aa0/3f6/147aa03f60b549f9a0cc5bba0e2ad254.jpg</iconUrl>
+       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <description>
+         TODO: MonoUrho description
+       </description>
+       <releaseNotes>
+         TODO: release notes
+       </releaseNotes>
+       <summary>TODO: summary</summary>
+       <tags>urho, urho3d, monourho, xamarin, xamarin.android, xamarin.ios, xamarin.mac</tags>
+   </metadata>
+   <files>
+
+   </files>
+</package>
