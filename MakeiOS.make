@@ -25,7 +25,7 @@ XCODE_SDK=$(XCODE_BASE)/Developer/Platforms/$(TARGET).platform/Developer/SDKs/$(
 CPP=clang++ -arch $(ARCH) -F$(XCODE_FRAMEWORKS) -I$(XCODE_INCLUDES) -miphoneos-version-min=$(MIN_IOS_VER) -isysroot $(XCODE_SDK) $(CXXFLAGS) 
 
 Urho3D_IOS:
-	mkdir -p $(URHO_DIR) && $(URHO_SOURCE_DIR)/./cmake_ios.sh $(URHO_DIR)
+	rm -rf $(URHO_DIR) && mkdir -p $(URHO_DIR) && $(URHO_SOURCE_DIR)/./cmake_ios.sh $(URHO_DIR)
 	
 libUrho3D.a: Urho3D_IOS
 ifeq ($(ARCH), i386)
