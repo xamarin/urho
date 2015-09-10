@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Urho
+namespace Urho.Windows
 {
 	public static class ApplicationLauncher
 	{
-		public static void Run(Application application)
+		public static int Run(Func<Application> applicationCreator, string resourcesDirectory)
 		{
+			Environment.CurrentDirectory = resourcesDirectory;
 			const string libName = "mono-urho.dll";
 			if (System.IO.File.Exists(libName))
-				return;
+			{
+				return applicationCreator().Run();
+			}
 
 			var asm = Assembly.GetExecutingAssembly();
-			using (var erStream = asm.GetManifestResourceStream($"{asm.FullName}.{libName}"))
+			using (var erStream = asm.GetManifestResourceStream($"Urho.Windows.{libName}"))
 			using (var fileStream = System.IO.File.Create(libName))
 			{
 				if (erStream == null)
@@ -20,6 +23,7 @@ namespace Urho
 
 				erStream.CopyTo(fileStream);
 			}
+			return applicationCreator().Run();
 		}
 	}
 }

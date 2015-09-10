@@ -1,38 +1,32 @@
 ﻿using System;
 using System.Linq;
+using Urho.Mac;
 
-namespace Urho
+namespace Urho.Samples.Mac
 {
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			Environment.CurrentDirectory = @"../../Urho3D/Source/bin";
-			Sample sample = null;
+			System.Type sampleType = null;
 
 			if (args.Length > 0)
 			{
-				sample = ParseSampleFromNumber(args[0]);
+				sampleType = ParseSampleFromNumber(args[0]);
+				if (sampleType == null)
+					return;
 			}
 
-//no ReadLine for Mac:
-#if __MonoCS__
 			if (args.Length == 0)
-				sample = new _23_Water(new Context());
-#else
-			while (sample == null)
-			{
-				Console.WriteLine("Enter a sample number [1-40]:");
-				sample = ParseSampleFromNumber(Console.ReadLine());
-			}
-#endif
-			var code = sample?.Run();
+				sampleType = typeof(_23_Water);
+
+			var resourcesDirectory = @"../../../../Urho3D/Source/bin";
+			var code = ApplicationLauncher.Run(() => (Application)Activator.CreateInstance(sampleType, new Context()), resourcesDirectory);
 			Console.WriteLine($"Exit code: {code}. Press any key to exit...");
 			Console.ReadKey();
 		}
 
-
-		static Sample ParseSampleFromNumber(string input)
+		static System.Type ParseSampleFromNumber(string input)
 		{
 			var samples = typeof(Sample).Assembly.GetTypes().Where(t => t.BaseType == typeof(Sample)).ToArray();
 			int number;
@@ -49,7 +43,7 @@ namespace Urho
 				return null;
 			}
 
-			return (Sample)Activator.CreateInstance(sample, new Context());
+			return sample;
 		}
 	}
 }
