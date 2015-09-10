@@ -1672,12 +1672,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
-    <Content Include="..\..\Bin\iOS\libmono-urho.dylib">
-      <Link>libmono-urho.dylib</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bindings\iOS\Urho.iOS.csproj">
+      <Project>{9ae80bd9-e1e2-41da-bb6f-712b35028bd9}</Project>
+      <Name>Urho.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
     <ProjectReference Include="..\..\bindings\Urho.csproj">
       <Project>{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}</Project>
       <Name>Urho</Name>

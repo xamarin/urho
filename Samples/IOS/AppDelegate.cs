@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Foundation;
 using UIKit;
+using Urho.iOS;
 
 namespace Urho.Samples.iOS
 {
@@ -22,19 +23,10 @@ namespace Urho.Samples.iOS
 		//
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			string docs = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.All, true).FirstOrDefault();
-			string resources = NSBundle.MainBundle.ResourcePath;
-
-			Urho.Application.InitializeSdl(resources, docs);
-
 			window = new UIWindow(UIScreen.MainScreen.Bounds);
 			window.MakeKeyAndVisible();
 
-			NSFileManager.DefaultManager.ChangeCurrentDirectory(NSBundle.MainBundle.ResourcePath);
-
-			//ulike other platforms, Run here will release current thread once app is started
-			new _23_Water(new Context()).Run();
-
+			IosApplicationLauncher.Run(new _23_Water(new Context()));
 			return true;
 		}
 	}
