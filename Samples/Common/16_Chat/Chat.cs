@@ -214,7 +214,7 @@ public class _16_Chat : Sample
 		if (msgID == MSG_CHAT)
 		{
 			var textBytes = args.Data;
-			var text = Encoding.ASCII.GetString(textBytes);
+			var text = Encoding.UTF8.GetString(textBytes, 0, textBytes.Length);
 			
 			// If we are the server, prepend the sender's IP address and port and echo to everyone
 			// If we are a client, just display the message
