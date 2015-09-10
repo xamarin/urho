@@ -49,17 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidNativeLibrary Include="..\..\Bin\Android\armeabi-v7a\libmono-urho.so">
-      <Link>Libs\armeabi-v7a\libmono-urho.so</Link>
-    </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="..\..\Bin\Android\armeabi\libmono-urho.so">
-      <Link>Libs\armeabi\libmono-urho.so</Link>
-    </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="..\..\Bin\Android\x86\libmono-urho.so">
-      <Link>Libs\x86\libmono-urho.so</Link>
-    </AndroidNativeLibrary>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Urho.csproj">
       <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
       <Name>Urho</Name>

@@ -50,17 +50,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidNativeLibrary Include="..\..\Bin\Android\x86\libmono-urho.so">
-      <Link>Libs\x86\libmono-urho.so</Link>
-    </AndroidNativeLibrary>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidNativeLibrary Include="..\..\bin\android\armeabi\libmono-urho.so">
+      <Link>Libs\armeabi\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="..\..\bin\android\armeabi-v7a\libmono-urho.so">
+      <Link>Libs\armeabi-v7a\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="..\..\bin\android\x86\libmono-urho.so">
+      <Link>Libs\x86\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
