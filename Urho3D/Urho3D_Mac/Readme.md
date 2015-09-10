@@ -1,0 +1,1 @@
+Use MakeMac.make to generate Urho3D_Mac
