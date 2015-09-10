@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Urho {
 	
@@ -44,7 +45,7 @@ namespace Urho {
 				// which is our constructor that auto registers classes initialized manually from
 				// pointers
 				expecting = ptr;
-				var o = (T)Activator.CreateInstance (typeof(T), BindingFlags.Instance|BindingFlags.NonPublic, null, new object [] { ptr }, null);
+				var o = (T)Activator.CreateInstance(typeof(T), ptr);
                 if (expecting != IntPtr.Zero)
 					knownObjects [ptr] = new WeakReference<RefCounted> (o);
 				expecting = IntPtr.Zero;
@@ -78,8 +79,11 @@ namespace Urho {
 			int c;
 			if (hashDict.TryGetValue (t, out c))
 				return new StringHash (c);
-			var m = t.GetMethod ("GetTypeStatic", BindingFlags.Static | BindingFlags.NonPublic);
-			var hash = (StringHash) m.Invoke (null, null);
+			var typeStatic = t.GetRuntimeProperty("TypeStatic");
+			if (typeStatic == null)
+				throw new InvalidOperationException("The type doesn't have static TypeStatic property");
+
+			var hash = (StringHash)typeStatic.GetValue(null);
 			hashDict [t] = hash.Code;
 			return hash;
 		}

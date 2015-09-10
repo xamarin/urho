@@ -390,7 +390,7 @@ namespace SharpieBinder
 			if (refCountedSubclass) {
 				var nativeCtor = new ConstructorDeclaration
 				{
-					Modifiers = Modifiers.Internal,
+					Modifiers = Modifiers.Public,
 					Body = new BlockStatement(),
 					Initializer = new ConstructorInitializer()
 				};
@@ -404,7 +404,7 @@ namespace SharpieBinder
 				// The construtor with the emtpy chain flag
 				nativeCtor = new ConstructorDeclaration
 				{
-					Modifiers = Modifiers.Internal,
+					Modifiers = Modifiers.Public,
 					Body = new BlockStatement(),
 					Initializer = new ConstructorInitializer()
 				};

@@ -11,7 +11,7 @@ namespace Urho {
 		// TODO: replace this with an init with some compare and exchange.
 		static List<IntPtr> deadHandles = new List<IntPtr> ();
 		internal IntPtr handle;
-		static Thread MainThread;
+		//static Thread MainThread;
 		
 		public IntPtr Handle => handle;
 
@@ -36,9 +36,9 @@ namespace Urho {
 		protected virtual void Dispose (bool disposing)
 		{
 			if (handle != IntPtr.Zero){
-				if (Thread.CurrentThread == MainThread)
-					RefCounted.RefCounted_ReleaseRef (handle);
-				else
+				//if (Thread.CurrentThread == MainThread) TODO:
+				//	RefCounted.RefCounted_ReleaseRef (handle);
+				//else
 				lock (deadHandles)
 						deadHandles.Add (handle);
 				handle = IntPtr.Zero;
