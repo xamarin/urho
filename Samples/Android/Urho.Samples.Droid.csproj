@@ -14,7 +14,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameActivity.cs" />
     <Compile Include="SamplesSelectorActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +64,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bindings\Android\Urho.Droid.csproj">
+      <Project>{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}</Project>
+      <Name>Urho.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\bindings\Urho.csproj">
       <Project>{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}</Project>
       <Name>Urho</Name>
@@ -72,10 +75,6 @@
     <ProjectReference Include="..\Common\Urho.Samples.csproj">
       <Project>{792AF649-1BB3-4242-8BA3-61F67E357B18}</Project>
       <Name>Urho.Samples</Name>
-    </ProjectReference>
-    <ProjectReference Include="Urho.Samples.Android.SdlBinding\Urho.Samples.Droid.SdlBinding.csproj">
-      <Project>{8C31B058-C9A0-44D5-9BF5-9042BAD771B2}</Project>
-      <Name>Urho.Samples.Droid.SdlBinding</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -87,11 +86,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\layout\samples_list_text_view.axml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-    <Folder Include="Assets\CoreData\" />
-    <Folder Include="Assets\Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

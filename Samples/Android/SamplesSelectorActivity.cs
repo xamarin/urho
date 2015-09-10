@@ -4,6 +4,7 @@ using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Urho.Droid;
 
 namespace Urho.Samples.Droid
 {
@@ -41,8 +42,7 @@ namespace Urho.Samples.Droid
 		
 		protected override void OnListItemClick(Android.Widget.ListView l, Android.Views.View v, int position, long id)
 		{
-			Urho.Application.RegisterSdlLauncher(() => (Sample)Activator.CreateInstance(sampleTypes[position], new Urho.Context()));
-			StartActivity(typeof(GameActivity));
+			AndroidUrhoLauncher.Run(() => (Sample)Activator.CreateInstance(sampleTypes[position], new Urho.Context()));
 		}
 	}
 }
