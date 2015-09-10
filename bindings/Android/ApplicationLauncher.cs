@@ -3,7 +3,7 @@ using Android.Content;
 
 namespace Urho.Droid
 {
-	public static class AndroidUrhoLauncher
+	public static class ApplicationLauncher
 	{
 		public static void Run(Func<Application> appCreator)
 		{

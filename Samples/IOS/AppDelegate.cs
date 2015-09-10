@@ -26,7 +26,7 @@ namespace Urho.Samples.iOS
 			window = new UIWindow(UIScreen.MainScreen.Bounds);
 			window.MakeKeyAndVisible();
 
-			IosApplicationLauncher.Run(new _23_Water(new Context()));
+			ApplicationLauncher.Run(new _23_Water(new Context()));
 			return true;
 		}
 	}

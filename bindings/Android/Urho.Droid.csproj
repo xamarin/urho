@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AndroidUrhoLauncher.cs" />
+    <Compile Include="ApplicationLauncher.cs" />
     <Compile Include="GameActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
