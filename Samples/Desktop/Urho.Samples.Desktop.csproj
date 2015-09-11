@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C4E435F-FC33-4DEF-8B46-B82FEB047C68}</ProjectGuid>
+    <ProjectGuid>{C9D62FA9-7107-466F-BD0D-B0AAA69D975B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Urho.Samples.Mac</RootNamespace>
-    <AssemblyName>Urho.Samples.Mac</AssemblyName>
+    <RootNamespace>Urho.Samples.Desktop</RootNamespace>
+    <AssemblyName>Urho.Samples.Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -47,12 +47,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Bin\Desktop\libmono-urho.dylib">
+      <Link>libmono-urho.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Bindings\Mac\Urho.Mac.csproj">
+    <ProjectReference Include="..\..\Bindings\Desktop\Urho.Desktop.csproj">
       <Project>{f0359d5e-d6d4-47d3-a9f0-5a97c31dc476}</Project>
-      <Name>Urho.Mac</Name>
+      <Name>Urho.Desktop</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\bindings\Urho.csproj">
       <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
@@ -62,6 +66,12 @@
       <Project>{792af649-1bb3-4242-8ba3-61f67e357b18}</Project>
       <Name>Urho.Samples</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Bin\Desktop\mono-urho.dll">
+      <Link>mono-urho.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

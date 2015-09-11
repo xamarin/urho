@@ -7,8 +7,8 @@
     <ProjectGuid>{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Urho.Mac</RootNamespace>
-    <AssemblyName>Urho.Mac</AssemblyName>
+    <RootNamespace>Urho.Desktop</RootNamespace>
+    <AssemblyName>Urho.Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Bin\Mac\</OutputPath>
+    <OutputPath>..\..\Bin\Desktop\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,11 +43,6 @@
       <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
       <Name>Urho</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="..\..\Bin\Desktop\libmono-urho.dylib">
-      <Link>libmono-urho.dylib</Link>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
