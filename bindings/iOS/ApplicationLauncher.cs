@@ -24,6 +24,7 @@ namespace Urho.iOS
 		public static void Run(Func<Application> appCreator, string resourcesDir, string docsDir)
 		{
 			Application.SetCustomApplicationCallback(Setup, Start, Stop);
+			UrhoObject.SetCustomObjectCallback(ObjectCallback);
 			InitSdl(resourcesDir, docsDir);
 			SDL_SetMainReady();
 			NSFileManager.DefaultManager.ChangeCurrentDirectory(resourcesDir);
@@ -46,6 +47,14 @@ namespace Urho.iOS
 		private static void Setup(IntPtr value)
 		{
 			Application.GetApp(value).Setup();
+		}
+
+		[MonoPInvokeCallback(typeof(ObjectCallbackSignature))]
+		static void ObjectCallback(IntPtr data, int stringhash, IntPtr variantMap)
+		{
+			GCHandle gch = GCHandle.FromIntPtr(data);
+			Action<IntPtr> a = (Action<IntPtr>)gch.Target;
+			a(variantMap);
 		}
 	}
 }
