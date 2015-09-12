@@ -53,7 +53,7 @@ namespace Urho.Samples.Desktop
 
 		static void FindAvailableSamplesAndPrint()
 		{
-			samples = typeof(Sample).Assembly.GetTypes().Where(t => t.BaseType == typeof(Sample)).ToArray();
+			samples = typeof(Sample).Assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(Application)) && t != typeof(Sample)).ToArray();
 			foreach (var sample in samples)
 				Console.WriteLine(sample.Name);
 			Console.WriteLine();
