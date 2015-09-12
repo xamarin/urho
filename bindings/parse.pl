@@ -3,7 +3,7 @@ open CPP,">generated/events.cpp" || die;
 print CS "using System;\n";
 print CS "using System.Runtime.InteropServices;\n";
 print CS "namespace Urho {\n\n";
-print CS "\tdelegate void ObjectCallbackSignature (IntPtr data, int stringhash, IntPtr variantMap);\n";
+print CS "\tpublic delegate void ObjectCallbackSignature (IntPtr data, int stringhash, IntPtr variantMap);\n";
 print CPP "#define URHO3D_OPENGL\n";
 print CPP "#include \"../AllUrho.h\"\n";
 print CPP "#include \"../src/glue.h\"\n";

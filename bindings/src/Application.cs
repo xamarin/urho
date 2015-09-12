@@ -10,46 +10,39 @@ using System.Runtime.InteropServices;
 namespace Urho {
 	
 	public partial class Application {
-		readonly ActionIntPtr setup;
-		readonly ActionIntPtr start;
-		readonly ActionIntPtr stop;
+		static ActionIntPtr setupCallback;
+		static ActionIntPtr startCallback;
+		static ActionIntPtr stopCallback;
+		
 		static readonly object invokerLock = new object();
 		static readonly List<Action> invokeOnMain = new List<Action>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
 
-		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		public delegate int SdlCallback(IntPtr context);
-
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop);
-
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void RegisterSdlLauncher(SdlCallback callback);
-
-		[DllImport("mono-urho")]
-		extern static void InitSdl(string resDir, string docDir);
-
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void SDL_SetMainReady();
 
 		public static Application Current { get; private set; }
 
 		/// <summary>
 		/// Supports the simple style with callbacks
 		/// </summary>
-		public Application (Context context, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop) : base (UrhoObjectFlag.Empty)
+		public Application (Context context) : base (UrhoObjectFlag.Empty)
 		{
-			//keep references to callbacks as long as the App is alive
-			this.setup = setup;
-			this.start = start;
-			this.stop = stop;
 
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
 
-			handle = ApplicationProxy_ApplicationProxy (context.Handle, setup, start, stop);
+			//keep references to callbacks (supposed to be passed to native code) as long as the App is alive
+			if (setupCallback == null)
+				setupCallback = ProxySetup;
+			if (startCallback == null)
+				startCallback = ProxyStart;
+			if (stopCallback == null)
+				stopCallback = ProxyStop;
+
+			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback);
 			Runtime.RegisterObject (this);
 			Current = this;
 
@@ -69,21 +62,17 @@ namespace Urho {
 					OnSceneUpdate(timeStep, scene);
 				});
 		}
-
-		public Application(Context context) : this(context, ProxySetup, ProxyStart, ProxyStop) { }
-
-		/// <summary>
-		/// Should be called in Android and IOS
-		/// </summary>
-		public static void RegisterSdlLauncher(Func<Application> appFactory)
+	
+		public static void SetCustomApplicationCallback(ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop)
 		{
-			RegisterSdlLauncher(_ => appFactory().Run());
+			setupCallback = setup;
+			startCallback = start;
+			stopCallback = stop;
 		}
 
-		public static void InitializeSdl(string resDir, string docsDir)
+		public static Application GetApp(IntPtr h)
 		{
-			InitSdl(resDir, docsDir);
-			SDL_SetMainReady();
+			return Runtime.LookupObject<Application>(h);
 		}
 
 		public static event Action<UpdateEventArgs> Update;
@@ -106,11 +95,6 @@ namespace Urho {
 					invokeOnMain.Clear ();
 				}
 			}
-		}
-
-		static Application GetApp (IntPtr h)
-		{
-			return Runtime.LookupObject<Application> (h);
 		}
 		
 		static void ProxySetup (IntPtr h)
@@ -270,6 +254,7 @@ namespace Urho {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr Application_GetEngine (IntPtr handle);
 		Engine engine;
+
 		public Engine Engine {
 			get {
 				if (engine == null)

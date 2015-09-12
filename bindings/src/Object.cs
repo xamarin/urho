@@ -12,15 +12,23 @@ using System.Runtime.InteropServices;
 
 namespace Urho {
 
-	public partial class UrhoObject : RefCounted {
-
+	public partial class UrhoObject : RefCounted
+	{
+		private static ObjectCallbackSignature customObjectCallback;
 
 		// Invoked by the subscribe methods
-		static void ObjectCallback (IntPtr data, int stringHash, IntPtr variantMap)
+		static ObjectCallbackSignature ObjectCallback => customObjectCallback ?? ObjectCallbackDefault;
+
+		static void ObjectCallbackDefault(IntPtr data, int stringHash, IntPtr variantMap)
 		{
 			GCHandle gch = GCHandle.FromIntPtr(data);
-			Action<IntPtr> a = (Action<IntPtr>) gch.Target;
-			a (variantMap);
+			Action<IntPtr> a = (Action<IntPtr>)gch.Target;
+			a(variantMap);
+		}
+
+		public static void SetCustomObjectCallback(ObjectCallbackSignature callback)
+		{
+			customObjectCallback = callback;
 		}
 	}
 }
