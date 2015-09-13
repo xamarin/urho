@@ -1,11 +1,11 @@
 Android:
-	make libmono-urho.so -f MakeAndroid.make ABI="armeabi" && make libmono-urho.so -f MakeAndroid.make ABI="armeabi-v7a" && make libmono-urho.so -f MakeAndroid.make ABI="x86"
+	make libmono-urho.so -f MakeAndroid ABI="armeabi" && make libmono-urho.so -f MakeAndroid ABI="armeabi-v7a" && make libmono-urho.so -f MakeAndroid ABI="x86"
 	
 Mac:
-	make libmono-urho.dylib -f MakeMac.make
+	make libmono-urho.dylib -f MakeMac
 	
 iOS:
-	make fat-libmono-urho.dylib -f MakeiOS.make
+	make fat-libmono-urho.dylib -f MakeiOS
 	
 All: Android Mac iOS
 

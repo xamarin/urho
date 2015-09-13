@@ -1,1 +1,1 @@
-Use MakeiOS.make to generate Urho3D_iOS
+Execute "make iOS" in the root repository directory to generate Urho3D_iOS
