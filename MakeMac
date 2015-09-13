@@ -5,7 +5,7 @@ OUTPUT_DIR=Bin/Desktop
 
 URHO_FLAGS=-I$(URHO3D_MAC_DIR)/include -I$(URHO3D_MAC_DIR)/include/kNet -I$(URHO3D_MAC_DIR)/include/Urho3D/ThirdParty
 URHO_LIBS=-L$(URHO3D_MAC_DIR)/lib -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices -lUrho3D -ldl -lpthread 
-CXXFLAGS=-g $(ARCH) -Wno-address-of-temporary -Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS)
+CXXFLAGS=-g $(ARCH) -Wno-address-of-temporary -Wno-return-type-c-linkage -Wno-clang++11-extensions $(URHO_FLAGS)
 
 Urho3D_Mac:
 	$(URHO3D_SRC_DIR)/./cmake_macosx.sh $(URHO3D_MAC_DIR)
@@ -20,19 +20,19 @@ libUrho3D_Fat.a: libUrho3D_32.a libUrho3D_64.a
 	cd $(URHO3D_MAC_DIR) && lipo -create lib/libUrho3D_32.a lib/libUrho3D_64.a -output lib/libUrho3D.a
 
 libmono-urho.dylib: libUrho3D_Fat.a binding.o glue.o events.o ApplicationProxy.o vector.o 
-	mkdir -p $(OUTPUT_DIR) && c++  $(ARCH) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o vector.o events.o ApplicationProxy.o && rm *.o
+	mkdir -p $(OUTPUT_DIR) && clang++  $(ARCH) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o vector.o events.o ApplicationProxy.o && rm *.o
 
 binding.o:
-	c++ -g -c $(CXXFLAGS) bindings/generated/binding.cpp 
+	clang++ -g -c $(CXXFLAGS) bindings/generated/binding.cpp 
 
 glue.o:
-	c++ -c $(CXXFLAGS) bindings/src/glue.cpp 
+	clang++ -c $(CXXFLAGS) bindings/src/glue.cpp 
 
 vector.o:
-	c++ -c $(CXXFLAGS) bindings/src/vector.cpp 
+	clang++ -c $(CXXFLAGS) bindings/src/vector.cpp 
 
 events.o:
-	c++ -c $(CXXFLAGS) bindings/generated/events.cpp $(URHO_FLAGS) 
+	clang++ -c $(CXXFLAGS) bindings/generated/events.cpp $(URHO_FLAGS) 
 
 ApplicationProxy.o:
-	c++ -c $(CXXFLAGS) bindings/src/ApplicationProxy.cpp $(URHO_FLAGS)
+	clang++ -c $(CXXFLAGS) bindings/src/ApplicationProxy.cpp $(URHO_FLAGS)
