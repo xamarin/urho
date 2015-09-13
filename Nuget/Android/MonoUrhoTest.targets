@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)\..\..\native\Android\x86\libmono-urho.so">
+            <Link>Libs\x86\libmono-urho.so</Link>
+        </AndroidNativeLibrary>
+        <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)\..\..\native\Android\armeabi-v7a\libmono-urho.so">
+            <Link>Libs\armeabi-v7a\libmono-urho.so</Link>
+        </AndroidNativeLibrary>
+        <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)\..\..\native\Android\armeabi\libmono-urho.so">
+            <Link>Libs\armeabi\libmono-urho.so</Link>
+        </AndroidNativeLibrary>
+    </ItemGroup>
+</Project>

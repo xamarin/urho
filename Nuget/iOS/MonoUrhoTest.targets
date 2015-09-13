@@ -1,0 +1,7 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <Content Include="$(MSBuildThisFileDirectory)\..\..\native\iOS\libmono-urho.dylib">
+            <Link>libmono-urho.dylib</Link>
+        </Content>
+    </ItemGroup>
+</Project>

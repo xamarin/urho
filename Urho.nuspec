@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>MonoUrho</id>
-       <version>0.2.4</version>
+       <id>MonoUrhoTest</id>
+       <version>0.2.6</version>
        <title>Urho3D for Xamarin</title>
        <authors>Xamarin</authors>
        <owners>Xamarin</owners>
@@ -23,29 +23,29 @@
 	 
      <file src="Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
 	 
-     <file src="Nuget/Android/install.ps1" target="tools/MonoAndroid" />
+	 
+     <file src="Nuget/Android/MonoUrhoTest.targets" target="build/MonoAndroid" />
      <file src="Nuget/Android/MonoUrhoReadme.txt" target="content/MonoAndroid/MonoUrhoReadme.txt" />
      <file src="Bin/Android/Urho.Droid.SdlBindings.dll" target="lib/MonoAndroid/Urho.Droid.SdlBindings.dll" />
      <file src="Bin/Android/Urho.Droid.dll" target="lib/MonoAndroid/Urho.Droid.dll" />
      <file src="Bin/Android/Urho.dll" target="lib/MonoAndroid/Urho.dll" />
-     <file src="Bin/Android/x86/libmono-urho.so" target="content/MonoAndroid/Libs/x86/libmono-urho.so" />
-     <file src="Bin/Android/armeabi-v7a/libmono-urho.so" target="content/MonoAndroid/Libs/armeabi-v7a/libmono-urho.so" />
-     <file src="Bin/Android/armeabi/libmono-urho.so" target="content/MonoAndroid/Libs/armeabi/libmono-urho.so" />
+     <file src="Bin/Android/x86/libmono-urho.so" target="native/Android/x86/libmono-urho.so" />
+     <file src="Bin/Android/armeabi-v7a/libmono-urho.so" target="native/Android/armeabi-v7a/libmono-urho.so" />
+     <file src="Bin/Android/armeabi/libmono-urho.so" target="native/Android/armeabi/libmono-urho.so" />
 	 	 
-	 
-     <file src="Nuget/iOS/install.ps1" target="tools/Xamarin.iOS10" />
+		 
+	 <file src="Nuget/iOS/MonoUrhoTest.targets" target="build/Xamarin.iOS10" />
      <file src="Nuget/iOS/MonoUrhoReadme.txt" target="content/Xamarin.iOS10/MonoUrhoReadme.txt" />
-     <file src="Bin/iOS/libmono-urho.dylib" target="content/Xamarin.iOS10/libmono-urho.dylib" />
+     <file src="Bin/iOS/libmono-urho.dylib" target="native/iOS/libmono-urho.dylib" />
      <file src="Bin/iOS/Urho.iOS.dll" target="lib/Xamarin.iOS10/Urho.iOS.dll" />
      <file src="Bin/iOS/Urho.dll" target="lib/Xamarin.iOS10/Urho.dll" />
 	 
-	  	 
-     <file src="Nuget/Desktop/install.ps1" target="tools/net45" />
+	 
      <file src="Nuget/Desktop/MonoUrhoReadme.txt" target="content/net45/MonoUrhoReadme.txt" />
      <file src="Bin/Desktop/Urho.Desktop.dll" target="lib/net45/Urho.Desktop.dll" />
      <file src="Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />
-     <file src="Bin/Desktop/mono-urho.dll" target="content/net45/mono-urho.dll" />
-     <file src="Bin/Desktop/libmono-urho.dylib" target="content/net45/libmono-urho.dylib" />
+     <file src="Bin/Desktop/mono-urho.dll" target="native/Win64/mono-urho.dll" />
+     <file src="Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
 	 
    </files>
 </package>

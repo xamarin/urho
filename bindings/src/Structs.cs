@@ -187,6 +187,9 @@ namespace Urho {
 			if (_TouchedElement.ptr == IntPtr.Zero)
 				return null;
 
+			//TODO: check
+			return Runtime.LookupObject<UIElement>(_TouchedElement.ptr);
+
 			var x = TouchState_GetTouchedElement (ref this);
 			if (x == IntPtr.Zero)
 				return null;
