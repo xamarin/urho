@@ -1,6 +1,8 @@
 #armeabi-v7a, x86, armeabi
 ABI=armeabi
-ANDK_DIR=C:/Users/Egor/Documents/Android/ndk/android-ndk-r10d
+
+#e.g. C:/Users/Egor/Documents/Android/ndk/android-ndk-r10d
+ANDK_DIR=ANDROID_HOME
 TOOLCHAINS_VER=4.9
 ANDROID_API=android-12
 

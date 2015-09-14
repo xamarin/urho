@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>MonoUrhoTest</id> <!--NOTE: don't forget to rename ".targets"-files -->
-       <version>0.2.6</version>
+       <version>0.2.7</version>
        <title>Urho3D for Xamarin</title>
        <authors>Xamarin</authors>
        <owners>Xamarin</owners>
@@ -41,6 +41,7 @@
      <file src="Bin/iOS/Urho.dll" target="lib/Xamarin.iOS10/Urho.dll" />
 	 
 	 
+	 <file src="Nuget/Desktop/MonoUrhoTest.targets" target="build/net45" />
      <file src="Nuget/Desktop/MonoUrhoReadme.txt" target="content/net45/MonoUrhoReadme.txt" />
      <file src="Bin/Desktop/Urho.Desktop.dll" target="lib/net45/Urho.Desktop.dll" />
      <file src="Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />

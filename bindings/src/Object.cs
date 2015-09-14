@@ -14,7 +14,7 @@ namespace Urho {
 
 	public partial class UrhoObject : RefCounted
 	{
-		private static ObjectCallbackSignature customObjectCallback;
+		static ObjectCallbackSignature customObjectCallback;
 
 		// Invoked by the subscribe methods
 		static ObjectCallbackSignature ObjectCallback => customObjectCallback ?? ObjectCallbackDefault;

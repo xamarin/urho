@@ -31,6 +31,7 @@ namespace Urho.iOS
 			appCreator().Run();
 		}
 
+
 		[MonoPInvokeCallback(typeof(Application.ActionIntPtr))]
 		private static void Stop(IntPtr value)
 		{
