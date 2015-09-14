@@ -85,7 +85,6 @@ public class _05_AnimatingScene : Sample {
 		var light = CameraNode.CreateComponent<Light>();
 		light.LightType = LightType.LIGHT_POINT;
 		light.Range = 30.0f;
-		
 	}
 
 	void SetupViewport ()
@@ -105,9 +104,5 @@ public class _05_AnimatingScene : Sample {
 	protected override void OnUpdate(float timeStep)
 	{
 		SimpleMoveCamera3D(timeStep);
-	}
-
-	protected override void OnSceneUpdate(float timeStep, Scene s)
-	{
 	}
 }
