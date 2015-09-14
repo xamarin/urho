@@ -586,7 +586,8 @@ namespace SharpieBinder
 			StringHash,			// StringHash is handled specially (we surface StringHash, but we always pass an int/receive an int)
 			VectorSharedPtr,	// Used to marshal Vector pointers, by using an implementation of a IList<T> 
 			RefBlittable,		// Used for blittable value types that are surfaced as reference classes
-			MarshalPtrToString	// Used for strings used as return types (we use IntPtr instead of string to avoid Heap Corruption Exceptions)
+			MarshalPtrToString,	// Used for strings used as return types (we use IntPtr instead of string to avoid Heap Corruption Exceptions)
+			MarshalPtrToStruct
 		}
 		// 
 		// Given a Clang QualType, returns the AstType to use to marshal, both for the 
@@ -668,6 +669,15 @@ namespace SharpieBinder
 				lowLevel = new SimpleType ("CascadeParameters");
 				wrapKind = WrapKind.RefBlittable;
 				return;
+			case "struct Urho3D::TouchState *":
+				if (isReturn)
+				{
+					lowLevel = new PrimitiveType("IntPtr");
+					highLevel = new SimpleType("TouchState");
+					wrapKind = WrapKind.MarshalPtrToStruct;
+					return;
+				}
+				break;
 
 				// currently "Vector<X> &" are only supported for return values
 			case "const Vector<SharedPtr<class Urho3D::AnimationState> > &":
@@ -1210,7 +1220,11 @@ namespace SharpieBinder
 					break;
 				case WrapKind.MarshalPtrToString:
 					returnExpression = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Marshal"), "PtrToStringAnsi"), invoke);
-						break;
+					break;
+				case WrapKind.MarshalPtrToStruct:
+					returnExpression = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Marshal"), "PtrToStructure"), invoke, new TypeOfExpression(methodReturn2));
+					returnExpression = new CastExpression(methodReturn2.Clone(), returnExpression);
+					break;
 				case WrapKind.VectorSharedPtr:
 					var cacheName = "_" + method.Name + "_cache";
 					var f = new FieldDeclaration () {

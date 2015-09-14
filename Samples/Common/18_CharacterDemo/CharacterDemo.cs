@@ -136,8 +136,7 @@ public class _18_CharacterDemo : Sample
 				{
 					for (uint i = 0; i < input.NumTouches; ++i)
 					{
-						TouchState state;
-						input.TryGetTouch(i, out state);
+						TouchState state = input.GetTouch(i);
 						if (state.TouchedElement() != null)    // Touch on empty space
 						{
 							Camera camera = CameraNode.GetComponent<Camera>();

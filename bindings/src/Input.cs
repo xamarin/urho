@@ -126,27 +126,13 @@ namespace Urho {
 
 	public partial class Input {
 
-		public unsafe bool TryGetTouch (uint idx, out TouchState state)
-		{
-			var x = GetTouch (idx);
-			if (x != null){
-				state = *x;
-				return true;
-			}
-			state = new TouchState ();
-			return false;
-		}
-
 		public unsafe bool TryGetJoystickState(uint idx, out JoystickState state)
 		{
-			if (idx > 0)
+			var x = GetJoystickByIndex(idx);
+			if (x != null)
 			{
-				var x = GetJoystickByIndex(idx);
-				if (x != null)
-				{
-					state = *x;
-					return true;
-				}
+				state = *x;
+				return true;
 			}
 			state = new JoystickState();
 			return false;

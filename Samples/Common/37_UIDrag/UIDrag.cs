@@ -154,8 +154,7 @@ public class _37_UIDrag : Sample
 		for (uint i = 0; i < n; i++)
 		{
 			var text = (Text)root.GetChild("Touch " + i, false);
-			TouchState ts;
-			input.TryGetTouch(i, out ts);
+			TouchState ts = input.GetTouch(i);
 			text.Value = "Touch " + ts.TouchID;
 
 			IntVector2 pos = ts.Position;

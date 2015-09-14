@@ -29,8 +29,8 @@ namespace Urho
 			if (input.NumTouches == 2)
 			{
 				TouchState touch1, touch2;
-				input.TryGetTouch(0, out touch1);
-				input.TryGetTouch(1, out touch2);
+				touch1 = input.GetTouch(0);
+				touch2 = input.GetTouch(1);
 
 				// Check for zoom pattern (touches moving in opposite directions and on empty space)
 				if (touch1.TouchedElement() != null && touch2.TouchedElement() != null && ((touch1.Delta.Y > 0 && touch2.Delta.Y < 0) || (touch1.Delta.Y < 0 && touch2.Delta.Y > 0)))

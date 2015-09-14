@@ -105,8 +105,8 @@ public class Sample : Application
 
 		var input = Input;
 		for (uint i = 0, num = input.NumTouches; i < num; ++i){
-			TouchState state;
-			if (!input.TryGetTouch (i, out state) || state.TouchedElement () != null)
+			TouchState state = input.GetTouch(i);
+			if (state.TouchedElement () != null)
 				continue;
 
 			if (state.Delta.X != 0 || state.Delta.Y != 0){

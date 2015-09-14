@@ -91,17 +91,14 @@ public class _19_VehicleDemo : Sample
 				{
 					for (uint i = 0; i < input.NumTouches; ++i)
 					{
-						TouchState state;
-						if (input.TryGetTouch(i, out state))
-						{
-							Camera camera = CameraNode.GetComponent<Camera>();
-							if (camera == null)
-								return;
+						TouchState state = input.GetTouch(i);
+						Camera camera = CameraNode.GetComponent<Camera>();
+						if (camera == null)
+							return;
 
-							var graphics = Graphics;
-							vehicle.Controls.Yaw += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.X;
-							vehicle.Controls.Pitch += TouchSensitivity * camera.Fov / graphics.Height * state.Delta.Y;
-						}
+						var graphics = Graphics;
+						vehicle.Controls.Yaw += TouchSensitivity*camera.Fov/graphics.Height*state.Delta.X;
+						vehicle.Controls.Pitch += TouchSensitivity*camera.Fov/graphics.Height*state.Delta.Y;
 					}
 				}
 				else
