@@ -7,6 +7,11 @@ Mac:
 iOS:
 	make fat-libmono-urho.dylib -f MakeiOS
 	
-All: Android Mac iOS
+Windows:
+	make libUrho3D.a -f MakeWindows
+	
+All-Macos: Android Mac iOS
+
+All-Windows: Android Windows
 
 	
