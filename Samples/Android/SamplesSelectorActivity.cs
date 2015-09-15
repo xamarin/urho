@@ -24,7 +24,7 @@ namespace Urho.Samples.Droid
 			if (!assets.Contains("CoreData") || !assets.Contains("Data"))
 			{
 				new AlertDialog.Builder(this)
-					.SetMessage("Assets are empty, please read \"Assets\\UrhoAssets.txt\"")
+					.SetMessage("Assets are empty")
 					.SetTitle("Error")
 					.Show();
 				return;

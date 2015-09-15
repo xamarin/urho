@@ -25,6 +25,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Desktop", "Bindings\De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Desktop", "Samples\Desktop\Urho.Samples.Desktop.csproj", "{C9D62FA9-7107-466F-BD0D-B0AAA69D975B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{ED29FA71-95CA-4E72-92F8-813A25C81218}"
+	ProjectSection(SolutionItems) = preProject
+		MakeAndroid = MakeAndroid
+		Makefile = Makefile
+		MakeiOS = MakeiOS
+		MakeMac = MakeMac
+		Urho.nuspec = Urho.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
