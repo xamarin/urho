@@ -1,1 +1,0 @@
-..\Source\cmake_vs2015.bat ..\Urho3D_Windows -DURHO3D_OPENGL=1 -DURHO3D_64BIT=1
