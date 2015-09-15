@@ -53,10 +53,6 @@ const char* SDL_IOS_GetDocumentsDir()
 {
 	return sdlDocumentsDir;
 }
-
-void SDL_IOS_LogMessage(const char *message)
-{
-}
 #endif
 
 #if defined(ANDROID) || defined(IOS)
