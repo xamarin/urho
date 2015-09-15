@@ -2,10 +2,9 @@
 ARCH=1
 PRJ_CONFIG=Release
 URHO3D_SRC_DIR=Urho3D/Source
-URHO3D_WINDOWS_DIR=Urho3D/Urho3D_Windows
 
 Urho3D_Windows:
-	cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Windows && cmake -E chdir ../Urho3D_Windows cmake -G "Visual Studio 14 Win64" ../Urho3D_Windows -DURHO3D_OPENGL=1 -DURHO3D_64BIT=1 -VS=14 $(CURDIR)/$(URHO3D_SRC_DIR)/
+	cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Windows && cmake -E chdir ../Urho3D_Windows cmake -G "Visual Studio 14 Win64" ../Urho3D_Windows -DURHO3D_OPENGL=1 -DURHO3D_64BIT=$(ARCH) -VS=14 $(CURDIR)/$(URHO3D_SRC_DIR)/
 
 libUrho3D.a: Urho3D_Windows
-	cd $(URHO3D_WINDOWS_DIR) && cmake --build . --target Urho3D --config Release
+	cd Urho3D/Urho3D_Windows && cmake --build . --target Urho3D --config $(PRJ_CONFIG)
