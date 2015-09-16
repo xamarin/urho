@@ -2,7 +2,7 @@
 ABI=armeabi
 
 #e.g. C:/Users/Egor/Documents/Android/ndk/android-ndk-r10d
-ANDK_DIR=ANDROID_HOME
+ANDK_DIR=ANDROID_NDK
 TOOLCHAINS_VER=4.9
 ANDROID_API=android-12
 
