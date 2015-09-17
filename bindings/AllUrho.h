@@ -147,7 +147,7 @@
 #include <Urho3D/Math/Vector3.h>
 #include <Urho3D/Math/Vector4.h>
 #include <Urho3D/Navigation/CrowdAgent.h>
-#include <Urho3D/Navigation/DetourCrowdManager.h>
+#include <Urho3D/Navigation/CrowdManager.h>
 #include <Urho3D/Navigation/DynamicNavigationMesh.h>
 #include <Urho3D/Navigation/NavArea.h>
 #include <Urho3D/Navigation/NavBuildData.h>
@@ -224,7 +224,6 @@
 #include <Urho3D/UI/View3D.h>
 #include <Urho3D/UI/Window.h>
 #include <Urho3D/Urho2D/AnimatedSprite2D.h>
-#include <Urho3D/Urho2D/Animation2D.h>
 #include <Urho3D/Urho2D/AnimationSet2D.h>
 #include <Urho3D/Urho2D/CollisionBox2D.h>
 #include <Urho3D/Urho2D/CollisionChain2D.h>
