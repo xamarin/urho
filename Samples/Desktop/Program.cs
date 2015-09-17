@@ -10,7 +10,7 @@ namespace Urho.Samples.Desktop
 		static void Main(string[] args)
 		{
 			FindAvailableSamplesAndPrint();
-            System.Type selectedSampleType = null;
+			System.Type selectedSampleType = null;
 
 			if (args.Length > 0)
 				selectedSampleType = ParseSampleFromNumber(args[0]);

@@ -47,10 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Bin\Desktop\libmono-urho.dylib">
-      <Link>libmono-urho.dylib</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
