@@ -67,10 +67,10 @@ namespace Urho {
 			return CreateChild (name, mode, id);
 		}
 
-		public T GetComponent<T> () where T:Component
+		public T GetComponent<T> (bool recursive = false) where T:Component
 		{
 			var stringHash = Runtime.LookupStringHash (typeof (T));
-			var ptr = Node_GetComponent (handle, stringHash.Code);
+			var ptr = Node_GetComponent (handle, stringHash.Code, recursive);
 			return Runtime.LookupObject<T> (ptr);
 		}
 	}
