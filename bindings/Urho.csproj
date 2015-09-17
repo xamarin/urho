@@ -43,6 +43,9 @@
     <Compile Include="generated\CollisionShape.cs" />
     <Compile Include="generated\Constraint.cs" />
     <Compile Include="generated\ConstraintType.cs" />
+    <Compile Include="generated\CrowdAgentRequestedTarget.cs" />
+    <Compile Include="generated\CrowdAgentTargetState.cs" />
+    <Compile Include="generated\CrowdManager.cs" />
     <Compile Include="generated\IndexBuffer.cs" />
     <Compile Include="generated\PhysicsWorld.cs" />
     <Compile Include="generated\RigidBody.cs" />
@@ -53,7 +56,6 @@
     <Compile Include="generated\AnimatedModel.cs" />
     <Compile Include="generated\AnimatedSprite2D.cs" />
     <Compile Include="generated\Animation.cs" />
-    <Compile Include="generated\Animation2D.cs" />
     <Compile Include="generated\AnimationController.cs" />
     <Compile Include="generated\AnimationSet2D.cs" />
     <Compile Include="generated\AnimationState.cs" />
@@ -99,7 +101,6 @@
     <Compile Include="generated\CreateMode.cs" />
     <Compile Include="generated\CrowdAgent.cs" />
     <Compile Include="generated\CrowdAgentState.cs" />
-    <Compile Include="generated\CrowdTargetState.cs" />
     <Compile Include="generated\CubeMapFace.cs" />
     <Compile Include="generated\CubeMapLayout.cs" />
     <Compile Include="generated\CullMode.cs" />
@@ -111,7 +112,6 @@
     <Compile Include="generated\DecalSet.cs" />
     <Compile Include="generated\DeferredLightPSVariation.cs" />
     <Compile Include="generated\DeferredLightVSVariation.cs" />
-    <Compile Include="generated\DetourCrowdManager.cs" />
     <Compile Include="generated\Drawable.cs" />
     <Compile Include="generated\Drawable2D.cs" />
     <Compile Include="generated\DropDownList.cs" />
