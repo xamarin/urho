@@ -97,6 +97,12 @@ namespace Urho {
 		}
 	}
 
+	[StructLayout(LayoutKind.Sequential)]
+	public struct AnimationTriggerPoint {
+		public float Time;
+		public IntPtr Variant;
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Matrix3x4 {
 		public float m00;

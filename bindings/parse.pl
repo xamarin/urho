@@ -34,6 +34,8 @@ while (<>){
     next if (/#define/);
     if (/EVENT\(/){
 	($ec,$en) = $_ =~ /EVENT\((\w+), ?(\w+)/;
+    if ($en ne "DbCursor"){
+          
 	print CS "    public partial struct ${en}EventArgs {\n";
 	print CS "        internal IntPtr handle;\n";
 	print CPP "DllExport void *urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
@@ -79,6 +81,7 @@ while (<>){
 	    }
 	    next RESTART if (/}/);
 	}
+    }
     }
 }
 print CPP "// Hash Getters\n";

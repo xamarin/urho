@@ -31,7 +31,7 @@ namespace Urho {
 		{
 			unsafe
 			{
-				Bone* result = Skeleton_GetBone0(handle, name);
+				Bone* result = Skeleton_GetBone0(handle, new StringHash(name).Code);
 				if (result == null)
 					return null;
 				return new BoneWrapper(this, result);
