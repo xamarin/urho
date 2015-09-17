@@ -24,6 +24,7 @@ _ReSharper*/
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/
 [Oo]bj/
+/packages
 /Samples/Build
 /Samples/Android/Urho.Samples.Android/Assets
 /Urho3D/Urho3D_Windows
