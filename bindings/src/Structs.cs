@@ -300,6 +300,7 @@ namespace Urho {
 	public struct RayQueryResult {
 		public Vector3 Position;
 		public Vector3 Normal;
+		public Vector2 TextureUV;
 		public float Distance;
 
 		public IntPtr _drawablePtr;
