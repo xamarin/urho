@@ -497,7 +497,8 @@ namespace SharpieBinder
 			case "const struct Urho3D::TileMapInfo2D &":
 			case "struct Urho3D::PhysicsRaycastResult &":
 			case "const class Urho3D::Ray &":
-					return false;
+			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
+				return false;
 			}
 
 			if (returnType) {
@@ -654,6 +655,12 @@ namespace SharpieBinder
 				highLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				highLevel = new SimpleType ("PhysicsRaycastResult");
 				lowLevel = new SimpleType ("PhysicsRaycastResult");
+				wrapKind = WrapKind.RefBlittable;
+				return;
+			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
+				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				highLevel = new SimpleType ("CrowdObstacleAvoidanceParams");
+				lowLevel = new SimpleType ("CrowdObstacleAvoidanceParams");
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "const struct Urho3D::BiasParameters &":

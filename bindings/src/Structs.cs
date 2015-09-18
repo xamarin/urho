@@ -456,6 +456,21 @@ namespace Urho {
 	public struct PackageEntry {
 	}
 
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct CrowdObstacleAvoidanceParams {
+		public float VelBias;
+		public float WeightDesVel;
+		public float WeightCurVel;
+		public float WeightSide;
+		public float WeightToi;
+		public float HorizTime;
+		public byte GridSize;
+		public byte AdaptiveDivs;
+		public byte AdaptiveRings;
+		public byte AdaptiveDepth;
+	};
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct BiasParameters {
 		public float ConstantBias;
