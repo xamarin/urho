@@ -27,5 +27,10 @@ namespace Urho
 			
 			return res;
 		}
-    }
+
+		public unsafe Vector3 FindNearestPoint(Vector3 hitPos, Vector3 vector3)
+		{
+			return FindNearestPoint(hitPos, vector3, null, null);
+		}
+	}
 }

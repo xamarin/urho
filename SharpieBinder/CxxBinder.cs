@@ -554,9 +554,7 @@ namespace SharpieBinder
 			}
 			if (s.Contains("b2") || s.Contains ("bt"))
 				return true;
-			if (s.StartsWith("dt"))
-				return true;
-
+			
 			// Candidate for a hand binding (Connection.h)
 			if (qt.ToString().Contains("kNet::SharedPtr"))
 				return true;
@@ -620,7 +618,8 @@ namespace SharpieBinder
 				highLevel = new PrimitiveType("IntPtr");
 				return;
 			
-			case ConstStringReference:
+			case "class Urho3D::String":
+            case ConstStringReference:
 				if (isReturn) {
 					lowLevel = new PrimitiveType("IntPtr");
 					highLevel = new PrimitiveType("string");

@@ -314,7 +314,7 @@ namespace Urho {
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout(LayoutKind.Sequential)]
-	public	struct TileMapInfo2D {
+	public struct TileMapInfo2D {
 		public Orientation2D Orientation;
 		public int Width;
 		public int Height;
@@ -332,6 +332,13 @@ namespace Urho {
 				return Height * TileHeight;
 			}
 		}
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct dtQueryFilter {
+		//public float[] AreaCost;     // Cost per area type. (Used by default implementation.)
+		//public ushort IncludeFlags;  // Flags for polygons that can be visited. (Used by default implementation.)
+		//public ushort ExcludeFlags;  // Flags for polygons that should not be visted. (Used by default implementation.)
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?
