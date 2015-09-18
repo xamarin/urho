@@ -997,6 +997,9 @@ namespace SharpieBinder
 			case "const struct Urho3D::TileMapInfo2D &":
 				creturnType = "Urho3D::TileMapInfo2D";
 				break;
+			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
+				creturnType = "Urho3D::CrowdObstacleAvoidanceParams";
+				break;
 			case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::Vector2 &":
 			case "const class Urho3D::Vector4 &":
