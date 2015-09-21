@@ -86,9 +86,11 @@ namespace SharpieBinder
 		TypeDeclaration currentType;
 		StreamWriter cbindingStream;
 		StreamWriter podStream;
+		UrhoTypeRegistryGenerator urhoTypeRegistryGenerator;
 
 		public CxxBinder(string outputDir)
 		{
+			urhoTypeRegistryGenerator = new UrhoTypeRegistryGenerator(outputDir);
 			baseNodeTypes = new Dictionary<string, BaseNodeType>
 			{
 				["Urho3D::Object"] = new BaseNodeType(Bind),
@@ -165,6 +167,7 @@ namespace SharpieBinder
 			pn ("}");
 			cbindingStream.Close();
 			podStream.Close ();
+			urhoTypeRegistryGenerator.Flush();
 			cbindingStream = null;
 		}
 
@@ -395,6 +398,7 @@ namespace SharpieBinder
 					Initializer = new ConstructorInitializer()
 				};
 
+				urhoTypeRegistryGenerator.AppendType(currentType.Name);
 
 				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("handle"));
@@ -1580,6 +1584,7 @@ namespace SharpieBinder
 				}
 			}
 		}
+
 
 
 		void p(string fmt, params object[] args)

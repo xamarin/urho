@@ -147,10 +147,10 @@ namespace Urho {
 		}
 		
 		static public Texture get_Texture (IntPtr handle, int stringHash)
-        {
-            var ptr = urho_map_get_ptr(handle, stringHash);
-            return ptr == IntPtr.Zero ? null : new Texture(ptr);
-        }
+		{
+			var ptr = urho_map_get_ptr(handle, stringHash);
+			return ptr == IntPtr.Zero ? null : new Texture(ptr);
+		}
 	
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static Variant urho_map_get_Variant (IntPtr handle, int stringHash);
@@ -174,11 +174,11 @@ namespace Urho {
 		
 		static public UIElement get_UIElement (IntPtr handle, int stringHash)
 		{
-		    var ptr = urho_map_get_ptr (handle, stringHash);
-		    return ptr == IntPtr.Zero ? null : new UIElement (ptr);
+			var ptr = urho_map_get_ptr (handle, stringHash);
+			return ptr == IntPtr.Zero ? null : new UIElement (ptr);
 		}
 
-	    static public WorkItem get_WorkItem (IntPtr handle, int stringHash)
+		static public WorkItem get_WorkItem (IntPtr handle, int stringHash)
 		{
 			return new WorkItem (urho_map_get_ptr (handle, stringHash));
 		}

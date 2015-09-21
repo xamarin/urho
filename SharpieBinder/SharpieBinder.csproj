@@ -71,6 +71,7 @@
     <Compile Include="CxxBinder.cs" />
     <Compile Include="ScanBaseTypes.cs" />
     <Compile Include="StringUtil.cs" />
+    <Compile Include="UrhoTypeRegistryGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
