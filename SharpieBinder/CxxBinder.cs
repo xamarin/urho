@@ -620,7 +620,7 @@ namespace SharpieBinder
 				return;
 			
 			case "class Urho3D::String":
-            case ConstStringReference:
+			case ConstStringReference:
 				if (isReturn) {
 					lowLevel = new PrimitiveType("IntPtr");
 					highLevel = new PrimitiveType("string");

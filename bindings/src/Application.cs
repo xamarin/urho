@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace Urho {
 	
@@ -52,6 +53,7 @@ namespace Urho {
 					Update?.Invoke(args);
 					ActionManager.Update(timeStep);
 					OnUpdate(timeStep);
+					RunOnMainThread();
 				});
 
 			SubscribeToSceneUpdate(args =>
@@ -79,20 +81,31 @@ namespace Urho {
 
 		public static event Action<SceneUpdateEventArgs> SceneUpdate;
 
-		static public void InvokeOnMain (Action action)
+		public static void InvokeOnMain (Action action)
 		{
 			lock (invokerLock)
 				invokeOnMain.Add (action);
 		}
 
+		public static Task Delay(float durationMs)
+		{
+			var tcs = new TaskCompletionSource<bool>();
+			var state = Current.ActionManager.AddAction(new Sequence(new DelayTime(durationMs), new CallFunc(() => tcs.TrySetResult(true))), null);
+			return tcs.Task;
+		}
+
 		void RunOnMainThread ()
 		{
-			lock (invokerLock){
-				var count = invokeOnMain.Count;
-				if (count > 0){
-					foreach (var a in invokeOnMain)
-						a ();
-					invokeOnMain.Clear ();
+			if (invokeOnMain.Count > 0)
+			{
+				lock (invokerLock)
+				{
+					if (invokeOnMain.Count > 0)
+					{
+						foreach (var a in invokeOnMain)
+							a();
+						invokeOnMain.Clear();
+					}
 				}
 			}
 		}

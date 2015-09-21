@@ -12,9 +12,6 @@ namespace Urho
 		/// <param name="actions">An array of FiniteTimeAction objects.</param>
 		public Task<ActionState> RunActionsAsync(params FiniteTimeAction[] actions)
 		{
-			Debug.Assert(actions != null, "Argument must be non-nil");
-			Debug.Assert(actions.Length > 0, "Paremeter: actions has length of zero. At least one action must be set to run.");
-
 			var tcs = new TaskCompletionSource<ActionState>();
 
 			var numActions = actions.Length;
