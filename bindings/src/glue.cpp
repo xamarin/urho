@@ -23,7 +23,17 @@ extern "C" {
 		StringHash h (hash);
 		return map [h].GetVoidPtr ();
 	}
-	
+
+	DllExport
+	void * urho_map_get_object(VariantMap &map, int hash, int* objHash)
+	{
+		StringHash h(hash);
+		void* ptr = map[h].GetVoidPtr();
+		Object * object = static_cast<Object *>(ptr);
+		*objHash = object->GetType().Value(); //GetType is virtual
+		return ptr;
+	}
+
 	DllExport
 	const char * urho_map_get_String (VariantMap& map, int hash)
 	{

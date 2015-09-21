@@ -20,13 +20,13 @@ namespace Urho
 {
 	public partial class UrhoObjectsRegistry
 	{
-		public static T CreateInstance<T>(IntPtr ptr, int hash) where T : class
+		public static T CreateInstance<T>(IntPtr ptr, int hash) where T : UrhoObject
 		{
 			return (T)CreateInstance(ptr, hash);
 		}
 
-		public static object CreateInstance(IntPtr ptr, int hash)
-		{			
+		public static UrhoObject CreateInstance(IntPtr ptr, int hash)
+		{
 			if (ptr == IntPtr.Zero)
 				return null;
 

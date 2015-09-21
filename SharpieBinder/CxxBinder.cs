@@ -389,6 +389,8 @@ namespace SharpieBinder
 
 			// Determines if this is a subclass of RefCounted (but not RefCounted itself)
 			bool refCountedSubclass = decl.TagKind == TagDeclKind.Class && decl.QualifiedName != "Urho3D::RefCounted" && decl.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted);
+			// Same for Urho3D::Object
+			bool objectSubclass = decl.TagKind == TagDeclKind.Class && decl.QualifiedName != "Urho3D::Object" && decl.IsDerivedFrom(ScanBaseTypes.UrhoObjectType);
 
 			if (refCountedSubclass) {
 				var nativeCtor = new ConstructorDeclaration
@@ -398,7 +400,10 @@ namespace SharpieBinder
 					Initializer = new ConstructorInitializer()
 				};
 
-				urhoTypeRegistryGenerator.AppendType(currentType.Name);
+				if (objectSubclass)
+				{
+					urhoTypeRegistryGenerator.AppendType(currentType.Name);
+				}
 
 				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("handle"));

@@ -9,6 +9,9 @@ namespace Urho {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr urho_map_get_ptr (IntPtr handle, int stringHash);
 
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		extern static IntPtr urho_map_get_object(IntPtr handle, int stringHash, out int objectHash);
+
 		static public Camera get_Camera (IntPtr handle, int stringHash)
 		{
 			var ptr = urho_map_get_ptr(handle, stringHash);
@@ -57,8 +60,9 @@ namespace Urho {
 		
 		static public UrhoObject get_Object (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new UrhoObject(ptr);
+			int objectHash;
+			var ptr = urho_map_get_object(handle, stringHash, out objectHash);
+			return UrhoObjectsRegistry.CreateInstance<UrhoObject>(ptr, objectHash);
 		}
 		
 		static public Obstacle get_Obstacle (IntPtr handle, int stringHash)
@@ -174,8 +178,9 @@ namespace Urho {
 		
 		static public UIElement get_UIElement (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr (handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new UIElement (ptr);
+			int objectHash;
+			var ptr = urho_map_get_object(handle, stringHash, out objectHash);
+			return UrhoObjectsRegistry.CreateInstance<UIElement>(ptr, objectHash);
 		}
 
 		static public WorkItem get_WorkItem (IntPtr handle, int stringHash)

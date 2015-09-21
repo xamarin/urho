@@ -15,7 +15,7 @@ namespace SharpieBinder
 		// 
 		// These are the types that we have to lookup earlier, before we run the scan in CxxBinder
 		//
-		static public CXXRecordDecl UrhoRefCounted, EventHandlerType;
+		static public CXXRecordDecl UrhoRefCounted, EventHandlerType, UrhoObjectType;
 
 		// Provides a way of mapping names to declarations, we load this as we process
 		// and use this information later in CxxBinder
@@ -30,6 +30,9 @@ namespace SharpieBinder
 			switch (decl.QualifiedName) {
 				case "Urho3D::RefCounted":
 					UrhoRefCounted = decl;
+					break;
+				case "Urho3D::Object":
+					UrhoObjectType = decl;
 					break;
 				case "Urho3D::EventHandler":
 					EventHandlerType = decl;
