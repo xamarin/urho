@@ -18,7 +18,7 @@ namespace Urho {
 		static Dictionary<IntPtr,WeakReference<RefCounted>> knownObjects = new Dictionary<IntPtr,WeakReference<RefCounted>> ();
 		static IntPtr expecting;
 		
-		public static T LookupObject<T> (IntPtr ptr) where T:RefCounted
+		public static T LookupRefCounted<T> (IntPtr ptr) where T:RefCounted
 		{
 			if (ptr == IntPtr.Zero)
 				return null;
@@ -32,27 +32,39 @@ namespace Urho {
 				if (wr.TryGetTarget (out ret))
 					return (T) ret;
 			}
-			
-			try {
-				// TODO: if this is a UrhoObject, instead of a plain RefCounted,
-				// we should find the most derived type, by calling the Type method
-				// on the provided instance, and then creating the most derived value.
-				//
-				// We just need to statically create the table of all those types
-				
-				// Create the instance.  We use "expecting" to avoid creating two
-				// WeakReferences (one via this method, one via the Refcounted(IntPtr) constructor
-				// which is our constructor that auto registers classes initialized manually from
-				// pointers
-				expecting = ptr;
-				var o = (T)Activator.CreateInstance(typeof(T), ptr);
-                if (expecting != IntPtr.Zero)
-					knownObjects [ptr] = new WeakReference<RefCounted> (o);
-				expecting = IntPtr.Zero;
-				return o;
-			} catch {
-				throw;
+
+			expecting = ptr;
+			var o = (T)Activator.CreateInstance(typeof(T), ptr);
+			if (expecting != IntPtr.Zero)
+				knownObjects[ptr] = new WeakReference<RefCounted>(o);
+			expecting = IntPtr.Zero;
+			return o;
+		}
+
+		public static T LookupObject<T>(IntPtr ptr) where T : UrhoObject
+		{
+			if (ptr == IntPtr.Zero)
+				return null;
+
+			// No locks are needed, because Urho code is only allowed to run in the 
+			// UI thread, never anywhere else.
+			WeakReference<RefCounted> wr;
+			if (knownObjects.TryGetValue(ptr, out wr))
+			{
+				RefCounted ret;
+
+				if (wr.TryGetTarget(out ret))
+					return (T)ret;
 			}
+
+			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
+			expecting = ptr;
+			var type = System.Type.GetType("Urho." + name) ?? System.Type.GetType("Urho.Urho" + name);
+			var o = (T)Activator.CreateInstance(type, ptr);
+			if (expecting != IntPtr.Zero)
+				knownObjects[ptr] = new WeakReference<RefCounted>(o);
+			expecting = IntPtr.Zero;
+			return o;
 		}
 
 		public static void UnregisterObject (IntPtr handle)
@@ -100,9 +112,14 @@ namespace Urho {
 			}
 		}
 
-		static internal IList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : RefCounted
+		static internal IList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject
 		{
-			return new Vectors.Proxy<T> (handle);
+			return new Vectors.ProxyUrhoObject<T> (handle);
+		}
+
+		static internal IList<T> CreateVectorSharedPtrRefcountedProxy<T>(IntPtr handle) where T : RefCounted
+		{
+			return new Vectors.ProxyRefCounted<T>(handle);
 		}
 	}
 
@@ -115,20 +132,31 @@ namespace Urho {
 
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		internal extern static void VectorSharedPtr_SetIdx (IntPtr h, int idx, IntPtr v);
-		
-	
-		internal class Proxy<T> : IList<T> where T : RefCounted
+
+		internal class ProxyUrhoObject<T> : ProxyRefCounted<T> where T : UrhoObject
 		{
-			IntPtr handle;
-			public Proxy (IntPtr handle)
+			public ProxyUrhoObject(IntPtr handle) : base(handle) { }
+
+			public override T this[int idx]
+			{
+				get {
+					return Runtime.LookupRefCounted<T>(VectorSharedPtr_GetIdx(handle, idx));
+				}
+				set { throw new NotImplementedException("Proxy has not implemented this yet"); }
+			}
+		}
+
+		internal class ProxyRefCounted<T> : IList<T> where T : RefCounted
+		{
+			protected IntPtr handle;
+			public ProxyRefCounted(IntPtr handle)
 			{
 				this.handle = handle;
 			}
-			
 		
-			public T this [int idx] {
+			public virtual T this [int idx] {
 				get {
-					return Runtime.LookupObject<T> (VectorSharedPtr_GetIdx (handle, idx));
+					return Runtime.LookupRefCounted<T> (VectorSharedPtr_GetIdx (handle, idx));
 				}
 				set {
 					// Mhm, how do we get the SharedPtr from an existing object?

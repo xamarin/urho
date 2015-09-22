@@ -86,11 +86,9 @@ namespace SharpieBinder
 		TypeDeclaration currentType;
 		StreamWriter cbindingStream;
 		StreamWriter podStream;
-		UrhoTypeRegistryGenerator urhoTypeRegistryGenerator;
 
 		public CxxBinder(string outputDir)
 		{
-			urhoTypeRegistryGenerator = new UrhoTypeRegistryGenerator(outputDir);
 			baseNodeTypes = new Dictionary<string, BaseNodeType>
 			{
 				["Urho3D::Object"] = new BaseNodeType(Bind),
@@ -167,7 +165,6 @@ namespace SharpieBinder
 			pn ("}");
 			cbindingStream.Close();
 			podStream.Close ();
-			urhoTypeRegistryGenerator.Flush();
 			cbindingStream = null;
 		}
 
@@ -399,11 +396,7 @@ namespace SharpieBinder
 					Body = new BlockStatement(),
 					Initializer = new ConstructorInitializer()
 				};
-
-				if (objectSubclass)
-				{
-					urhoTypeRegistryGenerator.AppendType(currentType.Name);
-				}
+				
 
 				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("handle"));
@@ -488,7 +481,7 @@ namespace SharpieBinder
 			var ctstring = ct.ToString ();
 
 			// String references are hand-bound, so we are going to let those though
-			if (ctstring == ConstStringReference)
+			if (ctstring == ConstStringReference || ctstring == "const Urho3D::String &")
 				return false;
 
 			switch (ctstring) {
@@ -590,6 +583,7 @@ namespace SharpieBinder
 		{
 			None,				// no wrapping needed
 			HandleMember,		// access the .Handle on the parameter
+			UrhoObject,			// access the .Handle on the parameter, but the object is known to be an UrhoObject.
 			EventHandler,		// 
 			StringHash,			// StringHash is handled specially (we surface StringHash, but we always pass an int/receive an int)
 			VectorSharedPtr,	// Used to marshal Vector pointers, by using an implementation of a IList<T> 
@@ -627,7 +621,8 @@ namespace SharpieBinder
 				lowLevel = new PrimitiveType("IntPtr");
 				highLevel = new PrimitiveType("IntPtr");
 				return;
-			
+
+			case "const Urho3D::String &":
 			case "class Urho3D::String":
 			case ConstStringReference:
 				if (isReturn) {
@@ -727,6 +722,16 @@ namespace SharpieBinder
 
 				CXXRecordDecl decl;
 				if (underlying != null && ScanBaseTypes.nameToDecl.TryGetValue(underlying.Decl.QualifiedName, out decl)) {
+					if (decl.IsDerivedFrom(ScanBaseTypes.UrhoObjectType)) {
+						lowLevel = new SimpleType("IntPtr");
+						var remapped = RemapTypeName(decl.Name);
+						if (remapped != decl.Name)
+							highLevel = csParser.ParseTypeReference("Urho." + remapped);
+						else
+							highLevel = underlying.Bind();
+						wrapKind = WrapKind.UrhoObject;
+						return;
+					}
 					if (decl.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted)) {
 						lowLevel = new SimpleType("IntPtr");
 						var remapped = RemapTypeName(decl.Name);
@@ -999,7 +1004,8 @@ namespace SharpieBinder
 				marshalReturn = "({0}).Value ()";
 				break;
 			case "Urho3D::String":
-			case "const class Urho3D::String &":
+			case "const Urho3D::String &":
+            case "const class Urho3D::String &":
 				creturnType = "const char *";
 				marshalReturn = "strdup(({0}).CString ())";
 				break;
@@ -1172,6 +1178,7 @@ namespace SharpieBinder
 					invoke.Arguments.Add(parameterReference);
 					break;
 				case WrapKind.HandleMember:
+				case WrapKind.UrhoObject:
 					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
 						csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".Handle"));
 					invoke.Arguments.Add (cond);
@@ -1228,6 +1235,9 @@ namespace SharpieBinder
 
 				switch (returnIsWrapped) {
 				case WrapKind.HandleMember:
+					returnExpression = new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "LookupRefCounted", methodReturn2), invoke);
+					break;
+				case WrapKind.UrhoObject:
 					returnExpression = new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "LookupObject", methodReturn2), invoke);
 					break;
 				case WrapKind.EventHandler:
@@ -1251,6 +1261,10 @@ namespace SharpieBinder
 					};
 					f.Variables.Add (new VariableInitializer (cacheName, null));
 					currentType.Members.Add (f);
+					
+					var sharedPtrType = (methodReturn as SimpleType).TypeArguments.First ().Clone ();
+					//TODO: check if UrhoObject
+					var create = (sharedPtrType.ToString() == "AnimationState") ? "CreateVectorSharedPtrRefcountedProxy" : "CreateVectorSharedPtrProxy";
 
 					returnExpression = new ConditionalExpression (
 						new BinaryOperatorExpression (new IdentifierExpression (cacheName), BinaryOperatorType.InEquality, new PrimitiveExpression (null)),
@@ -1259,7 +1273,7 @@ namespace SharpieBinder
 							new IdentifierExpression (cacheName), 
 							new InvocationExpression (
 								new MemberReferenceExpression (
-									new IdentifierExpression ("Runtime"), "CreateVectorSharedPtrProxy", (methodReturn as SimpleType).TypeArguments.First ().Clone ()),
+									new IdentifierExpression ("Runtime"), create, sharedPtrType),
 								invoke)));
 						
 						

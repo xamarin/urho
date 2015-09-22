@@ -9,31 +9,24 @@ namespace Urho {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr urho_map_get_ptr (IntPtr handle, int stringHash);
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static IntPtr urho_map_get_object(IntPtr handle, int stringHash, out int objectHash);
-
 		static public Camera get_Camera (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new Camera(ptr);
+			return Runtime.LookupObject<Camera>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public Component get_Component (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new Component(ptr);
+			return Runtime.LookupObject<Component>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public Connection get_Connection (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new Connection(ptr);
+			return Runtime.LookupObject<Connection>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public CrowdAgent get_CrowdAgent (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new CrowdAgent(ptr);
+			return Runtime.LookupObject<CrowdAgent>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public IntPtr get_IntPtr (IntPtr handle, int stringHash)
@@ -48,39 +41,32 @@ namespace Urho {
 		
 		static public NavigationMesh get_NavigationMesh (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new NavigationMesh(ptr);
+			return Runtime.LookupObject<NavigationMesh>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public Node get_Node (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new Node(ptr);
+			return Runtime.LookupObject<Node>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public UrhoObject get_Object (IntPtr handle, int stringHash)
 		{
-			int objectHash;
-			var ptr = urho_map_get_object(handle, stringHash, out objectHash);
-			return UrhoObjectsRegistry.CreateInstance<UrhoObject>(ptr, objectHash);
+			return Runtime.LookupObject<UrhoObject>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public Obstacle get_Obstacle (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new Obstacle(ptr);
+			return Runtime.LookupObject<Obstacle>(urho_map_get_ptr(handle, stringHash));
 		}
 
 		static public PhysicsWorld get_PhysicsWorld (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new PhysicsWorld(ptr);
+			return Runtime.LookupObject<PhysicsWorld>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public PhysicsWorld2D get_PhysicsWorld2D (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new PhysicsWorld2D(ptr);
+			return Runtime.LookupObject<PhysicsWorld2D>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public RenderSurface get_RenderSurface (IntPtr handle, int stringHash)
@@ -91,26 +77,22 @@ namespace Urho {
 		
 		static public Resource get_Resource  (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new Resource(ptr);
+			return Runtime.LookupObject<Resource>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public RigidBody get_RigidBody (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new RigidBody(ptr);
+			return Runtime.LookupObject<RigidBody>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public RigidBody2D get_RigidBody2D (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new RigidBody2D(ptr);
+			return Runtime.LookupObject<RigidBody2D>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public Scene get_Scene (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new Scene(ptr);
+			return Runtime.LookupObject<Scene>(urho_map_get_ptr(handle, stringHash));
 		}
 		
 		static public Serializable get_Serializable (IntPtr handle, int stringHash)
@@ -152,8 +134,7 @@ namespace Urho {
 		
 		static public Texture get_Texture (IntPtr handle, int stringHash)
 		{
-			var ptr = urho_map_get_ptr(handle, stringHash);
-			return ptr == IntPtr.Zero ? null : new Texture(ptr);
+			return Runtime.LookupObject<Texture>(urho_map_get_ptr(handle, stringHash));
 		}
 	
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
@@ -178,9 +159,7 @@ namespace Urho {
 		
 		static public UIElement get_UIElement (IntPtr handle, int stringHash)
 		{
-			int objectHash;
-			var ptr = urho_map_get_object(handle, stringHash, out objectHash);
-			return UrhoObjectsRegistry.CreateInstance<UIElement>(ptr, objectHash);
+			return Runtime.LookupObject<UIElement>(urho_map_get_ptr(handle, stringHash));
 		}
 
 		static public WorkItem get_WorkItem (IntPtr handle, int stringHash)

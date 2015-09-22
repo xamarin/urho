@@ -36,7 +36,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="generated\UrhoObjectsRegistry.cs" />
     <Compile Include="external\IntVector2.cs" />
     <Compile Include="external\Plane.cs" />
     <Compile Include="generated\BackgroundLoader.cs" />

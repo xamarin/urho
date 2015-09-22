@@ -8,7 +8,7 @@ namespace Urho {
 		
 		public RenderPath Clone ()
 		{
-			return Runtime.LookupObject<RenderPath> (RenderPath_Clone (handle));
+			return Runtime.LookupRefCounted<RenderPath> (RenderPath_Clone (handle));
 		}
 	}
 }
