@@ -15,9 +15,36 @@ using System.Threading;
 namespace Urho {
 	
 	public partial class Runtime {
-		static Dictionary<IntPtr,WeakReference<RefCounted>> knownObjects = new Dictionary<IntPtr,WeakReference<RefCounted>> ();
+		static Dictionary<IntPtr, RefCounted> knownObjects = new Dictionary<IntPtr, RefCounted> ();
 		static IntPtr expecting;
-		
+		static RefCountedDestructorCallback destructorCallback;
+
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate void RefCountedDestructorCallback(IntPtr ptr);
+
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		extern static void SetRefCountedDeleteCallback(RefCountedDestructorCallback callback);
+
+		public static void Initialize()
+		{
+			//keep reference to prevent collection by GC
+			destructorCallback = OnRefCountedNativeDelete;
+            SetRefCountedDeleteCallback(destructorCallback);
+        }
+
+		/// <summary>
+		/// This method is called by RefCounted::~RefCounted
+		/// </summary>
+		private static void OnRefCountedNativeDelete(IntPtr ptr)
+		{
+			RefCounted value;
+			if (knownObjects.TryGetValue(ptr, out value) && value != null)
+			{
+				value.OnDeleted();
+				knownObjects.Remove(ptr); //Dictionary::Remove doesn't return value so we have to do TryGetValue + Remove
+			}
+		}
+
 		public static T LookupRefCounted<T> (IntPtr ptr) where T:RefCounted
 		{
 			if (ptr == IntPtr.Zero)
@@ -25,18 +52,15 @@ namespace Urho {
 
 			// No locks are needed, because Urho code is only allowed to run in the 
 			// UI thread, never anywhere else.
-			WeakReference<RefCounted> wr;
-			if (knownObjects.TryGetValue (ptr, out wr)){
-				RefCounted ret;
-				
-				if (wr.TryGetTarget (out ret))
-					return (T) ret;
+			RefCounted ret;
+			if (knownObjects.TryGetValue (ptr, out ret)){
+				return (T) ret;
 			}
 
 			expecting = ptr;
 			var o = (T)Activator.CreateInstance(typeof(T), ptr);
 			if (expecting != IntPtr.Zero)
-				knownObjects[ptr] = new WeakReference<RefCounted>(o);
+				knownObjects[ptr] = o;
 			expecting = IntPtr.Zero;
 			return o;
 		}
@@ -48,13 +72,10 @@ namespace Urho {
 
 			// No locks are needed, because Urho code is only allowed to run in the 
 			// UI thread, never anywhere else.
-			WeakReference<RefCounted> wr;
-			if (knownObjects.TryGetValue(ptr, out wr))
+			RefCounted ret;
+			if (knownObjects.TryGetValue(ptr, out ret))
 			{
-				RefCounted ret;
-
-				if (wr.TryGetTarget(out ret))
-					return (T)ret;
+				return (T)ret;
 			}
 
 			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
@@ -62,7 +83,7 @@ namespace Urho {
 			var type = System.Type.GetType("Urho." + name) ?? System.Type.GetType("Urho.Urho" + name);
 			var o = (T)Activator.CreateInstance(type, ptr);
 			if (expecting != IntPtr.Zero)
-				knownObjects[ptr] = new WeakReference<RefCounted>(o);
+				knownObjects[ptr] = o;
 			expecting = IntPtr.Zero;
 			return o;
 		}
@@ -78,7 +99,7 @@ namespace Urho {
 			if (expecting == r.Handle)
 				expecting = IntPtr.Zero;
 			
-			knownObjects [rh] = new WeakReference<RefCounted> (r);
+			knownObjects [rh] = r;
 		}
 
 		static Dictionary<System.Type,int> hashDict;

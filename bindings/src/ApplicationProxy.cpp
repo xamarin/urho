@@ -8,9 +8,11 @@
 #include <Urho3D/Urho3D.h>
 #include <Urho3D/Core/ProcessUtils.h>
 #include <Urho3D/DebugNew.h>
+#include "glue.h"
 
 using namespace Urho3D;
 sdl_callback sdlCallback;
+RefCountedDestructorCallback refCountedDestructorCallback;
 const char *sdlResourceDir;
 const char *sdlDocumentsDir;
 
@@ -40,7 +42,21 @@ extern "C" {
 		sdlResourceDir = resourceDir;
 		sdlDocumentsDir = documentsDir;
 	}
+	
+	DllExport void 
+	SetRefCountedDeleteCallback(RefCountedDestructorCallback callback)
+	{
+		refCountedDestructorCallback = callback;
+	}
+
+	//called by RefCounted::~RefCounted
+	void MonoHandleRefCountedDelete(void * ptr)
+	{
+		if (refCountedDestructorCallback)
+			refCountedDestructorCallback(ptr);
+	}
 }
+
 
 //FileSystem.cpp uses these functions as external.
 #if defined(IOS)

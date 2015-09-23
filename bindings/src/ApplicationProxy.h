@@ -2,6 +2,7 @@ class ApplicationProxy;
 
 typedef void(*callback_t)(ApplicationProxy *);
 typedef int(*sdl_callback)(Urho3D::Context *);
+typedef void(*RefCountedDestructorCallback)(void *);
 
 class ApplicationProxy : public Urho3D::Application {
 public:

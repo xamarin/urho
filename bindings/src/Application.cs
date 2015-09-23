@@ -131,6 +131,7 @@ namespace Urho {
 
 		public virtual void Start ()
 		{
+			Runtime.Initialize();
 		}
 
 		public virtual void Stop ()
