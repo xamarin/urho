@@ -23,6 +23,7 @@ namespace Urho.iOS
 
 		public static void Run(Func<Application> appCreator, string resourcesDir, string docsDir)
 		{
+			Runtime.SetCustomNativeDeleteCallback(OnNativeDelete);
 			Application.SetCustomApplicationCallback(Setup, Start, Stop);
 			UrhoObject.SetCustomObjectCallback(ObjectCallback);
 			InitSdl(resourcesDir, docsDir);
@@ -31,6 +32,11 @@ namespace Urho.iOS
 			appCreator().Run();
 		}
 
+		[MonoPInvokeCallback(typeof(Application.ActionIntPtr))]
+		private static void OnNativeDelete(IntPtr ptr)
+		{
+			Runtime.OnRefCountedNativeDelete(ptr);
+		}
 
 		[MonoPInvokeCallback(typeof(Application.ActionIntPtr))]
 		private static void Stop(IntPtr value)

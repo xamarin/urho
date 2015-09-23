@@ -25,17 +25,27 @@ namespace Urho {
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		extern static void SetRefCountedDeleteCallback(RefCountedDestructorCallback callback);
 
+		/// <summary>
+		/// Runtime initialization. 
+		/// </summary>
 		public static void Initialize()
 		{
-			//keep reference to prevent collection by GC
-			destructorCallback = OnRefCountedNativeDelete;
-            SetRefCountedDeleteCallback(destructorCallback);
-        }
+			destructorCallback = destructorCallback ?? OnRefCountedNativeDelete;
+			SetRefCountedDeleteCallback(destructorCallback);
+		}
+
+		/// <summary>
+		/// This method is a workaround for iOS that requires all callback methods to be marked with a special attribute [MonoPInvokeCallback]
+		/// </summary>
+		public static void SetCustomNativeDeleteCallback(RefCountedDestructorCallback callback)
+		{
+			destructorCallback = callback;
+		}
 
 		/// <summary>
 		/// This method is called by RefCounted::~RefCounted
 		/// </summary>
-		private static void OnRefCountedNativeDelete(IntPtr ptr)
+		public static void OnRefCountedNativeDelete(IntPtr ptr)
 		{
 			RefCounted value;
 			if (knownObjects.TryGetValue(ptr, out value) && value != null)
