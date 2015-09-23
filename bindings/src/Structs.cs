@@ -390,7 +390,7 @@ namespace Urho {
 	public struct Billboard {
 		public Vector3 Position;
 		public Vector2 Size;
-		public Rect UV;
+		public Rect Uv;
 		public Color Color;
 		public float Rotation;
 		public byte _enabled; //bool is not blittable.
@@ -411,7 +411,7 @@ namespace Urho {
 
 		public Vector3 Position { get { return bb->Position; } set { bb->Position = value; } }
 		public Vector2 Size { get { return bb->Size; } set { bb->Size = value; } }
-		public Rect UV { get { return bb->UV; } set { bb->UV = value; } }
+		public Rect Uv { get { return bb->Uv; } set { bb->Uv = value; } }
 		public Color Color { get { return bb->Color; } set { bb->Color = value; } }
 		public float Rotation { get { return bb->Rotation; } set { bb->Rotation = value; } }
 		public bool Enabled { get { return bb->Enabled; } set { bb->Enabled = value; } }
