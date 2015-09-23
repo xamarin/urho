@@ -1050,7 +1050,7 @@ namespace SharpieBinder
 				cinvoke.Append($"{decl.Parent.Name}::{decl.Name} (");
 
 			} else if (isConstructor) {
-				cinvoke.Append($"new {decl.Name} (");
+				cinvoke.Append($"WeakPtr<{decl.Name}>(new {decl.Name}(");
 			} else {
 				cmethodBuilder.Append($"Urho3D::{decl.Parent.Name} *_target");
 				if (decl.Parameters.Any())
@@ -1302,6 +1302,9 @@ namespace SharpieBinder
 					}
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());
+				if (isConstructor)
+					rstr += ")";
+
 				//cmethodBuilder.AppendLine ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
 				cmethodBuilder.AppendLine($"return {rstr};");
 			}
