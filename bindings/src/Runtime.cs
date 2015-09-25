@@ -50,7 +50,7 @@ namespace Urho {
 			RefCounted value;
 			if (knownObjects.TryGetValue(ptr, out value) && value != null)
 			{
-				value.OnDeleted();
+				value.Delete();
 				knownObjects.Remove(ptr); //Dictionary::Remove doesn't return value so we have to do TryGetValue + Remove
 			}
 		}
