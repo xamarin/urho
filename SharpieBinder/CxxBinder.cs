@@ -15,6 +15,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Clang.Ast;
 using ICSharpCode.NRefactory.CSharp;
 using System.Linq;
@@ -1050,8 +1051,10 @@ namespace SharpieBinder
 				cinvoke.Append($"{decl.Parent.Name}::{decl.Name} (");
 
 			} else if (isConstructor) {
-				cinvoke.Append($"WeakPtr<{decl.Name}>(new {decl.Name}(");
-			} else {
+				cinvoke.Append($"new {decl.Name}(");
+			}
+
+			else {
 				cmethodBuilder.Append($"Urho3D::{decl.Parent.Name} *_target");
 				if (decl.Parameters.Any())
 					cmethodBuilder.Append(", ");
@@ -1302,8 +1305,13 @@ namespace SharpieBinder
 					}
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());
-				if (isConstructor)
-					rstr += ")";
+				CXXRecordDecl returnType;
+
+				//Wrap with WeakPtr all RefCounted subclasses constructors
+				if (isConstructor) {
+					if (ScanBaseTypes.nameToDecl.TryGetValue(decl.Parent.QualifiedName, out returnType) && returnType.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted))
+						rstr = $"WeakPtr<{decl.Name}>({rstr})";
+				}
 
 				//cmethodBuilder.AppendLine ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
 				cmethodBuilder.AppendLine($"return {rstr};");
