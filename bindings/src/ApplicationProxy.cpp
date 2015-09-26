@@ -11,8 +11,9 @@
 #include "glue.h"
 
 using namespace Urho3D;
+
 sdl_callback sdlCallback;
-RefCountedDestructorCallback refCountedDestructorCallback;
+RefCountedEventCallback refCountedEventCallback;
 const char *sdlResourceDir;
 const char *sdlDocumentsDir;
 
@@ -44,16 +45,23 @@ extern "C" {
 	}
 	
 	DllExport void 
-	SetRefCountedDeleteCallback(RefCountedDestructorCallback callback)
+	SetRefCountedEventCallback(RefCountedEventCallback callback)
 	{
-		refCountedDestructorCallback = callback;
+		refCountedEventCallback = callback;
 	}
 
-	//called by RefCounted::~RefCounted
-	void MonoHandleRefCountedDelete(void * ptr)
+	//see RefCounted.cpp
+	void HandleRefCountedEvent(void * ptr, Urho3D::RefCountedEvent rcEvent)
 	{
-		if (refCountedDestructorCallback)
-			refCountedDestructorCallback(ptr);
+		if (refCountedEventCallback)
+			refCountedEventCallback(ptr, rcEvent);
+	}
+
+	DllExport void 
+	TryDeleteRefCounted(Urho3D::RefCounted *refCounted)
+	{
+		if (!refCounted->Refs())
+			delete refCounted;
 	}
 }
 

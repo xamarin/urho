@@ -7,6 +7,7 @@
 // Copyrigh 2015 Xamarin INc
 //
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -15,43 +16,59 @@ using System.Threading;
 namespace Urho {
 	
 	public partial class Runtime {
-		static Dictionary<IntPtr, RefCounted> knownObjects = new Dictionary<IntPtr, RefCounted> ();
-		static IntPtr expecting;
-		static RefCountedDestructorCallback destructorCallback;
+		static Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>> ();
+		static Dictionary<System.Type, int> hashDict;
+		static RefCountedEventCallback refCountedEventCallback;
+
+		public enum RefCountedEvent { Delete, AddRef }
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		public delegate void RefCountedDestructorCallback(IntPtr ptr);
+		public delegate void RefCountedEventCallback(IntPtr ptr, RefCountedEvent rcEvent);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void SetRefCountedDeleteCallback(RefCountedDestructorCallback callback);
+		extern static void SetRefCountedEventCallback(RefCountedEventCallback callback);
 
 		/// <summary>
 		/// Runtime initialization. 
 		/// </summary>
 		public static void Initialize()
 		{
-			destructorCallback = destructorCallback ?? OnRefCountedNativeDelete;
-			SetRefCountedDeleteCallback(destructorCallback);
+			refCountedEventCallback = refCountedEventCallback ?? OnRefCountedEvent;
+			SetRefCountedEventCallback(refCountedEventCallback);
 		}
 
 		/// <summary>
 		/// This method is a workaround for iOS that requires all callback methods to be marked with a special attribute [MonoPInvokeCallback]
 		/// </summary>
-		public static void SetCustomNativeDeleteCallback(RefCountedDestructorCallback callback)
+		public static void SetCustomRefcountedEventCallback(RefCountedEventCallback callback)
 		{
-			destructorCallback = callback;
+			refCountedEventCallback = callback;
 		}
 
 		/// <summary>
 		/// This method is called by RefCounted::~RefCounted
 		/// </summary>
-		public static void OnRefCountedNativeDelete(IntPtr ptr)
+		public static void OnRefCountedEvent(IntPtr ptr, RefCountedEvent rcEvent)
 		{
-			RefCounted value;
-			if (knownObjects.TryGetValue(ptr, out value) && value != null)
+			if (rcEvent == RefCountedEvent.Delete)
 			{
-				value.Delete();
-				knownObjects.Remove(ptr); //Dictionary::Remove doesn't return value so we have to do TryGetValue + Remove
+				ReferenceHolder<RefCounted> value;
+				if (knownObjects.TryGetValue(ptr, out value) && value != null)
+				{
+					var reference = value.Reference;
+					if (reference == null)
+						knownObjects.Remove(ptr);
+					else
+						reference.HandleNativeDelete();
+				}
+			}
+			else if (rcEvent == RefCountedEvent.AddRef)
+			{
+				ReferenceHolder<RefCounted> refHolder;
+				if (knownObjects.TryGetValue(ptr, out refHolder))
+				{
+					refHolder.MakeStrong(); 
+				}
 			}
 		}
 
@@ -62,16 +79,15 @@ namespace Urho {
 
 			// No locks are needed, because Urho code is only allowed to run in the 
 			// UI thread, never anywhere else.
-			RefCounted ret;
+			ReferenceHolder<RefCounted> ret;
 			if (knownObjects.TryGetValue (ptr, out ret)){
-				return (T) ret;
+				var refernce = (T)ret.Reference;
+				if (refernce != null)
+					return refernce;
 			}
 
-			expecting = ptr;
 			var o = (T)Activator.CreateInstance(typeof(T), ptr);
-			if (expecting != IntPtr.Zero)
-				knownObjects[ptr] = o;
-			expecting = IntPtr.Zero;
+			knownObjects[ptr] = new ReferenceHolder<RefCounted>(o, weak: o.Refs() < 1);
 			return o;
 		}
 
@@ -82,37 +98,31 @@ namespace Urho {
 
 			// No locks are needed, because Urho code is only allowed to run in the 
 			// UI thread, never anywhere else.
-			RefCounted ret;
-			if (knownObjects.TryGetValue(ptr, out ret))
-			{
-				return (T)ret;
+			ReferenceHolder<RefCounted> ret;
+			if (knownObjects.TryGetValue(ptr, out ret)){
+				var refernce = (T) ret.Reference;
+				if (refernce != null)
+					return refernce;
 			}
 
 			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
-			expecting = ptr;
+
 			var type = System.Type.GetType("Urho." + name) ?? System.Type.GetType("Urho.Urho" + name);
 			var o = (T)Activator.CreateInstance(type, ptr);
-			if (expecting != IntPtr.Zero)
-				knownObjects[ptr] = o;
-			expecting = IntPtr.Zero;
+			knownObjects[ptr] = new ReferenceHolder<RefCounted>(o, weak: o.Refs() < 1); //TODO: join GetTypeName and Refs into single pinvoke
 			return o;
 		}
 
 		public static void UnregisterObject (IntPtr handle)
 		{
-			knownObjects.Remove (handle);
+			knownObjects.Remove(handle);
 		}
 
 		public static void RegisterObject (RefCounted r)
 		{
 			var rh = r.Handle;
-			if (expecting == r.Handle)
-				expecting = IntPtr.Zero;
-			
-			knownObjects [rh] = r;
+			knownObjects [rh] = new ReferenceHolder<RefCounted>(r, weak: r.Refs() < 1); //TODO: seems Refs will be always 0 here
 		}
-
-		static Dictionary<System.Type,int> hashDict;
 		
 		public static StringHash LookupStringHash (System.Type t)
 		{
@@ -151,6 +161,62 @@ namespace Urho {
 		static internal IList<T> CreateVectorSharedPtrRefcountedProxy<T>(IntPtr handle) where T : RefCounted
 		{
 			return new Vectors.ProxyRefCounted<T>(handle);
+		}
+	}
+
+	internal class ReferenceHolder<T> where T : class
+	{
+		public T StrongRef { get; private set; }
+		public WeakReference<T> WeakRef { get; private set; }
+
+		public ReferenceHolder(T obj, bool weak)
+		{
+			if (weak)
+				WeakRef = new WeakReference<T>(obj);
+			else
+				StrongRef = obj;
+		}
+
+		public T Reference
+		{
+			get
+			{
+				if (StrongRef != null)
+					return StrongRef;
+
+				T wr;
+				WeakRef.TryGetTarget(out wr);
+				return wr;
+			}
+		}
+
+		/// <summary>
+		/// Change Weak to Strong 
+		/// </summary>
+		public bool MakeStrong()
+		{
+			if (StrongRef != null)
+				return true;
+			T strong = null;
+			WeakRef?.TryGetTarget(out strong);
+
+			StrongRef = strong;
+			WeakRef = null;
+			return StrongRef != null;
+		}
+
+		/// <summary>
+		/// Change Strong to Weak
+		/// </summary>
+		public bool MakeWeak()
+		{
+			if (StrongRef != null)
+			{
+				WeakRef = new WeakReference<T>(StrongRef);
+				StrongRef = null;
+				return true;
+			}
+			return false;
 		}
 	}
 

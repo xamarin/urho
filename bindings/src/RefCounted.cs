@@ -3,21 +3,15 @@
 // at JIT/AOT time to probe for static class initialization
 //
 using System;
-using System.Collections.Generic;
-using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace Urho {
 	public partial class RefCounted : IDisposable {
-		// TODO: replace this with an init with some compare and exchange.
-		static List<IntPtr> deadHandles = new List<IntPtr> ();
 		internal IntPtr handle;
-		//static Thread MainThread;
 		
 		public IntPtr Handle => handle;
 
-		internal RefCounted (UrhoObjectFlag empty)
-		{
-		}
+		internal RefCounted (UrhoObjectFlag empty) { }
 		
 		public RefCounted (IntPtr handle)
 		{
@@ -29,32 +23,56 @@ namespace Urho {
 		
 		public void Dispose ()
 		{
+			DeleteNativeObject();
 			Dispose (true);
 			GC.SuppressFinalize (this);
 		}
 
-		protected virtual void Dispose (bool disposing)
+		/// <summary>
+		/// Called by RefCounted::~RefCounted - we don't need to check Refs here - just mark is as deleted and remove from cache
+		/// </summary>
+		internal void HandleNativeDelete()
 		{
-			if (handle != IntPtr.Zero){
-				//if (Thread.CurrentThread == MainThread) TODO:
-				//	RefCounted.RefCounted_ReleaseRef (handle);
-				//else
-				lock (deadHandles)
-						deadHandles.Add (handle);
-				handle = IntPtr.Zero;
+			Dispose(true);
+		}
+
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		extern static void TryDeleteRefCounted(IntPtr handle);
+
+		/// <summary>
+		/// Try to delete underlying native object if nobody uses it (Refs==0)
+		/// </summary>
+		void DeleteNativeObject()
+		{
+			if (!IsDeleted)
+			{
+				TryDeleteRefCounted(handle);
 			}
 		}
 
-		public void FlushHandles ()
+		protected virtual void Dispose (bool disposing)
 		{
-			lock (deadHandles){
-				foreach (var p in deadHandles){
-					Runtime.UnregisterObject (p);
-					RefCounted.RefCounted_ReleaseRef (p);
-				}
-				deadHandles.Clear ();
+			if (IsDeleted)
+				return;
+			
+			if (disposing)
+			{
+				IsDeleted = true;
+				OnDeleted();
+				Runtime.UnregisterObject(handle);
+			}
+			else
+			{
+				//TODO: remove object from cache from finalizer's thread. Use ConcurrencyDictionary or Dictionary + locks? 
 			}
 		}
+
+		/// <summary>
+		/// True if underlying native object is deleted
+		/// </summary>
+		public bool IsDeleted { get; private set; }
+
+		protected virtual void OnDeleted() { }
 
 		public override bool Equals (object other)
 		{
@@ -105,7 +123,8 @@ namespace Urho {
 
 		~RefCounted ()
 		{
+			DeleteNativeObject();
 			Dispose (false);
 		}
-    }
+	}
 }

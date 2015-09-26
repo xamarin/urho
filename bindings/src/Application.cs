@@ -31,9 +31,10 @@ namespace Urho {
 		/// </summary>
 		public Application (Context context) : base (UrhoObjectFlag.Empty)
 		{
-
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
+
+			context.AddRef();
 
 			//keep references to callbacks (supposed to be passed to native code) as long as the App is alive
 			if (setupCallback == null)
