@@ -1,0 +1,55 @@
+From 3cf376a60f82d91c4abbad99c7bf9837df9acf68 Mon Sep 17 00:00:00 2001
+From: EgorBo <egorbo@gmail.com>
+Date: Sat, 26 Sep 2015 16:12:09 +0300
+Subject: [PATCH] Add events for RefCounted
+
+---
+ Source/Urho3D/Container/RefCounted.cpp | 6 +++++-
+ Source/Urho3D/Container/RefCounted.h   | 2 ++
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/Source/Urho3D/Container/RefCounted.cpp b/Source/Urho3D/Container/RefCounted.cpp
+index 61796bf..1023daa 100644
+--- a/Source/Urho3D/Container/RefCounted.cpp
++++ b/Source/Urho3D/Container/RefCounted.cpp
+@@ -36,12 +36,15 @@ RefCounted::RefCounted() :
+     (refCount_->weakRefs_)++;
+ }
+ 
++//MonoUrho: we need these events to control objects lifecycle
++extern "C" void HandleRefCountedEvent(void* ptr, RefCountedEvent rcEvent);
++
+ RefCounted::~RefCounted()
+ {
+     assert(refCount_);
+     assert(refCount_->refs_ == 0);
+     assert(refCount_->weakRefs_ > 0);
+-
++    HandleRefCountedEvent(this, RCE_DELETE);
+     // Mark object as expired, release the self weak ref and delete the refcount if no other weak refs exist
+     refCount_->refs_ = -1;
+     (refCount_->weakRefs_)--;
+@@ -55,6 +58,7 @@ void RefCounted::AddRef()
+ {
+     assert(refCount_->refs_ >= 0);
+     (refCount_->refs_)++;
++    HandleRefCountedEvent(this, RCE_ADDREF);
+ }
+ 
+ void RefCounted::ReleaseRef()
+diff --git a/Source/Urho3D/Container/RefCounted.h b/Source/Urho3D/Container/RefCounted.h
+index b43434b..8a0b2a4 100644
+--- a/Source/Urho3D/Container/RefCounted.h
++++ b/Source/Urho3D/Container/RefCounted.h
+@@ -55,6 +55,8 @@ struct RefCount
+     int weakRefs_;
+ };
+ 
++enum RefCountedEvent { RCE_DELETE, RCE_ADDREF };
++
+ /// Base class for intrusively reference-counted objects. These are noncopyable and non-assignable.
+ class URHO3D_API RefCounted
+ {
+-- 
+1.9.5.msysgit.1
+
