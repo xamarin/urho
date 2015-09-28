@@ -1,6 +1,6 @@
 [submodule "Urho3D/Source"]
 	path = Urho3D/Source
-	url = git@github.com:urho3d/Urho3D.git
+	url = git@github.com:EgorBo/Urho3D.git
 [submodule "Samples"]
 	path = Samples
 	url = git@github.com:xamarin/urho-samples.git
