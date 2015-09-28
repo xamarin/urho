@@ -32,7 +32,11 @@ namespace Urho.iOS
 			appCreator().Run();
 		}
 
-		[MonoPInvokeCallback(typeof(Application.ActionIntPtr))]
+		//
+		// Apply [MonoPInvokeCallback] to all native callbacks:
+		//
+
+		[MonoPInvokeCallback(typeof(Runtime.RefCountedEventCallback))]
 		private static void OnNativeDelete(IntPtr ptr, Runtime.RefCountedEvent rcEvent)
 		{
 			Runtime.OnRefCountedEvent(ptr, rcEvent);
