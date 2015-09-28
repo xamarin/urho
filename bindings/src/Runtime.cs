@@ -16,7 +16,7 @@ using System.Threading;
 namespace Urho {
 	
 	public partial class Runtime {
-		static Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>> ();
+		static Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>> (); //Managed callable wrappers
 		static Dictionary<System.Type, int> hashDict;
 		static RefCountedEventCallback refCountedEventCallback;
 
@@ -162,6 +162,8 @@ namespace Urho {
 		{
 			return new Vectors.ProxyRefCounted<T>(handle);
 		}
+
+		static internal int KnownObjectsCount => knownObjects.Count;
 	}
 
 	internal class ReferenceHolder<T> where T : class

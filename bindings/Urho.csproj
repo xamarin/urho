@@ -363,6 +363,7 @@
     <Compile Include="src\BufferedSoundStream.cs" />
     <Compile Include="src\Math\EaseMath.cs" />
     <Compile Include="src\Math\SplineMath.cs" />
+    <Compile Include="src\MonoDebugHud.cs" />
     <Compile Include="src\UrhoConsole.cs" />
     <Compile Include="src\Collision.cs" />
     <Compile Include="src\Component.cs" />
