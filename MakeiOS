@@ -1,6 +1,6 @@
 # armv7s, armv7, arm64, i386
 ARCH=i386
-SDK_VER=8.4
+SDK_VER=9.0
 MIN_IOS_VER=7.0
 OUTPUT_DIR=Bin/iOS
 URHO_DIR=Urho3D/Urho3D_iOS
