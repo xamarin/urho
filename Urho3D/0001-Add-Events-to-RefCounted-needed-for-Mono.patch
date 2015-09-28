@@ -1,7 +1,7 @@
-From 3cf376a60f82d91c4abbad99c7bf9837df9acf68 Mon Sep 17 00:00:00 2001
+From 9493820a5a198e6380fb536ff154d31695392903 Mon Sep 17 00:00:00 2001
 From: EgorBo <egorbo@gmail.com>
-Date: Sat, 26 Sep 2015 16:12:09 +0300
-Subject: [PATCH] Add events for RefCounted
+Date: Mon, 28 Sep 2015 16:43:41 +0300
+Subject: [PATCH] Add Events to RefCounted needed for Mono
 
 ---
  Source/Urho3D/Container/RefCounted.cpp | 6 +++++-
