@@ -19,7 +19,7 @@ All-Windows: Android Windows
 
 #compile Urho.pch for SharpieBinder on Mac
 PchMac:
-	make Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -o bindings/Urho.pch bindings/all-urho.cpp  -I$(URHO_MAC_DIR)/include -I$(URHO_MAC_DIR)/include/Urho3D/ThirdParty
+	make Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -o bindings/Urho.pch bindings/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
 
 ParseEventsMac:
-	perl parse.pl $(URHO_DIR)/include/Urho3d/*/*h
+	cd bindings && perl parse.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
