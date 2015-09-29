@@ -13,23 +13,17 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Externalconsole>true</Externalconsole>
-    <PlatformTarget>x86</PlatformTarget>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Clang">
+      <HintPath>bin\Clang.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.NRefactory, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
       <HintPath>packages\Bridge.NRefactory.5.5.1\lib\ICSharpCode.NRefactory.dll</HintPath>
       <Private>True</Private>
@@ -42,13 +36,10 @@
       <HintPath>packages\Bridge.NRefactory.5.5.1\lib\ICSharpCode.NRefactory.CSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="Clang">
-      <HintPath>..\..\..\..\..\cvs\ObjectiveSharpie\Clang.Sample\bin\Debug\Clang.dll</HintPath>
-    </Reference>
     <Reference Include="Sharpie.Bind">
-      <HintPath>..\..\..\..\..\cvs\ObjectiveSharpie\Sharpie.Bind\obj\x64\Internal\Sharpie.Bind.dll</HintPath>
+      <HintPath>bin\Sharpie.Bind.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="Mono.Cecil">
       <HintPath>packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.dll</HintPath>
     </Reference>
@@ -60,9 +51,6 @@
     </Reference>
     <Reference Include="Mono.Cecil.Rocks">
       <HintPath>packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.Rocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Urho">
-      <HintPath>..\bindings\Urho.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
