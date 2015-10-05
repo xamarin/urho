@@ -16,7 +16,7 @@ using System.Threading;
 namespace Urho {
 	
 	public partial class Runtime {
-		static Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>> (); //Managed callable wrappers
+		static Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>> (1000); //Managed callable wrappers
 		static Dictionary<System.Type, int> hashDict;
 		static RefCountedEventCallback refCountedEventCallback;
 
