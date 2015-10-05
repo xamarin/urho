@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 namespace Urho {
 	public partial class RefCounted : IDisposable {
 		internal IntPtr handle;
-		
+
 		public IntPtr Handle => handle;
 
 		internal RefCounted (UrhoObjectFlag empty) { }
@@ -34,6 +34,7 @@ namespace Urho {
 		internal void HandleNativeDelete()
 		{
 			Dispose(true);
+			GC.SuppressFinalize(this);
 		}
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
@@ -46,7 +47,15 @@ namespace Urho {
 		{
 			if (!IsDeleted)
 			{
-				TryDeleteRefCounted(handle);
+				try
+				{
+					TryDeleteRefCounted(handle);
+				}
+				catch (Exception exc)
+				{
+					//should not happen, JIC.
+					throw new InvalidOperationException("Underlying native object is already deleted", exc);
+				}
 			}
 		}
 
@@ -59,12 +68,8 @@ namespace Urho {
 			{
 				IsDeleted = true;
 				OnDeleted();
-				Runtime.UnregisterObject(handle);
 			}
-			else
-			{
-				//TODO: remove object from cache from finalizer's thread. Use ConcurrencyDictionary or Dictionary + locks? 
-			}
+			Runtime.UnregisterObject(handle);
 		}
 
 		/// <summary>
@@ -81,7 +86,7 @@ namespace Urho {
 			if (other.GetType () != GetType ())
 				return false;
 			var or = other as RefCounted;
-			if (or.handle == handle)
+			if (or != null && or.handle == handle)
 				return true;
 			return false;
 		}

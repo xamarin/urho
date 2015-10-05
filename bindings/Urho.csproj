@@ -355,6 +355,10 @@
     <Compile Include="src\Math\EaseMath.cs" />
     <Compile Include="src\Math\SplineMath.cs" />
     <Compile Include="src\MonoDebugHud.cs" />
+    <Compile Include="src\Runtime\ReferenceHolder.cs" />
+    <Compile Include="src\Runtime\Subscription.cs" />
+    <Compile Include="src\Runtime\RefCountedCache.cs" />
+    <Compile Include="src\Runtime\Vectors.cs" />
     <Compile Include="src\UrhoConsole.cs" />
     <Compile Include="src\Collision.cs" />
     <Compile Include="src\Component.cs" />
@@ -378,7 +382,7 @@
     <Compile Include="src\UrhoMap.cs" />
     <Compile Include="src\RefCounted.cs" />
     <Compile Include="src\ResourceCache.cs" />
-    <Compile Include="src\Runtime.cs" />
+    <Compile Include="src\Runtime\Runtime.cs" />
     <Compile Include="src\StringHash.cs" />
     <Compile Include="src\Stubs.cs" />
     <Compile Include="src\Structs.cs" />
