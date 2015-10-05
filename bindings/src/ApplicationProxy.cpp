@@ -60,7 +60,7 @@ extern "C" {
 	DllExport void 
 	TryDeleteRefCounted(Urho3D::RefCounted *refCounted)
 	{
-		if (!refCounted->Refs())
+		if (refCounted && refCounted->RefCountPtr() && !refCounted->Refs())
 			delete refCounted;
 	}
 }
