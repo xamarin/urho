@@ -21,8 +21,9 @@ namespace Urho {
 		public Vector3 Position;
 		public Vector3 Normal;
 		public float Distance;
-		private IntPtr bodyPtr;
-		public RigidBody Body => bodyPtr == IntPtr.Zero ? null : new RigidBody(bodyPtr);
+
+		IntPtr bodyPtr;
+		public RigidBody Body => Runtime.LookupObject<RigidBody>(bodyPtr);
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -40,21 +41,22 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Rect {
 		public Vector2 Min, Max;
-		public byte _defined; //bool is not blittable.
-		public bool Defined { get { return _defined != 0; } set { _defined = (byte)(value ? 1 : 0); } }
+
+		byte defined; //bool is not blittable.
+		public bool Defined { get { return defined != 0; } set { defined = (byte)(value ? 1 : 0); } }
 
 		public Rect (int left, int top, int right, int bottom)
 		{
 			Min = new Vector2 (left, top);
 			Max = new Vector2 (right, bottom);
-			_defined = 1;
+			defined = 1;
 		}
 		
 		public Rect (Vector2 min, Vector2 max)
 		{
 			Min = min;
 			Max = max;
-			_defined = 1;
+			defined = 1;
 		}
 	}
 
@@ -79,21 +81,22 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct BoundingBox {
 		public Vector3 Min, Max;
-		public byte _defined; //bool is not blittable.
-		public bool Defined { get { return _defined != 0; } set { _defined = (byte)(value ? 1 : 0); } }
+
+		byte defined; //bool is not blittable.
+		public bool Defined { get { return defined != 0; } set { defined = (byte)(value ? 1 : 0); } }
 
 		public BoundingBox (float min, float max)
 		{
 			Min = new Vector3 (min, min, min);
 			Max = new Vector3 (max, max, max);
-			_defined = 1;
+			defined = 1;
 		}
 
 		public BoundingBox (Vector3 min, Vector3 max)
 		{
 			Min = min;
 			Max = max;
-			_defined = 1;
+			defined = 1;
 		}
 	}
 
@@ -190,10 +193,6 @@ namespace Urho {
 		
 		public UIElement TouchedElement ()
 		{
-			if (_TouchedElement.ptr == IntPtr.Zero)
-				return null;
-
-			//TODO: check
 			return Runtime.LookupObject<UIElement>(_TouchedElement.ptr);
 
 			var x = TouchState_GetTouchedElement (ref this);
@@ -214,7 +213,7 @@ namespace Urho {
 		public IntPtr JoystickIdPtr;
 		public IntPtr ControllerPtr;
 		public IntPtr ScreenJoystickPtr;
-		public UIElement ScreenJoystick => ScreenJoystickPtr == IntPtr.Zero ? null : new UIElement(ScreenJoystickPtr);
+		public UIElement ScreenJoystick => Runtime.LookupObject<UIElement>(ScreenJoystickPtr);
         public UrhoString Name;
 		public VectorBase Buttons;
 		public VectorBase ButtonPress;
@@ -263,8 +262,10 @@ namespace Urho {
 		public Quaternion InitialRotation;
 		public Vector3 InitialScale;
 		public Matrix3x4 OffsetMatrix;
-		public byte _animated; //bool is not blittable.
-		public bool Animated { get { return _animated != 0; } set { _animated = (byte)(value ? 1 : 0); } }
+
+		byte animated; //bool is not blittable.
+		public bool Animated { get { return animated != 0; } set { animated = (byte)(value ? 1 : 0); } }
+
 		public int CollisionMask;
 		public float Radius;
 		public BoundingBox BoundingBox;
@@ -303,11 +304,11 @@ namespace Urho {
 		public Vector2 TextureUV;
 		public float Distance;
 
-		public IntPtr _drawablePtr;
-		public Drawable Drawable => _drawablePtr == IntPtr.Zero ? null : new Drawable(_drawablePtr);
+		IntPtr drawablePtr;
+		public Drawable Drawable => Runtime.LookupObject<Drawable>(drawablePtr);
 
-		public IntPtr _nodePtr;
-		public Node Node => new Node(_nodePtr);
+		IntPtr nodePtr;
+		public Node Node => Runtime.LookupObject<Node>(nodePtr);
 
 		public uint SubObject;
 	}
@@ -393,8 +394,10 @@ namespace Urho {
 		public Rect Uv;
 		public Color Color;
 		public float Rotation;
-		public byte _enabled; //bool is not blittable.
-		public bool Enabled { get { return _enabled != 0; } set { _enabled = (byte)(value ? 1 : 0); } }
+
+		byte enabled; //bool is not blittable.
+		public bool Enabled { get { return enabled != 0; } set { enabled = (byte)(value ? 1 : 0); } }
+
 		public float SortDistance;
 	}
 	
