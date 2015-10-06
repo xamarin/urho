@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>MonoUrho</id> <!--NOTE: don't forget to rename ".targets"-files -->
-       <version>0.4.10</version>
-       <title>Urho3D for Xamarin</title>
+       <id>UrhoSharp</id> <!--NOTE: don't forget to rename ".targets"-files -->
+       <version>0.1.1</version>
+       <title>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</title>
        <authors>Xamarin</authors>
        <owners>Xamarin</owners>
        <licenseUrl>https://github.com/xamarin/urho/LICENSE.md</licenseUrl>
@@ -25,8 +25,8 @@
      <file src="Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
    
      <!--Android-->
-     <file src="Nuget/Android/MonoUrho.targets" target="build/MonoAndroid" />
-     <file src="Nuget/Android/MonoUrhoReadme.txt" target="content/MonoAndroid/MonoUrhoReadme.txt" />
+     <file src="Nuget/Android/UrhoSharp.targets" target="build/MonoAndroid" />
+     <file src="Nuget/Android/UrhoSharpReadme.txt" target="content/MonoAndroid/UrhoSharpReadme.txt" />
      <file src="Bin/Android/Urho.Droid.SdlBindings.dll" target="lib/MonoAndroid/Urho.Droid.SdlBindings.dll" />
      <file src="Bin/Android/Urho.Droid.dll" target="lib/MonoAndroid/Urho.Droid.dll" />
      <file src="Bin/Android/Urho.dll" target="lib/MonoAndroid/Urho.dll" />
@@ -36,16 +36,16 @@
 
 
      <!--iOS-->
-     <file src="Nuget/iOS/MonoUrho.targets" target="build/Xamarin.iOS10" />
-     <file src="Nuget/iOS/MonoUrhoReadme.txt" target="content/Xamarin.iOS10/MonoUrhoReadme.txt" />
+     <file src="Nuget/iOS/UrhoSharp.targets" target="build/Xamarin.iOS10" />
+     <file src="Nuget/iOS/UrhoSharpReadme.txt" target="content/Xamarin.iOS10/UrhoSharpReadme.txt" />
      <file src="Bin/iOS/libmono-urho.dylib" target="native/iOS/libmono-urho.dylib" />
      <file src="Bin/iOS/Urho.iOS.dll" target="lib/Xamarin.iOS10/Urho.iOS.dll" />
      <file src="Bin/iOS/Urho.dll" target="lib/Xamarin.iOS10/Urho.dll" />
 
 
      <!--Windows+Mac-->
-     <file src="Nuget/Desktop/MonoUrho.targets" target="build/net45" />
-     <file src="Nuget/Desktop/MonoUrhoReadme.txt" target="content/net45/MonoUrhoReadme.txt" />
+     <file src="Nuget/Desktop/UrhoSharp.targets" target="build/net45" />
+     <file src="Nuget/Desktop/UrhoSharpReadme.txt" target="content/net45/UrhoSharpReadme.txt" />
      <file src="Bin/Desktop/Urho.Desktop.dll" target="lib/net45/Urho.Desktop.dll" />
      <file src="Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />
      <file src="Bin/Desktop/mono-urho.dll" target="native/Win64/mono-urho.dll" />
