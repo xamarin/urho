@@ -1,4 +1,5 @@
-# urho
+# UrhoSharp
+
 Code to integrate with the Urho3D engine
 
 This is designed to be a binding to the C++ API of the Urho3D engine.
@@ -7,42 +8,80 @@ For information on the binding strategy, see the document at:
 
 https://docs.google.com/document/d/1uuPwkmnGWdlhRe0-8VqLVtYyo1Hv1cgl_ZxmjwxMiFA/edit#heading=h.ozhfa8u99ynm
 
-# Requirements
+# How to build
 
-You will need a checkout of Urho from http://github.com/urho3d/Urho3D so far I have tested the bindings
-using this version of Urho3D: ae59d55580415227318b5c807de5bdd55b8ddcde.   You should build Urho on your
-system in place (so far, I have done all my work on a Mac, so I do not know if this would work elsewhere)
 
-The binding generator needs a 64-bit Mono to run, so this means that if you want to debug/work on it
-from Xamarin Studio, you need to choose from Xamarin Studio's Preferences a Mono installation that
-has been built with 64 bit support (in .NET Runtimes).   Yu
+In order to compile binaries for all platforms you will need both Windows and OS X environment.
+Please follow these steps:
 
-You will need to edit the settings in urho/bindings/Makefile to point to your Urho installation, mine
-lives in /cvs/Urho3D (/cvs is just an old directory name that I have used since the old days of CVS).
+1. **Install:**
+	- XCode
+	- Xamarin Studio
+	- CMake (i.e. "brew install cmake")
+	- Mono 64 bit (i.e. "brew install mono")
+	- Command Line tools ("xcode-select --install")
 
+2. **Clone the repository including submodules**
+```
+git clone git@github.com:xamarin/urho.git
+git submodule update --init
+```
+3. **Compile Urho.pch**
+
+	Download clang 3.7.0 from http://llvm.org/releases/download.html  (you already have one from XCode command line tools, but this one needs to be installed too)
+by default, Makefile expects it to be located in /tools/clang370 (/tools/clang370/bin/clang) but you can change it (see Makefile).
+Then, execute:
+```
+make PchMac
+```
+
+4. **Generate C# bindings from Urho.pch**
+
+	Open SharpieBinder/SharpieBinder.sln via Xamarin Studio and change .NET runtime to 64 bit mono (installed from homebrew is usually located in "/usr/local/Cellar/4.x.x.x"). Run SharpieBinder project and make sure it generated *.cs files in /bindings/generated dir. Then execute:
+```
+make ParseEventsMac
+```
+it should generate bindings/generated/events.cpp file
+
+5. **Compile UrhoSharp for Mac (fat dylib)**
+```
+make Mac
+```
+it takes 5-10 minutes.
+
+6. **Compile UrhoSharp for iOS (fat dylib: i386, armv7, arm64)**
+```
+make iOS
+```
+7. **Compile UrhoSharp for Android (armeabi, armeabi-v7a, x86)** 
+```
+make Android
+```
+Make sure you have installed Android SDK and NDK (see MakeAndroid file)
+
+8. **Compile UrhoSharp for Windows (64 bit)**
+Obviously you can't do it on OS X so you have to switch to Windows environment. Make sure you have installed:
+	- Visual Studio 2015
+	- CMake
+	- Mingw
+	- You have these environment variables: CMAKE_C_COMPILER, CMAKE_CXX_COMPILER. Bin folders of CMake and Mingw should be added to PATH.
+SharpieBinder doesn't work on Windows yet so you will have to copy bindings/generated folder from OS X environment to Windows. 
+Execute:
+```
+make Windows
+```
+(you can also compile Android on Windows via *"make Android"*)
+Then, open Urho.sln and compile MonoUrho.Windows project in Release configuration.
+
+All compiled binaries could be found in the Bin/{platform} folder.
 
 # Sample
 
-Sample code lives in bindings/sample.cs and it is built by the Makefile, it
-currently shows a couple of intereseting samples from Urho and what has so 
-far been bound.
+Sample code lives in https://github.com/xamarin/urho-samples and repository has them as a git submodule. Samples use Urho via nuget.
 
-To run it, do:
-
-    cd bindings
-    make rs
-  
-That runs Urho with the proper environment variables (DYLD_LIBRARY_PATH and a 64 bit Mono).
-
-![Very simple sample](https://cloud.githubusercontent.com/assets/36863/8503830/a479f564-2193-11e5-8ec4-e8816c24bf4f.png)
+![Very simple sample](https://hsto.org/files/ec1/1c8/d0c/ec11c8d0c4494048bc614e3166df4f3b.png)
 
 Some screencasts:
 
 * http://screencast.com/t/EmFj3O0K8 
 * http://screencast.com/t/Xh8G4StiABY
-
-# Sample Issues
-
-Various sample issues are being tracked here:
-
-https://docs.google.com/spreadsheets/d/1TUMBGpo7Jp18yp7AqghXE9QnBC5jVLt2tDQWfD_bI2w/edit?usp=sharing
