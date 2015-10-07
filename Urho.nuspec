@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp</id>
-       <version>0.1.1</version>
+       <version>1.0</version>
        <title>UrhoSharp</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
-       <licenseUrl>https://github.com/xamarin/urho/LICENSE.md</licenseUrl>
-       <projectUrl>https://github.com/xamarin/urho</projectUrl>
+       <licenseUrl></licenseUrl>
+       <projectUrl>http://xamarin.github.io/urho</projectUrl>
        <iconUrl>https://habrastorage.org/files/147/aa0/3f6/147aa03f60b549f9a0cc5bba0e2ad254.jpg</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
 	   <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
