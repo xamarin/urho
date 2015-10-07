@@ -1,23 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>UrhoSharp</id> <!--NOTE: don't forget to rename ".targets"-files -->
+       <id>UrhoSharp</id>
        <version>0.1.1</version>
-       <title>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</title>
-       <authors>Xamarin</authors>
+       <title>UrhoSharp</title>
+       <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
        <licenseUrl>https://github.com/xamarin/urho/LICENSE.md</licenseUrl>
        <projectUrl>https://github.com/xamarin/urho</projectUrl>
        <iconUrl>https://habrastorage.org/files/147/aa0/3f6/147aa03f60b549f9a0cc5bba0e2ad254.jpg</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-       <description>
-         TODO: MonoUrho description
-       </description>
-       <releaseNotes>
-         TODO: release notes
-       </releaseNotes>
-       <summary>TODO: summary</summary>
-       <tags>urho, urho3d, monourho, xamarin, xamarin.android, xamarin.ios, xamarin.mac</tags>
+	   <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
+       <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started:
+
+https://github.com/xamarin/urho-samples
+
+Among the features of the Urho3D you will find:
+
+
+•	Direct3D9, Direct3D11v1.4, OpenGL 2.0 or 3.2v1.4, OpenGL ES 2.0 or WebGLv1.4 rendering
+•	HLSL or GLSL shaders + caching of HLSL bytecode
+•	Configurable rendering pipeline. Default implementations for forward, light pre-pass and deferred rendering
+•	Component based scene model
+•	Skeletal (with hardware skinning), vertex morph and node animation
+•	Automatic instancing on SM3 capable hardware
+•	Point, spot and directional lights
+•	Shadow mapping for all light types; cascaded shadow maps for directional lights
+•	Particle rendering
+•	Geomipmapped terrain
+•	Static and skinned decals
+•	Auxiliary view rendering (reflections etc.)
+•	Geometry, material &amp; animation LOD
+•	Software rasterized occlusion culling
+•	Post-processing
+•	HDR renderingv1.31
+•	2D sprites and particles that integrate into the 3D scenev1.31
+•	Task-based multithreading
+•	Hierarchical performance profiler
+•	Scene and object load/save in binary and XML format
+•	Keyframe animation of object attributesv1.32
+•	Background loading of resourcesv1.32
+•	Keyboard, mouse, joystick and touch input (if available)
+•	Cross-platform support using SDL 2.0 (currently runs on Windows, Linux, Mac OS X, Android, iOS, Raspberry Piv1.3, and HTML5v1.4 with Emscripten toolchain)
+•	Physics using Bullet
+•	2D physics using Box2Dv1.32
+•	Scripting using AngelScript
+•	Alternative script interface using Luav1.3 or LuaJITv1.31 (on Windows, Linux, Mac OS X, Android, and Raspberry Pi)
+•	Networking using kNet + possibility to make HTTP requestsv1.3
+•	Pathfindingv1.23 and crowd simulationv1.4 using Recast/Detour
+•	Image loading using stb_image + DDS / KTX / PVR compressed texture support
+•	2D and “3D” audio playback, Ogg Vorbis support using stb_vorbis + WAV format support
+•	TrueType font rendering using FreeType, AngelCode bitmap fonts are also supported
+•	Unicode string support
+•	Inbuilt UI system
+•	Scene editor and UI-layout editor implemented in script with undo &amp; redo capabilities
+•	Model/scene/animation/material import from formats supported by Open Asset Import Library
+•	Alternative model/animation import from OGRE mesh.xml and skeleton.xml files
+•	Supported IDEs: Visual Studio, Xcode, Eclipse, CodeBlocks, QtCreator, CLion
+•	Supported compiler toolchains: MSVC, GCC, Clang, MinGW, and their cross-compiling derivatives
+•	Supports both 32-bit and 64-bitv1.3 build
+•	Build as single external libraryv1.3 (can be linked against statically or dynamically)</description>
+       <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
 
