@@ -8,7 +8,7 @@ ANDROID_API=android-12
 
 OUTPUT_DIR=Bin/Android/$(ABI)
 URHO3D_SRC_DIR=Urho3D/Source
-URHO3D_ANDROID_DIR=Urho3D/Urho3D_Android
+URHO3D_ANDROID_DIR=Urho3D/Urho3D_Android/$(ABI)
 
 
 ifeq ($(OS), Darwin)
@@ -36,28 +36,33 @@ CXX_FLAGS=-fexceptions -frtti -std=c++11 -fpermissive -fPIC --sysroot=$(ANDK_DIR
 CXX_DEFINES=-DANDROID -DHAVE_STDINT_H -DKNET_UNIX -DURHO3D_ANGELSCRIPT -DURHO3D_FILEWATCHER -DURHO3D_LOGGING -DURHO3D_NAVIGATION -DURHO3D_NETWORK -DURHO3D_OPENGL -DURHO3D_PHYSICS -DURHO3D_PROFILING -DURHO3D_SSE -DURHO3D_STATIC_DEFINE -DURHO3D_URHO2D
 
 ApplicationProxy.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o ApplicationProxy.cpp.o -c bindings/src/ApplicationProxy.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.cpp.o -c bindings/src/ApplicationProxy.cpp
 	
 Glue.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o glue.cpp.o -c bindings/src/glue.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/glue.cpp.o -c bindings/src/glue.cpp
 	
 Vector.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o Vector.cpp.o -c bindings/src/Vector.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/Vector.cpp.o -c bindings/src/Vector.cpp
 	
 Binding.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o binding.cpp.o -c bindings/generated/binding.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/binding.cpp.o -c bindings/generated/binding.cpp
 	
 Events.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o events.cpp.o -c bindings/generated/events.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/events.cpp.o -c bindings/generated/events.cpp
 
 SDL.o:
-	$(ANDK_GCC) $(C_DEFINES) $(C_FLAGS) -o SDL_android_main.c.o -c $(URHO3D_SRC_DIR)/Source/ThirdParty/SDL/src/main/android/SDL_android_main.c
+	$(ANDK_GCC) $(C_DEFINES) $(C_FLAGS) -o $(OUTPUT_DIR)/SDL_android_main.c.o -c $(URHO3D_SRC_DIR)/Source/ThirdParty/SDL/src/main/android/SDL_android_main.c
 
 Urho3D_Android:
-	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android && cmake -E chdir ../Urho3D_Android cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=$(CURDIR)/$(URHO3D_SRC_DIR)/CMake/Toolchains/android.toolchain.cmake .../Urho3D_Android -DANDROID=1 -DANDROID_ABI=$(ABI) $(CURDIR)/$(URHO3D_SRC_DIR)/
+	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android/$(ABI) && cmake -E chdir ../Urho3D_Android/$(ABI) cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=$(CURDIR)/$(URHO3D_SRC_DIR)/CMake/Toolchains/android.toolchain.cmake .../Urho3D_Android/$(ABI) -DANDROID=1 -DANDROID_ABI=$(ABI) $(CURDIR)/$(URHO3D_SRC_DIR)/
 	
 libUrho3D.a: Urho3D_Android
 	cd $(URHO3D_ANDROID_DIR) && make Urho3D
+	
+MakeBinDirectory:
+	mkdir -p $(OUTPUT_DIR)
+	
+objects: MakeBinDirectory ApplicationProxy.o Glue.o Vector.o Binding.o Events.o SDL.o
 
-libmono-urho.so: libUrho3D.a ApplicationProxy.o Glue.o Vector.o Binding.o Events.o SDL.o
-	mkdir -p $(OUTPUT_DIR) && $(ANDK_GCC)  -fPIC -fexceptions -frtti -fPIC --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM) -funwind-tables -funswitch-loops -finline-limit=300 -fsigned-char -no-canonical-prefixes -fdata-sections -ffunction-sections -Wa,--noexecstack  -Wno-invalid-offsetof -fstack-protector -fomit-frame-pointer -fstrict-aliasing -O3 -DNDEBUG  -Wl,--no-undefined -Wl,--gc-sections -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now  -shared -Wl,-soname,libmono-urho.so -o $(OUTPUT_DIR)/libmono-urho.so ApplicationProxy.cpp.o Vector.cpp.o Glue.cpp.o events.cpp.o binding.cpp.o SDL_android_main.c.o $(URHO3D_ANDROID_DIR)/libs/$(ABI)/libUrho3D.a -ldl -llog -landroid -lGLESv1_CM -lGLESv2  "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libgnustl_static.a" "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libsupc++.a" -lm && $(ANDK_STRIP) $(OUTPUT_DIR)/libmono-urho.so && rm *.o
+libmono-urho.so: libUrho3D.a objects
+	 $(ANDK_GCC)  -fPIC -fexceptions -frtti -fPIC --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM) -funwind-tables -funswitch-loops -finline-limit=300 -fsigned-char -no-canonical-prefixes -fdata-sections -ffunction-sections -Wa,--noexecstack  -Wno-invalid-offsetof -fstack-protector -fomit-frame-pointer -fstrict-aliasing -O3 -DNDEBUG  -Wl,--no-undefined -Wl,--gc-sections -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now  -shared -Wl,-soname,libmono-urho.so -o $(OUTPUT_DIR)/libmono-urho.so $(OUTPUT_DIR)/ApplicationProxy.cpp.o $(OUTPUT_DIR)/Vector.cpp.o $(OUTPUT_DIR)/Glue.cpp.o $(OUTPUT_DIR)/events.cpp.o $(OUTPUT_DIR)/binding.cpp.o $(OUTPUT_DIR)/SDL_android_main.c.o $(URHO3D_ANDROID_DIR)/libs/$(ABI)/libUrho3D.a -ldl -llog -landroid -lGLESv1_CM -lGLESv2  "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libgnustl_static.a" "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libsupc++.a" -lm && $(ANDK_STRIP) $(OUTPUT_DIR)/libmono-urho.so && cd $(OUTPUT_DIR) && rm *.o
