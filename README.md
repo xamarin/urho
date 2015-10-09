@@ -55,9 +55,9 @@ make iOS
 ```
 **7. Compile UrhoSharp for Android (armeabi, armeabi-v7a, x86)** 
 ```
-make Android
+make -j3 Android
 ```
-Make sure you have installed Android SDK and NDK (see MakeAndroid file)
+-j3 means a job per ABI. Make sure you have installed Android SDK and NDK (see MakeAndroid file)
 
 **8. Compile UrhoSharp for Windows (64 bit)**
 Obviously you can't do it on OS X so you have to switch to Windows environment. Make sure you have installed:
