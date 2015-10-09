@@ -6,7 +6,7 @@
        <title>UrhoSharp</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
-       <licenseUrl></licenseUrl>
+       <licenseUrl>http://xamarin.github.io/urho</licenseUrl>
        <projectUrl>http://xamarin.github.io/urho</projectUrl>
        <iconUrl>https://habrastorage.org/files/147/aa0/3f6/147aa03f60b549f9a0cc5bba0e2ad254.jpg</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
