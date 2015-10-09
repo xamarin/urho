@@ -48,9 +48,9 @@ namespace Urho
 			var cache = application.ResourceCache;
 
 			text = new Text(application.Context);
-			text.VerticalAlignment = VerticalAlignment.VA_TOP;
-			text.HorizontalAlignment = HorizontalAlignment.HA_RIGHT;
-			text.TextAlignment = HorizontalAlignment.HA_RIGHT;
+			text.VerticalAlignment = VerticalAlignment.Top;
+			text.HorizontalAlignment = HorizontalAlignment.Right;
+			text.TextAlignment = HorizontalAlignment.Right;
 			var xml = cache.GetXmlFile("UI/DefaultStyle.xml");
 			text.SetStyle("DebugHudText", xml);
 

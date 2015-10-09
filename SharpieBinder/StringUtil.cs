@@ -3,20 +3,14 @@ using System.Linq;
 
 namespace SharpieBinder
 {
-	public static class StringUtil {
+	public static class StringUtil
+	{
 		public static string DropPrefix (this string w)
 		{
-			var j = w.IndexOf ("_");
-			var prefix = w.Substring (0, j+1);
-			return w.DropPrefix (prefix);
-		}
-
-		public static string DropPrefix (this string w, string prefix)
-		{
-			if (w.StartsWith (prefix))
-				return w.Substring (prefix.Length);
-			Console.WriteLine ("Can not drop prefix {0} from {1}", prefix, w);
-			return w;
+			var j = w.IndexOf ("_", StringComparison.Ordinal);
+			if (j < 0 || j == w.Length - 1)
+				return w;
+			return w.Substring(j + 1);
 		}
 
 		/// <summary>
@@ -84,17 +78,38 @@ namespace SharpieBinder
 
 		public static string PascalCase (this string w)
 		{
-			var elements = w.Split ('_');
 			return string.Join ("", w.Split ('_').Select (x => Remap (Capitalize (x))));
 		}
 
-		public static string Capitalize (this string w)
+		public static string Capitalize (this string word)
 		{
-			if (w.Length == 0)
-				return "";
-			if (w.Length > 1)
-				return Char.ToUpper (w [0]) + w.Substring (1).ToLower ();
-			return Char.ToUpper (w[0]).ToString ();
+			if (string.IsNullOrEmpty(word))
+				return string.Empty;
+
+			if (word.Length > 1)
+			{
+				if (char.IsDigit(word[0]))
+				{
+					string digits = "";
+					foreach (char symbol in word)
+					{
+						if (char.IsDigit(symbol))
+							digits += symbol;
+						else break;
+					}
+					string result = "N" + digits;
+					if (result.Length < word.Length)
+					{
+						result += Capitalize(word.Substring(digits.Length));
+					}
+					return result;
+				}
+				else
+				{
+					return char.ToUpper(word[0]) + word.Substring(1).ToLower();
+				}
+			}
+			return char.ToUpper (word[0]).ToString ();
 		}
 	}
 }

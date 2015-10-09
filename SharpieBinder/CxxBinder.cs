@@ -218,42 +218,28 @@ namespace SharpieBinder
 		string RemapEnumName (string type, string value)
 		{
 			if (value.StartsWith ("MAX_"))
-				return null;
-			
-			switch (type) {
-			case "AsyncLoadState":
-			case "BodyType2D":
-			case "CollisionEventMode":
-			case "CompressedMode":
-			case "CreateMode":
-			case "ConstraintType":
-			case "CompareMode":
-			case "BlendMode":
-			case "Corner":
-			case "CubeMapFace":
-			case "CubeMapLayout":
-			case "CullMode":
-			case "EmitterType":
-			case "FileMode":
-			case "FONT_TYPE":
-			case "FaceCameraMode":
-			case "GeometricType":
-			case "TransformSpace":
-				return value.DropPrefix ().PascalCase ();
-			case "EmitterTypeGravity":
-			case "EmitterType2D":
-				return value.DropPrefix ().DropPrefix ().PascalCase ();
-			case "DebugDrawModes":
-				return value.DropPrefix ();
-			case "CrowdTargetState":
-				return value.DropPrefix ().DropPrefix ().DropPrefix ().PascalCase ();
-			case "PrimitiveType":
-				return value.PascalCase ();
-			default:
-				unhandledEnums.Add (type);
-				break;
+				return value.PascalCase();
+
+			switch (type)
+			{
+				case "InterpolationMode":
+					return value.PascalCase();
+				case "PrimitiveType":
+					return value.Replace("Prim_", "").PascalCase(); //there are more than one enum with this name
+				case "Orientation2D":
+				case "Orientation":
+					return value.Replace("O_", "").PascalCase(); //there are more than one enum with this name
+				case "Type":
+					return value;
+				case "EmitterTypeGravity":
+				case "EmitterType2D":
+				case "CrowdAgentTargetState":
+				case "NavmeshPartitionType":
+					return value.DropPrefix().DropPrefix().PascalCase();
+
+				default:
+					return value.DropPrefix().PascalCase();
 			}
-			return value;
 		}
 
 		public override void VisitEnumDecl(EnumDecl decl, VisitKind visitKind)

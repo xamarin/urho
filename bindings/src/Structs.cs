@@ -328,7 +328,7 @@ namespace Urho {
 		{
 			get
 			{
-				if (Orientation == Orientation2D.O_STAGGERED)
+				if (Orientation == Orientation2D.Staggered)
 					return (Height + 1) * 0.5f * TileHeight;
 				return Height * TileHeight;
 			}
