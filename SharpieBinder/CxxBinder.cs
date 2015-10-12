@@ -1388,6 +1388,7 @@ namespace SharpieBinder
 							});
 
 					currentType.Members.Add(clonedMethod);
+					InsertSummaryComments(clonedMethod, StringUtil.GetMethodComments(decl));
 
 					index++;
 				}
@@ -1407,7 +1408,31 @@ namespace SharpieBinder
 				if (method == null)
 					currentType.Members.Add(constructor);
 				else
+				{
 					currentType.Members.Add(method);
+					InsertSummaryComments(method, StringUtil.GetMethodComments(decl));
+				}
+			}
+
+		}
+
+		/// <summary>
+		/// Inserts comments with "summary" tag over ast node. multiline.
+		/// </summary>
+		void InsertSummaryComments(AstNode node, IEnumerable<string> commentLines)
+		{
+			if (node?.Parent != null && commentLines != null)
+			{
+				var commentLinesList = commentLines.ToList();
+				if (commentLinesList.Count > 0)
+				{
+					node.Parent.InsertChildBefore(node, new Comment(" <summary>", CommentType.Documentation), Roles.Comment);
+					foreach (var comment in commentLinesList)
+					{
+						node.Parent.InsertChildBefore(node, new Comment(" " + comment.Trim(' '), CommentType.Documentation), Roles.Comment);
+					}
+					node.Parent.InsertChildBefore(node, new Comment(" </summary>", CommentType.Documentation), Roles.Comment);
+				}
 			}
 		}
 
@@ -1595,7 +1620,19 @@ namespace SharpieBinder
 						// We are unable to bind
 						if (gs.HostType == null)
 							continue;
+
 						gs.HostType.Members.Add(p);
+						var comments = StringUtil.GetMethodComments(gs.Getter);
+						if (gs.Setter != null)
+						{
+							var setterComments = StringUtil.GetMethodComments(gs.Setter).ToList();
+							if (setterComments.Count > 0)
+							{
+								setterComments.Insert(0, "Or");
+							}
+							comments = comments.Concat(setterComments);
+						}
+						InsertSummaryComments(p, comments);
 					}
 				}
 			}

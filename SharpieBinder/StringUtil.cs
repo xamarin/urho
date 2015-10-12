@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using Clang.Ast;
 
 namespace SharpieBinder
 {
@@ -110,6 +112,19 @@ namespace SharpieBinder
 				}
 			}
 			return char.ToUpper (word[0]).ToString ();
+		}
+
+		public static IEnumerable<string> GetMethodComments(CXXMethodDecl decl)
+		{
+			//NOTE: CLang.dll doesn't surface TextComment type so we have to parse them from Dump:
+			var dumpLines = decl.DumpToString().Split(new [] { "\n" }, StringSplitOptions.RemoveEmptyEntries).Where(l => l.Contains("-TextComment "));
+			foreach (var dumpLine in dumpLines)
+			{
+				int start = dumpLine.IndexOf("\"");
+				int end = dumpLine.LastIndexOf("\"");
+				if (start > 0 && end > 0)
+					yield return dumpLine.Substring(start + 1, end - start - 1);
+			}
 		}
 	}
 }
