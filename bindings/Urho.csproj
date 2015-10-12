@@ -29,11 +29,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>..\Bin\Common\</OutputPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	<DebugType>pdbonly</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Bin\Common\Urho.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="external\IntVector2.cs" />
