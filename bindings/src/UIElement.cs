@@ -21,6 +21,14 @@ namespace Urho {
 			return Runtime.LookupObject<T> (ptr);
 		}
 
+		//TODO: test
+		internal T CreateChild<T>(string name = "", uint index = UInt32.MaxValue) where T : UIElement
+		{
+			var hash = Runtime.LookupStringHash(typeof (T));
+			var ptr = UIElement_CreateChild(handle, hash.Code, name, index);
+			return Runtime.LookupObject<T>(ptr);
+		}
+
 		public BorderImage CreateBorderImage (string name = "", uint index = UInt32.MaxValue)
 		{
 			return CreateChild<BorderImage> (BorderImage.TypeStatic, name, index);

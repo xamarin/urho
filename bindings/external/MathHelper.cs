@@ -307,6 +307,9 @@ namespace Urho
 				return value;
 		}
 
-
+		public static float Lerp(float lhs, float rhs, float t)
+		{
+			return lhs * (1.0f - t) + rhs * t;
+		}
 	}
 }

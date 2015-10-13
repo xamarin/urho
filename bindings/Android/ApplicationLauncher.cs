@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using Android.Content;
+using Org.Libsdl.App;
 
 namespace Urho.Droid
 {
@@ -10,13 +11,13 @@ namespace Urho.Droid
 		public delegate int SdlCallback(IntPtr context);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void RegisterSdlLauncher(SdlCallback callback);
+		internal extern static void RegisterSdlLauncher(SdlCallback callback);
 
-		public static void Run(Func<Application> appCreator)
+		public static void RunInActivity(Func<Application> appCreator)
 		{
 			RegisterSdlLauncher(_ => appCreator().Run());
 			var context = Android.App.Application.Context;
-			var intent = new Intent(context, typeof(GameActivity));
+			var intent = new Intent(context, typeof(UrhoAndroid));
 			intent.AddFlags(ActivityFlags.NewTask);
 			context.StartActivity(intent);
 		}
