@@ -116,8 +116,23 @@ namespace SharpieBinder
 
 		public static IEnumerable<string> GetMethodComments(CXXMethodDecl decl)
 		{
-			//NOTE: CLang.dll doesn't surface TextComment type so we have to parse them from Dump:
-			var dumpLines = decl.DumpToString().Split(new [] { "\n" }, StringSplitOptions.RemoveEmptyEntries).Where(l => l.Contains("-TextComment "));
+			return ExtractTextComments(decl.DumpToString());
+		}
+
+		public static IEnumerable<string> GetTypeComments(EnumDecl decl)
+		{
+			return ExtractTextComments(decl.DumpToString()).Take(1);
+		}
+
+		public static IEnumerable<string> GetTypeComments(CXXRecordDecl decl)
+		{
+			return ExtractTextComments(decl.DumpToString()).Take(1);
+		}
+
+		static IEnumerable<string> ExtractTextComments(string dump)
+		{
+			//workaround since TextComment type is not surfaced in Clang.dll yet
+			var dumpLines = dump.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).Where(l => l.Contains("-TextComment "));
 			foreach (var dumpLine in dumpLines)
 			{
 				int start = dumpLine.IndexOf("\"");

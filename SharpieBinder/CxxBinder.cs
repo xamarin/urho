@@ -177,7 +177,7 @@ namespace SharpieBinder
 			}
 		}
 
-		void PushType(TypeDeclaration typeDeclaration)
+		void PushType(TypeDeclaration typeDeclaration, IEnumerable<string> comments)
 		{
 			var syntaxTree = new SyntaxTree
 			{
@@ -208,6 +208,7 @@ namespace SharpieBinder
 			currentTypeNames.Clear();
 			uniqueMethodName = 0;
 			ns.Members.Add(currentType = typeDeclaration);
+			InsertSummaryComments(currentType, comments);
 		}
 
 		HashSet<string> currentTypeNames = new HashSet<string>();
@@ -255,7 +256,7 @@ namespace SharpieBinder
 				Name = typeName,
 				ClassType = ClassType.Enum,
 				Modifiers = Modifiers.Public
-			});
+			}, StringUtil.GetTypeComments(decl));
 
 			foreach (var constantDecl in decl.Decls<EnumConstantDecl>()) {
 				var valueName = RemapEnumName (typeName, constantDecl.Name);
@@ -343,7 +344,7 @@ namespace SharpieBinder
 				Name = RemapTypeName (decl.Name),
 				ClassType = isStruct ? ClassType.Struct : ClassType.Class,
 				Modifiers = Modifiers.Partial | Modifiers.Public | Modifiers.Unsafe
-			});
+			}, StringUtil.GetTypeComments(decl));
 
 			if (baseDecl != null) {
 				foreach (var baseType in decl.Bases) {
