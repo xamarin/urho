@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="ApplicationLauncher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UrhoAndroid.cs" />
+    <Compile Include="UrhoSurfaceViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Urho.csproj">

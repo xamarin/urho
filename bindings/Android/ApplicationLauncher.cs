@@ -17,7 +17,7 @@ namespace Urho.Droid
 		{
 			RegisterSdlLauncher(_ => appCreator().Run());
 			var context = Android.App.Application.Context;
-			var intent = new Intent(context, typeof(UrhoAndroid));
+			var intent = new Intent(context, typeof(UrhoSurfaceViewController));
 			intent.AddFlags(ActivityFlags.NewTask);
 			context.StartActivity(intent);
 		}

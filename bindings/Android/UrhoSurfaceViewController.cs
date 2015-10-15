@@ -4,7 +4,10 @@ using Org.Libsdl.App;
 
 namespace Urho.Droid
 {
-	public class UrhoAndroid : Org.Libsdl.App.SDLActivity
+	/// <summary>
+	/// A controller that provides a SDLSurface that can be used in any activity.
+	/// </summary>
+	public class UrhoSurfaceViewController : Org.Libsdl.App.SDLActivity
 	{
 		public static SDLSurface OnCreate(Activity activity, Func<Application> appCreator)
 		{
