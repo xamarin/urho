@@ -237,7 +237,6 @@
     <Compile Include="generated\Sprite.cs" />
     <Compile Include="generated\Sprite2D.cs" />
     <Compile Include="generated\SpriteSheet2D.cs" />
-    <Compile Include="generated\State.cs" />
     <Compile Include="generated\StaticModel.cs" />
     <Compile Include="generated\StaticModelGroup.cs" />
     <Compile Include="generated\StaticSprite2D.cs" />
@@ -272,7 +271,6 @@
     <Compile Include="generated\ToolTip.cs" />
     <Compile Include="generated\TransformSpace.cs" />
     <Compile Include="generated\TraversalMode.cs" />
-    <Compile Include="generated\Type.cs" />
     <Compile Include="generated\UI.cs" />
     <Compile Include="generated\UIElement.cs" />
     <Compile Include="generated\UnknownComponent.cs" />

@@ -122,7 +122,7 @@ GENERATED_SOURCES =	\
 	generated/LockState.cs		\
 	generated/Log.cs		\
 	generated/LogicComponent.cs	\
-	generated/LoopMode2D.cs	\
+	generated/LoopMode2D.cs		\
 	generated/Material.cs	\
 	generated/Menu.cs	\
 	generated/MessageBox.cs	\
@@ -201,7 +201,6 @@ GENERATED_SOURCES =	\
 	generated/Sprite.cs		\
 	generated/Sprite2D.cs		\
 	generated/SpriteSheet2D.cs	\
-	generated/State.cs		\
 	generated/StaticModel.cs	\
 	generated/StaticModelGroup.cs	\
 	generated/StaticSprite2D.cs	\
@@ -236,7 +235,6 @@ GENERATED_SOURCES =	\
 	generated/ToolTip.cs		\
 	generated/TransformSpace.cs	\
 	generated/TraversalMode.cs	\
-	generated/Type.cs		\
 	generated/UI.cs			\
 	generated/UIElement.cs		\
 	generated/UnknownComponent.cs	\

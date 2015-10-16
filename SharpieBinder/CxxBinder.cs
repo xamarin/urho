@@ -230,14 +230,15 @@ namespace SharpieBinder
 				case "Orientation2D":
 				case "Orientation":
 					return value.Replace("O_", "").PascalCase(); //there are more than one enum with this name
-				case "Type":
-					return value;
 				case "EmitterTypeGravity":
 				case "EmitterType2D":
 				case "CrowdAgentTargetState":
 				case "NavmeshPartitionType":
 					return value.DropPrefix().DropPrefix().PascalCase();
-
+				case "ShaderType":
+					if (value.Length < 3)
+						return value.ToUpper ();
+					goto default;
 				default:
 					return value.DropPrefix().PascalCase();
 			}
@@ -248,6 +249,12 @@ namespace SharpieBinder
 			if (visitKind != VisitKind.Enter || !decl.IsCompleteDefinition || decl.QualifiedName == null)
 				return;
 
+			if (!decl.QualifiedName.StartsWith ("Urho")) {
+				if (!decl.QualifiedName.ToLower ().Contains ("loopmode2d"))
+			
+				return;
+			}
+			
 			//Console.WriteLine($"VisitingType: {decl.QualifiedName}");
 			string typeName = RemapTypeName(decl.Name);
 
