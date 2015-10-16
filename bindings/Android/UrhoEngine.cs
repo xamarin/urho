@@ -5,7 +5,7 @@ using Org.Libsdl.App;
 
 namespace Urho.Droid
 {
-	public static class ApplicationLauncher
+	public static class UrhoEngine
 	{
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate int SdlCallback(IntPtr context);
@@ -13,13 +13,15 @@ namespace Urho.Droid
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		internal extern static void RegisterSdlLauncher(SdlCallback callback);
 
-		public static void RunInActivity(Func<Application> appCreator)
+
+		public static void Init(Func<Application> appCreator)
 		{
 			RegisterSdlLauncher(_ => appCreator().Run());
-			var context = Android.App.Application.Context;
-			var intent = new Intent(context, typeof(UrhoSurfaceViewController));
-			intent.AddFlags(ActivityFlags.NewTask);
-			context.StartActivity(intent);
+		}
+
+		public static void Init<TApplication>() where TApplication : Urho.Application
+		{
+			RegisterSdlLauncher(_ => ((Application)Activator.CreateInstance(typeof(TApplication), new Context())).Run());
 		}
 	}
 }
