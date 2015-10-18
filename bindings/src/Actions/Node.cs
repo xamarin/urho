@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Urho
@@ -12,6 +11,9 @@ namespace Urho
 		/// <param name="actions">An array of FiniteTimeAction objects.</param>
 		public Task<ActionState> RunActionsAsync(params FiniteTimeAction[] actions)
 		{
+			if (actions.Length == 0)
+				return Task.FromResult<ActionState>(null);
+
 			var tcs = new TaskCompletionSource<ActionState>();
 
 			var numActions = actions.Length;

@@ -35,17 +35,13 @@ namespace Urho
 
 	public class RotateByState : FiniteTimeActionState
 	{
+		protected Quaternion StartAngles { get; set; }
+
 		protected float AngleX { get; set; }
 
 		protected float AngleY { get; set; }
 
 		protected float AngleZ { get; set; }
-
-		protected float StartAngleX { get; set; }
-
-		protected float StartAngleY { get; set; }
-
-		protected float StartAngleZ { get; set; }
 
 		public RotateByState (RotateBy action, Node target)
 			: base (action, target)
@@ -53,16 +49,17 @@ namespace Urho
 			AngleX = action.AngleX;
 			AngleY = action.AngleY;
 			AngleZ = action.AngleZ;
-
-			var rotation = target.Rotation;
-			StartAngleX = rotation.X;
-			StartAngleY = rotation.Y;
-			StartAngleZ = rotation.Z;
+			StartAngles = target.Rotation;
 		}
 
 		public override void Update (float time)
 		{
-			Target?.Rotate(new Quaternion(StartAngleX + AngleX * time, StartAngleY + AngleY * time, StartAngleZ + AngleZ * time), TransformSpace.Local);
+			if (Target != null)
+			{
+				var newRot = StartAngles * new Quaternion(AngleX * time, AngleY * time, AngleZ * time);
+				newRot.Normalize();
+				Target.Rotation = newRot;
+			}
 		}
 	}
 }
