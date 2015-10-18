@@ -16,22 +16,23 @@ namespace Urho.Droid
 	/// - OnWindowFocusChanged
 	/// - OnCreate(Activity, Func)
 	/// </summary>
-	public class UrhoSurfaceViewController : Org.Libsdl.App.SDLActivity //it's called Activity but actually it's not an activity
+	public class UrhoSurfaceViewController : Org.Libsdl.App.SDLActivity 
 	{
 		/// <summary>
 		/// Create a view (SurfaceView) that can be added anywhere
 		/// </summary>
-		public static SDLSurface OnCreate(Activity activity, Func<Application> appCreator)
+		public static SDLSurface OnCreate<TApplication>(Activity activity) where TApplication : Application
 		{
-			UrhoEngine.RegisterSdlLauncher(_ => appCreator().Run());
+			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance<TApplication>().Run());
 			return OnCreate(activity);
 		}
 
 		/// <summary>
 		/// The simpliest way to launch a game. It opens a special full-screen activity
 		/// </summary>
-		public static void RunInActivity()
+		public static void RunInActivity<TApplication>() where TApplication : Application
 		{
+			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance<TApplication>().Run());
 			var context = Android.App.Application.Context;
 			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));
 			intent.AddFlags(ActivityFlags.NewTask);

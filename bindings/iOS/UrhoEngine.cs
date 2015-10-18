@@ -14,19 +14,14 @@ namespace Urho.iOS
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		extern static void SDL_SetMainReady();
 
-		public static void Init<TApplication>() where TApplication : Application
-		{
-			Init(() => (Application) Activator.CreateInstance(typeof (TApplication), new Context()));
-		}
-
-		public static void Init(Func<Application> appCreator)
+		public static void Init()
 		{
 			string docs = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.All, true).FirstOrDefault();
 			string resources = NSBundle.MainBundle.ResourcePath;
-			Init(appCreator, resources, docs);
+			Init(resources, docs);
 		}
 
-		public static void Init(Func<Application> appCreator, string resourcesDir, string docsDir)
+		public static void Init(string resourcesDir, string docsDir)
 		{
 			Runtime.SetCustomRefcountedEventCallback(OnNativeDelete);
 			Application.SetCustomApplicationCallback(Setup, Start, Stop);
@@ -34,7 +29,6 @@ namespace Urho.iOS
 			InitSdl(resourcesDir, docsDir);
 			SDL_SetMainReady();
 			NSFileManager.DefaultManager.ChangeCurrentDirectory(resourcesDir);
-			appCreator().Run();
 		}
 
 		//

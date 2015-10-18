@@ -277,5 +277,17 @@ namespace Urho {
 				return engine;
 			}
 		}
+
+		public static T CreateInstance<T>() where T : Application
+		{
+			try
+			{
+				return (T) Activator.CreateInstance(typeof (T), new Context());
+			}
+			catch (Exception exc)
+			{
+				throw new InvalidOperationException($"{typeof(T)} should have a public ctor with a single argument (Context)", exc);
+			}
+		}
 	}
 }

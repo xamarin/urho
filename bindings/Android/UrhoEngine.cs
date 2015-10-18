@@ -1,7 +1,5 @@
 using System;
 using System.Runtime.InteropServices;
-using Android.Content;
-using Org.Libsdl.App;
 
 namespace Urho.Droid
 {
@@ -13,15 +11,9 @@ namespace Urho.Droid
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		internal extern static void RegisterSdlLauncher(SdlCallback callback);
 
-
-		public static void Init(Func<Application> appCreator)
+		public static void Init()
 		{
-			RegisterSdlLauncher(_ => appCreator().Run());
-		}
-
-		public static void Init<TApplication>() where TApplication : Urho.Application
-		{
-			RegisterSdlLauncher(_ => ((Application)Activator.CreateInstance(typeof(TApplication), new Context())).Run());
+			//TODO: check if libmono-urho.so exists
 		}
 	}
 }
