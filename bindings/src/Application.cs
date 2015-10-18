@@ -4,6 +4,7 @@
 // This is done by using an ApplicationProxy in C++ that bubbles up
 //
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -11,12 +12,14 @@ using System.Threading.Tasks;
 namespace Urho {
 	
 	public partial class Application {
+
+		// references needed to prevent GC from collecting callbacks passed to native code
 		static ActionIntPtr setupCallback;
 		static ActionIntPtr startCallback;
 		static ActionIntPtr stopCallback;
-		
-		static readonly object invokerLock = new object();
-		static readonly List<Action> invokeOnMain = new List<Action>();
+
+		IList<Action> onUpdateList;
+		IList<Action> onSceneUpdateList;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -24,6 +27,9 @@ namespace Urho {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop);
 
+		/// <summary>
+		/// Last created application
+		/// </summary>
 		public static Application Current { get; private set; }
 
 		/// <summary>
@@ -48,13 +54,16 @@ namespace Urho {
 			Runtime.RegisterObject (this);
 			Current = this;
 
+			UpdateContext = new ListBasedUpdateSynchronizationContext(onUpdateList = new List<Action>());
+			SceneUpdateContext = new ListBasedUpdateSynchronizationContext(onSceneUpdateList = new List<Action>());
+
 			SubscribeToUpdate(args =>
 				{
 					var timeStep = args.TimeStep;
 					Update?.Invoke(args);
 					ActionManager.Update(timeStep);
 					OnUpdate(timeStep);
-					RunOnMainThread();
+					UpdateContext.PumpActions();
 				});
 
 			SubscribeToSceneUpdate(args =>
@@ -63,6 +72,7 @@ namespace Urho {
 					var scene = args.Scene;
 					SceneUpdate?.Invoke(args);
 					OnSceneUpdate(timeStep, scene);
+					SceneUpdateContext.PumpActions();
 				});
 		}
 	
@@ -78,37 +88,25 @@ namespace Urho {
 			return Runtime.LookupObject<Application>(h);
 		}
 
-		public static event Action<UpdateEventArgs> Update;
+		/// <summary>
+		/// SynchronizationContext to execute action on Update cycle
+		/// </summary>
+		public ListBasedUpdateSynchronizationContext UpdateContext { get; private set; }
 
-		public static event Action<SceneUpdateEventArgs> SceneUpdate;
+		/// <summary>
+		/// SynchronizationContext to execute action on SceneUpdate cycle
+		/// </summary>
+		public ListBasedUpdateSynchronizationContext SceneUpdateContext { get; private set; }
 
-		public static void InvokeOnMain (Action action)
-		{
-			lock (invokerLock)
-				invokeOnMain.Add (action);
-		}
+		public event Action<UpdateEventArgs> Update;
+
+		public event Action<SceneUpdateEventArgs> SceneUpdate;
 
 		public static Task Delay(float durationMs)
 		{
 			var tcs = new TaskCompletionSource<bool>();
 			var state = Current.ActionManager.AddAction(new Sequence(new DelayTime(durationMs), new CallFunc(() => tcs.TrySetResult(true))), null);
 			return tcs.Task;
-		}
-
-		void RunOnMainThread ()
-		{
-			if (invokeOnMain.Count > 0)
-			{
-				lock (invokerLock)
-				{
-					if (invokeOnMain.Count > 0)
-					{
-						foreach (var a in invokeOnMain)
-							a();
-						invokeOnMain.Clear();
-					}
-				}
-			}
 		}
 		
 		static void ProxySetup (IntPtr h)
@@ -140,7 +138,7 @@ namespace Urho {
 			//Engine.DumpResources(true);
 		}
 
-		public ActionManager ActionManager { get; } = new ActionManager();
+		internal ActionManager ActionManager { get; } = new ActionManager();
 
 		protected virtual void OnSceneUpdate(float timeStep, Scene scene) { }
 

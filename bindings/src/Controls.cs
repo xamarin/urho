@@ -22,7 +22,7 @@ namespace Urho {
 
 		static void ReleaseControl (IntPtr h)
 		{
-			Application.InvokeOnMain (delegate { Controls_Destroy (h); });
+			Controls_Destroy (h);
 		}
 		
 		~Controls ()
