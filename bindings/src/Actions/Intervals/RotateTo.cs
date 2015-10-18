@@ -85,7 +85,7 @@ namespace Urho
 
 		public override void Update (float time)
 		{
-			Target?.Rotate(new Quaternion(StartAngleX + DiffAngleX * time, StartAngleY + DiffAngleY * time, 0 /*TODO:!!!*/), TransformSpace.Local);
+			Target?.Rotate(new Quaternion(StartAngleX + DiffAngleX * time, StartAngleY + DiffAngleY * time, StartAngleZ + DiffAngleZ * time), TransformSpace.Local);
 		}
 	}
 }
