@@ -278,13 +278,18 @@ namespace Urho {
 
 		public static T CreateInstance<T>() where T : Application
 		{
+			return (T)CreateInstance(typeof (T));
+		}
+
+		public static Application CreateInstance(Type applicationType)
+		{
 			try
 			{
-				return (T) Activator.CreateInstance(typeof (T), new Context());
+				return (Application)Activator.CreateInstance(applicationType, new Context());
 			}
 			catch (Exception exc)
 			{
-				throw new InvalidOperationException($"{typeof(T)} should have a public ctor with a single argument (Context)", exc);
+				throw new InvalidOperationException($"{applicationType} should have a public ctor with a single argument (Context)", exc);
 			}
 		}
 	}

@@ -14,17 +14,24 @@ namespace Urho.Droid
 	/// - OnDestroy
 	/// - DispatchKeyEvent
 	/// - OnWindowFocusChanged
-	/// - OnCreate(Activity, Func)
 	/// </summary>
 	public class UrhoSurfaceViewController : Org.Libsdl.App.SDLActivity 
 	{
 		/// <summary>
-		/// Create a view (SurfaceView) that can be added anywhere
+		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
-		public static SDLSurface OnCreate<TApplication>(Activity activity) where TApplication : Application
+		public static SDLSurface CreateSurface<TApplication>(Activity activity) where TApplication : Application
 		{
-			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance<TApplication>().Run());
-			return OnCreate(activity);
+			return CreateSurface(activity, typeof (TApplication));
+		}
+
+		/// <summary>
+		/// Creates a view (SurfaceView) that can be added anywhere
+		/// </summary>
+		public static SDLSurface CreateSurface(Activity activity, Type applicationType)
+		{
+			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance(applicationType).Run());
+			return CreateSurface(activity);
 		}
 
 		/// <summary>
@@ -32,7 +39,15 @@ namespace Urho.Droid
 		/// </summary>
 		public static void RunInActivity<TApplication>() where TApplication : Application
 		{
-			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance<TApplication>().Run());
+			RunInActivity(typeof (TApplication));
+		}
+
+		/// <summary>
+		/// The simpliest way to launch a game. It opens a special full-screen activity
+		/// </summary>
+		public static void RunInActivity(Type applicationType)
+		{
+			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance(applicationType).Run());
 			var context = Android.App.Application.Context;
 			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));
 			intent.AddFlags(ActivityFlags.NewTask);
