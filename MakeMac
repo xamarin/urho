@@ -19,20 +19,23 @@ libUrho3D_64.a: Urho3D_Mac
 libUrho3D_Fat.a: libUrho3D_32.a libUrho3D_64.a
 	cd $(URHO3D_MAC_DIR) && lipo -create lib/libUrho3D_32.a lib/libUrho3D_64.a -output lib/libUrho3D.a
 
-libmono-urho.dylib: libUrho3D_Fat.a binding.o glue.o events.o ApplicationProxy.o vector.o 
-	mkdir -p $(OUTPUT_DIR) && clang++  $(ARCH) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) binding.o glue.o vector.o events.o ApplicationProxy.o && rm *.o
+libmono-urho.dylib: MakeBinDirectory libUrho3D_Fat.a binding.o glue.o events.o ApplicationProxy.o vector.o 
+	mkdir -p $(OUTPUT_DIR) && clang++  $(ARCH) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) $(OUTPUT_DIR)/binding.o $(OUTPUT_DIR)/glue.o $(OUTPUT_DIR)/vector.o $(OUTPUT_DIR)/events.o $(OUTPUT_DIR)/ApplicationProxy.o
 
+MakeBinDirectory:
+	mkdir -p $(OUTPUT_DIR)
+	
 binding.o:
-	clang++ -g -c $(CXXFLAGS) bindings/generated/binding.cpp 
+	clang++ -g -c $(CXXFLAGS) -o $(OUTPUT_DIR)/binding.o bindings/generated/binding.cpp 
 
 glue.o:
-	clang++ -c $(CXXFLAGS) bindings/src/glue.cpp 
+	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/glue.o bindings/src/glue.cpp 
 
 vector.o:
-	clang++ -c $(CXXFLAGS) bindings/src/vector.cpp 
+	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/vector.o bindings/src/vector.cpp 
 
 events.o:
-	clang++ -c $(CXXFLAGS) bindings/generated/events.cpp $(URHO_FLAGS) 
+	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/events.o bindings/generated/events.cpp $(URHO_FLAGS) 
 
 ApplicationProxy.o:
-	clang++ -c $(CXXFLAGS) bindings/src/ApplicationProxy.cpp $(URHO_FLAGS)
+	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.o bindings/src/ApplicationProxy.cpp $(URHO_FLAGS)
