@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Urho {
@@ -57,25 +58,10 @@ namespace Urho {
 			UpdateContext = new ListBasedUpdateSynchronizationContext(onUpdateList = new List<Action>());
 			SceneUpdateContext = new ListBasedUpdateSynchronizationContext(onSceneUpdateList = new List<Action>());
 
-			SubscribeToUpdate(args =>
-				{
-					var timeStep = args.TimeStep;
-					Update?.Invoke(args);
-					ActionManager.Update(timeStep);
-					OnUpdate(timeStep);
-					UpdateContext.PumpActions();
-				});
-
-			SubscribeToSceneUpdate(args =>
-				{
-					var timeStep = args.TimeStep;
-					var scene = args.Scene;
-					SceneUpdate?.Invoke(args);
-					OnSceneUpdate(timeStep, scene);
-					SceneUpdateContext.PumpActions();
-				});
+			SubscribeToUpdate(HandleUpdate);
+			SubscribeToSceneUpdate(HandleSceneUpdate);
 		}
-	
+
 		public static void SetCustomApplicationCallback(ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop)
 		{
 			setupCallback = setup;
@@ -102,13 +88,38 @@ namespace Urho {
 
 		public event Action<SceneUpdateEventArgs> SceneUpdate;
 
+		/// <summary>
+		/// Waits given _game_ time.
+		/// </summary>
 		public static Task Delay(float durationMs)
 		{
 			var tcs = new TaskCompletionSource<bool>();
 			var state = Current.ActionManager.AddAction(new Sequence(new DelayTime(durationMs), new CallFunc(() => tcs.TrySetResult(true))), null);
 			return tcs.Task;
 		}
-		
+
+		void HandleUpdate(UpdateEventArgs args)
+		{
+			var savedSyncContext = SynchronizationContext.Current;
+			SynchronizationContext.SetSynchronizationContext(UpdateContext);
+			var timeStep = args.TimeStep;
+			Update?.Invoke(args);
+			ActionManager.Update(timeStep);
+			OnUpdate(timeStep);
+			UpdateContext.PumpActions();
+			SynchronizationContext.SetSynchronizationContext(savedSyncContext);
+		}
+
+		void HandleSceneUpdate(SceneUpdateEventArgs args)
+		{
+			var savedSyncContext = SynchronizationContext.Current;
+			SynchronizationContext.SetSynchronizationContext(UpdateContext);
+			SceneUpdate?.Invoke(args);
+			OnSceneUpdate(args.TimeStep, args.Scene);
+			SceneUpdateContext.PumpActions();
+			SynchronizationContext.SetSynchronizationContext(savedSyncContext);
+		}
+
 		static void ProxySetup (IntPtr h)
 		{
 			GetApp (h).Setup ();

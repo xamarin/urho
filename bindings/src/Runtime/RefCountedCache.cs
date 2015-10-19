@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Urho
 {
@@ -7,7 +8,7 @@ namespace Urho
 	/// </summary>
 	internal class RefCountedCache
 	{
-		readonly Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>>(256); //based on samples (average)
+		Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>>(256); //based on samples (average)
 
 		public int Count => knownObjects.Count;
 
@@ -40,6 +41,18 @@ namespace Urho
 				ReferenceHolder<RefCounted> refCounted;
 				knownObjects.TryGetValue(ptr, out refCounted);
 				return refCounted;
+			}
+		}
+
+		public void Clean()
+		{
+			lock (knownObjects)
+			{
+				foreach (var referenceHolder in knownObjects.ToArray())
+				{
+					referenceHolder.Value?.Reference?.Dispose();
+				}
+				knownObjects.Clear();
 			}
 		}
 	}
