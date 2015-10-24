@@ -100,24 +100,24 @@ namespace Urho {
 
 		void HandleUpdate(UpdateEventArgs args)
 		{
-			var savedSyncContext = SynchronizationContext.Current;
-			SynchronizationContext.SetSynchronizationContext(UpdateContext);
+			//var savedSyncContext = SynchronizationContext.Current;
+			//SynchronizationContext.SetSynchronizationContext(UpdateContext);
 			var timeStep = args.TimeStep;
 			Update?.Invoke(args);
 			ActionManager.Update(timeStep);
 			OnUpdate(timeStep);
 			UpdateContext.PumpActions();
-			SynchronizationContext.SetSynchronizationContext(savedSyncContext);
+			//SynchronizationContext.SetSynchronizationContext(savedSyncContext);
 		}
 
 		void HandleSceneUpdate(SceneUpdateEventArgs args)
 		{
-			var savedSyncContext = SynchronizationContext.Current;
-			SynchronizationContext.SetSynchronizationContext(UpdateContext);
+			//var savedSyncContext = SynchronizationContext.Current;
+			//SynchronizationContext.SetSynchronizationContext(SceneUpdateContext);
 			SceneUpdate?.Invoke(args);
 			OnSceneUpdate(args.TimeStep, args.Scene);
 			SceneUpdateContext.PumpActions();
-			SynchronizationContext.SetSynchronizationContext(savedSyncContext);
+			//SynchronizationContext.SetSynchronizationContext(savedSyncContext);
 		}
 
 		static void ProxySetup (IntPtr h)

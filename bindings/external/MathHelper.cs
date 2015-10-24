@@ -73,8 +73,6 @@ namespace Urho
 
 		public static readonly float DTORF = Pi / 180.0f;
 
-		public static readonly double DTOR = Pi / 180.0d;
-
 		#endregion
 
 		#region Public Members

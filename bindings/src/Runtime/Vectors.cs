@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
@@ -97,12 +98,50 @@ namespace Urho
 			
 			System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator ()
 			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");			
+				return new ProxyRefCountedEnumerator<RefCounted>(handle);
 			}
 			
 			public IEnumerator<T> GetEnumerator ()
 			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");			
+				return new ProxyRefCountedEnumerator<T>(handle);
+			}
+
+			class ProxyRefCountedEnumerator<T> : IEnumerator, IEnumerator<T> where T : RefCounted
+			{
+				readonly IntPtr handle;
+				int index = 0;
+				T current;
+
+				public ProxyRefCountedEnumerator(IntPtr handle)
+				{
+					this.handle = handle;
+				}
+
+				public bool MoveNext()
+				{
+					var count = VectorSharedPtr_Count(handle);
+					if (count < 1 || count <= index)
+						return false;
+
+					current = Runtime.LookupRefCounted<T>(VectorSharedPtr_GetIdx(handle, index));
+					index++;
+					return true;
+				}
+
+				public void Reset()
+				{
+					index = 0;
+					current = null;
+				}
+
+				T IEnumerator<T>.Current => current;
+
+				public object Current => current;
+
+				public void Dispose()
+				{
+					Reset();
+				}
 			}
 		}
 	}
