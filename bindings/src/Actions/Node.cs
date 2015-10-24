@@ -26,8 +26,12 @@ namespace Urho
 			var asyncAction = asyncActions.Length > 1 ? new Sequence(asyncActions) : asyncActions[0];
 
 			state = Application.Current.ActionManager.AddAction(asyncAction, this, !IsRunning);
-			
 			return tcs.Task;
+		}
+
+		public void RemoveAllActions()
+		{
+			Application.Current.ActionManager.RemoveAllActionsFromTarget(this);
 		}
 
 		public bool IsRunning => true;
