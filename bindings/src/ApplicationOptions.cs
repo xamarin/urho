@@ -37,7 +37,7 @@ namespace Urho
 				builder.AppendFormat(" -y {0}", Height);
 
 			if (ResizableWindow)
-				builder.Append("-s");
+				builder.Append(" -s");
 
 			builder.AppendFormat(" -{0}", Orientation.ToString().ToLower());
 
