@@ -357,6 +357,7 @@
     <Compile Include="src\Actions\Node.cs" />
     <Compile Include="src\Actions\ActionManager.cs" />
     <Compile Include="src\Application.cs" />
+    <Compile Include="src\ApplicationOptions.cs" />
     <Compile Include="src\AttributeInfo.cs" />
     <Compile Include="src\BillboardSet.cs" />
     <Compile Include="src\BufferedSoundStream.cs" />

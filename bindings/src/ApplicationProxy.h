@@ -6,18 +6,16 @@ typedef void(*RefCountedEventCallback)(void *, Urho3D::RefCountedEvent);
 
 class ApplicationProxy : public Urho3D::Application {
 public:
-	ApplicationProxy (Urho3D::Context *ctx, callback_t csetup, callback_t cstart, callback_t cstop) : Urho3D::Application (ctx)
+	ApplicationProxy (Urho3D::Context *ctx, callback_t csetup, callback_t cstart, callback_t cstop, const char* args) : Urho3D::Application (ctx)
 	{
 		setup = csetup;
 		start = cstart;
 		stop = cstop;
+		engineParameters_ = Urho3D::Engine::ParseParameters(Urho3D::ParseArguments(args));
 	}
 
 	void Setup ()
 	{
-		engineParameters_["FullScreen"] = false;
-		engineParameters_["Headless"] = false;
-		engineParameters_["FrameLimiter"] = true;
 		setup (this);
 	}
 

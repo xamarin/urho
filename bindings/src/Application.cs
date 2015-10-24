@@ -26,7 +26,7 @@ namespace Urho {
 		public delegate void ActionIntPtr (IntPtr value);
 
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
-		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop);
+		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args);
 
 		/// <summary>
 		/// Last created application
@@ -36,7 +36,7 @@ namespace Urho {
 		/// <summary>
 		/// Supports the simple style with callbacks
 		/// </summary>
-		public Application (Context context) : base (UrhoObjectFlag.Empty)
+		public Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
@@ -50,8 +50,8 @@ namespace Urho {
 				startCallback = ProxyStart;
 			if (stopCallback == null)
 				stopCallback = ProxyStop;
-
-			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback);
+			
+			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, (options ?? new ApplicationOptions()).ToString());
 			Runtime.RegisterObject (this);
 			Current = this;
 
