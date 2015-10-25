@@ -6,7 +6,7 @@ namespace Urho {
 		public void AddData (byte [] data, int start = 0, int count = -1)
 		{
 			if (data == null)
-				throw new ArgumentNullException ("data");
+				throw new ArgumentNullException (nameof(data));
 			if (start < 0)
 				throw new ArgumentException ("start should be positive");
 			if (count > 0 && start + count > data.Length)
@@ -21,7 +21,7 @@ namespace Urho {
 		public void AddData (short [] data, int start = 0, int count = -1)
 		{
 			if (data == null)
-				throw new ArgumentNullException ("data");
+				throw new ArgumentNullException (nameof(data));
 			if (start < 0)
 				throw new ArgumentException ("start should be positive");
 			if (count > 0 && start + count > data.Length)
