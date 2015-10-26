@@ -18,13 +18,38 @@ namespace SharpieBinder
 		/// <summary>
 		/// Removes the "const" and "&" from a typename string definition 
 		/// </summary>
-		public static string DropConstAndReference(string tname)
+		public static string DropConstAndReference(this string tname)
 		{
 			if (tname.StartsWith("const"))
 				tname = tname.Substring("const".Length);
 			// strip the &
 			tname = tname.Substring(0, tname.Length - 1);
 			return tname.Trim();
+		}
+
+		public static string ExtractGenericParameter(this string str)
+		{
+			var open = str.IndexOf("<");
+			var close = str.LastIndexOf(">");
+			if (open < 0 || close < 0 || close <= open)
+				return str;
+			return str.Substring(open + 1, close - open - 1);
+		}
+
+		public static string DropClassOrStructPrefix(this string str)
+		{
+			if (str.StartsWith("class "))
+				return str.Substring("class ".Length);
+			if (str.StartsWith("struct "))
+				return str.Substring("struct ".Length);
+			return str;
+		}
+
+		public static string DropUrhoNamespace(this string str)
+		{
+			if (str.StartsWith("Urho3D::"))
+				return str.Substring("Urho3D::".Length);
+			return str;
 		}
 
 		public static string Remap (string source)

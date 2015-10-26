@@ -383,7 +383,6 @@
     <Compile Include="src\Network.cs" />
     <Compile Include="src\PodVector.cs" />
     <Compile Include="src\Octree.cs" />
-    <Compile Include="src\RenderPath.cs" />
     <Compile Include="src\Scene.cs" />
     <Compile Include="src\Skeleton.cs" />
     <Compile Include="src\Node.cs" />

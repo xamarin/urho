@@ -480,7 +480,7 @@ namespace SharpieBinder
 				return false;
 
 			switch (ctstring) {
-            case "const class Urho3D::Vector3 &":
+			case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::IntRect &":
 			case "const class Urho3D::Color &":
 			case "const class Urho3D::Vector2 &":
@@ -540,6 +540,9 @@ namespace SharpieBinder
 					}
 				}
 			}
+
+			if (ctstring.StartsWith("SharedPtr<") && returnType)
+				return false;
 
 			var s = ct.Bind().ToString();
 			if (s.Contains ("unsupported")) {
@@ -709,7 +712,23 @@ namespace SharpieBinder
 			default:
 				//Console.WriteLine (cleanTypeStr);
 				break;
-            }
+			}
+
+			if (isReturn && cleanTypeStr.Contains("SharedPtr<"))
+			{
+				string type = cleanTypeStr.ExtractGenericParameter().DropClassOrStructPrefix().DropUrhoNamespace();
+				highLevel = new SimpleType(RemapTypeName(type));
+				if (cleanTypeStr.Contains("class")) //TODO: inspect underlying type instead
+				{
+					wrapKind = WrapKind.HandleMember;
+					lowLevel = new SimpleType("IntPtr");
+				}
+				else
+				{
+					lowLevel = new SimpleType(RemapTypeName(type));
+				}
+				return;
+			}
 
 			if (cleanType.Kind == TypeKind.Pointer) {
 				var ptrType = cleanType as PointerType;
@@ -811,8 +830,8 @@ namespace SharpieBinder
 		// Avoid generating methods that conflict in their signatures after we turn Urho::String into string
 		bool SkipMethod (CXXMethodDecl decl)
 		{
-			/*//DEBUG specific method
-			if (currentType.Name == "Scene" && decl.Name == "SaveXML")
+			//DEBUG specific method
+			/*if (currentType.Name == "WorkQueue" && decl.Name == "GetFreeItem")
 				return false;
 			return true;*/
 
@@ -1000,7 +1019,7 @@ namespace SharpieBinder
 				break;
 			case "Urho3D::String":
 			case "const Urho3D::String &":
-            case "const class Urho3D::String &":
+			case "const class Urho3D::String &":
 				creturnType = "const char *";
 				marshalReturn = "strdup(({0}).CString ())";
 				break;
@@ -1031,6 +1050,17 @@ namespace SharpieBinder
 				creturnType = "Interop" + creturnType.Remove (0, nsIndex).Trim ('&', ' ') + " ";
 				marshalReturn = "*((" + creturnType + " *) &({0}))";
 				break;
+			}
+
+			if (creturnType.StartsWith("SharedPtr<"))
+			{
+				creturnType = creturnType.ExtractGenericParameter().DropClassOrStructPrefix() + " *";
+				marshalReturn =
+					"auto copy = {0};\n" +
+					"\tauto plain = copy.Get();\n" +
+					"\tcopy.Detach();\n" +
+					"\tdelete copy;\n" +
+					"\treturn plain;";
 			}
 
 			const string methodNameSuffix = "%MethodSuffix%";
@@ -1307,8 +1337,7 @@ namespace SharpieBinder
 						rstr = $"WeakPtr<{decl.Name}>({rstr})";
 				}
 
-				//cmethodBuilder.AppendLine ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
-				cmethodBuilder.AppendLine($"return {rstr};");
+				cmethodBuilder.AppendLine(!rstr.Contains("\treturn ") ? $"return {rstr};" : rstr);
 			}
 			cmethodBuilder.AppendLine("}\n");
 

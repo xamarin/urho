@@ -67,6 +67,11 @@ namespace Urho {
 			return CreateChild (name, mode, id);
 		}
 
+		public void AddChild(Node node)
+		{
+			AddChild(node, 0);
+		}
+
 		public T GetComponent<T> (bool recursive = false) where T:Component
 		{
 			var stringHash = Runtime.LookupStringHash (typeof (T));

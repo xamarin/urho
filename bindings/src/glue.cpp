@@ -248,26 +248,6 @@ extern "C" {
 		delete controls;
 	}
 
-	DllExport RenderPath *
-	RenderPath_Clone (RenderPath *p)
-	{
-		auto copy = p->Clone ();
-		auto plain = copy.Get ();
-		copy.Detach ();
-		delete copy;
-		return plain;
-	}
-	
-	DllExport Model *
-	Model_Clone (Model *m)
-	{
-		auto copy = m->Clone ();
-		auto plain = copy.Get ();
-		copy.Detach ();
-		delete copy;
-		return plain;
-	}
-
 	DllExport RayQueryResult *
 	Octree_RaycastSingle(Octree *octree, const Urho3D::Ray & ray, const Urho3D::RayQueryLevel & level, float maxDistance, unsigned int flags, unsigned int viewMask, int *count) {
 		PODVector<RayQueryResult> results;
