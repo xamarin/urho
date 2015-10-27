@@ -19,8 +19,7 @@ namespace Urho {
 		static ActionIntPtr startCallback;
 		static ActionIntPtr stopCallback;
 
-		IList<Action> onUpdateList;
-		IList<Action> onSceneUpdateList;
+		static readonly List<Action> actionsToDipatch = new List<Action>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -51,12 +50,9 @@ namespace Urho {
 			if (stopCallback == null)
 				stopCallback = ProxyStop;
 			
-			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, (options ?? new ApplicationOptions()).ToString());
+			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, (options ?? ApplicationOptions.Default).ToString());
 			Runtime.RegisterObject (this);
 			Current = this;
-
-			UpdateContext = new ListBasedUpdateSynchronizationContext(onUpdateList = new List<Action>());
-			SceneUpdateContext = new ListBasedUpdateSynchronizationContext(onSceneUpdateList = new List<Action>());
 
 			SubscribeToUpdate(HandleUpdate);
 			SubscribeToSceneUpdate(HandleSceneUpdate);
@@ -74,16 +70,6 @@ namespace Urho {
 			return Runtime.LookupObject<Application>(h);
 		}
 
-		/// <summary>
-		/// SynchronizationContext to execute action on Update cycle
-		/// </summary>
-		public ListBasedUpdateSynchronizationContext UpdateContext { get; private set; }
-
-		/// <summary>
-		/// SynchronizationContext to execute action on SceneUpdate cycle
-		/// </summary>
-		public ListBasedUpdateSynchronizationContext SceneUpdateContext { get; private set; }
-
 		public event Action<UpdateEventArgs> Update;
 
 		public event Action<SceneUpdateEventArgs> SceneUpdate;
@@ -98,26 +84,39 @@ namespace Urho {
 			return tcs.Task;
 		}
 
+		/// <summary>
+		/// Invoke actions in the Main Thread (the next Update call)
+		/// </summary>
+		public static void InvokeOnMain(Action action)
+		{
+			lock (actionsToDipatch)
+			{
+				actionsToDipatch.Add(action);
+			}
+		}
+
 		void HandleUpdate(UpdateEventArgs args)
 		{
-			//var savedSyncContext = SynchronizationContext.Current;
-			//SynchronizationContext.SetSynchronizationContext(UpdateContext);
 			var timeStep = args.TimeStep;
 			Update?.Invoke(args);
 			ActionManager.Update(timeStep);
 			OnUpdate(timeStep);
-			UpdateContext.PumpActions();
-			//SynchronizationContext.SetSynchronizationContext(savedSyncContext);
+
+			if (actionsToDipatch.Count > 0)
+			{
+				lock (actionsToDipatch)
+				{
+					foreach (var action in actionsToDipatch)
+						action();
+					actionsToDipatch.Clear();
+				}
+			}
 		}
 
 		void HandleSceneUpdate(SceneUpdateEventArgs args)
 		{
-			//var savedSyncContext = SynchronizationContext.Current;
-			//SynchronizationContext.SetSynchronizationContext(SceneUpdateContext);
 			SceneUpdate?.Invoke(args);
 			OnSceneUpdate(args.TimeStep, args.Scene);
-			SceneUpdateContext.PumpActions();
-			//SynchronizationContext.SetSynchronizationContext(savedSyncContext);
 		}
 
 		static void ProxySetup (IntPtr h)

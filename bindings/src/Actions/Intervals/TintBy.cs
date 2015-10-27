@@ -58,7 +58,7 @@ namespace Urho
 			staticSprite = Target.GetComponent<StaticSprite2D>();
 			if (staticSprite == null)
 			{
-				throw new NotSupportedException("The node should have StaticSprite2D");
+				throw new NotSupportedException("The node should have StaticSprite2D component. To change color of 3D objects you can use ColorAnimation (see 31_MaterialAnimation)");
 			}
 
 			var color = staticSprite.Color;

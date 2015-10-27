@@ -25,7 +25,7 @@ namespace Urho
 
 			var asyncAction = asyncActions.Length > 1 ? new Sequence(asyncActions) : asyncActions[0];
 
-			state = Application.Current.ActionManager.AddAction(asyncAction, this, !IsRunning);
+			state = Application.Current.ActionManager.AddAction(asyncAction, this);
 			return tcs.Task;
 		}
 
@@ -34,7 +34,14 @@ namespace Urho
 			Application.Current.ActionManager.RemoveAllActionsFromTarget(this);
 		}
 
-		public bool IsRunning => true;
-// TODO: handle platform's Pause, Resume etc..
+		public void PauseAllActions()
+		{
+			Application.Current.ActionManager.PauseTarget(this);
+		}
+
+		public void ResumeAllActions()
+		{
+			Application.Current.ActionManager.ResumeTarget(this);
+		}
 	}
 }

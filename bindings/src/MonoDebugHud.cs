@@ -19,7 +19,6 @@ namespace Urho
 
 		void OnPostUpdate(PostUpdateEventArgs args)
 		{
-			Renderer renderer = application.Renderer;
 			Graphics graphics = application.Graphics;
 
 			var now = DateTime.UtcNow;

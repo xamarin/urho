@@ -19,8 +19,6 @@ namespace Urho
 		static Dictionary<System.Type, int> hashDict;
 		static RefCountedEventCallback refCountedEventCallback;
 
-		public enum RefCountedEvent { Delete, AddRef }
-
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void RefCountedEventCallback(IntPtr ptr, RefCountedEvent rcEvent);
 
@@ -66,7 +64,7 @@ namespace Urho
 					reference.HandleNativeDelete();
 				}
 			}
-			else if (rcEvent == RefCountedEvent.AddRef)
+			else if (rcEvent == RefCountedEvent.Addref)
 			{
 				//if we have an object with this handle and it's reference is weak - then change it to strong.
 				var referenceHolder = RefCountedCache.Get(ptr);

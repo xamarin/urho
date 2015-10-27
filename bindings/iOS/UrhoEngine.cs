@@ -36,7 +36,7 @@ namespace Urho.iOS
 		//
 
 		[MonoPInvokeCallback(typeof(Runtime.RefCountedEventCallback))]
-		private static void OnNativeDelete(IntPtr ptr, Runtime.RefCountedEvent rcEvent)
+		private static void OnNativeDelete(IntPtr ptr, RefCountedEvent rcEvent)
 		{
 			Runtime.OnRefCountedEvent(ptr, rcEvent);
 		}

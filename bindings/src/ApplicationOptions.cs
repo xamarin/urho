@@ -43,5 +43,11 @@ namespace Urho
 
 			return builder.ToString();
 		}
+
+		// Some predefined:
+
+		public static ApplicationOptions Default { get; } = new ApplicationOptions();
+
+		public static ApplicationOptions PortraitDefault { get; } = new ApplicationOptions { Height = 800, Width = 500, ResizableWindow = true, Orientation = OrientationType.Portrait };
 	}
 }
