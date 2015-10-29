@@ -9,7 +9,7 @@ namespace Urho
 		public int Width { get; set; } = 0;
 		public int Height { get; set; } = 0;
 		public bool WindowedMode { get; set; } = true;
-		public bool ResizableWindow { get; set; } = false;
+		public bool ResizableWindow { get; set; } = true;
 		public bool LimitFps { get; set; } = true;
 		public OrientationType Orientation { get; set; } = OrientationType.Landscape;
 
@@ -48,6 +48,6 @@ namespace Urho
 
 		public static ApplicationOptions Default { get; } = new ApplicationOptions();
 
-		public static ApplicationOptions PortraitDefault { get; } = new ApplicationOptions { Height = 800, Width = 500, ResizableWindow = true, Orientation = OrientationType.Portrait };
+		public static ApplicationOptions PortraitDefault { get; } = new ApplicationOptions { Height = 800, Width = 500, Orientation = OrientationType.Portrait };
 	}
 }
