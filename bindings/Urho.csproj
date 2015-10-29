@@ -39,10 +39,6 @@
   <ItemGroup>
     <Compile Include="external\IntVector2.cs" />
     <Compile Include="external\Plane.cs" />
-    <Compile Include="generated\b2BodyType.cs" />
-    <Compile Include="generated\b2JointType.cs" />
-    <Compile Include="generated\b2LimitState.cs" />
-    <Compile Include="generated\b2PointState.cs" />
     <Compile Include="generated\BackgroundLoader.cs" />
     <Compile Include="generated\CollisionEventMode.cs" />
     <Compile Include="generated\CollisionGeometryData.cs" />
@@ -52,7 +48,6 @@
     <Compile Include="generated\CrowdAgentRequestedTarget.cs" />
     <Compile Include="generated\CrowdAgentTargetState.cs" />
     <Compile Include="generated\CrowdManager.cs" />
-    <Compile Include="generated\DebugDrawModes.cs" />
     <Compile Include="generated\HttpRequest.cs" />
     <Compile Include="generated\HttpRequestState.cs" />
     <Compile Include="generated\IndexBuffer.cs" />
