@@ -19,6 +19,9 @@ Mac:
 iOS:
 	make -j1 fat-libmono-urho.dylib -f MakeiOS
 
+tvOS:
+	make -j1 fat-libmono-urho.dylib -f MaketvOS
+
 Windows:
 	make -j1 libUrho3D.a -f MakeWindows
 
