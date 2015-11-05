@@ -30,6 +30,9 @@
     <ClCompile Include="..\..\..\Bindings\generated\events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Bindings\src\SharpComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Bindings\src\asserts.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Bindings\AllUrho.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Bindings\src\SharpComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

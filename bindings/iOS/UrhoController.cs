@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿using System.Runtime.InteropServices;
 
 namespace Urho.iOS
 {
@@ -23,7 +20,6 @@ namespace Urho.iOS
 
 		public static void HandleWillResignActive()
 		{
-
 		}
 
 		public static void HandleDidBecomeActive()
