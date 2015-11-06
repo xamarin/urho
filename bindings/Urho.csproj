@@ -371,6 +371,7 @@
     <Compile Include="src\Runtime\Subscription.cs" />
     <Compile Include="src\Runtime\RefCountedCache.cs" />
     <Compile Include="src\Runtime\Vectors.cs" />
+    <Compile Include="src\SharpComponent.cs" />
     <Compile Include="src\UrhoConsole.cs" />
     <Compile Include="src\Collision.cs" />
     <Compile Include="src\Component.cs" />

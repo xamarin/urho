@@ -10,13 +10,13 @@ public:
 	OBJECT(SharpComponent);
 
 	SharpComponent(Context* context);
-	SharpComponent(const char* typeName, Context* context);
+	SharpComponent(const String& typeName, Context* context);
 
 	void RegisterObject(Context* context);
 
-	void SetManagedState(const char* state);
-	String& GetManagedState();
-	String& GetName();
+	void SetManagedState(const String& state);
+	const String& GetManagedState();
+	const String& GetName();
 
 	virtual void ApplyAttributes();
 

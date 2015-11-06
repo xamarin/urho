@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace Urho
@@ -15,20 +16,56 @@ namespace Urho
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		internal extern static void VectorSharedPtr_SetIdx (IntPtr h, int idx, IntPtr v);
 
-		internal class ProxyUrhoObject<T> : ProxyRefCounted<T> where T : UrhoObject
+		internal class ProxyUrhoObject<T> : ProxyRefCounted<T>, IReadOnlyList<T> where T : UrhoObject
 		{
 			public ProxyUrhoObject(IntPtr handle) : base(handle) { }
 
-			public override T this[int idx]
+			public override T this[int idx] => Runtime.LookupObject<T>(VectorSharedPtr_GetIdx(handle, idx));
+
+			IEnumerator IEnumerable.GetEnumerator() => new ProxyUrhoObjectEnumerator<UrhoObject>(handle);
+
+			public override IEnumerator<T> GetEnumerator() => new ProxyUrhoObjectEnumerator<T>(handle);
+
+			class ProxyUrhoObjectEnumerator<T> : IEnumerator, IEnumerator<T> where T : UrhoObject
 			{
-				get {
-					return Runtime.LookupRefCounted<T>(VectorSharedPtr_GetIdx(handle, idx));
+				readonly IntPtr handle;
+				int index;
+				T current;
+
+				public ProxyUrhoObjectEnumerator(IntPtr handle)
+				{
+					this.handle = handle;
 				}
-				set { throw new NotImplementedException("Proxy has not implemented this yet"); }
+
+				public bool MoveNext()
+				{
+					var count = VectorSharedPtr_Count(handle);
+					if (count < 1 || count <= index)
+						return false;
+
+					current = Runtime.LookupObject<T>(VectorSharedPtr_GetIdx(handle, index));
+					index++;
+					return true;
+				}
+
+				public void Reset()
+				{
+					index = 0;
+					current = null;
+				}
+
+				T IEnumerator<T>.Current => current;
+
+				public object Current => current;
+
+				public void Dispose()
+				{
+					Reset();
+				}
 			}
 		}
 
-		internal class ProxyRefCounted<T> : IList<T> where T : RefCounted
+		internal class ProxyRefCounted<T> : IReadOnlyList<T> where T : RefCounted
 		{
 			protected IntPtr handle;
 			public ProxyRefCounted(IntPtr handle)
@@ -36,80 +73,18 @@ namespace Urho
 				this.handle = handle;
 			}
 		
-			public virtual T this [int idx] {
-				get {
-					return Runtime.LookupRefCounted<T> (VectorSharedPtr_GetIdx (handle, idx));
-				}
-				set {
-					// Mhm, how do we get the SharedPtr from an existing object?
-					throw new NotImplementedException ("Proxy has not implemented this yet");
-				}
-			}
-				
-			public int IndexOf (T v)
-			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");
-			}
+			public virtual T this [int idx] => Runtime.LookupRefCounted<T> (VectorSharedPtr_GetIdx (handle, idx));
+
+			public int Count => VectorSharedPtr_Count (handle);
 			
-			public void Insert (int idx, T v)
-			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");
-			}
-			
-			public void RemoveAt (int idx)
-			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");
-			}
-			
-			public bool Remove (T val)
-			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");
-			}
-			
-			public void CopyTo (T [] target, int p)
-			{
-				int c = Count;
-				for (int i = 0; i < c; i++)
-					target [i+p] = this[i];
-			}
-			
-			public int Count {
-				get {
-					return VectorSharedPtr_Count (handle);
-				}
-			}
-			
-			public bool IsReadOnly => false;
-			
-			public void Add (T v)
-			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");			
-			}
-			
-			public void Clear ()
-			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");			
-			}
-			
-			public bool Contains (T v)
-			{
-				throw new NotImplementedException ("Proxy has not implemented this yet");			
-			}
-			
-			System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator ()
-			{
-				return new ProxyRefCountedEnumerator<RefCounted>(handle);
-			}
-			
-			public IEnumerator<T> GetEnumerator ()
-			{
-				return new ProxyRefCountedEnumerator<T>(handle);
-			}
+			IEnumerator IEnumerable.GetEnumerator () => new ProxyRefCountedEnumerator<RefCounted>(handle);
+
+			public virtual IEnumerator<T> GetEnumerator () => new ProxyRefCountedEnumerator<T>(handle);
 
 			class ProxyRefCountedEnumerator<T> : IEnumerator, IEnumerator<T> where T : RefCounted
 			{
 				readonly IntPtr handle;
-				int index = 0;
+				int index;
 				T current;
 
 				public ProxyRefCountedEnumerator(IntPtr handle)

@@ -72,7 +72,7 @@ namespace Urho
 			}
 		}
 
-		public static T LookupRefCounted<T> (IntPtr ptr) where T:RefCounted
+		public static T LookupRefCounted<T> (IntPtr ptr, bool createIfNotFound = true) where T:RefCounted
 		{
 			if (ptr == IntPtr.Zero)
 				return null;
@@ -81,11 +81,14 @@ namespace Urho
 			if (reference is T)
 				return (T) reference;
 
+			if (!createIfNotFound)
+				return null;
+
 			var refCounted = (T)Activator.CreateInstance(typeof(T), ptr);
 			return refCounted;
 		}
 
-		public static T LookupObject<T>(IntPtr ptr) where T : UrhoObject
+		public static T LookupObject<T>(IntPtr ptr, bool createIfNotFound = true) where T : UrhoObject
 		{
 			if (ptr == IntPtr.Zero)
 				return null;
@@ -95,8 +98,11 @@ namespace Urho
 			if (reference is T)
 				return (T)reference;
 
+			if (!createIfNotFound)
+				return null;
+
 			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
-			var type = System.Type.GetType("Urho." + name) ?? System.Type.GetType("Urho.Urho" + name);
+			var type = Type.GetType("Urho." + name) ?? Type.GetType("Urho.Urho" + name);
 			var urhoObject = (T)Activator.CreateInstance(type, ptr);
 			return urhoObject;
 		}
@@ -111,10 +117,10 @@ namespace Urho
 			RefCountedCache.Add(refCounted);
 		}
 		
-		public static StringHash LookupStringHash (System.Type t)
+		public static StringHash LookupStringHash (Type t)
 		{
 			if (hashDict == null)
-				hashDict = new Dictionary<System.Type, int> ();
+				hashDict = new Dictionary<Type, int> ();
 
 			int c;
 			if (hashDict.TryGetValue (t, out c))
@@ -132,20 +138,14 @@ namespace Urho
 		extern static IntPtr GetPlatform();
 
 		static string platform;
-		public static string Platform {
-			get {
-				if (platform == null)
-					platform = Marshal.PtrToStringAnsi(GetPlatform ());
-				return platform;
-			}
-		}
+		public static string Platform => platform ?? (platform = Marshal.PtrToStringAnsi(GetPlatform()));
 
-		static internal IList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject
+		static internal IReadOnlyList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject
 		{
 			return new Vectors.ProxyUrhoObject<T> (handle);
 		}
 
-		static internal IList<T> CreateVectorSharedPtrRefcountedProxy<T>(IntPtr handle) where T : RefCounted
+		static internal IReadOnlyList<T> CreateVectorSharedPtrRefcountedProxy<T>(IntPtr handle) where T : RefCounted
 		{
 			return new Vectors.ProxyRefCounted<T>(handle);
 		}

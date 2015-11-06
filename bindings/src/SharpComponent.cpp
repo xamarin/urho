@@ -5,9 +5,9 @@ SharpComponent::SharpComponent(Context* context) : Component(context)
 {
 }
 
-SharpComponent::SharpComponent(const char* typeName, Context* context) : Component(context)
+SharpComponent::SharpComponent(const String& typeName, Context* context) : Component(context)
 {
-	name = String(typeName);
+	name = typeName;
 	RegisterObject(context);
 }
 
@@ -18,17 +18,17 @@ void SharpComponent::RegisterObject(Context* context)
 	ATTRIBUTE("ManagedState", String, managedState, String(""), AM_DEFAULT);
 }
 
-void SharpComponent::SetManagedState(const char* state)
+void SharpComponent::SetManagedState(const String& state)
 {
-	managedState = String(state);
+	managedState = state;
 }
 
-String& SharpComponent::GetManagedState()
+const String& SharpComponent::GetManagedState()
 {
 	return managedState;
 }
 
-String& SharpComponent::GetName()
+const String& SharpComponent::GetName()
 {
 	return name;
 }

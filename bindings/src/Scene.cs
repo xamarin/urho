@@ -18,7 +18,15 @@ namespace Urho
 
 		public bool LoadXml(string file)
 		{
-			return Scene_LoadXML(handle, file);
+			var result = Scene_LoadXML(handle, file);
+			if (result)
+			{
+				// LoadXml will mark a lot of objects for collection
+				GC.Collect();
+				GC.WaitForPendingFinalizers();
+				GC.Collect();
+			}
+			return result;
 		}
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]

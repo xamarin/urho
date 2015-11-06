@@ -4,10 +4,10 @@
 #   include <unistd.h>
 #endif
 #include <stdlib.h>
-#define URHO3D_OPENGL
 #include "../AllUrho.h"
 #include "glue.h"
 #include "../src/interop.h"
+#include "SharpComponent.h"
 using namespace Urho3D;
 
 //
@@ -315,6 +315,66 @@ extern "C" {
 		return results;
 	}
 	
+	DllExport int
+	SharpComponent_GetType(SharpComponent *_target)
+	{
+		return (_target->GetType()).Value();
+	}
+
+	DllExport int
+	SharpComponent_GetBaseType(SharpComponent *_target)
+	{
+		return (_target->GetBaseType()).Value();
+	}
+
+	DllExport const char *
+	SharpComponent_GetTypeName(SharpComponent *_target)
+	{
+		return strdup((_target->GetTypeName()).CString());
+	}
+
+	DllExport int
+	SharpComponent_GetTypeStatic()
+	{
+		return (SharpComponent::GetTypeStatic()).Value();
+	}
+
+	DllExport const char *
+	SharpComponent_GetTypeNameStatic()
+	{
+		return strdup((SharpComponent::GetTypeNameStatic()).CString());
+	}
+
+	DllExport void *
+	SharpComponent_SharpComponent(Context * context)
+	{
+		return WeakPtr<SharpComponent>(new SharpComponent(context));
+	}
+
+	DllExport void *
+	SharpComponent_SharpComponent0(const char * typeName, Context * context)
+	{
+		return WeakPtr<SharpComponent>(new SharpComponent(Urho3D::String(typeName), context));
+	}
+
+	DllExport void
+	SharpComponent_SetManagedState(SharpComponent *_target, const char * state)
+	{
+		_target->SetManagedState(Urho3D::String(state));
+	}
+
+	DllExport const char *
+	SharpComponent_GetManagedState(SharpComponent *_target)
+	{
+		return strdup((_target->GetManagedState()).CString());
+	}
+
+	DllExport const char *
+	SharpComponent_GetName(SharpComponent *_target)
+	{
+		return strdup((_target->GetName()).CString());
+	}
+
 #if false
 
 	// Stuff to check interop
