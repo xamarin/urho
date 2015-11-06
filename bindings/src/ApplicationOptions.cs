@@ -2,15 +2,40 @@
 
 namespace Urho
 {
+	/// <summary>
+	/// Application options, see full description at:
+	/// http://urho3d.github.io/documentation/1.4/_running.html 
+	/// </summary>
 	public class ApplicationOptions
 	{
-		// see http://urho3d.github.io/documentation/1.4/_running.html (Command line options)
-
+		/// <summary>
+		/// Desktop only
+		/// </summary>
 		public int Width { get; set; } = 0;
+
+		/// <summary>
+		/// Desktop only
+		/// </summary>
 		public int Height { get; set; } = 0;
+		
+		/// <summary>
+		/// Desktop only
+		/// </summary>
 		public bool WindowedMode { get; set; } = true;
-		public bool ResizableWindow { get; set; } = true;
+
+		/// <summary>
+		/// Desktop only
+		/// </summary>
+		public bool ResizableWindow { get; set; } = false;
+
+		/// <summary>
+		/// With limit enabled: 200 fps for Desktop (and always 60 fps for mobile despite of the flag)
+		/// </summary>
 		public bool LimitFps { get; set; } = true;
+
+		/// <summary>
+		/// iOS only
+		/// </summary>
 		public OrientationType Orientation { get; set; } = OrientationType.Landscape;
 
 		public enum OrientationType
