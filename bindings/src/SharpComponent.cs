@@ -80,5 +80,9 @@ namespace Urho
 		public new static StringHash TypeStatic => new StringHash(SharpComponent_GetTypeStatic());
 
 		public new static string TypeNameStatic => Marshal.PtrToStringAnsi(SharpComponent_GetTypeNameStatic());
+
+		public static string GetManagedStateForPtr(IntPtr ptr) => Marshal.PtrToStringAnsi(SharpComponent_GetManagedState(ptr));
+
+		public static string GetTypeNameForPtr(IntPtr ptr) => Marshal.PtrToStringAnsi(SharpComponent_GetName(ptr));
 	}
 }

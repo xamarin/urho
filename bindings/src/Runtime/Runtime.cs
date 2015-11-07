@@ -119,25 +119,20 @@ namespace Urho
 
 			var referenceHolder = RefCountedCache.Get(ptr);
 			var reference = referenceHolder?.Reference;
-			if (reference is T)
+			if (reference is T) //possible collisions
 				return (T)reference;
 
 			if (!createIfNotFound)
 				return null;
 
 			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
-			var type = Type.GetType("Urho." + name) ?? Type.GetType("Urho.Urho" + name);
+			var type = Type.GetType("Urho." + name) ?? Type.GetType("Urho.Urho" + name); // "Urho.Urho" for remapped types like UrhoObjec, UrhoType
 			var typeInfo = type.GetTypeInfo();
 			if (typeInfo.IsSubclassOf(typeof(SharpComponent)) || type == typeof(SharpComponent))
 			{
 				//If we here it means that we are trying to get a user-defined component restored from file
-				//TODO: deserialize managed state here:
-				//Json.net? XmlSerilizer? Protbuf? 
-				var tempComponent = new SharpComponent(ptr);
-				var state = tempComponent.ManagedState;
-
-				//while deserializtion is not implemented yet - create a new empty instance and call OnDeserializing with raw string data
-				var result = (T)Activator.CreateInstance(Type.GetType(tempComponent.Name), Application.Current.Context);
+				var state = SharpComponent.GetManagedStateForPtr(ptr);
+				var result = (T)Activator.CreateInstance(Type.GetType(SharpComponent.GetTypeNameForPtr(ptr)), Application.Current.Context);
 				var resultAsSharpComponent = (SharpComponent)(UrhoObject)result;
 				resultAsSharpComponent.ManagedState = state;
 				resultAsSharpComponent.OnDeserializing(state);
