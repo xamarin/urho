@@ -103,6 +103,21 @@ namespace Urho
 
 			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
 			var type = Type.GetType("Urho." + name) ?? Type.GetType("Urho.Urho" + name);
+			var typeInfo = type.GetTypeInfo();
+			if (typeInfo.IsSubclassOf(typeof(SharpComponent)) || type == typeof(SharpComponent))
+			{
+				//If we here it means that we are trying to get a user-defined component restored from file
+				//TODO: deserialize managed state here:
+				//Json.net? XmlSerilizer? Protbuf? 
+				var tempComponent = new SharpComponent(ptr);
+				var state = tempComponent.ManagedState;
+
+				//while deserializtion is not implemented yet - create a new empty instance
+				var result = (T)Activator.CreateInstance(Type.GetType(tempComponent.Name), Application.Current.Context);
+				((SharpComponent) (UrhoObject)result).ManagedState = state;
+				return result;
+			}
+
 			var urhoObject = (T)Activator.CreateInstance(type, ptr);
 			return urhoObject;
 		}

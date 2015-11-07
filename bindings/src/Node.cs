@@ -83,32 +83,10 @@ namespace Urho {
 
 		public T GetComponent<T> (bool recursive = false) where T : Component
 		{
-			var typeInfo = typeof (T).GetTypeInfo();
-			if (typeInfo.IsSubclassOf(typeof (SharpComponent)))
+			if (typeof (T).GetTypeInfo().IsSubclassOf(typeof (SharpComponent)))
 			{
-				//Find the first SharpComponent with Name == name of the given type
-				var component = Components.OfType<SharpComponent>().FirstOrDefault(c => c.Name == typeof (T).FullName);
-				if (component == null)
-					throw new ArgumentException($"{typeof(T).Name} not found");
-
-				//check if the object cache has an object with this handle
-				var obj = Runtime.LookupObject<T>(component.Handle, false);
-				if (obj == null)
-				{
-					//If we here it means that we are trying to get a user-defined component restored from file
-					//TODO: deserialize managed state here:
-					//Json.net? XmlSerilizer? Protbuf? 
-					var state = component.ManagedState;
-
-					//while deserializtion is not implemented - create a new empty instance
-					var result = (T) Activator.CreateInstance(typeof (T), Context);
-					return result;
-				}
-
-				// we don't need to restore it - we already have it in the cache
-				return obj;
+				return (T) Components.FirstOrDefault(c => c is T);
 			}
-
 			var stringHash = Runtime.LookupStringHash (typeof (T));
 			var ptr = Node_GetComponent (handle, stringHash.Code, recursive);
 			return Runtime.LookupObject<T> (ptr);

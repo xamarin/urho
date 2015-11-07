@@ -11,9 +11,6 @@ namespace Urho
 		static extern int SharpComponent_GetType(IntPtr handle);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		static extern IntPtr SharpComponent_SharpComponent(IntPtr context);
-
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern IntPtr SharpComponent_SharpComponent0(string typeName, IntPtr context);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
@@ -32,11 +29,10 @@ namespace Urho
 		static extern void SharpComponent_SetManagedState(IntPtr handle, string state);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		static extern IntPtr SharpComponent_GetManagedState(IntPtr handle);
-
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern IntPtr SharpComponent_GetName(IntPtr handle);
 
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		static extern IntPtr SharpComponent_GetManagedState(IntPtr handle);
 
 		public SharpComponent(IntPtr handle) : base(handle) {}
 
@@ -44,14 +40,13 @@ namespace Urho
 
 		public SharpComponent(Context context) : base(UrhoObjectFlag.Empty)
 		{
-			var name = GetType().FullName;
+			var name = GetType().AssemblyQualifiedName;
 			handle = SharpComponent_SharpComponent0(name, (object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject(this);
 		}
 
 		/// <summary>
 		/// Serialized managed state
-		/// TODO: provide built-in serialization mechanism
 		/// </summary>
 		public string ManagedState
 		{
@@ -67,14 +62,14 @@ namespace Urho
 
 		//required methods defined by OBJECT(x) macros:
 
-		public StringHash UrhoGetType() => new StringHash(SharpComponent_GetType(handle));
+		public new StringHash Type => new StringHash(SharpComponent_GetType(handle));
 
-		public StringHash UrhoGetBaseType() => new StringHash(SharpComponent_GetBaseType(handle));
+		public new StringHash BaseType => new StringHash(SharpComponent_GetBaseType(handle));
 
-		public string GetTypeName() => Marshal.PtrToStringAnsi(SharpComponent_GetTypeName(handle));
+		public new string TypeName => Marshal.PtrToStringAnsi(SharpComponent_GetTypeName(handle));
 
-		public static StringHash GetTypeStatic() => new StringHash(SharpComponent_GetTypeStatic());
+		public new static StringHash TypeStatic => new StringHash(SharpComponent_GetTypeStatic());
 
-		public static string GetTypeNameStatic() => Marshal.PtrToStringAnsi(SharpComponent_GetTypeNameStatic());
+		public new static string TypeNameStatic => Marshal.PtrToStringAnsi(SharpComponent_GetTypeNameStatic());
 	}
 }
