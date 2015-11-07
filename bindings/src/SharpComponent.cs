@@ -59,6 +59,10 @@ namespace Urho
 		/// </summary>
 		public string Name => Marshal.PtrToStringAnsi(SharpComponent_GetName(handle));
 
+		/// <summary>
+		/// This method is called on each Serializable after the whole scene has been loaded
+		/// </summary>
+		public virtual void OnDeserialized(string managedState) { }
 
 		//required methods defined by OBJECT(x) macros:
 

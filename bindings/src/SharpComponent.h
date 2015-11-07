@@ -4,6 +4,8 @@
 
 using namespace Urho3D;
 
+typedef void(*ComponentDeserializationCallback)(void *);
+
 class SharpComponent : public Component
 {
 public:

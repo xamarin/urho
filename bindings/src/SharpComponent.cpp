@@ -1,5 +1,15 @@
 #include <Urho3D/Core/Context.h>
 #include "SharpComponent.h"
+#include "../AllUrho.h"
+
+ComponentDeserializationCallback componentDeserializationCallback;
+extern "C" {
+	DllExport
+	void SetComponentDeserializationCallback(ComponentDeserializationCallback callback)
+	{
+		componentDeserializationCallback = callback;
+	}
+}
 
 SharpComponent::SharpComponent(Context* context) : Component(context)
 {
@@ -33,6 +43,11 @@ const String& SharpComponent::GetName()
 	return name;
 }
 
+// This function is called on each Serializable after the whole scene has been loaded
 void SharpComponent::ApplyAttributes()
 {
+	if (componentDeserializationCallback)
+	{
+		componentDeserializationCallback(this);
+	}
 }

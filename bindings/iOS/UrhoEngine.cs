@@ -23,7 +23,7 @@ namespace Urho.iOS
 
 		public static void Init(string resourcesDir, string docsDir)
 		{
-			Runtime.SetCustomRefcountedEventCallback(OnNativeDelete);
+			Runtime.SetCustomNativeCallbacks(OnRefCountedEvent, OnSharpComponentDeserialized);
 			Application.SetCustomApplicationCallback(Setup, Start, Stop);
 			UrhoObject.SetCustomObjectCallback(ObjectCallback);
 			InitSdl(resourcesDir, docsDir);
@@ -36,9 +36,15 @@ namespace Urho.iOS
 		//
 
 		[MonoPInvokeCallback(typeof(Runtime.RefCountedEventCallback))]
-		private static void OnNativeDelete(IntPtr ptr, RefCountedEvent rcEvent)
+		private static void OnRefCountedEvent(IntPtr ptr, RefCountedEvent rcEvent)
 		{
 			Runtime.OnRefCountedEvent(ptr, rcEvent);
+		}
+
+		[MonoPInvokeCallback(typeof(Runtime.ComponentDeserializationCallback))]
+		private static void OnSharpComponentDeserialized(IntPtr ptr)
+		{
+			Runtime.OnSharpComponentDeserialized(ptr);
 		}
 
 		[MonoPInvokeCallback(typeof(Application.ActionIntPtr))]
