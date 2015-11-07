@@ -4,7 +4,9 @@
 
 using namespace Urho3D;
 
-typedef void(*ComponentDeserializationCallback)(void *);
+enum SharpComponentEvent { Load, Save };
+
+typedef void(*ComponentEventCallback)(void *, SharpComponentEvent);
 
 class SharpComponent : public Component
 {
@@ -17,7 +19,8 @@ public:
 	void RegisterObject(Context* context);
 
 	void SetManagedState(const String& state);
-	const String& GetManagedState();
+	const String& GetManagedState() const;
+	const String& Serialize() const;
 	const String& GetName();
 
 	virtual void ApplyAttributes();

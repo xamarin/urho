@@ -18,19 +18,19 @@ namespace Urho
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<System.Type, int> hashDict;
 		static RefCountedEventCallback refCountedEventCallback;
-		static ComponentDeserializationCallback componentDeserializationCallback;
+		static ComponentEventCallback _componentEventCallback;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void RefCountedEventCallback(IntPtr ptr, RefCountedEvent rcEvent);
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		public delegate void ComponentDeserializationCallback(IntPtr ptr);
+		public delegate void ComponentEventCallback(IntPtr ptr, SharpComponentEvent sce);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		extern static void SetRefCountedEventCallback(RefCountedEventCallback callback);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void SetComponentDeserializationCallback(ComponentDeserializationCallback callback);
+		extern static void SetComponentCallbacks(ComponentEventCallback callback);
 
 		/// <summary>
 		/// Runtime initialization. 
@@ -38,28 +38,32 @@ namespace Urho
 		public static void Initialize()
 		{
 			refCountedEventCallback = refCountedEventCallback ?? OnRefCountedEvent;
-			componentDeserializationCallback = componentDeserializationCallback ?? OnSharpComponentDeserialized;
+			_componentEventCallback = _componentEventCallback ?? OnSharpComponentEvent;
 			SetRefCountedEventCallback(refCountedEventCallback);
-			SetComponentDeserializationCallback(componentDeserializationCallback);
+			SetComponentCallbacks(_componentEventCallback);
 		}
 
 		/// <summary>
 		/// This method is a workaround for iOS that requires all callback methods to be marked with a special attribute [MonoPInvokeCallback]
 		/// </summary>
-		public static void SetCustomNativeCallbacks(RefCountedEventCallback rcCallback, ComponentDeserializationCallback cdCallback)
+		public static void SetCustomNativeCallbacks(RefCountedEventCallback rcCallback, ComponentEventCallback cdCallback)
 		{
 			refCountedEventCallback = rcCallback;
-			componentDeserializationCallback = cdCallback;
+			_componentEventCallback = cdCallback;
 		}
 
 		/// <summary>
 		/// This method is called on each Serializable after the whole scene has been loaded
 		/// Originally it's ApplyAttributes()
 		/// </summary>
-		public static void OnSharpComponentDeserialized(IntPtr ptr)
+		public static void OnSharpComponentEvent(IntPtr ptr, SharpComponentEvent sce)
 		{
 			// it will trigger OnDeserilized if needed
-			LookupObject<SharpComponent>(ptr);
+			SharpComponent component = LookupObject<SharpComponent>(ptr);
+			if (sce == SharpComponentEvent.Save)
+			{
+				component.ManagedState = component.OnSerializing() ?? string.Empty;
+			}
 		}
 
 		/// <summary>
@@ -132,11 +136,11 @@ namespace Urho
 				var tempComponent = new SharpComponent(ptr);
 				var state = tempComponent.ManagedState;
 
-				//while deserializtion is not implemented yet - create a new empty instance and call OnDeserialized with raw string data
+				//while deserializtion is not implemented yet - create a new empty instance and call OnDeserializing with raw string data
 				var result = (T)Activator.CreateInstance(Type.GetType(tempComponent.Name), Application.Current.Context);
 				var resultAsSharpComponent = (SharpComponent)(UrhoObject)result;
 				resultAsSharpComponent.ManagedState = state;
-				resultAsSharpComponent.OnDeserialized(state);
+				resultAsSharpComponent.OnDeserializing(state);
 				return result;
 			}
 

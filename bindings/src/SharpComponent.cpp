@@ -2,13 +2,11 @@
 #include "SharpComponent.h"
 #include "../AllUrho.h"
 
-ComponentDeserializationCallback componentDeserializationCallback;
-extern "C" {
-	DllExport
-	void SetComponentDeserializationCallback(ComponentDeserializationCallback callback)
-	{
-		componentDeserializationCallback = callback;
-	}
+ComponentEventCallback componentEventCallback;
+extern "C" DllExport
+void SetComponentCallbacks(ComponentEventCallback callback)
+{
+	componentEventCallback = callback;
 }
 
 SharpComponent::SharpComponent(Context* context) : Component(context)
@@ -25,7 +23,7 @@ void SharpComponent::RegisterObject(Context* context)
 {
 	context->RegisterFactory<SharpComponent>();
 	ATTRIBUTE("SharpName", String, name, String(""), AM_DEFAULT);
-	ATTRIBUTE("ManagedState", String, managedState, String(""), AM_DEFAULT);
+	ACCESSOR_ATTRIBUTE("ManagedState", Serialize, SetManagedState, String, String(""), AM_DEFAULT);
 }
 
 void SharpComponent::SetManagedState(const String& state)
@@ -33,8 +31,17 @@ void SharpComponent::SetManagedState(const String& state)
 	managedState = state;
 }
 
-const String& SharpComponent::GetManagedState()
+const String& SharpComponent::GetManagedState() const
 {
+	return managedState;
+}
+
+const String& SharpComponent::Serialize() const
+{
+	if (componentEventCallback)
+	{
+		componentEventCallback((void*)this, SharpComponentEvent::Save);
+	}
 	return managedState;
 }
 
@@ -43,11 +50,10 @@ const String& SharpComponent::GetName()
 	return name;
 }
 
-// This function is called on each Serializable after the whole scene has been loaded
 void SharpComponent::ApplyAttributes()
 {
-	if (componentDeserializationCallback)
+	if (componentEventCallback)
 	{
-		componentDeserializationCallback(this);
+		componentEventCallback(this, SharpComponentEvent::Load);
 	}
 }

@@ -52,4 +52,9 @@ namespace Urho {
 		Geometry2D = 0x8,
 		Any = 0xff,
 	}
+
+	public enum SharpComponentEvent {
+		Load,
+		Save
+	}
 }

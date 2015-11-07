@@ -62,7 +62,12 @@ namespace Urho
 		/// <summary>
 		/// This method is called on each Serializable after the whole scene has been loaded
 		/// </summary>
-		public virtual void OnDeserialized(string managedState) { }
+		public virtual void OnDeserializing(string managedState) { }
+
+		/// <summary>
+		/// This method is called on each Save(XML) 
+		/// </summary>
+		public virtual string OnSerializing() { return null; }
 
 		//required methods defined by OBJECT(x) macros:
 
