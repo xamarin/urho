@@ -40,7 +40,8 @@ namespace Urho {
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
 
-			context.AddRef();
+			if (context.Refs() < 1)
+				context.AddRef();
 
 			//keep references to callbacks (supposed to be passed to native code) as long as the App is alive
 			if (setupCallback == null)
@@ -287,16 +288,16 @@ namespace Urho {
 			}
 		}
 
-		public static T CreateInstance<T>() where T : Application
+		public static T CreateInstance<T>(Context context = null) where T : Application
 		{
-			return (T)CreateInstance(typeof (T));
+			return (T)CreateInstance(typeof (T), context);
 		}
 
-		public static Application CreateInstance(Type applicationType)
+		public static Application CreateInstance(Type applicationType, Context context = null)
 		{
 			try
 			{
-				return (Application)Activator.CreateInstance(applicationType, new Context());
+				return (Application)Activator.CreateInstance(applicationType, context ?? new Context());
 			}
 			catch (Exception exc)
 			{

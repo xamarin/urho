@@ -1,6 +1,7 @@
 using System;
 using Android.App;
 using Android.Content;
+using Android.Views;
 using Org.Libsdl.App;
 
 namespace Urho.Droid
@@ -15,7 +16,7 @@ namespace Urho.Droid
 	/// - DispatchKeyEvent
 	/// - OnWindowFocusChanged
 	/// </summary>
-	public class UrhoSurfaceViewController : Org.Libsdl.App.SDLActivity 
+	public class UrhoSurfaceViewController 
 	{
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
@@ -30,8 +31,38 @@ namespace Urho.Droid
 		/// </summary>
 		public static SDLSurface CreateSurface(Activity activity, Type applicationType)
 		{
-			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance(applicationType).Run());
-			return CreateSurface(activity);
+			UrhoEngine.RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, new Context(contextPtr)).Run());
+			return SDLActivity.CreateSurface(activity);
+		}
+
+		public static void OnResume()
+		{
+			SDLActivity.OnResume();
+		}
+
+		public static void OnPause()
+		{
+			SDLActivity.OnPause();
+		}
+
+		public static void OnLowMemory()
+		{
+			SDLActivity.OnLowMemory();
+		}
+
+		public static void OnDestroy()
+		{
+			SDLActivity.OnDestroy();
+		}
+
+		public static bool DispatchKeyEvent(KeyEvent keyEvent)
+		{
+			return SDLActivity.DispatchKeyEvent(keyEvent);
+		}
+
+		public static void OnWindowFocusChanged(bool focus)
+		{
+			SDLActivity.OnWindowFocusChanged(focus);
 		}
 
 		/// <summary>
