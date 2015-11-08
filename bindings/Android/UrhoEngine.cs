@@ -14,6 +14,7 @@ namespace Urho.Droid
 		public static void Init()
 		{
 			//TODO: check if libmono-urho.so exists
+			//TODO: check assets
 		}
 	}
 }
