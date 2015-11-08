@@ -145,6 +145,7 @@ namespace Urho {
 
 		public virtual void Stop ()
 		{
+			Runtime.Cleanup();
 			//Engine.DumpResources(true);
 		}
 

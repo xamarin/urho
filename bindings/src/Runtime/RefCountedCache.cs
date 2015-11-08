@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Urho
@@ -50,7 +51,14 @@ namespace Urho
 			{
 				foreach (var referenceHolder in knownObjects.ToArray())
 				{
-					referenceHolder.Value?.Reference?.Dispose();
+					try
+					{
+						referenceHolder.Value?.Reference?.Dispose();
+					}
+					catch (Exception exc)
+					{
+						Debug.WriteLine(exc);
+					}
 				}
 				knownObjects.Clear();
 			}

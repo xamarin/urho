@@ -186,7 +186,16 @@ namespace Urho
 			return new Vectors.ProxyRefCounted<T>(handle);
 		}
 
+		internal static void Cleanup()
+		{
+			RefCountedCache.Clean();
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+			GC.Collect();
+		}
+
 		// for Debug purposes
 		static internal int KnownObjectsCount => RefCountedCache.Count;
+
 	}
 }
