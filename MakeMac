@@ -19,8 +19,8 @@ libUrho3D_64.a: Urho3D_Mac
 libUrho3D_Fat.a: libUrho3D_32.a libUrho3D_64.a
 	cd $(URHO3D_MAC_DIR) && lipo -create lib/libUrho3D_32.a lib/libUrho3D_64.a -output lib/libUrho3D.a
 
-libmono-urho.dylib: MakeBinDirectory libUrho3D_Fat.a binding.o glue.o events.o ApplicationProxy.o vector.o SharpComponent.o
-	mkdir -p $(OUTPUT_DIR) && clang++  $(ARCH) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) $(OUTPUT_DIR)/binding.o $(OUTPUT_DIR)/glue.o $(OUTPUT_DIR)/SharpComponent.o $(OUTPUT_DIR)/vector.o $(OUTPUT_DIR)/events.o $(OUTPUT_DIR)/ApplicationProxy.o
+libmono-urho.dylib: MakeBinDirectory libUrho3D_Fat.a binding.o glue.o events.o ApplicationProxy.o vector.o
+	mkdir -p $(OUTPUT_DIR) && clang++  $(ARCH) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho.dylib -g $(URHO_LIBS) $(OUTPUT_DIR)/binding.o $(OUTPUT_DIR)/glue.o $(OUTPUT_DIR)/vector.o $(OUTPUT_DIR)/events.o $(OUTPUT_DIR)/ApplicationProxy.o
 
 MakeBinDirectory:
 	mkdir -p $(OUTPUT_DIR)
@@ -33,9 +33,6 @@ glue.o:
 
 vector.o:
 	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/vector.o bindings/src/vector.cpp 
-
-SharpComponent.o:
-	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/SharpComponent.o bindings/src/SharpComponent.cpp 
 
 events.o:
 	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/events.o bindings/generated/events.cpp $(URHO_FLAGS) 

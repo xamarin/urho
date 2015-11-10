@@ -44,9 +44,6 @@ Glue.o:
 Vector.o:
 	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/Vector.cpp.o -c bindings/src/Vector.cpp
 	
-SharpComponent.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/SharpComponent.cpp.o -c bindings/src/SharpComponent.cpp
-	
 Binding.o:
 	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/binding.cpp.o -c bindings/generated/binding.cpp
 	
@@ -65,7 +62,7 @@ libUrho3D.a: Urho3D_Android
 MakeBinDirectory:
 	mkdir -p $(OUTPUT_DIR)
 	
-objects: MakeBinDirectory ApplicationProxy.o Glue.o SharpComponent.o Vector.o Binding.o Events.o SDL.o
+objects: MakeBinDirectory ApplicationProxy.o Glue.o Vector.o Binding.o Events.o SDL.o
 
 libmono-urho.so: libUrho3D.a objects
-	 $(ANDK_GCC)  -fPIC -fexceptions -frtti -fPIC --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM) -funwind-tables -funswitch-loops -finline-limit=300 -fsigned-char -no-canonical-prefixes -fdata-sections -ffunction-sections -Wa,--noexecstack  -Wno-invalid-offsetof -fstack-protector -fomit-frame-pointer -fstrict-aliasing -O3 -DNDEBUG  -Wl,--no-undefined -Wl,--gc-sections -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now  -shared -Wl,-soname,libmono-urho.so -o $(OUTPUT_DIR)/libmono-urho.so $(OUTPUT_DIR)/ApplicationProxy.cpp.o $(OUTPUT_DIR)/SharpComponent.cpp.o $(OUTPUT_DIR)/Vector.cpp.o $(OUTPUT_DIR)/Glue.cpp.o $(OUTPUT_DIR)/events.cpp.o $(OUTPUT_DIR)/binding.cpp.o $(OUTPUT_DIR)/SDL_android_main.c.o $(URHO3D_ANDROID_DIR)/libs/$(ABI)/libUrho3D.a -ldl -llog -landroid -lGLESv1_CM -lGLESv2  "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libgnustl_static.a" "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libsupc++.a" -lm && $(ANDK_STRIP) $(OUTPUT_DIR)/libmono-urho.so && cd $(OUTPUT_DIR) && rm *.o
+	 $(ANDK_GCC)  -fPIC -fexceptions -frtti -fPIC --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM) -funwind-tables -funswitch-loops -finline-limit=300 -fsigned-char -no-canonical-prefixes -fdata-sections -ffunction-sections -Wa,--noexecstack  -Wno-invalid-offsetof -fstack-protector -fomit-frame-pointer -fstrict-aliasing -O3 -DNDEBUG  -Wl,--no-undefined -Wl,--gc-sections -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now  -shared -Wl,-soname,libmono-urho.so -o $(OUTPUT_DIR)/libmono-urho.so $(OUTPUT_DIR)/ApplicationProxy.cpp.o $(OUTPUT_DIR)/Vector.cpp.o $(OUTPUT_DIR)/Glue.cpp.o $(OUTPUT_DIR)/events.cpp.o $(OUTPUT_DIR)/binding.cpp.o $(OUTPUT_DIR)/SDL_android_main.c.o $(URHO3D_ANDROID_DIR)/libs/$(ABI)/libUrho3D.a -ldl -llog -landroid -lGLESv1_CM -lGLESv2  "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libgnustl_static.a" "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libsupc++.a" -lm && $(ANDK_STRIP) $(OUTPUT_DIR)/libmono-urho.so && cd $(OUTPUT_DIR) && rm *.o

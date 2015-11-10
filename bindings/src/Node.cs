@@ -52,17 +52,9 @@ namespace Urho {
 
 		public T CreateComponent<T> (CreateMode mode = CreateMode.Replicated, uint id = 0) where T:Component
 		{
-			var typeInfo = typeof (T).GetTypeInfo();
-			if (typeInfo.IsSubclassOf(typeof (SharpComponent)))
-			{
-				var component = (T)Activator.CreateInstance(typeof (T), Context);
-				AddComponent(component, id, mode);
-				return component;
-			}
-
-			var stringhash = Runtime.LookupStringHash (typeof (T));
-			var ptr = Node_CreateComponent (handle, stringhash.Code, mode, id);
-			return Runtime.LookupObject<T> (ptr);
+			var component = (T)Activator.CreateInstance(typeof(T), Context);
+			AddComponent(component, id, mode);
+			return component;
 		}
 
 		public void AddComponent (Component component, uint id = 0)
@@ -83,13 +75,7 @@ namespace Urho {
 
 		public T GetComponent<T> (bool recursive = false) where T : Component
 		{
-			if (typeof (T).GetTypeInfo().IsSubclassOf(typeof (SharpComponent)))
-			{
-				return (T) Components.FirstOrDefault(c => c is T);
-			}
-			var stringHash = Runtime.LookupStringHash (typeof (T));
-			var ptr = Node_GetComponent (handle, stringHash.Code, recursive);
-			return Runtime.LookupObject<T> (ptr);
+			return (T)Components.FirstOrDefault(c => c is T);
 		}
 	}
 }

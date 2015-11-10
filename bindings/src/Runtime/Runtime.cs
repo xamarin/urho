@@ -13,24 +13,17 @@ using System.Runtime.InteropServices;
 
 namespace Urho
 {
-	public partial class Runtime
+	public class Runtime
 	{
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<System.Type, int> hashDict;
 		static RefCountedEventCallback refCountedEventCallback;
-		static ComponentEventCallback _componentEventCallback;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void RefCountedEventCallback(IntPtr ptr, RefCountedEvent rcEvent);
 
-		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		public delegate void ComponentEventCallback(IntPtr ptr, SharpComponentEvent sce);
-
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		extern static void SetRefCountedEventCallback(RefCountedEventCallback callback);
-
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void SetComponentCallbacks(ComponentEventCallback callback);
 
 		/// <summary>
 		/// Runtime initialization. 
@@ -38,32 +31,15 @@ namespace Urho
 		public static void Initialize()
 		{
 			refCountedEventCallback = refCountedEventCallback ?? OnRefCountedEvent;
-			_componentEventCallback = _componentEventCallback ?? OnSharpComponentEvent;
 			SetRefCountedEventCallback(refCountedEventCallback);
-			SetComponentCallbacks(_componentEventCallback);
 		}
 
 		/// <summary>
 		/// This method is a workaround for iOS that requires all callback methods to be marked with a special attribute [MonoPInvokeCallback]
 		/// </summary>
-		public static void SetCustomNativeCallbacks(RefCountedEventCallback rcCallback, ComponentEventCallback cdCallback)
+		public static void SetCustomNativeCallbacks(RefCountedEventCallback rcCallback)
 		{
 			refCountedEventCallback = rcCallback;
-			_componentEventCallback = cdCallback;
-		}
-
-		/// <summary>
-		/// This method is called on each Serializable after the whole scene has been loaded
-		/// Originally it's ApplyAttributes()
-		/// </summary>
-		public static void OnSharpComponentEvent(IntPtr ptr, SharpComponentEvent sce)
-		{
-			// it will trigger OnDeserilized if needed
-			SharpComponent component = LookupObject<SharpComponent>(ptr);
-			if (sce == SharpComponentEvent.Save)
-			{
-				component.ManagedState = component.OnSerializing() ?? string.Empty;
-			}
 		}
 
 		/// <summary>
@@ -128,15 +104,9 @@ namespace Urho
 			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
 			var type = Type.GetType("Urho." + name) ?? Type.GetType("Urho.Urho" + name); // "Urho.Urho" for remapped types like UrhoObjec, UrhoType
 			var typeInfo = type.GetTypeInfo();
-			if (typeInfo.IsSubclassOf(typeof(SharpComponent)) || type == typeof(SharpComponent))
+			if (typeInfo.IsSubclassOf(typeof(Component)) || type == typeof(Component))
 			{
-				//If we here it means that we are trying to get a user-defined component restored from file
-				var state = SharpComponent.GetManagedStateForPtr(ptr);
-				var result = (T)Activator.CreateInstance(Type.GetType(SharpComponent.GetTypeNameForPtr(ptr)), Application.Current.Context);
-				var resultAsSharpComponent = (SharpComponent)(UrhoObject)result;
-				resultAsSharpComponent.ManagedState = state;
-				resultAsSharpComponent.OnDeserializing(state);
-				return result;
+				//TODO: special case, handle managed subclasses
 			}
 
 			var urhoObject = (T)Activator.CreateInstance(type, ptr);

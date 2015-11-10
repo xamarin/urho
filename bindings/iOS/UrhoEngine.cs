@@ -23,7 +23,7 @@ namespace Urho.iOS
 
 		public static void Init(string resourcesDir, string docsDir)
 		{
-			Runtime.SetCustomNativeCallbacks(OnRefCountedEvent, OnSharpComponentEvent);
+			Runtime.SetCustomNativeCallbacks(OnRefCountedEvent);
 			Application.SetCustomApplicationCallback(Setup, Start, Stop);
 			UrhoObject.SetCustomObjectCallback(ObjectCallback);
 			InitSdl(resourcesDir, docsDir);
@@ -39,12 +39,6 @@ namespace Urho.iOS
 		private static void OnRefCountedEvent(IntPtr ptr, RefCountedEvent rcEvent)
 		{
 			Runtime.OnRefCountedEvent(ptr, rcEvent);
-		}
-
-		[MonoPInvokeCallback(typeof(Runtime.ComponentEventCallback))]
-		private static void OnSharpComponentEvent(IntPtr ptr, SharpComponentEvent sce)
-		{
-			Runtime.OnSharpComponentEvent(ptr, sce);
 		}
 
 		[MonoPInvokeCallback(typeof(Application.ActionIntPtr))]

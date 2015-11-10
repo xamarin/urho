@@ -23,7 +23,6 @@
     <ClCompile Include="..\..\..\Bindings\generated\events.cpp" />
     <ClCompile Include="..\..\..\Bindings\src\ApplicationProxy.cpp" />
     <ClCompile Include="..\..\..\Bindings\src\glue.cpp" />
-    <ClCompile Include="..\..\..\Bindings\src\SharpComponent.cpp" />
     <ClCompile Include="..\..\..\Bindings\src\vector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,7 +31,6 @@
     <ClInclude Include="..\..\..\Bindings\src\asserts.h" />
     <ClInclude Include="..\..\..\Bindings\src\glue.h" />
     <ClInclude Include="..\..\..\Bindings\src\interop.h" />
-    <ClInclude Include="..\..\..\Bindings\src\SharpComponent.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6F1CB939-16E1-4753-91B1-A0B5C04D3121}</ProjectGuid>

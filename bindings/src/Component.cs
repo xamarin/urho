@@ -18,13 +18,7 @@ namespace Urho {
 	{
 		public T GetComponent<T> () where T:Component
 		{
-			if (typeof(T).GetTypeInfo().IsSubclassOf(typeof(SharpComponent)))
-			{
-				return (T)Node.Components.FirstOrDefault(c => c is T);
-			}
-			var stringHash = Runtime.LookupStringHash (typeof (T));
-			var ptr = Component_GetComponent (handle, stringHash.Code);
-			return Runtime.LookupObject<T> (ptr);
+			return (T)Node.Components.FirstOrDefault(c => c is T);
 		}
 
 		public Application Application => Application.Current;
