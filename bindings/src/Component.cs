@@ -26,5 +26,7 @@ namespace Urho {
 		public virtual void OnSerialize(IComponentSerializer serializer) { }
 
 		public virtual void OnDeserialize(IComponentSerializer serializer) { }
+
+		public virtual void OnAttachedToNode() { }
 	}
 }

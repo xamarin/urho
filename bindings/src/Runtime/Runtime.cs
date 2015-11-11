@@ -18,7 +18,7 @@ namespace Urho
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<System.Type, int> hashDict;
 		static RefCountedEventCallback refCountedEventCallback; //keep references to native callbacks (protect from GC)
-		static SaveLoadXmlMonoCallback saveLoadXmlMonoCallback;
+		static MonoComponentCallback monoComponentCallback;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		delegate void RefCountedEventCallback(IntPtr ptr, RefCountedEvent rcEvent);
@@ -26,11 +26,13 @@ namespace Urho
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern void SetRefCountedEventCallback(RefCountedEventCallback callback);
 
+		enum MonoComponentCallbackType { SaveXml, LoadXml, AttachedToNode }
+
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		delegate void SaveLoadXmlMonoCallback(IntPtr componentPtr, IntPtr xmlElementPtr, int eventType);
+		delegate void MonoComponentCallback(IntPtr componentPtr, IntPtr xmlElementPtr, MonoComponentCallbackType eventType);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		static extern void RegisterSaveLoadXmlMonoCallback(SaveLoadXmlMonoCallback callback);
+		static extern void RegisterMonoComponentCallback(MonoComponentCallback callback);
 
 		/// <summary>
 		/// Runtime initialization. 
@@ -38,7 +40,7 @@ namespace Urho
 		public static void Initialize()
 		{
 			SetRefCountedEventCallback(refCountedEventCallback = OnRefCountedEvent);
-			RegisterSaveLoadXmlMonoCallback(saveLoadXmlMonoCallback = OnComponentSaveLoadXml);
+			RegisterMonoComponentCallback(monoComponentCallback = OnComponentEvent);
 		}
 
 		/// <summary>
@@ -72,12 +74,12 @@ namespace Urho
 			}
 		}
 
-		[MonoPInvokeCallback(typeof(SaveLoadXmlMonoCallback))]
-		static void OnComponentSaveLoadXml(IntPtr componentPtr, IntPtr xmlElementPtr, int eventType)
+		[MonoPInvokeCallback(typeof(MonoComponentCallback))]
+		static void OnComponentEvent(IntPtr componentPtr, IntPtr xmlElementPtr, MonoComponentCallbackType eventType)
 		{
 			const string typeNameKey = "SharpTypeName";
 			var xmlElement = new XMLElement(xmlElementPtr);
-			if (eventType == 0) // Save
+			if (eventType == MonoComponentCallbackType.SaveXml)
 			{
 				var component = LookupObject<Component>(componentPtr, false);
 				if (component != null && component.TypeName != component.GetType().Name)
@@ -86,14 +88,19 @@ namespace Urho
 					component.OnSerialize(new XmlComponentSerializer(xmlElement));
 				}
 			}
-			else // Load
+			else if (eventType == MonoComponentCallbackType.LoadXml)
 			{
 				var name = xmlElement.GetAttribute(typeNameKey);
 				if (!string.IsNullOrEmpty(name))
 				{
-					var component = (Component)Activator.CreateInstance(Type.GetType(name), Application.Current.Context);
+					var component = (Component) Activator.CreateInstance(Type.GetType(name), Application.Current.Context);
 					component.OnDeserialize(new XmlComponentSerializer(xmlElement));
 				}
+			}
+			else
+			{
+				var component = LookupObject<Component>(componentPtr, false);
+				component?.OnAttachedToNode();
 			}
 		}
 
