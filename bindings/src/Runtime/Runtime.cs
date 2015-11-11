@@ -79,8 +79,8 @@ namespace Urho
 			var xmlElement = new XMLElement(xmlElementPtr);
 			if (eventType == 0) // Save
 			{
-				var component = LookupObject<Component>(componentPtr);
-				if (component.TypeName != component.GetType().Name)
+				var component = LookupObject<Component>(componentPtr, false);
+				if (component != null && component.TypeName != component.GetType().Name)
 				{
 					xmlElement.SetString(typeNameKey, component.GetType().AssemblyQualifiedName);
 					component.OnSerialize(new XmlComponentSerializer(xmlElement));
