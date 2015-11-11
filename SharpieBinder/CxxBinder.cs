@@ -329,7 +329,8 @@ namespace SharpieBinder
 		{
 			// Quick and dirty: it really should use our manually curated list of known value types,
 			// but for now, this will do
-			if (decl.Name == "String" || decl.Name == "Skeleton")
+			var classesNotStructs = new[] {"String", "Skeleton", "XMLElement"};
+			if (classesNotStructs.Contains(decl.Name))
 				return false;
 
 			if (decl.TagKind == TagDeclKind.Struct || !(decl.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted) || decl == ScanBaseTypes.UrhoRefCounted))
@@ -1313,18 +1314,18 @@ namespace SharpieBinder
 					method.Body.Add(ret);
 				} else {
 					if (currentType.ClassType == ClassType.Class){
-						if (currentType.BaseTypes.Count() != 0) {
-
-							constructor.Initializer = new ConstructorInitializer()
-							{
+						bool hasBaseTypes = currentType.BaseTypes.Count != 0;
+						if (hasBaseTypes) {
+							constructor.Initializer = new ConstructorInitializer {
 								ConstructorInitializerType = ConstructorInitializerType.Base,
 							};
-
 							constructor.Initializer.Arguments.Add(csParser.ParseExpression("UrhoObjectFlag.Empty"));
 						}
 						var ctorAssign = new AssignmentExpression(new IdentifierExpression("handle"), returnExpression);
 						constructor.Body.Add(new ExpressionStatement(ctorAssign));
-						constructor.Body.Add (new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "RegisterObject"), new ThisReferenceExpression ()));
+						if (hasBaseTypes) { 
+							constructor.Body.Add (new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "RegisterObject"), new ThisReferenceExpression ()));
+						}
 					}
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());
