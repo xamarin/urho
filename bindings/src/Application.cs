@@ -4,10 +4,8 @@
 // This is done by using an ApplicationProxy in C++ that bubbles up
 //
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Urho {
@@ -25,7 +23,7 @@ namespace Urho {
 		public delegate void ActionIntPtr (IntPtr value);
 
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
-		extern static IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args);
+		static extern IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args);
 
 		/// <summary>
 		/// Last created application
@@ -44,12 +42,9 @@ namespace Urho {
 				context.AddRef();
 
 			//keep references to callbacks (supposed to be passed to native code) as long as the App is alive
-			if (setupCallback == null)
-				setupCallback = ProxySetup;
-			if (startCallback == null)
-				startCallback = ProxyStart;
-			if (stopCallback == null)
-				stopCallback = ProxyStop;
+			setupCallback = ProxySetup;
+			startCallback = ProxyStart;
+			stopCallback = ProxyStop;
 			
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, (options ?? ApplicationOptions.Default).ToString());
 			Runtime.RegisterObject (this);
@@ -57,13 +52,6 @@ namespace Urho {
 
 			SubscribeToUpdate(HandleUpdate);
 			SubscribeToSceneUpdate(HandleSceneUpdate);
-		}
-
-		public static void SetCustomApplicationCallback(ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop)
-		{
-			setupCallback = setup;
-			startCallback = start;
-			stopCallback = stop;
 		}
 
 		public static Application GetApp(IntPtr h)
@@ -120,16 +108,19 @@ namespace Urho {
 			OnSceneUpdate(args.TimeStep, args.Scene);
 		}
 
+		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxySetup (IntPtr h)
 		{
 			GetApp (h).Setup ();
 		}
 
+		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxyStart (IntPtr h)
 		{
 			GetApp (h).Start ();
 		}
 
+		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxyStop (IntPtr h)
 		{
 			GetApp (h).Stop ();

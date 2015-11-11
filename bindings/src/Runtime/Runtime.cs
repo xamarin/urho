@@ -17,35 +17,35 @@ namespace Urho
 	{
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<System.Type, int> hashDict;
-		static RefCountedEventCallback refCountedEventCallback;
+		static RefCountedEventCallback refCountedEventCallback; //keep references to native callbacks (protect from GC)
+		static SaveLoadXmlMonoCallback saveLoadXmlMonoCallback;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		public delegate void RefCountedEventCallback(IntPtr ptr, RefCountedEvent rcEvent);
+		delegate void RefCountedEventCallback(IntPtr ptr, RefCountedEvent rcEvent);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void SetRefCountedEventCallback(RefCountedEventCallback callback);
+		static extern void SetRefCountedEventCallback(RefCountedEventCallback callback);
+
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		delegate void SaveLoadXmlMonoCallback(IntPtr componentPtr, IntPtr xmlElementPtr, int eventType);
+
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		static extern void RegisterSaveLoadXmlMonoCallback(SaveLoadXmlMonoCallback callback);
 
 		/// <summary>
 		/// Runtime initialization. 
 		/// </summary>
 		public static void Initialize()
 		{
-			refCountedEventCallback = refCountedEventCallback ?? OnRefCountedEvent;
-			SetRefCountedEventCallback(refCountedEventCallback);
-		}
-
-		/// <summary>
-		/// This method is a workaround for iOS that requires all callback methods to be marked with a special attribute [MonoPInvokeCallback]
-		/// </summary>
-		public static void SetCustomNativeCallbacks(RefCountedEventCallback rcCallback)
-		{
-			refCountedEventCallback = rcCallback;
+			SetRefCountedEventCallback(refCountedEventCallback = OnRefCountedEvent);
+			RegisterSaveLoadXmlMonoCallback(saveLoadXmlMonoCallback = OnComponentSaveLoadXml);
 		}
 
 		/// <summary>
 		/// This method is called by RefCounted::~RefCounted or RefCounted::AddRef
 		/// </summary>
-		public static void OnRefCountedEvent(IntPtr ptr, RefCountedEvent rcEvent)
+		[MonoPInvokeCallback(typeof(RefCountedEventCallback))]
+		static void OnRefCountedEvent(IntPtr ptr, RefCountedEvent rcEvent)
 		{
 			if (rcEvent == RefCountedEvent.Delete)
 			{
@@ -69,6 +69,31 @@ namespace Urho
 				//if we have an object with this handle and it's reference is weak - then change it to strong.
 				var referenceHolder = RefCountedCache.Get(ptr);
 				referenceHolder?.MakeStrong();
+			}
+		}
+
+		[MonoPInvokeCallback(typeof(SaveLoadXmlMonoCallback))]
+		static void OnComponentSaveLoadXml(IntPtr componentPtr, IntPtr xmlElementPtr, int eventType)
+		{
+			const string typeNameKey = "SharpTypeName";
+			var xmlElement = new XMLElement(xmlElementPtr);
+			if (eventType == 0) // Save
+			{
+				var component = LookupObject<Component>(componentPtr);
+				if (component.TypeName != component.GetType().Name)
+				{
+					xmlElement.SetString(typeNameKey, component.GetType().AssemblyQualifiedName);
+					component.OnSerialize(new XmlComponentSerializer(xmlElement));
+				}
+			}
+			else // Load
+			{
+				var name = xmlElement.GetAttribute(typeNameKey);
+				if (!string.IsNullOrEmpty(name))
+				{
+					var component = (Component)Activator.CreateInstance(Type.GetType(name), Application.Current.Context);
+					component.OnDeserialize(new XmlComponentSerializer(xmlElement));
+				}
 			}
 		}
 

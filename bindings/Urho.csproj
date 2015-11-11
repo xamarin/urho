@@ -61,6 +61,7 @@
     <Compile Include="generated\RigidBody.cs" />
     <Compile Include="generated\ShapeType.cs" />
     <Compile Include="generated\Skeleton.cs" />
+    <Compile Include="generated\XMLElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="generated\Animatable.cs" />
     <Compile Include="generated\AnimatedModel.cs" />
@@ -367,6 +368,8 @@
     <Compile Include="src\Math\EaseMath.cs" />
     <Compile Include="src\Math\SplineMath.cs" />
     <Compile Include="src\MonoDebugHud.cs" />
+    <Compile Include="src\Runtime\IComponentSerializer.cs" />
+    <Compile Include="src\Runtime\MonoPInvokeCallbackAttribute.cs" />
     <Compile Include="src\Runtime\ReferenceHolder.cs" />
     <Compile Include="src\Runtime\Subscription.cs" />
     <Compile Include="src\Runtime\RefCountedCache.cs" />
@@ -411,6 +414,7 @@
     <Compile Include="external\Vector2.cs" />
     <Compile Include="external\Vector4.cs" />
     <Compile Include="src\VertexBuffer.cs" />
+    <Compile Include="src\XMLElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

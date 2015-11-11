@@ -22,5 +22,9 @@ namespace Urho {
 		}
 
 		public Application Application => Application.Current;
+
+		public virtual void OnSerialize(IComponentSerializer serializer) { }
+
+		public virtual void OnDeserialize(IComponentSerializer serializer) { }
 	}
 }
