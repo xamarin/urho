@@ -6,16 +6,15 @@
 //
 // Copyrigh 2015 Xamarin INc
 //
-using System;
-using System.Collections.Generic;
+
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Reflection;
 
 namespace Urho {
 	
 	public partial class Component
 	{
+		bool subscribedToSceneUpdate = false;
+
 		public T GetComponent<T> () where T:Component
 		{
 			return (T)Node.Components.FirstOrDefault(c => c is T);
@@ -25,8 +24,27 @@ namespace Urho {
 
 		public virtual void OnSerialize(IComponentSerializer serializer) { }
 
-		public virtual void OnDeserialize(IComponentSerializer serializer) { }
+		public virtual void OnDeserialize(IComponentDeserializer deserializer) { }
 
-		public virtual void OnAttachedToNode() { }
+		public virtual void OnAttachedToNode()
+		{
+			if (!subscribedToSceneUpdate && GetType().Name != TypeName)
+			{
+				// GetType().Name != TypeName --- it means we subscribe to Update only for user-defined components
+				subscribedToSceneUpdate = true;
+				Application.SceneUpdate += OnSceneUpdate;
+			}
+		}
+
+		protected override void OnDeleted()
+		{
+			if (subscribedToSceneUpdate)
+			{
+				Application.SceneUpdate -= OnSceneUpdate;
+			}
+			base.OnDeleted();
+		}
+
+		protected virtual void OnSceneUpdate(SceneUpdateEventArgs args) { }
 	}
 }

@@ -5,14 +5,17 @@ namespace Urho
 	public interface IComponentSerializer
 	{
 		void Serialize(string key, object value);
+	}
 
+	public interface IComponentDeserializer
+	{
 		T Deserialize<T>(string key);
 	}
 
 	/// <summary>
 	/// XMLElement based implementation of IComponentSerializer
 	/// </summary>
-	public class XmlComponentSerializer : IComponentSerializer
+	public class XmlComponentSerializer : IComponentSerializer, IComponentDeserializer
 	{
 		readonly XMLElement xmlElement;
 
