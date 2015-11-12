@@ -95,7 +95,15 @@ namespace Urho
 				var name = xmlElement.GetAttribute(typeNameKey);
 				if (!string.IsNullOrEmpty(name))
 				{
-					var component = (Component) Activator.CreateInstance(Type.GetType(name), Application.Current.Context);
+					Component component;
+					try
+					{
+						component = (Component) Activator.CreateInstance(Type.GetType(name), componentPtr);
+					}
+					catch (Exception exc)
+					{
+						throw new InvalidOperationException($"{name} doesn't override constructor Component(IntPtr handle).", exc);
+					}
 					component.OnDeserialize(new XmlComponentSerializer(xmlElement));
 				}
 			}
