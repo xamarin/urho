@@ -17,14 +17,14 @@ namespace Urho
 	{
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<System.Type, int> hashDict;
-		static RefCountedEventCallback refCountedEventCallback; //keep references to native callbacks (protect from GC)
+		static MonoRefCountedCallback _monoRefCountedCallback; //keep references to native callbacks (protect from GC)
 		static MonoComponentCallback monoComponentCallback;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		delegate void RefCountedEventCallback(IntPtr ptr, RefCountedEvent rcEvent);
+		delegate void MonoRefCountedCallback(IntPtr ptr, RefCountedEvent rcEvent);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		static extern void SetRefCountedEventCallback(RefCountedEventCallback callback);
+		static extern void RegisterMonoRefCountedCallback(MonoRefCountedCallback callback);
 
 		enum MonoComponentCallbackType { SaveXml, LoadXml, AttachedToNode }
 
@@ -39,14 +39,14 @@ namespace Urho
 		/// </summary>
 		public static void Initialize()
 		{
-			SetRefCountedEventCallback(refCountedEventCallback = OnRefCountedEvent);
+			RegisterMonoRefCountedCallback(_monoRefCountedCallback = OnRefCountedEvent);
 			RegisterMonoComponentCallback(monoComponentCallback = OnComponentEvent);
 		}
 
 		/// <summary>
 		/// This method is called by RefCounted::~RefCounted or RefCounted::AddRef
 		/// </summary>
-		[MonoPInvokeCallback(typeof(RefCountedEventCallback))]
+		[MonoPInvokeCallback(typeof(MonoRefCountedCallback))]
 		static void OnRefCountedEvent(IntPtr ptr, RefCountedEvent rcEvent)
 		{
 			if (rcEvent == RefCountedEvent.Delete)

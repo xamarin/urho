@@ -12,7 +12,6 @@
 using namespace Urho3D;
 
 sdl_callback sdlCallback;
-RefCountedEventCallback refCountedEventCallback;
 const char *sdlResourceDir;
 const char *sdlDocumentsDir;
 
@@ -43,19 +42,6 @@ extern "C" {
 		sdlDocumentsDir = documentsDir;
 	}
 	
-	DllExport void 
-	SetRefCountedEventCallback(RefCountedEventCallback callback)
-	{
-		refCountedEventCallback = callback;
-	}
-
-	//see RefCounted.cpp
-	void HandleRefCountedEvent(void * ptr, Urho3D::RefCountedEvent rcEvent)
-	{
-		if (refCountedEventCallback)
-			refCountedEventCallback(ptr, rcEvent);
-	}
-
 	DllExport void 
 	TryDeleteRefCounted(Urho3D::RefCounted *refCounted)
 	{
