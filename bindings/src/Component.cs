@@ -13,7 +13,9 @@ namespace Urho {
 	
 	public partial class Component
 	{
-		bool subscribedToSceneUpdate = false;
+		bool subscribedToSceneUpdate;
+
+		protected bool SubscribeToSceneUpdate { get; set; }
 
 		public T GetComponent<T> () where T:Component
 		{
@@ -28,9 +30,8 @@ namespace Urho {
 
 		public virtual void OnAttachedToNode()
 		{
-			if (!subscribedToSceneUpdate && GetType().Name != TypeName)
+			if (!subscribedToSceneUpdate && SubscribeToSceneUpdate)
 			{
-				// GetType().Name != TypeName --- it means we subscribe to Update only for user-defined components
 				subscribedToSceneUpdate = true;
 				Application.SceneUpdate += OnSceneUpdate;
 			}
@@ -45,6 +46,9 @@ namespace Urho {
 			base.OnDeleted();
 		}
 
+		/// <summary>
+		/// Make sure you set SubscribeToSceneUpdate property to true in order to receive Update events
+		/// </summary>
 		protected virtual void OnSceneUpdate(SceneUpdateEventArgs args) { }
 	}
 }
