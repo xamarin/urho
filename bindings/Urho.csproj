@@ -57,7 +57,6 @@
     <Compile Include="generated\NetworkPriority.cs" />
     <Compile Include="generated\ObserverPositionSendMode.cs" />
     <Compile Include="generated\PhysicsWorld.cs" />
-    <Compile Include="generated\RefCountedEvent.cs" />
     <Compile Include="generated\RigidBody.cs" />
     <Compile Include="generated\ShapeType.cs" />
     <Compile Include="generated\Skeleton.cs" />

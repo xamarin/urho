@@ -17,8 +17,10 @@ namespace Urho
 	{
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<System.Type, int> hashDict;
-		static MonoRefCountedCallback _monoRefCountedCallback; //keep references to native callbacks (protect from GC)
+		static MonoRefCountedCallback monoRefCountedCallback; //keep references to native callbacks (protect from GC)
 		static MonoComponentCallback monoComponentCallback;
+
+		enum RefCountedEvent { Delete, Addref }
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		delegate void MonoRefCountedCallback(IntPtr ptr, RefCountedEvent rcEvent);
@@ -39,7 +41,7 @@ namespace Urho
 		/// </summary>
 		public static void Initialize()
 		{
-			RegisterMonoRefCountedCallback(_monoRefCountedCallback = OnRefCountedEvent);
+			RegisterMonoRefCountedCallback(monoRefCountedCallback = OnRefCountedEvent);
 			RegisterMonoComponentCallback(monoComponentCallback = OnComponentEvent);
 		}
 
