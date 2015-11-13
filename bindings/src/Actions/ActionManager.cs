@@ -13,12 +13,12 @@ namespace Urho
 			public ActionState CurrentActionState;
 			public bool CurrentActionSalvaged;
 			public bool Paused;
-			public object Target;
+			public Node Target;
 		}
 
 		static Node[] tmpKeysArray = new Node[128];
 
-		readonly Dictionary<object, HashElement> targets = new Dictionary<object, HashElement>();
+		readonly Dictionary<Node, HashElement> targets = new Dictionary<Node, HashElement>();
 
 		bool currentTargetSalvaged;
 		HashElement currentTarget;
@@ -137,9 +137,12 @@ namespace Urho
 					continue;
 				}
 
+				if (elt.Target.IsDeleted)
+					targets.Remove(elt.Target);
+
 				currentTarget = elt;
 				currentTargetSalvaged = false;
-
+				
 				if (!currentTarget.Paused)
 				{
 					// The 'actions' may change while inside this loop.
@@ -208,7 +211,7 @@ namespace Urho
 
 		#region Action running
 
-		public void PauseTarget(object target)
+		public void PauseTarget(Node target)
 		{
 			HashElement element;
 			if (targets.TryGetValue(target, out element))
@@ -217,7 +220,7 @@ namespace Urho
 			}
 		}
 
-		public void ResumeTarget(object target)
+		public void ResumeTarget(Node target)
 		{
 			HashElement element;
 			if (targets.TryGetValue(target, out element))
@@ -242,7 +245,7 @@ namespace Urho
 			return idsWithActions;
 		}
 
-		public void ResumeTargets(List<object> targetsToResume)
+		public void ResumeTargets(List<Node> targetsToResume)
 		{
 			for (int i = 0; i < targetsToResume.Count; i++)
 			{
@@ -341,7 +344,7 @@ namespace Urho
 				return;
 			}
 
-			object target = actionState.OriginalTarget;
+			var target = actionState.OriginalTarget;
 			HashElement element;
 			if (targets.TryGetValue(target, out element))
 			{

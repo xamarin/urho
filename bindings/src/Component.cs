@@ -9,15 +9,15 @@
 
 using System.Linq;
 
-namespace Urho {
-	
+namespace Urho
+{
 	public partial class Component
 	{
 		bool subscribedToSceneUpdate;
 
-		protected bool SubscribeToSceneUpdate { get; set; }
+		protected bool ReceiveSceneUpdates { get; set; }
 
-		public T GetComponent<T> () where T:Component
+		public T GetComponent<T> () where T : Component
 		{
 			return (T)Node.Components.FirstOrDefault(c => c is T);
 		}
@@ -30,10 +30,10 @@ namespace Urho {
 
 		public virtual void OnAttachedToNode()
 		{
-			if (!subscribedToSceneUpdate && SubscribeToSceneUpdate)
+			if (!subscribedToSceneUpdate && ReceiveSceneUpdates)
 			{
 				subscribedToSceneUpdate = true;
-				Application.SceneUpdate += OnSceneUpdate;
+				Application.Update += HandleUpdate;
 			}
 		}
 
@@ -41,7 +41,7 @@ namespace Urho {
 		{
 			if (subscribedToSceneUpdate)
 			{
-				Application.SceneUpdate -= OnSceneUpdate;
+				Application.Update -= HandleUpdate;
 			}
 			base.OnDeleted();
 		}
@@ -49,6 +49,11 @@ namespace Urho {
 		/// <summary>
 		/// Make sure you set SubscribeToSceneUpdate property to true in order to receive Update events
 		/// </summary>
-		protected virtual void OnSceneUpdate(SceneUpdateEventArgs args) { }
+		protected virtual void OnUpdate(float timeStep) { }
+
+		void HandleUpdate(UpdateEventArgs args)
+		{
+			OnUpdate(args.TimeStep);
+		}
 	}
 }

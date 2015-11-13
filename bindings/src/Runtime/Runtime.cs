@@ -98,13 +98,17 @@ namespace Urho
 					Component component;
 					try
 					{
-						component = (Component) Activator.CreateInstance(Type.GetType(name), componentPtr);
+						component = (Component) Activator.CreateInstance(Type.GetType(name));
 					}
 					catch (Exception exc)
 					{
 						throw new InvalidOperationException($"{name} doesn't override constructor Component(IntPtr handle).", exc);
 					}
 					component.OnDeserialize(new XmlComponentSerializer(xmlElement));
+					if (component.Node != null)
+					{
+						component.OnAttachedToNode();
+					}
 				}
 			}
 			else

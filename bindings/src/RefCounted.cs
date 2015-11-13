@@ -29,7 +29,7 @@ namespace Urho {
 		}
 
 		/// <summary>
-		/// Called by RefCounted::~RefCounted - we don't need to check Refs here - just mark is as deleted and remove from cache
+		/// Called by RefCounted::~RefCounted - we don't need to check Refs here - just mark it as deleted and remove from cache
 		/// </summary>
 		internal void HandleNativeDelete()
 		{
