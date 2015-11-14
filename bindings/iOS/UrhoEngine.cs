@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.InteropServices;
 using Foundation;
 
@@ -7,6 +6,8 @@ namespace Urho.iOS
 {
 	public static class UrhoEngine
 	{
+		internal static bool Inited { get; set; }
+
 		[DllImport("mono-urho")]
 		extern static void InitSdl(string resDir, string docDir);
 
@@ -22,6 +23,7 @@ namespace Urho.iOS
 
 		public static void Init(string resourcesDir, string docsDir)
 		{
+			Inited = true;
 			InitSdl(resourcesDir, docsDir);
 			SDL_SetMainReady();
 			NSFileManager.DefaultManager.ChangeCurrentDirectory(resourcesDir);
