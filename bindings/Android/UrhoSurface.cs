@@ -16,7 +16,7 @@ namespace Urho.Droid
 	/// - DispatchKeyEvent
 	/// - OnWindowFocusChanged
 	/// </summary>
-	public class UrhoSurfaceViewController 
+	public static class UrhoSurface
 	{
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
