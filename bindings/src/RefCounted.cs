@@ -3,6 +3,7 @@
 // at JIT/AOT time to probe for static class initialization
 //
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace Urho {
@@ -13,7 +14,7 @@ namespace Urho {
 
 		internal RefCounted (UrhoObjectFlag empty) { }
 		
-		public RefCounted (IntPtr handle)
+		protected RefCounted (IntPtr handle)
 		{
 			if (handle == IntPtr.Zero)
 				throw new ArgumentException ($"Attempted to instantiate a {GetType()} with a null handle");
@@ -38,7 +39,7 @@ namespace Urho {
 		}
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void TryDeleteRefCounted(IntPtr handle);
+		static extern void TryDeleteRefCounted(IntPtr handle);
 
 		/// <summary>
 		/// Try to delete underlying native object if nobody uses it (Refs==0)
@@ -70,6 +71,17 @@ namespace Urho {
 				OnDeleted();
 			}
 			Runtime.UnregisterObject(handle);
+		}
+
+		[Conditional("DEBUG")]
+		protected void CheckAccess()
+		{
+			if (IsDeleted)
+				throw new InvalidOperationException("The underlying native object was deleted");
+			if (handle == IntPtr.Zero)
+				throw new InvalidOperationException("Object has zero handle");
+			
+			//TODO: check thread
 		}
 
 		/// <summary>

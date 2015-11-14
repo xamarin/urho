@@ -31,6 +31,7 @@ namespace Urho.Droid
 		/// </summary>
 		public static SDLSurface CreateSurface(Activity activity, Type applicationType)
 		{
+			UrhoEngine.Init();
 			UrhoEngine.RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, new Context(contextPtr)).Run());
 			return SDLActivity.CreateSurface(activity);
 		}
@@ -78,6 +79,7 @@ namespace Urho.Droid
 		/// </summary>
 		public static void RunInActivity(Type applicationType)
 		{
+			UrhoEngine.Init();
 			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance(applicationType).Run());
 			var context = Android.App.Application.Context;
 			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));

@@ -1,10 +1,13 @@
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Urho.Droid
 {
 	public static class UrhoEngine
 	{
+		public static bool Inited { get; private set; }
+
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate int SdlCallback(IntPtr context);
 
@@ -13,8 +16,15 @@ namespace Urho.Droid
 
 		public static void Init()
 		{
-			//TODO: check if libmono-urho.so exists
-			//TODO: check assets
+			if (Inited)
+				return;
+			Inited = true;
+
+			var assets = Android.App.Application.Context.Assets.List("");
+			if (!assets.Contains("CoreData") || !assets.Contains("Data"))
+			{
+				throw new InvalidOperationException("Assets folder should contain Data and CoreData folders. All assets should have 'AndroidAsset' as a build action.");
+			}
 		}
 	}
 }
