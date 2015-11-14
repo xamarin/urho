@@ -98,7 +98,7 @@ namespace Urho
 					Component component;
 					try
 					{
-						component = (Component) Activator.CreateInstance(Type.GetType(name));
+						component = (Component) Activator.CreateInstance(Type.GetType(name), componentPtr);
 					}
 					catch (Exception exc)
 					{
