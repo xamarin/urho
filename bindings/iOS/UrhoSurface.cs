@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using CoreGraphics;
 using UIKit;
 
 namespace Urho.iOS
@@ -9,9 +10,19 @@ namespace Urho.iOS
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetExternalViewPlaceholder(IntPtr viewPtr, IntPtr windowPtr);
 
+		public UrhoSurface()
+		{
+			BackgroundColor = UIColor.Black;
+		}
+
+		public UrhoSurface(CGRect frame) : base(frame)
+		{
+			BackgroundColor = UIColor.Black;
+		}
+
 		public override void WillMoveToWindow(UIWindow window)
 		{
-			SDL_SetExternalViewPlaceholder(this.Handle, window.Handle);
+			SDL_SetExternalViewPlaceholder(Handle, window?.Handle ?? IntPtr.Zero);
 			base.WillMoveToWindow(window);
 		}
 	}
