@@ -9,10 +9,10 @@ namespace Urho.iOS
 		internal static bool Inited { get; set; }
 
 		[DllImport("mono-urho")]
-		extern static void InitSdl(string resDir, string docDir);
+		static extern void InitSdl(string resDir, string docDir);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		extern static void SDL_SetMainReady();
+		static extern void SDL_SetMainReady();
 
 		public static void Init()
 		{

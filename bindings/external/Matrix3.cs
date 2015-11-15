@@ -285,35 +285,6 @@ namespace Urho
 			this.R2C2 = floatArray[8];
 		}
 
-		/// <summary>Constructs left matrix from the given quaternion.</summary>
-		/// <param name="quaternion">The quaternion to use to construct the martix.</param>
-		public Matrix3(Quaterniond quaternion)
-		{
-			quaternion.Normalize();
-
-			float xx = (float) (quaternion.X * quaternion.X);
-			float yy = (float) (quaternion.Y * quaternion.Y);
-			float zz = (float) (quaternion.Z * quaternion.Z);
-			float xy = (float) (quaternion.X * quaternion.Y);
-			float xz = (float) (quaternion.X * quaternion.Z);
-			float yz = (float) (quaternion.Y * quaternion.Z);
-			float wx = (float) (quaternion.W * quaternion.X);
-			float wy = (float) (quaternion.W * quaternion.Y);
-			float wz = (float) (quaternion.W * quaternion.Z);
-
-			R0C0 = 1 - 2 * (yy + zz);
-			R0C1 = 2 * (xy - wz);
-			R0C2 = 2 * (xz + wy);
-
-			R1C0 = 2 * (xy + wz);
-			R1C1 = 1 - 2 * (xx + zz);
-			R1C2 = 2 * (yz - wx);
-
-			R2C0 = 2 * (xz - wy);
-			R2C1 = 2 * (yz + wx);
-			R2C2 = 1 - 2 * (xx + yy);
-		}
-
 		#endregion
 
 		#region Equality

@@ -404,12 +404,7 @@
     <Compile Include="external\MathHelper.cs" />
     <Compile Include="external\Matrix3.cs" />
     <Compile Include="external\Matrix4.cs" />
-    <Compile Include="external\Matrix4d.cs" />
     <Compile Include="external\Quaternion.cs" />
-    <Compile Include="external\Quaterniond.cs" />
-    <Compile Include="external\Vector2d.cs" />
-    <Compile Include="external\Vector3d.cs" />
-    <Compile Include="external\Vector4d.cs" />
     <Compile Include="external\Vector2.cs" />
     <Compile Include="external\Vector4.cs" />
     <Compile Include="src\VertexBuffer.cs" />

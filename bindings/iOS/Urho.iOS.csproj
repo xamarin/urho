@@ -38,7 +38,6 @@
     <Compile Include="UrhoEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SdlEvent.cs" />
-    <Compile Include="UrhoController.cs" />
     <Compile Include="UrhoSurface.cs" />
   </ItemGroup>
   <ItemGroup>
