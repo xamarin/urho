@@ -10,4 +10,9 @@
             <Link>Libs\armeabi\libmono-urho.so</Link>
         </AndroidNativeLibrary>
     </ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">
+			<Link>Assets\CoreData.pak</Link>
+		</AndroidAsset>
+	</ItemGroup>
 </Project>

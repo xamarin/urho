@@ -8,5 +8,9 @@
             <Link>mono-urho.dll</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">
+            <Link>CoreData.pak</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 </Project>

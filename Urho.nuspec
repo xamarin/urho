@@ -63,6 +63,8 @@ Among the features of the Urho3D you will find:
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
+   
+     <file src="Bin/CoreData.pak" target="native/CoreData.pak" />
 
      <!--PCL-->
      <file src="Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
