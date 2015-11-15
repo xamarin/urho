@@ -38,6 +38,18 @@ namespace Urho
 		/// </summary>
 		public OrientationType Orientation { get; set; } = OrientationType.Landscape;
 
+		/// <summary>
+		/// Resource path(s) to use (default: Data, CoreData)
+		/// </summary>
+		public string[] ResourcePaths { get; set; } = null;
+
+		/// <summary>
+		/// Resource package files to use (default: empty)
+		/// </summary>
+		public string[] ResourcePackagesPaths { get; set; } = null;
+
+		public string AdditionalFlags { get; set; } = string.Empty;
+
 		public enum OrientationType
 		{
 			Landscape,
@@ -64,9 +76,15 @@ namespace Urho
 			if (ResizableWindow)
 				builder.Append(" -s");
 
+			if (ResourcePaths?.Length > 0)
+				builder.AppendFormat(" -p '{0}'", string.Join(";", ResourcePaths));
+
+			if (ResourcePackagesPaths?.Length > 0)
+				builder.AppendFormat(" -pf '{0}'", string.Join(";", ResourcePackagesPaths));
+
 			builder.AppendFormat(" -{0}", Orientation.ToString().ToLower());
 
-			return builder.ToString();
+			return builder + " " + AdditionalFlags;
 		}
 
 		// Some predefined:
