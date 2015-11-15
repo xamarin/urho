@@ -19,12 +19,6 @@ namespace Urho.Droid
 			if (Inited)
 				return;
 			Inited = true;
-
-			var assets = Android.App.Application.Context.Assets.List("");
-			if (!assets.Contains("CoreData") || !assets.Contains("Data"))
-			{
-				throw new InvalidOperationException("Assets folder should contain Data and CoreData folders. All assets should have 'AndroidAsset' as a build action.");
-			}
 		}
 	}
 }

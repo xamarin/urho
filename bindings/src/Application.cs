@@ -5,6 +5,8 @@
 //
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
@@ -286,14 +288,23 @@ namespace Urho {
 
 		public static Application CreateInstance(Type applicationType, Context context = null)
 		{
-			try
+			foreach (var ctor in applicationType.GetTypeInfo().DeclaredConstructors)
 			{
-				return (Application)Activator.CreateInstance(applicationType, context ?? new Context());
+				var parameters = ctor.GetParameters();
+				if (parameters?.Length > 0)
+				{
+					if (parameters[0].ParameterType == typeof(Context))
+					{
+						if (parameters.Length == 1)
+						{
+							return (Application)Activator.CreateInstance(applicationType, context ?? new Context());
+						}
+						return (Application)Activator.CreateInstance(applicationType, context ?? new Context(), null);
+					}
+				}
 			}
-			catch (Exception exc)
-			{
-				throw new InvalidOperationException($"{applicationType} should have a public ctor with a single argument (Context)", exc);
-			}
+
+			throw new InvalidOperationException($"{applicationType} should have a public ctor with a single argument (Context)");
 		}
 	}
 }
