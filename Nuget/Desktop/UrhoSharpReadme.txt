@@ -1,5 +1,12 @@
-To launch application please use the following snippet:
-ApplicationLauncher.Run(() => new HelloWorldGame(new Context()), "%path to folder containing CoreData and Data resources%");
+Use the following code snippet in order to show a game:
 
-libmono-urho.dylib - 32bit/64bit fat Urho3D native library for Mac OS
-mono-urho.dll - 64bit Urho3D native library for Windows.
+UrhoEngine.Init(pathToAssets);
+new MyGame(new Context()).Run();
+
+if pathToAssets is null - current directory will be used. The pathToAssets should contain "Data" folder with all your assets.
+
+
+
+
+
+CoreData assets and native libs for OSX (fat) and Windows (x64 only) are added via .targets file by the nuget package.

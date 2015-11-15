@@ -1,55 +1,14 @@
-To launch application please use the following snippet:
-ApplicationLauncher.Run(() => new HelloWorldGame(new Context()));
-and make sure you've added needed Assets (Assets\CoreData and Assets\Data).
+In order to run a game:
+1) Add "Data" folder containing your assets to "Assets" project folder and make sure all files have "AndroidAsset" build action.
+2) use the following code snippet in order to open a new fullscreen activity with the game:
 
-You can also dispaly Urho in any activity you want via SurfaceView using UrhoSurfaceViewController:
+UrhoEngine.Init();
+UrhoSurface.RunInActivity<MyGame>();
 
-public class MyActivity : Activity
-{
-	protected override void OnCreate(Bundle savedInstanceState)
-	{
-		base.OnCreate(savedInstanceState);
-		var surfaceView = UrhoSurfaceViewController.OnCreate(this, () => new HelloWorldGame(new Context()));
 
-		var layout = new AbsoluteLayout(this);
-		layout.AddView(surfaceView);
-		SetContentView(layout);
-	}
 
-	protected override void OnPause()
-	{
-		UrhoSurfaceViewController.OnPause();
-		base.OnPause();
-	}
 
-	protected override void OnResume()
-	{
-		UrhoSurfaceViewController.OnResume();
-		base.OnResume();
-	}
 
-	public override void OnLowMemory()
-	{
-		UrhoSurfaceViewController.OnLowMemory();
-		base.OnLowMemory();
-	}
 
-	protected override void OnDestroy()
-	{
-		UrhoSurfaceViewController.OnDestroy();
-		base.OnDestroy();
-	}
 
-	public override bool DispatchKeyEvent(KeyEvent e)
-	{
-		if (!UrhoSurfaceViewController.DispatchKeyEvent(e))
-			return false;
-		return base.DispatchKeyEvent(e);
-	}
-
-	public override void OnWindowFocusChanged(bool hasFocus)
-	{
-		UrhoSurfaceViewController.OnWindowFocusChanged(hasFocus);
-		base.OnWindowFocusChanged(hasFocus);
-	}
-}
+CoreData assets and native libs for x86, armeabi, armeabi-v7a are added via .targets file by the nuget package.
