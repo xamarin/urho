@@ -33,6 +33,11 @@ namespace Urho {
 		public static Application Current { get; private set; }
 
 		/// <summary>
+		/// Call UrhoEngine.Init() to initialize the engine
+		/// </summary>
+		public static bool EngineInited { get; set; }
+
+		/// <summary>
 		/// Supports the simple style with callbacks
 		/// </summary>
 		public Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
@@ -119,6 +124,11 @@ namespace Urho {
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxyStart (IntPtr h)
 		{
+			Runtime.Initialize();
+			if (!EngineInited)
+			{
+				throw new InvalidOperationException("Urho is not initialized. Please, call UrhoEngine.Init() before app.Run().");
+			}
 			GetApp (h).Start ();
 		}
 
@@ -134,7 +144,6 @@ namespace Urho {
 
 		public virtual void Start ()
 		{
-			Runtime.Initialize();
 		}
 
 		public virtual void Stop ()

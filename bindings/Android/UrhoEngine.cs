@@ -6,8 +6,6 @@ namespace Urho.Droid
 {
 	public static class UrhoEngine
 	{
-		public static bool Inited { get; private set; }
-
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate int SdlCallback(IntPtr context);
 
@@ -16,9 +14,7 @@ namespace Urho.Droid
 
 		public static void Init()
 		{
-			if (Inited)
-				return;
-			Inited = true;
+			Application.EngineInited = true;
 		}
 	}
 }
