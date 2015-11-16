@@ -492,6 +492,8 @@ namespace SharpieBinder
 			case "const struct Urho3D::BiasParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 			case "const struct Urho3D::TileMapInfo2D &":
+			case "const class Urho3D::XMLElement &":
+			case "class Urho3D::XMLElement &":
 			case "struct Urho3D::PhysicsRaycastResult &":
 			case "const class Urho3D::Ray &":
 			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
@@ -643,6 +645,8 @@ namespace SharpieBinder
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::IntRect &":
 			case "const struct Urho3D::TileMapInfo2D &":
+			case "const class Urho3D::XMLElement &":
+			case "class Urho3D::XMLElement &":
 			case "const class Urho3D::Ray &":
 				int p = cleanTypeStr.IndexOf ("::");
 				int q = cleanTypeStr.IndexOf (" ", p + 2);
