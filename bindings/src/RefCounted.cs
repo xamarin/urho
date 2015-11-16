@@ -84,6 +84,14 @@ namespace Urho {
 			//TODO: check thread
 		}
 
+		protected void CheckEngine()
+		{
+			if (!Application.EngineInited)
+			{
+				throw new InvalidOperationException("The engine is not inited. Please call UrhoEngine.Init().");
+			}
+		}
+
 		/// <summary>
 		/// True if underlying native object is deleted
 		/// </summary>

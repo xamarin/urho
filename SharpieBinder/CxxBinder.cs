@@ -1314,6 +1314,10 @@ namespace SharpieBinder
 					method.Body.Add(ret);
 				} else {
 					if (currentType.ClassType == ClassType.Class){
+						//usually, the Context is the first object user creates so let's add additional check if engine is inited
+						if (currentType.Name == "Context") {
+							constructor.Body.Add (new InvocationExpression (new IdentifierExpression ("CheckEngine"), null));
+						}
 						bool hasBaseTypes = currentType.BaseTypes.Count != 0;
 						if (hasBaseTypes) {
 							constructor.Initializer = new ConstructorInitializer {
