@@ -1,0 +1,3359 @@
+<Type Name="Node" FullName="Urho.Node">
+  <TypeSignature Language="C#" Value="public class Node : Urho.Animatable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Node extends Urho.Animatable" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Animatable</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            %Scene node that may contain components and child nodes.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Node (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Node (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Node (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddChild">
+      <MemberSignature Language="C#" Value="public void AddChild (Urho.Node node);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddChild(class Urho.Node node) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="node" Type="Urho.Node" />
+      </Parameters>
+      <Docs>
+        <param name="node">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddChild">
+      <MemberSignature Language="C#" Value="public void AddChild (Urho.Node node, uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddChild(class Urho.Node node, unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="node" Type="Urho.Node" />
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="node">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>
+            Add a child scene node at a specific index. If index is not explicitly specified or is greater than current children size, append the new child at the end.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddComponent">
+      <MemberSignature Language="C#" Value="public void AddComponent (Urho.Component component, uint id = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddComponent(class Urho.Component component, unsigned int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.Component" />
+        <Parameter Name="id" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddComponent">
+      <MemberSignature Language="C#" Value="public void AddComponent (Urho.Component component, uint id, Urho.CreateMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddComponent(class Urho.Component component, unsigned int32 id, valuetype Urho.CreateMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.Component" />
+        <Parameter Name="id" Type="System.UInt32" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <param name="id">To be added.</param>
+        <param name="mode">To be added.</param>
+        <summary>
+            Add a pre-created component.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddListener">
+      <MemberSignature Language="C#" Value="public void AddListener (Urho.Component component);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddListener(class Urho.Component component) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.Component" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <summary>
+            Add listener component that is notified of node being dirtied. Can either be in the same node or another.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddReplicationState">
+      <MemberSignature Language="C#" Value="public virtual void AddReplicationState (Urho.NodeReplicationState* state);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddReplicationState(valuetype Urho.NodeReplicationState* state) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="state" Type="Urho.NodeReplicationState*" />
+      </Parameters>
+      <Docs>
+        <param name="state">To be added.</param>
+        <summary>
+            Add a replication state that is tracking this node.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyAttributes">
+      <MemberSignature Language="C#" Value="public override void ApplyAttributes ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void ApplyAttributes() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Apply attribute changes that can not be applied immediately recursively to child nodes and components.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseTypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash BaseTypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash BaseTypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Children">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Urho.Node&gt; Children { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Urho.Node&gt; Children" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Urho.Node&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return immediate child scene nodes.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CleanupConnection">
+      <MemberSignature Language="C#" Value="public virtual void CleanupConnection (Urho.Connection connection);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CleanupConnection(class Urho.Connection connection) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="connection" Type="Urho.Connection" />
+      </Parameters>
+      <Docs>
+        <param name="connection">To be added.</param>
+        <summary>
+            Clean up all references to a network connection that is about to be removed.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clone">
+      <MemberSignature Language="C#" Value="public Urho.Node Clone (Urho.CreateMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node Clone(valuetype Urho.CreateMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+      </Parameters>
+      <Docs>
+        <param name="mode">To be added.</param>
+        <summary>
+            Clone scene node, components and child nodes. Return the clone.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CloneComponent">
+      <MemberSignature Language="C#" Value="public Urho.Component CloneComponent (Urho.Component component, uint id);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Component CloneComponent(class Urho.Component component, unsigned int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Component</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.Component" />
+        <Parameter Name="id" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>
+            Clone a component from another node using its create mode. Return the clone if successful or null on failure.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CloneComponent">
+      <MemberSignature Language="C#" Value="public Urho.Component CloneComponent (Urho.Component component, Urho.CreateMode mode, uint id);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Component CloneComponent(class Urho.Component component, valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Component</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.Component" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+        <Parameter Name="id" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <param name="mode">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>
+            Clone a component from another node and specify the create mode. Return the clone if successful or null on failure.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Components">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Urho.Component&gt; Components { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Urho.Component&gt; Components" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Urho.Component&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return all components.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateChild">
+      <MemberSignature Language="C#" Value="public Urho.Node CreateChild (uint id, Urho.CreateMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node CreateChild(unsigned int32 id, valuetype Urho.CreateMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.UInt32" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+      </Parameters>
+      <Docs>
+        <param name="id">To be added.</param>
+        <param name="mode">To be added.</param>
+        <summary>
+            Create a child node with specific ID.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateChild">
+      <MemberSignature Language="C#" Value="public Urho.Node CreateChild (string name = &quot;&quot;, uint id = 0, Urho.CreateMode mode = Urho.CreateMode.Replicated);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node CreateChild(string name, unsigned int32 id, valuetype Urho.CreateMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="id" Type="System.UInt32" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="id">To be added.</param>
+        <param name="mode">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateChild">
+      <MemberSignature Language="C#" Value="public Urho.Node CreateChild (string name, Urho.CreateMode mode, uint id);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node CreateChild(string name, valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+        <Parameter Name="id" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="mode">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>
+            Create a child scene node (with specified ID if provided).
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateComponent">
+      <MemberSignature Language="C#" Value="public Urho.Component CreateComponent (Urho.StringHash type, Urho.CreateMode mode, uint id);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Component CreateComponent(valuetype Urho.StringHash type, valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Component</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+        <Parameter Name="id" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="mode">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>
+            Create a component to this node (with specified ID if provided).
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateComponent&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T CreateComponent&lt;T&gt; (Urho.CreateMode mode = Urho.CreateMode.Replicated, uint id = 0) where T : Urho.Component;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T CreateComponent&lt;(class Urho.Component) T&gt;(valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Urho.Component</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+        <Parameter Name="id" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="mode">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateComponent&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T CreateComponent&lt;T&gt; (Urho.StringHash type, Urho.CreateMode mode = Urho.CreateMode.Replicated, uint id = 0) where T : Urho.Component;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T CreateComponent&lt;(class Urho.Component) T&gt;(valuetype Urho.StringHash type, valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Urho.Component</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+        <Parameter Name="id" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="type">To be added.</param>
+        <param name="mode">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Direction">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Direction { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Direction" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return forward direction in parent space. Positive Z axis equals identity rotation.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChild">
+      <MemberSignature Language="C#" Value="public Urho.Node GetChild (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node GetChild(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return child scene node by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChild">
+      <MemberSignature Language="C#" Value="public Urho.Node GetChild (string name, bool recursive);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node GetChild(string name, bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="recursive">To be added.</param>
+        <summary>
+            Return child scene node by name.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChild">
+      <MemberSignature Language="C#" Value="public Urho.Node GetChild (Urho.StringHash nameHash, bool recursive);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node GetChild(valuetype Urho.StringHash nameHash, bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="nameHash" Type="Urho.StringHash" />
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="nameHash">To be added.</param>
+        <param name="recursive">To be added.</param>
+        <summary>
+            Return child scene node by name hash.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChildrenWithComponent&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public Urho.Node[] GetChildrenWithComponent&lt;T&gt; (bool recursive = false) where T : Urho.Component;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node[] GetChildrenWithComponent&lt;(class Urho.Component) T&gt;(bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node[]</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Urho.Component</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="recursive">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetComponent">
+      <MemberSignature Language="C#" Value="public Urho.Component GetComponent (Urho.StringHash type, bool recursive);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Component GetComponent(valuetype Urho.StringHash type, bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Component</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="recursive">To be added.</param>
+        <summary>
+            Return component by type. If there are several, returns the first.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetComponent&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T GetComponent&lt;T&gt; (bool recursive = false) where T : Urho.Component;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T GetComponent&lt;(class Urho.Component) T&gt;(bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Urho.Component</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="recursive">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetNumChildren">
+      <MemberSignature Language="C#" Value="public uint GetNumChildren (bool recursive);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumChildren(bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="recursive">To be added.</param>
+        <summary>
+            Return number of child scene nodes.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOrCreateComponent">
+      <MemberSignature Language="C#" Value="public Urho.Component GetOrCreateComponent (Urho.StringHash type, Urho.CreateMode mode, uint id);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Component GetOrCreateComponent(valuetype Urho.StringHash type, valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Component</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+        <Parameter Name="id" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="mode">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>
+            Create a component to this node if it does not exist already.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasComponent">
+      <MemberSignature Language="C#" Value="public bool HasComponent (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasComponent(valuetype Urho.StringHash type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>
+            Return whether has a specific component.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ID">
+      <MemberSignature Language="C#" Value="public uint ID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 ID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return ID.
+            Or
+            Set ID. Called by Scene.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsDirty">
+      <MemberSignature Language="C#" Value="public bool IsDirty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsDirty() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether transform has changed and world transform needs recalculation.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsEnabled">
+      <MemberSignature Language="C#" Value="public bool IsEnabled ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsEnabled() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether is enabled. Disables nodes effectively disable all their components.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsEnabledSelf">
+      <MemberSignature Language="C#" Value="public bool IsEnabledSelf ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsEnabledSelf() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns the node's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadXML">
+      <MemberSignature Language="C#" Value="public override bool LoadXML (Urho.XMLElement source, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXML(class Urho.XMLElement source, bool setInstanceDefault) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.XMLElement" />
+        <Parameter Name="setInstanceDefault" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <param name="setInstanceDefault">To be added.</param>
+        <summary>
+            Load from XML data. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LocalToWorld">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 LocalToWorld (Urho.Vector3 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 LocalToWorld(valuetype Urho.Vector3 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>
+            Convert a local space position to world space.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LocalToWorld">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 LocalToWorld (Urho.Vector4 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 LocalToWorld(valuetype Urho.Vector4 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="vector">To be added.</param>
+        <summary>
+            Convert a local space position or rotation to world space.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LocalToWorld2D">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 LocalToWorld2D (Urho.Vector2 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector2 LocalToWorld2D(valuetype Urho.Vector2 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="vector">To be added.</param>
+        <summary>
+            Convert a local space position or rotation to world space (for Urho2D).
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LookAt">
+      <MemberSignature Language="C#" Value="public bool LookAt (Urho.Vector3 target, Urho.Vector3 up, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LookAt(valuetype Urho.Vector3 target, valuetype Urho.Vector3 up, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="target" Type="Urho.Vector3" />
+        <Parameter Name="up" Type="Urho.Vector3" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="target">To be added.</param>
+        <param name="up">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Look at a target position in the chosen transform space. Note that the up vector is always specified in world space. Return true if successful, or false if resulted in an illegal rotation, in which case the current rotation remains.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MarkDirty">
+      <MemberSignature Language="C#" Value="public void MarkDirty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void MarkDirty() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Mark node and child nodes to need world transform recalculation. Notify listener components.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MarkNetworkUpdate">
+      <MemberSignature Language="C#" Value="public override void MarkNetworkUpdate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void MarkNetworkUpdate() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Mark for attribute check on the next network update.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MarkReplicationDirty">
+      <MemberSignature Language="C#" Value="public void MarkReplicationDirty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void MarkReplicationDirty() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Mark node dirty in scene replication states.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return name.
+            Or
+            Set name of the scene node. Names are not required to be unique.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NameHash">
+      <MemberSignature Language="C#" Value="public Urho.StringHash NameHash { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash NameHash" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return name hash.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NetPositionAttr">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 NetPositionAttr { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 NetPositionAttr" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return network position attribute.
+            Or
+            Set network position attribute.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumComponents">
+      <MemberSignature Language="C#" Value="public uint NumComponents { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumComponents" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of components.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumNetworkComponents">
+      <MemberSignature Language="C#" Value="public uint NumNetworkComponents { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumNetworkComponents" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of non-local components.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumPersistentChildren">
+      <MemberSignature Language="C#" Value="public uint NumPersistentChildren { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumPersistentChildren" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Calculate number of non-temporary child nodes.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumPersistentComponents">
+      <MemberSignature Language="C#" Value="public uint NumPersistentComponents { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumPersistentComponents" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Calculate number of non-temporary components.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Owner">
+      <MemberSignature Language="C#" Value="public Urho.Connection Owner { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Connection Owner" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Connection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return owner connection in networking.
+            Or
+            Set owner connection for networking.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Parent">
+      <MemberSignature Language="C#" Value="public Urho.Node Parent { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node Parent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return parent scene node.
+            Or
+            Set parent scene node. Retains the world transform.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PauseAllActions">
+      <MemberSignature Language="C#" Value="public void PauseAllActions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void PauseAllActions() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Pitch">
+      <MemberSignature Language="C#" Value="public void Pitch (float angle, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Pitch(float32 angle, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="angle">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Rotate around the X axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Position">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Position { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Position" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return position in parent space.
+            Or
+            Set position in parent space. If the scene node is on the root level (is child of the scene itself), this is same as world space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Position2D">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 Position2D { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 Position2D" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return position in parent space (for Urho2D).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PrepareNetworkUpdate">
+      <MemberSignature Language="C#" Value="public virtual void PrepareNetworkUpdate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PrepareNetworkUpdate() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Prepare network update by comparing attributes and marking replication states dirty as necessary.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public void Remove ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Remove() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Remove from the parent node. If no other shared pointer references exist, causes immediate deletion.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllActions">
+      <MemberSignature Language="C#" Value="public void RemoveAllActions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllActions() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllChildren">
+      <MemberSignature Language="C#" Value="public void RemoveAllChildren ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllChildren() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Remove all child scene nodes.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllComponents">
+      <MemberSignature Language="C#" Value="public void RemoveAllComponents ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllComponents() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Remove all components from this node.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveChild">
+      <MemberSignature Language="C#" Value="public void RemoveChild (Urho.Node node);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveChild(class Urho.Node node) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="node" Type="Urho.Node" />
+      </Parameters>
+      <Docs>
+        <param name="node">To be added.</param>
+        <summary>
+            Remove a child scene node.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveChildren">
+      <MemberSignature Language="C#" Value="public void RemoveChildren (bool removeReplicated, bool removeLocal, bool recursive);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveChildren(bool removeReplicated, bool removeLocal, bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="removeReplicated" Type="System.Boolean" />
+        <Parameter Name="removeLocal" Type="System.Boolean" />
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="removeReplicated">To be added.</param>
+        <param name="removeLocal">To be added.</param>
+        <param name="recursive">To be added.</param>
+        <summary>
+            Remove child scene nodes that match criteria.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveComponent">
+      <MemberSignature Language="C#" Value="public void RemoveComponent (Urho.Component component);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveComponent(class Urho.Component component) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.Component" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <summary>
+            Remove a component from this node.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveComponent">
+      <MemberSignature Language="C#" Value="public void RemoveComponent (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveComponent(valuetype Urho.StringHash type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>
+            Remove the first component of specific type from this node.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveComponent&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public void RemoveComponent&lt;T&gt; ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveComponent&lt;T&gt;() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters />
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveComponents">
+      <MemberSignature Language="C#" Value="public void RemoveComponents (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveComponents(valuetype Urho.StringHash type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>
+            Remove all components of specific type.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveComponents">
+      <MemberSignature Language="C#" Value="public void RemoveComponents (bool removeReplicated, bool removeLocal);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveComponents(bool removeReplicated, bool removeLocal) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="removeReplicated" Type="System.Boolean" />
+        <Parameter Name="removeLocal" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="removeReplicated">To be added.</param>
+        <param name="removeLocal">To be added.</param>
+        <summary>
+            Remove components that match criteria.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveListener">
+      <MemberSignature Language="C#" Value="public void RemoveListener (Urho.Component component);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveListener(class Urho.Component component) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.Component" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <summary>
+            Remove listener component.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetDeepEnabled">
+      <MemberSignature Language="C#" Value="public void ResetDeepEnabled ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetDeepEnabled() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Reset enabled state to the node's remembered state prior to calling SetDeepEnabled.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetScene">
+      <MemberSignature Language="C#" Value="public void ResetScene ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetScene() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Reset scene, ID and owner. Called by Scene.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResumeAllActions">
+      <MemberSignature Language="C#" Value="public void ResumeAllActions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResumeAllActions() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Right">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Right { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Right" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return right direction in parent space. Positive X axis equals identity rotation.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Roll">
+      <MemberSignature Language="C#" Value="public void Roll (float angle, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Roll(float32 angle, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="angle">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Rotate around the Z axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotate">
+      <MemberSignature Language="C#" Value="public void Rotate (Urho.Quaternion delta, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Rotate(valuetype Urho.Quaternion delta, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="delta" Type="Urho.Quaternion" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="delta">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Rotate the scene node in the chosen transform space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotate2D">
+      <MemberSignature Language="C#" Value="public void Rotate2D (float delta, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Rotate2D(float32 delta, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="delta" Type="System.Single" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="delta">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Rotate the scene node in the chosen transform space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotateAround">
+      <MemberSignature Language="C#" Value="public void RotateAround (Urho.Vector3 point, Urho.Quaternion delta, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RotateAround(valuetype Urho.Vector3 point, valuetype Urho.Quaternion delta, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.Vector3" />
+        <Parameter Name="delta" Type="Urho.Quaternion" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <param name="delta">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Rotate around a point in the chosen transform space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotateAround2D">
+      <MemberSignature Language="C#" Value="public void RotateAround2D (Urho.Vector2 point, float delta, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RotateAround2D(valuetype Urho.Vector2 point, float32 delta, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.Vector2" />
+        <Parameter Name="delta" Type="System.Single" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <param name="delta">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Rotate around a point in the chosen transform space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotation">
+      <MemberSignature Language="C#" Value="public Urho.Quaternion Rotation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Quaternion Rotation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return rotation in parent space.
+            Or
+            Set rotation in parent space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotation2D">
+      <MemberSignature Language="C#" Value="public float Rotation2D { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Rotation2D" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return rotation in parent space (for Urho2D).
+            Or
+            Set rotation in parent space (for Urho2D).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RunActionsAsync">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task&lt;Urho.ActionState&gt; RunActionsAsync (Urho.FiniteTimeAction[] actions);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Threading.Tasks.Task`1&lt;class Urho.ActionState&gt; RunActionsAsync(class Urho.FiniteTimeAction[] actions) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Urho.ActionState&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="actions" Type="Urho.FiniteTimeAction[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="actions">An array of FiniteTimeAction objects.</param>
+        <summary>
+            Runs a sequence of Actions so that it can be awaited.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveDefaultAttributes">
+      <MemberSignature Language="C#" Value="public override bool SaveDefaultAttributes ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveDefaultAttributes() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether should save default-valued attributes into XML. Always save node transforms for readability, even if identity.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveXML">
+      <MemberSignature Language="C#" Value="public override bool SaveXML (Urho.XMLElement dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXML(class Urho.XMLElement dest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.XMLElement" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <summary>
+            Save as XML data. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Scale { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Scale" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scale in parent space.
+            Or
+            Set scale in parent space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scale2D">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 Scale2D { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 Scale2D" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scale in parent space (for Urho2D).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScaleNode">
+      <MemberSignature Language="C#" Value="public void ScaleNode (float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ScaleNode(float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>
+            Modify scale in parent space uniformly.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScaleNode">
+      <MemberSignature Language="C#" Value="public void ScaleNode (Urho.Vector3 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ScaleNode(valuetype Urho.Vector3 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>
+            Modify scale in parent space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScaleNode2D">
+      <MemberSignature Language="C#" Value="public void ScaleNode2D (Urho.Vector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ScaleNode2D(valuetype Urho.Vector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>
+            Modify scale in parent space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scene">
+      <MemberSignature Language="C#" Value="public Urho.Scene Scene { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Scene Scene" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Scene</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scene.
+            Or
+            Set scene. Called by Scene.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDeepEnabled">
+      <MemberSignature Language="C#" Value="public void SetDeepEnabled (bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDeepEnabled(bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <summary>
+            Set enabled state on self and child nodes. Nodes' own enabled state is remembered (IsEnabledSelf) and can be restored.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDirection">
+      <MemberSignature Language="C#" Value="public void SetDirection (Urho.Vector3 direction);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDirection(valuetype Urho.Vector3 direction) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="direction" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="direction">To be added.</param>
+        <summary>
+            Set forward direction in parent space. Positive Z axis equals identity rotation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetEnabled">
+      <MemberSignature Language="C#" Value="public void SetEnabled (bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetEnabled(bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <summary>
+            Set enabled/disabled state without recursion. Components in a disabled node become effectively disabled regardless of their own enable/disable state.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetEnabledRecursive">
+      <MemberSignature Language="C#" Value="public void SetEnabledRecursive (bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetEnabledRecursive(bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <summary>
+            Set enabled state on self and child nodes. Unlike SetDeepEnabled this does not remember the nodes' own enabled state, but overwrites it.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPosition2D">
+      <MemberSignature Language="C#" Value="public void SetPosition2D (Urho.Vector2 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetPosition2D(valuetype Urho.Vector2 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>
+            Set position in parent space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPosition2D">
+      <MemberSignature Language="C#" Value="public void SetPosition2D (float x, float y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetPosition2D(float32 x, float32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>
+            Set position in parent space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPositionSilent">
+      <MemberSignature Language="C#" Value="public void SetPositionSilent (Urho.Vector3 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetPositionSilent(valuetype Urho.Vector3 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRotationSilent">
+      <MemberSignature Language="C#" Value="public void SetRotationSilent (Urho.Quaternion rotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRotationSilent(valuetype Urho.Quaternion rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="rotation">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetScale">
+      <MemberSignature Language="C#" Value="public void SetScale (float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetScale(float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set uniform scale in parent space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetScale2D">
+      <MemberSignature Language="C#" Value="public void SetScale2D (Urho.Vector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetScale2D(valuetype Urho.Vector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set scale in parent space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetScale2D">
+      <MemberSignature Language="C#" Value="public void SetScale2D (float x, float y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetScale2D(float32 x, float32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>
+            Set scale in parent space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetScaleSilent">
+      <MemberSignature Language="C#" Value="public void SetScaleSilent (Urho.Vector3 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetScaleSilent(valuetype Urho.Vector3 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTransform">
+      <MemberSignature Language="C#" Value="public void SetTransform (Urho.Vector3 position, Urho.Quaternion rotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTransform(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <summary>
+            Set both position and rotation in parent space as an atomic operation. This is faster than setting position and rotation separately.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTransform">
+      <MemberSignature Language="C#" Value="public void SetTransform (Urho.Vector3 position, Urho.Quaternion rotation, float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTransform(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set both position, rotation and uniform scale in parent space as an atomic operation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTransform">
+      <MemberSignature Language="C#" Value="public void SetTransform (Urho.Vector3 position, Urho.Quaternion rotation, Urho.Vector3 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTransform(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.Vector3 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+        <Parameter Name="scale" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set both position, rotation and scale in parent space as an atomic operation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTransform2D">
+      <MemberSignature Language="C#" Value="public void SetTransform2D (Urho.Vector2 position, float rotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTransform2D(valuetype Urho.Vector2 position, float32 rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector2" />
+        <Parameter Name="rotation" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <summary>
+            Set both position and rotation in parent space as an atomic operation (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTransform2D">
+      <MemberSignature Language="C#" Value="public void SetTransform2D (Urho.Vector2 position, float rotation, float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTransform2D(valuetype Urho.Vector2 position, float32 rotation, float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector2" />
+        <Parameter Name="rotation" Type="System.Single" />
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set both position, rotation and uniform scale in parent space as an atomic operation (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTransform2D">
+      <MemberSignature Language="C#" Value="public void SetTransform2D (Urho.Vector2 position, float rotation, Urho.Vector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTransform2D(valuetype Urho.Vector2 position, float32 rotation, valuetype Urho.Vector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector2" />
+        <Parameter Name="rotation" Type="System.Single" />
+        <Parameter Name="scale" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set both position, rotation and scale in parent space as an atomic operation (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTransformSilent">
+      <MemberSignature Language="C#" Value="public void SetTransformSilent (Urho.Vector3 position, Urho.Quaternion rotation, Urho.Vector3 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTransformSilent(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.Vector3 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+        <Parameter Name="scale" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, int32 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, float value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, float32 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, string value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, Urho.Color value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, valuetype Urho.Color value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, Urho.IntRect value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, valuetype Urho.IntRect value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.IntRect" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, Urho.IntVector2 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, valuetype Urho.IntVector2 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, Urho.Quaternion value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, valuetype Urho.Quaternion value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, Urho.Vector2 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, valuetype Urho.Vector2 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, Urho.Vector3 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, valuetype Urho.Vector3 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVar">
+      <MemberSignature Language="C#" Value="public void SetVar (Urho.StringHash key, Urho.Vector4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVar(valuetype Urho.StringHash key, valuetype Urho.Vector4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set a user variable.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldDirection">
+      <MemberSignature Language="C#" Value="public void SetWorldDirection (Urho.Vector3 direction);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldDirection(valuetype Urho.Vector3 direction) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="direction" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="direction">To be added.</param>
+        <summary>
+            Set forward direction in world space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldPosition">
+      <MemberSignature Language="C#" Value="public void SetWorldPosition (Urho.Vector3 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldPosition(valuetype Urho.Vector3 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>
+            Set position in world space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldPosition2D">
+      <MemberSignature Language="C#" Value="public void SetWorldPosition2D (Urho.Vector2 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldPosition2D(valuetype Urho.Vector2 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>
+            Set position in world space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldPosition2D">
+      <MemberSignature Language="C#" Value="public void SetWorldPosition2D (float x, float y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldPosition2D(float32 x, float32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>
+            Set position in world space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldRotation">
+      <MemberSignature Language="C#" Value="public void SetWorldRotation (Urho.Quaternion rotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldRotation(valuetype Urho.Quaternion rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="rotation">To be added.</param>
+        <summary>
+            Set rotation in world space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldScale">
+      <MemberSignature Language="C#" Value="public void SetWorldScale (float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldScale(float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set uniform scale in world space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldScale">
+      <MemberSignature Language="C#" Value="public void SetWorldScale (Urho.Vector3 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldScale(valuetype Urho.Vector3 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set scale in world space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldScale2D">
+      <MemberSignature Language="C#" Value="public void SetWorldScale2D (Urho.Vector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldScale2D(valuetype Urho.Vector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set scale in world space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldScale2D">
+      <MemberSignature Language="C#" Value="public void SetWorldScale2D (float x, float y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldScale2D(float32 x, float32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>
+            Set scale in world space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldTransform">
+      <MemberSignature Language="C#" Value="public void SetWorldTransform (Urho.Vector3 position, Urho.Quaternion rotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldTransform(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <summary>
+            Set both position and rotation in world space as an atomic operation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldTransform">
+      <MemberSignature Language="C#" Value="public void SetWorldTransform (Urho.Vector3 position, Urho.Quaternion rotation, float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldTransform(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set both position, rotation and uniform scale in world space as an atomic operation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldTransform">
+      <MemberSignature Language="C#" Value="public void SetWorldTransform (Urho.Vector3 position, Urho.Quaternion rotation, Urho.Vector3 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldTransform(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.Vector3 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+        <Parameter Name="scale" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set both position, rotation and scale in world space as an atomic opration.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldTransform2D">
+      <MemberSignature Language="C#" Value="public void SetWorldTransform2D (Urho.Vector2 position, float rotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldTransform2D(valuetype Urho.Vector2 position, float32 rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector2" />
+        <Parameter Name="rotation" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <summary>
+            Set both position and rotation in world space as an atomic operation (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldTransform2D">
+      <MemberSignature Language="C#" Value="public void SetWorldTransform2D (Urho.Vector2 position, float rotation, float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldTransform2D(valuetype Urho.Vector2 position, float32 rotation, float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector2" />
+        <Parameter Name="rotation" Type="System.Single" />
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set both position, rotation and uniform scale in world space as an atomic operation (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldTransform2D">
+      <MemberSignature Language="C#" Value="public void SetWorldTransform2D (Urho.Vector2 position, float rotation, Urho.Vector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldTransform2D(valuetype Urho.Vector2 position, float32 rotation, valuetype Urho.Vector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector2" />
+        <Parameter Name="rotation" Type="System.Single" />
+        <Parameter Name="scale" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="scale">To be added.</param>
+        <summary>
+            Set both position, rotation and scale in world space as an atomic opration (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transform">
+      <MemberSignature Language="C#" Value="public Urho.Matrix3x4 Transform { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Matrix3x4 Transform" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3x4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return parent space transform matrix.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Translate">
+      <MemberSignature Language="C#" Value="public void Translate (Urho.Vector3 delta, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Translate(valuetype Urho.Vector3 delta, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="delta" Type="Urho.Vector3" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="delta">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Move the scene node in the chosen transform space.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Translate2D">
+      <MemberSignature Language="C#" Value="public void Translate2D (Urho.Vector2 delta, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Translate2D(valuetype Urho.Vector2 delta, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="delta" Type="Urho.Vector2" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="delta">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Move the scene node in the chosen transform space (for Urho2D).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Up">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Up { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Up" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return up direction in parent space. Positive Y axis equals identity rotation.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldDirection">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 WorldDirection { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 WorldDirection" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return direction in world space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldPosition">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 WorldPosition { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 WorldPosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return position in world space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldPosition2D">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 WorldPosition2D { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 WorldPosition2D" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return position in world space (for Urho2D).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldRight">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 WorldRight { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 WorldRight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return node's right vector in world space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldRotation">
+      <MemberSignature Language="C#" Value="public Urho.Quaternion WorldRotation { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Quaternion WorldRotation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return rotation in world space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldRotation2D">
+      <MemberSignature Language="C#" Value="public float WorldRotation2D { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 WorldRotation2D" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return rotation in world space (for Urho2D).
+            Or
+            Set rotation in world space (for Urho2D).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldScale">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 WorldScale { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 WorldScale" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scale in world space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldScale2D">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 WorldScale2D { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 WorldScale2D" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scale in world space (for Urho2D).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldToLocal">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 WorldToLocal (Urho.Vector3 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 WorldToLocal(valuetype Urho.Vector3 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>
+            Convert a world space position to local space.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldToLocal">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 WorldToLocal (Urho.Vector4 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 WorldToLocal(valuetype Urho.Vector4 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="vector">To be added.</param>
+        <summary>
+            Convert a world space position or rotation to local space.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldToLocal2D">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 WorldToLocal2D (Urho.Vector2 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector2 WorldToLocal2D(valuetype Urho.Vector2 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="vector">To be added.</param>
+        <summary>
+            Convert a world space position or rotation to local space (for Urho2D).
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldUp">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 WorldUp { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 WorldUp" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return node's up vector in world space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Yaw">
+      <MemberSignature Language="C#" Value="public void Yaw (float angle, Urho.TransformSpace space);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Yaw(float32 angle, valuetype Urho.TransformSpace space) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="space" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="angle">To be added.</param>
+        <param name="space">To be added.</param>
+        <summary>
+            Rotate around the Y axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

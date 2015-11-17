@@ -1,0 +1,586 @@
+<Type Name="MathHelper" FullName="Urho.MathHelper">
+  <TypeSignature Language="C#" Value="public static class MathHelper" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit MathHelper extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Contains common mathematical functions and constants.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="BinomialCoefficient">
+      <MemberSignature Language="C#" Value="public static long BinomialCoefficient (int n, int k);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int64 BinomialCoefficient(int32 n, int32 k) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int64</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="n" Type="System.Int32" />
+        <Parameter Name="k" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="n">The n.</param>
+        <param name="k">The k.</param>
+        <summary>
+            Calculates the binomial coefficient <paramref name="n" /> above <paramref name="k" />.
+            </summary>
+        <returns>n! / (k! * (n - k)!)</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clamp">
+      <MemberSignature Language="C#" Value="public static float Clamp (float value, float min, float max);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 Clamp(float32 value, float32 min, float32 max) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Single" />
+        <Parameter Name="min" Type="System.Single" />
+        <Parameter Name="max" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <param name="min">To be added.</param>
+        <param name="max">To be added.</param>
+        <summary>
+            Clamp a float to a range.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DegreesToRadians">
+      <MemberSignature Language="C#" Value="public static double DegreesToRadians (double degrees);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 DegreesToRadians(float64 degrees) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="degrees" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="degrees">An angle in degrees</param>
+        <summary>
+            Convert degrees to radians
+            </summary>
+        <returns>The angle expressed in radians</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DegreesToRadians">
+      <MemberSignature Language="C#" Value="public static float DegreesToRadians (float degrees);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 DegreesToRadians(float32 degrees) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="degrees" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="degrees">An angle in degrees</param>
+        <summary>
+            Convert degrees to radians
+            </summary>
+        <returns>The angle expressed in radians</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DTORF">
+      <MemberSignature Language="C#" Value="public static readonly float DTORF;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly float32 DTORF" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="E">
+      <MemberSignature Language="C#" Value="public const float E = 2.718282;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 E = (2.718282)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>2.718282</MemberValue>
+      <Docs>
+        <summary>
+            Defines the value of E as a <see cref="T:System.Single" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Factorial">
+      <MemberSignature Language="C#" Value="public static long Factorial (int n);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int64 Factorial(int32 n) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int64</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="n" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="n">The number.</param>
+        <summary>Calculates the factorial of a given natural number.
+            </summary>
+        <returns>n!</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InverseSqrtFast">
+      <MemberSignature Language="C#" Value="public static double InverseSqrtFast (double x);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 InverseSqrtFast(float64 x) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="x">A number.</param>
+        <summary>
+            Returns an approximation of the inverse square root of left number.
+            </summary>
+        <returns>An approximation of the inverse square root of the specified number, with an upper error bound of 0.001</returns>
+        <remarks>
+            This is an improved implementation of the the method known as Carmack's inverse square root
+            which is found in the Quake III source code. This implementation comes from
+            http://www.codemaestro.com/reviews/review00000105.html. For the history of this method, see
+            http://www.beyond3d.com/content/articles/8/
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InverseSqrtFast">
+      <MemberSignature Language="C#" Value="public static float InverseSqrtFast (float x);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 InverseSqrtFast(float32 x) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">A number.</param>
+        <summary>
+            Returns an approximation of the inverse square root of left number.
+            </summary>
+        <returns>An approximation of the inverse square root of the specified number, with an upper error bound of 0.001</returns>
+        <remarks>
+            This is an improved implementation of the the method known as Carmack's inverse square root
+            which is found in the Quake III source code. This implementation comes from
+            http://www.codemaestro.com/reviews/review00000105.html. For the history of this method, see
+            http://www.beyond3d.com/content/articles/8/
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Lerp">
+      <MemberSignature Language="C#" Value="public static float Lerp (float lhs, float rhs, float t);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 Lerp(float32 lhs, float32 rhs, float32 t) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="lhs" Type="System.Single" />
+        <Parameter Name="rhs" Type="System.Single" />
+        <Parameter Name="t" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="lhs">To be added.</param>
+        <param name="rhs">To be added.</param>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Log10E">
+      <MemberSignature Language="C#" Value="public const float Log10E = 0.4342945;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 Log10E = (0.4342945)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>0.4342945</MemberValue>
+      <Docs>
+        <summary>
+            Defines the base-10 logarithm of E.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Log2E">
+      <MemberSignature Language="C#" Value="public const float Log2E = 1.442695;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 Log2E = (1.442695)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>1.442695</MemberValue>
+      <Docs>
+        <summary>
+            Defines the base-2 logarithm of E.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NextPowerOfTwo">
+      <MemberSignature Language="C#" Value="public static double NextPowerOfTwo (double n);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 NextPowerOfTwo(float64 n) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="n" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="n">The specified number.</param>
+        <summary>
+            Returns the next power of two that is larger than the specified number.
+            </summary>
+        <returns>The next power of two.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NextPowerOfTwo">
+      <MemberSignature Language="C#" Value="public static int NextPowerOfTwo (int n);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 NextPowerOfTwo(int32 n) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="n" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="n">The specified number.</param>
+        <summary>
+            Returns the next power of two that is larger than the specified number.
+            </summary>
+        <returns>The next power of two.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NextPowerOfTwo">
+      <MemberSignature Language="C#" Value="public static long NextPowerOfTwo (long n);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int64 NextPowerOfTwo(int64 n) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int64</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="n" Type="System.Int64" />
+      </Parameters>
+      <Docs>
+        <param name="n">The specified number.</param>
+        <summary>
+            Returns the next power of two that is larger than the specified number.
+            </summary>
+        <returns>The next power of two.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NextPowerOfTwo">
+      <MemberSignature Language="C#" Value="public static float NextPowerOfTwo (float n);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 NextPowerOfTwo(float32 n) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="n" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="n">The specified number.</param>
+        <summary>
+            Returns the next power of two that is larger than the specified number.
+            </summary>
+        <returns>The next power of two.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Pi">
+      <MemberSignature Language="C#" Value="public const float Pi = 3.141593;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 Pi = (3.141593)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>3.141593</MemberValue>
+      <Docs>
+        <summary>
+            Defines the value of Pi as a <see cref="T:System.Single" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PiOver2">
+      <MemberSignature Language="C#" Value="public const float PiOver2 = 1.570796;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 PiOver2 = (1.570796)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>1.570796</MemberValue>
+      <Docs>
+        <summary>
+            Defines the value of Pi divided by two as a <see cref="T:System.Single" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PiOver3">
+      <MemberSignature Language="C#" Value="public const float PiOver3 = 1.047198;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 PiOver3 = (1.047198)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>1.047198</MemberValue>
+      <Docs>
+        <summary>
+            Defines the value of Pi divided by three as a <see cref="T:System.Single" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PiOver4">
+      <MemberSignature Language="C#" Value="public const float PiOver4 = 0.7853982;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 PiOver4 = (0.7853982)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>0.7853982</MemberValue>
+      <Docs>
+        <summary>
+            Definesthe value of  Pi divided by four as a <see cref="T:System.Single" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PiOver6">
+      <MemberSignature Language="C#" Value="public const float PiOver6 = 0.5235988;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 PiOver6 = (0.5235988)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>0.5235988</MemberValue>
+      <Docs>
+        <summary>
+            Defines the value of Pi divided by six as a <see cref="T:System.Single" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RadiansToDegrees">
+      <MemberSignature Language="C#" Value="public static double RadiansToDegrees (double radians);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float64 RadiansToDegrees(float64 radians) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="radians" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="radians">An angle in radians</param>
+        <summary>
+            Convert radians to degrees
+            </summary>
+        <returns>The angle expressed in degrees</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RadiansToDegrees">
+      <MemberSignature Language="C#" Value="public static float RadiansToDegrees (float radians);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 RadiansToDegrees(float32 radians) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="radians" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="radians">An angle in radians</param>
+        <summary>
+            Convert radians to degrees
+            </summary>
+        <returns>The angle expressed in degrees</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Swap">
+      <MemberSignature Language="C#" Value="public static void Swap (ref double a, ref double b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Swap(float64 a, float64 b) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="System.Double&amp;" RefType="ref" />
+        <Parameter Name="b" Type="System.Double&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="a">The first value.</param>
+        <param name="b">The second value.</param>
+        <summary>
+            Swaps two double values.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Swap">
+      <MemberSignature Language="C#" Value="public static void Swap (ref float a, ref float b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Swap(float32 a, float32 b) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="System.Single&amp;" RefType="ref" />
+        <Parameter Name="b" Type="System.Single&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="a">The first value.</param>
+        <param name="b">The second value.</param>
+        <summary>
+            Swaps two float values.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ThreePiOver2">
+      <MemberSignature Language="C#" Value="public const float ThreePiOver2 = 4.712389;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 ThreePiOver2 = (4.712389)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>4.712389</MemberValue>
+      <Docs>
+        <summary>
+            Defines the value of Pi multiplied by 3 and divided by two as a <see cref="T:System.Single" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TwoPi">
+      <MemberSignature Language="C#" Value="public const float TwoPi = 6.283185;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 TwoPi = (6.283185)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>6.283185</MemberValue>
+      <Docs>
+        <summary>
+            Defines the value of Pi multiplied by two as a <see cref="T:System.Single" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

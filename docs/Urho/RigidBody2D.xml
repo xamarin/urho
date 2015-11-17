@@ -1,0 +1,842 @@
+<Type Name="RigidBody2D" FullName="Urho.RigidBody2D">
+  <TypeSignature Language="C#" Value="public class RigidBody2D : Urho.Component" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit RigidBody2D extends Urho.Component" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Component</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            2D rigid body component.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RigidBody2D (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RigidBody2D (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RigidBody2D (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddCollisionShape2D">
+      <MemberSignature Language="C#" Value="public void AddCollisionShape2D (Urho.CollisionShape2D collisionShape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCollisionShape2D(class Urho.CollisionShape2D collisionShape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="collisionShape" Type="Urho.CollisionShape2D" />
+      </Parameters>
+      <Docs>
+        <param name="collisionShape">To be added.</param>
+        <summary>
+            Add collision shape.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddConstraint2D">
+      <MemberSignature Language="C#" Value="public void AddConstraint2D (Urho.Constraint2D constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddConstraint2D(class Urho.Constraint2D constraint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="constraint" Type="Urho.Constraint2D" />
+      </Parameters>
+      <Docs>
+        <param name="constraint">To be added.</param>
+        <summary>
+            Add constraint.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AngularDamping">
+      <MemberSignature Language="C#" Value="public float AngularDamping { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 AngularDamping" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return angular damping.
+            Or
+            Set angular damping.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AngularVelocity">
+      <MemberSignature Language="C#" Value="public float AngularVelocity { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 AngularVelocity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return angular velocity.
+            Or
+            Set angular velocity.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyAngularImpulse">
+      <MemberSignature Language="C#" Value="public void ApplyAngularImpulse (float impulse, bool wake);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyAngularImpulse(float32 impulse, bool wake) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="impulse" Type="System.Single" />
+        <Parameter Name="wake" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="impulse">To be added.</param>
+        <param name="wake">To be added.</param>
+        <summary>
+            Apply angular impulse.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyForce">
+      <MemberSignature Language="C#" Value="public void ApplyForce (Urho.Vector2 force, Urho.Vector2 point, bool wake);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyForce(valuetype Urho.Vector2 force, valuetype Urho.Vector2 point, bool wake) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="force" Type="Urho.Vector2" />
+        <Parameter Name="point" Type="Urho.Vector2" />
+        <Parameter Name="wake" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="force">To be added.</param>
+        <param name="point">To be added.</param>
+        <param name="wake">To be added.</param>
+        <summary>
+            Apply force.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyForceToCenter">
+      <MemberSignature Language="C#" Value="public void ApplyForceToCenter (Urho.Vector2 force, bool wake);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyForceToCenter(valuetype Urho.Vector2 force, bool wake) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="force" Type="Urho.Vector2" />
+        <Parameter Name="wake" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="force">To be added.</param>
+        <param name="wake">To be added.</param>
+        <summary>
+            Apply force to center.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyLinearImpulse">
+      <MemberSignature Language="C#" Value="public void ApplyLinearImpulse (Urho.Vector2 impulse, Urho.Vector2 point, bool wake);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyLinearImpulse(valuetype Urho.Vector2 impulse, valuetype Urho.Vector2 point, bool wake) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="impulse" Type="Urho.Vector2" />
+        <Parameter Name="point" Type="Urho.Vector2" />
+        <Parameter Name="wake" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="impulse">To be added.</param>
+        <param name="point">To be added.</param>
+        <param name="wake">To be added.</param>
+        <summary>
+            Apply linear impulse.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyTorque">
+      <MemberSignature Language="C#" Value="public void ApplyTorque (float torque, bool wake);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyTorque(float32 torque, bool wake) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="torque" Type="System.Single" />
+        <Parameter Name="wake" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="torque">To be added.</param>
+        <param name="wake">To be added.</param>
+        <summary>
+            Apply Torque.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyWorldTransform">
+      <MemberSignature Language="C#" Value="public void ApplyWorldTransform ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyWorldTransform() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Apply world transform.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BodyType">
+      <MemberSignature Language="C#" Value="public Urho.BodyType2D BodyType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.BodyType2D BodyType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.BodyType2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return body type.
+            Or
+            Set body type.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateBody">
+      <MemberSignature Language="C#" Value="public void CreateBody ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateBody() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Create body.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GravityScale">
+      <MemberSignature Language="C#" Value="public float GravityScale { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 GravityScale" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return gravity scale.
+            Or
+            Set gravity scale.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Inertia">
+      <MemberSignature Language="C#" Value="public float Inertia { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Inertia" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return inertia.
+            Or
+            Set inertia.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsAllowSleep">
+      <MemberSignature Language="C#" Value="public bool IsAllowSleep ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsAllowSleep() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return allow sleep.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsAwake">
+      <MemberSignature Language="C#" Value="public bool IsAwake ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsAwake() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return awake.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsBullet">
+      <MemberSignature Language="C#" Value="public bool IsBullet ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsBullet() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return bullet mode.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsFixedRotation">
+      <MemberSignature Language="C#" Value="public bool IsFixedRotation ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsFixedRotation() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return fixed rotation.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LinearDamping">
+      <MemberSignature Language="C#" Value="public float LinearDamping { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 LinearDamping" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return linear damping.
+            Or
+            Set linear damping.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LinearVelocity">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 LinearVelocity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 LinearVelocity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return linear velocity.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Mass">
+      <MemberSignature Language="C#" Value="public float Mass { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Mass" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return mass.
+            Or
+            Set mass.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MassCenter">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 MassCenter { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 MassCenter" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return mass center.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSetEnabled">
+      <MemberSignature Language="C#" Value="public override void OnSetEnabled ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnSetEnabled() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Handle enabled/disabled state change.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReleaseBody">
+      <MemberSignature Language="C#" Value="public void ReleaseBody ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseBody() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Release body.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveCollisionShape2D">
+      <MemberSignature Language="C#" Value="public void RemoveCollisionShape2D (Urho.CollisionShape2D collisionShape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveCollisionShape2D(class Urho.CollisionShape2D collisionShape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="collisionShape" Type="Urho.CollisionShape2D" />
+      </Parameters>
+      <Docs>
+        <param name="collisionShape">To be added.</param>
+        <summary>
+            Remove collision shape.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveConstraint2D">
+      <MemberSignature Language="C#" Value="public void RemoveConstraint2D (Urho.Constraint2D constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveConstraint2D(class Urho.Constraint2D constraint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="constraint" Type="Urho.Constraint2D" />
+      </Parameters>
+      <Docs>
+        <param name="constraint">To be added.</param>
+        <summary>
+            Remove constraint.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAllowSleep">
+      <MemberSignature Language="C#" Value="public void SetAllowSleep (bool allowSleep);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAllowSleep(bool allowSleep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allowSleep" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="allowSleep">To be added.</param>
+        <summary>
+            Set allow sleep.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAwake">
+      <MemberSignature Language="C#" Value="public void SetAwake (bool awake);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAwake(bool awake) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="awake" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="awake">To be added.</param>
+        <summary>
+            Set awake.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetBullet">
+      <MemberSignature Language="C#" Value="public void SetBullet (bool bullet);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBullet(bool bullet) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="bullet" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="bullet">To be added.</param>
+        <summary>
+            Set bullet mode.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetFixedRotation">
+      <MemberSignature Language="C#" Value="public void SetFixedRotation (bool fixedRotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetFixedRotation(bool fixedRotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fixedRotation" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="fixedRotation">To be added.</param>
+        <summary>
+            Set fixed rotation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetLinearVelocity">
+      <MemberSignature Language="C#" Value="public void SetLinearVelocity (Urho.Vector2 linearVelocity);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetLinearVelocity(valuetype Urho.Vector2 linearVelocity) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="linearVelocity" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="linearVelocity">To be added.</param>
+        <summary>
+            Set linear velocity.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMassCenter">
+      <MemberSignature Language="C#" Value="public void SetMassCenter (Urho.Vector2 center);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMassCenter(valuetype Urho.Vector2 center) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="center" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="center">To be added.</param>
+        <summary>
+            Set mass center.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UseFixtureMass">
+      <MemberSignature Language="C#" Value="public bool UseFixtureMass { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UseFixtureMass" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether to calculate mass and inertia from collision shapes automatically.
+            Or
+            Set whether to automatically calculate mass and inertia from collision shapes. Default true.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

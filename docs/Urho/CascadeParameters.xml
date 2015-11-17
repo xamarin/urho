@@ -1,0 +1,134 @@
+<Type Name="CascadeParameters" FullName="Urho.CascadeParameters">
+  <TypeSignature Language="C#" Value="public struct CascadeParameters" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit CascadeParameters extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CascadeParameters (float split1, float split2, float split3, float split4, float fadeStart, float biasAutoAdjust = 1);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 split1, float32 split2, float32 split3, float32 split4, float32 fadeStart, float32 biasAutoAdjust) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="split1" Type="System.Single" />
+        <Parameter Name="split2" Type="System.Single" />
+        <Parameter Name="split3" Type="System.Single" />
+        <Parameter Name="split4" Type="System.Single" />
+        <Parameter Name="fadeStart" Type="System.Single" />
+        <Parameter Name="biasAutoAdjust" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="split1">To be added.</param>
+        <param name="split2">To be added.</param>
+        <param name="split3">To be added.</param>
+        <param name="split4">To be added.</param>
+        <param name="fadeStart">To be added.</param>
+        <param name="biasAutoAdjust">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BiasAutoAdjust">
+      <MemberSignature Language="C#" Value="public float BiasAutoAdjust;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 BiasAutoAdjust" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FadeStart">
+      <MemberSignature Language="C#" Value="public float FadeStart;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 FadeStart" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Split1">
+      <MemberSignature Language="C#" Value="public float Split1;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 Split1" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Split2">
+      <MemberSignature Language="C#" Value="public float Split2;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 Split2" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Split3">
+      <MemberSignature Language="C#" Value="public float Split3;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 Split3" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Split4">
+      <MemberSignature Language="C#" Value="public float Split4;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 Split4" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,176 @@
+<Type Name="BackgroundLoader" FullName="Urho.BackgroundLoader">
+  <TypeSignature Language="C#" Value="public class BackgroundLoader : Urho.RefCounted" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BackgroundLoader extends Urho.RefCounted" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.RefCounted</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Background loader of resources. Owned by the ResourceCache.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BackgroundLoader (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BackgroundLoader (Urho.ResourceCache owner);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.ResourceCache owner) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="owner" Type="Urho.ResourceCache" />
+      </Parameters>
+      <Docs>
+        <param name="owner">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BackgroundLoader (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FinishResources">
+      <MemberSignature Language="C#" Value="public void FinishResources (int maxMs);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void FinishResources(int32 maxMs) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="maxMs" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="maxMs">To be added.</param>
+        <summary>
+            Process resources that are ready to finish.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumQueuedResources">
+      <MemberSignature Language="C#" Value="public uint NumQueuedResources { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumQueuedResources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return amount of resources in the load queue.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueueResource">
+      <MemberSignature Language="C#" Value="public bool QueueResource (Urho.StringHash type, string name, bool sendEventOnFailure, Urho.Resource caller);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool QueueResource(valuetype Urho.StringHash type, string name, bool sendEventOnFailure, class Urho.Resource caller) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+        <Parameter Name="caller" Type="Urho.Resource" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <param name="caller">To be added.</param>
+        <summary>
+            Queue loading of a resource. The name must be sanitated to ensure consistent format. Return true if queued (not a duplicate and resource was a known type).
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ThreadFunction">
+      <MemberSignature Language="C#" Value="public void ThreadFunction ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ThreadFunction() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Resource background loading loop.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WaitForResource">
+      <MemberSignature Language="C#" Value="public void WaitForResource (Urho.StringHash type, Urho.StringHash nameHash);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WaitForResource(valuetype Urho.StringHash type, valuetype Urho.StringHash nameHash) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="nameHash" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="nameHash">To be added.</param>
+        <summary>
+            Wait and finish possible loading of a resource when being requested from the cache.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

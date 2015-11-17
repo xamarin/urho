@@ -1,0 +1,103 @@
+<Type Name="PrimitiveType" FullName="Urho.PrimitiveType">
+  <TypeSignature Language="C#" Value="public enum PrimitiveType" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed PrimitiveType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            Primitive type.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="LineList">
+      <MemberSignature Language="C#" Value="LineList" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PrimitiveType LineList = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PrimitiveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="LineStrip">
+      <MemberSignature Language="C#" Value="LineStrip" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PrimitiveType LineStrip = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PrimitiveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="PointList">
+      <MemberSignature Language="C#" Value="PointList" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PrimitiveType PointList = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PrimitiveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="TriangleFan">
+      <MemberSignature Language="C#" Value="TriangleFan" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PrimitiveType TriangleFan = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PrimitiveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="TriangleList">
+      <MemberSignature Language="C#" Value="TriangleList" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PrimitiveType TriangleList = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PrimitiveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="TriangleStrip">
+      <MemberSignature Language="C#" Value="TriangleStrip" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PrimitiveType TriangleStrip = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PrimitiveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

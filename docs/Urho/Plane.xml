@@ -1,0 +1,107 @@
+<Type Name="Plane" FullName="Urho.Plane">
+  <TypeSignature Language="C#" Value="public struct Plane" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Plane extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Plane (Urho.Vector4 plane);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Vector4 plane) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="plane" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="plane">To be added.</param>
+        <summary>
+            Construct from a 4-dimensional vector, where the w coordinate is the plane parameter.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Plane (Urho.Vector3 normal, Urho.Vector3 point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Vector3 normal, valuetype Urho.Vector3 point) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="normal" Type="Urho.Vector3" />
+        <Parameter Name="point" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="normal">To be added.</param>
+        <param name="point">To be added.</param>
+        <summary>
+            Construct from a normal vector and a point on the plane.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AbsNormal">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 AbsNormal;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector3 AbsNormal" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Plane absolute normal.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="D">
+      <MemberSignature Language="C#" Value="public float D;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 D" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Plane constant.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Normal">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Normal;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector3 Normal" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Plane normal.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

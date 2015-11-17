@@ -1,0 +1,1014 @@
+<Type Name="Matrix3" FullName="Urho.Matrix3">
+  <TypeSignature Language="C#" Value="public struct Matrix3 : IEquatable&lt;Urho.Matrix3&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Matrix3 extends System.ValueType implements class System.IEquatable`1&lt;valuetype Urho.Matrix3&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.IEquatable&lt;Urho.Matrix3&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Matrix3 (float[] floatArray);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32[] floatArray) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="floatArray" Type="System.Single[]" />
+      </Parameters>
+      <Docs>
+        <param name="floatArray">The array of floats for the components of the matrix.</param>
+        <summary>Constructs left matrix from the given array of float-precision floating-point numbers.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Matrix3 (ref Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">To be added.</param>
+        <summary>Constructs left matrix with the same components as the given matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Matrix3 (float r0c0, float r0c1, float r0c2, float r1c0, float r1c1, float r1c2, float r2c0, float r2c1, float r2c2);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 r0c0, float32 r0c1, float32 r0c2, float32 r1c0, float32 r1c1, float32 r1c2, float32 r2c0, float32 r2c1, float32 r2c2) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="r0c0" Type="System.Single" />
+        <Parameter Name="r0c1" Type="System.Single" />
+        <Parameter Name="r0c2" Type="System.Single" />
+        <Parameter Name="r1c0" Type="System.Single" />
+        <Parameter Name="r1c1" Type="System.Single" />
+        <Parameter Name="r1c2" Type="System.Single" />
+        <Parameter Name="r2c0" Type="System.Single" />
+        <Parameter Name="r2c1" Type="System.Single" />
+        <Parameter Name="r2c2" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="r0c0">The value for row 0 column 0.</param>
+        <param name="r0c1">The value for row 0 column 1.</param>
+        <param name="r0c2">The value for row 0 column 2.</param>
+        <param name="r1c0">The value for row 1 column 0.</param>
+        <param name="r1c1">The value for row 1 column 1.</param>
+        <param name="r1c2">The value for row 1 column 2.</param>
+        <param name="r2c0">The value for row 2 column 0.</param>
+        <param name="r2c1">The value for row 2 column 1.</param>
+        <param name="r2c2">The value for row 2 column 2.</param>
+        <summary>Constructs left matrix with the given values.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (ref Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Add(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to add.</param>
+        <summary>Add left matrix to this matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (ref Urho.Matrix3 matrix, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Add(valuetype Urho.Matrix3 matrix, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to add.</param>
+        <param name="result">The resulting matrix of the addition.</param>
+        <summary>Add left matrix to this matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public static void Add (ref Urho.Matrix3 left, ref Urho.Matrix3 right, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Add(valuetype Urho.Matrix3 left, valuetype Urho.Matrix3 right, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">To be added.</param>
+        <param name="right">The matrix on the right side of the equation</param>
+        <param name="result">The resulting matrix of the addition.</param>
+        <summary>Add left matrix to left matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Determinant">
+      <MemberSignature Language="C#" Value="public float Determinant { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Determinant" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public bool Equals (Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Equals(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The OpenTK.Matrix3 structure to compare with.</param>
+        <summary>Indicates whether the current matrix is equal to another matrix.</summary>
+        <returns>true if the current matrix is equal to the matrix parameter; otherwise, false.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public bool Equals (ref Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Equals(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The OpenTK.Matrix3 structure to compare to.</param>
+        <summary>Indicates whether the current matrix is equal to another matrix.</summary>
+        <returns>true if the current matrix is equal to the matrix parameter; otherwise, false.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public static bool Equals (ref Urho.Matrix3 left, ref Urho.Matrix3 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Equals(valuetype Urho.Matrix3 left, valuetype Urho.Matrix3 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Matrix3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="left">The left-hand operand.</param>
+        <param name="right">The right-hand operand.</param>
+        <summary>Indicates whether the current matrix is equal to another matrix.</summary>
+        <returns>true if the current matrix is equal to the matrix parameter; otherwise, false.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EqualsApprox">
+      <MemberSignature Language="C#" Value="public bool EqualsApprox (ref Urho.Matrix3 matrix, float tolerance);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool EqualsApprox(valuetype Urho.Matrix3 matrix, float32 tolerance) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="tolerance" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The OpenTK.Matrix3 structure to compare with.</param>
+        <param name="tolerance">The limit below which the matrices are considered equal.</param>
+        <summary>Indicates whether the current matrix is approximately equal to another matrix.</summary>
+        <returns>true if the current matrix is approximately equal to the matrix parameter; otherwise, false.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EqualsApprox">
+      <MemberSignature Language="C#" Value="public static bool EqualsApprox (ref Urho.Matrix3 left, ref Urho.Matrix3 right, float tolerance);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool EqualsApprox(valuetype Urho.Matrix3 left, valuetype Urho.Matrix3 right, float32 tolerance) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="tolerance" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="left">The left-hand operand.</param>
+        <param name="right">The right-hand operand.</param>
+        <param name="tolerance">The limit below which the matrices are considered equal.</param>
+        <summary>Indicates whether the current matrix is approximately equal to another matrix.</summary>
+        <returns>true if the current matrix is approximately equal to the matrix parameter; otherwise, false.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Returns the hash code for this instance.</summary>
+        <returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Identity">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Matrix3 Identity;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Matrix3 Identity" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The identity matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item">
+      <MemberSignature Language="C#" Value="public float this[int index] { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Item(int32)" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">The index into the components of the matrix.</param>
+        <summary>Gets the component at the index into the matrix.</summary>
+        <value>The component at the given index into the matrix.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item">
+      <MemberSignature Language="C#" Value="public float this[int row, int column] { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Item(int32, int32)" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="row" Type="System.Int32" />
+        <Parameter Name="column" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="row">The row of the matrix.</param>
+        <param name="column">The column of the matrix.</param>
+        <summary>Gets the component at the given row and column in the matrix.</summary>
+        <value>The component at the given row and column in the matrix.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public void Multiply (float scalar);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Multiply(float32 scalar) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scalar" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="scalar">To be added.</param>
+        <summary>Multiply matrix times this matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public void Multiply (ref Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Multiply(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to multiply.</param>
+        <summary>Multiply left martix times this matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public void Multiply (float scalar, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Multiply(float32 scalar, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scalar" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="scalar">To be added.</param>
+        <param name="result">The resulting matrix of the multiplication.</param>
+        <summary>Multiply matrix times this matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public void Multiply (ref Urho.Matrix3 matrix, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Multiply(valuetype Urho.Matrix3 matrix, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to multiply.</param>
+        <param name="result">The resulting matrix of the multiplication.</param>
+        <summary>Multiply matrix times this matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static void Multiply (ref Urho.Matrix3 matrix, float scalar, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Multiply(valuetype Urho.Matrix3 matrix, float32 scalar, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="scalar" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix on the matrix side of the equation.</param>
+        <param name="scalar">To be added.</param>
+        <param name="result">The resulting matrix of the multiplication.</param>
+        <summary>Multiply left matrix times left matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static void Multiply (ref Urho.Matrix3 left, ref Urho.Matrix3 right, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Multiply(valuetype Urho.Matrix3 left, valuetype Urho.Matrix3 right, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">To be added.</param>
+        <param name="right">The matrix on the right side of the equation</param>
+        <param name="result">The resulting matrix of the multiplication.</param>
+        <summary>Multiply left matrix times left matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Explicit">
+      <MemberSignature Language="C#" Value="public static IntPtr op_Explicit (Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname native int op_Explicit(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to convert.</param>
+        <summary>Converts the matrix into an IntPtr.</summary>
+        <returns>An IntPtr for the matrix.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Explicit">
+      <MemberSignature Language="C#" Value="public static float* op_Explicit (Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname float32* op_Explicit(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to convert.</param>
+        <summary>Converts the matrix into left float*.</summary>
+        <returns>A float* for the matrix.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Explicit">
+      <MemberSignature Language="C#" Value="public static float[] op_Explicit (Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname float32[] op_Explicit(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to convert.</param>
+        <summary>Converts the matrix into an array of floats.</summary>
+        <returns>An array of floats for the matrix.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R0C0">
+      <MemberSignature Language="C#" Value="public float R0C0;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R0C0" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 0, Column 0</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R0C1">
+      <MemberSignature Language="C#" Value="public float R0C1;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R0C1" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 0, Column 1</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R0C2">
+      <MemberSignature Language="C#" Value="public float R0C2;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R0C2" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 0, Column 2</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R1C0">
+      <MemberSignature Language="C#" Value="public float R1C0;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R1C0" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 1, Column 0</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R1C1">
+      <MemberSignature Language="C#" Value="public float R1C1;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R1C1" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 1, Column 1</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R1C2">
+      <MemberSignature Language="C#" Value="public float R1C2;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R1C2" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 1, Column 2</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R2C0">
+      <MemberSignature Language="C#" Value="public float R2C0;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R2C0" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 2, Column 0</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R2C1">
+      <MemberSignature Language="C#" Value="public float R2C1;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R2C1" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 2, Column 1</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="R2C2">
+      <MemberSignature Language="C#" Value="public float R2C2;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 R2C2" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Row 2, Column 2</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotate">
+      <MemberSignature Language="C#" Value="public void Rotate (float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Rotate(float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="angle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotate">
+      <MemberSignature Language="C#" Value="public void Rotate (float angle, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Rotate(float32 angle, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="angle">To be added.</param>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotate">
+      <MemberSignature Language="C#" Value="public static void Rotate (ref Urho.Matrix3 matrix, float angle, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Rotate(valuetype Urho.Matrix3 matrix, float32 angle, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">To be added.</param>
+        <param name="angle">To be added.</param>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotateMatrix">
+      <MemberSignature Language="C#" Value="public static void RotateMatrix (float angle, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RotateMatrix(float32 angle, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="angle">To be added.</param>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Subtract">
+      <MemberSignature Language="C#" Value="public void Subtract (ref Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Subtract(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to subtract.</param>
+        <summary>Subtract left matrix from this matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Subtract">
+      <MemberSignature Language="C#" Value="public void Subtract (ref Urho.Matrix3 matrix, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Subtract(valuetype Urho.Matrix3 matrix, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">The matrix to subtract.</param>
+        <param name="result">The resulting matrix of the subtraction.</param>
+        <summary>Subtract left matrix from this matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Subtract">
+      <MemberSignature Language="C#" Value="public static void Subtract (ref Urho.Matrix3 left, ref Urho.Matrix3 right, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Subtract(valuetype Urho.Matrix3 left, valuetype Urho.Matrix3 right, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">To be added.</param>
+        <param name="right">The matrix on the right side of the equation</param>
+        <param name="result">The resulting matrix of the subtraction.</param>
+        <summary>Subtract left matrix from left matrix.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToQuaternion">
+      <MemberSignature Language="C#" Value="public Urho.Quaternion ToQuaternion ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Quaternion ToQuaternion() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance string ToString() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Returns the fully qualified type name of this instance.</summary>
+        <returns>A System.String containing left fully qualified type name.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transform">
+      <MemberSignature Language="C#" Value="public void Transform (ref Urho.Vector3 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Transform(valuetype Urho.Vector3 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="vector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transform">
+      <MemberSignature Language="C#" Value="public static void Transform (ref Urho.Matrix3 matrix, ref Urho.Vector3 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Transform(valuetype Urho.Matrix3 matrix, valuetype Urho.Vector3 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="vector" Type="Urho.Vector3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">To be added.</param>
+        <param name="vector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transform">
+      <MemberSignature Language="C#" Value="public void Transform (ref Urho.Vector3 vector, out Urho.Vector3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Transform(valuetype Urho.Vector3 vector, valuetype Urho.Vector3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Vector3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vector">To be added.</param>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transform">
+      <MemberSignature Language="C#" Value="public static void Transform (ref Urho.Matrix3 matrix, ref Urho.Vector3 vector, out Urho.Vector3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Transform(valuetype Urho.Matrix3 matrix, valuetype Urho.Vector3 vector, valuetype Urho.Vector3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="vector" Type="Urho.Vector3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Vector3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">To be added.</param>
+        <param name="vector">To be added.</param>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transpose">
+      <MemberSignature Language="C#" Value="public void Transpose ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Transpose() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transpose">
+      <MemberSignature Language="C#" Value="public void Transpose (out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Transpose(valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transpose">
+      <MemberSignature Language="C#" Value="public static void Transpose (ref Urho.Matrix3 matrix, out Urho.Matrix3 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Transpose(valuetype Urho.Matrix3 matrix, valuetype Urho.Matrix3 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix3&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">To be added.</param>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Zero">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Matrix3 Zero;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Matrix3 Zero" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>A matrix of all zeros.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

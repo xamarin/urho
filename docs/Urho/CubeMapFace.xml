@@ -1,0 +1,117 @@
+<Type Name="CubeMapFace" FullName="Urho.CubeMapFace">
+  <TypeSignature Language="C#" Value="public enum CubeMapFace" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed CubeMapFace extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            Cube map faces.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="MaxCubemapFaces">
+      <MemberSignature Language="C#" Value="MaxCubemapFaces" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapFace MaxCubemapFaces = int32(6)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapFace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NegativeX">
+      <MemberSignature Language="C#" Value="NegativeX" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapFace NegativeX = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapFace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NegativeY">
+      <MemberSignature Language="C#" Value="NegativeY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapFace NegativeY = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapFace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NegativeZ">
+      <MemberSignature Language="C#" Value="NegativeZ" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapFace NegativeZ = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapFace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="PositiveX">
+      <MemberSignature Language="C#" Value="PositiveX" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapFace PositiveX = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapFace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="PositiveY">
+      <MemberSignature Language="C#" Value="PositiveY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapFace PositiveY = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapFace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="PositiveZ">
+      <MemberSignature Language="C#" Value="PositiveZ" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapFace PositiveZ = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapFace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

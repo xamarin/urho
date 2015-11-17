@@ -1,0 +1,682 @@
+<Type Name="Animation" FullName="Urho.Animation">
+  <TypeSignature Language="C#" Value="public class Animation : Urho.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Animation extends Urho.Resource" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Resource</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Skeletal animation resource.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Animation (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Animation (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Animation (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, int data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, int32 data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, float data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, float32 data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, string data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, string data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.Color data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.Color data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.IntRect data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.IntRect data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="Urho.IntRect" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.IntVector2 data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.IntVector2 data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.Quaternion data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.Quaternion data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.Vector2 data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.Vector2 data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.Vector3 data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.Vector3 data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.Vector4 data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.Vector4 data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>
+            Add a trigger point.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AnimationName">
+      <MemberSignature Language="C#" Value="public string AnimationName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AnimationName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return animation name.
+            Or
+            Set animation name.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AnimationNameHash">
+      <MemberSignature Language="C#" Value="public Urho.StringHash AnimationNameHash { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash AnimationNameHash" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return animation name hash.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateTrack">
+      <MemberSignature Language="C#" Value="public Urho.AnimationTrack* CreateTrack (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.AnimationTrack* CreateTrack(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AnimationTrack*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Create and return a track by name. If track by same name already exists, returns the existing.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTrack">
+      <MemberSignature Language="C#" Value="public Urho.AnimationTrack* GetTrack (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.AnimationTrack* GetTrack(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AnimationTrack*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Return animation track by name.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTrack">
+      <MemberSignature Language="C#" Value="public Urho.AnimationTrack* GetTrack (Urho.StringHash nameHash);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.AnimationTrack* GetTrack(valuetype Urho.StringHash nameHash) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AnimationTrack*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="nameHash" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="nameHash">To be added.</param>
+        <summary>
+            Return animation track by name hash.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTrigger">
+      <MemberSignature Language="C#" Value="public Urho.AnimationTriggerPoint* GetTrigger (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.AnimationTriggerPoint* GetTrigger(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AnimationTriggerPoint*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return a trigger point by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Length">
+      <MemberSignature Language="C#" Value="public float Length { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Length" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return animation length.
+            Or
+            Set animation length.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumTracks">
+      <MemberSignature Language="C#" Value="public uint NumTracks { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumTracks" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of animation tracks.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumTriggers">
+      <MemberSignature Language="C#" Value="public uint NumTriggers { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumTriggers" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of animation trigger points.
+            Or
+            Resize trigger point vector.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllTracks">
+      <MemberSignature Language="C#" Value="public void RemoveAllTracks ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllTracks() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Remove all tracks. This is unsafe if the animation is currently used in playback.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllTriggers">
+      <MemberSignature Language="C#" Value="public void RemoveAllTriggers ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllTriggers() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Remove all trigger points.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveTrack">
+      <MemberSignature Language="C#" Value="public bool RemoveTrack (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RemoveTrack(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Remove a track by name. Return true if was found and removed successfully. This is unsafe if the animation is currently used in playback.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveTrigger">
+      <MemberSignature Language="C#" Value="public void RemoveTrigger (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveTrigger(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Remove a trigger point by index.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

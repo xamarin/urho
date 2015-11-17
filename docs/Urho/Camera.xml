@@ -1,0 +1,1034 @@
+<Type Name="Camera" FullName="Urho.Camera">
+  <TypeSignature Language="C#" Value="public class Camera : Urho.Component" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Camera extends Urho.Component" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Component</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            %Camera component.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Camera (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Camera (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Camera (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AspectRatio">
+      <MemberSignature Language="C#" Value="public float AspectRatio { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 AspectRatio" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return aspect ratio.
+            Or
+            Set aspect ratio manually. Disables the auto aspect ratio -mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoAspectRatio">
+      <MemberSignature Language="C#" Value="public bool AutoAspectRatio { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AutoAspectRatio" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return auto aspect ratio flag.
+            Or
+            Set automatic aspect ratio based on viewport dimensions. Enabled by default.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClipPlane">
+      <MemberSignature Language="C#" Value="public Urho.Plane ClipPlane { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Plane ClipPlane" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Plane</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the custom clipping plane.
+            Or
+            Set custom clipping plane in world space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClipPlaneAttr">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 ClipPlaneAttr { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector4 ClipPlaneAttr" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return clipping plane attribute.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawDebugGeometry">
+      <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer debug, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer debug, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="debug" Type="Urho.DebugRenderer" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="debug">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>
+            Visualize the component as debug geometry.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EffectiveWorldTransform">
+      <MemberSignature Language="C#" Value="public Urho.Matrix3x4 EffectiveWorldTransform { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Matrix3x4 EffectiveWorldTransform" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3x4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Get effective world transform for matrix and frustum calculations including reflection but excluding node scaling.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FarClip">
+      <MemberSignature Language="C#" Value="public float FarClip { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 FarClip" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return far clip distance.
+            Or
+            Set far clip distance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FillMode">
+      <MemberSignature Language="C#" Value="public Urho.FillMode FillMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FillMode FillMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FillMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return fill mode.
+            Or
+            Set polygon fill mode to use when rendering a scene.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FlipVertical">
+      <MemberSignature Language="C#" Value="public bool FlipVertical { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool FlipVertical" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return vertical flipping mode.
+            Or
+            Set vertical flipping mode. Called internally by View to resolve OpenGL / Direct3D9 rendertarget sampling differences.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Fov">
+      <MemberSignature Language="C#" Value="public float Fov { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Fov" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return vertical field of view in degrees.
+            Or
+            Set vertical field of view in degrees.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDistance">
+      <MemberSignature Language="C#" Value="public float GetDistance (Urho.Vector3 worldPos);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetDistance(valuetype Urho.Vector3 worldPos) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="worldPos" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="worldPos">To be added.</param>
+        <summary>
+            Return distance to position. In orthographic mode uses only Z coordinate.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDistanceSquared">
+      <MemberSignature Language="C#" Value="public float GetDistanceSquared (Urho.Vector3 worldPos);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetDistanceSquared(valuetype Urho.Vector3 worldPos) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="worldPos" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="worldPos">To be added.</param>
+        <summary>
+            Return squared distance to position. In orthographic mode uses only Z coordinate.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFaceCameraRotation">
+      <MemberSignature Language="C#" Value="public Urho.Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, Urho.FaceCameraMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Quaternion GetFaceCameraRotation(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.FaceCameraMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+        <Parameter Name="mode" Type="Urho.FaceCameraMode" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <param name="mode">To be added.</param>
+        <summary>
+            Return a world rotation for facing a camera on certain axes based on the existing world rotation.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetLodDistance">
+      <MemberSignature Language="C#" Value="public float GetLodDistance (float distance, float scale, float bias);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetLodDistance(float32 distance, float32 scale, float32 bias) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="distance" Type="System.Single" />
+        <Parameter Name="scale" Type="System.Single" />
+        <Parameter Name="bias" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="distance">To be added.</param>
+        <param name="scale">To be added.</param>
+        <param name="bias">To be added.</param>
+        <summary>
+            Return a scene node's LOD scaled distance.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetProjection">
+      <MemberSignature Language="C#" Value="public Urho.Matrix4 GetProjection (bool apiSpecific);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Matrix4 GetProjection(bool apiSpecific) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="apiSpecific" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="apiSpecific">To be added.</param>
+        <summary>
+            Return either API-specific or API-independent (D3D convention) projection matrix.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetScreenRay">
+      <MemberSignature Language="C#" Value="public Urho.Ray GetScreenRay (float x, float y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Ray GetScreenRay(float32 x, float32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Ray</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>
+            Return ray corresponding to normalized screen coordinates (0.0 - 1.0).
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSplitFrustum">
+      <MemberSignature Language="C#" Value="public Urho.Frustum GetSplitFrustum (float nearClip, float farClip);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Frustum GetSplitFrustum(float32 nearClip, float32 farClip) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Frustum</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="nearClip" Type="System.Single" />
+        <Parameter Name="farClip" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="nearClip">To be added.</param>
+        <param name="farClip">To be added.</param>
+        <summary>
+            Return frustum split by custom near and far clip distances.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetViewSpaceSplitFrustum">
+      <MemberSignature Language="C#" Value="public Urho.Frustum GetViewSpaceSplitFrustum (float nearClip, float farClip);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Frustum GetViewSpaceSplitFrustum(float32 nearClip, float32 farClip) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Frustum</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="nearClip" Type="System.Single" />
+        <Parameter Name="farClip" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="nearClip">To be added.</param>
+        <param name="farClip">To be added.</param>
+        <summary>
+            Return split frustum in view space.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HalfViewSize">
+      <MemberSignature Language="C#" Value="public float HalfViewSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 HalfViewSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return half view size.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsOrthographic">
+      <MemberSignature Language="C#" Value="public bool IsOrthographic ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsOrthographic() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return orthographic flag.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsProjectionValid">
+      <MemberSignature Language="C#" Value="public bool IsProjectionValid ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsProjectionValid() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return if projection parameters are valid for rendering and raycasting.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LodBias">
+      <MemberSignature Language="C#" Value="public float LodBias { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 LodBias" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return LOD bias.
+            Or
+            Set LOD bias.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NearClip">
+      <MemberSignature Language="C#" Value="public float NearClip { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 NearClip" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return near clip distance.
+            Or
+            Set near clip distance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OrthoSize">
+      <MemberSignature Language="C#" Value="public float OrthoSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 OrthoSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return orthographic mode size.
+            Or
+            Set orthographic mode view uniform size.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProjectionOffset">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 ProjectionOffset { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 ProjectionOffset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return projection offset.
+            Or
+            Set projection offset. It needs to be calculated as (offset in pixels) / (viewport dimensions.)
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReflectionPlane">
+      <MemberSignature Language="C#" Value="public Urho.Plane ReflectionPlane { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Plane ReflectionPlane" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Plane</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the reflection plane.
+            Or
+            Set reflection plane in world space for reflection mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReflectionPlaneAttr">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 ReflectionPlaneAttr { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector4 ReflectionPlaneAttr" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return reflection plane attribute.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReverseCulling">
+      <MemberSignature Language="C#" Value="public bool ReverseCulling { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ReverseCulling" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether to reverse culling; affected by vertical flipping and reflection.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScreenToWorldPoint">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 ScreenToWorldPoint (Urho.Vector3 screenPos);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 ScreenToWorldPoint(valuetype Urho.Vector3 screenPos) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="screenPos" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="screenPos">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAspectRatioInternal">
+      <MemberSignature Language="C#" Value="public void SetAspectRatioInternal (float aspectRatio);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAspectRatioInternal(float32 aspectRatio) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="aspectRatio" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="aspectRatio">To be added.</param>
+        <summary>
+            Set aspect ratio without disabling the "auto aspect ratio" mode. Called internally by View.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetClipPlaneAttr">
+      <MemberSignature Language="C#" Value="public void SetClipPlaneAttr (Urho.Vector4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetClipPlaneAttr(valuetype Urho.Vector4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>
+            Set clipping plane attribute.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetOrthographic">
+      <MemberSignature Language="C#" Value="public void SetOrthographic (bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetOrthographic(bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <summary>
+            Set orthographic mode enabled/disabled.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetOrthoSize">
+      <MemberSignature Language="C#" Value="public void SetOrthoSize (Urho.Vector2 orthoSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetOrthoSize(valuetype Urho.Vector2 orthoSize) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="orthoSize" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="orthoSize">To be added.</param>
+        <summary>
+            Set orthographic mode view non-uniform size. Disables the auto aspect ratio -mode.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetOrthoSizeAttr">
+      <MemberSignature Language="C#" Value="public void SetOrthoSizeAttr (float orthoSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetOrthoSizeAttr(float32 orthoSize) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="orthoSize" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="orthoSize">To be added.</param>
+        <summary>
+            Set orthographic size attribute without forcing the aspect ratio.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetReflectionPlaneAttr">
+      <MemberSignature Language="C#" Value="public void SetReflectionPlaneAttr (Urho.Vector4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetReflectionPlaneAttr(valuetype Urho.Vector4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>
+            Set reflection plane attribute.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UseClipping">
+      <MemberSignature Language="C#" Value="public bool UseClipping { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UseClipping" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether is using a custom clipping plane.
+            Or
+            Set whether to use a custom clip plane.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UseReflection">
+      <MemberSignature Language="C#" Value="public bool UseReflection { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UseReflection" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether is using reflection.
+            Or
+            Set reflection mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewMask">
+      <MemberSignature Language="C#" Value="public uint ViewMask { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 ViewMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return view mask.
+            Or
+            Set view mask. Will be and'ed with object's view mask to see if the object should be rendered.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewOverrideFlags">
+      <MemberSignature Language="C#" Value="public Urho.ViewOverrideFlags ViewOverrideFlags { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.ViewOverrideFlags ViewOverrideFlags" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ViewOverrideFlags</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return view override flags.
+            Or
+            Set view override flags.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewSpaceFrustum">
+      <MemberSignature Language="C#" Value="public Urho.Frustum ViewSpaceFrustum { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Frustum ViewSpaceFrustum" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Frustum</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return frustum in view space.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldToScreenPoint">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 WorldToScreenPoint (Urho.Vector3 worldPos);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector2 WorldToScreenPoint(valuetype Urho.Vector3 worldPos) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="worldPos" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="worldPos">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Zoom">
+      <MemberSignature Language="C#" Value="public float Zoom { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Zoom" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return zoom.
+            Or
+            Set zoom.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

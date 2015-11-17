@@ -1,0 +1,61 @@
+<Type Name="PassLightingMode" FullName="Urho.PassLightingMode">
+  <TypeSignature Language="C#" Value="public enum PassLightingMode" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed PassLightingMode extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            Lighting mode of a pass.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Perpixel">
+      <MemberSignature Language="C#" Value="Perpixel" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PassLightingMode Perpixel = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PassLightingMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Pervertex">
+      <MemberSignature Language="C#" Value="Pervertex" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PassLightingMode Pervertex = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PassLightingMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Unlit">
+      <MemberSignature Language="C#" Value="Unlit" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PassLightingMode Unlit = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PassLightingMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

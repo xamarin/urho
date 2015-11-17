@@ -1,0 +1,3133 @@
+<Type Name="Graphics" FullName="Urho.Graphics">
+  <TypeSignature Language="C#" Value="public class Graphics : Urho.UrhoObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Graphics extends Urho.UrhoObject" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.UrhoObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            %Graphics subsystem. Manages the application window, rendering state and GPU resources.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Graphics (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Graphics (Urho.Context context_);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context_) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context_" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context_">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Graphics (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddGPUObject">
+      <MemberSignature Language="C#" Value="public void AddGPUObject (Urho.GPUObject* object);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddGPUObject(valuetype Urho.GPUObject* object) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="object" Type="Urho.GPUObject*" />
+      </Parameters>
+      <Docs>
+        <param name="object">To be added.</param>
+        <summary>
+            Add a GPU object to keep track of. Called by GPUObject.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AlphaFormat">
+      <MemberSignature Language="C#" Value="public static uint AlphaFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 AlphaFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific alpha texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AnisotropySupport">
+      <MemberSignature Language="C#" Value="public bool AnisotropySupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AnisotropySupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether anisotropic texture filtering is supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApiName">
+      <MemberSignature Language="C#" Value="public string ApiName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ApiName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return graphics API name.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeginDumpShaders">
+      <MemberSignature Language="C#" Value="public void BeginDumpShaders (string fileName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void BeginDumpShaders(string fileName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fileName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fileName">To be added.</param>
+        <summary>
+            Begin dumping shader variation names to an XML file for precaching.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeginFrame">
+      <MemberSignature Language="C#" Value="public bool BeginFrame ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool BeginFrame() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Begin frame rendering. Return true if device available and can render.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BlendMode">
+      <MemberSignature Language="C#" Value="public Urho.BlendMode BlendMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.BlendMode BlendMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.BlendMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return blending mode.
+            Or
+            Set blending mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Borderless">
+      <MemberSignature Language="C#" Value="public bool Borderless { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Borderless" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether window is borderless.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CleanupRenderSurface">
+      <MemberSignature Language="C#" Value="public void CleanupRenderSurface (Urho.RenderSurface surface);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CleanupRenderSurface(class Urho.RenderSurface surface) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="surface" Type="Urho.RenderSurface" />
+      </Parameters>
+      <Docs>
+        <param name="surface">To be added.</param>
+        <summary>
+            Clean up a render surface from all FBOs.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CleanupScratchBuffers">
+      <MemberSignature Language="C#" Value="public void CleanupScratchBuffers ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CleanupScratchBuffers() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Clean up too large scratch buffers.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CleanupShaderPrograms">
+      <MemberSignature Language="C#" Value="public void CleanupShaderPrograms (Urho.ShaderVariation variation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CleanupShaderPrograms(class Urho.ShaderVariation variation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="variation" Type="Urho.ShaderVariation" />
+      </Parameters>
+      <Docs>
+        <param name="variation">To be added.</param>
+        <summary>
+            Clean up shader programs when a shader variation is released or destroyed.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clear">
+      <MemberSignature Language="C#" Value="public void Clear (uint flags, Urho.Color color, float depth, uint stencil);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Clear(unsigned int32 flags, valuetype Urho.Color color, float32 depth, unsigned int32 stencil) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="flags" Type="System.UInt32" />
+        <Parameter Name="color" Type="Urho.Color" />
+        <Parameter Name="depth" Type="System.Single" />
+        <Parameter Name="stencil" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="flags">To be added.</param>
+        <param name="color">To be added.</param>
+        <param name="depth">To be added.</param>
+        <param name="stencil">To be added.</param>
+        <summary>
+            Clear any or all of rendertarget, depth buffer and stencil buffer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClearParameterSource">
+      <MemberSignature Language="C#" Value="public void ClearParameterSource (Urho.ShaderParameterGroup group);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ClearParameterSource(valuetype Urho.ShaderParameterGroup group) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="group" Type="Urho.ShaderParameterGroup" />
+      </Parameters>
+      <Docs>
+        <param name="group">To be added.</param>
+        <summary>
+            Clear remembered shader parameter source group.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClearParameterSources">
+      <MemberSignature Language="C#" Value="public void ClearParameterSources ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ClearParameterSources() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Clear remembered shader parameter sources.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClearTransformSources">
+      <MemberSignature Language="C#" Value="public void ClearTransformSources ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ClearTransformSources() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Clear remembered transform shader parameter sources.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Close">
+      <MemberSignature Language="C#" Value="public void Close ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Close() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Close the window.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ColorWrite">
+      <MemberSignature Language="C#" Value="public bool ColorWrite { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ColorWrite" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether color write is enabled.
+            Or
+            Set color write on/off.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CullMode">
+      <MemberSignature Language="C#" Value="public Urho.CullMode CullMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CullMode CullMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CullMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return hardware culling mode.
+            Or
+            Set hardware culling mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultTextureFilterMode">
+      <MemberSignature Language="C#" Value="public Urho.TextureFilterMode DefaultTextureFilterMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TextureFilterMode DefaultTextureFilterMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureFilterMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return default texture filtering mode.
+            Or
+            Set default texture filtering mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeferredSupport">
+      <MemberSignature Language="C#" Value="public bool DeferredSupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DeferredSupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether deferred rendering is supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DepthConstantBias">
+      <MemberSignature Language="C#" Value="public float DepthConstantBias { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DepthConstantBias" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return depth constant bias.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DepthSlopeScaledBias">
+      <MemberSignature Language="C#" Value="public float DepthSlopeScaledBias { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DepthSlopeScaledBias" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return depth slope scaled bias.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DepthStencil">
+      <MemberSignature Language="C#" Value="public Urho.RenderSurface DepthStencil { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RenderSurface DepthStencil" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderSurface</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return depth-stencil surface.
+            Or
+            Set depth-stencil surface.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DepthStencilFormat">
+      <MemberSignature Language="C#" Value="public static uint DepthStencilFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 DepthStencilFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific hardware depth-stencil texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DepthTest">
+      <MemberSignature Language="C#" Value="public Urho.CompareMode DepthTest { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CompareMode DepthTest" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CompareMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return depth compare mode.
+            Or
+            Set depth compare.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DepthTexture">
+      <MemberSignature Language="C#" Value="public Urho.Texture2D DepthTexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D DepthTexture" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return readable depth-stencil texture. Not created automatically on OpenGL.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DepthWrite">
+      <MemberSignature Language="C#" Value="public bool DepthWrite { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DepthWrite" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether depth write is enabled.
+            Or
+            Set depth write on/off.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DesktopResolution">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 DesktopResolution { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 DesktopResolution" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the desktop resolution.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Draw">
+      <MemberSignature Language="C#" Value="public void Draw (Urho.PrimitiveType type, uint vertexStart, uint vertexCount);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Draw(valuetype Urho.PrimitiveType type, unsigned int32 vertexStart, unsigned int32 vertexCount) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.PrimitiveType" />
+        <Parameter Name="vertexStart" Type="System.UInt32" />
+        <Parameter Name="vertexCount" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="vertexStart">To be added.</param>
+        <param name="vertexCount">To be added.</param>
+        <summary>
+            Draw non-indexed geometry.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Draw">
+      <MemberSignature Language="C#" Value="public void Draw (Urho.PrimitiveType type, uint indexStart, uint indexCount, uint minVertex, uint vertexCount);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Draw(valuetype Urho.PrimitiveType type, unsigned int32 indexStart, unsigned int32 indexCount, unsigned int32 minVertex, unsigned int32 vertexCount) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.PrimitiveType" />
+        <Parameter Name="indexStart" Type="System.UInt32" />
+        <Parameter Name="indexCount" Type="System.UInt32" />
+        <Parameter Name="minVertex" Type="System.UInt32" />
+        <Parameter Name="vertexCount" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="indexStart">To be added.</param>
+        <param name="indexCount">To be added.</param>
+        <param name="minVertex">To be added.</param>
+        <param name="vertexCount">To be added.</param>
+        <summary>
+            Draw indexed geometry.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawInstanced">
+      <MemberSignature Language="C#" Value="public void DrawInstanced (Urho.PrimitiveType type, uint indexStart, uint indexCount, uint minVertex, uint vertexCount, uint instanceCount);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DrawInstanced(valuetype Urho.PrimitiveType type, unsigned int32 indexStart, unsigned int32 indexCount, unsigned int32 minVertex, unsigned int32 vertexCount, unsigned int32 instanceCount) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.PrimitiveType" />
+        <Parameter Name="indexStart" Type="System.UInt32" />
+        <Parameter Name="indexCount" Type="System.UInt32" />
+        <Parameter Name="minVertex" Type="System.UInt32" />
+        <Parameter Name="vertexCount" Type="System.UInt32" />
+        <Parameter Name="instanceCount" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="indexStart">To be added.</param>
+        <param name="indexCount">To be added.</param>
+        <param name="minVertex">To be added.</param>
+        <param name="vertexCount">To be added.</param>
+        <param name="instanceCount">To be added.</param>
+        <summary>
+            Draw indexed, instanced geometry.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DummyColorFormat">
+      <MemberSignature Language="C#" Value="public uint DummyColorFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 DummyColorFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return dummy color texture format for shadow maps. 0 if not needed, may be nonzero on OS X to work around an Intel driver issue.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EndDumpShaders">
+      <MemberSignature Language="C#" Value="public void EndDumpShaders ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void EndDumpShaders() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            End dumping shader variations names.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EndFrame">
+      <MemberSignature Language="C#" Value="public void EndFrame ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void EndFrame() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            End frame rendering and swap buffers.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExternalWindow">
+      <MemberSignature Language="C#" Value="public IntPtr ExternalWindow { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ExternalWindow" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return OS-specific external window handle. Null if not in use.
+            Or
+            Set external window handle. Only effective before setting the initial screen mode. On Windows it is necessary to set up OpenGL pixel format manually for the window.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FillMode">
+      <MemberSignature Language="C#" Value="public Urho.FillMode FillMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FillMode FillMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FillMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return polygon fill mode.
+            Or
+            Set polygon fill mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Float16Format">
+      <MemberSignature Language="C#" Value="public static uint Float16Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 Float16Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific single channel 16-bit float texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Float32Format">
+      <MemberSignature Language="C#" Value="public static uint Float32Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 Float32Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific single channel 32-bit float texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FlushGPU">
+      <MemberSignature Language="C#" Value="public bool FlushGPU { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool FlushGPU" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether the GPU command buffer is flushed each frame. Not yet implemented on OpenGL.
+            Or
+            Set whether to flush the GPU command buffer to prevent multiple frames being queued and uneven frame timesteps. Not yet implemented on OpenGL.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ForceGL2">
+      <MemberSignature Language="C#" Value="public bool ForceGL2 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ForceGL2" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether OpenGL 2 use is forced.
+            Or
+            Set forced use of OpenGL 2 even if OpenGL 3 is available. Must be called before setting the screen mode for the first time. Default false.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FreeScratchBuffer">
+      <MemberSignature Language="C#" Value="public void FreeScratchBuffer (IntPtr buffer);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void FreeScratchBuffer(native int buffer) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="buffer" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="buffer">To be added.</param>
+        <summary>
+            Free a CPU-side scratch buffer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Fullscreen">
+      <MemberSignature Language="C#" Value="public bool Fullscreen { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Fullscreen" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether window is fullscreen.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFormat">
+      <MemberSignature Language="C#" Value="public static uint GetFormat (string formatName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 GetFormat(string formatName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="formatName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="formatName">To be added.</param>
+        <summary>
+            Return the API-specific texture format from a textual description, for example "rgb".
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFormat">
+      <MemberSignature Language="C#" Value="public uint GetFormat (Urho.CompressedFormat format);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetFormat(valuetype Urho.CompressedFormat format) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="format" Type="Urho.CompressedFormat" />
+      </Parameters>
+      <Docs>
+        <param name="format">To be added.</param>
+        <summary>
+            Return hardware format for a compressed image format, or 0 if unsupported.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOrCreateConstantBuffer">
+      <MemberSignature Language="C#" Value="public Urho.ConstantBuffer GetOrCreateConstantBuffer (uint bindingIndex, uint size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ConstantBuffer GetOrCreateConstantBuffer(unsigned int32 bindingIndex, unsigned int32 size) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ConstantBuffer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="bindingIndex" Type="System.UInt32" />
+        <Parameter Name="size" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="bindingIndex">To be added.</param>
+        <param name="size">To be added.</param>
+        <summary>
+            Reserve a constant buffer.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRenderTarget">
+      <MemberSignature Language="C#" Value="public Urho.RenderSurface GetRenderTarget (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.RenderSurface GetRenderTarget(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderSurface</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return rendertarget by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetShader">
+      <MemberSignature Language="C#" Value="public Urho.ShaderVariation GetShader (Urho.ShaderType type, string name, string defines);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ShaderVariation GetShader(valuetype Urho.ShaderType type, string name, string defines) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShaderVariation</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.ShaderType" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="defines" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="defines">To be added.</param>
+        <summary>
+            Return a shader variation by name and defines.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTexture">
+      <MemberSignature Language="C#" Value="public Urho.Texture GetTexture (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Texture GetTexture(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return texture by texture unit index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTextureUnit">
+      <MemberSignature Language="C#" Value="public Urho.TextureUnit GetTextureUnit (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.TextureUnit GetTextureUnit(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureUnit</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Return texture unit index by name.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTextureUnitName">
+      <MemberSignature Language="C#" Value="public string GetTextureUnitName (Urho.TextureUnit unit);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string GetTextureUnitName(valuetype Urho.TextureUnit unit) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="unit" Type="Urho.TextureUnit" />
+      </Parameters>
+      <Docs>
+        <param name="unit">To be added.</param>
+        <summary>
+            Return texture unit name by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetVertexBuffer">
+      <MemberSignature Language="C#" Value="public Urho.VertexBuffer GetVertexBuffer (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.VertexBuffer GetVertexBuffer(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexBuffer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return current vertex buffer by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GL3Support">
+      <MemberSignature Language="C#" Value="public static bool GL3Support { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property bool GL3Support" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether is using an OpenGL 3 context.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HardwareShadowSupport">
+      <MemberSignature Language="C#" Value="public bool HardwareShadowSupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HardwareShadowSupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether shadow map depth compare is done in hardware. Always true on OpenGL.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasShaderParameter">
+      <MemberSignature Language="C#" Value="public bool HasShaderParameter (Urho.StringHash param);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasShaderParameter(valuetype Urho.StringHash param) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <summary>
+            Check whether a shader parameter exists on the currently set shaders.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasTextureUnit">
+      <MemberSignature Language="C#" Value="public bool HasTextureUnit (Urho.TextureUnit unit);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasTextureUnit(valuetype Urho.TextureUnit unit) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="unit" Type="Urho.TextureUnit" />
+      </Parameters>
+      <Docs>
+        <param name="unit">To be added.</param>
+        <summary>
+            Check whether the current shader program uses a texture unit.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Height">
+      <MemberSignature Language="C#" Value="public int Height { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Height" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return window height.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HiresShadowMapFormat">
+      <MemberSignature Language="C#" Value="public uint HiresShadowMapFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 HiresShadowMapFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return 24-bit shadow map depth texture format, or 0 if not supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Impl">
+      <MemberSignature Language="C#" Value="public Urho.GraphicsImpl* Impl { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.GraphicsImpl* Impl" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.GraphicsImpl*</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return graphics implementation, which holds the actual API-specific resources.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IndexBuffer">
+      <MemberSignature Language="C#" Value="public Urho.IndexBuffer IndexBuffer { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.IndexBuffer IndexBuffer" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IndexBuffer</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return index buffer.
+            Or
+            Set index buffer.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InstancingSupport">
+      <MemberSignature Language="C#" Value="public bool InstancingSupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool InstancingSupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether hardware instancing is supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsDeviceLost">
+      <MemberSignature Language="C#" Value="public bool IsDeviceLost ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsDeviceLost() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether device is lost, and can not yet render.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsInitialized">
+      <MemberSignature Language="C#" Value="public bool IsInitialized ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsInitialized() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether rendering initialized.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LightPrepassSupport">
+      <MemberSignature Language="C#" Value="public bool LightPrepassSupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool LightPrepassSupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether light pre-pass rendering is supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LinearDepthFormat">
+      <MemberSignature Language="C#" Value="public static uint LinearDepthFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 LinearDepthFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific linear depth texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LuminanceAlphaFormat">
+      <MemberSignature Language="C#" Value="public static uint LuminanceAlphaFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 LuminanceAlphaFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific luminance alpha texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LuminanceFormat">
+      <MemberSignature Language="C#" Value="public static uint LuminanceFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 LuminanceFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific luminance texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MarkFBODirty">
+      <MemberSignature Language="C#" Value="public void MarkFBODirty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void MarkFBODirty() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Mark the FBO needing an update.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxBones">
+      <MemberSignature Language="C#" Value="public static uint MaxBones { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 MaxBones" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return maximum number of supported bones for skinning.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Maximize">
+      <MemberSignature Language="C#" Value="public void Maximize ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Maximize() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Maximize the Window.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Minimize">
+      <MemberSignature Language="C#" Value="public void Minimize ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Minimize() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Minimize the Window.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MultiSample">
+      <MemberSignature Language="C#" Value="public int MultiSample { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MultiSample" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return multisample mode (1 = no multisampling.)
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NeedParameterUpdate">
+      <MemberSignature Language="C#" Value="public bool NeedParameterUpdate (Urho.ShaderParameterGroup group, void* source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool NeedParameterUpdate(valuetype Urho.ShaderParameterGroup group, void* source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="group" Type="Urho.ShaderParameterGroup" />
+        <Parameter Name="source" Type="System.Void*" />
+      </Parameters>
+      <Docs>
+        <param name="group">To be added.</param>
+        <param name="source">To be added.</param>
+        <summary>
+            Check whether a shader parameter group needs update. Does not actually check whether parameters exist in the shaders.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumBatches">
+      <MemberSignature Language="C#" Value="public uint NumBatches { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumBatches" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of batches drawn this frame.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumPrimitives">
+      <MemberSignature Language="C#" Value="public uint NumPrimitives { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumPrimitives" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of primitives drawn this frame.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Orientations">
+      <MemberSignature Language="C#" Value="public string Orientations { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Orientations" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return allowed screen orientations.
+            Or
+            Set allowed screen orientations as a space-separated list of "LandscapeLeft", "LandscapeRight", "Portrait" and "PortraitUpsideDown". Affects currently only iOS platform.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PixelShader">
+      <MemberSignature Language="C#" Value="public Urho.ShaderVariation PixelShader { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ShaderVariation PixelShader" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShaderVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return pixel shader.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PixelUVOffset">
+      <MemberSignature Language="C#" Value="public static Urho.Vector2 PixelUVOffset { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.Vector2 PixelUVOffset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return UV offset required for pixel perfect rendering.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadableDepthFormat">
+      <MemberSignature Language="C#" Value="public static uint ReadableDepthFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 ReadableDepthFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific readable hardware depth format, or 0 if not supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadableDepthSupport">
+      <MemberSignature Language="C#" Value="public bool ReadableDepthSupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ReadableDepthSupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether a readable hardware depth format is available.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Release">
+      <MemberSignature Language="C#" Value="public void Release (bool clearGPUObjects, bool closeWindow);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Release(bool clearGPUObjects, bool closeWindow) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="clearGPUObjects" Type="System.Boolean" />
+        <Parameter Name="closeWindow" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="clearGPUObjects">To be added.</param>
+        <param name="closeWindow">To be added.</param>
+        <summary>
+            Release/clear GPU objects and optionally close the window.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveGPUObject">
+      <MemberSignature Language="C#" Value="public void RemoveGPUObject (Urho.GPUObject* object);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveGPUObject(valuetype Urho.GPUObject* object) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="object" Type="Urho.GPUObject*" />
+      </Parameters>
+      <Docs>
+        <param name="object">To be added.</param>
+        <summary>
+            Remove a GPU object. Called by GPUObject.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderTargetDimensions">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 RenderTargetDimensions { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 RenderTargetDimensions" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return rendertarget width and height.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReserveScratchBuffer">
+      <MemberSignature Language="C#" Value="public IntPtr ReserveScratchBuffer (uint size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance native int ReserveScratchBuffer(unsigned int32 size) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="size" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="size">To be added.</param>
+        <summary>
+            Reserve a CPU-side scratch buffer.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetDepthStencil">
+      <MemberSignature Language="C#" Value="public void ResetDepthStencil ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetDepthStencil() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Reset depth-stencil surface.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetRenderTarget">
+      <MemberSignature Language="C#" Value="public void ResetRenderTarget (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetRenderTarget(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Reset specific rendertarget.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetRenderTargets">
+      <MemberSignature Language="C#" Value="public void ResetRenderTargets ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetRenderTargets() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Reset all rendertargets, depth-stencil surface and viewport.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Resizable">
+      <MemberSignature Language="C#" Value="public bool Resizable { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Resizable" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether window is resizable.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResolveToTexture">
+      <MemberSignature Language="C#" Value="public bool ResolveToTexture (Urho.Texture2D destination, Urho.IntRect viewport);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ResolveToTexture(class Urho.Texture2D destination, valuetype Urho.IntRect viewport) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="destination" Type="Urho.Texture2D" />
+        <Parameter Name="viewport" Type="Urho.IntRect" />
+      </Parameters>
+      <Docs>
+        <param name="destination">To be added.</param>
+        <param name="viewport">To be added.</param>
+        <summary>
+            Resolve multisampled backbuffer to a texture rendertarget. The texture's size should match the viewport size.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Restore">
+      <MemberSignature Language="C#" Value="public void Restore ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Restore() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Restore GPU objects and reinitialize state. Requires an open window.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RG16Format">
+      <MemberSignature Language="C#" Value="public static uint RG16Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 RG16Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific RG 16-bit texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RGBA16Format">
+      <MemberSignature Language="C#" Value="public static uint RGBA16Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 RGBA16Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific RGBA 16-bit texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RGBAFloat16Format">
+      <MemberSignature Language="C#" Value="public static uint RGBAFloat16Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 RGBAFloat16Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific RGBA 16-bit float texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RGBAFloat32Format">
+      <MemberSignature Language="C#" Value="public static uint RGBAFloat32Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 RGBAFloat32Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific RGBA 32-bit float texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RGBAFormat">
+      <MemberSignature Language="C#" Value="public static uint RGBAFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 RGBAFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific RGBA texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RGBFormat">
+      <MemberSignature Language="C#" Value="public static uint RGBFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 RGBFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific RGB texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RGFloat16Format">
+      <MemberSignature Language="C#" Value="public static uint RGFloat16Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 RGFloat16Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific RG 16-bit float texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RGFloat32Format">
+      <MemberSignature Language="C#" Value="public static uint RGFloat32Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property unsigned int32 RGFloat32Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the API-specific RG 32-bit float texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScissorRect">
+      <MemberSignature Language="C#" Value="public Urho.IntRect ScissorRect { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntRect ScissorRect" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntRect</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scissor rectangle coordinates.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScissorTest">
+      <MemberSignature Language="C#" Value="public bool ScissorTest { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ScissorTest" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether scissor test is enabled.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDepthBias">
+      <MemberSignature Language="C#" Value="public void SetDepthBias (float constantBias, float slopeScaledBias);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDepthBias(float32 constantBias, float32 slopeScaledBias) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="constantBias" Type="System.Single" />
+        <Parameter Name="slopeScaledBias" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="constantBias">To be added.</param>
+        <param name="slopeScaledBias">To be added.</param>
+        <summary>
+            Set depth bias.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDepthStencil">
+      <MemberSignature Language="C#" Value="public void SetDepthStencil (Urho.Texture2D texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDepthStencil(class Urho.Texture2D texture) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="texture" Type="Urho.Texture2D" />
+      </Parameters>
+      <Docs>
+        <param name="texture">To be added.</param>
+        <summary>
+            Set depth-stencil surface.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMode">
+      <MemberSignature Language="C#" Value="public bool SetMode (int width, int height);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetMode(int32 width, int32 height) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <summary>
+            Set screen resolution only. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMode">
+      <MemberSignature Language="C#" Value="public bool SetMode (int width, int height, bool fullscreen, bool borderless, bool resizable, bool vsync, bool tripleBuffer, int multiSample);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetMode(int32 width, int32 height, bool fullscreen, bool borderless, bool resizable, bool vsync, bool tripleBuffer, int32 multiSample) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+        <Parameter Name="fullscreen" Type="System.Boolean" />
+        <Parameter Name="borderless" Type="System.Boolean" />
+        <Parameter Name="resizable" Type="System.Boolean" />
+        <Parameter Name="vsync" Type="System.Boolean" />
+        <Parameter Name="tripleBuffer" Type="System.Boolean" />
+        <Parameter Name="multiSample" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <param name="fullscreen">To be added.</param>
+        <param name="borderless">To be added.</param>
+        <param name="resizable">To be added.</param>
+        <param name="vsync">To be added.</param>
+        <param name="tripleBuffer">To be added.</param>
+        <param name="multiSample">To be added.</param>
+        <summary>
+            Set screen mode. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRenderTarget">
+      <MemberSignature Language="C#" Value="public void SetRenderTarget (uint index, Urho.RenderSurface renderTarget);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRenderTarget(unsigned int32 index, class Urho.RenderSurface renderTarget) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="renderTarget" Type="Urho.RenderSurface" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="renderTarget">To be added.</param>
+        <summary>
+            Set rendertarget.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRenderTarget">
+      <MemberSignature Language="C#" Value="public void SetRenderTarget (uint index, Urho.Texture2D texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRenderTarget(unsigned int32 index, class Urho.Texture2D texture) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="texture" Type="Urho.Texture2D" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="texture">To be added.</param>
+        <summary>
+            Set rendertarget.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetScissorTest">
+      <MemberSignature Language="C#" Value="public void SetScissorTest (bool enable, Urho.IntRect rect);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetScissorTest(bool enable, valuetype Urho.IntRect rect) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+        <Parameter Name="rect" Type="Urho.IntRect" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <param name="rect">To be added.</param>
+        <summary>
+            Set scissor test.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, float value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, float32 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Set shader float constant.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, valuetype Urho.Color color) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="color" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="color">To be added.</param>
+        <summary>
+            Set shader color constant.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, Urho.Vector2 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, valuetype Urho.Vector2 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="vector" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="vector">To be added.</param>
+        <summary>
+            Set shader 2D vector constant.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, Urho.Vector3 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, valuetype Urho.Vector3 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="vector" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="vector">To be added.</param>
+        <summary>
+            Set shader 3D vector constant.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, Urho.Vector4 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, valuetype Urho.Vector4 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="vector" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="vector">To be added.</param>
+        <summary>
+            Set shader 4D vector constant.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, float* data, uint count);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, float32* data, unsigned int32 count) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="data" Type="System.Single*" />
+        <Parameter Name="count" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="data">To be added.</param>
+        <param name="count">To be added.</param>
+        <summary>
+            Set shader float constants.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaders">
+      <MemberSignature Language="C#" Value="public void SetShaders (Urho.ShaderVariation vs, Urho.ShaderVariation ps);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaders(class Urho.ShaderVariation vs, class Urho.ShaderVariation ps) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vs" Type="Urho.ShaderVariation" />
+        <Parameter Name="ps" Type="Urho.ShaderVariation" />
+      </Parameters>
+      <Docs>
+        <param name="vs">To be added.</param>
+        <param name="ps">To be added.</param>
+        <summary>
+            Set shaders.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetStencilTest">
+      <MemberSignature Language="C#" Value="public void SetStencilTest (bool enable, Urho.CompareMode mode, Urho.StencilOp pass, Urho.StencilOp fail, Urho.StencilOp zFail, uint stencilRef, uint compareMask, uint writeMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetStencilTest(bool enable, valuetype Urho.CompareMode mode, valuetype Urho.StencilOp pass, valuetype Urho.StencilOp fail, valuetype Urho.StencilOp zFail, unsigned int32 stencilRef, unsigned int32 compareMask, unsigned int32 writeMask) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+        <Parameter Name="mode" Type="Urho.CompareMode" />
+        <Parameter Name="pass" Type="Urho.StencilOp" />
+        <Parameter Name="fail" Type="Urho.StencilOp" />
+        <Parameter Name="zFail" Type="Urho.StencilOp" />
+        <Parameter Name="stencilRef" Type="System.UInt32" />
+        <Parameter Name="compareMask" Type="System.UInt32" />
+        <Parameter Name="writeMask" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <param name="mode">To be added.</param>
+        <param name="pass">To be added.</param>
+        <param name="fail">To be added.</param>
+        <param name="zFail">To be added.</param>
+        <param name="stencilRef">To be added.</param>
+        <param name="compareMask">To be added.</param>
+        <param name="writeMask">To be added.</param>
+        <summary>
+            Set stencil test.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTexture">
+      <MemberSignature Language="C#" Value="public void SetTexture (uint index, Urho.Texture texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTexture(unsigned int32 index, class Urho.Texture texture) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="texture" Type="Urho.Texture" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="texture">To be added.</param>
+        <summary>
+            Set texture.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTextureForUpdate">
+      <MemberSignature Language="C#" Value="public void SetTextureForUpdate (Urho.Texture texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTextureForUpdate(class Urho.Texture texture) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="texture" Type="Urho.Texture" />
+      </Parameters>
+      <Docs>
+        <param name="texture">To be added.</param>
+        <summary>
+            Bind texture unit 0 for update. Called by Texture.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTextureParametersDirty">
+      <MemberSignature Language="C#" Value="public void SetTextureParametersDirty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTextureParametersDirty() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Dirty texture parameters of all textures (when global settings change.)
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetUBO">
+      <MemberSignature Language="C#" Value="public void SetUBO (uint object);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetUBO(unsigned int32 object) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="object" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="object">To be added.</param>
+        <summary>
+            Bind a UBO, avoiding redundant operation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVBO">
+      <MemberSignature Language="C#" Value="public void SetVBO (uint object);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVBO(unsigned int32 object) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="object" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="object">To be added.</param>
+        <summary>
+            Bind a VBO, avoiding redundant operation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVertexBuffer">
+      <MemberSignature Language="C#" Value="public void SetVertexBuffer (Urho.VertexBuffer buffer);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVertexBuffer(class Urho.VertexBuffer buffer) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="buffer" Type="Urho.VertexBuffer" />
+      </Parameters>
+      <Docs>
+        <param name="buffer">To be added.</param>
+        <summary>
+            Set vertex buffer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetViewport">
+      <MemberSignature Language="C#" Value="public void SetViewport (Urho.IntRect rect);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetViewport(valuetype Urho.IntRect rect) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="rect" Type="Urho.IntRect" />
+      </Parameters>
+      <Docs>
+        <param name="rect">To be added.</param>
+        <summary>
+            Set viewport.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWindowIcon">
+      <MemberSignature Language="C#" Value="public void SetWindowIcon (Urho.Image windowIcon);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWindowIcon(class Urho.Image windowIcon) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="windowIcon" Type="Urho.Image" />
+      </Parameters>
+      <Docs>
+        <param name="windowIcon">To be added.</param>
+        <summary>
+            Set window icon.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWindowPosition">
+      <MemberSignature Language="C#" Value="public void SetWindowPosition (Urho.IntVector2 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWindowPosition(valuetype Urho.IntVector2 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>
+            Set window position.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWindowPosition">
+      <MemberSignature Language="C#" Value="public void SetWindowPosition (int x, int y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWindowPosition(int32 x, int32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Int32" />
+        <Parameter Name="y" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>
+            Set window position.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShaderProgram">
+      <MemberSignature Language="C#" Value="public Urho.ShaderProgram ShaderProgram { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ShaderProgram ShaderProgram" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShaderProgram</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return shader program.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowMapFormat">
+      <MemberSignature Language="C#" Value="public uint ShadowMapFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 ShadowMapFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return shadow map depth texture format, or 0 if not supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SRGB">
+      <MemberSignature Language="C#" Value="public bool SRGB { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SRGB" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether the main window is using sRGB conversion on write.
+            Or
+            Set whether the main window uses sRGB conversion on write.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SRGBSupport">
+      <MemberSignature Language="C#" Value="public bool SRGBSupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SRGBSupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether sRGB conversion on texture sampling is supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SRGBWriteSupport">
+      <MemberSignature Language="C#" Value="public bool SRGBWriteSupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SRGBWriteSupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether sRGB conversion on rendertarget writing is supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StencilCompareMask">
+      <MemberSignature Language="C#" Value="public uint StencilCompareMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 StencilCompareMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return stencil compare bitmask.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StencilFail">
+      <MemberSignature Language="C#" Value="public Urho.StencilOp StencilFail { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StencilOp StencilFail" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StencilOp</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return stencil operation to do if stencil test fails.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StencilPass">
+      <MemberSignature Language="C#" Value="public Urho.StencilOp StencilPass { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StencilOp StencilPass" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StencilOp</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return stencil operation to do if stencil test passes.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StencilRef">
+      <MemberSignature Language="C#" Value="public uint StencilRef { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 StencilRef" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return stencil reference value.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StencilTest">
+      <MemberSignature Language="C#" Value="public bool StencilTest { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool StencilTest" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether stencil test is enabled.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StencilTestMode">
+      <MemberSignature Language="C#" Value="public Urho.CompareMode StencilTestMode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CompareMode StencilTestMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CompareMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return stencil compare mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StencilWriteMask">
+      <MemberSignature Language="C#" Value="public uint StencilWriteMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 StencilWriteMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return stencil write bitmask.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StencilZFail">
+      <MemberSignature Language="C#" Value="public Urho.StencilOp StencilZFail { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StencilOp StencilZFail" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StencilOp</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return stencil operation to do if depth compare fails.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureAnisotropy">
+      <MemberSignature Language="C#" Value="public uint TextureAnisotropy { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TextureAnisotropy" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return texture anisotropy.
+            Or
+            Set texture anisotropy.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToggleFullscreen">
+      <MemberSignature Language="C#" Value="public bool ToggleFullscreen ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ToggleFullscreen() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Toggle between full screen and windowed mode. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TripleBuffer">
+      <MemberSignature Language="C#" Value="public bool TripleBuffer { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool TripleBuffer" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether triple buffering is enabled.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UseClipPlane">
+      <MemberSignature Language="C#" Value="public bool UseClipPlane { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UseClipPlane" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether a custom clipping plane is in use.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VertexShader">
+      <MemberSignature Language="C#" Value="public Urho.ShaderVariation VertexShader { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ShaderVariation VertexShader" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShaderVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return vertex shader.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Viewport">
+      <MemberSignature Language="C#" Value="public Urho.IntRect Viewport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntRect Viewport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntRect</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the viewport coordinates.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VSync">
+      <MemberSignature Language="C#" Value="public bool VSync { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool VSync" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether vertical sync is on.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Width">
+      <MemberSignature Language="C#" Value="public int Width { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Width" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return window width.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WindowMoved">
+      <MemberSignature Language="C#" Value="public void WindowMoved ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WindowMoved() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Window was moved through user interaction. Called by Input subsystem.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WindowPosition">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 WindowPosition { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 WindowPosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return window position.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WindowResized">
+      <MemberSignature Language="C#" Value="public void WindowResized ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WindowResized() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Window was resized through user interaction. Called by Input subsystem.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WindowTitle">
+      <MemberSignature Language="C#" Value="public string WindowTitle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string WindowTitle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return window title.
+            Or
+            Set window title.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

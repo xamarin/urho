@@ -1,0 +1,253 @@
+<Type Name="Context" FullName="Urho.Context">
+  <TypeSignature Language="C#" Value="public class Context : Urho.RefCounted" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Context extends Urho.RefCounted" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.RefCounted</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Urho3D execution context. Provides access to subsystems, object factories and attributes, and event receivers.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Context ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Context (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Context (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CopyBaseAttributes">
+      <MemberSignature Language="C#" Value="public void CopyBaseAttributes (Urho.StringHash baseType, Urho.StringHash derivedType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CopyBaseAttributes(valuetype Urho.StringHash baseType, valuetype Urho.StringHash derivedType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="baseType" Type="Urho.StringHash" />
+        <Parameter Name="derivedType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="baseType">To be added.</param>
+        <param name="derivedType">To be added.</param>
+        <summary>
+            Copy base class attributes to derived class.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateObject">
+      <MemberSignature Language="C#" Value="public Urho.UrhoObject CreateObject (Urho.StringHash objectType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UrhoObject CreateObject(valuetype Urho.StringHash objectType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="objectType">To be added.</param>
+        <summary>
+            Create an object by type hash. Return pointer to it or null if no factory found.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EventHandler">
+      <MemberSignature Language="C#" Value="public IntPtr EventHandler { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int EventHandler" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return active event handler. Set by Object. Null outside event handling.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EventSender">
+      <MemberSignature Language="C#" Value="public Urho.UrhoObject EventSender { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UrhoObject EventSender" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return active event sender. Null outside event handling.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSubsystem">
+      <MemberSignature Language="C#" Value="public Urho.UrhoObject GetSubsystem (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UrhoObject GetSubsystem(valuetype Urho.StringHash type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoObject</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>
+            Return subsystem by type.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTypeName">
+      <MemberSignature Language="C#" Value="public string GetTypeName (Urho.StringHash objectType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string GetTypeName(valuetype Urho.StringHash objectType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="objectType">To be added.</param>
+        <summary>
+            Return object type name from hash, or empty if unknown.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterFactory">
+      <MemberSignature Language="C#" Value="public void RegisterFactory (Urho.ObjectFactory factory);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RegisterFactory(class Urho.ObjectFactory factory) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="factory" Type="Urho.ObjectFactory" />
+      </Parameters>
+      <Docs>
+        <param name="factory">To be added.</param>
+        <summary>
+            Register a factory for an object type.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterSubsystem">
+      <MemberSignature Language="C#" Value="public void RegisterSubsystem (Urho.UrhoObject subsystem);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RegisterSubsystem(class Urho.UrhoObject subsystem) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subsystem" Type="Urho.UrhoObject" />
+      </Parameters>
+      <Docs>
+        <param name="subsystem">To be added.</param>
+        <summary>
+            Register a subsystem.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveSubsystem">
+      <MemberSignature Language="C#" Value="public void RemoveSubsystem (Urho.StringHash objectType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveSubsystem(valuetype Urho.StringHash objectType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="objectType">To be added.</param>
+        <summary>
+            Remove a subsystem.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

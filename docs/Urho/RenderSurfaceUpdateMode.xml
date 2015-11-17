@@ -1,0 +1,61 @@
+<Type Name="RenderSurfaceUpdateMode" FullName="Urho.RenderSurfaceUpdateMode">
+  <TypeSignature Language="C#" Value="public enum RenderSurfaceUpdateMode" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed RenderSurfaceUpdateMode extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            Update mode for render surface viewports.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Manualupdate">
+      <MemberSignature Language="C#" Value="Manualupdate" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.RenderSurfaceUpdateMode Manualupdate = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderSurfaceUpdateMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Updatealways">
+      <MemberSignature Language="C#" Value="Updatealways" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.RenderSurfaceUpdateMode Updatealways = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderSurfaceUpdateMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Updatevisible">
+      <MemberSignature Language="C#" Value="Updatevisible" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.RenderSurfaceUpdateMode Updatevisible = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderSurfaceUpdateMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

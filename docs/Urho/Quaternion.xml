@@ -1,0 +1,1202 @@
+<Type Name="Quaternion" FullName="Urho.Quaternion">
+  <TypeSignature Language="C#" Value="public struct Quaternion : IEquatable&lt;Urho.Quaternion&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Quaternion extends System.ValueType implements class System.IEquatable`1&lt;valuetype Urho.Quaternion&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.IEquatable&lt;Urho.Quaternion&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>
+            Represents a Quaternion.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Quaternion (ref Urho.Matrix3 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Matrix3 matrix) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Quaternion (Urho.Vector3 v, float w);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Vector3 v, float32 w) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="v" Type="Urho.Vector3" />
+        <Parameter Name="w" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="v">The vector part</param>
+        <param name="w">The w part</param>
+        <summary>
+            Construct a new Quaternion from vector and w components
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Quaternion (float x, float y, float z);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 x, float32 y, float32 z) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+        <Parameter Name="z" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <param name="z">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Quaternion (float x, float y, float z, float w);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 x, float32 y, float32 z, float32 w) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+        <Parameter Name="z" Type="System.Single" />
+        <Parameter Name="w" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">The x component</param>
+        <param name="y">The y component</param>
+        <param name="z">The z component</param>
+        <param name="w">The w component</param>
+        <summary>
+            Construct a new Quaternion
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Add (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Add(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first operand</param>
+        <param name="right">The second operand</param>
+        <summary>
+            Add two quaternions
+            </summary>
+        <returns>The result of the addition</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public static void Add (ref Urho.Quaternion left, ref Urho.Quaternion right, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Add(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first operand</param>
+        <param name="right">The second operand</param>
+        <param name="result">The result of the addition</param>
+        <summary>
+            Add two quaternions
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Conjugate">
+      <MemberSignature Language="C#" Value="public void Conjugate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Conjugate() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Convert this quaternion to its conjugate
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Conjugate">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Conjugate (Urho.Quaternion q);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Conjugate(valuetype Urho.Quaternion q) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="q" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="q">The quaternion</param>
+        <summary>
+            Get the conjugate of the given quaternion
+            </summary>
+        <returns>The conjugate of the given quaternion</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Conjugate">
+      <MemberSignature Language="C#" Value="public static void Conjugate (ref Urho.Quaternion q, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Conjugate(valuetype Urho.Quaternion q, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="q" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="q">The quaternion</param>
+        <param name="result">The conjugate of the given quaternion</param>
+        <summary>
+            Get the conjugate of the given quaternion
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object other);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object other) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="other" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="other">The other object to be used in the comparison.</param>
+        <summary>
+            Compares this object instance to another object for equality.
+            </summary>
+        <returns>True if both objects are Quaternions of equal value. Otherwise it returns false.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public bool Equals (Urho.Quaternion other);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Equals(valuetype Urho.Quaternion other) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="other" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="other">The other Quaternion to be used in the comparison.</param>
+        <summary>
+            Compares this Quaternion instance to another Quaternion for equality.
+            </summary>
+        <returns>True if both instances are equal; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromAxisAngle">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion FromAxisAngle (Urho.Vector3 axis, float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion FromAxisAngle(valuetype Urho.Vector3 axis, float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="axis" Type="Urho.Vector3" />
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="axis">The axis to rotate about</param>
+        <param name="angle">The rotation angle in radians</param>
+        <summary>
+            Build a quaternion from the given axis and angle
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromRotationTo">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion FromRotationTo (Urho.Vector3 start, Urho.Vector3 end);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion FromRotationTo(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="start" Type="Urho.Vector3" />
+        <Parameter Name="end" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="start">To be added.</param>
+        <param name="end">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Provides the hash code for this object.
+            </summary>
+        <returns>A hash code formed from the bitwise XOR of this objects members.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Identity">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Identity;" />
+      <MemberSignature Language="ILAsm" Value=".field public static valuetype Urho.Quaternion Identity" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Defines the identity quaternion.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Invert">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Invert (Urho.Quaternion q);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Invert(valuetype Urho.Quaternion q) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="q" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="q">The quaternion to invert</param>
+        <summary>
+            Get the inverse of the given quaternion
+            </summary>
+        <returns>The inverse of the given quaternion</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Invert">
+      <MemberSignature Language="C#" Value="public static void Invert (ref Urho.Quaternion q, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Invert(valuetype Urho.Quaternion q, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="q" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="q">The quaternion to invert</param>
+        <param name="result">The inverse of the given quaternion</param>
+        <summary>
+            Get the inverse of the given quaternion
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Length">
+      <MemberSignature Language="C#" Value="public float Length { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Length" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the length (magnitude) of the quaternion.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+        <altmember cref="P:Urho.Quaternion.LengthSquared" />
+      </Docs>
+    </Member>
+    <Member MemberName="LengthSquared">
+      <MemberSignature Language="C#" Value="public float LengthSquared { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 LengthSquared" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the square of the quaternion length (magnitude).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Mult">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Mult (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Mult(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use Multiply instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Multiplies two instances.
+            </summary>
+        <returns>A new instance containing the result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Mult">
+      <MemberSignature Language="C#" Value="public static void Mult (ref Urho.Quaternion left, ref Urho.Quaternion right, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Mult(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use Multiply instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <param name="result">A new instance containing the result of the calculation.</param>
+        <summary>
+            Multiplies two instances.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Multiply (Urho.Quaternion quaternion, float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Multiply(valuetype Urho.Quaternion quaternion, float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="quaternion" Type="Urho.Quaternion" />
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="quaternion">The instance.</param>
+        <param name="scale">The scalar.</param>
+        <summary>
+            Multiplies an instance by a scalar.
+            </summary>
+        <returns>A new instance containing the result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Multiply (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Multiply(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Multiplies two instances.
+            </summary>
+        <returns>A new instance containing the result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static void Multiply (ref Urho.Quaternion quaternion, float scale, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Multiply(valuetype Urho.Quaternion quaternion, float32 scale, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="quaternion" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="scale" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="quaternion">The instance.</param>
+        <param name="scale">The scalar.</param>
+        <param name="result">A new instance containing the result of the calculation.</param>
+        <summary>
+            Multiplies an instance by a scalar.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static void Multiply (ref Urho.Quaternion quaternion, ref float scale, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Multiply(valuetype Urho.Quaternion quaternion, float32 scale, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use the overload without the ref float scale")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="quaternion" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="scale" Type="System.Single&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="quaternion">To be added.</param>
+        <param name="scale">To be added.</param>
+        <param name="result">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static void Multiply (ref Urho.Quaternion left, ref Urho.Quaternion right, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Multiply(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <param name="result">A new instance containing the result of the calculation.</param>
+        <summary>
+            Multiplies two instances.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Normalize">
+      <MemberSignature Language="C#" Value="public void Normalize ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Normalize() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Scales the Quaternion to unit length.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Normalize">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Normalize (Urho.Quaternion q);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Normalize(valuetype Urho.Quaternion q) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="q" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="q">The quaternion to normalize</param>
+        <summary>
+            Scale the given quaternion to unit length
+            </summary>
+        <returns>The normalized quaternion</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Normalize">
+      <MemberSignature Language="C#" Value="public static void Normalize (ref Urho.Quaternion q, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Normalize(valuetype Urho.Quaternion q, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="q" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="q">The quaternion to normalize</param>
+        <param name="result">The normalized quaternion</param>
+        <summary>
+            Scale the given quaternion to unit length
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Addition">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion op_Addition (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Quaternion op_Addition(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Adds two instances.
+            </summary>
+        <returns>The result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Equality">
+      <MemberSignature Language="C#" Value="public static bool op_Equality (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Equality(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Compares two instances for equality.
+            </summary>
+        <returns>True, if left equals right; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Inequality">
+      <MemberSignature Language="C#" Value="public static bool op_Inequality (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Inequality(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Compares two instances for inequality.
+            </summary>
+        <returns>True, if left does not equal right; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion op_Multiply (float scale, Urho.Quaternion quaternion);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Quaternion op_Multiply(float32 scale, valuetype Urho.Quaternion quaternion) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="System.Single" />
+        <Parameter Name="quaternion" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="scale">The scalar.</param>
+        <param name="quaternion">The instance.</param>
+        <summary>
+            Multiplies an instance by a scalar.
+            </summary>
+        <returns>A new instance containing the result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion op_Multiply (Urho.Quaternion quaternion, float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Quaternion op_Multiply(valuetype Urho.Quaternion quaternion, float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="quaternion" Type="Urho.Quaternion" />
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="quaternion">The instance.</param>
+        <param name="scale">The scalar.</param>
+        <summary>
+            Multiplies an instance by a scalar.
+            </summary>
+        <returns>A new instance containing the result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion op_Multiply (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Quaternion op_Multiply(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Multiplies two instances.
+            </summary>
+        <returns>The result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.Vector3 op_Multiply (Urho.Quaternion quaternion, Urho.Vector3 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Vector3 op_Multiply(valuetype Urho.Quaternion quaternion, valuetype Urho.Vector3 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="quaternion" Type="Urho.Quaternion" />
+        <Parameter Name="vector" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="quaternion">The instance.</param>
+        <param name="vector">The vector.</param>
+        <summary>
+            Multiplies an instance by a vector3.
+            </summary>
+        <returns>A new instance containing the result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Subtraction">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion op_Subtraction (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Quaternion op_Subtraction(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Subtracts two instances.
+            </summary>
+        <returns>The result of the calculation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PitchAngle">
+      <MemberSignature Language="C#" Value="public float PitchAngle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 PitchAngle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RollAngle">
+      <MemberSignature Language="C#" Value="public float RollAngle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 RollAngle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Slerp">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Slerp (Urho.Quaternion q1, Urho.Quaternion q2, float blend);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Slerp(valuetype Urho.Quaternion q1, valuetype Urho.Quaternion q2, float32 blend) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="q1" Type="Urho.Quaternion" />
+        <Parameter Name="q2" Type="Urho.Quaternion" />
+        <Parameter Name="blend" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="q1">The first quaternion</param>
+        <param name="q2">The second quaternion</param>
+        <param name="blend">The blend factor</param>
+        <summary>
+            Do Spherical linear interpolation between two quaternions
+            </summary>
+        <returns>A smooth blend between the given quaternions</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Sub">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion Sub (Urho.Quaternion left, Urho.Quaternion right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion Sub(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion" />
+        <Parameter Name="right" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="left">The left instance.</param>
+        <param name="right">The right instance.</param>
+        <summary>
+            Subtracts two instances.
+            </summary>
+        <returns>The result of the operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Sub">
+      <MemberSignature Language="C#" Value="public static void Sub (ref Urho.Quaternion left, ref Urho.Quaternion right, out Urho.Quaternion result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Sub(valuetype Urho.Quaternion left, valuetype Urho.Quaternion right, valuetype Urho.Quaternion result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Quaternion&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Quaternion&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">The left instance.</param>
+        <param name="right">The right instance.</param>
+        <param name="result">The result of the operation.</param>
+        <summary>
+            Subtracts two instances.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToAxisAngle">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 ToAxisAngle ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector4 ToAxisAngle() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Convert this instance to an axis-angle representation.
+            </summary>
+        <returns>A Vector4 that is the axis-angle representation of this quaternion.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToAxisAngle">
+      <MemberSignature Language="C#" Value="public void ToAxisAngle (out Urho.Vector3 axis, out float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ToAxisAngle(valuetype Urho.Vector3 axis, float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="axis" Type="Urho.Vector3&amp;" RefType="out" />
+        <Parameter Name="angle" Type="System.Single&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="axis">The resultant axis</param>
+        <param name="angle">The resultant angle</param>
+        <summary>
+            Convert the current quaternion to axis angle representation
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToEulerAngles">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 ToEulerAngles ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 ToEulerAngles() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance string ToString() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns a System.String that represents the current Quaternion.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="W">
+      <MemberSignature Language="C#" Value="public float W { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 W" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the W component of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="X">
+      <MemberSignature Language="C#" Value="public float X { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 X" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Xml.Serialization.XmlIgnore</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the X component of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Xyz">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Xyz { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Xyz" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets an OpenTK.Vector3 with the X, Y and Z components of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="XYZ">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 XYZ { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 XYZ" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use Xyz property instead.")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Xml.Serialization.XmlIgnore</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets an OpenTK.Vector3 with the X, Y and Z components of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Y">
+      <MemberSignature Language="C#" Value="public float Y { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Y" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Xml.Serialization.XmlIgnore</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the Y component of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="YawAngle">
+      <MemberSignature Language="C#" Value="public float YawAngle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 YawAngle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Z">
+      <MemberSignature Language="C#" Value="public float Z { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Z" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Xml.Serialization.XmlIgnore</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the Z component of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,742 @@
+<Type Name="Texture" FullName="Urho.Texture">
+  <TypeSignature Language="C#" Value="public class Texture : Urho.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Texture extends Urho.Resource" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Resource</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Base class for texture resources.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Texture (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Texture (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Texture (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BackupTexture">
+      <MemberSignature Language="C#" Value="public Urho.Texture BackupTexture { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture BackupTexture" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return backup texture.
+            Or
+            Set backup texture to use when rendering to this texture.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BorderColor">
+      <MemberSignature Language="C#" Value="public Urho.Color BorderColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color BorderColor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return border color.
+            Or
+            Set border color for border addressing mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Components">
+      <MemberSignature Language="C#" Value="public uint Components { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Components" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of image components required to receive pixel data from GetData(), or 0 for compressed images.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Depth">
+      <MemberSignature Language="C#" Value="public int Depth { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Depth" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return height.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FilterMode">
+      <MemberSignature Language="C#" Value="public Urho.TextureFilterMode FilterMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TextureFilterMode FilterMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureFilterMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return filtering mode.
+            Or
+            Set filtering mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Format">
+      <MemberSignature Language="C#" Value="public uint Format { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return texture format.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAddressMode">
+      <MemberSignature Language="C#" Value="public Urho.TextureAddressMode GetAddressMode (Urho.TextureCoordinate coord);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.TextureAddressMode GetAddressMode(valuetype Urho.TextureCoordinate coord) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureAddressMode</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="coord" Type="Urho.TextureCoordinate" />
+      </Parameters>
+      <Docs>
+        <param name="coord">To be added.</param>
+        <summary>
+            Return addressing mode by texture coordinate.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDataSize">
+      <MemberSignature Language="C#" Value="public uint GetDataSize (int width, int height);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetDataSize(int32 width, int32 height) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <summary>
+            Return data size in bytes for a rectangular region.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDataSize">
+      <MemberSignature Language="C#" Value="public uint GetDataSize (int width, int height, int depth);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetDataSize(int32 width, int32 height, int32 depth) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+        <Parameter Name="depth" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <param name="depth">To be added.</param>
+        <summary>
+            Return data size in bytes for a volume region.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDataType">
+      <MemberSignature Language="C#" Value="public static uint GetDataType (uint format);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 GetDataType(unsigned int32 format) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="format" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="format">To be added.</param>
+        <summary>
+            Return the data type corresponding to an OpenGL internal format.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetExternalFormat">
+      <MemberSignature Language="C#" Value="public static uint GetExternalFormat (uint format);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 GetExternalFormat(unsigned int32 format) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="format" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="format">To be added.</param>
+        <summary>
+            Return the non-internal texture format corresponding to an OpenGL internal format.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetLevelDepth">
+      <MemberSignature Language="C#" Value="public int GetLevelDepth (uint level);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetLevelDepth(unsigned int32 level) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="level" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="level">To be added.</param>
+        <summary>
+            Return mip level depth, or 0 if level does not exist.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetLevelHeight">
+      <MemberSignature Language="C#" Value="public int GetLevelHeight (uint level);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetLevelHeight(unsigned int32 level) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="level" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="level">To be added.</param>
+        <summary>
+            Return mip level width, or 0 if level does not exist.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetLevelWidth">
+      <MemberSignature Language="C#" Value="public int GetLevelWidth (uint level);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetLevelWidth(unsigned int32 level) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="level" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="level">To be added.</param>
+        <summary>
+            Return mip level width, or 0 if level does not exist.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMipsToSkip">
+      <MemberSignature Language="C#" Value="public int GetMipsToSkip (int quality);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetMipsToSkip(int32 quality) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="quality" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="quality">To be added.</param>
+        <summary>
+            Return mip levels to skip on a quality setting when loading.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRowDataSize">
+      <MemberSignature Language="C#" Value="public uint GetRowDataSize (int width);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetRowDataSize(int32 width) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <summary>
+            Return data size in bytes for a pixel or block row.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSRGBFormat">
+      <MemberSignature Language="C#" Value="public uint GetSRGBFormat (uint format);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetSRGBFormat(unsigned int32 format) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="format" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="format">To be added.</param>
+        <summary>
+            Return the corresponding SRGB texture format if supported. If not supported, return format unchanged.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Height">
+      <MemberSignature Language="C#" Value="public int Height { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Height" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return height.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsCompressed">
+      <MemberSignature Language="C#" Value="public bool IsCompressed ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsCompressed() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether the texture format is compressed.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Levels">
+      <MemberSignature Language="C#" Value="public uint Levels { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Levels" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of mip levels.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ParametersDirty">
+      <MemberSignature Language="C#" Value="public bool ParametersDirty { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ParametersDirty" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether parameters are dirty.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAddressMode">
+      <MemberSignature Language="C#" Value="public void SetAddressMode (Urho.TextureCoordinate coord, Urho.TextureAddressMode address);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAddressMode(valuetype Urho.TextureCoordinate coord, valuetype Urho.TextureAddressMode address) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="coord" Type="Urho.TextureCoordinate" />
+        <Parameter Name="address" Type="Urho.TextureAddressMode" />
+      </Parameters>
+      <Docs>
+        <param name="coord">To be added.</param>
+        <param name="address">To be added.</param>
+        <summary>
+            Set addressing mode by texture coordinate.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMipsToSkip">
+      <MemberSignature Language="C#" Value="public void SetMipsToSkip (int quality, int mips);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMipsToSkip(int32 quality, int32 mips) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="quality" Type="System.Int32" />
+        <Parameter Name="mips" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="quality">To be added.</param>
+        <param name="mips">To be added.</param>
+        <summary>
+            Set mip levels to skip on a quality setting when loading. Ensures higher quality levels do not skip more.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetNumLevels">
+      <MemberSignature Language="C#" Value="public void SetNumLevels (uint levels);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetNumLevels(unsigned int32 levels) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="levels" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="levels">To be added.</param>
+        <summary>
+            Set number of requested mip levels. Needs to be called before setting size.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetParameters">
+      <MemberSignature Language="C#" Value="public void SetParameters (Urho.XMLElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetParameters(class Urho.XMLElement element) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="element" Type="Urho.XMLElement" />
+      </Parameters>
+      <Docs>
+        <param name="element">To be added.</param>
+        <summary>
+            Set additional parameters from an XML element.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetParameters">
+      <MemberSignature Language="C#" Value="public void SetParameters (Urho.XMLFile xml);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetParameters(class Urho.XMLFile xml) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="xml" Type="Urho.XMLFile" />
+      </Parameters>
+      <Docs>
+        <param name="xml">To be added.</param>
+        <summary>
+            Set additional parameters from an XML file.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetParametersDirty">
+      <MemberSignature Language="C#" Value="public void SetParametersDirty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetParametersDirty() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Dirty the parameters.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowCompare">
+      <MemberSignature Language="C#" Value="public bool ShadowCompare { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ShadowCompare" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether shadow compare is enabled.
+            Or
+            Set shadow compare mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SRGB">
+      <MemberSignature Language="C#" Value="public bool SRGB { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SRGB" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether is using sRGB sampling and writing.
+            Or
+            Set sRGB sampling and writing mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Target">
+      <MemberSignature Language="C#" Value="public uint Target { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Target" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return texture's OpenGL target.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateParameters">
+      <MemberSignature Language="C#" Value="public void UpdateParameters ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateParameters() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Update changed parameters to OpenGL. Called by Graphics when binding the texture.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Usage">
+      <MemberSignature Language="C#" Value="public Urho.TextureUsage Usage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TextureUsage Usage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureUsage</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return texture usage type.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Width">
+      <MemberSignature Language="C#" Value="public int Width { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Width" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return width.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,807 @@
+<Type Name="PhysicsWorld" FullName="Urho.PhysicsWorld">
+  <TypeSignature Language="C#" Value="public class PhysicsWorld : Urho.Component" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PhysicsWorld extends Urho.Component" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Component</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Physics simulation world component. Should be added only to the root scene node.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PhysicsWorld (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PhysicsWorld (Urho.Context scontext);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context scontext) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="scontext" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="scontext">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PhysicsWorld (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddCollisionShape">
+      <MemberSignature Language="C#" Value="public void AddCollisionShape (Urho.CollisionShape shape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCollisionShape(class Urho.CollisionShape shape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="shape" Type="Urho.CollisionShape" />
+      </Parameters>
+      <Docs>
+        <param name="shape">To be added.</param>
+        <summary>
+            Add a collision shape to keep track of. Called by CollisionShape.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddConstraint">
+      <MemberSignature Language="C#" Value="public void AddConstraint (Urho.Constraint joint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddConstraint(class Urho.Constraint joint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="joint" Type="Urho.Constraint" />
+      </Parameters>
+      <Docs>
+        <param name="joint">To be added.</param>
+        <summary>
+            Add a constraint to keep track of. Called by Constraint.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddRigidBody">
+      <MemberSignature Language="C#" Value="public void AddRigidBody (Urho.RigidBody body);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddRigidBody(class Urho.RigidBody body) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="body" Type="Urho.RigidBody" />
+      </Parameters>
+      <Docs>
+        <param name="body">To be added.</param>
+        <summary>
+            Add a rigid body to keep track of. Called by RigidBody.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CleanupGeometryCache">
+      <MemberSignature Language="C#" Value="public void CleanupGeometryCache ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CleanupGeometryCache() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Clean up the geometry cache.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConvexCast">
+      <MemberSignature Language="C#" Value="public void ConvexCast (ref Urho.PhysicsRaycastResult result, Urho.CollisionShape shape, Urho.Vector3 startPos, Urho.Quaternion startRot, Urho.Vector3 endPos, Urho.Quaternion endRot, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ConvexCast(valuetype Urho.PhysicsRaycastResult result, class Urho.CollisionShape shape, valuetype Urho.Vector3 startPos, valuetype Urho.Quaternion startRot, valuetype Urho.Vector3 endPos, valuetype Urho.Quaternion endRot, unsigned int32 collisionMask) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="result" Type="Urho.PhysicsRaycastResult&amp;" RefType="ref" />
+        <Parameter Name="shape" Type="Urho.CollisionShape" />
+        <Parameter Name="startPos" Type="Urho.Vector3" />
+        <Parameter Name="startRot" Type="Urho.Quaternion" />
+        <Parameter Name="endPos" Type="Urho.Vector3" />
+        <Parameter Name="endRot" Type="Urho.Quaternion" />
+        <Parameter Name="collisionMask" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="result">To be added.</param>
+        <param name="shape">To be added.</param>
+        <param name="startPos">To be added.</param>
+        <param name="startRot">To be added.</param>
+        <param name="endPos">To be added.</param>
+        <param name="endRot">To be added.</param>
+        <param name="collisionMask">To be added.</param>
+        <summary>
+            Perform a physics world swept convex test using a user-supplied collision shape and return the first hit.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawDebugGeometry">
+      <MemberSignature Language="C#" Value="public void DrawDebugGeometry (bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DrawDebugGeometry(bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="depthTest">To be added.</param>
+        <summary>
+            Add debug geometry to the debug renderer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawDebugGeometry">
+      <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer debug, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer debug, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="debug" Type="Urho.DebugRenderer" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="debug">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>
+            Visualize the component as debug geometry.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Fps">
+      <MemberSignature Language="C#" Value="public int Fps { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Fps" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return simulation steps per second.
+            Or
+            Set simulation substeps per second.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="getDebugMode">
+      <MemberSignature Language="C#" Value="public int getDebugMode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 getDebugMode() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return debug draw flags.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Gravity">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Gravity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Gravity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return gravity.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InternalEdge">
+      <MemberSignature Language="C#" Value="public bool InternalEdge { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool InternalEdge" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether Bullet's internal edge utility for trimesh collisions is enabled.
+            Or
+            Set whether to use Bullet's internal edge utility for trimesh collisions. Disabled by default.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Interpolation">
+      <MemberSignature Language="C#" Value="public bool Interpolation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Interpolation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether interpolation between simulation steps is enabled.
+            Or
+            Set whether to interpolate between simulation steps.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsApplyingTransforms">
+      <MemberSignature Language="C#" Value="public bool IsApplyingTransforms ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsApplyingTransforms() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether node dirtying should be disregarded.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxNetworkAngularVelocity">
+      <MemberSignature Language="C#" Value="public float MaxNetworkAngularVelocity { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 MaxNetworkAngularVelocity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return maximum angular velocity for network replication.
+            Or
+            Set maximum angular velocity for network replication.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxSubSteps">
+      <MemberSignature Language="C#" Value="public int MaxSubSteps { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaxSubSteps" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return maximum number of physics substeps per frame.
+            Or
+            Set maximum number of physics substeps per frame. 0 (default) is unlimited. Positive values cap the amount. Use a negative value to enable an adaptive timestep. This may cause inconsistent physics behavior.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumIterations">
+      <MemberSignature Language="C#" Value="public int NumIterations { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 NumIterations" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of constraint solver iterations.
+            Or
+            Set number of constraint solver iterations.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RaycastSingle">
+      <MemberSignature Language="C#" Value="public void RaycastSingle (ref Urho.PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RaycastSingle(valuetype Urho.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 maxDistance, unsigned int32 collisionMask) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="result" Type="Urho.PhysicsRaycastResult&amp;" RefType="ref" />
+        <Parameter Name="ray" Type="Urho.Ray" />
+        <Parameter Name="maxDistance" Type="System.Single" />
+        <Parameter Name="collisionMask" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="result">To be added.</param>
+        <param name="ray">To be added.</param>
+        <param name="maxDistance">To be added.</param>
+        <param name="collisionMask">To be added.</param>
+        <summary>
+            Perform a physics world raycast and return the closest hit.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveCachedGeometry">
+      <MemberSignature Language="C#" Value="public void RemoveCachedGeometry (Urho.Model model);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveCachedGeometry(class Urho.Model model) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="model" Type="Urho.Model" />
+      </Parameters>
+      <Docs>
+        <param name="model">To be added.</param>
+        <summary>
+            Invalidate cached collision geometry for a model.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveCollisionShape">
+      <MemberSignature Language="C#" Value="public void RemoveCollisionShape (Urho.CollisionShape shape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveCollisionShape(class Urho.CollisionShape shape) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="shape" Type="Urho.CollisionShape" />
+      </Parameters>
+      <Docs>
+        <param name="shape">To be added.</param>
+        <summary>
+            Remove a collision shape. Called by CollisionShape.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveConstraint">
+      <MemberSignature Language="C#" Value="public void RemoveConstraint (Urho.Constraint joint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveConstraint(class Urho.Constraint joint) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="joint" Type="Urho.Constraint" />
+      </Parameters>
+      <Docs>
+        <param name="joint">To be added.</param>
+        <summary>
+            Remove a constraint. Called by Constraint.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveRigidBody">
+      <MemberSignature Language="C#" Value="public void RemoveRigidBody (Urho.RigidBody body);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveRigidBody(class Urho.RigidBody body) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="body" Type="Urho.RigidBody" />
+      </Parameters>
+      <Docs>
+        <param name="body">To be added.</param>
+        <summary>
+            Remove a rigid body. Called by RigidBody.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetApplyingTransforms">
+      <MemberSignature Language="C#" Value="public void SetApplyingTransforms (bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetApplyingTransforms(bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <summary>
+            Set node dirtying to be disregarded.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDebugDepthTest">
+      <MemberSignature Language="C#" Value="public void SetDebugDepthTest (bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDebugDepthTest(bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <summary>
+            Set debug geometry depth test mode. Called both by PhysicsWorld itself and physics components.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="setDebugMode">
+      <MemberSignature Language="C#" Value="public void setDebugMode (int debugMode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void setDebugMode(int32 debugMode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="debugMode" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="debugMode">To be added.</param>
+        <summary>
+            Set debug draw flags.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDebugRenderer">
+      <MemberSignature Language="C#" Value="public void SetDebugRenderer (Urho.DebugRenderer debug);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDebugRenderer(class Urho.DebugRenderer debug) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="debug" Type="Urho.DebugRenderer" />
+      </Parameters>
+      <Docs>
+        <param name="debug">To be added.</param>
+        <summary>
+            Set debug renderer to use. Called both by PhysicsWorld itself and physics components.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGravity">
+      <MemberSignature Language="C#" Value="public void SetGravity (Urho.Vector3 gravity);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGravity(valuetype Urho.Vector3 gravity) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="gravity" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="gravity">To be added.</param>
+        <summary>
+            Set gravity.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SphereCast">
+      <MemberSignature Language="C#" Value="public void SphereCast (ref Urho.PhysicsRaycastResult result, Urho.Ray ray, float radius, float maxDistance, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SphereCast(valuetype Urho.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 radius, float32 maxDistance, unsigned int32 collisionMask) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="result" Type="Urho.PhysicsRaycastResult&amp;" RefType="ref" />
+        <Parameter Name="ray" Type="Urho.Ray" />
+        <Parameter Name="radius" Type="System.Single" />
+        <Parameter Name="maxDistance" Type="System.Single" />
+        <Parameter Name="collisionMask" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="result">To be added.</param>
+        <param name="ray">To be added.</param>
+        <param name="radius">To be added.</param>
+        <param name="maxDistance">To be added.</param>
+        <param name="collisionMask">To be added.</param>
+        <summary>
+            Perform a physics world swept sphere test and return the closest hit.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SplitImpulse">
+      <MemberSignature Language="C#" Value="public bool SplitImpulse { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SplitImpulse" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether split impulse collision mode is enabled.
+            Or
+            Set split impulse collision mode. This is more accurate, but slower. Disabled by default.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public void Update (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Update(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>
+            Step the simulation forward.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateCollisions">
+      <MemberSignature Language="C#" Value="public void UpdateCollisions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateCollisions() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Refresh collisions only without updating dynamics.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

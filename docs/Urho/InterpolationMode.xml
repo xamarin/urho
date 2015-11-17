@@ -1,0 +1,75 @@
+<Type Name="InterpolationMode" FullName="Urho.InterpolationMode">
+  <TypeSignature Language="C#" Value="public enum InterpolationMode" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed InterpolationMode extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            Bezier interpolation.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="BezierCurve">
+      <MemberSignature Language="C#" Value="BezierCurve" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.InterpolationMode BezierCurve = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.InterpolationMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="CatmullRomCurve">
+      <MemberSignature Language="C#" Value="CatmullRomCurve" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.InterpolationMode CatmullRomCurve = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.InterpolationMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="CatmullRomFullCurve">
+      <MemberSignature Language="C#" Value="CatmullRomFullCurve" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.InterpolationMode CatmullRomFullCurve = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.InterpolationMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="LinearCurve">
+      <MemberSignature Language="C#" Value="LinearCurve" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.InterpolationMode LinearCurve = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.InterpolationMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

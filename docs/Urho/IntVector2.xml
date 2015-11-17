@@ -1,0 +1,1590 @@
+<Type Name="IntVector2" FullName="Urho.IntVector2">
+  <TypeSignature Language="C#" Value="public struct IntVector2 : IEquatable&lt;Urho.IntVector2&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit IntVector2 extends System.ValueType implements class System.IEquatable`1&lt;valuetype Urho.IntVector2&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.IEquatable&lt;Urho.IntVector2&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>Represents a 2D vector using two single-precision inting-point numbers.</summary>
+    <remarks>
+            The IntVector2 structure is suitable for interoperation with unmanaged code requiring two consecutive ints.
+            </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public IntVector2 (Urho.IntVector2 v);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.IntVector2 v) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="v" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="v">The IntVector2 to copy components from.</param>
+        <summary>
+            Constructs a new IntVector2 from the given IntVector2.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public IntVector2 (Urho.Vector2 v);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Vector2 v) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="v" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="v">The IntVector2 to copy components from.</param>
+        <summary>
+            Constructs a new IntVector2 from the given Vector2.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public IntVector2 (int x, int y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(int32 x, int32 y) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="x" Type="System.Int32" />
+        <Parameter Name="y" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="x">The x coordinate of the net IntVector2.</param>
+        <param name="y">The y coordinate of the net IntVector2.</param>
+        <summary>
+            Constructs a new IntVector2.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Add(valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Add() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="right">Right operand. This parameter is only read from.</param>
+        <summary>Add the Vector passed as parameter to this instance.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (ref Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Add(valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Add() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="right" Type="Urho.IntVector2&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="right">Right operand. This parameter is only read from.</param>
+        <summary>Add the Vector passed as parameter to this instance.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Add (Urho.IntVector2 a, Urho.IntVector2 b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Add(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2" />
+        <Parameter Name="b" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="a">Left operand.</param>
+        <param name="b">Right operand.</param>
+        <summary>
+            Adds two vectors.
+            </summary>
+        <returns>Result of operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public static void Add (ref Urho.IntVector2 a, ref Urho.IntVector2 b, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Add(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="b" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="a">Left operand.</param>
+        <param name="b">Right operand.</param>
+        <param name="result">Result of operation.</param>
+        <summary>
+            Adds two vectors.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaryCentric">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 BaryCentric (Urho.IntVector2 a, Urho.IntVector2 b, Urho.IntVector2 c, int u, int v);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 BaryCentric(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b, valuetype Urho.IntVector2 c, int32 u, int32 v) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2" />
+        <Parameter Name="b" Type="Urho.IntVector2" />
+        <Parameter Name="c" Type="Urho.IntVector2" />
+        <Parameter Name="u" Type="System.Int32" />
+        <Parameter Name="v" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="a">First input Vector</param>
+        <param name="b">Second input Vector</param>
+        <param name="c">Third input Vector</param>
+        <param name="u">First Barycentric Coordinate</param>
+        <param name="v">Second Barycentric Coordinate</param>
+        <summary>
+            Interpolate 3 Vectors using Barycentric coordinates
+            </summary>
+        <returns>a when u=v=0, b when u=1,v=0, c when u=0,v=1, and a linear combination of a,b,c otherwise</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaryCentric">
+      <MemberSignature Language="C#" Value="public static void BaryCentric (ref Urho.IntVector2 a, ref Urho.IntVector2 b, ref Urho.IntVector2 c, int u, int v, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void BaryCentric(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b, valuetype Urho.IntVector2 c, int32 u, int32 v, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="b" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="c" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="u" Type="System.Int32" />
+        <Parameter Name="v" Type="System.Int32" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="a">First input Vector.</param>
+        <param name="b">Second input Vector.</param>
+        <param name="c">Third input Vector.</param>
+        <param name="u">First Barycentric Coordinate.</param>
+        <param name="v">Second Barycentric Coordinate.</param>
+        <param name="result">Output Vector. a when u=v=0, b when u=1,v=0, c when u=0,v=1, and a linear combination of a,b,c otherwise</param>
+        <summary>Interpolate 3 Vectors using Barycentric coordinates</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clamp">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Clamp (Urho.IntVector2 vec, Urho.IntVector2 min, Urho.IntVector2 max);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Clamp(valuetype Urho.IntVector2 vec, valuetype Urho.IntVector2 min, valuetype Urho.IntVector2 max) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2" />
+        <Parameter Name="min" Type="Urho.IntVector2" />
+        <Parameter Name="max" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="vec">Input vector</param>
+        <param name="min">Minimum vector</param>
+        <param name="max">Maximum vector</param>
+        <summary>
+            Clamp a vector to the given minimum and maximum vectors
+            </summary>
+        <returns>The clamped vector</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clamp">
+      <MemberSignature Language="C#" Value="public static void Clamp (ref Urho.IntVector2 vec, ref Urho.IntVector2 min, ref Urho.IntVector2 max, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Clamp(valuetype Urho.IntVector2 vec, valuetype Urho.IntVector2 min, valuetype Urho.IntVector2 max, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="min" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="max" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vec">Input vector</param>
+        <param name="min">Minimum vector</param>
+        <param name="max">Maximum vector</param>
+        <param name="result">The clamped vector</param>
+        <summary>
+            Clamp a vector to the given minimum and maximum vectors
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ComponentMax">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 ComponentMax (Urho.IntVector2 a, Urho.IntVector2 b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 ComponentMax(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2" />
+        <Parameter Name="b" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="a">First operand</param>
+        <param name="b">Second operand</param>
+        <summary>
+            Calculate the component-wise maximum of two vectors
+            </summary>
+        <returns>The component-wise maximum</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ComponentMax">
+      <MemberSignature Language="C#" Value="public static void ComponentMax (ref Urho.IntVector2 a, ref Urho.IntVector2 b, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ComponentMax(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="b" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="a">First operand</param>
+        <param name="b">Second operand</param>
+        <param name="result">The component-wise maximum</param>
+        <summary>
+            Calculate the component-wise maximum of two vectors
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ComponentMin">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 ComponentMin (Urho.IntVector2 a, Urho.IntVector2 b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 ComponentMin(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2" />
+        <Parameter Name="b" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="a">First operand</param>
+        <param name="b">Second operand</param>
+        <summary>
+            Calculate the component-wise minimum of two vectors
+            </summary>
+        <returns>The component-wise minimum</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ComponentMin">
+      <MemberSignature Language="C#" Value="public static void ComponentMin (ref Urho.IntVector2 a, ref Urho.IntVector2 b, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ComponentMin(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="b" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="a">First operand</param>
+        <param name="b">Second operand</param>
+        <param name="result">The component-wise minimum</param>
+        <summary>
+            Calculate the component-wise minimum of two vectors
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Div">
+      <MemberSignature Language="C#" Value="public void Div (int f);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Div(int32 f) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Divide() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="f" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="f">Scalar operand.</param>
+        <summary>Divide this instance by a scalar.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Divide">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Divide (Urho.IntVector2 vector, int scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Divide(valuetype Urho.IntVector2 vector, int32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.IntVector2" />
+        <Parameter Name="scale" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="vector">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <summary>
+            Divides a vector by a scalar.
+            </summary>
+        <returns>Result of the operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Divide">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Divide (Urho.IntVector2 vector, Urho.IntVector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Divide(valuetype Urho.IntVector2 vector, valuetype Urho.IntVector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.IntVector2" />
+        <Parameter Name="scale" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="vector">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <summary>
+            Divides a vector by the components of a vector (scale).
+            </summary>
+        <returns>Result of the operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Divide">
+      <MemberSignature Language="C#" Value="public static void Divide (ref Urho.IntVector2 vector, int scale, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Divide(valuetype Urho.IntVector2 vector, int32 scale, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="scale" Type="System.Int32" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vector">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <param name="result">Result of the operation.</param>
+        <summary>
+            Divides a vector by a scalar.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Divide">
+      <MemberSignature Language="C#" Value="public static void Divide (ref Urho.IntVector2 vector, ref Urho.IntVector2 scale, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Divide(valuetype Urho.IntVector2 vector, valuetype Urho.IntVector2 scale, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="scale" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vector">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <param name="result">Result of the operation.</param>
+        <summary>
+            Divide a vector by the components of a vector (scale).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dot">
+      <MemberSignature Language="C#" Value="public static int Dot (Urho.IntVector2 left, Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 Dot(valuetype Urho.IntVector2 left, valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.IntVector2" />
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="left">First operand</param>
+        <param name="right">Second operand</param>
+        <summary>
+            Calculate the dot (scalar) product of two vectors
+            </summary>
+        <returns>The dot product of the two inputs</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dot">
+      <MemberSignature Language="C#" Value="public static void Dot (ref Urho.IntVector2 left, ref Urho.IntVector2 right, out int result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Dot(valuetype Urho.IntVector2 left, valuetype Urho.IntVector2 right, int32 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="System.Int32&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">First operand</param>
+        <param name="right">Second operand</param>
+        <param name="result">The dot product of the two inputs</param>
+        <summary>
+            Calculate the dot (scalar) product of two vectors
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object obj) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obj" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="obj">The object to compare to.</param>
+        <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+        <returns>True if the instances are equal; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public bool Equals (Urho.IntVector2 other);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Equals(valuetype Urho.IntVector2 other) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="other" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="other">A vector to compare with this vector.</param>
+        <summary>Indicates whether the current vector is equal to another vector.</summary>
+        <returns>true if the current vector is equal to the vector parameter; otherwise, false.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns the hashcode for this instance.
+            </summary>
+        <returns>A System.Int32 containing the unique hashcode for this instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Length">
+      <MemberSignature Language="C#" Value="public int Length { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Length" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the length (magnitude) of the vector.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+        <see cref="P:Urho.IntVector2.LengthFast" />
+        <altmember cref="P:Urho.IntVector2.LengthSquared" />
+      </Docs>
+    </Member>
+    <Member MemberName="LengthFast">
+      <MemberSignature Language="C#" Value="public int LengthFast { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 LengthFast" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets an approximation of the vector length (magnitude).
+            </summary>
+        <value>To be added.</value>
+        <remarks>
+            This property uses an approximation of the square root function to calculate vector magnitude, with
+            an upper error bound of 0.001.
+            </remarks>
+        <see cref="P:Urho.IntVector2.Length" />
+        <altmember cref="P:Urho.IntVector2.LengthSquared" />
+      </Docs>
+    </Member>
+    <Member MemberName="LengthSquared">
+      <MemberSignature Language="C#" Value="public int LengthSquared { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 LengthSquared" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the square of the vector length (magnitude).
+            </summary>
+        <value>To be added.</value>
+        <remarks>
+            This property avoids the costly square root operation required by the Length property. This makes it more suitable
+            for comparisons.
+            </remarks>
+        <see cref="P:Urho.IntVector2.Length" />
+        <altmember cref="P:Urho.IntVector2.LengthFast" />
+      </Docs>
+    </Member>
+    <Member MemberName="Lerp">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Lerp (Urho.IntVector2 a, Urho.IntVector2 b, int blend);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Lerp(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b, int32 blend) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2" />
+        <Parameter Name="b" Type="Urho.IntVector2" />
+        <Parameter Name="blend" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="a">First input vector</param>
+        <param name="b">Second input vector</param>
+        <param name="blend">The blend factor. a when blend=0, b when blend=1.</param>
+        <summary>
+            Returns a new Vector that is the linear blend of the 2 given Vectors
+            </summary>
+        <returns>a when blend=0, b when blend=1, and a linear combination otherwise</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Lerp">
+      <MemberSignature Language="C#" Value="public static void Lerp (ref Urho.IntVector2 a, ref Urho.IntVector2 b, int blend, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Lerp(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b, int32 blend, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="b" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="blend" Type="System.Int32" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="a">First input vector</param>
+        <param name="b">Second input vector</param>
+        <param name="blend">The blend factor. a when blend=0, b when blend=1.</param>
+        <param name="result">a when blend=0, b when blend=1, and a linear combination otherwise</param>
+        <summary>
+            Returns a new Vector that is the linear blend of the 2 given Vectors
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Max">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Max (Urho.IntVector2 left, Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Max(valuetype Urho.IntVector2 left, valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.IntVector2" />
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left operand</param>
+        <param name="right">Right operand</param>
+        <summary>
+            Returns the Vector3 with the minimum magnitude
+            </summary>
+        <returns>The minimum Vector3</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Min">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Min (Urho.IntVector2 left, Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Min(valuetype Urho.IntVector2 left, valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.IntVector2" />
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left operand</param>
+        <param name="right">Right operand</param>
+        <summary>
+            Returns the Vector3 with the minimum magnitude
+            </summary>
+        <returns>The minimum Vector3</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Mult">
+      <MemberSignature Language="C#" Value="public void Mult (int f);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Mult(int32 f) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Multiply() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="f" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="f">Scalar operand.</param>
+        <summary>Multiply this instance by a scalar.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Multiply (Urho.IntVector2 vector, int scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Multiply(valuetype Urho.IntVector2 vector, int32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.IntVector2" />
+        <Parameter Name="scale" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="vector">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <summary>
+            Multiplies a vector by a scalar.
+            </summary>
+        <returns>Result of the operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Multiply (Urho.IntVector2 vector, Urho.IntVector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Multiply(valuetype Urho.IntVector2 vector, valuetype Urho.IntVector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.IntVector2" />
+        <Parameter Name="scale" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="vector">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <summary>
+            Multiplies a vector by the components a vector (scale).
+            </summary>
+        <returns>Result of the operation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static void Multiply (ref Urho.IntVector2 vector, int scale, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Multiply(valuetype Urho.IntVector2 vector, int32 scale, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="scale" Type="System.Int32" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vector">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <param name="result">Result of the operation.</param>
+        <summary>
+            Multiplies a vector by a scalar.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public static void Multiply (ref Urho.IntVector2 vector, ref Urho.IntVector2 scale, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Multiply(valuetype Urho.IntVector2 vector, valuetype Urho.IntVector2 scale, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="scale" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vector">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <param name="result">Result of the operation.</param>
+        <summary>
+            Multiplies a vector by the components of a vector (scale).
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Normalize">
+      <MemberSignature Language="C#" Value="public void Normalize ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Normalize() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Scales the IntVector2 to unit length.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Normalize">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Normalize (Urho.IntVector2 vec);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Normalize(valuetype Urho.IntVector2 vec) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="vec">The input vector</param>
+        <summary>
+            Scale a vector to unit length
+            </summary>
+        <returns>The normalized vector</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Normalize">
+      <MemberSignature Language="C#" Value="public static void Normalize (ref Urho.IntVector2 vec, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Normalize(valuetype Urho.IntVector2 vec, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vec">The input vector</param>
+        <param name="result">The normalized vector</param>
+        <summary>
+            Scale a vector to unit length
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NormalizeFast">
+      <MemberSignature Language="C#" Value="public void NormalizeFast ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void NormalizeFast() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Scales the IntVector2 to approximately unit length.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NormalizeFast">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 NormalizeFast (Urho.IntVector2 vec);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 NormalizeFast(valuetype Urho.IntVector2 vec) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="vec">The input vector</param>
+        <summary>
+            Scale a vector to approximately unit length
+            </summary>
+        <returns>The normalized vector</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NormalizeFast">
+      <MemberSignature Language="C#" Value="public static void NormalizeFast (ref Urho.IntVector2 vec, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void NormalizeFast(valuetype Urho.IntVector2 vec, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vec">The input vector</param>
+        <param name="result">The normalized vector</param>
+        <summary>
+            Scale a vector to approximately unit length
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="One">
+      <MemberSignature Language="C#" Value="public static readonly Urho.IntVector2 One;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.IntVector2 One" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Defines an instance with all components set to 1.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Addition">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 op_Addition (Urho.IntVector2 left, Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.IntVector2 op_Addition(valuetype Urho.IntVector2 left, valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.IntVector2" />
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left operand.</param>
+        <param name="right">Right operand.</param>
+        <summary>
+            Adds the specified instances.
+            </summary>
+        <returns>Result of addition.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Division">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 op_Division (Urho.IntVector2 vec, int scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.IntVector2 op_Division(valuetype Urho.IntVector2 vec, int32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2" />
+        <Parameter Name="scale" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="vec">Left operand</param>
+        <param name="scale">Right operand</param>
+        <summary>
+            Divides the specified instance by a scalar.
+            </summary>
+        <returns>Result of the division.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Equality">
+      <MemberSignature Language="C#" Value="public static bool op_Equality (Urho.IntVector2 left, Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Equality(valuetype Urho.IntVector2 left, valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.IntVector2" />
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left operand.</param>
+        <param name="right">Right operand.</param>
+        <summary>
+            Compares the specified instances for equality.
+            </summary>
+        <returns>True if both instances are equal; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Inequality">
+      <MemberSignature Language="C#" Value="public static bool op_Inequality (Urho.IntVector2 left, Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Inequality(valuetype Urho.IntVector2 left, valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.IntVector2" />
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left operand.</param>
+        <param name="right">Right operand.</param>
+        <summary>
+            Compares the specified instances for inequality.
+            </summary>
+        <returns>True if both instances are not equal; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 op_Multiply (int scale, Urho.IntVector2 vec);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.IntVector2 op_Multiply(int32 scale, valuetype Urho.IntVector2 vec) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="System.Int32" />
+        <Parameter Name="vec" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="scale">Left operand.</param>
+        <param name="vec">Right operand.</param>
+        <summary>
+            Multiplies the specified instance by a scalar.
+            </summary>
+        <returns>Result of multiplication.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 op_Multiply (Urho.IntVector2 vec, int scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.IntVector2 op_Multiply(valuetype Urho.IntVector2 vec, int32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2" />
+        <Parameter Name="scale" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="vec">Left operand.</param>
+        <param name="scale">Right operand.</param>
+        <summary>
+            Multiplies the specified instance by a scalar.
+            </summary>
+        <returns>Result of multiplication.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Subtraction">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 op_Subtraction (Urho.IntVector2 left, Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.IntVector2 op_Subtraction(valuetype Urho.IntVector2 left, valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.IntVector2" />
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left operand.</param>
+        <param name="right">Right operand.</param>
+        <summary>
+            Subtracts the specified instances.
+            </summary>
+        <returns>Result of subtraction.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_UnaryNegation">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 op_UnaryNegation (Urho.IntVector2 vec);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.IntVector2 op_UnaryNegation(valuetype Urho.IntVector2 vec) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vec" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="vec">Operand.</param>
+        <summary>
+            Negates the specified instance.
+            </summary>
+        <returns>Result of negation.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PerpendicularLeft">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 PerpendicularLeft { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 PerpendicularLeft" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the perpendicular vector on the left side of this vector.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PerpendicularRight">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 PerpendicularRight { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 PerpendicularRight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the perpendicular vector on the right side of this vector.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public void Scale (Urho.IntVector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Scale(valuetype Urho.IntVector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Multiply() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="scale">The scaling of the individual components.</param>
+        <summary>Scales this instance by the given parameter.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public void Scale (ref Urho.IntVector2 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Scale(valuetype Urho.IntVector2 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Multiply() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.IntVector2&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="scale">The scaling of the individual components.</param>
+        <summary>Scales this instance by the given parameter.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public void Scale (int sx, int sy);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Scale(int32 sx, int32 sy) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Multiply() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sx" Type="System.Int32" />
+        <Parameter Name="sy" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="sx">The scale of the X component.</param>
+        <param name="sy">The scale of the Y component.</param>
+        <summary>
+            Scales the current IntVector2 by the given amounts.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SizeInBytes">
+      <MemberSignature Language="C#" Value="public static readonly int SizeInBytes;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly int32 SizeInBytes" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Defines the size of the IntVector2 struct in bytes.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Sub">
+      <MemberSignature Language="C#" Value="public void Sub (Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Sub(valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Subtract() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="right" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="right">Right operand. This parameter is only read from.</param>
+        <summary>Subtract the Vector passed as parameter from this instance.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Sub">
+      <MemberSignature Language="C#" Value="public void Sub (ref Urho.IntVector2 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Sub(valuetype Urho.IntVector2 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use static Subtract() method instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="right" Type="Urho.IntVector2&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <param name="right">Right operand. This parameter is only read from.</param>
+        <summary>Subtract the Vector passed as parameter from this instance.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Subtract">
+      <MemberSignature Language="C#" Value="public static Urho.IntVector2 Subtract (Urho.IntVector2 a, Urho.IntVector2 b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.IntVector2 Subtract(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2" />
+        <Parameter Name="b" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="a">First operand</param>
+        <param name="b">Second operand</param>
+        <summary>
+            Subtract one Vector from another
+            </summary>
+        <returns>Result of subtraction</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Subtract">
+      <MemberSignature Language="C#" Value="public static void Subtract (ref Urho.IntVector2 a, ref Urho.IntVector2 b, out Urho.IntVector2 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Subtract(valuetype Urho.IntVector2 a, valuetype Urho.IntVector2 b, valuetype Urho.IntVector2 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="b" Type="Urho.IntVector2&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.IntVector2&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="a">First operand</param>
+        <param name="b">Second operand</param>
+        <param name="result">Result of subtraction</param>
+        <summary>
+            Subtract one Vector from another
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance string ToString() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns a System.String that represents the current IntVector2.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnitX">
+      <MemberSignature Language="C#" Value="public static readonly Urho.IntVector2 UnitX;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.IntVector2 UnitX" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Defines a unit-length IntVector2 that points towards the X-axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnitY">
+      <MemberSignature Language="C#" Value="public static readonly Urho.IntVector2 UnitY;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.IntVector2 UnitY" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Defines a unit-length IntVector2 that points towards the Y-axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="X">
+      <MemberSignature Language="C#" Value="public int X;" />
+      <MemberSignature Language="ILAsm" Value=".field public int32 X" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The X component of the IntVector2.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Y">
+      <MemberSignature Language="C#" Value="public int Y;" />
+      <MemberSignature Language="ILAsm" Value=".field public int32 Y" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The Y component of the IntVector2.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Zero">
+      <MemberSignature Language="C#" Value="public static readonly Urho.IntVector2 Zero;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.IntVector2 Zero" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Defines a zero-length IntVector2.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

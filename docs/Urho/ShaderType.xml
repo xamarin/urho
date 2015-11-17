@@ -1,0 +1,47 @@
+<Type Name="ShaderType" FullName="Urho.ShaderType">
+  <TypeSignature Language="C#" Value="public enum ShaderType" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ShaderType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            Shader types.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="PS">
+      <MemberSignature Language="C#" Value="PS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShaderType PS = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShaderType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="VS">
+      <MemberSignature Language="C#" Value="VS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShaderType VS = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShaderType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

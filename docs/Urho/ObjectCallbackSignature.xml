@@ -1,0 +1,26 @@
+<Type Name="ObjectCallbackSignature" FullName="Urho.ObjectCallbackSignature">
+  <TypeSignature Language="C#" Value="public delegate void ObjectCallbackSignature(IntPtr data, int stringhash, IntPtr variantMap);" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ObjectCallbackSignature extends System.MulticastDelegate" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Parameters>
+    <Parameter Name="data" Type="System.IntPtr" />
+    <Parameter Name="stringhash" Type="System.Int32" />
+    <Parameter Name="variantMap" Type="System.IntPtr" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="data">To be added.</param>
+    <param name="stringhash">To be added.</param>
+    <param name="variantMap">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

@@ -1,0 +1,1797 @@
+<Type Name="Matrix4" FullName="Urho.Matrix4">
+  <TypeSignature Language="C#" Value="public struct Matrix4 : IEquatable&lt;Urho.Matrix4&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Matrix4 extends System.ValueType implements class System.IEquatable`1&lt;valuetype Urho.Matrix4&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.IEquatable&lt;Urho.Matrix4&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>
+            Represents a 4x4 Matrix
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Matrix4 (Urho.Vector4 row0, Urho.Vector4 row1, Urho.Vector4 row2, Urho.Vector4 row3);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Vector4 row0, valuetype Urho.Vector4 row1, valuetype Urho.Vector4 row2, valuetype Urho.Vector4 row3) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="row0" Type="Urho.Vector4" />
+        <Parameter Name="row1" Type="Urho.Vector4" />
+        <Parameter Name="row2" Type="Urho.Vector4" />
+        <Parameter Name="row3" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="row0">Top row of the matrix</param>
+        <param name="row1">Second row of the matrix</param>
+        <param name="row2">Third row of the matrix</param>
+        <param name="row3">Bottom row of the matrix</param>
+        <summary>
+            Constructs a new instance.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Matrix4 (float m00, float m01, float m02, float m03, float m10, float m11, float m12, float m13, float m20, float m21, float m22, float m23, float m30, float m31, float m32, float m33);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 m00, float32 m01, float32 m02, float32 m03, float32 m10, float32 m11, float32 m12, float32 m13, float32 m20, float32 m21, float32 m22, float32 m23, float32 m30, float32 m31, float32 m32, float32 m33) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="m00" Type="System.Single" />
+        <Parameter Name="m01" Type="System.Single" />
+        <Parameter Name="m02" Type="System.Single" />
+        <Parameter Name="m03" Type="System.Single" />
+        <Parameter Name="m10" Type="System.Single" />
+        <Parameter Name="m11" Type="System.Single" />
+        <Parameter Name="m12" Type="System.Single" />
+        <Parameter Name="m13" Type="System.Single" />
+        <Parameter Name="m20" Type="System.Single" />
+        <Parameter Name="m21" Type="System.Single" />
+        <Parameter Name="m22" Type="System.Single" />
+        <Parameter Name="m23" Type="System.Single" />
+        <Parameter Name="m30" Type="System.Single" />
+        <Parameter Name="m31" Type="System.Single" />
+        <Parameter Name="m32" Type="System.Single" />
+        <Parameter Name="m33" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="m00">First item of the first row of the matrix.</param>
+        <param name="m01">Second item of the first row of the matrix.</param>
+        <param name="m02">Third item of the first row of the matrix.</param>
+        <param name="m03">Fourth item of the first row of the matrix.</param>
+        <param name="m10">First item of the second row of the matrix.</param>
+        <param name="m11">Second item of the second row of the matrix.</param>
+        <param name="m12">Third item of the second row of the matrix.</param>
+        <param name="m13">Fourth item of the second row of the matrix.</param>
+        <param name="m20">First item of the third row of the matrix.</param>
+        <param name="m21">Second item of the third row of the matrix.</param>
+        <param name="m22">Third item of the third row of the matrix.</param>
+        <param name="m23">First item of the third row of the matrix.</param>
+        <param name="m30">Fourth item of the fourth row of the matrix.</param>
+        <param name="m31">Second item of the fourth row of the matrix.</param>
+        <param name="m32">Third item of the fourth row of the matrix.</param>
+        <param name="m33">Fourth item of the fourth row of the matrix.</param>
+        <summary>
+            Constructs a new instance.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Column0">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 Column0 { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector4 Column0" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The first column of this matrix
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Column1">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 Column1 { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector4 Column1" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The second column of this matrix
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Column2">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 Column2 { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector4 Column2" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The third column of this matrix
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Column3">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 Column3 { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector4 Column3" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The fourth column of this matrix
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFromAxisAngle">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreateFromAxisAngle (Urho.Vector3 axis, float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreateFromAxisAngle(valuetype Urho.Vector3 axis, float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="axis" Type="Urho.Vector3" />
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="axis">The axis to rotate about.</param>
+        <param name="angle">Angle in radians to rotate counter-clockwise (looking in the direction of the given axis).</param>
+        <summary>
+            Build a rotation matrix from the specified axis/angle rotation.
+            </summary>
+        <returns>A matrix instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFromAxisAngle">
+      <MemberSignature Language="C#" Value="public static void CreateFromAxisAngle (Urho.Vector3 axis, float angle, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateFromAxisAngle(valuetype Urho.Vector3 axis, float32 angle, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="axis" Type="Urho.Vector3" />
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="axis">The axis to rotate about.</param>
+        <param name="angle">Angle in radians to rotate counter-clockwise (looking in the direction of the given axis).</param>
+        <param name="result">A matrix instance.</param>
+        <summary>
+            Build a rotation matrix from the specified axis/angle rotation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrthographic">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreateOrthographic (float width, float height, float zNear, float zFar);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreateOrthographic(float32 width, float32 height, float32 zNear, float32 zFar) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Single" />
+        <Parameter Name="height" Type="System.Single" />
+        <Parameter Name="zNear" Type="System.Single" />
+        <Parameter Name="zFar" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="width">The width of the projection volume.</param>
+        <param name="height">The height of the projection volume.</param>
+        <param name="zNear">The near edge of the projection volume.</param>
+        <param name="zFar">The far edge of the projection volume.</param>
+        <summary>
+            Creates an orthographic projection matrix.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <rereturns>The resulting Matrix4 instance.</rereturns>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrthographic">
+      <MemberSignature Language="C#" Value="public static void CreateOrthographic (float width, float height, float zNear, float zFar, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateOrthographic(float32 width, float32 height, float32 zNear, float32 zFar, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Single" />
+        <Parameter Name="height" Type="System.Single" />
+        <Parameter Name="zNear" Type="System.Single" />
+        <Parameter Name="zFar" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="width">The width of the projection volume.</param>
+        <param name="height">The height of the projection volume.</param>
+        <param name="zNear">The near edge of the projection volume.</param>
+        <param name="zFar">The far edge of the projection volume.</param>
+        <param name="result">The resulting Matrix4 instance.</param>
+        <summary>
+            Creates an orthographic projection matrix.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrthographicOffCenter">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreateOrthographicOffCenter (float left, float right, float bottom, float top, float zNear, float zFar);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreateOrthographicOffCenter(float32 left, float32 right, float32 bottom, float32 top, float32 zNear, float32 zFar) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="System.Single" />
+        <Parameter Name="right" Type="System.Single" />
+        <Parameter Name="bottom" Type="System.Single" />
+        <Parameter Name="top" Type="System.Single" />
+        <Parameter Name="zNear" Type="System.Single" />
+        <Parameter Name="zFar" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="left">The left edge of the projection volume.</param>
+        <param name="right">The right edge of the projection volume.</param>
+        <param name="bottom">The bottom edge of the projection volume.</param>
+        <param name="top">The top edge of the projection volume.</param>
+        <param name="zNear">The near edge of the projection volume.</param>
+        <param name="zFar">The far edge of the projection volume.</param>
+        <summary>
+            Creates an orthographic projection matrix.
+            </summary>
+        <returns>The resulting Matrix4 instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOrthographicOffCenter">
+      <MemberSignature Language="C#" Value="public static void CreateOrthographicOffCenter (float left, float right, float bottom, float top, float zNear, float zFar, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateOrthographicOffCenter(float32 left, float32 right, float32 bottom, float32 top, float32 zNear, float32 zFar, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="System.Single" />
+        <Parameter Name="right" Type="System.Single" />
+        <Parameter Name="bottom" Type="System.Single" />
+        <Parameter Name="top" Type="System.Single" />
+        <Parameter Name="zNear" Type="System.Single" />
+        <Parameter Name="zFar" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">The left edge of the projection volume.</param>
+        <param name="right">The right edge of the projection volume.</param>
+        <param name="bottom">The bottom edge of the projection volume.</param>
+        <param name="top">The top edge of the projection volume.</param>
+        <param name="zNear">The near edge of the projection volume.</param>
+        <param name="zFar">The far edge of the projection volume.</param>
+        <param name="result">The resulting Matrix4 instance.</param>
+        <summary>
+            Creates an orthographic projection matrix.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreatePerspectiveFieldOfView">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreatePerspectiveFieldOfView (float fovy, float aspect, float zNear, float zFar);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreatePerspectiveFieldOfView(float32 fovy, float32 aspect, float32 zNear, float32 zFar) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fovy" Type="System.Single" />
+        <Parameter Name="aspect" Type="System.Single" />
+        <Parameter Name="zNear" Type="System.Single" />
+        <Parameter Name="zFar" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="fovy">Angle of the field of view in the y direction (in radians)</param>
+        <param name="aspect">Aspect ratio of the view (width / height)</param>
+        <param name="zNear">Distance to the near clip plane</param>
+        <param name="zFar">Distance to the far clip plane</param>
+        <summary>
+            Creates a perspective projection matrix.
+            </summary>
+        <returns>A projection matrix that transforms camera space to raster space</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown under the following conditions:
+            <list type="bullet"><item>fovy is zero, less than zero or larger than Math.PI</item><item>aspect is negative or zero</item><item>zNear is negative or zero</item><item>zFar is negative or zero</item><item>zNear is larger than zFar</item></list></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreatePerspectiveFieldOfView">
+      <MemberSignature Language="C#" Value="public static void CreatePerspectiveFieldOfView (float fovy, float aspect, float zNear, float zFar, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreatePerspectiveFieldOfView(float32 fovy, float32 aspect, float32 zNear, float32 zFar, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fovy" Type="System.Single" />
+        <Parameter Name="aspect" Type="System.Single" />
+        <Parameter Name="zNear" Type="System.Single" />
+        <Parameter Name="zFar" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="fovy">Angle of the field of view in the y direction (in radians)</param>
+        <param name="aspect">Aspect ratio of the view (width / height)</param>
+        <param name="zNear">Distance to the near clip plane</param>
+        <param name="zFar">Distance to the far clip plane</param>
+        <param name="result">A projection matrix that transforms camera space to raster space</param>
+        <summary>
+            Creates a perspective projection matrix.
+            </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown under the following conditions:
+            <list type="bullet"><item>fovy is zero, less than zero or larger than Math.PI</item><item>aspect is negative or zero</item><item>zNear is negative or zero</item><item>zFar is negative or zero</item><item>zNear is larger than zFar</item></list></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreatePerspectiveOffCenter">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreatePerspectiveOffCenter (float left, float right, float bottom, float top, float zNear, float zFar);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreatePerspectiveOffCenter(float32 left, float32 right, float32 bottom, float32 top, float32 zNear, float32 zFar) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="System.Single" />
+        <Parameter Name="right" Type="System.Single" />
+        <Parameter Name="bottom" Type="System.Single" />
+        <Parameter Name="top" Type="System.Single" />
+        <Parameter Name="zNear" Type="System.Single" />
+        <Parameter Name="zFar" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left edge of the view frustum</param>
+        <param name="right">Right edge of the view frustum</param>
+        <param name="bottom">Bottom edge of the view frustum</param>
+        <param name="top">Top edge of the view frustum</param>
+        <param name="zNear">Distance to the near clip plane</param>
+        <param name="zFar">Distance to the far clip plane</param>
+        <summary>
+            Creates an perspective projection matrix.
+            </summary>
+        <returns>A projection matrix that transforms camera space to raster space</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown under the following conditions:
+            <list type="bullet"><item>zNear is negative or zero</item><item>zFar is negative or zero</item><item>zNear is larger than zFar</item></list></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreatePerspectiveOffCenter">
+      <MemberSignature Language="C#" Value="public static void CreatePerspectiveOffCenter (float left, float right, float bottom, float top, float zNear, float zFar, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreatePerspectiveOffCenter(float32 left, float32 right, float32 bottom, float32 top, float32 zNear, float32 zFar, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="System.Single" />
+        <Parameter Name="right" Type="System.Single" />
+        <Parameter Name="bottom" Type="System.Single" />
+        <Parameter Name="top" Type="System.Single" />
+        <Parameter Name="zNear" Type="System.Single" />
+        <Parameter Name="zFar" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left edge of the view frustum</param>
+        <param name="right">Right edge of the view frustum</param>
+        <param name="bottom">Bottom edge of the view frustum</param>
+        <param name="top">Top edge of the view frustum</param>
+        <param name="zNear">Distance to the near clip plane</param>
+        <param name="zFar">Distance to the far clip plane</param>
+        <param name="result">A projection matrix that transforms camera space to raster space</param>
+        <summary>
+            Creates an perspective projection matrix.
+            </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown under the following conditions:
+            <list type="bullet"><item>zNear is negative or zero</item><item>zFar is negative or zero</item><item>zNear is larger than zFar</item></list></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateRotationX">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreateRotationX (float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreateRotationX(float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="angle">The counter-clockwise angle in radians.</param>
+        <summary>
+            Builds a rotation matrix for a rotation around the x-axis.
+            </summary>
+        <returns>The resulting Matrix4 instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateRotationX">
+      <MemberSignature Language="C#" Value="public static void CreateRotationX (float angle, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateRotationX(float32 angle, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="angle">The counter-clockwise angle in radians.</param>
+        <param name="result">The resulting Matrix4 instance.</param>
+        <summary>
+            Builds a rotation matrix for a rotation around the x-axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateRotationY">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreateRotationY (float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreateRotationY(float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="angle">The counter-clockwise angle in radians.</param>
+        <summary>
+            Builds a rotation matrix for a rotation around the y-axis.
+            </summary>
+        <returns>The resulting Matrix4 instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateRotationY">
+      <MemberSignature Language="C#" Value="public static void CreateRotationY (float angle, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateRotationY(float32 angle, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="angle">The counter-clockwise angle in radians.</param>
+        <param name="result">The resulting Matrix4 instance.</param>
+        <summary>
+            Builds a rotation matrix for a rotation around the y-axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateRotationZ">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreateRotationZ (float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreateRotationZ(float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="angle">The counter-clockwise angle in radians.</param>
+        <summary>
+            Builds a rotation matrix for a rotation around the z-axis.
+            </summary>
+        <returns>The resulting Matrix4 instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateRotationZ">
+      <MemberSignature Language="C#" Value="public static void CreateRotationZ (float angle, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateRotationZ(float32 angle, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="angle">The counter-clockwise angle in radians.</param>
+        <param name="result">The resulting Matrix4 instance.</param>
+        <summary>
+            Builds a rotation matrix for a rotation around the z-axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateTranslation">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreateTranslation (Urho.Vector3 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreateTranslation(valuetype Urho.Vector3 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="vector">The translation vector.</param>
+        <summary>
+            Creates a translation matrix.
+            </summary>
+        <returns>The resulting Matrix4 instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateTranslation">
+      <MemberSignature Language="C#" Value="public static void CreateTranslation (ref Urho.Vector3 vector, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateTranslation(valuetype Urho.Vector3 vector, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector3&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="vector">The translation vector.</param>
+        <param name="result">The resulting Matrix4 instance.</param>
+        <summary>
+            Creates a translation matrix.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateTranslation">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 CreateTranslation (float x, float y, float z);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 CreateTranslation(float32 x, float32 y, float32 z) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+        <Parameter Name="z" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">X translation.</param>
+        <param name="y">Y translation.</param>
+        <param name="z">Z translation.</param>
+        <summary>
+            Creates a translation matrix.
+            </summary>
+        <returns>The resulting Matrix4 instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateTranslation">
+      <MemberSignature Language="C#" Value="public static void CreateTranslation (float x, float y, float z, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateTranslation(float32 x, float32 y, float32 z, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+        <Parameter Name="z" Type="System.Single" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="x">X translation.</param>
+        <param name="y">Y translation.</param>
+        <param name="z">Z translation.</param>
+        <param name="result">The resulting Matrix4 instance.</param>
+        <summary>
+            Creates a translation matrix.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Determinant">
+      <MemberSignature Language="C#" Value="public float Determinant { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Determinant" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The determinant of this matrix
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object obj) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obj" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="obj">The object to compare tresult.</param>
+        <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+        <returns>True if the instances are equal; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public bool Equals (Urho.Matrix4 other);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Equals(valuetype Urho.Matrix4 other) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="other" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="other">An matrix to compare with this matrix.</param>
+        <summary>Indicates whether the current matrix is equal to another matrix.</summary>
+        <returns>true if the current matrix is equal to the matrix parameter; otherwise, false.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Frustum">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Frustum (float left, float right, float bottom, float top, float near, float far);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Frustum(float32 left, float32 right, float32 bottom, float32 top, float32 near, float32 far) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use CreatePerspectiveOffCenter instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="System.Single" />
+        <Parameter Name="right" Type="System.Single" />
+        <Parameter Name="bottom" Type="System.Single" />
+        <Parameter Name="top" Type="System.Single" />
+        <Parameter Name="near" Type="System.Single" />
+        <Parameter Name="far" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left edge of the view frustum</param>
+        <param name="right">Right edge of the view frustum</param>
+        <param name="bottom">Bottom edge of the view frustum</param>
+        <param name="top">Top edge of the view frustum</param>
+        <param name="near">Distance to the near clip plane</param>
+        <param name="far">Distance to the far clip plane</param>
+        <summary>
+            Build a projection matrix
+            </summary>
+        <returns>A projection matrix that transforms camera space to raster space</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns the hashcode for this instance.
+            </summary>
+        <returns>A System.Int32 containing the unique hashcode for this instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Identity">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Identity;" />
+      <MemberSignature Language="ILAsm" Value=".field public static valuetype Urho.Matrix4 Identity" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The identity matrix
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Invert">
+      <MemberSignature Language="C#" Value="public void Invert ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Invert() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Converts this instance into its inverse.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Invert">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Invert (Urho.Matrix4 mat);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Invert(valuetype Urho.Matrix4 mat) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mat" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="mat">The matrix to invert</param>
+        <summary>
+            Calculate the inverse of the given matrix
+            </summary>
+        <returns>The inverse of the given matrix if it has one, or the input if it is singular</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">Thrown if the Matrix4 is singular.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="LookAt">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 LookAt (Urho.Vector3 eye, Urho.Vector3 target, Urho.Vector3 up);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 LookAt(valuetype Urho.Vector3 eye, valuetype Urho.Vector3 target, valuetype Urho.Vector3 up) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eye" Type="Urho.Vector3" />
+        <Parameter Name="target" Type="Urho.Vector3" />
+        <Parameter Name="up" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="eye">Eye (camera) position in world space</param>
+        <param name="target">Target position in world space</param>
+        <param name="up">Up vector in world space (should not be parallel to the camera direction, that is target - eye)</param>
+        <summary>
+            Build a world space to camera space matrix
+            </summary>
+        <returns>A Matrix4 that transforms world space to camera space</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LookAt">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 LookAt (float eyeX, float eyeY, float eyeZ, float targetX, float targetY, float targetZ, float upX, float upY, float upZ);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 LookAt(float32 eyeX, float32 eyeY, float32 eyeZ, float32 targetX, float32 targetY, float32 targetZ, float32 upX, float32 upY, float32 upZ) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eyeX" Type="System.Single" />
+        <Parameter Name="eyeY" Type="System.Single" />
+        <Parameter Name="eyeZ" Type="System.Single" />
+        <Parameter Name="targetX" Type="System.Single" />
+        <Parameter Name="targetY" Type="System.Single" />
+        <Parameter Name="targetZ" Type="System.Single" />
+        <Parameter Name="upX" Type="System.Single" />
+        <Parameter Name="upY" Type="System.Single" />
+        <Parameter Name="upZ" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="eyeX">Eye (camera) position in world space</param>
+        <param name="eyeY">Eye (camera) position in world space</param>
+        <param name="eyeZ">Eye (camera) position in world space</param>
+        <param name="targetX">Target position in world space</param>
+        <param name="targetY">Target position in world space</param>
+        <param name="targetZ">Target position in world space</param>
+        <param name="upX">Up vector in world space (should not be parallel to the camera direction, that is target - eye)</param>
+        <param name="upY">Up vector in world space (should not be parallel to the camera direction, that is target - eye)</param>
+        <param name="upZ">Up vector in world space (should not be parallel to the camera direction, that is target - eye)</param>
+        <summary>
+            Build a world space to camera space matrix
+            </summary>
+        <returns>A Matrix4 that transforms world space to camera space</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M11">
+      <MemberSignature Language="C#" Value="public float M11 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M11" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 1, column 1 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M12">
+      <MemberSignature Language="C#" Value="public float M12 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M12" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 1, column 2 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M13">
+      <MemberSignature Language="C#" Value="public float M13 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M13" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 1, column 3 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M14">
+      <MemberSignature Language="C#" Value="public float M14 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M14" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 1, column 4 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M21">
+      <MemberSignature Language="C#" Value="public float M21 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M21" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 2, column 1 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M22">
+      <MemberSignature Language="C#" Value="public float M22 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M22" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 2, column 2 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M23">
+      <MemberSignature Language="C#" Value="public float M23 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M23" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 2, column 3 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M24">
+      <MemberSignature Language="C#" Value="public float M24 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M24" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 2, column 4 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M31">
+      <MemberSignature Language="C#" Value="public float M31 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M31" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 3, column 1 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M32">
+      <MemberSignature Language="C#" Value="public float M32 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M32" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 3, column 2 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M33">
+      <MemberSignature Language="C#" Value="public float M33 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M33" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 3, column 3 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M34">
+      <MemberSignature Language="C#" Value="public float M34 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M34" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 3, column 4 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M41">
+      <MemberSignature Language="C#" Value="public float M41 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M41" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 4, column 1 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M42">
+      <MemberSignature Language="C#" Value="public float M42 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M42" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 4, column 2 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M43">
+      <MemberSignature Language="C#" Value="public float M43 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M43" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 4, column 3 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="M44">
+      <MemberSignature Language="C#" Value="public float M44 { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 M44" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the value at row 4, column 4 of this instance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Mult">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Mult (Urho.Matrix4 left, Urho.Matrix4 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Mult(valuetype Urho.Matrix4 left, valuetype Urho.Matrix4 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix4" />
+        <Parameter Name="right" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="left">The left operand of the multiplication.</param>
+        <param name="right">The right operand of the multiplication.</param>
+        <summary>
+            Multiplies two instances.
+            </summary>
+        <returns>A new instance that is the result of the multiplication</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Mult">
+      <MemberSignature Language="C#" Value="public static void Mult (ref Urho.Matrix4 left, ref Urho.Matrix4 right, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Mult(valuetype Urho.Matrix4 left, valuetype Urho.Matrix4 right, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix4&amp;" RefType="ref" />
+        <Parameter Name="right" Type="Urho.Matrix4&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="left">The left operand of the multiplication.</param>
+        <param name="right">The right operand of the multiplication.</param>
+        <param name="result">A new instance that is the result of the multiplication</param>
+        <summary>
+            Multiplies two instances.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Equality">
+      <MemberSignature Language="C#" Value="public static bool op_Equality (Urho.Matrix4 left, Urho.Matrix4 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Equality(valuetype Urho.Matrix4 left, valuetype Urho.Matrix4 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix4" />
+        <Parameter Name="right" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Compares two instances for equality.
+            </summary>
+        <returns>True, if left equals right; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Inequality">
+      <MemberSignature Language="C#" Value="public static bool op_Inequality (Urho.Matrix4 left, Urho.Matrix4 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Inequality(valuetype Urho.Matrix4 left, valuetype Urho.Matrix4 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix4" />
+        <Parameter Name="right" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="left">The first instance.</param>
+        <param name="right">The second instance.</param>
+        <summary>
+            Compares two instances for inequality.
+            </summary>
+        <returns>True, if left does not equal right; false otherwise.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Multiply">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 op_Multiply (Urho.Matrix4 left, Urho.Matrix4 right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Matrix4 op_Multiply(valuetype Urho.Matrix4 left, valuetype Urho.Matrix4 right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Matrix4" />
+        <Parameter Name="right" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="left">left-hand operand</param>
+        <param name="right">right-hand operand</param>
+        <summary>
+            Matrix multiplication
+            </summary>
+        <returns>A new Matrix44 which holds the result of the multiplication</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Perspective">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Perspective (float fovy, float aspect, float near, float far);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Perspective(float32 fovy, float32 aspect, float32 near, float32 far) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use CreatePerspectiveFieldOfView instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fovy" Type="System.Single" />
+        <Parameter Name="aspect" Type="System.Single" />
+        <Parameter Name="near" Type="System.Single" />
+        <Parameter Name="far" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="fovy">Angle of the field of view in the y direction (in radians)</param>
+        <param name="aspect">Aspect ratio of the view (width / height)</param>
+        <param name="near">Distance to the near clip plane</param>
+        <param name="far">Distance to the far clip plane</param>
+        <summary>
+            Build a projection matrix
+            </summary>
+        <returns>A projection matrix that transforms camera space to raster space</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotate">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Rotate (Urho.Quaternion q);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Rotate(valuetype Urho.Quaternion q) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="q" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="q">the quaternion</param>
+        <summary>
+            Build a rotation matrix from a quaternion
+            </summary>
+        <returns>A rotation matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotate">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Rotate (Urho.Vector3 axis, float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Rotate(valuetype Urho.Vector3 axis, float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use CreateFromAxisAngle instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="axis" Type="Urho.Vector3" />
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="axis">the axis to rotate about</param>
+        <param name="angle">angle in radians to rotate counter-clockwise (looking in the direction of the given axis)</param>
+        <summary>
+            Build a rotation matrix to rotate about the given axis
+            </summary>
+        <returns>A rotation matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotateX">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 RotateX (float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 RotateX(float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use CreateRotationX instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="angle">angle in radians to rotate counter-clockwise around the x-axis</param>
+        <summary>
+            Build a rotation matrix that rotates about the x-axis
+            </summary>
+        <returns>A rotation matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotateY">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 RotateY (float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 RotateY(float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use CreateRotationY instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="angle">angle in radians to rotate counter-clockwise around the y-axis</param>
+        <summary>
+            Build a rotation matrix that rotates about the y-axis
+            </summary>
+        <returns>A rotation matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotateZ">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 RotateZ (float angle);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 RotateZ(float32 angle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use CreateRotationZ instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="angle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="angle">angle in radians to rotate counter-clockwise around the z-axis</param>
+        <summary>
+            Build a rotation matrix that rotates about the z-axis
+            </summary>
+        <returns>A rotation matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Row0">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 Row0;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector4 Row0" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Top row of the matrix
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Row1">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 Row1;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector4 Row1" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            2nd row of the matrix
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Row2">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 Row2;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector4 Row2" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            3rd row of the matrix
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Row3">
+      <MemberSignature Language="C#" Value="public Urho.Vector4 Row3;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector4 Row3" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Bottom row of the matrix
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Scale (float scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Scale(float32 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="scale">Single scale factor for x,y and z axes</param>
+        <summary>
+            Build a scaling matrix
+            </summary>
+        <returns>A scaling matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Scale (Urho.Vector3 scale);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Scale(valuetype Urho.Vector3 scale) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scale" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="scale">Scale factors for x,y and z axes</param>
+        <summary>
+            Build a scaling matrix
+            </summary>
+        <returns>A scaling matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Scale (float x, float y, float z);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Scale(float32 x, float32 y, float32 z) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+        <Parameter Name="z" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">Scale factor for x-axis</param>
+        <param name="y">Scale factor for y-axis</param>
+        <param name="z">Scale factor for z-axis</param>
+        <summary>
+            Build a scaling matrix
+            </summary>
+        <returns>A scaling matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance string ToString() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns a System.String that represents the current Matrix44.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Translation">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Translation (Urho.Vector3 trans);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Translation(valuetype Urho.Vector3 trans) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use CreateTranslation instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="trans" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="trans">The translation vector.</param>
+        <summary>
+            Builds a translation matrix.
+            </summary>
+        <returns>A new Matrix4 instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Translation">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Translation (float x, float y, float z);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Translation(float32 x, float32 y, float32 z) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Use CreateTranslation instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+        <Parameter Name="z" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">X translation</param>
+        <param name="y">Y translation</param>
+        <param name="z">Z translation</param>
+        <summary>
+            Build a translation matrix with the given translation
+            </summary>
+        <returns>A Translation matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transpose">
+      <MemberSignature Language="C#" Value="public void Transpose ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Transpose() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Converts this instance into its transpose.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transpose">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix4 Transpose (Urho.Matrix4 mat);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Transpose(valuetype Urho.Matrix4 mat) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mat" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="mat">The matrix to transpose</param>
+        <summary>
+            Calculate the transpose of the given matrix
+            </summary>
+        <returns>The transpose of the given matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transpose">
+      <MemberSignature Language="C#" Value="public static void Transpose (ref Urho.Matrix4 mat, out Urho.Matrix4 result);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Transpose(valuetype Urho.Matrix4 mat, valuetype Urho.Matrix4 result) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mat" Type="Urho.Matrix4&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Matrix4&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="mat">The matrix to transpose</param>
+        <param name="result">The result of the calculation</param>
+        <summary>
+            Calculate the transpose of the given matrix
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

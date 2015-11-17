@@ -1,0 +1,1129 @@
+<Type Name="Input" FullName="Urho.Input">
+  <TypeSignature Language="C#" Value="public class Input : Urho.UrhoObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Input extends Urho.UrhoObject" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.UrhoObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            %Input subsystem. Converts operating system window messages to input state and events.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Input (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Input (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Input (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddScreenJoystick">
+      <MemberSignature Language="C#" Value="public int AddScreenJoystick (Urho.XMLFile layoutFile, Urho.XMLFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 AddScreenJoystick(class Urho.XMLFile layoutFile, class Urho.XMLFile styleFile) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="layoutFile" Type="Urho.XMLFile" />
+        <Parameter Name="styleFile" Type="Urho.XMLFile" />
+      </Parameters>
+      <Docs>
+        <param name="layoutFile">To be added.</param>
+        <param name="styleFile">To be added.</param>
+        <summary>
+            Add screen joystick.
+            Return the joystick instance ID when successful or negative on error.
+            If layout file is not given, use the default screen joystick layout.
+            If style file is not given, use the default style file from root UI element.
+            This method should only be called in main thread.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJoystick">
+      <MemberSignature Language="C#" Value="public Urho.JoystickState* GetJoystick (int id);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.JoystickState* GetJoystick(int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.JoystickState*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="id">To be added.</param>
+        <summary>
+            Return joystick state by ID, or null if does not exist.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJoystickByIndex">
+      <MemberSignature Language="C#" Value="public Urho.JoystickState* GetJoystickByIndex (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.JoystickState* GetJoystickByIndex(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.JoystickState*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return joystick state by index, or null if does not exist. 0 = first connected joystick.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetKeyDown">
+      <MemberSignature Language="C#" Value="public bool GetKeyDown (Urho.Key key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetKeyDown(valuetype Urho.Key key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.Key" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <summary>
+            Check if a key is held down.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetKeyFromName">
+      <MemberSignature Language="C#" Value="public int GetKeyFromName (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetKeyFromName(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Return keycode from key name.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetKeyFromScancode">
+      <MemberSignature Language="C#" Value="public int GetKeyFromScancode (int scancode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetKeyFromScancode(int32 scancode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scancode" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="scancode">To be added.</param>
+        <summary>
+            Return keycode from scancode.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetKeyName">
+      <MemberSignature Language="C#" Value="public string GetKeyName (Urho.Key key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string GetKeyName(valuetype Urho.Key key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.Key" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <summary>
+            Return name of key from keycode.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetKeyPress">
+      <MemberSignature Language="C#" Value="public bool GetKeyPress (Urho.Key key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetKeyPress(valuetype Urho.Key key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.Key" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <summary>
+            Check if a key has been pressed on this frame.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMouseButtonDown">
+      <MemberSignature Language="C#" Value="public bool GetMouseButtonDown (Urho.MouseButton button);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetMouseButtonDown(valuetype Urho.MouseButton button) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="button" Type="Urho.MouseButton" />
+      </Parameters>
+      <Docs>
+        <param name="button">To be added.</param>
+        <summary>
+            Check if a mouse button is held down.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMouseButtonPress">
+      <MemberSignature Language="C#" Value="public bool GetMouseButtonPress (Urho.MouseButton button);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetMouseButtonPress(valuetype Urho.MouseButton button) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="button" Type="Urho.MouseButton" />
+      </Parameters>
+      <Docs>
+        <param name="button">To be added.</param>
+        <summary>
+            Check if a mouse button has been pressed on this frame.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetQualifierDown">
+      <MemberSignature Language="C#" Value="public bool GetQualifierDown (int qualifier);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetQualifierDown(int32 qualifier) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="qualifier" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="qualifier">To be added.</param>
+        <summary>
+            Check if a qualifier key is held down.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetQualifierPress">
+      <MemberSignature Language="C#" Value="public bool GetQualifierPress (int qualifier);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetQualifierPress(int32 qualifier) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="qualifier" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="qualifier">To be added.</param>
+        <summary>
+            Check if a qualifier key has been pressed on this frame.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetScancodeDown">
+      <MemberSignature Language="C#" Value="public bool GetScancodeDown (int scancode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetScancodeDown(int32 scancode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scancode" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="scancode">To be added.</param>
+        <summary>
+            Check if a key is held down by scancode.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetScancodeFromKey">
+      <MemberSignature Language="C#" Value="public int GetScancodeFromKey (Urho.Key key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetScancodeFromKey(valuetype Urho.Key key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.Key" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <summary>
+            Return scancode from keycode.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetScancodeFromName">
+      <MemberSignature Language="C#" Value="public int GetScancodeFromName (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetScancodeFromName(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Return scancode from key name.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetScancodeName">
+      <MemberSignature Language="C#" Value="public string GetScancodeName (int scancode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string GetScancodeName(int32 scancode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scancode" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="scancode">To be added.</param>
+        <summary>
+            Return name of key from scancode.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetScancodePress">
+      <MemberSignature Language="C#" Value="public bool GetScancodePress (int scancode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetScancodePress(int32 scancode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scancode" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="scancode">To be added.</param>
+        <summary>
+            Check if a key has been pressed on this frame by scancode.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTouch">
+      <MemberSignature Language="C#" Value="public Urho.TouchState GetTouch (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.TouchState GetTouch(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TouchState</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return active finger touch by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasFocus">
+      <MemberSignature Language="C#" Value="public bool HasFocus ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasFocus() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether application window has input focus.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsMinimized">
+      <MemberSignature Language="C#" Value="public bool IsMinimized ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsMinimized() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether application window is minimized.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsMouseGrabbed">
+      <MemberSignature Language="C#" Value="public bool IsMouseGrabbed ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsMouseGrabbed() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether the mouse is currently being grabbed by an operation.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsMouseVisible">
+      <MemberSignature Language="C#" Value="public bool IsMouseVisible ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsMouseVisible() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether the operating system mouse cursor is visible.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsScreenJoystickVisible">
+      <MemberSignature Language="C#" Value="public bool IsScreenJoystickVisible (int id);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsScreenJoystickVisible(int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="id">To be added.</param>
+        <summary>
+            Return whether a virtual joystick is visible.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsScreenKeyboardVisible">
+      <MemberSignature Language="C#" Value="public bool IsScreenKeyboardVisible ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsScreenKeyboardVisible() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether on-screen keyboard is being shown.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseMode">
+      <MemberSignature Language="C#" Value="public Urho.MouseMode MouseMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.MouseMode MouseMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.MouseMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the mouse mode.
+            Or
+            Set the mouse mode.
+            Set the mouse mode behaviour.
+            MM_ABSOLUTE is the default behaviour, allowing the toggling of operating system cursor visibility and allowing the cursor to escape the window when visible.
+            When the operating system cursor is invisible in absolute mouse mode, the mouse is confined to the window.
+            If the operating system and UI cursors are both invisible, interaction with the Urho UI will be limited (eg: drag move / drag end events will not trigger).
+            SetMouseMode(MM_ABSOLUTE) will call SetMouseGrabbed(false).
+            MM_RELATIVE sets the operating system cursor to invisible and confines the cursor to the window.
+            The operating system cursor cannot be set to be visible in this mode via SetMouseVisible(), however changes are tracked and will be restored when another mouse mode is set.
+            When the virtual cursor is also invisible, UI interaction will still function as normal (eg: drag events will trigger).
+            SetMouseMode(MM_RELATIVE) will call SetMouseGrabbed(true).
+            MM_WRAP grabs the mouse from the operating system and confines the operating system cursor to the window, wrapping the cursor when it is near the edges.
+            SetMouseMode(MM_WRAP) will call SetMouseGrabbed(true).
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseMove">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 MouseMove { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 MouseMove" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return mouse movement since last frame.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseMoveWheel">
+      <MemberSignature Language="C#" Value="public int MouseMoveWheel { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MouseMoveWheel" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return mouse wheel movement since last frame.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseMoveX">
+      <MemberSignature Language="C#" Value="public int MouseMoveX { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MouseMoveX" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return horizontal mouse movement since last frame.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseMoveY">
+      <MemberSignature Language="C#" Value="public int MouseMoveY { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MouseMoveY" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return vertical mouse movement since last frame.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MousePosition">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 MousePosition { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 MousePosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return mouse position within window. Should only be used with a visible mouse cursor.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumJoysticks">
+      <MemberSignature Language="C#" Value="public uint NumJoysticks { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumJoysticks" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of connected joysticks.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumTouches">
+      <MemberSignature Language="C#" Value="public uint NumTouches { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumTouches" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of active finger touches.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Qualifiers">
+      <MemberSignature Language="C#" Value="public int Qualifiers { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Qualifiers" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the currently held down qualifiers.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RecordGesture">
+      <MemberSignature Language="C#" Value="public bool RecordGesture ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RecordGesture() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Begin recording a touch gesture. Return true if successful. The E_GESTURERECORDED event (which contains the ID for the new gesture) will be sent when recording finishes.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllGestures">
+      <MemberSignature Language="C#" Value="public void RemoveAllGestures ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllGestures() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Remove all in-memory gestures.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveGesture">
+      <MemberSignature Language="C#" Value="public bool RemoveGesture (uint gestureID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RemoveGesture(unsigned int32 gestureID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="gestureID" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="gestureID">To be added.</param>
+        <summary>
+            Remove an in-memory gesture by ID. Return true if was found.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveScreenJoystick">
+      <MemberSignature Language="C#" Value="public bool RemoveScreenJoystick (int id);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RemoveScreenJoystick(int32 id) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="id">To be added.</param>
+        <summary>
+            Remove screen joystick by instance ID.
+            Return true if successful.
+            This method should only be called in main thread.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetMouseVisible">
+      <MemberSignature Language="C#" Value="public void ResetMouseVisible ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetMouseVisible() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Reset last mouse visibility that was not suppressed in SetMouseVisible.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScreenKeyboardSupport">
+      <MemberSignature Language="C#" Value="public bool ScreenKeyboardSupport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ScreenKeyboardSupport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether on-screen keyboard is supported.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMouseGrabbed">
+      <MemberSignature Language="C#" Value="public void SetMouseGrabbed (bool grab);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMouseGrabbed(bool grab) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="grab" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="grab">To be added.</param>
+        <summary>
+            Set whether the mouse is currently being grabbed by an operation.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMouseVisible">
+      <MemberSignature Language="C#" Value="public void SetMouseVisible (bool enable, bool suppressEvent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMouseVisible(bool enable, bool suppressEvent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+        <Parameter Name="suppressEvent" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <param name="suppressEvent">To be added.</param>
+        <summary>
+            Set whether the operating system mouse cursor is visible. When not visible (default), is kept centered to prevent leaving the window. Mouse visibility event can be suppressed-- this also recalls any unsuppressed SetMouseVisible which can be returned by ResetMouseVisible().
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetScreenJoystickVisible">
+      <MemberSignature Language="C#" Value="public void SetScreenJoystickVisible (int id, bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetScreenJoystickVisible(int32 id, bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.Int32" />
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="id">To be added.</param>
+        <param name="enable">To be added.</param>
+        <summary>
+            Set whether the virtual joystick is visible.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetScreenKeyboardVisible">
+      <MemberSignature Language="C#" Value="public void SetScreenKeyboardVisible (bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetScreenKeyboardVisible(bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <summary>
+            Show or hide on-screen keyboard on platforms that support it. When shown, keypresses from it are delivered as key events.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToggleFullscreen">
+      <MemberSignature Language="C#" Value="public bool ToggleFullscreen { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ToggleFullscreen" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether fullscreen toggle is enabled.
+            Or
+            Set whether ALT-ENTER fullscreen toggle is enabled.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TouchEmulation">
+      <MemberSignature Language="C#" Value="public bool TouchEmulation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool TouchEmulation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether touch emulation is enabled.
+            Or
+            Set touch emulation by mouse. Only available on desktop platforms. When enabled, actual mouse events are no longer sent and the mouse cursor is forced visible.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TryGetJoystickState">
+      <MemberSignature Language="C#" Value="public bool TryGetJoystickState (uint idx, out Urho.JoystickState state);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool TryGetJoystickState(unsigned int32 idx, valuetype Urho.JoystickState state) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="idx" Type="System.UInt32" />
+        <Parameter Name="state" Type="Urho.JoystickState&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="idx">To be added.</param>
+        <param name="state">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public void Update ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Update() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Poll for window messages. Called by HandleBeginFrame().
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

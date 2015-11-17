@@ -1,0 +1,1317 @@
+<Type Name="Renderer" FullName="Urho.Renderer">
+  <TypeSignature Language="C#" Value="public class Renderer : Urho.UrhoObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Renderer extends Urho.UrhoObject" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.UrhoObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            High-level rendering subsystem. Manages drawing of 3D views.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Renderer (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Renderer (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Renderer (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultLightRamp">
+      <MemberSignature Language="C#" Value="public Urho.Texture2D DefaultLightRamp { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D DefaultLightRamp" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the default range attenuation texture.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultLightSpot">
+      <MemberSignature Language="C#" Value="public Urho.Texture2D DefaultLightSpot { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D DefaultLightSpot" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the default spotlight attenuation texture.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultMaterial">
+      <MemberSignature Language="C#" Value="public Urho.Material DefaultMaterial { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Material DefaultMaterial" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the default material.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultRenderPath">
+      <MemberSignature Language="C#" Value="public Urho.RenderPath DefaultRenderPath { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RenderPath DefaultRenderPath" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderPath</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return default renderpath.
+            Or
+            Set default renderpath.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultZone">
+      <MemberSignature Language="C#" Value="public Urho.Zone DefaultZone { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Zone DefaultZone" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Zone</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the default zone.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawDebugGeometry">
+      <MemberSignature Language="C#" Value="public void DrawDebugGeometry (bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DrawDebugGeometry(bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="depthTest">To be added.</param>
+        <summary>
+            Add debug geometry to the debug renderer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawShadows">
+      <MemberSignature Language="C#" Value="public bool DrawShadows { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DrawShadows" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether drawing shadows is enabled.
+            Or
+            Set shadows on/off.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DynamicInstancing">
+      <MemberSignature Language="C#" Value="public bool DynamicInstancing { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DynamicInstancing" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether dynamic instancing is in use.
+            Or
+            Set dynamic instancing on/off.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FaceSelectCubeMap">
+      <MemberSignature Language="C#" Value="public Urho.TextureCube FaceSelectCubeMap { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.TextureCube FaceSelectCubeMap" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureCube</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the shadowed pointlight face selection cube map.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDepthStencil">
+      <MemberSignature Language="C#" Value="public Urho.RenderSurface GetDepthStencil (int width, int height);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.RenderSurface GetDepthStencil(int32 width, int32 height) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderSurface</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <summary>
+            Allocate a depth-stencil surface that does not need to be readable. Should only be called during actual rendering, not before.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetLightGeometry">
+      <MemberSignature Language="C#" Value="public Urho.Geometry GetLightGeometry (Urho.Light light);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Geometry GetLightGeometry(class Urho.Light light) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Geometry</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="light" Type="Urho.Light" />
+      </Parameters>
+      <Docs>
+        <param name="light">To be added.</param>
+        <summary>
+            Return volume geometry for a light.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetNumGeometries">
+      <MemberSignature Language="C#" Value="public uint GetNumGeometries (bool allViews);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumGeometries(bool allViews) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allViews" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="allViews">To be added.</param>
+        <summary>
+            Return number of geometries rendered.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetNumLights">
+      <MemberSignature Language="C#" Value="public uint GetNumLights (bool allViews);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumLights(bool allViews) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allViews" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="allViews">To be added.</param>
+        <summary>
+            Return number of lights rendered.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetNumOccluders">
+      <MemberSignature Language="C#" Value="public uint GetNumOccluders (bool allViews);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumOccluders(bool allViews) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allViews" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="allViews">To be added.</param>
+        <summary>
+            Return number of occluders rendered.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetNumShadowMaps">
+      <MemberSignature Language="C#" Value="public uint GetNumShadowMaps (bool allViews);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumShadowMaps(bool allViews) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="allViews" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="allViews">To be added.</param>
+        <summary>
+            Return number of shadow maps rendered.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOcclusionBuffer">
+      <MemberSignature Language="C#" Value="public Urho.OcclusionBuffer GetOcclusionBuffer (Urho.Camera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.OcclusionBuffer GetOcclusionBuffer(class Urho.Camera camera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.OcclusionBuffer</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="camera" Type="Urho.Camera" />
+      </Parameters>
+      <Docs>
+        <param name="camera">To be added.</param>
+        <summary>
+            Allocate an occlusion buffer.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetScreenBuffer">
+      <MemberSignature Language="C#" Value="public Urho.Texture GetScreenBuffer (int width, int height, uint format, bool cubemap, bool filtered, bool srgb, uint persistentKey);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Texture GetScreenBuffer(int32 width, int32 height, unsigned int32 format, bool cubemap, bool filtered, bool srgb, unsigned int32 persistentKey) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+        <Parameter Name="format" Type="System.UInt32" />
+        <Parameter Name="cubemap" Type="System.Boolean" />
+        <Parameter Name="filtered" Type="System.Boolean" />
+        <Parameter Name="srgb" Type="System.Boolean" />
+        <Parameter Name="persistentKey" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <param name="format">To be added.</param>
+        <param name="cubemap">To be added.</param>
+        <param name="filtered">To be added.</param>
+        <param name="srgb">To be added.</param>
+        <param name="persistentKey">To be added.</param>
+        <summary>
+            Allocate a rendertarget or depth-stencil texture for deferred rendering or postprocessing. Should only be called during actual rendering, not before.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetShadowMap">
+      <MemberSignature Language="C#" Value="public Urho.Texture2D GetShadowMap (Urho.Light light, Urho.Camera camera, uint viewWidth, uint viewHeight);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Texture2D GetShadowMap(class Urho.Light light, class Urho.Camera camera, unsigned int32 viewWidth, unsigned int32 viewHeight) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="light" Type="Urho.Light" />
+        <Parameter Name="camera" Type="Urho.Camera" />
+        <Parameter Name="viewWidth" Type="System.UInt32" />
+        <Parameter Name="viewHeight" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="light">To be added.</param>
+        <param name="camera">To be added.</param>
+        <param name="viewWidth">To be added.</param>
+        <param name="viewHeight">To be added.</param>
+        <summary>
+            Allocate a shadow map. If shadow map reuse is disabled, a different map is returned each time.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetViewport">
+      <MemberSignature Language="C#" Value="public Urho.Viewport GetViewport (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Viewport GetViewport(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Viewport</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return backbuffer viewport by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HDRRendering">
+      <MemberSignature Language="C#" Value="public bool HDRRendering { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HDRRendering" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether HDR rendering is enabled.
+            Or
+            Set HDR rendering on/off.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IndirectionCubeMap">
+      <MemberSignature Language="C#" Value="public Urho.TextureCube IndirectionCubeMap { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.TextureCube IndirectionCubeMap" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureCube</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the shadowed pointlight indirection cube map.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InstancingBuffer">
+      <MemberSignature Language="C#" Value="public Urho.VertexBuffer InstancingBuffer { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.VertexBuffer InstancingBuffer" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexBuffer</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the instancing vertex buffer
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaterialQuality">
+      <MemberSignature Language="C#" Value="public int MaterialQuality { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaterialQuality" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return material quality level.
+            Or
+            Set material quality level. See the QUALITY constants in GraphicsDefs.h.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxOccluderTriangles">
+      <MemberSignature Language="C#" Value="public int MaxOccluderTriangles { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaxOccluderTriangles" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return maximum number of occluder triangles.
+            Or
+            Set maximum number of occluder triangles.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxShadowMaps">
+      <MemberSignature Language="C#" Value="public int MaxShadowMaps { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaxShadowMaps" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return maximum number of shadow maps per resolution.
+            Or
+            Set maximum number of shadow maps created for one resolution. Only has effect if reuse of shadow maps is disabled.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxSortedInstances">
+      <MemberSignature Language="C#" Value="public int MaxSortedInstances { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaxSortedInstances" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return maximum number of sorted instances per batch group.
+            Or
+            Set maximum number of sorted instances per batch group. If exceeded, instances are rendered unsorted.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MinInstances">
+      <MemberSignature Language="C#" Value="public int MinInstances { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MinInstances" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return minimum number of instances required in a batch group to render as instanced.
+            Or
+            Set minimum number of instances required in a batch group to render as instanced.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MobileShadowBiasAdd">
+      <MemberSignature Language="C#" Value="public float MobileShadowBiasAdd { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 MobileShadowBiasAdd" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return shadow depth bias addition for mobile platforms.
+            Or
+            Set shadow depth bias addition for mobile platforms (OpenGL ES.)  No effect on desktops. Default 0.0001.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MobileShadowBiasMul">
+      <MemberSignature Language="C#" Value="public float MobileShadowBiasMul { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 MobileShadowBiasMul" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return shadow depth bias multiplier for mobile platforms.
+            Or
+            Set shadow depth bias multiplier for mobile platforms (OpenGL ES.) No effect on desktops. Default 2.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumBatches">
+      <MemberSignature Language="C#" Value="public uint NumBatches { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumBatches" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of batches rendered.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumPrimitives">
+      <MemberSignature Language="C#" Value="public uint NumPrimitives { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumPrimitives" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of primitives rendered.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumViewports">
+      <MemberSignature Language="C#" Value="public uint NumViewports { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumViewports" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of backbuffer viewports.
+            Or
+            Set number of backbuffer viewports to render.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumViews">
+      <MemberSignature Language="C#" Value="public uint NumViews { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumViews" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of views rendered.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OccluderSizeThreshold">
+      <MemberSignature Language="C#" Value="public float OccluderSizeThreshold { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 OccluderSizeThreshold" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return occluder screen size threshold.
+            Or
+            Set required screen size (1.0 = full screen) for occluders.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OcclusionBufferSize">
+      <MemberSignature Language="C#" Value="public int OcclusionBufferSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 OcclusionBufferSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return occlusion buffer width.
+            Or
+            Set occluder buffer width.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OptimizeLightByScissor">
+      <MemberSignature Language="C#" Value="public void OptimizeLightByScissor (Urho.Light light, Urho.Camera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OptimizeLightByScissor(class Urho.Light light, class Urho.Camera camera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="light" Type="Urho.Light" />
+        <Parameter Name="camera" Type="Urho.Camera" />
+      </Parameters>
+      <Docs>
+        <param name="light">To be added.</param>
+        <param name="camera">To be added.</param>
+        <summary>
+            Optimize a light by scissor rectangle.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OptimizeLightByStencil">
+      <MemberSignature Language="C#" Value="public void OptimizeLightByStencil (Urho.Light light, Urho.Camera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OptimizeLightByStencil(class Urho.Light light, class Urho.Camera camera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="light" Type="Urho.Light" />
+        <Parameter Name="camera" Type="Urho.Camera" />
+      </Parameters>
+      <Docs>
+        <param name="light">To be added.</param>
+        <param name="camera">To be added.</param>
+        <summary>
+            Optimize a light by marking it to the stencil buffer and setting a stencil test.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QuadGeometry">
+      <MemberSignature Language="C#" Value="public Urho.Geometry QuadGeometry { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Geometry QuadGeometry" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Geometry</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return quad geometry used in postprocessing.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueueRenderSurface">
+      <MemberSignature Language="C#" Value="public void QueueRenderSurface (Urho.RenderSurface renderTarget);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void QueueRenderSurface(class Urho.RenderSurface renderTarget) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="renderTarget" Type="Urho.RenderSurface" />
+      </Parameters>
+      <Docs>
+        <param name="renderTarget">To be added.</param>
+        <summary>
+            Queue a render surface's viewports for rendering. Called by the surface, or by View.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueueViewport">
+      <MemberSignature Language="C#" Value="public void QueueViewport (Urho.RenderSurface renderTarget, Urho.Viewport viewport);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void QueueViewport(class Urho.RenderSurface renderTarget, class Urho.Viewport viewport) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="renderTarget" Type="Urho.RenderSurface" />
+        <Parameter Name="viewport" Type="Urho.Viewport" />
+      </Parameters>
+      <Docs>
+        <param name="renderTarget">To be added.</param>
+        <param name="viewport">To be added.</param>
+        <summary>
+            Queue a viewport for rendering. Null surface means backbuffer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReloadShaders">
+      <MemberSignature Language="C#" Value="public void ReloadShaders ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReloadShaders() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Force reload of shaders.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Render">
+      <MemberSignature Language="C#" Value="public void Render ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Render() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Render. Called by Engine.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResizeInstancingBuffer">
+      <MemberSignature Language="C#" Value="public bool ResizeInstancingBuffer (uint numInstances);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ResizeInstancingBuffer(unsigned int32 numInstances) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="numInstances" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="numInstances">To be added.</param>
+        <summary>
+            Ensure sufficient size of the instancing vertex buffer. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RestoreScreenBufferAllocations">
+      <MemberSignature Language="C#" Value="public void RestoreScreenBufferAllocations ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RestoreScreenBufferAllocations() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Restore the screen buffer allocation status. Called by View.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReuseShadowMaps">
+      <MemberSignature Language="C#" Value="public bool ReuseShadowMaps { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ReuseShadowMaps" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether shadow maps are reused.
+            Or
+            Set reuse of shadow maps. Default is true. If disabled, also transparent geometry can be shadowed.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveScreenBufferAllocations">
+      <MemberSignature Language="C#" Value="public void SaveScreenBufferAllocations ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SaveScreenBufferAllocations() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Save the screen buffer allocation status. Called by View.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetCullMode">
+      <MemberSignature Language="C#" Value="public void SetCullMode (Urho.CullMode mode, Urho.Camera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCullMode(valuetype Urho.CullMode mode, class Urho.Camera camera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mode" Type="Urho.CullMode" />
+        <Parameter Name="camera" Type="Urho.Camera" />
+      </Parameters>
+      <Docs>
+        <param name="mode">To be added.</param>
+        <param name="camera">To be added.</param>
+        <summary>
+            Set cull mode while taking possible projection flipping into account.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDefaultRenderPath">
+      <MemberSignature Language="C#" Value="public void SetDefaultRenderPath (Urho.XMLFile file);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDefaultRenderPath(class Urho.XMLFile file) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="file" Type="Urho.XMLFile" />
+      </Parameters>
+      <Docs>
+        <param name="file">To be added.</param>
+        <summary>
+            Set default renderpath from an XML file.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetViewport">
+      <MemberSignature Language="C#" Value="public void SetViewport (uint index, Urho.Viewport viewport);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetViewport(unsigned int32 index, class Urho.Viewport viewport) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="viewport" Type="Urho.Viewport" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="viewport">To be added.</param>
+        <summary>
+            Set a backbuffer viewport.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowCamera">
+      <MemberSignature Language="C#" Value="public Urho.Camera ShadowCamera { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Camera ShadowCamera" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Camera</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Allocate a temporary shadow camera and a scene node for it. Is thread-safe.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowMapSize">
+      <MemberSignature Language="C#" Value="public int ShadowMapSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 ShadowMapSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return shadow map resolution.
+            Or
+            Set shadow map resolution.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowQuality">
+      <MemberSignature Language="C#" Value="public int ShadowQuality { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 ShadowQuality" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return shadow quality.
+            Or
+            Set shadow quality mode. See the SHADOWQUALITY constants in GraphicsDefs.h.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SpecularLighting">
+      <MemberSignature Language="C#" Value="public bool SpecularLighting { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SpecularLighting" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether specular lighting is enabled.
+            Or
+            Set specular lighting on/off.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureAnisotropy">
+      <MemberSignature Language="C#" Value="public int TextureAnisotropy { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 TextureAnisotropy" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return texture anisotropy.
+            Or
+            Set texture anisotropy.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureFilterMode">
+      <MemberSignature Language="C#" Value="public Urho.TextureFilterMode TextureFilterMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TextureFilterMode TextureFilterMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureFilterMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return texture filtering.
+            Or
+            Set texture filtering.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureQuality">
+      <MemberSignature Language="C#" Value="public int TextureQuality { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 TextureQuality" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return texture quality level.
+            Or
+            Set texture quality level. See the QUALITY constants in GraphicsDefs.h.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public void Update (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Update(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>
+            Update for rendering. Called by HandleRenderUpdate().
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

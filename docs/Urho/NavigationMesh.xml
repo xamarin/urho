@@ -1,0 +1,969 @@
+<Type Name="NavigationMesh" FullName="Urho.NavigationMesh">
+  <TypeSignature Language="C#" Value="public class NavigationMesh : Urho.Component" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit NavigationMesh extends Urho.Component" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Component</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Navigation mesh component. Collects the navigation geometry from child nodes with the Navigable component and responds to path queries.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public NavigationMesh (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public NavigationMesh (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public NavigationMesh (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AgentHeight">
+      <MemberSignature Language="C#" Value="public float AgentHeight { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 AgentHeight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return navigation agent height.
+            Or
+            Set navigation agent height.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AgentMaxClimb">
+      <MemberSignature Language="C#" Value="public float AgentMaxClimb { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 AgentMaxClimb" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return navigation agent max vertical climb.
+            Or
+            Set navigation agent max vertical climb.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AgentMaxSlope">
+      <MemberSignature Language="C#" Value="public float AgentMaxSlope { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 AgentMaxSlope" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return navigation agent max slope.
+            Or
+            Set navigation agent max slope.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AgentRadius">
+      <MemberSignature Language="C#" Value="public float AgentRadius { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 AgentRadius" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return navigation agent radius.
+            Or
+            Set navigation agent radius.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BoundingBox">
+      <MemberSignature Language="C#" Value="public Urho.BoundingBox BoundingBox { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.BoundingBox BoundingBox" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.BoundingBox</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return local space bounding box of the navigation mesh.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Build">
+      <MemberSignature Language="C#" Value="public virtual bool Build ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Build() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Rebuild the navigation mesh. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Build">
+      <MemberSignature Language="C#" Value="public virtual bool Build (Urho.BoundingBox boundingBox);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Build(valuetype Urho.BoundingBox boundingBox) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="boundingBox" Type="Urho.BoundingBox" />
+      </Parameters>
+      <Docs>
+        <param name="boundingBox">To be added.</param>
+        <summary>
+            Rebuild part of the navigation mesh contained by the world-space bounding box. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CellHeight">
+      <MemberSignature Language="C#" Value="public float CellHeight { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 CellHeight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return cell height.
+            Or
+            Set cell height.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CellSize">
+      <MemberSignature Language="C#" Value="public float CellSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 CellSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return cell size.
+            Or
+            Set cell size.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DetailSampleDistance">
+      <MemberSignature Language="C#" Value="public float DetailSampleDistance { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DetailSampleDistance" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return detail sampling distance.
+            Or
+            Set detail sampling distance.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DetailSampleMaxError">
+      <MemberSignature Language="C#" Value="public float DetailSampleMaxError { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DetailSampleMaxError" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return detail sampling maximum error.
+            Or
+            Set detail sampling maximum error.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawDebugGeometry">
+      <MemberSignature Language="C#" Value="public virtual void DrawDebugGeometry (bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DrawDebugGeometry(bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="depthTest">To be added.</param>
+        <summary>
+            Add debug geometry to the debug renderer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawDebugGeometry">
+      <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer debug, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer debug, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="debug" Type="Urho.DebugRenderer" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="debug">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>
+            Visualize the component as debug geometry.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawNavAreas">
+      <MemberSignature Language="C#" Value="public bool DrawNavAreas { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DrawNavAreas" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether to draw NavArea components.
+            Or
+            Draw debug geometry for NavArea components.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawOffMeshConnections">
+      <MemberSignature Language="C#" Value="public bool DrawOffMeshConnections { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DrawOffMeshConnections" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether to draw OffMeshConnection components.
+            Or
+            Draw debug geometry for OffMeshConnection components.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EdgeMaxError">
+      <MemberSignature Language="C#" Value="public float EdgeMaxError { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 EdgeMaxError" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return edge max error.
+            Or
+            Set edge max error.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EdgeMaxLength">
+      <MemberSignature Language="C#" Value="public float EdgeMaxLength { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 EdgeMaxLength" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return edge max length.
+            Or
+            Set edge max length.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FindNearestPoint">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 FindNearestPoint (Urho.Vector3 hitPos, Urho.Vector3 vector3);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 FindNearestPoint(valuetype Urho.Vector3 hitPos, valuetype Urho.Vector3 vector3) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hitPos" Type="Urho.Vector3" />
+        <Parameter Name="vector3" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="hitPos">To be added.</param>
+        <param name="vector3">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FindNearestPoint">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 FindNearestPoint (Urho.Vector3 point, Urho.Vector3 extents, Urho.dtQueryFilter* filter, uint* nearestRef);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 FindNearestPoint(valuetype Urho.Vector3 point, valuetype Urho.Vector3 extents, valuetype Urho.dtQueryFilter* filter, unsigned int32* nearestRef) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.Vector3" />
+        <Parameter Name="extents" Type="Urho.Vector3" />
+        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="nearestRef" Type="System.UInt32*" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <param name="extents">To be added.</param>
+        <param name="filter">To be added.</param>
+        <param name="nearestRef">To be added.</param>
+        <summary>
+            Find the nearest point on the navigation mesh to a given point. Extents specifies how far out from the specified point to check along each axis.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FindPath">
+      <MemberSignature Language="C#" Value="public Urho.Vector3[] FindPath (Urho.Vector3 start, Urho.Vector3 end);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3[] FindPath(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="start" Type="Urho.Vector3" />
+        <Parameter Name="end" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="start">To be added.</param>
+        <param name="end">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAreaCost">
+      <MemberSignature Language="C#" Value="public float GetAreaCost (uint areaID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetAreaCost(unsigned int32 areaID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="areaID" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="areaID">To be added.</param>
+        <summary>
+            Get the current cost of an area
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDistanceToWall">
+      <MemberSignature Language="C#" Value="public float GetDistanceToWall (Urho.Vector3 point, float radius, Urho.Vector3 extents, Urho.dtQueryFilter* filter, Urho.Vector3* hitPos, Urho.Vector3* hitNormal);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetDistanceToWall(valuetype Urho.Vector3 point, float32 radius, valuetype Urho.Vector3 extents, valuetype Urho.dtQueryFilter* filter, valuetype Urho.Vector3* hitPos, valuetype Urho.Vector3* hitNormal) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.Vector3" />
+        <Parameter Name="radius" Type="System.Single" />
+        <Parameter Name="extents" Type="Urho.Vector3" />
+        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="hitPos" Type="Urho.Vector3*" />
+        <Parameter Name="hitNormal" Type="Urho.Vector3*" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <param name="radius">To be added.</param>
+        <param name="extents">To be added.</param>
+        <param name="filter">To be added.</param>
+        <param name="hitPos">To be added.</param>
+        <param name="hitNormal">To be added.</param>
+        <summary>
+            Return distance to wall from a point. Maximum search radius must be specified.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRandomPoint">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPoint (Urho.dtQueryFilter* filter, uint* randomRef);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetRandomPoint(valuetype Urho.dtQueryFilter* filter, unsigned int32* randomRef) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="randomRef" Type="System.UInt32*" />
+      </Parameters>
+      <Docs>
+        <param name="filter">To be added.</param>
+        <param name="randomRef">To be added.</param>
+        <summary>
+            Return a random point on the navigation mesh.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRandomPointInCircle">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, Urho.Vector3 extents, Urho.dtQueryFilter* filter, uint* randomRef);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetRandomPointInCircle(valuetype Urho.Vector3 center, float32 radius, valuetype Urho.Vector3 extents, valuetype Urho.dtQueryFilter* filter, unsigned int32* randomRef) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="center" Type="Urho.Vector3" />
+        <Parameter Name="radius" Type="System.Single" />
+        <Parameter Name="extents" Type="Urho.Vector3" />
+        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="randomRef" Type="System.UInt32*" />
+      </Parameters>
+      <Docs>
+        <param name="center">To be added.</param>
+        <param name="radius">To be added.</param>
+        <param name="extents">To be added.</param>
+        <param name="filter">To be added.</param>
+        <param name="randomRef">To be added.</param>
+        <summary>
+            Return a random point on the navigation mesh within a circle. The circle radius is only a guideline and in practice the returned point may be further away.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsInitialized">
+      <MemberSignature Language="C#" Value="public bool IsInitialized ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsInitialized() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether has been initialized with valid navigation data.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MeshName">
+      <MemberSignature Language="C#" Value="public string MeshName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string MeshName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the given name of this navigation mesh.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveAlongSurface">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, int maxVisited, Urho.dtQueryFilter* filter);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 MoveAlongSurface(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, valuetype Urho.Vector3 extents, int32 maxVisited, valuetype Urho.dtQueryFilter* filter) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="start" Type="Urho.Vector3" />
+        <Parameter Name="end" Type="Urho.Vector3" />
+        <Parameter Name="extents" Type="Urho.Vector3" />
+        <Parameter Name="maxVisited" Type="System.Int32" />
+        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+      </Parameters>
+      <Docs>
+        <param name="start">To be added.</param>
+        <param name="end">To be added.</param>
+        <param name="extents">To be added.</param>
+        <param name="maxVisited">To be added.</param>
+        <param name="filter">To be added.</param>
+        <summary>
+            Try to move along the surface from one point to another.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumTiles">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 NumTiles { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 NumTiles" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of tiles.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Padding">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Padding { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Padding" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return navigation mesh bounding box padding.
+            Or
+            Set padding of the navigation mesh bounding box. Having enough padding allows to add geometry on the extremities of the navigation mesh when doing partial rebuilds.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PartitionType">
+      <MemberSignature Language="C#" Value="public Urho.NavmeshPartitionType PartitionType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.NavmeshPartitionType PartitionType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.NavmeshPartitionType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return Partition Type.
+            Or
+            Set the partition type used for polygon generation.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Raycast">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, Urho.dtQueryFilter* filter, Urho.Vector3* hitNormal);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 Raycast(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, valuetype Urho.Vector3 extents, valuetype Urho.dtQueryFilter* filter, valuetype Urho.Vector3* hitNormal) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="start" Type="Urho.Vector3" />
+        <Parameter Name="end" Type="Urho.Vector3" />
+        <Parameter Name="extents" Type="Urho.Vector3" />
+        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="hitNormal" Type="Urho.Vector3*" />
+      </Parameters>
+      <Docs>
+        <param name="start">To be added.</param>
+        <param name="end">To be added.</param>
+        <param name="extents">To be added.</param>
+        <param name="filter">To be added.</param>
+        <param name="hitNormal">To be added.</param>
+        <summary>
+            Perform a walkability raycast on the navigation mesh between start and end and return the point where a wall was hit, or the end point if no walls.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegionMergeSize">
+      <MemberSignature Language="C#" Value="public float RegionMergeSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 RegionMergeSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return region merge size.
+            Or
+            Set region merge size.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegionMinSize">
+      <MemberSignature Language="C#" Value="public float RegionMinSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 RegionMinSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return region minimum size.
+            Or
+            Set region minimum size.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAreaCost">
+      <MemberSignature Language="C#" Value="public void SetAreaCost (uint areaID, float cost);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAreaCost(unsigned int32 areaID, float32 cost) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="areaID" Type="System.UInt32" />
+        <Parameter Name="cost" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="areaID">To be added.</param>
+        <param name="cost">To be added.</param>
+        <summary>
+            Set the cost of an area.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMeshName">
+      <MemberSignature Language="C#" Value="public void SetMeshName (string newName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMeshName(string newName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="newName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="newName">To be added.</param>
+        <summary>
+            Set the name of this navigation mesh.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TileSize">
+      <MemberSignature Language="C#" Value="public int TileSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 TileSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return tile size.
+            Or
+            Set tile size.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldBoundingBox">
+      <MemberSignature Language="C#" Value="public Urho.BoundingBox WorldBoundingBox { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.BoundingBox WorldBoundingBox" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.BoundingBox</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return world space bounding box of the navigation mesh.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

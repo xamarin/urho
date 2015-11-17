@@ -1,0 +1,61 @@
+<Type Name="RenderTargetSizeMode" FullName="Urho.RenderTargetSizeMode">
+  <TypeSignature Language="C#" Value="public enum RenderTargetSizeMode" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed RenderTargetSizeMode extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            Rendertarget size mode.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Absolute">
+      <MemberSignature Language="C#" Value="Absolute" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.RenderTargetSizeMode Absolute = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderTargetSizeMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Viewportdivisor">
+      <MemberSignature Language="C#" Value="Viewportdivisor" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.RenderTargetSizeMode Viewportdivisor = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderTargetSizeMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Viewportmultiplier">
+      <MemberSignature Language="C#" Value="Viewportmultiplier" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.RenderTargetSizeMode Viewportmultiplier = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderTargetSizeMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

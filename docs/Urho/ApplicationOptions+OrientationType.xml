@@ -1,0 +1,45 @@
+<Type Name="ApplicationOptions+OrientationType" FullName="Urho.ApplicationOptions+OrientationType">
+  <TypeSignature Language="C#" Value="public enum ApplicationOptions.OrientationType" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi sealed ApplicationOptions/OrientationType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Landscape">
+      <MemberSignature Language="C#" Value="Landscape" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ApplicationOptions/OrientationType Landscape = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ApplicationOptions+OrientationType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Portrait">
+      <MemberSignature Language="C#" Value="Portrait" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ApplicationOptions/OrientationType Portrait = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ApplicationOptions+OrientationType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

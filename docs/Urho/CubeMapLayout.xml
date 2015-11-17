@@ -1,0 +1,89 @@
+<Type Name="CubeMapLayout" FullName="Urho.CubeMapLayout">
+  <TypeSignature Language="C#" Value="public enum CubeMapLayout" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed CubeMapLayout extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            Cubemap single image layout modes.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Blender">
+      <MemberSignature Language="C#" Value="Blender" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapLayout Blender = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapLayout</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Horizontal">
+      <MemberSignature Language="C#" Value="Horizontal" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapLayout Horizontal = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapLayout</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="HorizontalCross">
+      <MemberSignature Language="C#" Value="HorizontalCross" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapLayout HorizontalCross = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapLayout</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="HorizontalNvidia">
+      <MemberSignature Language="C#" Value="HorizontalNvidia" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapLayout HorizontalNvidia = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapLayout</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="VerticalCross">
+      <MemberSignature Language="C#" Value="VerticalCross" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CubeMapLayout VerticalCross = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CubeMapLayout</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
