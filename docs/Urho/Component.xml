@@ -11,7 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>
-            Base class for components. Components can be created to scene nodes.
+            Base class for components. Components can be attached to scene nodes.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

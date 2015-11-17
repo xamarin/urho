@@ -15,9 +15,9 @@
             </summary>
     <remarks>
       <para>This is the base class that your application should subclass and provide at implementations for the <see cref="T:Urho.Application.Setup" /> and <see cref="T:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="T:Urho.Application.Start" /> methods.</para>
-      <para />
+      <para></para>
       <para>Access to various subsystems in Urho is available through the various properties in this class.</para>
-      <para />
+      <para></para>
       <para>An application is tied to a <see cref="T:Urho.Context" /> which should be passed on the initial constructor.</para>
     </remarks>
   </Docs>
