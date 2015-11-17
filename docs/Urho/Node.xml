@@ -465,14 +465,22 @@
         <Parameter Name="id" Type="System.UInt32" />
       </Parameters>
       <Docs>
-        <param name="type">To be added.</param>
-        <param name="mode">To be added.</param>
-        <param name="id">To be added.</param>
+        <param name="type">UrhoType to create.</param>
+        <param name="mode">Creation mode for the component, or Replicated if not specified.</param>
+        <param name="id">ID to assign to the component, or null if not specified.</param>
         <summary>
             Create a component to this node (with specified ID if provided).
             </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>Returns the created component.  The result will already be attached to the node.</returns>
+        <remarks>
+          <para></para>
+          <example>
+            <code lang="C#"><![CDATA[var planeObject = planeNode.CreateComponent (StaticModel.TypeStatic, CreateMode.Replicated, 0) as StaticModel;
+planeObject.Model = cache.GetModel ("Models/Plane.mdl");
+planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
+]]></code>
+          </example>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateComponent&lt;T&gt;">
@@ -498,11 +506,20 @@
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <param name="mode">To be added.</param>
-        <param name="id">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="mode">Creation mode for the component, or Replicated if not specified.</param>
+        <param name="id">ID to assign to the component, or null if not specified.</param>
+        <summary>Creates a component with the Node’s context and attaches it to the node.</summary>
+        <returns>Returns the created component.  The result will already be attached to the node.</returns>
+        <remarks>
+          <para></para>
+          <para></para>
+          <example>
+            <code lang="C#"><![CDATA[var planeObject = planeNode.CreateComponent<StaticModel> ();
+planeObject.Model = cache.GetModel ("Models/Plane.mdl");
+planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
+]]></code>
+          </example>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateComponent&lt;T&gt;">
@@ -529,12 +546,22 @@
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <param name="type">To be added.</param>
-        <param name="mode">To be added.</param>
-        <param name="id">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="type">UrhoType to create, </param>
+        <param name="mode">
+          <para>Creation mode for the component, or Replicated if not specified.</para>
+          <para></para>
+        </param>
+        <param name="id">ID to assign to the component, or null if not specified.</param>
+        <summary>Creates a component with the Node’s context and attaches it to the node using an UrhoType description.</summary>
+        <returns>Returns the created component.  The result will already be attached to the node.</returns>
+        <remarks>
+          <para />
+          <example>
+            <code lang="C#"><![CDATA[var planeObject = planeNode.CreateComponent<StaticModel> (StaticModel.TypeStatic);
+planeObject.Model = cache.GetModel ("Models/Plane.mdl");
+planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
+]]></code>
+          </example>.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Direction">
