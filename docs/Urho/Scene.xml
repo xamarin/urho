@@ -13,7 +13,34 @@
     <summary>
             Root scene node, represents the whole scene.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>In general, you will want to add an Octree component to your scene, without it, none of the visual components will be shown.  The default Octree component volume goes from (-1000,-1000,-1000) to (1000,1000,1000) in world coordinates.</para>
+      <para></para>
+      <example>
+        <code lang="C#"><![CDATA[scene.CreateComponent<Octree> ();
+
+// Create a child scene node (at world origin) and a StaticModel
+// component into it. Set the StaticModel to show a simple plane mesh
+// with a "stone" material. Note that naming the scene nodes is
+// optional. Scale the scene node larger (100 x 100 world units)
+var planeNode = scene.CreateChild("Plane");
+planeNode.Scale = new Vector3 (100, 1, 100);
+var planeObject = planeNode.CreateComponent<StaticModel> ();
+planeObject.Model = cache.GetModel ("Models/Plane.mdl");
+planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
+
+// Create a directional light to the world so that we can see something. The
+// light scene node's orientation controls the light direction; we will use
+// the SetDirection() function which calculates the orientation from a forward
+// direction vector.
+// The light will use default settings (white light, no shadows)
+var lightNode = scene.CreateChild("DirectionalLight");
+lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f)); 
+
+
+]]></code>
+      </example>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
