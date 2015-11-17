@@ -13,7 +13,13 @@
     <summary>
             Base class for creating applications which initialize the Urho3D engine and run a main loop until exited.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>This is the base class that your application should subclass and provide at implementations for the <see cref="T:Urho.Application.Setup" /> and <see cref="T:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="T:Urho.Application.Start" /> methods.</para>
+      <para />
+      <para>Access to various subsystems in Urho is available through the various properties in this class.</para>
+      <para />
+      <para>An application is tied to a <see cref="T:Urho.Context" /> which should be passed on the initial constructor.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -79,7 +85,7 @@
         <ReturnType>Urho.Audio</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Audio subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -111,7 +117,7 @@
         <ReturnType>Urho.UrhoConsole</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Console subsystem</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -178,8 +184,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-            Last created application
-            </summary>
+            Last created application.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -198,9 +203,9 @@
         <Parameter Name="durationMs" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="durationMs">To be added.</param>
+        <param name="durationMs">Duration in millyseconds</param>
         <summary>
-            Waits given _game_ time.
+            Waits given game time.
             </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -217,7 +222,7 @@
         <ReturnType>Urho.Engine</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the application’s engine.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -272,7 +277,7 @@
         <ReturnType>Urho.FileSystem</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the FileSystem subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -308,7 +313,7 @@
         <ReturnType>Urho.Graphics</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Graphics subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -324,7 +329,7 @@
         <ReturnType>Urho.Input</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Input subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -361,7 +366,7 @@
         <ReturnType>Urho.Log</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Log subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -377,7 +382,7 @@
         <ReturnType>Urho.Network</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Network subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -399,7 +404,7 @@
       <Docs>
         <param name="timeStep">To be added.</param>
         <param name="scene">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This method is invoked on each scene update.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -418,7 +423,7 @@
       </Parameters>
       <Docs>
         <param name="timeStep">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This method is invoked on every application update.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -433,7 +438,7 @@
         <ReturnType>Urho.Profiler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Profiler subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -449,7 +454,7 @@
         <ReturnType>Urho.Renderer</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Renderer subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -465,7 +470,7 @@
         <ReturnType>Urho.ResourceCache</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the ResourceCache subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -516,7 +521,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Method invoked to setup your application.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -532,7 +537,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Method invoked to start your application, this is where you would typically create your scene.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -548,7 +553,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Method invoked to terminate your application.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -563,7 +568,7 @@
         <ReturnType>Urho.Time</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the Time subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -643,7 +648,7 @@
         <ReturnType>Urho.UI</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the UI subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -674,7 +679,7 @@
         <ReturnType>Urho.WorkQueue</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the WorkQueue subsystem.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

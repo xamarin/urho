@@ -14,7 +14,13 @@
             Application options, see full description at:
             http://urho3d.github.io/documentation/1.4/_running.html
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>This contains the list of options that can be configured at application startup, these settings control how the engine is initialized.</para>
+      <para />
+      <para>The options set with this selector are passed to the Urho game engine on startup.</para>
+      <para />
+      <para>You can use the convenience <see cref="T:Urho.ApplicationOptions.Default" /> or <see cref="T:Urho.ApplicationOptions.PortraitDefault" /> static values as options to use as either defaults for landscape or portrait.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -26,7 +32,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Empty construtor</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -41,7 +47,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Any additional options from the Urho engine that might not be encompassed by one of the strongly typed properties here.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -57,7 +63,7 @@
         <ReturnType>Urho.ApplicationOptions</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Convenience - default set of options.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -74,8 +80,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-            Desktop only
-            </summary>
+            Desktop only option.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -91,7 +96,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether we should limit the frames (defaults to true), the default is limit is 200 FPS for desktop, and 60 fps, despite of the flag settings.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -107,7 +112,7 @@
         <ReturnType>Urho.ApplicationOptions+OrientationType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>iOS only - orientation for the game</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -123,7 +128,7 @@
         <ReturnType>Urho.ApplicationOptions</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Convenience - default set of options for portrait mode (800x500 on Portrait mode)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -139,7 +144,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Desktop only - provides a resizable window.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -155,7 +160,9 @@
         <ReturnType>System.String[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Resource package files to use - default empty.</para>
+        </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -171,7 +178,9 @@
         <ReturnType>System.String[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Resource path(s) to use (default: Data, CoreData)</para>
+        </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -188,7 +197,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the command line version suitable to be sent to the Urho engine.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -204,9 +213,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Desktop only
-            </summary>
+        <summary>Desktop only option.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -222,9 +229,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Desktop only
-            </summary>
+        <summary>Desktop only option.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
