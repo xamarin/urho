@@ -40,7 +40,7 @@
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
       <Docs>
-        <param name="handle">To be added.</param>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
         <summary>Constructs a new instance of XMLElement, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>

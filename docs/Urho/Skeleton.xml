@@ -28,7 +28,7 @@
         <Parameter Name="container" Type="System.Object" />
       </Parameters>
       <Docs>
-        <param name="handle">To be added.</param>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
         <param name="container">To be added.</param>
         <summary>Constructs a new instance of Skeleton, given a raw pointer to an unmanaged object</summary>
         <remarks>

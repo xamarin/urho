@@ -27,7 +27,7 @@
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
       <Docs>
-        <param name="handle">To be added.</param>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
         <summary>Constructs a new instance of Audio, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
@@ -47,7 +47,7 @@
         <Parameter Name="context" Type="Urho.Context" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
+        <param name="context">The context that this object will be attached to.</param>
         <summary>Creates an instance of Audio that is attached to an execution context.</summary>
         <remarks>
           <para>This creates an instance of Audio attached to the specified execution context.</para>
@@ -65,7 +65,7 @@
         <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
       </Parameters>
       <Docs>
-        <param name="emptyFlag">To be added.</param>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
         <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
         <remarks>
           <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>

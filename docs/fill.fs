@@ -76,6 +76,7 @@ let processType (doc:XDocument) =
           | null -> ()
           | hmember ->
             let mdoc = mem.XPathSelectElement "Docs"
+            setval mdoc "param[@name='handle']" "Pointer to the raw unmanaged Urho object."
             setval mdoc "summary" <| (sprintf "Constructs a new instance of %s, given a raw pointer to an unmanaged object" typeName)
             let remarks = select mdoc "remarks"
             remarks.RemoveAll ()
@@ -92,6 +93,7 @@ let processType (doc:XDocument) =
           | null -> ()
           | hmember ->
             let mdoc = mem.XPathSelectElement "Docs"
+            setval mdoc "param[@name='emptyFlag']" "Pass UrhoObjectFlag.Empty."
             setval mdoc "summary" "Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field."
             let remarks = select mdoc "remarks"
             remarks.RemoveAll ()
@@ -109,6 +111,7 @@ let processType (doc:XDocument) =
           | hmember ->
             if mem.XPathSelectElements "Parameters" |> Seq.length = 1 then
               let mdoc = mem.XPathSelectElement "Docs"
+              setval mdoc "param[@name='context']" "The context that this object will be attached to."
               setval mdoc "summary" <| (sprintf "Creates an instance of %s that is attached to an execution context." typeName)
               let remarks = select mdoc "remarks"
               remarks.RemoveAll ()
