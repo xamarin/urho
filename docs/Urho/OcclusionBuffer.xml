@@ -48,8 +48,10 @@
       </Parameters>
       <Docs>
         <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates an instance of OcclusionBuffer that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of OcclusionBuffer attached to the specified execution context.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -64,8 +66,12 @@
       </Parameters>
       <Docs>
         <param name="emptyFlag">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseType">

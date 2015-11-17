@@ -68,7 +68,8 @@ let processType (doc:XDocument) =
         setval mdoc "remarks" ""
 
   let fillTypeCtor =
-    match doc.XPathSelectElement "Type/Members/Member[@MemberName='.ctor']" with
+    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
+      match x with
       | null -> ()
       | mem ->
         match mem.XPathSelectElement "Parameters/Parameter[@Name='handle']" with
@@ -83,10 +84,11 @@ let processType (doc:XDocument) =
             XElement.Parse ("<para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>") |> remarks.Add
 
   let fillTypeEmpty =
-    match doc.XPathSelectElement "Type/Members/Member[@MemberName='.ctor']" with
+    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
+      match x with
       | null -> ()
       | mem ->
-        match mem.XPathSelectElement "Parameters/Parameter[@Name=emptyFlag]" with
+        match mem.XPathSelectElement "Parameters/Parameter[@Name='emptyFlag']" with
           | null -> ()
           | hmember ->
             let mdoc = mem.XPathSelectElement "Docs"
@@ -96,6 +98,22 @@ let processType (doc:XDocument) =
             XElement.Parse ("<para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>") |> remarks.Add
             XElement.Parse ("<para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>") |> remarks.Add
             XElement.Parse ("<para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>") |> remarks.Add
+
+  let fillTypeContext =
+    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
+      match x with
+      | null -> ()
+      | mem ->
+        match mem.XPathSelectElement "Parameters/Parameter[@Name='context']" with
+          | null -> ()
+          | hmember ->
+            if mem.XPathSelectElements "Parameters" |> Seq.length = 1 then
+              let mdoc = mem.XPathSelectElement "Docs"
+              setval mdoc "summary" <| (sprintf "Creates an instance of %s that is attached to an execution context." typeName)
+              let remarks = select mdoc "remarks"
+              remarks.RemoveAll ()
+              sprintf "<para>This creates an instance of %s attached to the specified execution context.</para>" typeName |> XElement.Parse |> remarks.Add
+              ()
 
   fillBaseType
   fillType 
