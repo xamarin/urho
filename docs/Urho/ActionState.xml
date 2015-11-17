@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Encapsulates the states of a running action.</summary>
+    <remarks>ActionStates encapsulate the running state of an Action when the <see cref="M:Urho.Action.StartAction" /> method is invoked to trigger the execution fo the action.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -26,10 +26,12 @@
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>
-        <param name="action">To be added.</param>
-        <param name="target">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="action">Points to the action that is triggering the creation of this state, this is the blueprint for what the action should do.</param>
+        <param name="target">The node that this action will be operating on.</param>
+        <summary>Creates a new action state</summary>
+        <remarks>
+          <para></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Action">
@@ -43,7 +45,7 @@
         <ReturnType>Urho.BaseAction</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Links to the action for which this action state was created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -78,9 +80,13 @@
         <ReturnType>Urho.Node</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>The node that this action will be operating on.</summary>
+        <value>
+          <para></para>
+        </value>
+        <remarks>
+          <para></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Step">
@@ -102,7 +108,9 @@
             Called every frame with it's delta time.
             DON'T override unless you know what you are doing.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Stop">
@@ -119,10 +127,8 @@
       <Docs>
         <summary>
             Called after the action has finished.
-            It will set the 'Target' to null.
-            IMPORTANT: You should never call this method manually. Instead, use: "target.StopAction(actionState);"
-            </summary>
-        <remarks>To be added.</remarks>
+            It will set the 'Target' to null. </summary>
+        <remarks>You should never call this method manually. Instead, call the <see cref="M:Urho.Node.StopAction" /> method with this action state.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Target">
@@ -167,7 +173,10 @@
         <summary>
             Called once per frame.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>When you provide your own Actions, and your own action states, this is the method that will perform the actual changes to your <see cref="P:Urho.ActionState.Target" /> node.   The action should affect the state of the target node in an implementation specific way, and should be done in function of the specified dt.</para>
+          <para></para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

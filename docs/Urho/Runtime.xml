@@ -68,11 +68,16 @@
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <param name="ptr">To be added.</param>
-        <param name="createIfNotFound">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="ptr">Pointer to an unmanaged Urho object</param>
+        <param name="createIfNotFound">If true, and the pointer is not known to the runtime, this will create a new wrapper for the object and return it.</param>
+        <summary>Looks up the specified native pointer into the internal runtime mapping to managed objects.</summary>
+        <returns>If the object exists in the internal runtime hash, it will return the existing managed wrapper for the unmanaged Urho object.   If it does not exist, and createIfNotFound is true, a new wrapper will be created by invoking the constructor that takes an <see cref="T:System.IntPtr" /> parameter, otherwise the returned value is null.</returns>
+        <remarks>
+          <para>Use this method to lookup objects that derive from the <see cref="T:Urho.UrhoObject" /> class.</para>
+          <para>This will return the most derived type.   The “ptr” parameter is used to retrieve the type name of the Urho object and to determine its real identity.</para>
+          <para></para>
+          <para>This means that you might get a cast exception if you try to LookupObject and try to force the wrong type to be returned.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LookupRefCounted&lt;T&gt;">
@@ -98,11 +103,11 @@
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <param name="ptr">To be added.</param>
-        <param name="createIfNotFound">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="ptr">Pointer to an unmanaged RefCounted Urho object</param>
+        <param name="createIfNotFound">If true, and the pointer is not known to the runtime, this will create a new wrapper for the object and return it.</param>
+        <summary>Looks up the specified native pointer into the internal runtime mapping to managed objects.</summary>
+        <returns>If the object exists in the internal runtime hash, it will return the existing managed wrapper for the unmanaged Urho object.   If it does not exist, and createIfNotFound is true, a new wrapper will be created by invoking the constructor that takes an <see cref="T:System.IntPtr" /> parameter, otherwise the returned value is null.</returns>
+        <remarks>Use this method to lookup objects that derive from the <see cref="T:Urho.RefCounted" /> class.</remarks>
       </Docs>
     </Member>
     <Member MemberName="LookupStringHash">
@@ -119,10 +124,10 @@
         <Parameter Name="t" Type="System.Type" />
       </Parameters>
       <Docs>
-        <param name="t">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="t">The C# type to lookup the string hash for</param>
+        <summary>Returns the associated string hash for the given C# type (must be an UrhoType)</summary>
+        <returns>The string hash for the </returns>
+        <remarks>This will only work for Urho types.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Platform">

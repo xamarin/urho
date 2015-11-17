@@ -10,35 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Scene node that may contain components and child nodes.</summary>
-    <remarks>
-      <para>Nodes are the building block of your application.   Each Node has a 3D transform (position, rotation and scale), a name and an ID and can contain other nodes (child nodes).   Your application starts life with a special kind of node, the Scene node.</para>
-      <para></para>
-      <para>To bring Nodes to life, you attach one or more components into it (<see cref="T:Urho.Component)" />.   Components provide functionality from giving a node a visual representation, to emitting sound, to emitting light and many more. These are created either with their constructors and then by attaching them using the <see cref="M:Urho.Node.AddComponent" /> method or by calling the <see cref="T:Urho.Node.CreateComponent" /> method which can do both operations in one call.</para>
-      <para></para>
-      <para>Here are some common scenarios, creating a <see cref="T:Urho.Camera," /> a <see cref="T:Urho.Light" /> and a <see cref="T:Urho.StaticModel" />.</para>
-      <para></para>
-      <para></para>
-      <example>
-        <code lang="C#"><![CDATA[// Camera
-var cameraNode = scene.CreateChild();
-cameraNode.Position = (new Vector3(0.0f, 0.0f, -10.0f));
-cameraNode.CreateComponent<Camera>();
-Renderer.SetViewport(0, Viewport = new Viewport(Context, scene, cameraNode.GetComponent<Camera>(), null));
-
-// Lights
-var lightNode1 = scene.CreateChild();
-lightNode1.Position = new Vector3(0, -5, -40);
-lightNode1.AddComponent(new Light(Context) { LightType = LightType.Point, Range = 120, Brightness = 1.5f });
-
-// Models
-var cache = Application.ResourceCache;
-var model = Node.CreateComponent<StaticModel>();
-model.Model = cache.GetModel ("player.mdl");
-var material = cache.GetMaterial("player.xml").Clone("");
-model.SetMaterial(material);]]></code>
-      </example>
-    </remarks>
+    <summary />
+    <remarks />
   </Docs>
   <Members>
     <Member MemberName=".ctor">

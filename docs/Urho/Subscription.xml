@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Encapsulates the subscription to an event, the main use it to stop event delivery by unsubscribing.</summary>
+    <remarks>Instances of Subscription are returned from the various Subscribe methods exposed by the UrhoObject class.   When you want to stop receiving notifications for a subscription, invoke the <see cref="M:Urho.Subscription.Unsubscribe" /> method.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Unsubscribe">
@@ -26,8 +26,10 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Unsubscribes from receiving notifications.</summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

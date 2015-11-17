@@ -10,8 +10,14 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Base class for actions in Urho.</summary>
+    <remarks>
+      <para>In general, you will be using one of the concrete implementations of BaseAction that provide a lot of functionality.</para>
+      <para></para>
+      <para>Actions are stateless, when you subclass this class, you should never keep any writable state.  Your subclass should merely act as a blueprint for what the action should do.</para>
+      <para></para>
+      <para>When you create own actions, you need to override the <see cref="M:Urho.BaseAction.StartAction" /> method to return an <see cref="T:Urho.ActionState" /> subclass which is in chage of driving the action over time.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -23,7 +29,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Base constructor</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -41,10 +47,12 @@
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>
-        <param name="target">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="target">The target upon which the action will run against.</param>
+        <summary>Method that subclasses must override to provide the functionality for the action.   They should create these on demand.</summary>
+        <returns>The new <see cref="T:Urho.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</returns>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Tag">
@@ -58,9 +66,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Tag used to easily reference an action from code using a code.</summary>
+        <value>
+          <para></para>
+        </value>
+        <remarks>
+          <para></para>
+        </remarks>
       </Docs>
     </Member>
   </Members>

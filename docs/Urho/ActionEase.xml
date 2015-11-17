@@ -10,8 +10,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Base class for all the Action Easing functions.</summary>
+    <remarks>
+      <para>In general, you will be using one of the concrete subclasses: EaseBackIn, EaseBackInOut, EaseBackOut, EaseBounceIn, EaseBounceInOut, EaseBounceOut, EaseCustom, EaseElastic, EaseElasticIn, EaseElasticInOut, EaseElasticOut, EaseExponentialIn, EaseExponentialInOut, EaseExponentialOut, EaseIn, EaseInOut, EaseOut, EaseRateAction, EaseSineIn, EaseSineInOut and EaseSineOut.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
