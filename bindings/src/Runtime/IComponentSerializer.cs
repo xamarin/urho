@@ -17,9 +17,9 @@ namespace Urho
 	/// </summary>
 	public class XmlComponentSerializer : IComponentSerializer, IComponentDeserializer
 	{
-		readonly XMLElement xmlElement;
+		readonly XmlElement xmlElement;
 
-		public XmlComponentSerializer(XMLElement xmlElement)
+		public XmlComponentSerializer(XmlElement xmlElement)
 		{
 			this.xmlElement = xmlElement;
 		}

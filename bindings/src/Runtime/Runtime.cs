@@ -80,7 +80,7 @@ namespace Urho
 		static void OnComponentEvent(IntPtr componentPtr, IntPtr xmlElementPtr, MonoComponentCallbackType eventType)
 		{
 			const string typeNameKey = "SharpTypeName";
-			var xmlElement = new XMLElement(xmlElementPtr);
+			var xmlElement = new XmlElement(xmlElementPtr);
 			if (eventType == MonoComponentCallbackType.SaveXml)
 			{
 				var component = LookupObject<Component>(componentPtr, false);

@@ -648,9 +648,7 @@ namespace SharpieBinder
 			case "const class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement &":
 			case "const class Urho3D::Ray &":
-				int p = cleanTypeStr.IndexOf ("::");
-				int q = cleanTypeStr.IndexOf (" ", p + 2);
-				var simpleType = cleanTypeStr.Substring (p + 2, q - p - 2);
+				var simpleType = cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms();
 				highLevel = new SimpleType (simpleType);
 				lowLevel = new SimpleType (simpleType);
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
@@ -817,7 +815,8 @@ namespace SharpieBinder
 					return "ToDebugString";
 				break;
 			}
-			return name;
+
+			return name.RemapAcronyms();
 		}
 
 		public string RemapTypeName(string type)
@@ -827,7 +826,7 @@ namespace SharpieBinder
 			case "String": return "UrhoString";
 			case "Console": return "UrhoConsole";
 			default:
-				return type;
+				return type.RemapAcronyms();
 			}
 		}
 

@@ -23,7 +23,8 @@ namespace SharpieBinder
 			if (tname.StartsWith("const"))
 				tname = tname.Substring("const".Length);
 			// strip the &
-			tname = tname.Substring(0, tname.Length - 1);
+			if (tname.EndsWith("&"))
+				tname = tname.Substring(0, tname.Length - 1);
 			return tname.Trim();
 		}
 
@@ -97,10 +98,16 @@ namespace SharpieBinder
 					return "HorizontalCross";
 				case "Verticalcross":
 					return "VerticalCross";
-			
-
 			}
 			return source;
+		}
+
+		public static string RemapAcronyms(this string source)
+		{
+			if (string.IsNullOrEmpty(source))
+				return source;
+			var map = new Dictionary<string, string> { {"XML", "Xml"}, {"JSON", "Json"} };
+			return map.Aggregate(source, (current, mapItem) => current.Replace(mapItem.Key, mapItem.Value));
 		}
 
 		public static string PascalCase (this string w)

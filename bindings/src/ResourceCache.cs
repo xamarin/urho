@@ -72,9 +72,9 @@ namespace Urho {
 			return GetResource<PListFile> (PListFile.TypeStatic, name, sendEventOnFailure);
 		}
 		
-		public XMLFile GetXmlFile (string name, bool sendEventOnFailure = true)
+		public XmlFile GetXmlFile (string name, bool sendEventOnFailure = true)
 		{
-			return GetResource<XMLFile> (XMLFile.TypeStatic, name, sendEventOnFailure);
+			return GetResource<XmlFile> (XmlFile.TypeStatic, name, sendEventOnFailure);
 		}
 		
 		public ObjectAnimation GetObjectAnimation (string name, bool sendEventOnFailure = true)
