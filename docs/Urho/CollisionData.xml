@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains the information about a physics collision event.</summary>
+    <remarks>The data in this structure is the result of a collision event between scene nodes and rigit bodies.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -26,7 +26,7 @@
       </Parameters>
       <Docs>
         <param name="p">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Contructs a CollisionData structure from a low-level buffer containing the encoded collision event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -41,7 +41,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Distance, negative when interpenetrating</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -56,7 +56,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Impulse applied in collision</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,7 +71,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Normal vector.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -86,7 +86,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>World space position</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -102,7 +102,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a human readable description of the collision.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

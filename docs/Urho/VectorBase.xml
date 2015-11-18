@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a vector that can be retrieved in different formats.</summary>
+    <remarks>When you have a VectorBase, you can retrieve the data pointed to by the buffer with the given size into a managed array by invoking the generic ToArray method.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Buffer">
@@ -25,7 +25,7 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Pointer to the buffer holding the vector data.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -40,7 +40,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Capacity for the vector</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -55,7 +55,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The current size of the vector.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -81,7 +81,7 @@
       <Parameters />
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <summary>To be added.</summary>
+        <summary>Retrieves up to Size elemenst from the location in memory pointed at by Buffer and casts each individual member into a type of T.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

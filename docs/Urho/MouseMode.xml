@@ -9,10 +9,11 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>
-            %Input Mouse Modes.
+    <summary>Input Mouse Modes.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Absolute">
@@ -26,7 +27,7 @@
         <ReturnType>Urho.MouseMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The default behaviour, allowing the toggling of operating system cursor visibility and allowing the cursor to escape the window when visible. When the operating system cursor is invisible in absolute mouse mode, the mouse is confined to the window. If the operating system and UI cursors are both invisible, interaction with the user interface will be limited (for example, drag move and drag end events will not trigger).    Setting this value to Absolute will call SetMouseGrabbed(false).</summary>
       </Docs>
     </Member>
     <Member MemberName="Relative">
@@ -40,7 +41,7 @@
         <ReturnType>Urho.MouseMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>sets the operating system cursor to invisible and confines the cursor to the window. The operating system cursor cannot be set to be visible in this mode via SetMouseVisible(), however changes are tracked and will be restored when another mouse mode is set. When the virtual cursor is also invisible, UI interaction will still function as normal (eg: drag events will trigger). Setting this will call SetMouseGrabbed(true).</summary>
       </Docs>
     </Member>
     <Member MemberName="Wrap">
@@ -54,7 +55,7 @@
         <ReturnType>Urho.MouseMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Grabs the mouse from the operating system and confines the operating system cursor to the window, wrapping the cursor when it is near the edges. Setting this will call SetMouseGrabbed(true).</summary>
       </Docs>
     </Member>
   </Members>

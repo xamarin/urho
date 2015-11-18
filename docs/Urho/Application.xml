@@ -16,9 +16,98 @@
     <remarks>
       <para>This is the base class that your application should subclass and provide at implementations for the <see cref="T:Urho.Application.Setup" /> and <see cref="T:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="T:Urho.Application.Start" /> methods.</para>
       <para></para>
-      <para>Access to various subsystems in Urho is available through the various properties in this class.</para>
-      <para></para>
+      <para>Access to various subsystems in Urho is available through the various properties in this class:</para>
+      <list type="bullet">
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Audio" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Console" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.FileSystem" />
+            <para></para>
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Graphics" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Input" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Log" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Network" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Profiler" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Renderer" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.ResourceCache" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.Time" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="P:Urho.Application.UI" />
+          </term>
+        </item>
+      </list>
       <para>An application is tied to a <see cref="T:Urho.Context" /> which should be passed on the initial constructor.</para>
+      <para>This shows a minimal application:</para>
+      <para></para>
+      <example>
+        <code lang="C#"><![CDATA[public class HelloWorld : Application
+{
+    public HelloWorld(Context c) : base(c) { }
+
+    public override void Start()
+    {
+        var cache = ResourceCache;
+        var helloText = new Text(Context) {
+            Value = "Hello World from UrhoSharp",
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center
+        };
+        helloText.SetColor (new Color(0f, 1f, 0f));
+        helloText.SetFont (font: cache.GetFont("Fonts/Anonymous Pro.ttf"), size: 30);
+        UI.Root.AddChild (helloText);
+
+        Graphics.SetWindowIcon(cache.GetImage("Textures/UrhoIcon.png"));
+        Graphics.WindowTitle = "UrhoSharp Sample";
+
+        // Subscribe to Esc key:
+        SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Engine.Exit(); });
+    }
+}]]></code>
+      </example>
     </remarks>
   </Docs>
   <Members>
@@ -94,8 +183,10 @@
       </ReturnValue>
       <Docs>
         <summary>Returns the Audio subsystem.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <value>
+          <para />
+        </value>
+        <remarks>See the <see cref="T:Urho.Audio" /> class description for more information on how to use the Audio subsystem.</remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseType">

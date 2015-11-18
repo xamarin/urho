@@ -11,9 +11,143 @@
   <Interfaces />
   <Docs>
     <summary>
-            %Input subsystem. Converts operating system window messages to input state and events.
+            Input subsystem. Converts operating system window messages to input state and events.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>The Input subsystem provides keyboard, mouse, joystick and touch input both via a polled interface and events. This subsystem is also used for querying whether the application window has input focus or is minimized.</para>
+      <para>The subsystem is always instantiated, even in headless mode, but is active only once the application window has been created. Once active, the subsystem takes over the operating system mouse cursor. It will be hidden by default, so the <see cref="T:Urho.UI" /> should be used to render a software cursor if necessary. For editor-like applications the operating system cursor can be made visible by calling <see cref="M:Urho.Input.SetMouseVisible" />.</para>
+      <para>You can subscribe to these events by using one of the SubscribeToXxx methods in UrhoObject:</para>
+      <list type="bullet">
+        <item>
+          <term>MouseButtonUp: a mouse button was released.</term>
+        </item>
+        <item>
+          <term>MouseButtonDown: a mouse button was pressed.</term>
+        </item>
+        <item>
+          <term>MouseMove: the mouse moved.</term>
+        </item>
+        <item>
+          <term>MouseWheel: the mouse wheel moved.</term>
+        </item>
+        <item>
+          <term>KeyUp: a key was released.</term>
+        </item>
+        <item>
+          <term>KeyDown: a key was pressed.</term>
+        </item>
+        <item>
+          <term>TextInput: a string of translated text input in UTF8 format. May contain a single character or several.</term>
+        </item>
+        <item>
+          <term>JoystickConnected: a joystick was plugged in.</term>
+        </item>
+        <item>
+          <term>JoystickDisconnected: a joystick was disconnected.</term>
+        </item>
+        <item>
+          <term>JoystickButtonDown: a joystick button was pressed.</term>
+        </item>
+        <item>
+          <term>JoystickButtonUp: a joystick button was released.</term>
+        </item>
+        <item>
+          <term>JoystickAxisMove: a joystick axis was moved.</term>
+        </item>
+        <item>
+          <term>JoystickHatMove: a joystick POV hat was moved.</term>
+        </item>
+        <item>
+          <term>TouchBegin: a finger touched the screen.</term>
+        </item>
+        <item>
+          <term>TouchEnd: a finger was lifted from the screen.</term>
+        </item>
+        <item>
+          <term>TouchMove: a finger moved on the screen.</term>
+        </item>
+        <item>
+          <term>GestureRecorded : recording a touch gesture is complete.</term>
+        </item>
+        <item>
+          <term>GestureInput : a touch gesture was recognized.</term>
+        </item>
+        <item>
+          <term>MultiGesture : a multi-finger pinch/rotation touch gesture is underway.</term>
+        </item>
+        <item>
+          <term>DropFile : a file was drag-dropped on the application window.</term>
+        </item>
+        <item>
+          <term>InputFocus : application input focus or window minimization state changed.</term>
+        </item>
+        <item>
+          <term>MouseVisibleChanged : the visibility of the operating system mouse cursor was changed.</term>
+        </item>
+        <item>
+          <term>ExitRequested : application exit was requested (eg. with the window close button.)</term>
+        </item>
+      </list>
+      <para></para>
+      <format type="text/html">
+        <h2>Keyboard and Mouse Input</h2>
+      </format>
+      <para></para>
+      <para>Key events include both the symbolic keycode ("Key") that depends on the keyboard layout, the layout- and operating system-independent SDL scancode ("Scancode"), and the true operating system-specific raw keycode ("Raw").</para>
+      <para>The input polling API differentiates between the initiation of a key/mouse button press, and holding the key or button down.  <see cref="M:Urho.Input.GetKeyPress" /> and <see cref="M:Urho.Input.GetMouseButtonPress" /> return true only for one frame (the initiation) while <see cref="M:Urho.Input.GetKeyDown" /> and <see cref="M:Urho.Input.GetMouseButtonDown" /> return true as long as the key or button is held down. To check whether keys are down or pressed by scancode, use <see cref="M:Urho.Input.GetScancodeDown" /> and <see cref="M:Urho.Input.GetScancodePress" />. Functions also exist for converting keycodes to scancodes or vice versa, or getting key names. See for example <see cref="M:Urho.Input.GetKeyName" /> and <see cref="M:Urho.Input.GetKeyFromScancode" />.</para>
+      <para>Mouse motion since the last frame can be accessed with <see cref="M:Urho.Input.GetMouseMove" />. The cursor position within the window can be queried with <see cref="M:Urho.Input.GetMousePosition" />.</para>
+      <para></para>
+      <format type="text/html">
+        <h2>Mouse modes</h2>
+      </format>
+      <para>The operating system mouse cursor can be used in four modes which can be switched with <see cref="P:Urho.Input.MouseMode" />:</para>
+      <list type="bullet">
+        <item>
+          <term>Absolute: is the default behaviour, allowing the toggling of operating system cursor visibility and allowing the cursor to escape the window when visible. When the operating system cursor is invisible in absolute mouse mode, the mouse is confined to the window. If the operating system and UI cursors are both invisible, interaction with the user interface will be limited (for example, drag move and drag end events will not trigger).    Setting this value to Absolute will call SetMouseGrabbed(false).</term>
+        </item>
+      </list>
+      <list type="bullet">
+        <item>
+          <term>Relative: sets the operating system cursor to invisible and confines the cursor to the window. The operating system cursor cannot be set to be visible in this mode via SetMouseVisible(), however changes are tracked and will be restored when another mouse mode is set. When the virtual cursor is also invisible, UI interaction will still function as normal (eg: drag events will trigger). Setting this will call SetMouseGrabbed(true).</term>
+        </item>
+      </list>
+      <para></para>
+      <list type="bullet">
+        <item>
+          <term>Wrap: grabs the mouse from the operating system and confines the operating system cursor to the window, wrapping the cursor when it is near the edges. Setting this will call SetMouseGrabbed(true).</term>
+        </item>
+      </list>
+      <list type="bullet">
+        <item>
+          <term>Free: does not grab/confine the mouse cursor even when it is hidden. This can be used for cases where the cursor should render using the operating system outside the window, and perform custom rendering (with SetMouseVisible(false)) inside.</term>
+        </item>
+      </list>
+      <para></para>
+      <format type="text/html">
+        <h2>Joystick input</h2>
+      </format>
+      <para>Plugged in joysticks will begin sending input events automatically. Each joystick will be assigned a joystick ID which will be used in subsequent joystick events, as well as for retrieving the joystick state. Use <see cref="M:Urho.Input.GetJoystick" /> to retrieve the joystick state by ID. In case you do not have the ID, you can also use <see cref="M:Urho.Input.GetJoystickByIndex" /> which uses a zero-based index; see <see cref="P:Urho.Input.NumJoystick" /> for the number of currently connected joysticks. The ID, as well as the joystick name, can be looked up from the joystick state.</para>
+      <para>If the joystick model is recognized by SDL as a game controller the buttons and axes mappings utilize known constants such as CONTROLLER_BUTTON_A or CONTROLLER_AXIS_LEFTX without having to guess them. Use <see cref="IsController()" /> to distinguish between a game controller and an unrecognized joystick.</para>
+      <para></para>
+      <para>On platforms that support the accelerometer, it will appear as a "virtual" joystick.</para>
+      <para></para>
+      <format type="text/html">
+        <h2>Touch input</h2>
+</format>
+      <para>On platforms where touch input is available, touch begin/end/move events will be sent, as well as multi-gesture events with pinch/rotation delta values when more than one finger is pressed down. The current finger touches can also be accessed via a polling API: <see cref="P:Urho.Input.NumTouches" /> and <see cref="M:Urho.Input.GetTouch." /></para>
+      <para>Touch gestures can be recorded using SDL's inbuilt $1 gesture recognition system. Use <see cref="M:Urho.Input.RecordGesture" /> to start recording. The following finger movements will be recorded until the finger is lifted, at which point the recording ends and the GestureRecorded event is sent with the hash ID of the new gesture. The current in-memory gesture(s) can be saved or loaded as binary data.</para>
+      <para></para>
+      <para>Whenever a recognized gesture is entered by the user, the GestureInput event will be sent. In addition to the ID of the best matched gesture, it contains the center position and an error metric (lower = better) to help filter out false gestures.</para>
+      <para>Note that all recorded (whether saved or not) and loaded gestures are held in-memory. Two additional functions are available to clear them: <see cref="M:Urho.Input.RemoveGesture" /> to selectively clear a gesture by its ID and <see cref="M:Urho.Input.RemoveAllGestures" /> to clear them all.</para>
+      <para>Touch input can also emulate a virtual joystick by displaying on-screen buttons. See the function <see cref="M:Urho.Input.AddScreenJoystick" />.</para>
+      <para>Touch emulation can be used to test mobile applications on a desktop machine without a touch screen. See <see cref="P:Urho.Input.TouchEmulation" />. When touch emulation is enabled, actual mouse events are no longer sent and the operating system mouse cursor is forced visible. The left mouse button acts as a moving finger, while the rest of the mouse buttons act as stationary fingers for multi-finger gestures. For example pressing down both left and right mouse buttons, then dragging the mouse with the buttons still pressed would emulate a two-finger pinch zoom-in gesture.</para>
+      <para></para>
+      <format type="text/html">
+        <h2>Platform-specific details</h2>
+      </format>
+      <para>On platforms that support it (such as Android) an on-screen virtual keyboard can be shown or hidden. When shown, keypresses from the virtual keyboard will be sent as text input events just as if typed from an actual keyboard. Show or hide it by calling <see cref="S" />etScreenKeyboardVisible. The <see cref="T:Urho.UI" /> subsystem can also automatically show the virtual keyboard when a line editing element is focused, and hide it when defocused. This behavior can be controlled by calling SetUseScreenKeyboard.</para>
+      <para>On Windows the user must first touch the screen once before touch input is activated. Trying to record or load touch gestures will fail before that.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -92,14 +226,13 @@
         <param name="layoutFile">To be added.</param>
         <param name="styleFile">To be added.</param>
         <summary>
-            Add screen joystick.
-            Return the joystick instance ID when successful or negative on error.
-            If layout file is not given, use the default screen joystick layout.
-            If style file is not given, use the default style file from root UI element.
-            This method should only be called in main thread.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+            Add screen joystick. </summary>
+        <returns>Return the joystick instance ID when successful or negative on error. </returns>
+        <remarks>
+          <para>If layout file is not given, use the default screen joystick layout. If style file is not given, use the default style file from root UI element. </para>
+          <para />
+          <para>This method should only be called in main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseType">
@@ -623,21 +756,13 @@
         <summary>
             Return the mouse mode.
             Or
-            Set the mouse mode.
-            Set the mouse mode behaviour.
-            MM_ABSOLUTE is the default behaviour, allowing the toggling of operating system cursor visibility and allowing the cursor to escape the window when visible.
-            When the operating system cursor is invisible in absolute mouse mode, the mouse is confined to the window.
-            If the operating system and UI cursors are both invisible, interaction with the Urho UI will be limited (eg: drag move / drag end events will not trigger).
-            SetMouseMode(MM_ABSOLUTE) will call SetMouseGrabbed(false).
-            MM_RELATIVE sets the operating system cursor to invisible and confines the cursor to the window.
-            The operating system cursor cannot be set to be visible in this mode via SetMouseVisible(), however changes are tracked and will be restored when another mouse mode is set.
-            When the virtual cursor is also invisible, UI interaction will still function as normal (eg: drag events will trigger).
-            SetMouseMode(MM_RELATIVE) will call SetMouseGrabbed(true).
-            MM_WRAP grabs the mouse from the operating system and confines the operating system cursor to the window, wrapping the cursor when it is near the edges.
-            SetMouseMode(MM_WRAP) will call SetMouseGrabbed(true).
-            </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+            Set the mouse mode. </summary>
+        <value>
+          <para />
+        </value>
+        <remarks>
+          <para>See the <see cref="T:Urho.MouseMode" /> enumeration for detais on the meaning of the MouseMode.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MouseMove">
