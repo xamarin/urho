@@ -148,7 +148,7 @@ namespace Urho
 				return null;
 
 			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
-			var type = Type.GetType("Urho." + name) ?? Type.GetType("Urho.Urho" + name); // "Urho.Urho" for remapped types like UrhoObjec, UrhoType
+			var type = Type.GetType(FindTypeByName(name));
 			var typeInfo = type.GetTypeInfo();
 			if (typeInfo.IsSubclassOf(typeof(Component)) || type == typeof(Component))
 			{
@@ -213,5 +213,22 @@ namespace Urho
 		// for Debug purposes
 		static internal int KnownObjectsCount => RefCountedCache.Count;
 
+		// special cases: (TODO: share this code with SharpieBinder somehow)
+		static Dictionary<string, string> typeNamesMap = new Dictionary<string, string>
+			{
+				{"Object", "Urho.UrhoObject"},
+				{"String", "Urho.UrhoString"},
+				{"Console", "Urho.UrhoConsole"},
+				{"XMLFile", "Urho.XmlFile"},
+				{"XMLElement", "Urho.XmlElement"},
+			};
+
+		static string FindTypeByName(string name)
+		{
+			string result;
+			if (typeNamesMap.TryGetValue(name, out result))
+				return result;
+			return "Urho." + name;
+		}
 	}
 }
