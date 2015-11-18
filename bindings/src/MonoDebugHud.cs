@@ -56,7 +56,7 @@ namespace Urho
 			text.SetStyle("DebugHudText", xml);
 
 			root.AddChild(text);
-			subscription = application.SubscribeToPostUpdate(OnPostUpdate);
+			subscription = application.Engine.SubscribeToPostUpdate(OnPostUpdate);
 		}
 
 		public void Hide()

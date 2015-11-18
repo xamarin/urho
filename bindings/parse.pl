@@ -28,60 +28,74 @@ sub mapType {
     return $t;
 }
 
+open EVENTS, "events.txt" || die "Need the file events.txt to figure out where to generate events";
+while (<EVENTS>){
+    ($event, $classes) = split;
+    @events{$event} = $classes;
+}
+
 RESTART:
 while (<>){
     chop;
     next if (/#define/);
     if (/EVENT\(/){
 	($ec,$en) = $_ =~ /EVENT\((\w+), ?(\w+)/;
-    if ($en ne "DbCursor"){
-          
-	print CS "    public partial struct ${en}EventArgs {\n";
-	print CS "        internal IntPtr handle;\n";
-	print CPP "DllExport void *urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
-	print CPP "{\n";
-	print CPP "\tUrho3D::Object *receiver = (Urho3D::Object *) _receiver;\n";
-	print CPP "\tNotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::$ec);\n";
-	print CPP "\treceiver->SubscribeToEvent (Urho3D::$ec, proxy);\n";
-	print CPP "\treturn proxy;\n";
-	print CPP "}\n\n";
-	while (<>){
-	    chop;
-	    $cast = "";
-	    if (/PARAM/){
-		($pc,$pn,$pt) = $_ =~ /PARAM\((\w+), ?(\w+).*\/\/\W*(\w+(\W+\w+)?)/;
-		$cspt = $plain = &mapType ($pt);
-		if (/P_KEY.*Key/){
-		    $cspt = "Key";
-		    $cast = "(Key)";
-		}
-		$plain =~ s/ .*//;
-        if ($plain eq "byte"){
-            $plain = "Buffer";
-        }
-		$hashgetters{$pc} = $en;
+	if ($en ne "DbCursor"){
+	    
+	    print CS "    public partial struct ${en}EventArgs {\n";
+	    print CS "        internal IntPtr handle;\n";
+	    print CPP "DllExport void *urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
+	    print CPP "{\n";
+	    print CPP "\tUrho3D::Object *receiver = (Urho3D::Object *) _receiver;\n";
+	    print CPP "\tNotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::$ec);\n";
+	    print CPP "\treceiver->SubscribeToEvent (Urho3D::$ec, proxy);\n";
+	    print CPP "\treturn proxy;\n";
+	    print CPP "}\n\n";
 
-		print CS "        public $cspt $pn =>$cast UrhoMap.get_$plain (handle, UrhoHash.$pc);\n";
+	    while (<>){
+		chop;
+		$cast = "";
+		if (/PARAM/){
+		    ($pc,$pn,$pt) = $_ =~ /PARAM\((\w+), ?(\w+).*\/\/\W*(\w+(\W+\w+)?)/;
+		    $cspt = $plain = &mapType ($pt);
+		    if (/P_KEY.*Key/){
+			$cspt = "Key";
+			$cast = "(Key)";
+		    }
+		    $plain =~ s/ .*//;
+		    if ($plain eq "byte"){
+			$plain = "Buffer";
+		    }
+		    $hashgetters{$pc} = $en;
+		    
+		    print CS "        public $cspt $pn =>$cast UrhoMap.get_$plain (handle, UrhoHash.$pc);\n";
+		}
+		if (/}/){
+		    print CS "    }\n\n";
+
+		    if ($ec eq "E_UNHANDLEDKEY"){
+			print "GOING TO DO @events{$ec}\n";
+		    }
+		    
+		    for $type (split /,/,$events{$ec}){
+			print CS "    public partial class $type {\n"; 
+			print CS "         ObjectCallbackSignature callback${en};\n";
+			print CS "         [DllImport(\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]\n";
+			print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
+			print CS "         public Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
+			print CS "         {\n";
+			print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";
+			print CS "              var s = new Subscription (proxy);\n";
+			print CS "              callback${en} = ObjectCallback;\n";
+			print CS "              s.UnmanagedProxy = urho_subscribe_$en (handle, callback${en}, GCHandle.ToIntPtr (s.gch));\n";
+			print CS "              return s;\n";
+			print CS "         }\n";
+			print CS "    }\n\n";
+		    }
+		}
+		next RESTART if (/}/);
 	    }
-	    if (/}/){
-		print CS "    }\n\n";
-		print CS "    public partial class UrhoObject {\n"; 
-		print CS "         ObjectCallbackSignature callback${en};\n";
-		print CS "         [DllImport(\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]\n";
-		print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
-                print CS "         public Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
-		print CS "         {\n";
-		print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";
-		print CS "              var s = new Subscription (proxy);\n";
-		print CS "              callback${en} = ObjectCallback;\n";
-		print CS "              s.UnmanagedProxy = urho_subscribe_$en (handle, callback${en}, GCHandle.ToIntPtr (s.gch));\n";
-		print CS "              return s;\n";
-		print CS "         }\n";
-                print CS "    }\n\n";
-	    }
-	    next RESTART if (/}/);
 	}
-    }
     }
 }
 print CPP "// Hash Getters\n";

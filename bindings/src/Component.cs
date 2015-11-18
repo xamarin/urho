@@ -28,7 +28,7 @@ namespace Urho
 
 		public virtual void OnDeserialize(IComponentDeserializer deserializer) { }
 
-		public virtual void OnAttachedToNode()
+		public virtual void OnAttachedToNode(Node node)
 		{
 			if (!subscribedToSceneUpdate && ReceiveSceneUpdates)
 			{

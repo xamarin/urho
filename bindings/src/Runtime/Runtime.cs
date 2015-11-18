@@ -107,14 +107,14 @@ namespace Urho
 					component.OnDeserialize(new XmlComponentSerializer(xmlElement));
 					if (component.Node != null)
 					{
-						component.OnAttachedToNode();
+						component.OnAttachedToNode(component.Node);
 					}
 				}
 			}
 			else
 			{
 				var component = LookupObject<Component>(componentPtr, false);
-				component?.OnAttachedToNode();
+				component?.OnAttachedToNode(component.Node);
 			}
 		}
 

@@ -57,8 +57,8 @@ namespace Urho {
 			Runtime.RegisterObject (this);
 			Current = this;
 
-			SubscribeToUpdate(HandleUpdate);
-			SubscribeToSceneUpdate(HandleSceneUpdate);
+			Engine.SubscribeToUpdate(HandleUpdate);
+			//SubscribeToSceneUpdate(HandleSceneUpdate);
 		}
 
 		public static Application GetApp(IntPtr h)

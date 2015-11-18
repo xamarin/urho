@@ -15,7 +15,7 @@ namespace Urho {
 	public partial class UrhoObject : RefCounted
 	{
 		[MonoPInvokeCallback(typeof(ObjectCallbackSignature))]
-		static void ObjectCallback(IntPtr data, int stringHash, IntPtr variantMap)
+		internal static void ObjectCallback(IntPtr data, int stringHash, IntPtr variantMap)
 		{
 			GCHandle gch = GCHandle.FromIntPtr(data);
 			Action<IntPtr> a = (Action<IntPtr>)gch.Target;
