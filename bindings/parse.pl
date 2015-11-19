@@ -48,7 +48,7 @@ while (<>){
 	    print CPP "{\n";
 	    print CPP "\tUrho3D::Object *receiver = (Urho3D::Object *) _receiver;\n";
 	    print CPP "\tNotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::$ec);\n";
-	    print CPP "\treceiver->SubscribeToEvent (Urho3D::$ec, proxy);\n";
+	    print CPP "\treceiver->SubscribeToEvent (receiver, Urho3D::$ec, proxy);\n";
 	    print CPP "\treturn proxy;\n";
 	    print CPP "}\n\n";
 
