@@ -923,25 +923,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="GetXmlFile">
-      <MemberSignature Language="C#" Value="public Urho.XMLFile GetXmlFile (string name, bool sendEventOnFailure = true);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.XMLFile GetXmlFile(string name, bool sendEventOnFailure) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>Urho.XMLFile</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="name" Type="System.String" />
-        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="NumBackgroundLoadResources">
       <MemberSignature Language="C#" Value="public uint NumBackgroundLoadResources { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumBackgroundLoadResources" />
@@ -1395,10 +1376,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.FileChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the FileChanged event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToLoadFailed">
@@ -1415,10 +1396,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.LoadFailedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the LoadFailed event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToResourceBackgroundLoaded">
@@ -1435,10 +1416,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ResourceBackgroundLoaded event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToResourceNotFound">
@@ -1455,10 +1436,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.ResourceNotFoundEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ResourceNotFound event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUnknownResourceType">
@@ -1475,10 +1456,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.UnknownResourceTypeEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the UnknownResourceType event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalMemoryUse">
@@ -1528,8 +1509,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1545,8 +1525,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

@@ -71,27 +71,6 @@
         <Parameter Name="styleFile" Type="Urho.XmlFile" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="messageString">To be added.</param>
-        <param name="titleString">To be added.</param>
-        <param name="layoutFile">To be added.</param>
-        <param name="styleFile">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public MessageBox (Urho.Context context, string messageString, string titleString, Urho.XMLFile layoutFile, Urho.XMLFile styleFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, string messageString, string titleString, class Urho.XMLFile layoutFile, class Urho.XMLFile styleFile) cil managed" />
-      <MemberType>Constructor</MemberType>
-      <Parameters>
-        <Parameter Name="context" Type="Urho.Context" />
-        <Parameter Name="messageString" Type="System.String" />
-        <Parameter Name="titleString" Type="System.String" />
-        <Parameter Name="layoutFile" Type="Urho.XMLFile" />
-        <Parameter Name="styleFile" Type="Urho.XMLFile" />
-      </Parameters>
-      <Docs>
         <param name="context">The context that this object will be attached to.</param>
         <param name="messageString">To be added.</param>
         <param name="titleString">To be added.</param>
@@ -174,10 +153,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.MessageACKEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the MessageACK event raised by the MessageBox.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Title">
@@ -229,8 +208,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -246,8 +224,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

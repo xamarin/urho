@@ -94,27 +94,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public bool Load (Urho.XMLElement element, Urho.TileMapInfo2D info);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.XMLElement element, valuetype Urho.TileMapInfo2D info) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="element" Type="Urho.XMLElement" />
-        <Parameter Name="info" Type="Urho.TileMapInfo2D" />
-      </Parameters>
-      <Docs>
-        <param name="element">To be added.</param>
-        <param name="info">To be added.</param>
-        <summary>
-            Load from XML element.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Position">
       <MemberSignature Language="C#" Value="public Urho.Vector2 Position { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 Position" />

@@ -327,19 +327,6 @@
       </Docs>
     </Member>
     <Member MemberName="OnAttachedToNode">
-      <MemberSignature Language="C#" Value="public virtual void OnAttachedToNode ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAttachedToNode() cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnAttachedToNode">
       <MemberSignature Language="C#" Value="public virtual void OnAttachedToNode (Urho.Node node);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAttachedToNode(class Urho.Node node) cil managed" />
       <MemberType>Method</MemberType>
@@ -523,25 +510,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SaveXML">
-      <MemberSignature Language="C#" Value="public override bool SaveXML (Urho.XMLElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXML(class Urho.XMLElement dest) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="dest" Type="Urho.XMLElement" />
-      </Parameters>
-      <Docs>
-        <param name="dest">To be added.</param>
-        <summary>
-            Save as XML data. Return true if successful.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Scene">
       <MemberSignature Language="C#" Value="public Urho.Scene Scene { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Scene Scene" />
@@ -610,8 +578,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -627,8 +594,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

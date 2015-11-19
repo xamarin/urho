@@ -132,23 +132,5 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public void Load (Urho.XMLElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Load(class Urho.XMLElement element) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="element" Type="Urho.XMLElement" />
-      </Parameters>
-      <Docs>
-        <param name="element">To be added.</param>
-        <summary>
-            Load from XML element.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
   </Members>
 </Type>

@@ -28,7 +28,7 @@
       </Parameters>
       <Docs>
         <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-        <summary>Constructs a new instance of XMLFile, given a raw pointer to an unmanaged object</summary>
+        <summary>Constructs a new instance of XmlFile, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
           <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
@@ -48,9 +48,9 @@
       </Parameters>
       <Docs>
         <param name="context">The context that this object will be attached to.</param>
-        <summary>Creates an instance of XMLFile that is attached to an execution context.</summary>
+        <summary>Creates an instance of XmlFile that is attached to an execution context.</summary>
         <remarks>
-          <para>This creates an instance of XMLFile attached to the specified execution context.</para>
+          <para>This creates an instance of XmlFile attached to the specified execution context.</para>
         </remarks>
       </Docs>
     </Member>
@@ -131,24 +131,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Patch">
-      <MemberSignature Language="C#" Value="public void Patch (Urho.XMLFile patchFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Patch(class Urho.XMLFile patchFile) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="patchFile" Type="Urho.XMLFile" />
-      </Parameters>
-      <Docs>
-        <param name="patchFile">To be added.</param>
-        <summary>
-            Patch the XMLFile with another XMLFile. Based on RFC 5261.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="RegisterObject">
       <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
@@ -221,8 +203,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -238,8 +219,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

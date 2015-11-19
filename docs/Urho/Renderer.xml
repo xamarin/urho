@@ -1075,24 +1075,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetDefaultRenderPath">
-      <MemberSignature Language="C#" Value="public void SetDefaultRenderPath (Urho.XMLFile file);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDefaultRenderPath(class Urho.XMLFile file) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="file" Type="Urho.XMLFile" />
-      </Parameters>
-      <Docs>
-        <param name="file">To be added.</param>
-        <summary>
-            Set default renderpath from an XML file.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SetViewport">
       <MemberSignature Language="C#" Value="public void SetViewport (uint index, Urho.Viewport viewport);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetViewport(unsigned int32 index, class Urho.Viewport viewport) cil managed" />
@@ -1208,10 +1190,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.BeginViewRenderEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the BeginViewRender event raised by the Renderer.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToEndViewRender">
@@ -1228,10 +1210,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.EndViewRenderEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the EndViewRender event raised by the Renderer.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToRenderSurfaceUpdate">
@@ -1248,10 +1230,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.RenderSurfaceUpdateEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the RenderSurfaceUpdate event raised by the Renderer.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TextureAnisotropy">
@@ -1343,8 +1325,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1360,8 +1341,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

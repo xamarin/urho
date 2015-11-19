@@ -39,19 +39,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public XmlComponentSerializer (Urho.XMLElement xmlElement);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.XMLElement xmlElement) cil managed" />
-      <MemberType>Constructor</MemberType>
-      <Parameters>
-        <Parameter Name="xmlElement" Type="Urho.XMLElement" />
-      </Parameters>
-      <Docs>
-        <param name="xmlElement">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Deserialize&lt;T&gt;">
       <MemberSignature Language="C#" Value="public T Deserialize&lt;T&gt; (string key);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !!T Deserialize&lt;T&gt;(string key) cil managed" />

@@ -41,7 +41,7 @@
       </Parameters>
       <Docs>
         <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-        <summary>Constructs a new instance of XMLElement, given a raw pointer to an unmanaged object</summary>
+        <summary>Constructs a new instance of XmlElement, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
           <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
@@ -58,19 +58,6 @@
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="rhs" Type="Urho.XmlElement" />
-      </Parameters>
-      <Docs>
-        <param name="rhs">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public XMLElement (Urho.XMLElement rhs);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.XMLElement rhs) cil managed" />
-      <MemberType>Constructor</MemberType>
-      <Parameters>
-        <Parameter Name="rhs" Type="Urho.XMLElement" />
       </Parameters>
       <Docs>
         <param name="rhs">To be added.</param>
@@ -802,25 +789,6 @@
       <Docs>
         <param name="element">To be added.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="RemoveChild">
-      <MemberSignature Language="C#" Value="public bool RemoveChild (Urho.XMLElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RemoveChild(class Urho.XMLElement element) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="element" Type="Urho.XMLElement" />
-      </Parameters>
-      <Docs>
-        <param name="element">To be added.</param>
-        <summary>
-            Remove a child element. Return true if successful.
-            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

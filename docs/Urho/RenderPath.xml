@@ -89,25 +89,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Append">
-      <MemberSignature Language="C#" Value="public bool Append (Urho.XMLFile file);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Append(class Urho.XMLFile file) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="file" Type="Urho.XMLFile" />
-      </Parameters>
-      <Docs>
-        <param name="file">To be added.</param>
-        <summary>
-            Append data from an XML file. Return true if successful.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Clone">
       <MemberSignature Language="C#" Value="public Urho.RenderPath Clone ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.RenderPath Clone() cil managed" />
@@ -165,25 +146,6 @@
       <Docs>
         <param name="file">To be added.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public bool Load (Urho.XMLFile file);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.XMLFile file) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="file" Type="Urho.XMLFile" />
-      </Parameters>
-      <Docs>
-        <param name="file">To be added.</param>
-        <summary>
-            Clear existing data and load from an XML file. Return true if successful.
-            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

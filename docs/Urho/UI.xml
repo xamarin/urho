@@ -474,27 +474,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LoadLayout">
-      <MemberSignature Language="C#" Value="public Urho.UIElement LoadLayout (Urho.XMLFile file, Urho.XMLFile styleFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement LoadLayout(class Urho.XMLFile file, class Urho.XMLFile styleFile) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="file" Type="Urho.XMLFile" />
-        <Parameter Name="styleFile" Type="Urho.XMLFile" />
-      </Parameters>
-      <Docs>
-        <param name="file">To be added.</param>
-        <param name="styleFile">To be added.</param>
-        <summary>
-            Load a UI layout from an XML file. Optionally specify another XML file for element style. Return the root element.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="LoadLayoutToElement">
       <MemberSignature Language="C#" Value="public void LoadLayoutToElement (Urho.UIElement container, Urho.ResourceCache cache, string name);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void LoadLayoutToElement(class Urho.UIElement container, class Urho.ResourceCache cache, string name) cil managed" />
@@ -714,10 +693,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.FocusChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the FocusChanged event raised by the UI.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUIDropFile">
@@ -734,10 +713,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.UIDropFileEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the UIDropFile event raised by the UI.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUIMouseClick">
@@ -754,10 +733,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.UIMouseClickEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the UIMouseClick event raised by the UI.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUIMouseClickEnd">
@@ -774,10 +753,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.UIMouseClickEndEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the UIMouseClickEnd event raised by the UI.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">
@@ -809,8 +788,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -826,8 +804,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

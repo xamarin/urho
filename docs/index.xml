@@ -44,10 +44,6 @@
   <Remarks>To be added.</Remarks>
   <Copyright>To be added.</Copyright>
   <Types>
-    <Namespace Name="System">
-      <Type Name="nint" Kind="Structure" />
-      <Type Name="nuint" Kind="Structure" />
-    </Namespace>
     <Namespace Name="Urho">
       <Type Name="ActionEase" Kind="Class" />
       <Type Name="ActionEaseState" Kind="Class" />

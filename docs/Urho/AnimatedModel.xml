@@ -386,27 +386,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LoadXML">
-      <MemberSignature Language="C#" Value="public override bool LoadXML (Urho.XMLElement source, bool setInstanceDefault);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXML(class Urho.XMLElement source, bool setInstanceDefault) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="source" Type="Urho.XMLElement" />
-        <Parameter Name="setInstanceDefault" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="source">To be added.</param>
-        <param name="setInstanceDefault">To be added.</param>
-        <summary>
-            Load from XML data. Return true if successful.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="ModelAttr">
       <MemberSignature Language="C#" Value="public override Urho.ResourceRef ModelAttr { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.ResourceRef ModelAttr" />
@@ -778,8 +757,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -795,8 +773,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

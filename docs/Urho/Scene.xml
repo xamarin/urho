@@ -15,8 +15,7 @@
             </summary>
     <remarks>
       <para>In general, you will want to add an Octree component to your scene, without it, none of the visual components will be shown.  The default Octree component volume goes from (-1000,-1000,-1000) to (1000,1000,1000) in world coordinates.</para>
-      <para>
-      </para>
+      <para></para>
       <example>
         <code lang="C#"><![CDATA[scene.CreateComponent<Octree> ();
 
@@ -569,31 +568,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="InstantiateXML">
-      <MemberSignature Language="C#" Value="public Urho.Node InstantiateXML (Urho.XMLElement source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node InstantiateXML(class Urho.XMLElement source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>Urho.Node</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="source" Type="Urho.XMLElement" />
-        <Parameter Name="position" Type="Urho.Vector3" />
-        <Parameter Name="rotation" Type="Urho.Quaternion" />
-        <Parameter Name="mode" Type="Urho.CreateMode" />
-      </Parameters>
-      <Docs>
-        <param name="source">To be added.</param>
-        <param name="position">To be added.</param>
-        <param name="rotation">To be added.</param>
-        <param name="mode">To be added.</param>
-        <summary>
-            Instantiate scene content from XML data. Return root node if successful.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="IsAsyncLoading">
       <MemberSignature Language="C#" Value="public bool IsAsyncLoading ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsAsyncLoading() cil managed" />
@@ -697,27 +671,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LoadAsyncXML">
-      <MemberSignature Language="C#" Value="public bool LoadAsyncXML (Urho.File file, Urho.LoadMode mode);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadAsyncXML(class Urho.File file, valuetype Urho.LoadMode mode) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="file" Type="Urho.File" />
-        <Parameter Name="mode" Type="Urho.LoadMode" />
-      </Parameters>
-      <Docs>
-        <param name="file">To be added.</param>
-        <param name="mode">To be added.</param>
-        <summary>
-            Load from an XML file asynchronously. Return true if started successfully. The LOAD_RESOURCES_ONLY mode can also be used to preload resources from object prefab files.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="LoadXml">
       <MemberSignature Language="C#" Value="public bool LoadXml (string file);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadXml(string file) cil managed" />
@@ -756,27 +709,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="source">To be added.</param>
         <param name="setInstanceDefault">To be added.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="LoadXML">
-      <MemberSignature Language="C#" Value="public override bool LoadXML (Urho.XMLElement source, bool setInstanceDefault);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXML(class Urho.XMLElement source, bool setInstanceDefault) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="source" Type="Urho.XMLElement" />
-        <Parameter Name="setInstanceDefault" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="source">To be added.</param>
-        <param name="setInstanceDefault">To be added.</param>
-        <summary>
-            Load from XML data. Removes all existing child nodes and components first. Return true if successful.
-            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1005,7 +937,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public bool SaveXml (string file, string indentation = &quot;	&quot;);" />
+      <MemberSignature Language="C#" Value="public bool SaveXml (string file, string indentation = &quot; &quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(string file, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1140,10 +1072,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.AsyncLoadFinishedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the AsyncLoadFinished event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToAsyncLoadProgress">
@@ -1160,10 +1092,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.AsyncLoadProgressEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the AsyncLoadProgress event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToAttributeAnimationUpdate">
@@ -1180,10 +1112,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.AttributeAnimationUpdateEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the AttributeAnimationUpdate event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentAdded">
@@ -1200,10 +1132,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.ComponentAddedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ComponentAdded event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentEnabledChanged">
@@ -1220,10 +1152,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.ComponentEnabledChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ComponentEnabledChanged event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentRemoved">
@@ -1240,10 +1172,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.ComponentRemovedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ComponentRemoved event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeAdded">
@@ -1260,10 +1192,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.NodeAddedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the NodeAdded event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeEnabledChanged">
@@ -1280,10 +1212,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.NodeEnabledChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the NodeEnabledChanged event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeNameChanged">
@@ -1300,10 +1232,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.NodeNameChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the NodeNameChanged event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeRemoved">
@@ -1320,10 +1252,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.NodeRemovedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the NodeRemoved event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneDrawableUpdateFinished">
@@ -1340,10 +1272,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.SceneDrawableUpdateFinishedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the SceneDrawableUpdateFinished event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToScenePostUpdate">
@@ -1360,10 +1292,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.ScenePostUpdateEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ScenePostUpdate event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneSubsystemUpdate">
@@ -1380,10 +1312,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.SceneSubsystemUpdateEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the SceneSubsystemUpdate event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneUpdate">
@@ -1400,10 +1332,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.SceneUpdateEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the SceneUpdate event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUpdateSmoothing">
@@ -1420,10 +1352,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.UpdateSmoothingEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the UpdateSmoothing event raised by the Scene.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TimeScale">
@@ -1475,8 +1407,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1492,8 +1423,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

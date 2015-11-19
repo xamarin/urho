@@ -5,6 +5,7 @@ open System.IO
 open System.Xml.Linq
 open System.Text
 open System.Globalization
+open System.Collections.Generic
 
 let load path =
   let f = File.OpenText path
@@ -12,6 +13,7 @@ let load path =
   f.Close()
   doc
 
+let events = new System.Collections.Generic.Dictionary<string,(string*string)>()
 let save path (doc:XDocument) =
   let settings = XmlWriterSettings ()
   settings.Indent <- true
@@ -28,12 +30,27 @@ let save path (doc:XDocument) =
 let select (node:XNode) path = node.XPathSelectElement path
 let setval (node:XNode) path value = (select node path).Value <- value
 let xname s = XName.Get(s)
+let membername (x:XElement) =
+  let mn = x.Attribute (xname "MemberName")
+  mn.Value
+
+let getTypeName (doc:XDocument) =
+  let tnode = doc.XPathSelectElement ("Type")
+  let attr = tnode.Attribute (xname "Name")
+  attr.Value
+
+let processEventArgs (doc:XDocument) =
+  let typeName = getTypeName doc
+  let tdocs = select doc "Type/Docs"
+  match events.ContainsKey (typeName) with
+    | false -> ()
+    | true ->
+      let vals = events.[typeName]
+      setval tdocs "summary" <| sprintf "Event arguments for the %s's %s event" (snd vals) (fst vals) 
+  doc
 
 let processType (doc:XDocument) =
-  let typeName =
-    let tnode = doc.XPathSelectElement ("Type")
-    let attr = tnode.Attribute (xname "Name")
-    attr.Value
+  let typeName = getTypeName doc
     
   let fillBaseType =
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='BaseType']/Docs" with
@@ -118,23 +135,60 @@ let processType (doc:XDocument) =
               sprintf "<para>This creates an instance of %s attached to the specified execution context.</para>" typeName |> XElement.Parse |> remarks.Add
               ()
 
+  // For subscriptions, we like to fill in the stubs, but let the user
+  // enter a different value if he wants to for the summary.
+  let fillSubscribe =
+    for x in doc.XPathSelectElements "Type/Members/Member[ReturnValue/ReturnType = 'Urho.Subscription']" do
+      match x with
+        | null -> ()
+        | m ->
+          let name = membername m
+          let eventName = name.Substring 11
+          let mdoc = m.XPathSelectElement "Docs"
+          setval mdoc "param[@name='handler']" "The handler to invoke when this event is raised."
+          let summary = select mdoc "summary"
+          if summary.Value = "To be added." then
+            setval mdoc "summary" <| sprintf "Subscribes to the %s event raised by the %s." eventName typeName
+          setval mdoc "returns" "Returns an Urho.Subscription that can be used to cancel the subscription."
+          let remarks = select mdoc "remarks"
+          if remarks.Value = "To be added." then
+            setval mdoc "remarks" ""
+
+          // Remember the method, so we can reference it from the event args
+          let parameter = m.XPathSelectElement ("Parameters/Parameter[@Name='handler']")
+          let eventArgsType = (((parameter.Attribute (xname "Type")).Value).Replace ("System.Action<Urho.","")).Replace (">","")
+          if events.ContainsKey (eventArgsType) then
+            ()
+          else
+            events.Add (eventArgsType, (eventName,typeName))
+
   fillBaseType
   fillType 
   fillTypeName 
   fillTypeNameStatic 
-  fillTypeCtor 
+  fillTypeCtor
+  fillSubscribe
   doc
 
 let processPath path =
-  let xml path = load path
   match load path with
     | null ->
       printfn "Problem loading %A" path
       ()
-    | doc -> processType doc |> save path
+    | doc ->
+      match path.Contains "EventArgs" with
+        | false -> processType doc |> save path
+        | true  -> ()
 
 
 for xmlDoc in Directory.GetFiles ("Urho", "*xml") do
   processPath xmlDoc
+
+for xmlDoc in Directory.GetFiles ("Urho", "*EventArgs.xml") do
+  match load xmlDoc with
+    | null -> printfn "Failed to load %s" xmlDoc
+    | doc ->
+      processEventArgs doc |> save xmlDoc
+      
 
 

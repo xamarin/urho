@@ -88,18 +88,15 @@
           <term>ExitRequested : application exit was requested (eg. with the window close button.)</term>
         </item>
       </list>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>Keyboard and Mouse Input</h2>
       </format>
-      <para>
-      </para>
+      <para></para>
       <para>Key events include both the symbolic keycode ("Key") that depends on the keyboard layout, the layout- and operating system-independent SDL scancode ("Scancode"), and the true operating system-specific raw keycode ("Raw").</para>
       <para>The input polling API differentiates between the initiation of a key/mouse button press, and holding the key or button down.  <see cref="M:Urho.Input.GetKeyPress" /> and <see cref="M:Urho.Input.GetMouseButtonPress" /> return true only for one frame (the initiation) while <see cref="M:Urho.Input.GetKeyDown" /> and <see cref="M:Urho.Input.GetMouseButtonDown" /> return true as long as the key or button is held down. To check whether keys are down or pressed by scancode, use <see cref="M:Urho.Input.GetScancodeDown" /> and <see cref="M:Urho.Input.GetScancodePress" />. Functions also exist for converting keycodes to scancodes or vice versa, or getting key names. See for example <see cref="M:Urho.Input.GetKeyName" /> and <see cref="M:Urho.Input.GetKeyFromScancode" />.</para>
       <para>Mouse motion since the last frame can be accessed with <see cref="M:Urho.Input.GetMouseMove" />. The cursor position within the window can be queried with <see cref="M:Urho.Input.GetMousePosition" />.</para>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>Mouse modes</h2>
       </format>
@@ -114,8 +111,7 @@
           <term>Relative: sets the operating system cursor to invisible and confines the cursor to the window. The operating system cursor cannot be set to be visible in this mode via SetMouseVisible(), however changes are tracked and will be restored when another mouse mode is set. When the virtual cursor is also invisible, UI interaction will still function as normal (eg: drag events will trigger). Setting this will call SetMouseGrabbed(true).</term>
         </item>
       </list>
-      <para>
-      </para>
+      <para></para>
       <list type="bullet">
         <item>
           <term>Wrap: grabs the mouse from the operating system and confines the operating system cursor to the window, wrapping the cursor when it is near the edges. Setting this will call SetMouseGrabbed(true).</term>
@@ -126,31 +122,26 @@
           <term>Free: does not grab/confine the mouse cursor even when it is hidden. This can be used for cases where the cursor should render using the operating system outside the window, and perform custom rendering (with SetMouseVisible(false)) inside.</term>
         </item>
       </list>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>Joystick input</h2>
       </format>
       <para>Plugged in joysticks will begin sending input events automatically. Each joystick will be assigned a joystick ID which will be used in subsequent joystick events, as well as for retrieving the joystick state. Use <see cref="M:Urho.Input.GetJoystick" /> to retrieve the joystick state by ID. In case you do not have the ID, you can also use <see cref="M:Urho.Input.GetJoystickByIndex" /> which uses a zero-based index; see <see cref="P:Urho.Input.NumJoystick" /> for the number of currently connected joysticks. The ID, as well as the joystick name, can be looked up from the joystick state.</para>
       <para>If the joystick model is recognized by SDL as a game controller the buttons and axes mappings utilize known constants such as CONTROLLER_BUTTON_A or CONTROLLER_AXIS_LEFTX without having to guess them. Use <see cref="IsController()" /> to distinguish between a game controller and an unrecognized joystick.</para>
-      <para>
-      </para>
+      <para></para>
       <para>On platforms that support the accelerometer, it will appear as a "virtual" joystick.</para>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>Touch input</h2>
       </format>
       <para>On platforms where touch input is available, touch begin/end/move events will be sent, as well as multi-gesture events with pinch/rotation delta values when more than one finger is pressed down. The current finger touches can also be accessed via a polling API: <see cref="P:Urho.Input.NumTouches" /> and <see cref="M:Urho.Input.GetTouch." /></para>
       <para>Touch gestures can be recorded using SDL's inbuilt $1 gesture recognition system. Use <see cref="M:Urho.Input.RecordGesture" /> to start recording. The following finger movements will be recorded until the finger is lifted, at which point the recording ends and the GestureRecorded event is sent with the hash ID of the new gesture. The current in-memory gesture(s) can be saved or loaded as binary data.</para>
-      <para>
-      </para>
+      <para></para>
       <para>Whenever a recognized gesture is entered by the user, the GestureInput event will be sent. In addition to the ID of the best matched gesture, it contains the center position and an error metric (lower = better) to help filter out false gestures.</para>
       <para>Note that all recorded (whether saved or not) and loaded gestures are held in-memory. Two additional functions are available to clear them: <see cref="M:Urho.Input.RemoveGesture" /> to selectively clear a gesture by its ID and <see cref="M:Urho.Input.RemoveAllGestures" /> to clear them all.</para>
       <para>Touch input can also emulate a virtual joystick by displaying on-screen buttons. See the function <see cref="M:Urho.Input.AddScreenJoystick" />.</para>
       <para>Touch emulation can be used to test mobile applications on a desktop machine without a touch screen. See <see cref="P:Urho.Input.TouchEmulation" />. When touch emulation is enabled, actual mouse events are no longer sent and the operating system mouse cursor is forced visible. The left mouse button acts as a moving finger, while the rest of the mouse buttons act as stationary fingers for multi-finger gestures. For example pressing down both left and right mouse buttons, then dragging the mouse with the buttons still pressed would emulate a two-finger pinch zoom-in gesture.</para>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>Platform-specific details</h2>
       </format>
@@ -237,30 +228,6 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="AddScreenJoystick">
-      <MemberSignature Language="C#" Value="public int AddScreenJoystick (Urho.XMLFile layoutFile, Urho.XMLFile styleFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 AddScreenJoystick(class Urho.XMLFile layoutFile, class Urho.XMLFile styleFile) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="layoutFile" Type="Urho.XMLFile" />
-        <Parameter Name="styleFile" Type="Urho.XMLFile" />
-      </Parameters>
-      <Docs>
-        <param name="layoutFile">To be added.</param>
-        <param name="styleFile">To be added.</param>
-        <summary>
-            Add screen joystick. </summary>
-        <returns>Return the joystick instance ID when successful or negative on error. </returns>
-        <remarks>
-          <para>If layout file is not given, use the default screen joystick layout. If style file is not given, use the default style file from root UI element. </para>
-          <para />
-          <para>This method should only be called in main thread.</para>
-        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseType">
@@ -1158,10 +1125,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.DropFileEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the DropFile event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToExitRequested">
@@ -1178,10 +1145,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.ExitRequestedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ExitRequested event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToGestureInput">
@@ -1198,10 +1165,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.GestureInputEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the GestureInput event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToGestureRecorded">
@@ -1218,10 +1185,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.GestureRecordedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the GestureRecorded event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToInputFocus">
@@ -1238,10 +1205,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.InputFocusEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the InputFocus event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToJoystickAxisMove">
@@ -1258,10 +1225,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.JoystickAxisMoveEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the JoystickAxisMove event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToJoystickButtonDown">
@@ -1278,10 +1245,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.JoystickButtonDownEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the JoystickButtonDown event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToJoystickButtonUp">
@@ -1298,10 +1265,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.JoystickButtonUpEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the JoystickButtonUp event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToJoystickConnected">
@@ -1318,10 +1285,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.JoystickConnectedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the JoystickConnected event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToJoystickDisconnected">
@@ -1338,10 +1305,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.JoystickDisconnectedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the JoystickDisconnected event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToJoystickHatMove">
@@ -1358,10 +1325,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.JoystickHatMoveEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the JoystickHatMove event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToKeyDown">
@@ -1378,10 +1345,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.KeyDownEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the KeyDown event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToKeyUp">
@@ -1398,10 +1365,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.KeyUpEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the KeyUp event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToMouseButtonDown">
@@ -1418,10 +1385,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.MouseButtonDownEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the MouseButtonDown event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToMouseButtonUp">
@@ -1438,10 +1405,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.MouseButtonUpEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the MouseButtonUp event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToMouseModeChanged">
@@ -1458,10 +1425,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.MouseModeChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the MouseModeChanged event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToMouseMove">
@@ -1478,10 +1445,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.MouseMoveEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the MouseMove event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToMouseVisibleChanged">
@@ -1498,10 +1465,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.MouseVisibleChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the MouseVisibleChanged event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToMouseWheel">
@@ -1518,10 +1485,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.MouseWheelEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the MouseWheel event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToMultiGesture">
@@ -1538,10 +1505,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.MultiGestureEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the MultiGesture event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToTextInput">
@@ -1558,10 +1525,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.TextInputEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the TextInput event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToTouchBegin">
@@ -1578,10 +1545,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.TouchBeginEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the TouchBegin event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToTouchEnd">
@@ -1598,10 +1565,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.TouchEndEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the TouchEnd event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToTouchMove">
@@ -1618,10 +1585,10 @@
         <Parameter Name="handler" Type="System.Action&lt;Urho.TouchMoveEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the TouchMove event raised by the Input.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="ToggleFullscreen">
@@ -1715,8 +1682,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1732,8 +1698,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

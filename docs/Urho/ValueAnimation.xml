@@ -226,25 +226,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LoadXML">
-      <MemberSignature Language="C#" Value="public bool LoadXML (Urho.XMLElement source);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadXML(class Urho.XMLElement source) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="source" Type="Urho.XMLElement" />
-      </Parameters>
-      <Docs>
-        <param name="source">To be added.</param>
-        <summary>
-            Load from XML data. Return true if successful.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Owner">
       <MemberSignature Language="C#" Value="public IntPtr Owner { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance native int Owner" />
@@ -302,25 +283,6 @@
       <Docs>
         <param name="dest">To be added.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SaveXML">
-      <MemberSignature Language="C#" Value="public bool SaveXML (Urho.XMLElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXML(class Urho.XMLElement dest) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="dest" Type="Urho.XMLElement" />
-      </Parameters>
-      <Docs>
-        <param name="dest">To be added.</param>
-        <summary>
-            Save as XML data. Return true if successful.
-            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -614,8 +576,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -631,8 +592,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

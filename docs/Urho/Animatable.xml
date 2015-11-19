@@ -180,27 +180,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LoadXML">
-      <MemberSignature Language="C#" Value="public override bool LoadXML (Urho.XMLElement source, bool setInstanceDefault);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXML(class Urho.XMLElement source, bool setInstanceDefault) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="source" Type="Urho.XMLElement" />
-        <Parameter Name="setInstanceDefault" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="source">To be added.</param>
-        <param name="setInstanceDefault">To be added.</param>
-        <summary>
-            Load from XML data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="ObjectAnimation">
       <MemberSignature Language="C#" Value="public Urho.ObjectAnimation ObjectAnimation { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.ObjectAnimation ObjectAnimation" />
@@ -276,25 +255,6 @@
       <Docs>
         <param name="dest">To be added.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SaveXML">
-      <MemberSignature Language="C#" Value="public override bool SaveXML (Urho.XMLElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXML(class Urho.XMLElement dest) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="dest" Type="Urho.XMLElement" />
-      </Parameters>
-      <Docs>
-        <param name="dest">To be added.</param>
-        <summary>
-            Save as XML data. Return true if successful.
-            </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -401,8 +361,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -418,8 +377,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

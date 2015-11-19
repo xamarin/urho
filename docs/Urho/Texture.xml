@@ -596,24 +596,6 @@
       </Docs>
     </Member>
     <Member MemberName="SetParameters">
-      <MemberSignature Language="C#" Value="public void SetParameters (Urho.XMLElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetParameters(class Urho.XMLElement element) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="element" Type="Urho.XMLElement" />
-      </Parameters>
-      <Docs>
-        <param name="element">To be added.</param>
-        <summary>
-            Set additional parameters from an XML element.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetParameters">
       <MemberSignature Language="C#" Value="public void SetParameters (Urho.XmlFile xml);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetParameters(class Urho.XmlFile xml) cil managed" />
       <MemberType>Method</MemberType>
@@ -629,24 +611,6 @@
       <Docs>
         <param name="xml">To be added.</param>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetParameters">
-      <MemberSignature Language="C#" Value="public void SetParameters (Urho.XMLFile xml);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetParameters(class Urho.XMLFile xml) cil managed" />
-      <MemberType>Method</MemberType>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="xml" Type="Urho.XMLFile" />
-      </Parameters>
-      <Docs>
-        <param name="xml">To be added.</param>
-        <summary>
-            Set additional parameters from an XML file.
-            </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
