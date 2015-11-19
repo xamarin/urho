@@ -114,12 +114,28 @@
       </Docs>
     </Member>
     <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public void Load (Urho.XMLElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Load(class Urho.XMLElement element) cil managed" />
+      <MemberSignature Language="C#" Value="public void Load (Urho.XmlElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Load(class Urho.XmlElement element) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="element" Type="Urho.XmlElement" />
+      </Parameters>
+      <Docs>
+        <param name="element">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Load">
+      <MemberSignature Language="C#" Value="public void Load (Urho.XMLElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Load(class Urho.XMLElement element) cil managed" />
+      <MemberType>Method</MemberType>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>

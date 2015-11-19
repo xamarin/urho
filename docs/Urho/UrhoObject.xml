@@ -272,9 +272,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAnimationTrigger (Action&lt;Urho.AnimationTriggerEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAnimationTrigger(class System.Action`1&lt;valuetype Urho.AnimationTriggerEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -292,9 +289,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAsyncExecFinished (Action&lt;Urho.AsyncExecFinishedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAsyncExecFinished(class System.Action`1&lt;valuetype Urho.AsyncExecFinishedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -312,9 +306,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAsyncLoadFinished (Action&lt;Urho.AsyncLoadFinishedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAsyncLoadFinished(class System.Action`1&lt;valuetype Urho.AsyncLoadFinishedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -332,9 +323,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAsyncLoadProgress (Action&lt;Urho.AsyncLoadProgressEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAsyncLoadProgress(class System.Action`1&lt;valuetype Urho.AsyncLoadProgressEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -352,9 +340,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAttributeAnimationAdded (Action&lt;Urho.AttributeAnimationAddedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAttributeAnimationAdded(class System.Action`1&lt;valuetype Urho.AttributeAnimationAddedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -372,9 +357,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAttributeAnimationRemoved (Action&lt;Urho.AttributeAnimationRemovedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAttributeAnimationRemoved(class System.Action`1&lt;valuetype Urho.AttributeAnimationRemovedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -392,9 +374,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAttributeAnimationUpdate (Action&lt;Urho.AttributeAnimationUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAttributeAnimationUpdate(class System.Action`1&lt;valuetype Urho.AttributeAnimationUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -412,9 +391,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToBeginFrame (Action&lt;Urho.BeginFrameEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToBeginFrame(class System.Action`1&lt;valuetype Urho.BeginFrameEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -432,9 +408,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToBeginRendering (Action&lt;Urho.BeginRenderingEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToBeginRendering(class System.Action`1&lt;valuetype Urho.BeginRenderingEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -452,9 +425,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToBeginViewRender (Action&lt;Urho.BeginViewRenderEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToBeginViewRender(class System.Action`1&lt;valuetype Urho.BeginViewRenderEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -472,9 +442,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToBeginViewUpdate (Action&lt;Urho.BeginViewUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToBeginViewUpdate(class System.Action`1&lt;valuetype Urho.BeginViewUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -492,9 +459,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToBoneHierarchyCreated (Action&lt;Urho.BoneHierarchyCreatedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToBoneHierarchyCreated(class System.Action`1&lt;valuetype Urho.BoneHierarchyCreatedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -512,9 +476,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToChangeLanguage (Action&lt;Urho.ChangeLanguageEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToChangeLanguage(class System.Action`1&lt;valuetype Urho.ChangeLanguageEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -532,9 +493,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCharEntry (Action&lt;Urho.CharEntryEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCharEntry(class System.Action`1&lt;valuetype Urho.CharEntryEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -552,9 +510,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientConnected (Action&lt;Urho.ClientConnectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientConnected(class System.Action`1&lt;valuetype Urho.ClientConnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -572,9 +527,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientDisconnected (Action&lt;Urho.ClientDisconnectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientDisconnected(class System.Action`1&lt;valuetype Urho.ClientDisconnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -592,9 +544,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientIdentity (Action&lt;Urho.ClientIdentityEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientIdentity(class System.Action`1&lt;valuetype Urho.ClientIdentityEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -612,9 +561,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientSceneLoaded (Action&lt;Urho.ClientSceneLoadedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientSceneLoaded(class System.Action`1&lt;valuetype Urho.ClientSceneLoadedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -632,9 +578,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToComponentAdded (Action&lt;Urho.ComponentAddedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToComponentAdded(class System.Action`1&lt;valuetype Urho.ComponentAddedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -652,9 +595,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToComponentEnabledChanged (Action&lt;Urho.ComponentEnabledChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToComponentEnabledChanged(class System.Action`1&lt;valuetype Urho.ComponentEnabledChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -672,9 +612,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToComponentRemoved (Action&lt;Urho.ComponentRemovedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToComponentRemoved(class System.Action`1&lt;valuetype Urho.ComponentRemovedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -692,9 +629,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToConnectFailed (Action&lt;Urho.ConnectFailedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToConnectFailed(class System.Action`1&lt;valuetype Urho.ConnectFailedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -712,9 +646,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToConsoleCommand (Action&lt;Urho.ConsoleCommandEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToConsoleCommand(class System.Action`1&lt;valuetype Urho.ConsoleCommandEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -732,9 +663,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentFailure (Action&lt;Urho.CrowdAgentFailureEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentFailure(class System.Action`1&lt;valuetype Urho.CrowdAgentFailureEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -752,9 +680,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentFormation (Action&lt;Urho.CrowdAgentFormationEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentFormation(class System.Action`1&lt;valuetype Urho.CrowdAgentFormationEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -772,9 +697,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentReposition (Action&lt;Urho.CrowdAgentRepositionEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentReposition(class System.Action`1&lt;valuetype Urho.CrowdAgentRepositionEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -792,9 +714,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentStateChanged (Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentStateChanged(class System.Action`1&lt;valuetype Urho.CrowdAgentStateChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -812,9 +731,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDefocused (Action&lt;Urho.DefocusedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDefocused(class System.Action`1&lt;valuetype Urho.DefocusedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -832,9 +748,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDeviceLost (Action&lt;Urho.DeviceLostEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDeviceLost(class System.Action`1&lt;valuetype Urho.DeviceLostEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -852,9 +765,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDeviceReset (Action&lt;Urho.DeviceResetEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDeviceReset(class System.Action`1&lt;valuetype Urho.DeviceResetEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -872,9 +782,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragBegin (Action&lt;Urho.DragBeginEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragBegin(class System.Action`1&lt;valuetype Urho.DragBeginEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -892,9 +799,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragCancel (Action&lt;Urho.DragCancelEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragCancel(class System.Action`1&lt;valuetype Urho.DragCancelEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -912,9 +816,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragDropFinish (Action&lt;Urho.DragDropFinishEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragDropFinish(class System.Action`1&lt;valuetype Urho.DragDropFinishEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -932,9 +833,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragDropTest (Action&lt;Urho.DragDropTestEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragDropTest(class System.Action`1&lt;valuetype Urho.DragDropTestEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -952,9 +850,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragEnd (Action&lt;Urho.DragEndEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragEnd(class System.Action`1&lt;valuetype Urho.DragEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -972,9 +867,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragMove (Action&lt;Urho.DragMoveEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragMove(class System.Action`1&lt;valuetype Urho.DragMoveEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -992,9 +884,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDropFile (Action&lt;Urho.DropFileEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDropFile(class System.Action`1&lt;valuetype Urho.DropFileEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1012,9 +901,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToElementAdded (Action&lt;Urho.ElementAddedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToElementAdded(class System.Action`1&lt;valuetype Urho.ElementAddedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1032,9 +918,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToElementRemoved (Action&lt;Urho.ElementRemovedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToElementRemoved(class System.Action`1&lt;valuetype Urho.ElementRemovedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1052,9 +935,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToEndFrame (Action&lt;Urho.EndFrameEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToEndFrame(class System.Action`1&lt;valuetype Urho.EndFrameEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1072,9 +952,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToEndRendering (Action&lt;Urho.EndRenderingEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToEndRendering(class System.Action`1&lt;valuetype Urho.EndRenderingEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1092,9 +969,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToEndViewRender (Action&lt;Urho.EndViewRenderEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToEndViewRender(class System.Action`1&lt;valuetype Urho.EndViewRenderEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1112,9 +986,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToEndViewUpdate (Action&lt;Urho.EndViewUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToEndViewUpdate(class System.Action`1&lt;valuetype Urho.EndViewUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1180,9 +1051,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToExitRequested (Action&lt;Urho.ExitRequestedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToExitRequested(class System.Action`1&lt;valuetype Urho.ExitRequestedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1200,9 +1068,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFileChanged (Action&lt;Urho.FileChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFileChanged(class System.Action`1&lt;valuetype Urho.FileChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1220,9 +1085,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFileSelected (Action&lt;Urho.FileSelectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFileSelected(class System.Action`1&lt;valuetype Urho.FileSelectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1240,9 +1102,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFocusChanged (Action&lt;Urho.FocusChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFocusChanged(class System.Action`1&lt;valuetype Urho.FocusChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1260,9 +1119,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFocused (Action&lt;Urho.FocusedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFocused(class System.Action`1&lt;valuetype Urho.FocusedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1280,9 +1136,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToGestureInput (Action&lt;Urho.GestureInputEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToGestureInput(class System.Action`1&lt;valuetype Urho.GestureInputEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1300,9 +1153,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToGestureRecorded (Action&lt;Urho.GestureRecordedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToGestureRecorded(class System.Action`1&lt;valuetype Urho.GestureRecordedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1320,9 +1170,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToHoverBegin (Action&lt;Urho.HoverBeginEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToHoverBegin(class System.Action`1&lt;valuetype Urho.HoverBeginEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1340,9 +1187,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToHoverEnd (Action&lt;Urho.HoverEndEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToHoverEnd(class System.Action`1&lt;valuetype Urho.HoverEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1360,9 +1204,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToInputFocus (Action&lt;Urho.InputFocusEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToInputFocus(class System.Action`1&lt;valuetype Urho.InputFocusEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1380,9 +1221,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToInterceptNetworkUpdate (Action&lt;Urho.InterceptNetworkUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToInterceptNetworkUpdate(class System.Action`1&lt;valuetype Urho.InterceptNetworkUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1400,9 +1238,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemClicked (Action&lt;Urho.ItemClickedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemClicked(class System.Action`1&lt;valuetype Urho.ItemClickedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1420,9 +1255,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemDeselected (Action&lt;Urho.ItemDeselectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemDeselected(class System.Action`1&lt;valuetype Urho.ItemDeselectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1440,9 +1272,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemDoubleClicked (Action&lt;Urho.ItemDoubleClickedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemDoubleClicked(class System.Action`1&lt;valuetype Urho.ItemDoubleClickedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1460,9 +1289,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemSelected (Action&lt;Urho.ItemSelectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemSelected(class System.Action`1&lt;valuetype Urho.ItemSelectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1480,9 +1306,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToJoystickAxisMove (Action&lt;Urho.JoystickAxisMoveEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToJoystickAxisMove(class System.Action`1&lt;valuetype Urho.JoystickAxisMoveEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1500,9 +1323,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToJoystickButtonDown (Action&lt;Urho.JoystickButtonDownEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToJoystickButtonDown(class System.Action`1&lt;valuetype Urho.JoystickButtonDownEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1520,9 +1340,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToJoystickButtonUp (Action&lt;Urho.JoystickButtonUpEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToJoystickButtonUp(class System.Action`1&lt;valuetype Urho.JoystickButtonUpEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1540,9 +1357,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToJoystickConnected (Action&lt;Urho.JoystickConnectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToJoystickConnected(class System.Action`1&lt;valuetype Urho.JoystickConnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1560,9 +1374,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToJoystickDisconnected (Action&lt;Urho.JoystickDisconnectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToJoystickDisconnected(class System.Action`1&lt;valuetype Urho.JoystickDisconnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1580,9 +1391,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToJoystickHatMove (Action&lt;Urho.JoystickHatMoveEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToJoystickHatMove(class System.Action`1&lt;valuetype Urho.JoystickHatMoveEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1600,9 +1408,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToKeyDown (Action&lt;Urho.KeyDownEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToKeyDown(class System.Action`1&lt;valuetype Urho.KeyDownEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1620,9 +1425,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToKeyUp (Action&lt;Urho.KeyUpEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToKeyUp(class System.Action`1&lt;valuetype Urho.KeyUpEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1640,9 +1442,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLayoutUpdated (Action&lt;Urho.LayoutUpdatedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLayoutUpdated(class System.Action`1&lt;valuetype Urho.LayoutUpdatedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1660,9 +1459,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLoadFailed (Action&lt;Urho.LoadFailedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLoadFailed(class System.Action`1&lt;valuetype Urho.LoadFailedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1680,9 +1476,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLogMessage (Action&lt;Urho.LogMessageEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLogMessage(class System.Action`1&lt;valuetype Urho.LogMessageEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1700,9 +1493,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMenuSelected (Action&lt;Urho.MenuSelectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMenuSelected(class System.Action`1&lt;valuetype Urho.MenuSelectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1720,9 +1510,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMessageACK (Action&lt;Urho.MessageACKEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMessageACK(class System.Action`1&lt;valuetype Urho.MessageACKEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1740,9 +1527,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToModalChanged (Action&lt;Urho.ModalChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToModalChanged(class System.Action`1&lt;valuetype Urho.ModalChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1760,9 +1544,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMouseButtonDown (Action&lt;Urho.MouseButtonDownEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMouseButtonDown(class System.Action`1&lt;valuetype Urho.MouseButtonDownEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1780,9 +1561,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMouseButtonUp (Action&lt;Urho.MouseButtonUpEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMouseButtonUp(class System.Action`1&lt;valuetype Urho.MouseButtonUpEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1800,9 +1578,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMouseModeChanged (Action&lt;Urho.MouseModeChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMouseModeChanged(class System.Action`1&lt;valuetype Urho.MouseModeChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1820,9 +1595,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMouseMove (Action&lt;Urho.MouseMoveEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMouseMove(class System.Action`1&lt;valuetype Urho.MouseMoveEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1840,9 +1612,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMouseVisibleChanged (Action&lt;Urho.MouseVisibleChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMouseVisibleChanged(class System.Action`1&lt;valuetype Urho.MouseVisibleChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1860,9 +1629,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMouseWheel (Action&lt;Urho.MouseWheelEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMouseWheel(class System.Action`1&lt;valuetype Urho.MouseWheelEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1880,9 +1646,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMultiGesture (Action&lt;Urho.MultiGestureEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMultiGesture(class System.Action`1&lt;valuetype Urho.MultiGestureEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1900,9 +1663,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNameChanged (Action&lt;Urho.NameChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNameChanged(class System.Action`1&lt;valuetype Urho.NameChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1920,9 +1680,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationAreaRebuilt (Action&lt;Urho.NavigationAreaRebuiltEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationAreaRebuilt(class System.Action`1&lt;valuetype Urho.NavigationAreaRebuiltEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1940,9 +1697,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationMeshRebuilt (Action&lt;Urho.NavigationMeshRebuiltEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationMeshRebuilt(class System.Action`1&lt;valuetype Urho.NavigationMeshRebuiltEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1960,9 +1714,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationObstacleAdded (Action&lt;Urho.NavigationObstacleAddedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationObstacleAdded(class System.Action`1&lt;valuetype Urho.NavigationObstacleAddedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1980,9 +1731,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationObstacleRemoved (Action&lt;Urho.NavigationObstacleRemovedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationObstacleRemoved(class System.Action`1&lt;valuetype Urho.NavigationObstacleRemovedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2000,9 +1748,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkMessage (Action&lt;Urho.NetworkMessageEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkMessage(class System.Action`1&lt;valuetype Urho.NetworkMessageEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2020,9 +1765,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkSceneLoadFailed (Action&lt;Urho.NetworkSceneLoadFailedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkSceneLoadFailed(class System.Action`1&lt;valuetype Urho.NetworkSceneLoadFailedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2040,9 +1782,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkUpdate (Action&lt;Urho.NetworkUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkUpdate(class System.Action`1&lt;valuetype Urho.NetworkUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2060,9 +1799,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkUpdateSent (Action&lt;Urho.NetworkUpdateSentEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkUpdateSent(class System.Action`1&lt;valuetype Urho.NetworkUpdateSentEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2080,9 +1816,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNodeAdded (Action&lt;Urho.NodeAddedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNodeAdded(class System.Action`1&lt;valuetype Urho.NodeAddedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2100,9 +1833,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNodeCollision (Action&lt;Urho.NodeCollisionEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNodeCollision(class System.Action`1&lt;valuetype Urho.NodeCollisionEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2120,9 +1850,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNodeCollisionEnd (Action&lt;Urho.NodeCollisionEndEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNodeCollisionEnd(class System.Action`1&lt;valuetype Urho.NodeCollisionEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2140,9 +1867,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNodeCollisionStart (Action&lt;Urho.NodeCollisionStartEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNodeCollisionStart(class System.Action`1&lt;valuetype Urho.NodeCollisionStartEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2160,9 +1884,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNodeEnabledChanged (Action&lt;Urho.NodeEnabledChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNodeEnabledChanged(class System.Action`1&lt;valuetype Urho.NodeEnabledChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2180,9 +1901,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNodeNameChanged (Action&lt;Urho.NodeNameChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNodeNameChanged(class System.Action`1&lt;valuetype Urho.NodeNameChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2200,9 +1918,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNodeRemoved (Action&lt;Urho.NodeRemovedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNodeRemoved(class System.Action`1&lt;valuetype Urho.NodeRemovedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2220,9 +1935,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsBeginContact2D (Action&lt;Urho.PhysicsBeginContact2DEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsBeginContact2D(class System.Action`1&lt;valuetype Urho.PhysicsBeginContact2DEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2240,9 +1952,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollision (Action&lt;Urho.PhysicsCollisionEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollision(class System.Action`1&lt;valuetype Urho.PhysicsCollisionEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2260,9 +1969,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollisionEnd (Action&lt;Urho.PhysicsCollisionEndEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollisionEnd(class System.Action`1&lt;valuetype Urho.PhysicsCollisionEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2280,9 +1986,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollisionStart (Action&lt;Urho.PhysicsCollisionStartEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollisionStart(class System.Action`1&lt;valuetype Urho.PhysicsCollisionStartEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2300,9 +2003,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsEndContact2D (Action&lt;Urho.PhysicsEndContact2DEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsEndContact2D(class System.Action`1&lt;valuetype Urho.PhysicsEndContact2DEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2320,9 +2020,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPostStep (Action&lt;Urho.PhysicsPostStepEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPostStep(class System.Action`1&lt;valuetype Urho.PhysicsPostStepEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2340,9 +2037,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPostStep2D (Action&lt;Urho.PhysicsPostStep2DEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPostStep2D(class System.Action`1&lt;valuetype Urho.PhysicsPostStep2DEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2360,9 +2054,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPreStep (Action&lt;Urho.PhysicsPreStepEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPreStep(class System.Action`1&lt;valuetype Urho.PhysicsPreStepEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2380,9 +2071,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPreStep2D (Action&lt;Urho.PhysicsPreStep2DEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPreStep2D(class System.Action`1&lt;valuetype Urho.PhysicsPreStep2DEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2400,9 +2088,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPositioned (Action&lt;Urho.PositionedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPositioned(class System.Action`1&lt;valuetype Urho.PositionedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2420,9 +2105,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPostRenderUpdate (Action&lt;Urho.PostRenderUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPostRenderUpdate(class System.Action`1&lt;valuetype Urho.PostRenderUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2440,9 +2122,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPostUpdate (Action&lt;Urho.PostUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPostUpdate(class System.Action`1&lt;valuetype Urho.PostUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2460,9 +2139,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPressed (Action&lt;Urho.PressedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPressed(class System.Action`1&lt;valuetype Urho.PressedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2480,9 +2156,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReleased (Action&lt;Urho.ReleasedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReleased(class System.Action`1&lt;valuetype Urho.ReleasedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2500,9 +2173,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadFailed (Action&lt;Urho.ReloadFailedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadFailed(class System.Action`1&lt;valuetype Urho.ReloadFailedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2520,9 +2190,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadFinished (Action&lt;Urho.ReloadFinishedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadFinished(class System.Action`1&lt;valuetype Urho.ReloadFinishedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2540,9 +2207,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadStarted (Action&lt;Urho.ReloadStartedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadStarted(class System.Action`1&lt;valuetype Urho.ReloadStartedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2560,9 +2224,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToRemoteEventData (Action&lt;Urho.RemoteEventDataEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToRemoteEventData(class System.Action`1&lt;valuetype Urho.RemoteEventDataEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2580,9 +2241,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToRenderSurfaceUpdate (Action&lt;Urho.RenderSurfaceUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToRenderSurfaceUpdate(class System.Action`1&lt;valuetype Urho.RenderSurfaceUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2600,9 +2258,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToRenderUpdate (Action&lt;Urho.RenderUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToRenderUpdate(class System.Action`1&lt;valuetype Urho.RenderUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2620,9 +2275,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResized (Action&lt;Urho.ResizedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResized(class System.Action`1&lt;valuetype Urho.ResizedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2640,9 +2292,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResourceBackgroundLoaded (Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResourceBackgroundLoaded(class System.Action`1&lt;valuetype Urho.ResourceBackgroundLoadedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2660,9 +2309,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResourceNotFound (Action&lt;Urho.ResourceNotFoundEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResourceNotFound(class System.Action`1&lt;valuetype Urho.ResourceNotFoundEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2680,9 +2326,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSceneDrawableUpdateFinished (Action&lt;Urho.SceneDrawableUpdateFinishedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSceneDrawableUpdateFinished(class System.Action`1&lt;valuetype Urho.SceneDrawableUpdateFinishedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2700,9 +2343,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToScenePostUpdate (Action&lt;Urho.ScenePostUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToScenePostUpdate(class System.Action`1&lt;valuetype Urho.ScenePostUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2720,9 +2360,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSceneSubsystemUpdate (Action&lt;Urho.SceneSubsystemUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSceneSubsystemUpdate(class System.Action`1&lt;valuetype Urho.SceneSubsystemUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2740,9 +2377,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSceneUpdate (Action&lt;Urho.SceneUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSceneUpdate(class System.Action`1&lt;valuetype Urho.SceneUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2760,9 +2394,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToScreenMode (Action&lt;Urho.ScreenModeEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToScreenMode(class System.Action`1&lt;valuetype Urho.ScreenModeEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2780,9 +2411,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToScrollBarChanged (Action&lt;Urho.ScrollBarChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToScrollBarChanged(class System.Action`1&lt;valuetype Urho.ScrollBarChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2800,9 +2428,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSelectionChanged (Action&lt;Urho.SelectionChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSelectionChanged(class System.Action`1&lt;valuetype Urho.SelectionChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2820,9 +2445,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToServerConnected (Action&lt;Urho.ServerConnectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToServerConnected(class System.Action`1&lt;valuetype Urho.ServerConnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2840,9 +2462,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToServerDisconnected (Action&lt;Urho.ServerDisconnectedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToServerDisconnected(class System.Action`1&lt;valuetype Urho.ServerDisconnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2860,9 +2479,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSliderChanged (Action&lt;Urho.SliderChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSliderChanged(class System.Action`1&lt;valuetype Urho.SliderChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2880,9 +2496,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSliderPaged (Action&lt;Urho.SliderPagedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSliderPaged(class System.Action`1&lt;valuetype Urho.SliderPagedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2900,9 +2513,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTargetPositionChanged (Action&lt;Urho.TargetPositionChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTargetPositionChanged(class System.Action`1&lt;valuetype Urho.TargetPositionChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2920,9 +2530,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTargetRotationChanged (Action&lt;Urho.TargetRotationChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTargetRotationChanged(class System.Action`1&lt;valuetype Urho.TargetRotationChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2940,9 +2547,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTemporaryChanged (Action&lt;Urho.TemporaryChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTemporaryChanged(class System.Action`1&lt;valuetype Urho.TemporaryChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2960,9 +2564,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTerrainCreated (Action&lt;Urho.TerrainCreatedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTerrainCreated(class System.Action`1&lt;valuetype Urho.TerrainCreatedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2980,9 +2581,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextChanged (Action&lt;Urho.TextChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextChanged(class System.Action`1&lt;valuetype Urho.TextChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3000,9 +2598,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextFinished (Action&lt;Urho.TextFinishedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextFinished(class System.Action`1&lt;valuetype Urho.TextFinishedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3020,9 +2615,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextInput (Action&lt;Urho.TextInputEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextInput(class System.Action`1&lt;valuetype Urho.TextInputEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3040,9 +2632,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToToggled (Action&lt;Urho.ToggledEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToToggled(class System.Action`1&lt;valuetype Urho.ToggledEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3060,9 +2649,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTouchBegin (Action&lt;Urho.TouchBeginEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTouchBegin(class System.Action`1&lt;valuetype Urho.TouchBeginEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3080,9 +2666,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTouchEnd (Action&lt;Urho.TouchEndEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTouchEnd(class System.Action`1&lt;valuetype Urho.TouchEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3100,9 +2683,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTouchMove (Action&lt;Urho.TouchMoveEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTouchMove(class System.Action`1&lt;valuetype Urho.TouchMoveEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3120,9 +2700,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUIDropFile (Action&lt;Urho.UIDropFileEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUIDropFile(class System.Action`1&lt;valuetype Urho.UIDropFileEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3140,9 +2717,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUIMouseClick (Action&lt;Urho.UIMouseClickEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUIMouseClick(class System.Action`1&lt;valuetype Urho.UIMouseClickEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3160,9 +2734,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUIMouseClickEnd (Action&lt;Urho.UIMouseClickEndEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUIMouseClickEnd(class System.Action`1&lt;valuetype Urho.UIMouseClickEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3180,9 +2751,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUIMouseDoubleClick (Action&lt;Urho.UIMouseDoubleClickEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUIMouseDoubleClick(class System.Action`1&lt;valuetype Urho.UIMouseDoubleClickEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3200,9 +2768,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUnhandledKey (Action&lt;Urho.UnhandledKeyEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUnhandledKey(class System.Action`1&lt;valuetype Urho.UnhandledKeyEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3220,9 +2785,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUnknownResourceType (Action&lt;Urho.UnknownResourceTypeEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUnknownResourceType(class System.Action`1&lt;valuetype Urho.UnknownResourceTypeEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3240,9 +2802,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUpdate (Action&lt;Urho.UpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUpdate(class System.Action`1&lt;valuetype Urho.UpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3260,9 +2819,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUpdateSmoothing (Action&lt;Urho.UpdateSmoothingEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUpdateSmoothing(class System.Action`1&lt;valuetype Urho.UpdateSmoothingEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3280,9 +2836,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToViewChanged (Action&lt;Urho.ViewChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToViewChanged(class System.Action`1&lt;valuetype Urho.ViewChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3300,9 +2853,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToVisibleChanged (Action&lt;Urho.VisibleChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToVisibleChanged(class System.Action`1&lt;valuetype Urho.VisibleChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3320,9 +2870,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToWindowPos (Action&lt;Urho.WindowPosEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToWindowPos(class System.Action`1&lt;valuetype Urho.WindowPosEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3340,9 +2887,6 @@
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToWorkItemCompleted (Action&lt;Urho.WorkItemCompletedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToWorkItemCompleted(class System.Action`1&lt;valuetype Urho.WorkItemCompletedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -3385,7 +2929,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnsubscribeFromAllEvents">

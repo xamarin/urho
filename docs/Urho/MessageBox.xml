@@ -57,12 +57,33 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public MessageBox (Urho.Context context, string messageString, string titleString, Urho.XMLFile layoutFile, Urho.XMLFile styleFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, string messageString, string titleString, class Urho.XMLFile layoutFile, class Urho.XMLFile styleFile) cil managed" />
+      <MemberSignature Language="C#" Value="public MessageBox (Urho.Context context, string messageString, string titleString, Urho.XmlFile layoutFile, Urho.XmlFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, string messageString, string titleString, class Urho.XmlFile layoutFile, class Urho.XmlFile styleFile) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+        <Parameter Name="messageString" Type="System.String" />
+        <Parameter Name="titleString" Type="System.String" />
+        <Parameter Name="layoutFile" Type="Urho.XmlFile" />
+        <Parameter Name="styleFile" Type="Urho.XmlFile" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <param name="messageString">To be added.</param>
+        <param name="titleString">To be added.</param>
+        <param name="layoutFile">To be added.</param>
+        <param name="styleFile">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public MessageBox (Urho.Context context, string messageString, string titleString, Urho.XMLFile layoutFile, Urho.XMLFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, string messageString, string titleString, class Urho.XMLFile layoutFile, class Urho.XMLFile styleFile) cil managed" />
+      <MemberType>Constructor</MemberType>
       <Parameters>
         <Parameter Name="context" Type="Urho.Context" />
         <Parameter Name="messageString" Type="System.String" />
@@ -139,6 +160,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubscribeToMessageACK">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMessageACK (Action&lt;Urho.MessageACKEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMessageACK(class System.Action`1&lt;valuetype Urho.MessageACKEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.MessageACKEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Title">
       <MemberSignature Language="C#" Value="public string Title { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Title" />
@@ -188,7 +229,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -204,7 +246,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

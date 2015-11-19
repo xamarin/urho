@@ -15,11 +15,13 @@
             </summary>
     <remarks>
       <para>Before a Urho3D application can enter its main loop, the Engine subsystem object must be created and initialized by calling the <see cref="M:Urho.UrhoEngine.Initialize" /> method. </para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Main Loop Iteration</h2>
       </format>
-      <para></para>
+      <para>
+      </para>
       <para>The main loop iteration (also called a frame) is driven by the Engine. In contrast it is the program's (for example Urho3DPlayer) responsibility to continuously loop this iteration by calling <see cref="M:Urho.Engine.RunFrame()" />. This function calls in turn the <see cref="T:Urho.Time" /> subsystem's <see cref="M:Urho.Engine.BeginFrame()" /> and <see cref="M:Urho.Engine.EndFrame()" /> functions, and sends various update events in between. </para>
       <para>There are a number of events that are raised, these events can be monitored by calling one of the various SubscribeToXxx methods in the UrhoObject base class.</para>
       <para>The event order is:</para>
@@ -65,11 +67,13 @@
         </item>
       </list>
       <para>Variable timestep logic updates are preferable to fixed timestep, because they are only executed once per frame. In contrast, if the rendering framerate is low, several physics simulation steps will be performed on each frame to keep up the apparent passage of time, and if this also causes a lot of logic code to be executed for each step, the program may bog down further if the CPU can not handle the load. Note that the Engine’s minimum FPS, by default 10, sets a hard cap for the timestep to prevent spiraling down to a complete halt; if exceeded, animation and physics will instead appear to slow down.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
-        <h2>Main Loop and the Application Activation State</h2> 
-</format>
-      <para></para>
+        <h2>Main Loop and the Application Activation State</h2>
+      </format>
+      <para>
+      </para>
       <para>The application window's state (has input focus, minimized or not) can be queried from the <see cref="T:Urho.Input" /> subsystem. It can also effect the main loop in the following ways:</para>
       <list type="bullet">
         <item>
@@ -98,7 +102,9 @@
       </list>
       <para>Note that on iOS calling <see cref="M:Urho.Engine.Exit" /> is a no-op as there is no officially sanctioned way to manually exit your program. On Android it will cause the activity to manually exit.</para>
       <format type="text/html">
-        <h2>Application Framework</h2> <div>The&amp;amp;nbsp;<a href="">T:Urho.Application</a>&amp;amp;nbsp;class provides a minimal framework to run your game with a main loop and a handful of methods that you can override to prepare and run your game.</div></format>
+        <h2>Application Framework</h2>
+        <div>The&amp;amp;nbsp;<a href="">T:Urho.Application</a>&amp;amp;nbsp;class provides a minimal framework to run your game with a main loop and a handful of methods that you can override to prepare and run your game.</div>
+      </format>
     </remarks>
   </Docs>
   <Members>
@@ -520,6 +526,86 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubscribeToPostRenderUpdate">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPostRenderUpdate (Action&lt;Urho.PostRenderUpdateEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPostRenderUpdate(class System.Action`1&lt;valuetype Urho.PostRenderUpdateEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.PostRenderUpdateEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToPostUpdate">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPostUpdate (Action&lt;Urho.PostUpdateEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPostUpdate(class System.Action`1&lt;valuetype Urho.PostUpdateEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.PostUpdateEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToRenderUpdate">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToRenderUpdate (Action&lt;Urho.RenderUpdateEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToRenderUpdate(class System.Action`1&lt;valuetype Urho.RenderUpdateEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.RenderUpdateEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToUpdate">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUpdate (Action&lt;Urho.UpdateEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUpdate(class System.Action`1&lt;valuetype Urho.UpdateEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.UpdateEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TimeStepSmoothing">
       <MemberSignature Language="C#" Value="public int TimeStepSmoothing { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 TimeStepSmoothing" />
@@ -569,7 +655,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -585,7 +672,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

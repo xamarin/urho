@@ -75,7 +75,8 @@
         <remarks>
           <para>Use this method to lookup objects that derive from the <see cref="T:Urho.UrhoObject" /> class.</para>
           <para>This will return the most derived type.   The “ptr” parameter is used to retrieve the type name of the Urho object and to determine its real identity.</para>
-          <para></para>
+          <para>
+          </para>
           <para>This means that you might get a cast exception if you try to LookupObject and try to force the wrong type to be returned.</para>
         </remarks>
       </Docs>

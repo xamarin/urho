@@ -15,7 +15,8 @@
             </summary>
     <remarks>
       <para>This is the base class that your application should subclass and provide at implementations for the <see cref="T:Urho.Application.Setup" /> and <see cref="T:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="T:Urho.Application.Start" /> methods.</para>
-      <para></para>
+      <para>
+      </para>
       <para>Access to various subsystems in Urho is available through the various properties in this class:</para>
       <list type="bullet">
         <item>
@@ -31,7 +32,8 @@
         <item>
           <term>
             <see cref="P:Urho.Application.FileSystem" />
-            <para></para>
+            <para>
+            </para>
           </term>
         </item>
         <item>
@@ -82,7 +84,8 @@
       </list>
       <para>An application is tied to a <see cref="T:Urho.Context" /> which should be passed on the initial constructor.</para>
       <para>This shows a minimal application:</para>
-      <para></para>
+      <para>
+      </para>
       <example>
         <code lang="C#"><![CDATA[public class HelloWorld : Application
 {
@@ -701,7 +704,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -717,7 +721,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

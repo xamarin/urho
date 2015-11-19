@@ -206,13 +206,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LoadXML">
-      <MemberSignature Language="C#" Value="public bool LoadXML (Urho.XMLElement source);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadXML(class Urho.XMLElement source) cil managed" />
+    <Member MemberName="LoadXml">
+      <MemberSignature Language="C#" Value="public bool LoadXml (Urho.XmlElement source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadXml(class Urho.XmlElement source) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.XmlElement" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadXML">
+      <MemberSignature Language="C#" Value="public bool LoadXML (Urho.XMLElement source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadXML(class Urho.XMLElement source) cil managed" />
+      <MemberType>Method</MemberType>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
@@ -292,13 +309,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SaveXML">
-      <MemberSignature Language="C#" Value="public bool SaveXML (Urho.XMLElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXML(class Urho.XMLElement dest) cil managed" />
+    <Member MemberName="SaveXml">
+      <MemberSignature Language="C#" Value="public bool SaveXml (Urho.XmlElement dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(class Urho.XmlElement dest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.XmlElement" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveXML">
+      <MemberSignature Language="C#" Value="public bool SaveXML (Urho.XMLElement dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXML(class Urho.XMLElement dest) cil managed" />
+      <MemberType>Method</MemberType>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
@@ -310,6 +344,46 @@
         <summary>
             Save as XML data. Return true if successful.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToAttributeAnimationAdded">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAttributeAnimationAdded (Action&lt;Urho.AttributeAnimationAddedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAttributeAnimationAdded(class System.Action`1&lt;valuetype Urho.AttributeAnimationAddedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.AttributeAnimationAddedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToAttributeAnimationRemoved">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAttributeAnimationRemoved (Action&lt;Urho.AttributeAnimationRemovedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAttributeAnimationRemoved(class System.Action`1&lt;valuetype Urho.AttributeAnimationRemovedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.AttributeAnimationRemovedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -343,7 +417,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -359,7 +434,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

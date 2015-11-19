@@ -1057,12 +1057,28 @@
       </Docs>
     </Member>
     <Member MemberName="SetDefaultRenderPath">
-      <MemberSignature Language="C#" Value="public void SetDefaultRenderPath (Urho.XMLFile file);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDefaultRenderPath(class Urho.XMLFile file) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetDefaultRenderPath (Urho.XmlFile file);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDefaultRenderPath(class Urho.XmlFile file) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="file" Type="Urho.XmlFile" />
+      </Parameters>
+      <Docs>
+        <param name="file">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDefaultRenderPath">
+      <MemberSignature Language="C#" Value="public void SetDefaultRenderPath (Urho.XMLFile file);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDefaultRenderPath(class Urho.XMLFile file) cil managed" />
+      <MemberType>Method</MemberType>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
@@ -1178,6 +1194,66 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubscribeToBeginViewRender">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToBeginViewRender (Action&lt;Urho.BeginViewRenderEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToBeginViewRender(class System.Action`1&lt;valuetype Urho.BeginViewRenderEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.BeginViewRenderEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToEndViewRender">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToEndViewRender (Action&lt;Urho.EndViewRenderEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToEndViewRender(class System.Action`1&lt;valuetype Urho.EndViewRenderEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.EndViewRenderEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToRenderSurfaceUpdate">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToRenderSurfaceUpdate (Action&lt;Urho.RenderSurfaceUpdateEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToRenderSurfaceUpdate(class System.Action`1&lt;valuetype Urho.RenderSurfaceUpdateEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.RenderSurfaceUpdateEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TextureAnisotropy">
       <MemberSignature Language="C#" Value="public int TextureAnisotropy { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 TextureAnisotropy" />
@@ -1267,7 +1343,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1283,7 +1360,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

@@ -3,7 +3,7 @@
     <Assembly Name="Urho" Version="1.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
@@ -44,6 +44,10 @@
   <Remarks>To be added.</Remarks>
   <Copyright>To be added.</Copyright>
   <Types>
+    <Namespace Name="System">
+      <Type Name="nint" Kind="Structure" />
+      <Type Name="nuint" Kind="Structure" />
+    </Namespace>
     <Namespace Name="Urho">
       <Type Name="ActionEase" Kind="Class" />
       <Type Name="ActionEaseState" Kind="Class" />
@@ -281,7 +285,6 @@
       <Type Name="FocusMode" Kind="Enumeration" />
       <Type Name="FocusParameters" Kind="Structure" />
       <Type Name="Font" Kind="Class" />
-      <Type Name="FONT_TYPE" Kind="Enumeration" />
       <Type Name="FontFace" Kind="Class" />
       <Type Name="FontFaceBitmap" Kind="Class" />
       <Type Name="FontFaceFreeType" Kind="Class" />
@@ -331,8 +334,11 @@
       <Type Name="JoystickDisconnectedEventArgs" Kind="Structure" />
       <Type Name="JoystickHatMoveEventArgs" Kind="Structure" />
       <Type Name="JoystickState" Kind="Structure" />
+      <Type Name="JsonFile" Kind="Class" />
       <Type Name="JSONFile" Kind="Class" />
+      <Type Name="JsonNumberType" Kind="Enumeration" />
       <Type Name="JSONNumberType" Kind="Enumeration" />
+      <Type Name="JsonValueType" Kind="Enumeration" />
       <Type Name="JSONValueType" Kind="Enumeration" />
       <Type Name="JumpBy" Kind="Class" />
       <Type Name="JumpByState" Kind="Class" />
@@ -661,7 +667,9 @@
       <Type Name="WorkQueue" Kind="Class" />
       <Type Name="WrapMode" Kind="Enumeration" />
       <Type Name="XmlComponentSerializer" Kind="Class" />
+      <Type Name="XmlElement" Kind="Class" />
       <Type Name="XMLElement" Kind="Class" />
+      <Type Name="XmlFile" Kind="Class" />
       <Type Name="XMLFile" Kind="Class" />
       <Type Name="XPathResultSet" Kind="Structure" />
       <Type Name="Zone" Kind="Class" />

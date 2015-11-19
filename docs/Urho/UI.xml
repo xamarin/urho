@@ -453,12 +453,31 @@
       </Docs>
     </Member>
     <Member MemberName="LoadLayout">
-      <MemberSignature Language="C#" Value="public Urho.UIElement LoadLayout (Urho.XMLFile file, Urho.XMLFile styleFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement LoadLayout(class Urho.XMLFile file, class Urho.XMLFile styleFile) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.UIElement LoadLayout (Urho.XmlFile file, Urho.XmlFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement LoadLayout(class Urho.XmlFile file, class Urho.XmlFile styleFile) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UIElement</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="file" Type="Urho.XmlFile" />
+        <Parameter Name="styleFile" Type="Urho.XmlFile" />
+      </Parameters>
+      <Docs>
+        <param name="file">To be added.</param>
+        <param name="styleFile">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadLayout">
+      <MemberSignature Language="C#" Value="public Urho.UIElement LoadLayout (Urho.XMLFile file, Urho.XMLFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement LoadLayout(class Urho.XMLFile file, class Urho.XMLFile styleFile) cil managed" />
+      <MemberType>Method</MemberType>
       <ReturnValue>
         <ReturnType>Urho.UIElement</ReturnType>
       </ReturnValue>
@@ -681,6 +700,86 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubscribeToFocusChanged">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFocusChanged (Action&lt;Urho.FocusChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFocusChanged(class System.Action`1&lt;valuetype Urho.FocusChangedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.FocusChangedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToUIDropFile">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUIDropFile (Action&lt;Urho.UIDropFileEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUIDropFile(class System.Action`1&lt;valuetype Urho.UIDropFileEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.UIDropFileEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToUIMouseClick">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUIMouseClick (Action&lt;Urho.UIMouseClickEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUIMouseClick(class System.Action`1&lt;valuetype Urho.UIMouseClickEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.UIMouseClickEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToUIMouseClickEnd">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUIMouseClickEnd (Action&lt;Urho.UIMouseClickEndEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUIMouseClickEnd(class System.Action`1&lt;valuetype Urho.UIMouseClickEndEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.UIMouseClickEndEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Type">
       <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
@@ -710,7 +809,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -726,7 +826,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

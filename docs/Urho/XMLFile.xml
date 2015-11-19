@@ -1,6 +1,6 @@
-<Type Name="XMLFile" FullName="Urho.XMLFile">
-  <TypeSignature Language="C#" Value="public class XMLFile : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit XMLFile extends Urho.Resource" />
+<Type Name="XmlFile" FullName="Urho.XmlFile">
+  <TypeSignature Language="C#" Value="public class XmlFile : Urho.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit XmlFile extends Urho.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -17,7 +17,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public XMLFile (IntPtr handle);" />
+      <MemberSignature Language="C#" Value="public XmlFile (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -37,7 +37,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public XMLFile (Urho.Context context);" />
+      <MemberSignature Language="C#" Value="public XmlFile (Urho.Context context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -55,7 +55,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public XMLFile (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="C#" Value="public XmlFile (Urho.UrhoObjectFlag emptyFlag);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -113,12 +113,28 @@
       </Docs>
     </Member>
     <Member MemberName="Patch">
-      <MemberSignature Language="C#" Value="public void Patch (Urho.XMLFile patchFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Patch(class Urho.XMLFile patchFile) cil managed" />
+      <MemberSignature Language="C#" Value="public void Patch (Urho.XmlFile patchFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Patch(class Urho.XmlFile patchFile) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="patchFile" Type="Urho.XmlFile" />
+      </Parameters>
+      <Docs>
+        <param name="patchFile">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Patch">
+      <MemberSignature Language="C#" Value="public void Patch (Urho.XMLFile patchFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Patch(class Urho.XMLFile patchFile) cil managed" />
+      <MemberType>Method</MemberType>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
@@ -205,7 +221,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -221,7 +238,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

@@ -1,6 +1,6 @@
-<Type Name="JSONFile" FullName="Urho.JSONFile">
-  <TypeSignature Language="C#" Value="public class JSONFile : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit JSONFile extends Urho.Resource" />
+<Type Name="JsonFile" FullName="Urho.JsonFile">
+  <TypeSignature Language="C#" Value="public class JsonFile : Urho.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit JsonFile extends Urho.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -17,7 +17,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public JSONFile (IntPtr handle);" />
+      <MemberSignature Language="C#" Value="public JsonFile (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -37,7 +37,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public JSONFile (Urho.Context context);" />
+      <MemberSignature Language="C#" Value="public JsonFile (Urho.Context context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -55,7 +55,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public JSONFile (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="C#" Value="public JsonFile (Urho.UrhoObjectFlag emptyFlag);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -140,7 +140,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -156,7 +157,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

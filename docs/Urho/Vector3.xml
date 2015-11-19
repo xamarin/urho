@@ -517,7 +517,6 @@
         <summary>
             Caclulate the cross (vector) product of two vectors
             </summary>
-        <returns>The cross product of the two inputs</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

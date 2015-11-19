@@ -165,14 +165,14 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultStyle">
-      <MemberSignature Language="C#" Value="public Urho.XMLFile DefaultStyle { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.XMLFile DefaultStyle" />
+      <MemberSignature Language="C#" Value="public Urho.XmlFile DefaultStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.XmlFile DefaultStyle" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.XMLFile</ReturnType>
+        <ReturnType>Urho.XmlFile</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -435,6 +435,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubscribeToConsoleCommand">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToConsoleCommand (Action&lt;Urho.ConsoleCommandEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToConsoleCommand(class System.Action`1&lt;valuetype Urho.ConsoleCommandEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.ConsoleCommandEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Toggle">
       <MemberSignature Language="C#" Value="public void Toggle ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Toggle() cil managed" />
@@ -482,7 +502,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -498,7 +519,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

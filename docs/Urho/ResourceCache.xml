@@ -902,12 +902,31 @@
       </Docs>
     </Member>
     <Member MemberName="GetXmlFile">
-      <MemberSignature Language="C#" Value="public Urho.XMLFile GetXmlFile (string name, bool sendEventOnFailure = true);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.XMLFile GetXmlFile(string name, bool sendEventOnFailure) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.XmlFile GetXmlFile (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.XmlFile GetXmlFile(string name, bool sendEventOnFailure) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.XmlFile</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetXmlFile">
+      <MemberSignature Language="C#" Value="public Urho.XMLFile GetXmlFile (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.XMLFile GetXmlFile(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
       <ReturnValue>
         <ReturnType>Urho.XMLFile</ReturnType>
       </ReturnValue>
@@ -1362,6 +1381,106 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubscribeToFileChanged">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFileChanged (Action&lt;Urho.FileChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFileChanged(class System.Action`1&lt;valuetype Urho.FileChangedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.FileChangedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToLoadFailed">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLoadFailed (Action&lt;Urho.LoadFailedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLoadFailed(class System.Action`1&lt;valuetype Urho.LoadFailedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.LoadFailedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToResourceBackgroundLoaded">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResourceBackgroundLoaded (Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResourceBackgroundLoaded(class System.Action`1&lt;valuetype Urho.ResourceBackgroundLoadedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToResourceNotFound">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResourceNotFound (Action&lt;Urho.ResourceNotFoundEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResourceNotFound(class System.Action`1&lt;valuetype Urho.ResourceNotFoundEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.ResourceNotFoundEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToUnknownResourceType">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUnknownResourceType (Action&lt;Urho.UnknownResourceTypeEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUnknownResourceType(class System.Action`1&lt;valuetype Urho.UnknownResourceTypeEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.UnknownResourceTypeEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TotalMemoryUse">
       <MemberSignature Language="C#" Value="public uint TotalMemoryUse { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TotalMemoryUse" />
@@ -1409,7 +1528,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1425,7 +1545,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

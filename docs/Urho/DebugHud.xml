@@ -109,14 +109,14 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultStyle">
-      <MemberSignature Language="C#" Value="public Urho.XMLFile DefaultStyle { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.XMLFile DefaultStyle" />
+      <MemberSignature Language="C#" Value="public Urho.XmlFile DefaultStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.XmlFile DefaultStyle" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.XMLFile</ReturnType>
+        <ReturnType>Urho.XmlFile</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -355,7 +355,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -371,7 +372,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
