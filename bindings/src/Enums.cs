@@ -52,4 +52,41 @@ namespace Urho {
 		Geometry2D = 0x8,
 		Any = 0xff,
 	}
+
+	public enum Platforms {
+		Unknown,
+		Android,
+		iOS,
+		Windows,
+		MacOSX,
+		Linux
+	}
+
+	internal static class PlatformsMap
+	{
+		public static Platforms FromString(string str)
+		{
+			switch (str)
+			{
+				// ProcessUtils.cpp:L349
+				case "Android": return Platforms.Android;
+				case "iOS": return Platforms.iOS;
+				case "Windows": return Platforms.Windows;
+				case "Mac OS X": return Platforms.MacOSX;
+				case "Linux": return Platforms.Linux;
+			}
+			return Platforms.Unknown;
+		}
+	}
+
+	enum MonoComponentCallbackType{
+		SaveXml,
+		LoadXml,
+		AttachedToNode
+	}
+
+	enum RefCountedEvent {
+		Delete,
+		Addref
+	}
 }

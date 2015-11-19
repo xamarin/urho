@@ -13,25 +13,21 @@ using System.Runtime.InteropServices;
 
 namespace Urho
 {
-	public class Runtime
+	internal class Runtime
 	{
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
-		static Dictionary<System.Type, int> hashDict;
+		static Dictionary<Type, int> hashDict;
 		static MonoRefCountedCallback monoRefCountedCallback; //keep references to native callbacks (protect from GC)
 		static MonoComponentCallback monoComponentCallback;
-
-		enum RefCountedEvent { Delete, Addref }
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		delegate void MonoRefCountedCallback(IntPtr ptr, RefCountedEvent rcEvent);
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		static extern void RegisterMonoRefCountedCallback(MonoRefCountedCallback callback);
-
-		enum MonoComponentCallbackType { SaveXml, LoadXml, AttachedToNode }
-
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		delegate void MonoComponentCallback(IntPtr componentPtr, IntPtr xmlElementPtr, MonoComponentCallbackType eventType);
+
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		static extern void RegisterMonoRefCountedCallback(MonoRefCountedCallback callback);
 
 		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern void RegisterMonoComponentCallback(MonoComponentCallback callback);
@@ -111,7 +107,7 @@ namespace Urho
 					}
 				}
 			}
-			else
+			else if (eventType == MonoComponentCallbackType.AttachedToNode)
 			{
 				var component = LookupObject<Component>(componentPtr, false);
 				component?.OnAttachedToNode(component.Node);
@@ -185,12 +181,6 @@ namespace Urho
 			hashDict [t] = hash.Code;
 			return hash;
 		}
-
-		[DllImport ("mono-urho", EntryPoint="Urho_GetPlatform", CallingConvention=CallingConvention.Cdecl)]
-		extern static IntPtr GetPlatform();
-
-		static string platform;
-		public static string Platform => platform ?? (platform = Marshal.PtrToStringAnsi(GetPlatform()));
 
 		static internal IReadOnlyList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject
 		{

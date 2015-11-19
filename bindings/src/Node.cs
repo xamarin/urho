@@ -57,20 +57,36 @@ namespace Urho {
 			return component;
 		}
 
+		/// <summary>
+		/// Add a pre-created component.
+		/// </summary>
 		public void AddComponent (Component component, uint id = 0)
 		{
 			AddComponent (component, id, CreateMode.Replicated);
 		}
-		
-		// Parameters are swapped, so I can use default parameters vs the other method signature
+
+		/// <summary>
+		/// Create a child scene node (with specified ID if provided).
+		/// </summary>
 		public Node CreateChild (string name = "", uint id = 0, CreateMode mode = CreateMode.Replicated)
 		{
 			return CreateChild (name, mode, id);
 		}
 
+		/// <summary>
+		/// Add a child scene node at a specific index. If index is not explicitly specified or is greater than current children size, append the new child at the end.
+		/// </summary>
 		public void AddChild(Node node)
 		{
 			AddChild(node, 0);
+		}
+		
+		/// <summary>
+		/// Move the scene node in the chosen transform space.
+		/// </summary>
+		public void Translate(Vector3 delta)
+		{
+			Translate(delta, TransformSpace.Local);
 		}
 
 		public T GetComponent<T> (bool recursive = false) where T : Component

@@ -52,23 +52,24 @@ namespace Urho {
 			setupCallback = ProxySetup;
 			startCallback = ProxyStart;
 			stopCallback = ProxyStop;
-			
-			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, (options ?? ApplicationOptions.Default).ToString());
+
+			Options = options ?? ApplicationOptions.Default;
+			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString());
 			Runtime.RegisterObject (this);
 			Current = this;
 
 			Engine.SubscribeToUpdate(HandleUpdate);
-			//SubscribeToSceneUpdate(HandleSceneUpdate);
 		}
 
-		public static Application GetApp(IntPtr h)
-		{
-			return Runtime.LookupObject<Application>(h);
-		}
+		/// <summary>
+		/// Application options
+		/// </summary>
+		public ApplicationOptions Options { get; private set; }
 
+		/// <summary>
+		/// Frame update event
+		/// </summary>
 		public event Action<UpdateEventArgs> Update;
-
-		public event Action<SceneUpdateEventArgs> SceneUpdate;
 
 		/// <summary>
 		/// Waits given _game_ time.
@@ -91,6 +92,8 @@ namespace Urho {
 			}
 		}
 
+		static Application GetApp(IntPtr h) => Runtime.LookupObject<Application>(h);
+
 		void HandleUpdate(UpdateEventArgs args)
 		{
 			var timeStep = args.TimeStep;
@@ -107,12 +110,6 @@ namespace Urho {
 					actionsToDipatch.Clear();
 				}
 			}
-		}
-
-		void HandleSceneUpdate(SceneUpdateEventArgs args)
-		{
-			SceneUpdate?.Invoke(args);
-			OnSceneUpdate(args.TimeStep, args.Scene);
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
@@ -138,13 +135,9 @@ namespace Urho {
 			GetApp (h).Stop ();
 		}
 
-		public virtual void Setup ()
-		{
-		}
+		public virtual void Setup () {}
 
-		public virtual void Start ()
-		{
-		}
+		public virtual void Start () {}
 
 		public virtual void Stop ()
 		{
@@ -154,9 +147,20 @@ namespace Urho {
 
 		internal ActionManager ActionManager { get; } = new ActionManager();
 
-		protected virtual void OnSceneUpdate(float timeStep, Scene scene) { }
-
 		protected virtual void OnUpdate(float timeStep) { }
+
+
+		[DllImport("mono-urho", EntryPoint = "Urho_GetPlatform", CallingConvention = CallingConvention.Cdecl)]
+		static extern IntPtr GetPlatform();
+
+		static Platforms platform;
+		public static Platforms Platform {
+			get {
+				if (platform == Platforms.Unknown)
+					platform = PlatformsMap.FromString(Marshal.PtrToStringAnsi(GetPlatform()));
+				return platform;
+			}
+		}
 
 		//
 		// GetSubsystem helpers
@@ -297,6 +301,11 @@ namespace Urho {
 
 		public static Application CreateInstance(Type applicationType, Context context = null)
 		{
+			/*
+			It tries to use one of these constructors:
+				1) ctor(Context)
+				2) ctor(Context, ApplicationOptions)
+			*/
 			foreach (var ctor in applicationType.GetTypeInfo().DeclaredConstructors)
 			{
 				var parameters = ctor.GetParameters();

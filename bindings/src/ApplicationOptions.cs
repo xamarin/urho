@@ -44,10 +44,23 @@ namespace Urho
 		public string[] ResourcePaths { get; set; } = null;
 
 		/// <summary>
+		/// Resource prefix path, default to URHO3D_PREFIX_PATH env-var or executable path
+		/// </summary>
+		public string ResourcePrefixPath { get; set; } = null;
+
+		/// <summary>
 		/// Resource package files to use (default: empty)
 		/// </summary>
 		public string[] ResourcePackagesPaths { get; set; } = null;
 
+		/// <summary>
+		/// Touch emulation on desktop platform
+		/// </summary>
+		public bool TouchEmulation { get; set; } = false;
+
+		/// <summary>
+		/// Add any flag listed here: http://urho3d.github.io/documentation/1.4/_running.html 
+		/// </summary>
 		public string AdditionalFlags { get; set; } = string.Empty;
 
 		public enum OrientationType
@@ -82,6 +95,12 @@ namespace Urho
 			if (ResourcePackagesPaths?.Length > 0)
 				builder.AppendFormat(" -pf '{0}'", string.Join(";", ResourcePackagesPaths));
 
+			if (ResourcePrefixPath != null)
+				builder.AppendFormat(" -pp '{0}'", ResourcePrefixPath);
+
+			if (TouchEmulation)
+				builder.Append(" -touch");
+
 			builder.AppendFormat(" -{0}", Orientation.ToString().ToLower());
 
 			return builder + " " + AdditionalFlags;
@@ -91,6 +110,6 @@ namespace Urho
 
 		public static ApplicationOptions Default { get; } = new ApplicationOptions();
 
-		public static ApplicationOptions PortraitDefault { get; } = new ApplicationOptions { Height = 800, Width = 500, Orientation = OrientationType.Portrait };
+		public static ApplicationOptions PortraitDefault { get; } = new ApplicationOptions { Height = 736, Width = 414, Orientation = OrientationType.Portrait };
 	}
 }
