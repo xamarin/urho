@@ -25,7 +25,7 @@ let save path (doc:XDocument) =
   doc.Save (writer)
   writer.Close ()
   output.WriteLine ()
-  output.Close ();
+  output.Close ()
   
 let select (node:XNode) path = node.XPathSelectElement path
 let setval (node:XNode) path value = (select node path).Value <- value
@@ -52,14 +52,14 @@ let processEventArgs (doc:XDocument) =
 let processType (doc:XDocument) =
   let typeName = getTypeName doc
     
-  let fillBaseType =
+  let fillBaseType() =
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='BaseType']/Docs" with
       | null -> ()
       | mdoc ->
         setval mdoc "summary" "Urho's type system base type."
         setval mdoc "value" "StringHash representing the base type for this Urho type."
         setval mdoc "remarks" "This returns the Urho type system base type and is surfaced for low-level Urho code."
-  let fillType =
+  let fillType() =
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='Type']/Docs" with
       | null -> ()
       | mdoc ->
@@ -69,14 +69,14 @@ let processType (doc:XDocument) =
         with
           | ex -> ()
         setval mdoc "remarks" "This returns the Urho's type and is surfaced for low-level Urho code."
-  let fillTypeName = 
+  let fillTypeName() = 
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='TypeName']/Docs" with
       | null -> ()
       | mdoc ->
         setval mdoc "summary" "Urho's low-level type name."
         setval mdoc "value" "Stringified low-level type name."
         setval mdoc "remarks" ""
-  let fillTypeNameStatic =
+  let fillTypeNameStatic() =
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='TypeNameStatic']/Docs" with
       | null -> ()
       | mdoc ->
@@ -84,7 +84,7 @@ let processType (doc:XDocument) =
         setval mdoc "value" "Stringified low-level type name."
         setval mdoc "remarks" ""
 
-  let fillTypeCtor =
+  let fillTypeCtor() =
     for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
       match x with
       | null -> ()
@@ -101,7 +101,7 @@ let processType (doc:XDocument) =
             XElement.Parse ("<para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>") |> remarks.Add
             XElement.Parse ("<para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>") |> remarks.Add
 
-  let fillTypeEmpty =
+  let fillTypeEmpty() =
     for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
       match x with
       | null -> ()
@@ -118,7 +118,7 @@ let processType (doc:XDocument) =
             XElement.Parse ("<para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>") |> remarks.Add
             XElement.Parse ("<para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>") |> remarks.Add
 
-  let fillTypeContext =
+  let fillTypeContext() =
     for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
       match x with
       | null -> ()
@@ -137,7 +137,7 @@ let processType (doc:XDocument) =
 
   // For subscriptions, we like to fill in the stubs, but let the user
   // enter a different value if he wants to for the summary.
-  let fillSubscribe =
+  let fillSubscribe() =
     for x in doc.XPathSelectElements "Type/Members/Member[ReturnValue/ReturnType = 'Urho.Subscription']" do
       match x with
         | null -> ()
@@ -162,12 +162,12 @@ let processType (doc:XDocument) =
           else
             events.Add (eventArgsType, (eventName,typeName))
 
-  fillBaseType
-  fillType 
-  fillTypeName 
-  fillTypeNameStatic 
-  fillTypeCtor
-  fillSubscribe
+  fillBaseType()
+  fillType()
+  fillTypeName()
+  fillTypeNameStatic()
+  fillTypeCtor()
+  fillSubscribe()
   doc
 
 let processPath path =
