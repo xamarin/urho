@@ -82,13 +82,24 @@ while (<>){
 			print CS "         ObjectCallbackSignature callback${en};\n";
 			print CS "         [DllImport(\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]\n";
 			print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
-			print CS "         public Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
+			print CS "         internal Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
 			print CS "         {\n";
 			print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";
 			print CS "              var s = new Subscription (proxy);\n";
 			print CS "              callback${en} = ObjectCallback;\n";
 			print CS "              s.UnmanagedProxy = urho_subscribe_$en (handle, callback${en}, GCHandle.ToIntPtr (s.gch));\n";
 			print CS "              return s;\n";
+			print CS "         }\n\n";
+			print CS "         static UrhoEventAdapter<${en}EventArgs> eventAdapterFor${en};\n";
+			print CS "         public event Action<${en}EventArgs> On${en}\n";
+			print CS "         {\n";
+			print CS "             add\n";
+			print CS "             {\n";
+			print CS "                  if (eventAdapterFor${en} == null)\n";
+			print CS "                      eventAdapterFor${en} = new UrhoEventAdapter<${en}EventArgs>();\n";
+			print CS "                  eventAdapterFor${en}.AddManagedSubscriber(handle, value, SubscribeTo${en});\n";
+			print CS "             }\n";
+			print CS "             remove { eventAdapterFor${en}.RemoveManagedSubscriber(handle, value); }\n";
 			print CS "         }\n";
 			print CS "    }\n\n";
 		    }
