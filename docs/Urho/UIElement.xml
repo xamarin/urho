@@ -3465,8 +3465,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the Defocused event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragBegin">
@@ -3486,8 +3485,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the DragBegin event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragCancel">
@@ -3507,8 +3505,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the DragCancel event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragDropFinish">
@@ -3528,8 +3525,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the DragDropFinish event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragDropTest">
@@ -3549,8 +3545,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the DragDropTest event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragEnd">
@@ -3570,8 +3565,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the DragEnd event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragMove">
@@ -3591,8 +3585,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the DragMove event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToElementAdded">
@@ -3612,8 +3605,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ElementAdded event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToElementRemoved">
@@ -3633,8 +3625,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ElementRemoved event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToFocused">
@@ -3654,8 +3645,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the Focused event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToHoverBegin">
@@ -3675,8 +3665,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the HoverBegin event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToHoverEnd">
@@ -3696,8 +3685,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the HoverEnd event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToLayoutUpdated">
@@ -3717,8 +3705,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the LayoutUpdated event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNameChanged">
@@ -3738,8 +3725,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NameChanged event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPositioned">
@@ -3759,8 +3745,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the Positioned event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToResized">
@@ -3780,8 +3765,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the Resized event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToVisibleChanged">
@@ -3801,8 +3785,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the VisibleChanged event raised by the UIElement.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TraversalMode">
@@ -3854,8 +3837,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -3871,8 +3853,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

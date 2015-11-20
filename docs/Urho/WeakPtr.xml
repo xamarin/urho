@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Supports the Urho interoperability engine, a weak native urho pointer.</summary>
+    <remarks>Not to be used by user code.</remarks>
   </Docs>
   <Members />
 </Type>

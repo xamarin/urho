@@ -715,8 +715,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ItemClicked event raised by the ListView.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToItemDeselected">
@@ -736,8 +735,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ItemDeselected event raised by the ListView.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToItemDoubleClicked">
@@ -757,8 +755,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ItemDoubleClicked event raised by the ListView.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToItemSelected">
@@ -778,8 +775,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ItemSelected event raised by the ListView.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSelectionChanged">
@@ -799,8 +795,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the SelectionChanged event raised by the ListView.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUnhandledKey">
@@ -820,8 +815,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the UnhandledKey event raised by the ListView.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="ToggleExpand">
@@ -897,8 +891,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -914,8 +907,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

@@ -501,8 +501,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsBeginContact2D event raised by the PhysicsWorld2D.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsEndContact2D">
@@ -522,8 +521,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsEndContact2D event raised by the PhysicsWorld2D.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsPostStep2D">
@@ -543,8 +541,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsPostStep2D event raised by the PhysicsWorld2D.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsPreStep2D">
@@ -564,8 +561,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsPreStep2D event raised by the PhysicsWorld2D.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubStepping">
@@ -617,8 +613,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -634,8 +629,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

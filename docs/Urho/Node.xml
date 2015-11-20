@@ -88,7 +88,11 @@
       <Docs>
         <param name="node">The node to append to the scene.</param>
         <summary>Adds the specified node as a child of this node.</summary>
-        <remarks>This appends the child to the end of the list.</remarks>
+        <remarks>
+          <para>This appends the child to the end of the list.</para>
+          <para />
+          <para>The NodeAdded event is raised if the node is currently attached to a scene.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddChild">
@@ -113,7 +117,11 @@
         </param>
         <summary>
             Add a child scene node at a specific index. </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>This appends the child to the end of the list.</para>
+          <para />
+          <para>The NodeAdded event is raised if the node is currently attached to a scene.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddComponent">
@@ -400,12 +408,15 @@
         <Parameter Name="mode" Type="Urho.CreateMode" />
       </Parameters>
       <Docs>
-        <param name="id">To be added.</param>
-        <param name="mode">To be added.</param>
+        <param name="id">identifier to assign to the child, if the node is attached to a scene, and the ID already exists, a new ID will be assigned.</param>
+        <param name="mode">
+          <para>Component and child node creation mode for networking.</para>
+          <para></para>
+        </param>
         <summary>
             Create a child node with specific ID.
             </summary>
-        <returns>To be added.</returns>
+        <returns>The created scene node.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -426,9 +437,9 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <param name="id">To be added.</param>
-        <param name="mode">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="id">identifier to assign to the child, if the node is attached to a scene, and the ID already exists, a new ID will be assigned.</param>
+        <param name="mode">Component and child node creation mode for networking.</param>
+        <summary>Create a child node with a name, ID and creation mode.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -450,8 +461,8 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <param name="mode">To be added.</param>
-        <param name="id">To be added.</param>
+        <param name="mode">Component and child node creation mode for networking.</param>
+        <param name="id">identifier to assign to the child, if the node is attached to a scene, and the ID already exists, a new ID will be assigned.</param>
         <summary>
             Create a child scene node (with specified ID if provided).
             </summary>
@@ -684,10 +695,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <param name="recursive">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="recursive">If true, the search includes nested children, otherwise the search is done only on the immediate children of this node.</param>
+        <summary>Returns children nodes that have a specific component attached to it.</summary>
+        <returns>Array containing the nodes that have the specified component, or an empty array if there are none.</returns>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetComponent">
@@ -828,8 +841,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Or
             Set ID. Called by Scene.
             </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <value>ID assigned to this node.</value>
+        <remarks>You should ideally have unique IDs.</remarks>
       </Docs>
     </Member>
     <Member MemberName="IsDirty">
@@ -2146,7 +2159,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Updates the position but does not flag the node as dirty, nor as requiring a network update.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2165,7 +2178,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </Parameters>
       <Docs>
         <param name="rotation">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Sets the rotation but does not flag the node as dirty, nor as requiring a network update.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2249,7 +2262,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </Parameters>
       <Docs>
         <param name="scale">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Sets the scale but does not flag the node as dirty, nor as requiring a network update.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2418,7 +2431,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="position">To be added.</param>
         <param name="rotation">To be added.</param>
         <param name="scale">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Sets the node transform but does not flag the node as dirty, nor as requiring a network update.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3145,7 +3158,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <Parameter Name="space" Type="Urho.TransformSpace" />
       </Parameters>
       <Docs>
-        <param name="delta">To be added.</param>
+        <param name="delta">The translation delta to apply.</param>
         <param name="space">To be added.</param>
         <summary>
             Move the scene node in the chosen transform space.

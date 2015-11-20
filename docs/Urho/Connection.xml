@@ -693,8 +693,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ClientConnected event raised by the Connection.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToClientDisconnected">
@@ -714,8 +713,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ClientDisconnected event raised by the Connection.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToClientIdentity">
@@ -735,8 +733,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ClientIdentity event raised by the Connection.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToClientSceneLoaded">
@@ -756,8 +753,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ClientSceneLoaded event raised by the Connection.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkMessage">
@@ -777,8 +773,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NetworkMessage event raised by the Connection.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkSceneLoadFailed">
@@ -798,8 +793,7 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NetworkSceneLoadFailed event raised by the Connection.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TimeStamp">
@@ -868,8 +862,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -885,8 +878,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
