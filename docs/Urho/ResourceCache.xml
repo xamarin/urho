@@ -1379,7 +1379,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the FileChanged event raised by the ResourceCache.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToLoadFailed">
@@ -1399,7 +1400,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the LoadFailed event raised by the ResourceCache.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToResourceBackgroundLoaded">
@@ -1419,7 +1421,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ResourceBackgroundLoaded event raised by the ResourceCache.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToResourceNotFound">
@@ -1439,7 +1442,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ResourceNotFound event raised by the ResourceCache.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUnknownResourceType">
@@ -1459,7 +1463,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the UnknownResourceType event raised by the ResourceCache.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalMemoryUse">
@@ -1509,7 +1514,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1525,7 +1531,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

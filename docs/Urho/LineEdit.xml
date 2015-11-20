@@ -580,7 +580,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the CharEntry event raised by the LineEdit.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToTextChanged">
@@ -600,7 +601,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the TextChanged event raised by the LineEdit.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToTextFinished">
@@ -620,7 +622,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the TextFinished event raised by the LineEdit.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUnhandledKey">
@@ -640,7 +643,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the UnhandledKey event raised by the LineEdit.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Text">
@@ -710,7 +714,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -726,7 +731,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

@@ -3,7 +3,7 @@
     <Assembly Name="Urho" Version="1.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
@@ -37,6 +37,9 @@
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.InteropServices.Guid("641886db-2c6c-4d33-88da-97bec0ec5f86")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.Versioning.TargetFramework(".NETPortable,Version=v4.5,Profile=Profile7", FrameworkDisplayName=".NET Portable Subset")</AttributeName>
         </Attribute>
       </Attributes>
     </Assembly>
@@ -452,6 +455,7 @@
       <Type Name="Place" Kind="Class" />
       <Type Name="PlaceState" Kind="Class" />
       <Type Name="Plane" Kind="Structure" />
+      <Type Name="Platforms" Kind="Enumeration" />
       <Type Name="PListFile" Kind="Class" />
       <Type Name="PListValueType" Kind="Enumeration" />
       <Type Name="PodVector`1" DisplayName="PodVector&lt;T&gt;" Kind="Class" />
@@ -511,7 +515,6 @@
       <Type Name="RotateByState" Kind="Class" />
       <Type Name="RotateTo" Kind="Class" />
       <Type Name="RotateToState" Kind="Class" />
-      <Type Name="Runtime" Kind="Class" />
       <Type Name="ScaleBy" Kind="Class" />
       <Type Name="ScaleByState" Kind="Class" />
       <Type Name="ScaleTo" Kind="Class" />

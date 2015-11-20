@@ -2162,12 +2162,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Application.GetApp(System.IntPtr)">
-            <param name="h"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Application.Graphics">
             <summary>Returns the Graphics subsystem.</summary>
             <value></value>
@@ -2195,15 +2189,19 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Application.OnSceneUpdate(System.Single,Urho.Scene)">
-            <param name="timeStep"></param>
-            <param name="scene"></param>
-            <summary>This method is invoked on each scene update.</summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Application.OnUpdate(System.Single)">
             <param name="timeStep"></param>
             <summary>This method is invoked on every application update.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Application.Options">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Application.Platform">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.Profiler">
@@ -2226,10 +2224,6 @@
             Initialize the engine and run the main loop, then return the application exit code. Catch out-of-memory exceptions while running.
             </summary>
             <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="E:Urho.Application.SceneUpdate">
-            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Application.Setup">
@@ -2355,9 +2349,19 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.ApplicationOptions.ResourcePrefixPath">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.ApplicationOptions.ToString">
             <summary>Returns the command line version suitable to be sent to the Urho engine.</summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ApplicationOptions.TouchEmulation">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.Width">
@@ -24787,6 +24791,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Node.Translate(Urho.Vector3)">
+            <param name="delta"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Node.Translate(Urho.Vector3,Urho.TransformSpace)">
             <param name="delta"></param>
             <param name="space"></param>
@@ -28353,6 +28362,28 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Plane normal.
             </summary>
             <remarks></remarks>
+        </member>
+        <member name="T:Urho.Platforms">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Platforms.Android">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.Platforms.iOS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.Platforms.Linux">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.Platforms.MacOSX">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.Platforms.Unknown">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.Platforms.Windows">
+            <summary></summary>
         </member>
         <member name="T:Urho.PListFile">
             <summary>
@@ -32441,62 +32472,6 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.RotateToState.Update(System.Single)">
             <param name="time"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.Runtime">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.Runtime">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Runtime.Initialize">
-            <summary>
-            Runtime initialization.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Runtime.LookupObject``1(System.IntPtr,System.Boolean)">
-            <typeparam name="T"></typeparam>
-            <param name="ptr">Pointer to an unmanaged Urho object</param>
-            <param name="createIfNotFound">If true, and the pointer is not known to the runtime, this will create a new wrapper for the object and return it.</param>
-            <summary>Looks up the specified native pointer into the internal runtime mapping to managed objects.</summary>
-            <returns>If the object exists in the internal runtime hash, it will return the existing managed wrapper for the unmanaged Urho object.   If it does not exist, and createIfNotFound is true, a new wrapper will be created by invoking the constructor that takes an <see cref="T:System.IntPtr" /> parameter, otherwise the returned value is null.</returns>
-            <remarks>
-                <para>Use this method to lookup objects that derive from the <see cref="T:Urho.UrhoObject" /> class.</para>
-                <para>This will return the most derived type.   The “ptr” parameter is used to retrieve the type name of the Urho object and to determine its real identity.</para>
-                <para />
-                <para>This means that you might get a cast exception if you try to LookupObject and try to force the wrong type to be returned.</para>
-            </remarks>
-        </member>
-        <member name="M:Urho.Runtime.LookupRefCounted``1(System.IntPtr,System.Boolean)">
-            <typeparam name="T"></typeparam>
-            <param name="ptr">Pointer to an unmanaged RefCounted Urho object</param>
-            <param name="createIfNotFound">If true, and the pointer is not known to the runtime, this will create a new wrapper for the object and return it.</param>
-            <summary>Looks up the specified native pointer into the internal runtime mapping to managed objects.</summary>
-            <returns>If the object exists in the internal runtime hash, it will return the existing managed wrapper for the unmanaged Urho object.   If it does not exist, and createIfNotFound is true, a new wrapper will be created by invoking the constructor that takes an <see cref="T:System.IntPtr" /> parameter, otherwise the returned value is null.</returns>
-            <remarks>Use this method to lookup objects that derive from the <see cref="T:Urho.RefCounted" /> class.</remarks>
-        </member>
-        <member name="M:Urho.Runtime.LookupStringHash(System.Type)">
-            <param name="t">The C# type to lookup the string hash for</param>
-            <summary>Returns the associated string hash for the given C# type (must be an UrhoType)</summary>
-            <returns>The string hash for the </returns>
-            <remarks>This will only work for Urho types.</remarks>
-        </member>
-        <member name="P:Urho.Runtime.Platform">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Runtime.RegisterObject(Urho.RefCounted)">
-            <param name="refCounted"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Runtime.UnregisterObject(System.IntPtr)">
-            <param name="handle"></param>
             <summary></summary>
             <remarks></remarks>
         </member>

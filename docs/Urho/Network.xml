@@ -407,7 +407,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ConnectFailed event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkUpdate">
@@ -427,7 +428,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NetworkUpdate event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkUpdateSent">
@@ -447,7 +449,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NetworkUpdateSent event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToServerConnected">
@@ -467,7 +470,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ServerConnected event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToServerDisconnected">
@@ -487,7 +491,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ServerDisconnected event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">
@@ -519,7 +524,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -535,7 +541,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

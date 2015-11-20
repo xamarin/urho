@@ -164,7 +164,7 @@
       </Parameters>
       <Docs>
         <param name="context">The context that this object will be attached to.</param>
-        <param name="options">To be added.</param>
+        <param name="options">Application options, if null, the options default to <see cref="P:Urho.ApplicationOptions.Default" /></param>
         <summary>Creates an instance of Application that is attached to an execution context.</summary>
         <remarks>
           <para>This creates an instance of Application attached to the specified execution context.</para>
@@ -236,11 +236,11 @@
         <Parameter Name="context" Type="Urho.Context" />
       </Parameters>
       <Docs>
-        <param name="applicationType">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="applicationType">The type of the application to create, it must be a subclass of the <see cref="T:Urho.Application" /> class.</param>
+        <param name="context">The execution context to use for it, if null, a default instance of Context is created.</param>
+        <summary>Factory method used to create an Application from a Type.</summary>
+        <returns>The created application.</returns>
+        <remarks>This will try to invoke the constructor for the specified Type which takes a <see cref="T:Urho.C" />ontext parameter, or a <see cref="T:Urho.Context" /> parameter and an <see cref="T:Urho.ApplicationOptions" /> parameter.</remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateInstance&lt;T&gt;">
@@ -381,26 +381,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="GetApp">
-      <MemberSignature Language="C#" Value="public static Urho.Application GetApp (IntPtr h);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Application GetApp(native int h) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Application</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="h" Type="System.IntPtr" />
-      </Parameters>
-      <Docs>
-        <param name="h">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Graphics">
       <MemberSignature Language="C#" Value="public Urho.Graphics Graphics { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Graphics Graphics" />
@@ -486,27 +466,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="OnSceneUpdate">
-      <MemberSignature Language="C#" Value="protected virtual void OnSceneUpdate (float timeStep, Urho.Scene scene);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void OnSceneUpdate(float32 timeStep, class Urho.Scene scene) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="timeStep" Type="System.Single" />
-        <Parameter Name="scene" Type="Urho.Scene" />
-      </Parameters>
-      <Docs>
-        <param name="timeStep">To be added.</param>
-        <param name="scene">To be added.</param>
-        <summary>This method is invoked on each scene update.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="OnUpdate">
       <MemberSignature Language="C#" Value="protected virtual void OnUpdate (float timeStep);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void OnUpdate(float32 timeStep) cil managed" />
@@ -524,6 +483,42 @@
         <param name="timeStep">To be added.</param>
         <summary>This method is invoked on every application update.</summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Options">
+      <MemberSignature Language="C#" Value="public Urho.ApplicationOptions Options { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ApplicationOptions Options" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ApplicationOptions</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The application options in use</summary>
+        <value>The value is either the one that was passed to the constructor, or the default.</value>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Platform">
+      <MemberSignature Language="C#" Value="public static Urho.Platforms Platform { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.Platforms Platform" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Platforms</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Simple way of obtaining the platform on which the program is running from cross platform code.</summary>
+        <value>
+          <para />
+        </value>
+        <remarks>Use this to easily find out from your cross platform code on which platform you are executing.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Profiler">
@@ -590,21 +585,6 @@
             Initialize the engine and run the main loop, then return the application exit code. Catch out-of-memory exceptions while running.
             </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SceneUpdate">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.SceneUpdateEventArgs&gt; SceneUpdate;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.SceneUpdateEventArgs&gt; SceneUpdate" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.SceneUpdateEventArgs&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -763,8 +743,8 @@
         <ReturnType>System.Action&lt;Urho.UpdateEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Frame update event</summary>
+        <remarks>This event is raised when the frame has been updated.</remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkQueue">

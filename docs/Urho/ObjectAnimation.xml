@@ -327,7 +327,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AttributeAnimationAdded event raised by the ObjectAnimation.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToAttributeAnimationRemoved">
@@ -347,7 +348,8 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AttributeAnimationRemoved event raised by the ObjectAnimation.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">
@@ -379,7 +381,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -395,7 +398,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

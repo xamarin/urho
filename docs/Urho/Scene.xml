@@ -15,7 +15,8 @@
             </summary>
     <remarks>
       <para>In general, you will want to add an Octree component to your scene, without it, none of the visual components will be shown.  The default Octree component volume goes from (-1000,-1000,-1000) to (1000,1000,1000) in world coordinates.</para>
-      <para></para>
+      <para>
+      </para>
       <example>
         <code lang="C#"><![CDATA[scene.CreateComponent<Octree> ();
 
@@ -937,7 +938,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public bool SaveXml (string file, string indentation = &quot; &quot;);" />
+      <MemberSignature Language="C#" Value="public bool SaveXml (string file, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(string file, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1075,7 +1076,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AsyncLoadFinished event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToAsyncLoadProgress">
@@ -1095,7 +1097,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AsyncLoadProgress event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToAttributeAnimationUpdate">
@@ -1115,7 +1118,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AttributeAnimationUpdate event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentAdded">
@@ -1135,7 +1139,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ComponentAdded event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentEnabledChanged">
@@ -1155,7 +1160,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ComponentEnabledChanged event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentRemoved">
@@ -1175,7 +1181,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ComponentRemoved event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeAdded">
@@ -1195,7 +1202,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeAdded event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeEnabledChanged">
@@ -1215,7 +1223,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeEnabledChanged event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeNameChanged">
@@ -1235,7 +1244,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeNameChanged event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeRemoved">
@@ -1255,7 +1265,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeRemoved event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneDrawableUpdateFinished">
@@ -1275,7 +1286,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the SceneDrawableUpdateFinished event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToScenePostUpdate">
@@ -1295,7 +1307,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ScenePostUpdate event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneSubsystemUpdate">
@@ -1315,7 +1328,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the SceneSubsystemUpdate event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneUpdate">
@@ -1335,7 +1349,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the SceneUpdate event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUpdateSmoothing">
@@ -1355,7 +1370,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the UpdateSmoothing event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TimeScale">
@@ -1407,7 +1423,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1423,7 +1440,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

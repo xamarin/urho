@@ -78,7 +78,7 @@ namespace Urho {
 		/// </summary>
 		public void AddChild(Node node)
 		{
-			AddChild(node, 0);
+			AddChild(node, uint.MaxValue);
 		}
 		
 		/// <summary>
