@@ -86,16 +86,16 @@ namespace Urho {
 		{
 			return GetResource<ValueAnimation> (ValueAnimation.TypeStatic, name, sendEventOnFailure);
 		}
-		
+
+		public JsonFile GetJsonFile(string name, bool sendEventOnFailure = true)
+		{
+			return GetResource<JsonFile>(JsonFile.TypeStatic, name, sendEventOnFailure);
+		}
+
 #if false
 		public LuaFile GetLuaFile (string name, bool sendEventOnFailure = true)
 		{
 			return GetResource<LuaFile> (LuaFile.TypeStatic, name, sendEventOnFailure);
-		}
-		
-		public JSONFile GetJSONFile (string name, bool sendEventOnFailure = true)
-		{
-			return GetResource<JSONFile> (JSONFile.TypeStatic, name, sendEventOnFailure);
 		}
 		
 		public ScriptFile GetScriptFile (string name, bool sendEventOnFailure = true)
@@ -103,7 +103,7 @@ namespace Urho {
 			return GetResource<ScriptFile> (ScriptFile.TypeStatic, name, sendEventOnFailure);
 		}
 #endif
-		
+
 		public Font GetFont (string name, bool sendEventOnFailure = true)
 		{
 			return GetResource<Font> (Font.TypeStatic, name, sendEventOnFailure);
