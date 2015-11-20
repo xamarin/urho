@@ -880,6 +880,16 @@ namespace SharpieBinder
 				break;
 			}
 
+			switch (decl.Name) {
+				case "OnDragMove":
+				case "OnDragEnd":
+				case "OnDragDropTest":
+				case "OnDragDropFinish":
+				case "OnDragCancel":
+				case "OnDragBegin":
+					return true;
+			}
+
 			return false;
 		}
 

@@ -89,6 +89,17 @@ while (<>){
 			print CS "              callback${en} = ObjectCallback;\n";
 			print CS "              s.UnmanagedProxy = urho_subscribe_$en (handle, callback${en}, GCHandle.ToIntPtr (s.gch));\n";
 			print CS "              return s;\n";
+			print CS "         }\n\n";
+			print CS "         static UrhoEventAdapter<${en}EventArgs> eventAdapterFor${en};\n";
+			print CS "         public event Action<${en}EventArgs> On${en}\n";
+			print CS "         {\n";
+			print CS "             add\n";
+			print CS "             {\n";
+			print CS "                  if (eventAdapterFor${en} == null)\n";
+			print CS "                      eventAdapterFor${en} = new UrhoEventAdapter<${en}EventArgs>();\n";
+			print CS "                  eventAdapterFor${en}.AddManagedSubscriber(handle, value, SubscribeTo${en});\n";
+			print CS "             }\n";
+			print CS "             remove { eventAdapterFor${en}.RemoveManagedSubscriber(handle, value); }\n";
 			print CS "         }\n";
 			print CS "    }\n\n";
 		    }
