@@ -90,13 +90,13 @@ namespace Urho
 				builder.Append(" -s");
 
 			if (ResourcePaths?.Length > 0)
-				builder.AppendFormat(" -p '{0}'", string.Join(";", ResourcePaths));
+				builder.AppendFormat(" -p \"{0}\"", string.Join(";", ResourcePaths));
 
 			if (ResourcePackagesPaths?.Length > 0)
-				builder.AppendFormat(" -pf '{0}'", string.Join(";", ResourcePackagesPaths));
+				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
 
 			if (ResourcePrefixPath != null)
-				builder.AppendFormat(" -pp '{0}'", ResourcePrefixPath);
+				builder.AppendFormat(" -pp \"{0}\"", ResourcePrefixPath);
 
 			if (TouchEmulation)
 				builder.Append(" -touch");
