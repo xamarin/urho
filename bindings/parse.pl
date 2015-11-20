@@ -82,7 +82,7 @@ while (<>){
 			print CS "         ObjectCallbackSignature callback${en};\n";
 			print CS "         [DllImport(\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]\n";
 			print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
-			print CS "         public Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
+			print CS "         @{[$en eq 'Update' ? 'internal' : 'public']} Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
 			print CS "         {\n";
 			print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";
 			print CS "              var s = new Subscription (proxy);\n";
