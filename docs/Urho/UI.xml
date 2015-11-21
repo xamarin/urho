@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %UI subsystem. Manages the graphical user interface.
+    <summary>UI subsystem. Manages the graphical user interface.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

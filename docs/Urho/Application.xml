@@ -14,7 +14,7 @@
             Base class for creating applications which initialize the Urho3D engine and run a main loop until exited.
             </summary>
     <remarks>
-      <para>This is the base class that your application should subclass and provide at implementations for the <see cref="T:Urho.Application.Setup" /> and <see cref="T:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="T:Urho.Application.Start" /> methods.</para>
+      <para>This is the base class that your application should subclass and provide at implementations for the <see cref="M:Urho.Application.Setup" /> and <see cref="M:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="M:Urho.Application.Start" /> methods.</para>
       <para></para>
       <para>Access to various subsystems in Urho is available through the various properties in this class:</para>
       <list type="bullet">
