@@ -1,6 +1,6 @@
-<Type Name="BeginFrameEventArgs" FullName="Urho.BeginFrameEventArgs">
-  <TypeSignature Language="C#" Value="public struct BeginFrameEventArgs" />
-  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit BeginFrameEventArgs extends System.ValueType" />
+<Type Name="FrameStartedEventArgs" FullName="Urho.FrameStartedEventArgs">
+  <TypeSignature Language="C#" Value="public struct FrameStartedEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit FrameStartedEventArgs extends System.ValueType" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Event arguments for the Time's BeginFrame event</summary>
+    <summary>Event arguments for the Time's FrameStarted event</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

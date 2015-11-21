@@ -126,6 +126,36 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ClientIdentity">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ClientIdentityEventArgs&gt; ClientIdentity;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ClientIdentityEventArgs&gt; ClientIdentity" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ClientIdentityEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClientSceneLoaded">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ClientSceneLoadedEventArgs&gt; ClientSceneLoaded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ClientSceneLoadedEventArgs&gt; ClientSceneLoaded" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ClientSceneLoadedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ConfigureNetworkSimulator">
       <MemberSignature Language="C#" Value="public void ConfigureNetworkSimulator (int latencyMs, float packetLoss);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ConfigureNetworkSimulator(int32 latencyMs, float32 packetLoss) cil managed" />
@@ -676,46 +706,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SubscribeToClientConnected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientConnected (Action&lt;Urho.ClientConnectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientConnected(class System.Action`1&lt;valuetype Urho.ClientConnectedEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ClientConnectedEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the ClientConnected event raised by the Connection.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SubscribeToClientDisconnected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientDisconnected (Action&lt;Urho.ClientDisconnectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientDisconnected(class System.Action`1&lt;valuetype Urho.ClientDisconnectedEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ClientDisconnectedEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the ClientDisconnected event raised by the Connection.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SubscribeToClientIdentity">
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientIdentity (Action&lt;Urho.ClientIdentityEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientIdentity(class System.Action`1&lt;valuetype Urho.ClientIdentityEventArgs&gt; handler) cil managed" />
@@ -752,46 +742,6 @@
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ClientSceneLoaded event raised by the Connection.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SubscribeToNetworkMessage">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkMessage (Action&lt;Urho.NetworkMessageEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkMessage(class System.Action`1&lt;valuetype Urho.NetworkMessageEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NetworkMessageEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the NetworkMessage event raised by the Connection.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SubscribeToNetworkSceneLoadFailed">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkSceneLoadFailed (Action&lt;Urho.NetworkSceneLoadFailedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkSceneLoadFailed(class System.Action`1&lt;valuetype Urho.NetworkSceneLoadFailedEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NetworkSceneLoadFailedEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the NetworkSceneLoadFailed event raised by the Connection.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
         <remarks></remarks>
       </Docs>

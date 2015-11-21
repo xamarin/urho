@@ -173,37 +173,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="OnDragMove">
-      <MemberSignature Language="C#" Value="public override void OnDragMove (Urho.IntVector2 position, Urho.IntVector2 screenPosition, Urho.IntVector2 deltaPos, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDragMove(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, valuetype Urho.IntVector2 deltaPos, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="position" Type="Urho.IntVector2" />
-        <Parameter Name="screenPosition" Type="Urho.IntVector2" />
-        <Parameter Name="deltaPos" Type="Urho.IntVector2" />
-        <Parameter Name="buttons" Type="System.Int32" />
-        <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-      </Parameters>
-      <Docs>
-        <param name="position">To be added.</param>
-        <param name="screenPosition">To be added.</param>
-        <param name="deltaPos">To be added.</param>
-        <param name="buttons">To be added.</param>
-        <param name="qualifiers">To be added.</param>
-        <param name="cursor">To be added.</param>
-        <summary>
-            React to mouse drag motion.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="OnKey">
       <MemberSignature Language="C#" Value="public override void OnKey (int key, int buttons, int qualifiers);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnKey(int32 key, int32 buttons, int32 qualifiers) cil managed" />
@@ -226,6 +195,21 @@
         <summary>
             React to a key press.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Pressed">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PressedEventArgs&gt; Pressed;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PressedEventArgs&gt; Pressed" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PressedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -287,6 +271,21 @@
         <summary>
             Register object factory.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Released">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ReleasedEventArgs&gt; Released;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ReleasedEventArgs&gt; Released" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ReleasedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

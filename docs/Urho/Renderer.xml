@@ -90,6 +90,21 @@
         <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="BeginViewRender">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.BeginViewRenderEventArgs&gt; BeginViewRender;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.BeginViewRenderEventArgs&gt; BeginViewRender" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.BeginViewRenderEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DefaultLightRamp">
       <MemberSignature Language="C#" Value="public Urho.Texture2D DefaultLightRamp { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D DefaultLightRamp" />
@@ -240,6 +255,21 @@
             Set dynamic instancing on/off.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EndViewRender">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.EndViewRenderEventArgs&gt; EndViewRender;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.EndViewRenderEventArgs&gt; EndViewRender" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.EndViewRenderEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -952,6 +982,21 @@
         <summary>
             Render. Called by Engine.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderSurfaceUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.RenderSurfaceUpdateEventArgs&gt; RenderSurfaceUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.RenderSurfaceUpdateEventArgs&gt; RenderSurfaceUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.RenderSurfaceUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

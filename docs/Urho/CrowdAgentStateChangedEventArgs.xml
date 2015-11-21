@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Event arguments for the CrowdAgent's CrowdAgentStateChanged event</summary>
+    <summary>Event arguments for the CrowdManager's CrowdAgentStateChanged event</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

@@ -246,6 +246,66 @@
         <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DropFile">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.DropFileEventArgs&gt; DropFile;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DropFileEventArgs&gt; DropFile" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.DropFileEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExitRequested">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ExitRequestedEventArgs&gt; ExitRequested;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ExitRequestedEventArgs&gt; ExitRequested" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ExitRequestedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GestureInput">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.GestureInputEventArgs&gt; GestureInput;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.GestureInputEventArgs&gt; GestureInput" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.GestureInputEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GestureRecorded">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.GestureRecordedEventArgs&gt; GestureRecorded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.GestureRecordedEventArgs&gt; GestureRecorded" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.GestureRecordedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetJoystick">
       <MemberSignature Language="C#" Value="public Urho.JoystickState* GetJoystick (int id);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.JoystickState* GetJoystick(int32 id) cil managed" />
@@ -639,6 +699,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="InputFocus">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.InputFocusEventArgs&gt; InputFocus;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.InputFocusEventArgs&gt; InputFocus" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.InputFocusEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IsMinimized">
       <MemberSignature Language="C#" Value="public bool IsMinimized ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsMinimized() cil managed" />
@@ -737,6 +812,156 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="JoystickAxisMove">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.JoystickAxisMoveEventArgs&gt; JoystickAxisMove;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.JoystickAxisMoveEventArgs&gt; JoystickAxisMove" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.JoystickAxisMoveEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JoystickButtonDown">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.JoystickButtonDownEventArgs&gt; JoystickButtonDown;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.JoystickButtonDownEventArgs&gt; JoystickButtonDown" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.JoystickButtonDownEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JoystickButtonUp">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.JoystickButtonUpEventArgs&gt; JoystickButtonUp;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.JoystickButtonUpEventArgs&gt; JoystickButtonUp" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.JoystickButtonUpEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JoystickConnected">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.JoystickConnectedEventArgs&gt; JoystickConnected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.JoystickConnectedEventArgs&gt; JoystickConnected" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.JoystickConnectedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JoystickDisconnected">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.JoystickDisconnectedEventArgs&gt; JoystickDisconnected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.JoystickDisconnectedEventArgs&gt; JoystickDisconnected" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.JoystickDisconnectedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="JoystickHatMove">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.JoystickHatMoveEventArgs&gt; JoystickHatMove;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.JoystickHatMoveEventArgs&gt; JoystickHatMove" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.JoystickHatMoveEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeyDown">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.KeyDownEventArgs&gt; KeyDown;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.KeyDownEventArgs&gt; KeyDown" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.KeyDownEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeyUp">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.KeyUpEventArgs&gt; KeyUp;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.KeyUpEventArgs&gt; KeyUp" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.KeyUpEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseButtonDown">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.MouseButtonDownEventArgs&gt; MouseButtonDown;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.MouseButtonDownEventArgs&gt; MouseButtonDown" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.MouseButtonDownEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseButtonUp">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.MouseButtonUpEventArgs&gt; MouseButtonUp;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.MouseButtonUpEventArgs&gt; MouseButtonUp" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.MouseButtonUpEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MouseMode">
       <MemberSignature Language="C#" Value="public Urho.MouseMode MouseMode { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.MouseMode MouseMode" />
@@ -760,6 +985,21 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="MouseModeChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.MouseModeChangedEventArgs&gt; MouseModeChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.MouseModeChangedEventArgs&gt; MouseModeChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.MouseModeChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MouseMove">
       <MemberSignature Language="C#" Value="public Urho.IntVector2 MouseMove { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 MouseMove" />
@@ -775,6 +1015,21 @@
             Return mouse movement since last frame.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseMoved">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.MouseMovedEventArgs&gt; MouseMoved;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.MouseMovedEventArgs&gt; MouseMoved" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.MouseMovedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -847,6 +1102,51 @@
             Return mouse position within window. Should only be used with a visible mouse cursor.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseVisibleChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.MouseVisibleChangedEventArgs&gt; MouseVisibleChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.MouseVisibleChangedEventArgs&gt; MouseVisibleChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.MouseVisibleChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MouseWheel">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.MouseWheelEventArgs&gt; MouseWheel;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.MouseWheelEventArgs&gt; MouseWheel" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.MouseWheelEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MultiGesture">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.MultiGestureEventArgs&gt; MultiGesture;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.MultiGestureEventArgs&gt; MultiGesture" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.MultiGestureEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1431,9 +1731,9 @@
         <remarks></remarks>
       </Docs>
     </Member>
-    <Member MemberName="SubscribeToMouseMove">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMouseMove (Action&lt;Urho.MouseMoveEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMouseMove(class System.Action`1&lt;valuetype Urho.MouseMoveEventArgs&gt; handler) cil managed" />
+    <Member MemberName="SubscribeToMouseMoved">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMouseMoved (Action&lt;Urho.MouseMovedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMouseMoved(class System.Action`1&lt;valuetype Urho.MouseMovedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1442,11 +1742,11 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.MouseMoveEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.MouseMovedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the MouseMove event raised by the Input.</summary>
+        <summary>Subscribes to the MouseMoved event raised by the Input.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
         <remarks></remarks>
       </Docs>
@@ -1591,6 +1891,21 @@
         <remarks></remarks>
       </Docs>
     </Member>
+    <Member MemberName="TextInput">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TextInputEventArgs&gt; TextInput;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TextInputEventArgs&gt; TextInput" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.TextInputEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ToggleFullscreen">
       <MemberSignature Language="C#" Value="public bool ToggleFullscreen { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool ToggleFullscreen" />
@@ -1611,6 +1926,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="TouchBegin">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TouchBeginEventArgs&gt; TouchBegin;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TouchBeginEventArgs&gt; TouchBegin" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.TouchBeginEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TouchEmulation">
       <MemberSignature Language="C#" Value="public bool TouchEmulation { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool TouchEmulation" />
@@ -1628,6 +1958,36 @@
             Set touch emulation by mouse. Only available on desktop platforms. When enabled, actual mouse events are no longer sent and the mouse cursor is forced visible.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TouchEnd">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TouchEndEventArgs&gt; TouchEnd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TouchEndEventArgs&gt; TouchEnd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.TouchEndEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TouchMove">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TouchMoveEventArgs&gt; TouchMove;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TouchMoveEventArgs&gt; TouchMove" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.TouchMoveEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

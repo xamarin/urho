@@ -401,6 +401,66 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="PhysicsBeginContact2D">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsBeginContact2DEventArgs&gt; PhysicsBeginContact2D;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsBeginContact2DEventArgs&gt; PhysicsBeginContact2D" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsBeginContact2DEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicsEndContact2D">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsEndContact2DEventArgs&gt; PhysicsEndContact2D;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsEndContact2DEventArgs&gt; PhysicsEndContact2D" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsEndContact2DEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicsPostStep2D">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsPostStep2DEventArgs&gt; PhysicsPostStep2D;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsPostStep2DEventArgs&gt; PhysicsPostStep2D" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsPostStep2DEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicsPreStep2D">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsPreStep2DEventArgs&gt; PhysicsPreStep2D;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsPreStep2DEventArgs&gt; PhysicsPreStep2D" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsPreStep2DEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PositionIterations">
       <MemberSignature Language="C#" Value="public int PositionIterations { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 PositionIterations" />

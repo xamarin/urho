@@ -236,6 +236,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="InterceptNetworkUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.InterceptNetworkUpdateEventArgs&gt; InterceptNetworkUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.InterceptNetworkUpdateEventArgs&gt; InterceptNetworkUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.InterceptNetworkUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IsTemporary">
       <MemberSignature Language="C#" Value="public bool IsTemporary ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsTemporary() cil managed" />
@@ -986,6 +1001,21 @@
         <summary>Subscribes to the TemporaryChanged event raised by the Serializable.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
         <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TemporaryChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TemporaryChangedEventArgs&gt; TemporaryChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TemporaryChangedEventArgs&gt; TemporaryChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.TemporaryChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">

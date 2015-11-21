@@ -90,6 +90,21 @@
         <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="BeginViewUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.BeginViewUpdateEventArgs&gt; BeginViewUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.BeginViewUpdateEventArgs&gt; BeginViewUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.BeginViewUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Camera">
       <MemberSignature Language="C#" Value="public Urho.Camera Camera { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Camera Camera" />
@@ -147,6 +162,21 @@
             Return whether should draw debug geometry.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EndViewUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.EndViewUpdateEventArgs&gt; EndViewUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.EndViewUpdateEventArgs&gt; EndViewUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.EndViewUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -146,6 +146,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ConsoleCommand">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ConsoleCommandEventArgs&gt; ConsoleCommand;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ConsoleCommandEventArgs&gt; ConsoleCommand" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ConsoleCommandEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="CopySelectedRows">
       <MemberSignature Language="C#" Value="public void CopySelectedRows ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CopySelectedRows() cil managed" />

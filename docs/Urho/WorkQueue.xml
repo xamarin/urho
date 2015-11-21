@@ -369,5 +369,20 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="WorkItemCompleted">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.WorkItemCompletedEventArgs&gt; WorkItemCompleted;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.WorkItemCompletedEventArgs&gt; WorkItemCompleted" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.WorkItemCompletedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
   </Members>
 </Type>

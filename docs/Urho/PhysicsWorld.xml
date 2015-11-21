@@ -490,6 +490,81 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="PhysicsCollision">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsCollisionEventArgs&gt; PhysicsCollision;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsCollisionEventArgs&gt; PhysicsCollision" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsCollisionEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicsCollisionEnd">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsCollisionEndEventArgs&gt; PhysicsCollisionEnd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsCollisionEndEventArgs&gt; PhysicsCollisionEnd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsCollisionEndEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicsCollisionStart">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsCollisionStartEventArgs&gt; PhysicsCollisionStart;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsCollisionStartEventArgs&gt; PhysicsCollisionStart" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsCollisionStartEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicsPostStep">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsPostStepEventArgs&gt; PhysicsPostStep;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsPostStepEventArgs&gt; PhysicsPostStep" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsPostStepEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicsPreStep">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsPreStepEventArgs&gt; PhysicsPreStep;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsPreStepEventArgs&gt; PhysicsPreStep" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PhysicsPreStepEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RaycastSingle">
       <MemberSignature Language="C#" Value="public void RaycastSingle (ref Urho.PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, uint collisionMask);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RaycastSingle(valuetype Urho.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 maxDistance, unsigned int32 collisionMask) cil managed" />

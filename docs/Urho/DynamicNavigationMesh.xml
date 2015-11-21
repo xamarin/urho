@@ -213,6 +213,36 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="NavigationObstacleAdded">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NavigationObstacleAddedEventArgs&gt; NavigationObstacleAdded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NavigationObstacleAddedEventArgs&gt; NavigationObstacleAdded" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.NavigationObstacleAddedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NavigationObstacleRemoved">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NavigationObstacleRemovedEventArgs&gt; NavigationObstacleRemoved;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NavigationObstacleRemovedEventArgs&gt; NavigationObstacleRemoved" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.NavigationObstacleRemovedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RegisterObject">
       <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context param1);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context param1) cil managed" />

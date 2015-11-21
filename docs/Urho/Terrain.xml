@@ -830,6 +830,21 @@
         <remarks></remarks>
       </Docs>
     </Member>
+    <Member MemberName="TerrainCreated">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TerrainCreatedEventArgs&gt; TerrainCreated;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TerrainCreatedEventArgs&gt; TerrainCreated" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.TerrainCreatedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Type">
       <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />

@@ -1,0 +1,17 @@
+<Type Name="FrameEndedEventArgs" FullName="Urho.FrameEndedEventArgs">
+  <TypeSignature Language="C#" Value="public struct FrameEndedEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit FrameEndedEventArgs extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Event arguments for the Time's FrameEnded event</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

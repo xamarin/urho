@@ -108,6 +108,51 @@
         <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CrowdAgentFailure">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.CrowdAgentFailureEventArgs&gt; CrowdAgentFailure;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.CrowdAgentFailureEventArgs&gt; CrowdAgentFailure" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.CrowdAgentFailureEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CrowdAgentReposition">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.CrowdAgentRepositionEventArgs&gt; CrowdAgentReposition;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.CrowdAgentRepositionEventArgs&gt; CrowdAgentReposition" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.CrowdAgentRepositionEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CrowdAgentStateChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt; CrowdAgentStateChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.CrowdAgentStateChangedEventArgs&gt; CrowdAgentStateChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DrawDebugGeometry">
       <MemberSignature Language="C#" Value="public void DrawDebugGeometry (bool depthTest);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DrawDebugGeometry(bool depthTest) cil managed" />
@@ -704,6 +749,66 @@
             Set the params for the specified obstacle avoidance type.
             </summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToCrowdAgentFailure">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentFailure (Action&lt;Urho.CrowdAgentFailureEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentFailure(class System.Action`1&lt;valuetype Urho.CrowdAgentFailureEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.CrowdAgentFailureEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the CrowdAgentFailure event raised by the CrowdManager.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToCrowdAgentReposition">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentReposition (Action&lt;Urho.CrowdAgentRepositionEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentReposition(class System.Action`1&lt;valuetype Urho.CrowdAgentRepositionEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.CrowdAgentRepositionEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the CrowdAgentReposition event raised by the CrowdManager.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToCrowdAgentStateChanged">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentStateChanged (Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentStateChanged(class System.Action`1&lt;valuetype Urho.CrowdAgentStateChangedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the CrowdAgentStateChanged event raised by the CrowdManager.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">

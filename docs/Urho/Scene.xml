@@ -143,6 +143,21 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AsyncLoadFinished">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.AsyncLoadFinishedEventArgs&gt; AsyncLoadFinished;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.AsyncLoadFinishedEventArgs&gt; AsyncLoadFinished" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.AsyncLoadFinishedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AsyncLoadingMs">
       <MemberSignature Language="C#" Value="public int AsyncLoadingMs { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 AsyncLoadingMs" />
@@ -181,6 +196,21 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AsyncLoadProgress">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.AsyncLoadProgressEventArgs&gt; AsyncLoadProgress;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.AsyncLoadProgressEventArgs&gt; AsyncLoadProgress" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.AsyncLoadProgressEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AsyncProgress">
       <MemberSignature Language="C#" Value="public float AsyncProgress { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 AsyncProgress" />
@@ -196,6 +226,21 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Return asynchronous loading progress between 0.0 and 1.0, or 1.0 if not in progress.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttributeAnimationUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.AttributeAnimationUpdateEventArgs&gt; AttributeAnimationUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.AttributeAnimationUpdateEventArgs&gt; AttributeAnimationUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.AttributeAnimationUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -314,44 +359,47 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="ComponentAdded">
-      <MemberSignature Language="C#" Value="public void ComponentAdded (Urho.Component component);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ComponentAdded(class Urho.Component component) cil managed" />
-      <MemberType>Method</MemberType>
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ComponentAddedEventArgs&gt; ComponentAdded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ComponentAddedEventArgs&gt; ComponentAdded" />
+      <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Action&lt;Urho.ComponentAddedEventArgs&gt;</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="component" Type="Urho.Component" />
-      </Parameters>
       <Docs>
-        <param name="component">To be added.</param>
-        <summary>
-            Component added. Add to ID map.
-            </summary>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ComponentEnabledChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ComponentEnabledChangedEventArgs&gt; ComponentEnabledChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ComponentEnabledChangedEventArgs&gt; ComponentEnabledChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ComponentEnabledChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ComponentRemoved">
-      <MemberSignature Language="C#" Value="public void ComponentRemoved (Urho.Component component);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ComponentRemoved(class Urho.Component component) cil managed" />
-      <MemberType>Method</MemberType>
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ComponentRemovedEventArgs&gt; ComponentRemoved;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ComponentRemovedEventArgs&gt; ComponentRemoved" />
+      <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Action&lt;Urho.ComponentRemovedEventArgs&gt;</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="component" Type="Urho.Component" />
-      </Parameters>
       <Docs>
-        <param name="component">To be added.</param>
-        <summary>
-            Component removed. Remove from ID map.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -817,44 +865,62 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="NodeAdded">
-      <MemberSignature Language="C#" Value="public void NodeAdded (Urho.Node node);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void NodeAdded(class Urho.Node node) cil managed" />
-      <MemberType>Method</MemberType>
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NodeAddedEventArgs&gt; NodeAdded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NodeAddedEventArgs&gt; NodeAdded" />
+      <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Action&lt;Urho.NodeAddedEventArgs&gt;</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="node" Type="Urho.Node" />
-      </Parameters>
       <Docs>
-        <param name="node">To be added.</param>
-        <summary>
-            Node added. Assign scene pointer and add to ID map.
-            </summary>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NodeEnabledChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NodeEnabledChangedEventArgs&gt; NodeEnabledChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NodeEnabledChangedEventArgs&gt; NodeEnabledChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.NodeEnabledChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NodeNameChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NodeNameChangedEventArgs&gt; NodeNameChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NodeNameChangedEventArgs&gt; NodeNameChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.NodeNameChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="NodeRemoved">
-      <MemberSignature Language="C#" Value="public void NodeRemoved (Urho.Node node);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void NodeRemoved(class Urho.Node node) cil managed" />
-      <MemberType>Method</MemberType>
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NodeRemovedEventArgs&gt; NodeRemoved;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NodeRemovedEventArgs&gt; NodeRemoved" />
+      <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Action&lt;Urho.NodeRemovedEventArgs&gt;</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="node" Type="Urho.Node" />
-      </Parameters>
       <Docs>
-        <param name="node">To be added.</param>
-        <summary>
-            Node removed. Remove from ID map.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -955,6 +1021,66 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="indentation">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SceneDrawableUpdateFinished">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.SceneDrawableUpdateFinishedEventArgs&gt; SceneDrawableUpdateFinished;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.SceneDrawableUpdateFinishedEventArgs&gt; SceneDrawableUpdateFinished" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.SceneDrawableUpdateFinishedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScenePostUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ScenePostUpdateEventArgs&gt; ScenePostUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ScenePostUpdateEventArgs&gt; ScenePostUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ScenePostUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SceneSubsystemUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.SceneSubsystemUpdateEventArgs&gt; SceneSubsystemUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.SceneSubsystemUpdateEventArgs&gt; SceneSubsystemUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.SceneSubsystemUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SceneUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.SceneUpdateEventArgs&gt; SceneUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.SceneUpdateEventArgs&gt; SceneUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.SceneUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1499,6 +1625,21 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <summary>
             Update scene. Called by HandleUpdate.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateSmoothing">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.UpdateSmoothingEventArgs&gt; UpdateSmoothing;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.UpdateSmoothingEventArgs&gt; UpdateSmoothing" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.UpdateSmoothingEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

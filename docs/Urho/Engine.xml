@@ -486,6 +486,36 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="PostRenderUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PostRenderUpdateEventArgs&gt; PostRenderUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PostRenderUpdateEventArgs&gt; PostRenderUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PostRenderUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PostUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PostUpdateEventArgs&gt; PostUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PostUpdateEventArgs&gt; PostUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.PostUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Render">
       <MemberSignature Language="C#" Value="public void Render ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Render() cil managed" />
@@ -501,6 +531,21 @@
         <summary>
             Render after frame update.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderUpdate">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.RenderUpdateEventArgs&gt; RenderUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.RenderUpdateEventArgs&gt; RenderUpdate" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.RenderUpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -578,26 +623,6 @@
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the RenderUpdate event raised by the Engine.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SubscribeToUpdate">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUpdate (Action&lt;Urho.UpdateEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUpdate(class System.Action`1&lt;valuetype Urho.UpdateEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.UpdateEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the Update event raised by the Engine.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
         <remarks></remarks>
       </Docs>
@@ -687,8 +712,23 @@
       </Docs>
     </Member>
     <Member MemberName="Update">
-      <MemberSignature Language="C#" Value="public void Update ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Update() cil managed" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.UpdateEventArgs&gt; Update;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.UpdateEventArgs&gt; Update" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.UpdateEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateFrame">
+      <MemberSignature Language="C#" Value="public void UpdateFrame ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateFrame() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -698,9 +738,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>
-            Send frame update events.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

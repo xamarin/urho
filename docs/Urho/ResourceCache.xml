@@ -277,6 +277,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FileChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.FileChangedEventArgs&gt; FileChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.FileChangedEventArgs&gt; FileChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.FileChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FinishBackgroundResourcesMs">
       <MemberSignature Language="C#" Value="public int FinishBackgroundResourcesMs { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 FinishBackgroundResourcesMs" />
@@ -418,6 +433,28 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Image</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJsonFile">
+      <MemberSignature Language="C#" Value="public Urho.JsonFile GetJsonFile (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.JsonFile GetJsonFile(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.JsonFile</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -923,6 +960,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="LoadFailed">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.LoadFailedEventArgs&gt; LoadFailed;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.LoadFailedEventArgs&gt; LoadFailed" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.LoadFailedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NumBackgroundLoadResources">
       <MemberSignature Language="C#" Value="public uint NumBackgroundLoadResources { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumBackgroundLoadResources" />
@@ -1229,6 +1281,36 @@
         <summary>
             Reset dependencies for a resource.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResourceBackgroundLoaded">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt; ResourceBackgroundLoaded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ResourceBackgroundLoadedEventArgs&gt; ResourceBackgroundLoaded" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResourceNotFound">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ResourceNotFoundEventArgs&gt; ResourceNotFound;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ResourceNotFoundEventArgs&gt; ResourceNotFound" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ResourceNotFoundEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1541,6 +1623,21 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnknownResourceType">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.UnknownResourceTypeEventArgs&gt; UnknownResourceType;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.UnknownResourceTypeEventArgs&gt; UnknownResourceType" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.UnknownResourceTypeEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

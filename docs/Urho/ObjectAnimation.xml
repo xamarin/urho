@@ -102,6 +102,36 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AttributeAnimationAdded">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.AttributeAnimationAddedEventArgs&gt; AttributeAnimationAdded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.AttributeAnimationAddedEventArgs&gt; AttributeAnimationAdded" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.AttributeAnimationAddedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttributeAnimationRemoved">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.AttributeAnimationRemovedEventArgs&gt; AttributeAnimationRemoved;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.AttributeAnimationRemovedEventArgs&gt; AttributeAnimationRemoved" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.AttributeAnimationRemovedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="BaseType">
       <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />

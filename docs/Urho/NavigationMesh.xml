@@ -680,6 +680,36 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="NavigationAreaRebuilt">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NavigationAreaRebuiltEventArgs&gt; NavigationAreaRebuilt;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NavigationAreaRebuiltEventArgs&gt; NavigationAreaRebuilt" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.NavigationAreaRebuiltEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NavigationMeshRebuilt">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NavigationMeshRebuiltEventArgs&gt; NavigationMeshRebuilt;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NavigationMeshRebuiltEventArgs&gt; NavigationMeshRebuilt" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.NavigationMeshRebuiltEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NumTiles">
       <MemberSignature Language="C#" Value="public Urho.IntVector2 NumTiles { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 NumTiles" />

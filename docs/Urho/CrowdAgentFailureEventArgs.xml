@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Event arguments for the CrowdAgent's CrowdAgentFailure event</summary>
+    <summary>Event arguments for the CrowdManager's CrowdAgentFailure event</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

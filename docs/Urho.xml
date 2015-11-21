@@ -2087,7 +2087,7 @@
         </member>
         <member name="C:Urho.Application(Urho.Context,Urho.ApplicationOptions)">
             <param name="context">The context that this object will be attached to.</param>
-            <param name="options"></param>
+            <param name="options">Application options, if null, the options default to <see cref="P:Urho.ApplicationOptions.Default" /></param>
             <summary>Creates an instance of Application that is attached to an execution context.</summary>
             <remarks>
                 <para>This creates an instance of Application attached to the specified execution context.</para>
@@ -2111,11 +2111,11 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Application.CreateInstance(System.Type,Urho.Context)">
-            <param name="applicationType"></param>
-            <param name="context"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="applicationType">The type of the application to create, it must be a subclass of the <see cref="T:Urho.Application" /> class.</param>
+            <param name="context">The execution context to use for it, if null, a default instance of Context is created.</param>
+            <summary>Factory method used to create an Application from a Type.</summary>
+            <returns>The created application.</returns>
+            <remarks>This will try to invoke the constructor for the specified Type which takes a <see cref="T:Urho.C" />ontext parameter, or a <see cref="T:Urho.Context" /> parameter and an <see cref="T:Urho.ApplicationOptions" /> parameter.</remarks>
         </member>
         <member name="M:Urho.Application.CreateInstance``1(Urho.Context)">
             <typeparam name="T"></typeparam>
@@ -2195,14 +2195,18 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.Options">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>The application options in use</summary>
+            <value>The value is either the one that was passed to the constructor, or the default.</value>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Application.Platform">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Simple way of obtaining the platform on which the program is running from cross platform code.</summary>
+            <value>
+                <para />
+            </value>
+            <remarks>Use this to easily find out from your cross platform code on which platform you are executing.</remarks>
         </member>
         <member name="P:Urho.Application.Profiler">
             <summary>Returns the Profiler subsystem.</summary>
@@ -2269,8 +2273,8 @@
             <remarks></remarks>
         </member>
         <member name="E:Urho.Application.Update">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Frame update event</summary>
+            <remarks>This event is raised when the frame has been updated.</remarks>
         </member>
         <member name="P:Urho.Application.WorkQueue">
             <summary>Returns the WorkQueue subsystem.</summary>
@@ -2350,7 +2354,9 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.ResourcePrefixPath">
-            <summary></summary>
+            <summary>
+                <para>Resource prefix path, default to URHO3D_PREFIX_PATH environment variable or  the executable path</para>
+            </summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -2360,7 +2366,7 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.TouchEmulation">
-            <summary></summary>
+            <summary>Enable touch-emulation on desktop environments.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -2964,20 +2970,6 @@
             <remarks>
                 <para />
             </remarks>
-        </member>
-        <member name="T:Urho.BeginFrameEventArgs">
-            <summary>Event arguments for the Time's BeginFrame event</summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.BeginFrameEventArgs.FrameNumber">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.BeginFrameEventArgs.TimeStep">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
         </member>
         <member name="T:Urho.BeginRenderingEventArgs">
             <summary></summary>
@@ -3967,18 +3959,6 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Button.OnDragMove(Urho.IntVector2,Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="deltaPos"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag motion.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Button.OnKey(System.Int32,System.Int32,System.Int32)">
             <param name="key"></param>
             <param name="buttons"></param>
@@ -3986,6 +3966,10 @@
             <summary>
             React to a key press.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Button.Pressed">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Button.PressedChildOffset">
@@ -4011,6 +3995,10 @@
             <summary>
             Register object factory.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Button.Released">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Button.RepeatDelay">
@@ -4871,6 +4859,10 @@
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
+        <member name="E:Urho.CheckBox.Toggled">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.CheckBox.Type">
             <summary>Urho's type system type.</summary>
             <value>StringHash representing the type for this C# type.</value>
@@ -4892,7 +4884,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.ClientConnectedEventArgs">
-            <summary>Event arguments for the Connection's ClientConnected event</summary>
+            <summary>Event arguments for the Network's ClientConnected event</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.ClientConnectedEventArgs.Connection">
@@ -4901,7 +4893,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.ClientDisconnectedEventArgs">
-            <summary>Event arguments for the Connection's ClientDisconnected event</summary>
+            <summary>Event arguments for the Network's ClientDisconnected event</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.ClientDisconnectedEventArgs.Connection">
@@ -6381,6 +6373,14 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Connection.ClientIdentity">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Connection.ClientSceneLoaded">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Connection.ConfigureNetworkSimulator(System.Int32,System.Single)">
             <param name="latencyMs"></param>
             <param name="packetLoss"></param>
@@ -6586,18 +6586,6 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Connection.SubscribeToClientConnected(System.Action{Urho.ClientConnectedEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the ClientConnected event raised by the Connection.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks />
-        </member>
-        <member name="M:Urho.Connection.SubscribeToClientDisconnected(System.Action{Urho.ClientDisconnectedEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the ClientDisconnected event raised by the Connection.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks />
-        </member>
         <member name="M:Urho.Connection.SubscribeToClientIdentity(System.Action{Urho.ClientIdentityEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
             <summary>Subscribes to the ClientIdentity event raised by the Connection.</summary>
@@ -6607,18 +6595,6 @@
         <member name="M:Urho.Connection.SubscribeToClientSceneLoaded(System.Action{Urho.ClientSceneLoadedEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
             <summary>Subscribes to the ClientSceneLoaded event raised by the Connection.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks />
-        </member>
-        <member name="M:Urho.Connection.SubscribeToNetworkMessage(System.Action{Urho.NetworkMessageEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the NetworkMessage event raised by the Connection.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks />
-        </member>
-        <member name="M:Urho.Connection.SubscribeToNetworkSceneLoadFailed(System.Action{Urho.NetworkSceneLoadFailedEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the NetworkSceneLoadFailed event raised by the Connection.</summary>
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
@@ -8703,24 +8679,6 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.CrowdAgent.SubscribeToCrowdAgentFailure(System.Action{Urho.CrowdAgentFailureEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the CrowdAgentFailure event raised by the CrowdAgent.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks />
-        </member>
-        <member name="M:Urho.CrowdAgent.SubscribeToCrowdAgentReposition(System.Action{Urho.CrowdAgentRepositionEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the CrowdAgentReposition event raised by the CrowdAgent.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks />
-        </member>
-        <member name="M:Urho.CrowdAgent.SubscribeToCrowdAgentStateChanged(System.Action{Urho.CrowdAgentStateChangedEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the CrowdAgentStateChanged event raised by the CrowdAgent.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks />
-        </member>
         <member name="P:Urho.CrowdAgent.TargetPosition">
             <summary>
             Return the agent's requested target position.
@@ -8776,7 +8734,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.CrowdAgentFailureEventArgs">
-            <summary>Event arguments for the CrowdAgent's CrowdAgentFailure event</summary>
+            <summary>Event arguments for the CrowdManager's CrowdAgentFailure event</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CrowdAgentFailureEventArgs.CrowdAgent">
@@ -8839,7 +8797,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.CrowdAgentRepositionEventArgs">
-            <summary>Event arguments for the CrowdAgent's CrowdAgentReposition event</summary>
+            <summary>Event arguments for the CrowdManager's CrowdAgentReposition event</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CrowdAgentRepositionEventArgs.Arrived">
@@ -8901,7 +8859,7 @@
             <summary></summary>
         </member>
         <member name="T:Urho.CrowdAgentStateChangedEventArgs">
-            <summary>Event arguments for the CrowdAgent's CrowdAgentStateChanged event</summary>
+            <summary>Event arguments for the CrowdManager's CrowdAgentStateChanged event</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CrowdAgentStateChangedEventArgs.CrowdAgent">
@@ -9000,6 +8958,18 @@
             <summary>Urho's type system base type.</summary>
             <value>StringHash representing the base type for this Urho type.</value>
             <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+        </member>
+        <member name="E:Urho.CrowdManager.CrowdAgentFailure">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.CrowdManager.CrowdAgentReposition">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.CrowdManager.CrowdAgentStateChanged">
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="M:Urho.CrowdManager.DrawDebugGeometry(System.Boolean)">
             <param name="depthTest"></param>
@@ -9224,6 +9194,24 @@
             Set the params for the specified obstacle avoidance type.
             </summary>
             <remarks></remarks>
+        </member>
+        <member name="M:Urho.CrowdManager.SubscribeToCrowdAgentFailure(System.Action{Urho.CrowdAgentFailureEventArgs})">
+            <param name="handler">The handler to invoke when this event is raised.</param>
+            <summary>Subscribes to the CrowdAgentFailure event raised by the CrowdManager.</summary>
+            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+            <remarks />
+        </member>
+        <member name="M:Urho.CrowdManager.SubscribeToCrowdAgentReposition(System.Action{Urho.CrowdAgentRepositionEventArgs})">
+            <param name="handler">The handler to invoke when this event is raised.</param>
+            <summary>Subscribes to the CrowdAgentReposition event raised by the CrowdManager.</summary>
+            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+            <remarks />
+        </member>
+        <member name="M:Urho.CrowdManager.SubscribeToCrowdAgentStateChanged(System.Action{Urho.CrowdAgentStateChangedEventArgs})">
+            <param name="handler">The handler to invoke when this event is raised.</param>
+            <summary>Subscribes to the CrowdAgentStateChanged event raised by the CrowdManager.</summary>
+            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+            <remarks />
         </member>
         <member name="P:Urho.CrowdManager.Type">
             <summary>Urho's type system type.</summary>
@@ -11187,6 +11175,10 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.DropDownList.ItemSelected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.DropDownList.ListView">
             <summary>
             Return listview element.
@@ -11413,6 +11405,14 @@
             Set the maximum number of obstacles allowed.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.DynamicNavigationMesh.NavigationObstacleAdded">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.DynamicNavigationMesh.NavigationObstacleRemoved">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.DynamicNavigationMesh.RegisterObject(Urho.Context)">
@@ -12354,10 +12354,6 @@
         <member name="F:Urho.EmitterType2D.Radial">
             <summary></summary>
         </member>
-        <member name="T:Urho.EndFrameEventArgs">
-            <summary>Event arguments for the Time's EndFrame event</summary>
-            <remarks></remarks>
-        </member>
         <member name="T:Urho.EndRenderingEventArgs">
             <summary></summary>
             <remarks></remarks>
@@ -12664,10 +12660,22 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Engine.PostRenderUpdate">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Engine.PostUpdate">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Engine.Render">
             <summary>
             Render after frame update.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Engine.RenderUpdate">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Engine.RunFrame">
@@ -12691,12 +12699,6 @@
         <member name="M:Urho.Engine.SubscribeToRenderUpdate(System.Action{Urho.RenderUpdateEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
             <summary>Subscribes to the RenderUpdate event raised by the Engine.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks />
-        </member>
-        <member name="M:Urho.Engine.SubscribeToUpdate(System.Action{Urho.UpdateEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the Update event raised by the Engine.</summary>
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
@@ -12729,10 +12731,12 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Engine.Update">
-            <summary>
-            Send frame update events.
-            </summary>
+        <member name="E:Urho.Engine.Update">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Engine.UpdateFrame">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.ExitRequestedEventArgs">
@@ -13204,6 +13208,10 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.FileSelector.FileSelected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.FileSelector.Filter">
             <summary>
             Return current filter.
@@ -13348,6 +13356,10 @@
                 <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
+        </member>
+        <member name="E:Urho.FileSystem.AsyncExecFinished">
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.FileSystem.BaseType">
             <summary>Urho's type system base type.</summary>
@@ -14086,6 +14098,24 @@
         </member>
         <member name="T:Urho.FontGlyph">
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.FrameEndedEventArgs">
+            <summary>Event arguments for the Time's FrameEnded event</summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.FrameStartedEventArgs">
+            <summary>Event arguments for the Time's FrameStarted event</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.FrameStartedEventArgs.FrameNumber">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.FrameStartedEventArgs.TimeStep">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Frustum">
@@ -16554,6 +16584,22 @@
             <value>StringHash representing the base type for this Urho type.</value>
             <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
         </member>
+        <member name="E:Urho.Input.DropFile">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.ExitRequested">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.GestureInput">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.GestureRecorded">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Input.GetJoystick(System.Int32)">
             <param name="id"></param>
             <summary>
@@ -16697,6 +16743,10 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Input.InputFocus">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Input.IsMinimized">
             <summary>
             Return whether application window is minimized.
@@ -16733,6 +16783,46 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Input.JoystickAxisMove">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.JoystickButtonDown">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.JoystickButtonUp">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.JoystickConnected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.JoystickDisconnected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.JoystickHatMove">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.KeyDown">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.KeyUp">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.MouseButtonDown">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.MouseButtonUp">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Input.MouseMode">
             <summary>
             Return the mouse mode.
@@ -16745,11 +16835,19 @@
                 <para>See the <see cref="T:Urho.MouseMode" /> enumeration for detais on the meaning of the MouseMode.</para>
             </remarks>
         </member>
+        <member name="E:Urho.Input.MouseModeChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Input.MouseMove">
             <summary>
             Return mouse movement since last frame.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.MouseMoved">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Input.MouseMoveWheel">
@@ -16778,6 +16876,18 @@
             Return mouse position within window. Should only be used with a visible mouse cursor.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.MouseVisibleChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.MouseWheel">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.MultiGesture">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Input.NumJoysticks">
@@ -16971,9 +17081,9 @@
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
-        <member name="M:Urho.Input.SubscribeToMouseMove(System.Action{Urho.MouseMoveEventArgs})">
+        <member name="M:Urho.Input.SubscribeToMouseMoved(System.Action{Urho.MouseMovedEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the MouseMove event raised by the Input.</summary>
+            <summary>Subscribes to the MouseMoved event raised by the Input.</summary>
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
@@ -17019,6 +17129,10 @@
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
+        <member name="E:Urho.Input.TextInput">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Input.ToggleFullscreen">
             <summary>
             Return whether fullscreen toggle is enabled.
@@ -17028,6 +17142,10 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Input.TouchBegin">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Input.TouchEmulation">
             <summary>
             Return whether touch emulation is enabled.
@@ -17035,6 +17153,14 @@
             Set touch emulation by mouse. Only available on desktop platforms. When enabled, actual mouse events are no longer sent and the mouse cursor is forced visible.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.TouchEnd">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Input.TouchMove">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Input.TryGetJoystickState(System.UInt32,Urho.JoystickState@)">
@@ -19182,6 +19308,10 @@
             <value>StringHash representing the base type for this Urho type.</value>
             <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
         </member>
+        <member name="E:Urho.LineEdit.CharEntry">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.LineEdit.Cursor">
             <summary>
             Return cursor element.
@@ -19270,45 +19400,6 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.LineEdit.OnDragBegin(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag begin.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LineEdit.OnDragDropFinish(Urho.UIElement)">
-            <param name="source"></param>
-            <summary>
-            React to drag and drop finish. Return true to signal that the drop was accepted.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LineEdit.OnDragDropTest(Urho.UIElement)">
-            <param name="source"></param>
-            <summary>
-            React to drag and drop test. Return true to signal that the drop is acceptable.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LineEdit.OnDragMove(Urho.IntVector2,Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="deltaPos"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag motion.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.LineEdit.OnKey(System.Int32,System.Int32,System.Int32)">
             <param name="key"></param>
             <param name="buttons"></param>
@@ -19388,11 +19479,19 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.LineEdit.TextChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.LineEdit.TextElement">
             <summary>
             Return text element.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.LineEdit.TextFinished">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.LineEdit.Type">
@@ -19413,6 +19512,10 @@
         <member name="P:Urho.LineEdit.TypeStatic">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.LineEdit.UnhandledKey">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.LineEdit.Update(System.Single)">
@@ -19626,6 +19729,22 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.ListView.ItemClicked">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ListView.ItemDeselected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ListView.ItemDoubleClicked">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ListView.ItemSelected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ListView.Multiselect">
             <summary>
             Return whether multiselect enabled.
@@ -19708,6 +19827,10 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.ListView.SelectionChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ListView.SelectOnClickEnd">
             <summary>
             Return whether reacts to click end instead of click start for item selection.
@@ -19786,6 +19909,10 @@
         <member name="P:Urho.ListView.TypeStatic">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ListView.UnhandledKey">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.LoadFailedEventArgs">
@@ -19898,6 +20025,10 @@
         <member name="P:Urho.Log.LogLevel">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Log.LogMessage">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Log.Open(System.String)">
@@ -21843,6 +21974,10 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Menu.MenuSelected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Menu.OnHidePopup">
             <summary>
             React to the popup being hidden.
@@ -22018,6 +22153,10 @@
             Set message text. No-ops if there is no message text element.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.MessageBox.MessageACK">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.MessageBox.RegisterObject(Urho.Context)">
@@ -22420,36 +22559,36 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.MouseMoveEventArgs">
-            <summary>Event arguments for the Input's MouseMove event</summary>
+        <member name="T:Urho.MouseMovedEventArgs">
+            <summary>Event arguments for the Input's MouseMoved event</summary>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.MouseMoveEventArgs.Buttons">
+        <member name="P:Urho.MouseMovedEventArgs.Buttons">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.MouseMoveEventArgs.DX">
+        <member name="P:Urho.MouseMovedEventArgs.DX">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.MouseMoveEventArgs.DY">
+        <member name="P:Urho.MouseMovedEventArgs.DY">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.MouseMoveEventArgs.Qualifiers">
+        <member name="P:Urho.MouseMovedEventArgs.Qualifiers">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.MouseMoveEventArgs.X">
+        <member name="P:Urho.MouseMovedEventArgs.X">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.MouseMoveEventArgs.Y">
+        <member name="P:Urho.MouseMovedEventArgs.Y">
             <summary></summary>
             <value></value>
             <remarks></remarks>
@@ -23091,6 +23230,14 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.NavigationMesh.NavigationAreaRebuilt">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.NavigationMesh.NavigationMeshRebuilt">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.NavigationMesh.NumTiles">
             <summary>
             Return number of tiles.
@@ -23380,12 +23527,24 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Network.ClientConnected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Network.ClientDisconnected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Network.Connect(System.String,System.Int16,Urho.Scene)">
             <param name="address"></param>
             <param name="port"></param>
             <param name="scene"></param>
             <summary></summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Network.ConnectFailed">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Network.Disconnect(System.Int32)">
@@ -23400,6 +23559,22 @@
             Return whether the server is running.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Network.NetworkMessage">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Network.NetworkSceneLoadFailed">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Network.NetworkUpdate">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Network.NetworkUpdateSent">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Network.PackageCacheDir">
@@ -23433,11 +23608,19 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Network.ServerConnected">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Network.ServerConnection">
             <summary>
             Return the connection to the server. Null if not connected.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Network.ServerDisconnected">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Network.SimulatedLatency">
@@ -23472,9 +23655,33 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Network.SubscribeToClientConnected(System.Action{Urho.ClientConnectedEventArgs})">
+            <param name="handler">The handler to invoke when this event is raised.</param>
+            <summary>Subscribes to the ClientConnected event raised by the Network.</summary>
+            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+            <remarks />
+        </member>
+        <member name="M:Urho.Network.SubscribeToClientDisconnected(System.Action{Urho.ClientDisconnectedEventArgs})">
+            <param name="handler">The handler to invoke when this event is raised.</param>
+            <summary>Subscribes to the ClientDisconnected event raised by the Network.</summary>
+            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+            <remarks />
+        </member>
         <member name="M:Urho.Network.SubscribeToConnectFailed(System.Action{Urho.ConnectFailedEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
             <summary>Subscribes to the ConnectFailed event raised by the Network.</summary>
+            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+            <remarks />
+        </member>
+        <member name="M:Urho.Network.SubscribeToNetworkMessage(System.Action{Urho.NetworkMessageEventArgs})">
+            <param name="handler">The handler to invoke when this event is raised.</param>
+            <summary>Subscribes to the NetworkMessage event raised by the Network.</summary>
+            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+            <remarks />
+        </member>
+        <member name="M:Urho.Network.SubscribeToNetworkSceneLoadFailed(System.Action{Urho.NetworkSceneLoadFailedEventArgs})">
+            <param name="handler">The handler to invoke when this event is raised.</param>
+            <summary>Subscribes to the NetworkSceneLoadFailed event raised by the Network.</summary>
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
@@ -23552,7 +23759,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.NetworkMessageEventArgs">
-            <summary>Event arguments for the Connection's NetworkMessage event</summary>
+            <summary>Event arguments for the Network's NetworkMessage event</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.NetworkMessageEventArgs.Connection">
@@ -23670,7 +23877,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.NetworkSceneLoadFailedEventArgs">
-            <summary>Event arguments for the Connection's NetworkSceneLoadFailed event</summary>
+            <summary>Event arguments for the Network's NetworkSceneLoadFailed event</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.NetworkSceneLoadFailedEventArgs.Connection">
@@ -23720,28 +23927,40 @@
             </remarks>
         </member>
         <member name="M:Urho.Node.AddChild(Urho.Node)">
-            <param name="node"></param>
+            <param name="node">The node to append to the scene.</param>
             <summary>Adds the specified node as a child of this node.</summary>
-            <remarks></remarks>
+            <remarks>
+                <para>This appends the child to the end of the list.</para>
+                <para />
+                <para>The NodeAdded event is raised if the node is currently attached to a scene.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Node.AddChild(Urho.Node,System.UInt32)">
-            <param name="node"></param>
-            <param name="index"></param>
+            <param name="node">The node to append to the scene.</param>
+            <param name="index">
+                <para>If index is greater than current children size, append the new child at the end.</para>
+                <para />
+            </param>
             <summary>
-            Add a child scene node at a specific index. If index is not explicitly specified or is greater than current children size, append the new child at the end.
-            </summary>
-            <remarks></remarks>
+            Add a child scene node at a specific index. </summary>
+            <remarks>
+                <para>This appends the child to the end of the list.</para>
+                <para />
+                <para>The NodeAdded event is raised if the node is currently attached to a scene.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Node.AddComponent(Urho.Component,System.UInt32)">
-            <param name="component"></param>
-            <param name="id"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="component">Component to add.</param>
+            <param name="id">ID to assign to the component, if zero, the <see cref="T:Urho.Scene" /> will assign the ID automatically.</param>
+            <summary>Add a pre-created component.</summary>
+            <remarks>This adds the component and defaults to CreateMode.Replicated for the addition mode.</remarks>
         </member>
         <member name="M:Urho.Node.AddComponent(Urho.Component,System.UInt32,Urho.CreateMode)">
-            <param name="component"></param>
-            <param name="id"></param>
-            <param name="mode"></param>
+            <param name="component">Component to add.</param>
+            <param name="id">ID to assign to the component, if zero, the <see cref="T:Urho.Scene" /> will assign the ID automatically.</param>
+            <param name="mode">
+                <para>Component and child node creation mode for networking.</para>
+            </param>
             <summary>
             Add a pre-created component.
             </summary>
@@ -23761,6 +23980,10 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Node.AnimationTrigger">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Node.ApplyAttributes">
             <summary>
             Apply attribute changes that can not be applied immediately recursively to child nodes and components.
@@ -23775,6 +23998,10 @@
         <member name="P:Urho.Node.BaseTypeStatic">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Node.BoneHierarchyCreated">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Node.Children">
@@ -23826,26 +24053,29 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.CreateChild(System.UInt32,Urho.CreateMode)">
-            <param name="id"></param>
-            <param name="mode"></param>
+            <param name="id">identifier to assign to the child, if the node is attached to a scene, and the ID already exists, a new ID will be assigned.</param>
+            <param name="mode">
+                <para>Component and child node creation mode for networking.</para>
+                <para />
+            </param>
             <summary>
             Create a child node with specific ID.
             </summary>
-            <returns></returns>
+            <returns>The created scene node.</returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.CreateChild(System.String,System.UInt32,Urho.CreateMode)">
             <param name="name"></param>
-            <param name="id"></param>
-            <param name="mode"></param>
-            <summary></summary>
+            <param name="id">identifier to assign to the child, if the node is attached to a scene, and the ID already exists, a new ID will be assigned.</param>
+            <param name="mode">Component and child node creation mode for networking.</param>
+            <summary>Create a child node with a name, ID and creation mode.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.CreateChild(System.String,Urho.CreateMode,System.UInt32)">
             <param name="name"></param>
-            <param name="mode"></param>
-            <param name="id"></param>
+            <param name="mode">Component and child node creation mode for networking.</param>
+            <param name="id">identifier to assign to the child, if the node is attached to a scene, and the ID already exists, a new ID will be assigned.</param>
             <summary>
             Create a child scene node (with specified ID if provided).
             </summary>
@@ -23941,10 +24171,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.Node.GetChildrenWithComponent``1(System.Boolean)">
             <typeparam name="T"></typeparam>
-            <param name="recursive"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="recursive">If true, the search includes nested children, otherwise the search is done only on the immediate children of this node.</param>
+            <summary>Returns children nodes that have a specific component attached to it.</summary>
+            <returns>Array containing the nodes that have the specified component, or an empty array if there are none.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Node.GetComponent(Urho.StringHash,System.Boolean)">
             <param name="type"></param>
@@ -23994,8 +24226,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Or
             Set ID. Called by Scene.
             </summary>
-            <value></value>
-            <remarks></remarks>
+            <value>ID assigned to this node.</value>
+            <remarks>You should ideally have unique IDs.</remarks>
         </member>
         <member name="M:Urho.Node.IsDirty">
             <summary>
@@ -24100,6 +24332,18 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Set network position attribute.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Node.NodeCollision">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Node.NodeCollisionEnd">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Node.NodeCollisionStart">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Node.NumComponents">
@@ -24463,12 +24707,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.Node.SetPositionSilent(Urho.Vector3)">
             <param name="position"></param>
-            <summary></summary>
+            <summary>Updates the position but does not flag the node as dirty, nor as requiring a network update.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SetRotationSilent(Urho.Quaternion)">
             <param name="rotation"></param>
-            <summary></summary>
+            <summary>Sets the rotation but does not flag the node as dirty, nor as requiring a network update.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SetScale(System.Single)">
@@ -24495,7 +24739,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.Node.SetScaleSilent(Urho.Vector3)">
             <param name="scale"></param>
-            <summary></summary>
+            <summary>Sets the scale but does not flag the node as dirty, nor as requiring a network update.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SetTransform(Urho.Vector3,Urho.Quaternion)">
@@ -24554,7 +24798,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <param name="position"></param>
             <param name="rotation"></param>
             <param name="scale"></param>
-            <summary></summary>
+            <summary>Sets the node transform but does not flag the node as dirty, nor as requiring a network update.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SetVar(Urho.StringHash,System.Int32)">
@@ -24792,12 +25036,14 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.Translate(Urho.Vector3)">
-            <param name="delta"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="delta">The translation delta to apply.</param>
+            <summary>
+                <para>Move the scene node in the chosen transform space.</para>
+            </summary>
+            <remarks>This translates using the <see cref="E:Urho.TransformSpace.Local" /> value.</remarks>
         </member>
         <member name="M:Urho.Node.Translate(Urho.Vector3,Urho.TransformSpace)">
-            <param name="delta"></param>
+            <param name="delta">The translation delta to apply.</param>
             <param name="space"></param>
             <summary>
             Move the scene node in the chosen transform space.
@@ -25128,6 +25374,14 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Add attribute animation, attribute name can in following format: "attribute" or "#0/#1/attribute" or ""#0/#1/
             #1/attribute.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ObjectAnimation.AttributeAnimationAdded">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ObjectAnimation.AttributeAnimationRemoved">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.ObjectAnimation.BaseType">
@@ -27854,6 +28108,26 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.PhysicsWorld.PhysicsCollision">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.PhysicsWorld.PhysicsCollisionEnd">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.PhysicsWorld.PhysicsCollisionStart">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.PhysicsWorld.PhysicsPostStep">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.PhysicsWorld.PhysicsPreStep">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.PhysicsWorld.RaycastSingle(Urho.PhysicsRaycastResult@,Urho.Ray,System.Single,System.UInt32)">
             <param name="result"></param>
             <param name="ray"></param>
@@ -28181,6 +28455,22 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.PhysicsWorld2D.PhysicsBeginContact2D">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.PhysicsWorld2D.PhysicsEndContact2D">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.PhysicsWorld2D.PhysicsPostStep2D">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.PhysicsWorld2D.PhysicsPreStep2D">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.PhysicsWorld2D.PositionIterations">
             <summary>
             Return position iterations.
@@ -28364,26 +28654,28 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Platforms">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Enumeration describing the executing platform, the value is obtained getting the <see cref="P:Urho.Application.Platform" /> property.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="F:Urho.Platforms.Android">
-            <summary></summary>
+            <summary>Running on Android.</summary>
         </member>
         <member name="F:Urho.Platforms.iOS">
-            <summary></summary>
+            <summary>Running on iOS.</summary>
         </member>
         <member name="F:Urho.Platforms.Linux">
-            <summary></summary>
+            <summary>Running on Linux.</summary>
         </member>
         <member name="F:Urho.Platforms.MacOSX">
-            <summary></summary>
+            <summary>Running on MacOS X.</summary>
         </member>
         <member name="F:Urho.Platforms.Unknown">
-            <summary></summary>
+            <summary>Running on an unknown platform.</summary>
         </member>
         <member name="F:Urho.Platforms.Windows">
-            <summary></summary>
+            <summary>Running on Windows.</summary>
         </member>
         <member name="T:Urho.PListFile">
             <summary>
@@ -29492,6 +29784,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <value>StringHash representing the base type for this Urho type.</value>
             <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
         </member>
+        <member name="E:Urho.Renderer.BeginViewRender">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Renderer.DefaultLightRamp">
             <summary>
             Return the default range attenuation texture.
@@ -29552,6 +29848,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Set dynamic instancing on/off.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Renderer.EndViewRender">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.FaceSelectCubeMap">
@@ -29833,6 +30133,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Render. Called by Engine.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Renderer.RenderSurfaceUpdate">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Renderer.ResizeInstancingBuffer(System.UInt32)">
@@ -30747,6 +31051,18 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Resource.ReloadFailed">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Resource.ReloadFinished">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Resource.ReloadStarted">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resource.ResetUseTimer">
             <summary>
             Reset last used timer.
@@ -30924,6 +31240,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.ResourceCache.FileChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ResourceCache.FinishBackgroundResourcesMs">
             <summary>
             Return how many milliseconds maximum to spend on finishing background loaded resources.
@@ -30971,6 +31291,13 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.ResourceCache.GetImage(System.String,System.Boolean)">
+            <param name="name"></param>
+            <param name="sendEventOnFailure"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ResourceCache.GetJsonFile(System.String,System.Boolean)">
             <param name="name"></param>
             <param name="sendEventOnFailure"></param>
             <summary></summary>
@@ -31142,6 +31469,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.ResourceCache.LoadFailed">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ResourceCache.NumBackgroundLoadResources">
             <summary>
             Return number of pending background-loaded resources.
@@ -31251,6 +31582,14 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.ResourceCache.ResourceBackgroundLoaded">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ResourceCache.ResourceNotFound">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ResourceCache.ReturnFailedResources">
             <summary>
             Return whether resources that failed to load are returned.
@@ -31356,6 +31695,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <member name="P:Urho.ResourceCache.TypeStatic">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ResourceCache.UnknownResourceType">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.ResourceNotFoundEventArgs">
@@ -32681,6 +33024,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Scene.AsyncLoadFinished">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Scene.AsyncLoadingMs">
             <summary>
             Return maximum milliseconds per frame to spend on async loading.
@@ -32697,11 +33044,19 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Scene.AsyncLoadProgress">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Scene.AsyncProgress">
             <summary>
             Return asynchronous loading progress between 0.0 and 1.0, or 1.0 if not in progress.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.AttributeAnimationUpdate">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Scene.BaseType">
@@ -32743,18 +33098,16 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Scene.ComponentAdded(Urho.Component)">
-            <param name="component"></param>
-            <summary>
-            Component added. Add to ID map.
-            </summary>
+        <member name="E:Urho.Scene.ComponentAdded">
+            <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Scene.ComponentRemoved(Urho.Component)">
-            <param name="component"></param>
-            <summary>
-            Component removed. Remove from ID map.
-            </summary>
+        <member name="E:Urho.Scene.ComponentEnabledChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.ComponentRemoved">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.DelayedMarkedDirty(Urho.Component)">
@@ -32919,18 +33272,20 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Scene.NodeAdded(Urho.Node)">
-            <param name="node"></param>
-            <summary>
-            Node added. Assign scene pointer and add to ID map.
-            </summary>
+        <member name="E:Urho.Scene.NodeAdded">
+            <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Scene.NodeRemoved(Urho.Node)">
-            <param name="node"></param>
-            <summary>
-            Node removed. Remove from ID map.
-            </summary>
+        <member name="E:Urho.Scene.NodeEnabledChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.NodeNameChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.NodeRemoved">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.PrepareNetworkUpdate">
@@ -32965,6 +33320,22 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <param name="indentation"></param>
             <summary></summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.SceneDrawableUpdateFinished">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.ScenePostUpdate">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.SceneSubsystemUpdate">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.SceneUpdate">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.SetUpdateEnabled(System.Boolean)">
@@ -33142,6 +33513,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Update scene. Called by HandleUpdate.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Scene.UpdateSmoothing">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Scene.VarNamesAttr">
@@ -33341,6 +33716,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Register object factory.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.ScrollBar.ScrollBarChanged">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.ScrollBar.ScrollStep">
@@ -33651,6 +34030,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.ScrollView.ViewChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ScrollView.ViewPosition">
             <summary>
             Return view offset from the top-left corner.
@@ -33831,6 +34214,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Return whether an attribute's network updates are being intercepted.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Serializable.InterceptNetworkUpdate">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Serializable.IsTemporary">
@@ -34105,6 +34492,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>Subscribes to the TemporaryChanged event raised by the Serializable.</summary>
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
+        </member>
+        <member name="E:Urho.Serializable.TemporaryChanged">
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.Serializable.Type">
             <summary>Urho's type system type.</summary>
@@ -34881,40 +35272,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Slider.OnDragBegin(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag begin.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Slider.OnDragEnd(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="dragButtons"></param>
-            <param name="buttons"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag end.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Slider.OnDragMove(Urho.IntVector2,Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="deltaPos"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag motion.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Slider.OnHover(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
             <param name="position"></param>
             <param name="screenPosition"></param>
@@ -34964,6 +35321,14 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Set paging minimum repeat rate (number of events per second).
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Slider.SliderChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Slider.SliderPaged">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Slider.SubscribeToSliderChanged(System.Action{Urho.SliderChangedEventArgs})">
@@ -35132,6 +35497,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.SmoothedTransform.TargetPositionChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.SmoothedTransform.TargetRotation">
             <summary>
             Return target rotation in parent space.
@@ -35139,6 +35508,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Set target rotation in parent space.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.SmoothedTransform.TargetRotationChanged">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.SmoothedTransform.TargetWorldPosition">
@@ -37733,6 +38106,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
+        <member name="E:Urho.Terrain.TerrainCreated">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Terrain.Type">
             <summary>Urho's type system type.</summary>
             <value>StringHash representing the type for this C# type.</value>
@@ -40130,11 +40507,19 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Time.FrameEnded">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Time.FrameNumber">
             <summary>
             Return frame number, starting from 1 once BeginFrame() is called for the first time.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Time.FrameStarted">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Time.Sleep(System.UInt32)">
@@ -40144,15 +40529,15 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Time.SubscribeToBeginFrame(System.Action{Urho.BeginFrameEventArgs})">
+        <member name="M:Urho.Time.SubscribeToFrameEnded(System.Action{Urho.FrameEndedEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the BeginFrame event raised by the Time.</summary>
+            <summary>Subscribes to the FrameEnded event raised by the Time.</summary>
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
-        <member name="M:Urho.Time.SubscribeToEndFrame(System.Action{Urho.EndFrameEventArgs})">
+        <member name="M:Urho.Time.SubscribeToFrameStarted(System.Action{Urho.FrameStartedEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the EndFrame event raised by the Time.</summary>
+            <summary>Subscribes to the FrameStarted event raised by the Time.</summary>
             <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
             <remarks />
         </member>
@@ -41056,6 +41441,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UI.FocusChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.UI.FocusElement">
             <summary>
             Return focused element.
@@ -41251,6 +41640,18 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <member name="P:Urho.UI.TypeStatic">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UI.UIDropFile">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UI.UIMouseClick">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UI.UIMouseClickEnd">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.UI.Update(System.Single)">
@@ -41585,6 +41986,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UIElement.Defocused">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.UIElement.DerivedColor">
             <summary>
             Return derived color. Only valid when no gradient.
@@ -41605,6 +42010,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UIElement.DragBegin">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.UIElement.DragButtonCombo">
             <summary>
             Return the drag button combo if this element is being dragged.
@@ -41619,6 +42028,14 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UIElement.DragCancel">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.DragDropFinish">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.UIElement.DragDropMode">
             <summary>
             Return drag and drop flags.
@@ -41628,11 +42045,31 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UIElement.DragDropTest">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.DragEnd">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.DragMove">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.ElementAdded">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.UIElement.ElementEventSender">
             <summary>
             Get element which should send child added / removed events.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.ElementRemoved">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.UIElement.ElementToScreen(Urho.IntVector2)">
@@ -41661,6 +42098,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Find child index. Return M_MAX_UNSIGNED if not found.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.Focused">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.UIElement.FocusMode">
@@ -41741,6 +42182,14 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Set horizontal alignment.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.HoverBegin">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.HoverEnd">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.UIElement.Indent">
@@ -41936,6 +42385,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UIElement.LayoutUpdated">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.UIElement.LoadChildXml(Urho.XmlElement,Urho.XmlFile,System.Boolean)">
             <param name="childElem"></param>
             <param name="styleFile"></param>
@@ -42022,6 +42475,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UIElement.NameChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.UIElement.OnClickBegin(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,System.Int32,Urho.Cursor)">
             <param name="position"></param>
             <param name="screenPosition"></param>
@@ -42056,67 +42513,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <param name="cursor"></param>
             <summary>
             React to double mouse click.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.UIElement.OnDragBegin(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag begin.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.UIElement.OnDragCancel(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="dragButtons"></param>
-            <param name="cancelButton"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to a mouse drag cancel event (ie, when an extra button is pressed)
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.UIElement.OnDragDropFinish(Urho.UIElement)">
-            <param name="source"></param>
-            <summary>
-            React to drag and drop finish. Return true to signal that the drop was accepted.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.UIElement.OnDragDropTest(Urho.UIElement)">
-            <param name="source"></param>
-            <summary>
-            React to drag and drop test. Return true to signal that the drop is acceptable.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.UIElement.OnDragEnd(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="dragButtons"></param>
-            <param name="releaseButton"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag end.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.UIElement.OnDragMove(Urho.IntVector2,Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="deltaPos"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag motion.
             </summary>
             <remarks></remarks>
         </member>
@@ -42207,6 +42603,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UIElement.Positioned">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.UIElement.Priority">
             <summary>
             Return priority.
@@ -42254,6 +42654,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Reset enabled state to the element's remembered state prior to calling SetDeepEnabled.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UIElement.Resized">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.UIElement.Root">
@@ -42745,6 +43149,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.UIElement.VisibleChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.UIElement.Width">
             <summary>
             Return width.
@@ -43083,6 +43491,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Set the command interpreter.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.UrhoConsole.ConsoleCommand">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.UrhoConsole.CopySelectedRows">
@@ -46186,6 +46598,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value>StringHash representing the base type for this Urho type.</value>
             <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
         </member>
+        <member name="E:Urho.View.BeginViewUpdate">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.View.Camera">
             <summary>
             Return camera.
@@ -46207,6 +46623,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Return whether should draw debug geometry.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.View.EndViewUpdate">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.View.Graphics">
@@ -46661,8 +47081,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="T:Urho.WeakPtr">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Supports the Urho interoperability engine, a weak native urho pointer.</summary>
+            <remarks>Not to be used by user code.</remarks>
         </member>
         <member name="T:Urho.Window">
             <summary>
@@ -46748,6 +47168,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Window.ModalChanged">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Window.ModalFrameColor">
             <summary>
             Get modal frame color.
@@ -46773,51 +47197,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Set modal shade color.
             </summary>
             <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Window.OnDragBegin(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag begin.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Window.OnDragCancel(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="dragButtons"></param>
-            <param name="buttons"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag cancel.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Window.OnDragEnd(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="dragButtons"></param>
-            <param name="buttons"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag end.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Window.OnDragMove(Urho.IntVector2,Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
-            <param name="position"></param>
-            <param name="screenPosition"></param>
-            <param name="deltaPos"></param>
-            <param name="buttons"></param>
-            <param name="qualifiers"></param>
-            <param name="cursor"></param>
-            <summary>
-            React to mouse drag motion.
-            </summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Window.OnHover(Urho.IntVector2,Urho.IntVector2,System.Int32,System.Int32,Urho.Cursor)">
@@ -47095,6 +47474,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <member name="P:Urho.WorkQueue.TypeStatic">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.WorkQueue.WorkItemCompleted">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.WrapMode">

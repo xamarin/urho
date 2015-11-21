@@ -108,6 +108,21 @@
         <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CharEntry">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.CharEntryEventArgs&gt; CharEntry;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.CharEntryEventArgs&gt; CharEntry" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.CharEntryEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Cursor">
       <MemberSignature Language="C#" Value="public Urho.BorderImage Cursor { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.BorderImage Cursor" />
@@ -321,110 +336,6 @@
         <param name="cursor">To be added.</param>
         <summary>
             React to mouse doubleclick.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDragBegin">
-      <MemberSignature Language="C#" Value="public override void OnDragBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDragBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="position" Type="Urho.IntVector2" />
-        <Parameter Name="screenPosition" Type="Urho.IntVector2" />
-        <Parameter Name="buttons" Type="System.Int32" />
-        <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-      </Parameters>
-      <Docs>
-        <param name="position">To be added.</param>
-        <param name="screenPosition">To be added.</param>
-        <param name="buttons">To be added.</param>
-        <param name="qualifiers">To be added.</param>
-        <param name="cursor">To be added.</param>
-        <summary>
-            React to mouse drag begin.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDragDropFinish">
-      <MemberSignature Language="C#" Value="public override bool OnDragDropFinish (Urho.UIElement source);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool OnDragDropFinish(class Urho.UIElement source) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="source" Type="Urho.UIElement" />
-      </Parameters>
-      <Docs>
-        <param name="source">To be added.</param>
-        <summary>
-            React to drag and drop finish. Return true to signal that the drop was accepted.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDragDropTest">
-      <MemberSignature Language="C#" Value="public override bool OnDragDropTest (Urho.UIElement source);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool OnDragDropTest(class Urho.UIElement source) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="source" Type="Urho.UIElement" />
-      </Parameters>
-      <Docs>
-        <param name="source">To be added.</param>
-        <summary>
-            React to drag and drop test. Return true to signal that the drop is acceptable.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDragMove">
-      <MemberSignature Language="C#" Value="public override void OnDragMove (Urho.IntVector2 position, Urho.IntVector2 screenPosition, Urho.IntVector2 deltaPos, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDragMove(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, valuetype Urho.IntVector2 deltaPos, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="position" Type="Urho.IntVector2" />
-        <Parameter Name="screenPosition" Type="Urho.IntVector2" />
-        <Parameter Name="deltaPos" Type="Urho.IntVector2" />
-        <Parameter Name="buttons" Type="System.Int32" />
-        <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-      </Parameters>
-      <Docs>
-        <param name="position">To be added.</param>
-        <param name="screenPosition">To be added.</param>
-        <param name="deltaPos">To be added.</param>
-        <param name="buttons">To be added.</param>
-        <param name="qualifiers">To be added.</param>
-        <param name="cursor">To be added.</param>
-        <summary>
-            React to mouse drag motion.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -663,6 +574,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="TextChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TextChangedEventArgs&gt; TextChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TextChangedEventArgs&gt; TextChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.TextChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TextElement">
       <MemberSignature Language="C#" Value="public Urho.Text TextElement { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Text TextElement" />
@@ -678,6 +604,21 @@
             Return text element.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextFinished">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TextFinishedEventArgs&gt; TextFinished;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TextFinishedEventArgs&gt; TextFinished" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.TextFinishedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -742,6 +683,21 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnhandledKey">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.UnhandledKeyEventArgs&gt; UnhandledKey;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.UnhandledKeyEventArgs&gt; UnhandledKey" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.UnhandledKeyEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -222,6 +222,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FileSelected">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.FileSelectedEventArgs&gt; FileSelected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.FileSelectedEventArgs&gt; FileSelected" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.FileSelectedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Filter">
       <MemberSignature Language="C#" Value="public string Filter { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Filter" />

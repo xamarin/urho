@@ -1,0 +1,103 @@
+<Type Name="Platforms" FullName="Urho.Platforms">
+  <TypeSignature Language="C#" Value="public enum Platforms" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed Platforms extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>Enumeration describing the executing platform, the value is obtained getting the <see cref="P:Urho.Application.Platform" /> property.</summary>
+    <remarks>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Android">
+      <MemberSignature Language="C#" Value="Android" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Platforms Android = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Platforms</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Running on Android.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="iOS">
+      <MemberSignature Language="C#" Value="iOS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Platforms iOS = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Platforms</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Running on iOS.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Linux">
+      <MemberSignature Language="C#" Value="Linux" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Platforms Linux = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Platforms</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Running on Linux.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="MacOSX">
+      <MemberSignature Language="C#" Value="MacOSX" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Platforms MacOSX = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Platforms</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Running on MacOS X.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Unknown">
+      <MemberSignature Language="C#" Value="Unknown" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Platforms Unknown = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Platforms</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Running on an unknown platform.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Windows">
+      <MemberSignature Language="C#" Value="Windows" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Platforms Windows = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Platforms</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Running on Windows.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

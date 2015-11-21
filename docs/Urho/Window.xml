@@ -207,6 +207,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ModalChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ModalChangedEventArgs&gt; ModalChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ModalChangedEventArgs&gt; ModalChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ModalChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ModalFrameColor">
       <MemberSignature Language="C#" Value="public Urho.Color ModalFrameColor { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color ModalFrameColor" />
@@ -264,124 +279,6 @@
             Set modal shade color.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDragBegin">
-      <MemberSignature Language="C#" Value="public override void OnDragBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDragBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="position" Type="Urho.IntVector2" />
-        <Parameter Name="screenPosition" Type="Urho.IntVector2" />
-        <Parameter Name="buttons" Type="System.Int32" />
-        <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-      </Parameters>
-      <Docs>
-        <param name="position">To be added.</param>
-        <param name="screenPosition">To be added.</param>
-        <param name="buttons">To be added.</param>
-        <param name="qualifiers">To be added.</param>
-        <param name="cursor">To be added.</param>
-        <summary>
-            React to mouse drag begin.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDragCancel">
-      <MemberSignature Language="C#" Value="public override void OnDragCancel (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int dragButtons, int buttons, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDragCancel(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 dragButtons, int32 buttons, class Urho.Cursor cursor) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="position" Type="Urho.IntVector2" />
-        <Parameter Name="screenPosition" Type="Urho.IntVector2" />
-        <Parameter Name="dragButtons" Type="System.Int32" />
-        <Parameter Name="buttons" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-      </Parameters>
-      <Docs>
-        <param name="position">To be added.</param>
-        <param name="screenPosition">To be added.</param>
-        <param name="dragButtons">To be added.</param>
-        <param name="buttons">To be added.</param>
-        <param name="cursor">To be added.</param>
-        <summary>
-            React to mouse drag cancel.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDragEnd">
-      <MemberSignature Language="C#" Value="public override void OnDragEnd (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int dragButtons, int buttons, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDragEnd(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 dragButtons, int32 buttons, class Urho.Cursor cursor) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="position" Type="Urho.IntVector2" />
-        <Parameter Name="screenPosition" Type="Urho.IntVector2" />
-        <Parameter Name="dragButtons" Type="System.Int32" />
-        <Parameter Name="buttons" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-      </Parameters>
-      <Docs>
-        <param name="position">To be added.</param>
-        <param name="screenPosition">To be added.</param>
-        <param name="dragButtons">To be added.</param>
-        <param name="buttons">To be added.</param>
-        <param name="cursor">To be added.</param>
-        <summary>
-            React to mouse drag end.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDragMove">
-      <MemberSignature Language="C#" Value="public override void OnDragMove (Urho.IntVector2 position, Urho.IntVector2 screenPosition, Urho.IntVector2 deltaPos, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDragMove(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, valuetype Urho.IntVector2 deltaPos, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="position" Type="Urho.IntVector2" />
-        <Parameter Name="screenPosition" Type="Urho.IntVector2" />
-        <Parameter Name="deltaPos" Type="Urho.IntVector2" />
-        <Parameter Name="buttons" Type="System.Int32" />
-        <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-      </Parameters>
-      <Docs>
-        <param name="position">To be added.</param>
-        <param name="screenPosition">To be added.</param>
-        <param name="deltaPos">To be added.</param>
-        <param name="buttons">To be added.</param>
-        <param name="qualifiers">To be added.</param>
-        <param name="cursor">To be added.</param>
-        <summary>
-            React to mouse drag motion.
-            </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

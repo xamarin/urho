@@ -1,6 +1,6 @@
-<Type Name="MouseMoveEventArgs" FullName="Urho.MouseMoveEventArgs">
-  <TypeSignature Language="C#" Value="public struct MouseMoveEventArgs" />
-  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit MouseMoveEventArgs extends System.ValueType" />
+<Type Name="MouseMovedEventArgs" FullName="Urho.MouseMovedEventArgs">
+  <TypeSignature Language="C#" Value="public struct MouseMovedEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit MouseMovedEventArgs extends System.ValueType" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Event arguments for the Input's MouseMove event</summary>
+    <summary>Event arguments for the Input's MouseMoved event</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

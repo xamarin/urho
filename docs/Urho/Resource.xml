@@ -203,6 +203,51 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ReloadFailed">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ReloadFailedEventArgs&gt; ReloadFailed;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ReloadFailedEventArgs&gt; ReloadFailed" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ReloadFailedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReloadFinished">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ReloadFinishedEventArgs&gt; ReloadFinished;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ReloadFinishedEventArgs&gt; ReloadFinished" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ReloadFinishedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReloadStarted">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ReloadStartedEventArgs&gt; ReloadStarted;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ReloadStartedEventArgs&gt; ReloadStarted" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ReloadStartedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ResetUseTimer">
       <MemberSignature Language="C#" Value="public void ResetUseTimer ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetUseTimer() cil managed" />

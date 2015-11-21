@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Urho
 {
-	public class UrhoEventAdapter<TEventArgs>
+	internal class UrhoEventAdapter<TEventArgs>
 	{
 		//TODO: seems we should use List<WeakReference<Action<TEventArgs>>>> here
 		readonly Dictionary<IntPtr, List<Action<TEventArgs>>> managedSubscribersByObjects;

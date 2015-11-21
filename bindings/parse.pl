@@ -41,10 +41,14 @@ while (<>){
     if (/EVENT\(/){
 	($ec,$en) = $_ =~ /EVENT\((\w+), ?(\w+)/;
 	if ($en ne "DbCursor"){
+	    $eventName = $en;
+	    $eventName = "MouseMoved" if ($en eq "MouseMove");
+	    $eventName = "FrameStarted" if ($en eq "BeginFrame");
+	    $eventName = "FrameEnded" if ($en eq "EndFrame");
 	    
-	    print CS "    public partial struct ${en}EventArgs {\n";
+	    print CS "    public partial struct ${eventName}EventArgs {\n";
 	    print CS "        internal IntPtr handle;\n";
-	    print CPP "DllExport void *urho_subscribe_$en (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
+	    print CPP "DllExport void *urho_subscribe_$eventName (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
 	    print CPP "{\n";
 	    print CPP "\tUrho3D::Object *receiver = (Urho3D::Object *) _receiver;\n";
 	    print CPP "\tNotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::$ec);\n";
@@ -73,33 +77,30 @@ while (<>){
 		if (/}/){
 		    print CS "    }\n\n";
 
-		    if ($ec eq "E_UNHANDLEDKEY"){
-			print "GOING TO DO @events{$ec}\n";
-		    }
-		    
 		    for $type (split /,/,$events{$ec}){
+
 			print CS "    public partial class $type {\n"; 
-			print CS "         ObjectCallbackSignature callback${en};\n";
+			print CS "         ObjectCallbackSignature callback${eventName};\n";
 			print CS "         [DllImport(\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]\n";
-			print CS "         extern static IntPtr urho_subscribe_$en (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
-			print CS "         @{[$en eq 'Update' ? 'internal' : 'public']} Subscription SubscribeTo$en (Action<${en}EventArgs> handler)\n";
+			print CS "         extern static IntPtr urho_subscribe_$eventName (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
+			print CS "         @{[$en eq 'Update' ? 'internal' : 'public']} Subscription SubscribeTo${eventName} (Action<${eventName}EventArgs> handler)\n";
 			print CS "         {\n";
-			print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${en}EventArgs () { handle = x }; handler (d); };\n";
+			print CS "              Action<IntPtr> proxy = (x)=> { var d = new ${eventName}EventArgs () { handle = x }; handler (d); };\n";
 			print CS "              var s = new Subscription (proxy);\n";
-			print CS "              callback${en} = ObjectCallback;\n";
-			print CS "              s.UnmanagedProxy = urho_subscribe_$en (handle, callback${en}, GCHandle.ToIntPtr (s.gch));\n";
+			print CS "              callback${eventName} = ObjectCallback;\n";
+			print CS "              s.UnmanagedProxy = urho_subscribe_$eventName (handle, callback${eventName}, GCHandle.ToIntPtr (s.gch));\n";
 			print CS "              return s;\n";
 			print CS "         }\n\n";
-			print CS "         static UrhoEventAdapter<${en}EventArgs> eventAdapterFor${en};\n";
-			print CS "         public event Action<${en}EventArgs> On${en}\n";
+			print CS "         static UrhoEventAdapter<${eventName}EventArgs> eventAdapterFor${eventName};\n";
+			print CS "         public event Action<${eventName}EventArgs> ${eventName}\n";
 			print CS "         {\n";
 			print CS "             add\n";
 			print CS "             {\n";
-			print CS "                  if (eventAdapterFor${en} == null)\n";
-			print CS "                      eventAdapterFor${en} = new UrhoEventAdapter<${en}EventArgs>();\n";
-			print CS "                  eventAdapterFor${en}.AddManagedSubscriber(handle, value, SubscribeTo${en});\n";
+			print CS "                  if (eventAdapterFor${eventName} == null)\n";
+			print CS "                      eventAdapterFor${eventName} = new UrhoEventAdapter<${eventName}EventArgs>();\n";
+			print CS "                  eventAdapterFor${eventName}.AddManagedSubscriber(handle, value, SubscribeTo${eventName});\n";
 			print CS "             }\n";
-			print CS "             remove { eventAdapterFor${en}.RemoveManagedSubscriber(handle, value); }\n";
+			print CS "             remove { eventAdapterFor${eventName}.RemoveManagedSubscriber(handle, value); }\n";
 			print CS "         }\n";
 			print CS "    }\n\n";
 		    }

@@ -805,7 +805,12 @@ namespace SharpieBinder
 					break;
 				}
 				break;
-
+			case "Engine":
+				switch (name) {
+				case "Update":
+					return "UpdateFrame";
+				}
+				break;
 			default:
 				if (name == "GetType")
 					return "UrhoGetType";
@@ -856,6 +861,24 @@ namespace SharpieBinder
 			case "Shader":
 				if (decl.Name == "GetVariation")
 					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
+				break;
+			case "Scene":
+				// The following look like internal methods that should not really be surfaced
+				// to the user.   If we ever find that we have to surface, then we should rename them
+				// in the other method, as they will conflict with the events.
+				//
+				// These names are bad choices, because they are called internally when something
+				// has been done, and they complete the process.   For example "NodeRemoved" should
+				// really be "RemoveNode", and "NodeAdded" should really be "AddNode", but that has
+				// a different method and implementation on the Scene class (that is, there is
+				// already a AddNode method, which is a high-level method)
+				switch (decl.Name) {
+				case "NodeAdded":
+				case "NodeRemoved":
+				case "ComponentAdded":
+				case "ComponentRemoved":
+					return true;
+				}
 				break;
 			case "Application":
 				switch (decl.Name) {

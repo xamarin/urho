@@ -86,7 +86,6 @@
       <Type Name="Audio" Kind="Class" />
       <Type Name="BackgroundLoader" Kind="Class" />
       <Type Name="BaseAction" Kind="Class" />
-      <Type Name="BeginFrameEventArgs" Kind="Structure" />
       <Type Name="BeginRenderingEventArgs" Kind="Structure" />
       <Type Name="BeginViewRenderEventArgs" Kind="Structure" />
       <Type Name="BeginViewUpdateEventArgs" Kind="Structure" />
@@ -256,7 +255,6 @@
       <Type Name="ElementRemovedEventArgs" Kind="Structure" />
       <Type Name="EmitterType" Kind="Enumeration" />
       <Type Name="EmitterType2D" Kind="Enumeration" />
-      <Type Name="EndFrameEventArgs" Kind="Structure" />
       <Type Name="EndRenderingEventArgs" Kind="Structure" />
       <Type Name="EndViewRenderEventArgs" Kind="Structure" />
       <Type Name="EndViewUpdateEventArgs" Kind="Structure" />
@@ -288,6 +286,8 @@
       <Type Name="FontFaceBitmap" Kind="Class" />
       <Type Name="FontFaceFreeType" Kind="Class" />
       <Type Name="FontGlyph" Kind="Structure" />
+      <Type Name="FrameEndedEventArgs" Kind="Structure" />
+      <Type Name="FrameStartedEventArgs" Kind="Structure" />
       <Type Name="Frustum" Kind="Structure" />
       <Type Name="FrustumPlane" Kind="Enumeration" />
       <Type Name="Geometry" Kind="Class" />
@@ -383,7 +383,7 @@
       <Type Name="MouseButtonUpEventArgs" Kind="Structure" />
       <Type Name="MouseMode" Kind="Enumeration" />
       <Type Name="MouseModeChangedEventArgs" Kind="Structure" />
-      <Type Name="MouseMoveEventArgs" Kind="Structure" />
+      <Type Name="MouseMovedEventArgs" Kind="Structure" />
       <Type Name="MouseVisibleChangedEventArgs" Kind="Structure" />
       <Type Name="MouseWheelEventArgs" Kind="Structure" />
       <Type Name="MoveBy" Kind="Class" />
