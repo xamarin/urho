@@ -600,8 +600,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>Method invoked to setup your application.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Method invoked to setup your application. </summary>
+        <remarks>
+          <para>You can setup the engine parameters here, but you should postpone the resource loading until the <see cref="M:Urho.Application.Start" /> method is invoked.</para>
+          <para />
+          <para>On error, you can invoke the <see cref="M:Urho.Application.ErrorExit" /> method to terminate execution.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Start">
