@@ -123,7 +123,7 @@
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>
-        <param>
+        <param name="target">
           <para>The new <see cref="T:Urho.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</para>
         </param>
         <summary>Creates the action state for this action, called on demand from the framework to start executing the recipe.</summary>

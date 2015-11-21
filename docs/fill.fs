@@ -189,8 +189,11 @@ let processType (doc:XDocument) =
           remarks.RemoveAll ()
           xp "<para>The new <see cref=\"T:Urho.ActionState\"/> that encapsulates the state and provides the implementation to perform this action.</para>" |> remarks.Add
           setval mdoc "remarks" "New action that will perform the inverse of this action"
-          let par = select mdoc "param[@name='target']"
+          let par = match select mdoc "param[@name='target']" with
+                    | null -> select mdoc "param"
+                    | v -> v
           par.RemoveAll ();
+          par.SetAttributeValue (xname "name", "target")
           sprintf "<para>The new <see cref=\"T:Urho.ActionState\"/> that encapsulates the state and provides the implementation to perform your action.</para>" |> xp |> par.Add
 
   let fillReverse() =
