@@ -167,7 +167,7 @@ let processType (doc:XDocument) =
             events.Add (eventArgsType, (eventName,typeName))
 
           // Now do the event handler
-          let evtNode = doc.XPathSelectElement <| sprintf "Type/Members/Member[@MemberName='%s']" eventName
+          //          let evtNode = doc.XPathSelectElement <| sprintf "Type/Members/Member[@MemberName='%s']" eventName
           // For now, we do nothing.
           // Perhaps the master documentation for the event should live here, and the SubscribeTo can copy that.
 
@@ -177,12 +177,43 @@ let processType (doc:XDocument) =
           //  evtRem.RemoveAll ()
           //  sprintf "<para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref=\"M:Urho.%s\"/> method.   That one will force that callback and will ignore any previously set events here.</para>" name |> xp |> evtRem.Add
  
+  let fillStartAction() =
+    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='StartAction']" do
+      match x with
+      | null -> ()
+      | mem ->
+        if (mem.ToString ()).Contains ("Urho.ActionState") then
+          let mdoc = mem.XPathSelectElement "Docs"
+          setval mdoc "summary" "Creates the action state for this action, called on demand from the framework to start executing the recipe."
+          let remarks = select mdoc "remarks"
+          remarks.RemoveAll ()
+          xp "<para>The new <see cref=\"T:Urho.ActionState\"/> that encapsulates the state and provides the implementation to perform this action.</para>" |> remarks.Add
+          setval mdoc "remarks" "New action that will perform the inverse of this action"
+          let par = select mdoc "param[@name='target']"
+          par.RemoveAll ();
+          sprintf "<para>The new <see cref=\"T:Urho.ActionState\"/> that encapsulates the state and provides the implementation to perform your action.</para>" |> xp |> par.Add
+
+  let fillReverse() =
+    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='Reverse']" do
+      match x with
+      | null -> ()
+      | mem ->
+        if (mem.ToString ()).Contains ("Urho.FiniteTimeAction") then
+          let mdoc = mem.XPathSelectElement "Docs"
+          setval mdoc "summary" "Returns a new action that performs the exact inverse of this action."
+          setval mdoc "remarks" ""
+          setval mdoc "returns" "New action that will perform the inverse of this action"
+          ()
+
+
   fillBaseType()
   fillType()
   fillTypeName()
   fillTypeNameStatic()
   fillTypeCtor()
   fillSubscribe()
+  fillStartAction()
+  //fillReverse()
   doc
 
 let processPath path =

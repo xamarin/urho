@@ -47,12 +47,12 @@
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>
-        <param name="target">The target upon which the action will run against.</param>
-        <summary>Method that subclasses must override to provide the functionality for the action.   They should create these on demand.</summary>
+        <param>
+          <para>The new <see cref="T:Urho.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</para>
+        </param>
+        <summary>Creates the action state for this action, called on demand from the framework to start executing the recipe.</summary>
         <returns>The new <see cref="T:Urho.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</returns>
-        <remarks>
-          <para />
-        </remarks>
+        <remarks>New action that will perform the inverse of this action</remarks>
       </Docs>
     </Member>
     <Member MemberName="Tag">
