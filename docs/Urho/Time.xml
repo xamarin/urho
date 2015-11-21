@@ -108,7 +108,7 @@
         <summary>
             Begin new frame, with (last) frame duration in seconds and send frame start event.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>This raises the <see cref="E:Urho.Time.FrameStarted" /> event.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ElapsedTime">
@@ -144,7 +144,7 @@
         <summary>
             End frame. Increment total time and send frame end event.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>This raises the <see cref="E:Urho.Time.FrameEnded" /> event.</remarks>
       </Docs>
     </Member>
     <Member MemberName="FrameEnded">
@@ -158,8 +158,10 @@
         <ReturnType>System.Action&lt;Urho.FrameEndedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>End frame event, invoked from the <see cref="M:Urho.Time.EndFrame" /> method.</summary>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToFrameEnded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FrameNumber">
@@ -191,8 +193,9 @@
         <ReturnType>System.Action&lt;Urho.FrameStartedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Signals the beginning of the new frame.</summary>
+        <remarks>
+          <see cref="T:Urho.Input" /> and <see cref="T:Urho.Engine.Network" /> react to this to check for operating system window messages and arrived network packets.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Sleep">
@@ -233,7 +236,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the FrameEnded event raised by the Time.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Time.FrameEnded" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToFrameStarted">
@@ -253,7 +260,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the FrameStarted event raised by the Time.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Time.FrameStarted" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SystemTime">

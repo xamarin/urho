@@ -226,7 +226,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToAnimationTrigger" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ApplyAttributes">
@@ -291,7 +293,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToBoneHierarchyCreated" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Children">
@@ -1170,7 +1174,9 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNodeCollision" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NodeCollisionEnd">
@@ -1185,7 +1191,9 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNodeCollisionEnd" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NodeCollisionStart">
@@ -1200,7 +1208,9 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNodeCollisionStart" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumComponents">
@@ -3096,7 +3106,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AnimationTrigger event raised by the Node.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Node.AnimationTrigger" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToBoneHierarchyCreated">
@@ -3116,7 +3130,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the BoneHierarchyCreated event raised by the Node.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Node.BoneHierarchyCreated" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeCollision">
@@ -3136,7 +3154,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeCollision event raised by the Node.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Node.NodeCollision" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeCollisionEnd">
@@ -3156,7 +3178,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeCollisionEnd event raised by the Node.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Node.NodeCollisionEnd" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeCollisionStart">
@@ -3176,7 +3202,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeCollisionStart event raised by the Node.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Node.NodeCollisionStart" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Transform">

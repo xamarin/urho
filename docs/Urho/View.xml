@@ -102,7 +102,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToBeginViewUpdate" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Camera">
@@ -177,7 +179,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToEndViewUpdate" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Graphics">
@@ -387,7 +391,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the BeginViewUpdate event raised by the View.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.View.BeginViewUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToEndViewUpdate">
@@ -407,7 +415,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the EndViewUpdate event raised by the View.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.View.EndViewUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">

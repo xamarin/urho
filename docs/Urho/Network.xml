@@ -155,7 +155,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToClientConnected" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ClientDisconnected">
@@ -170,7 +172,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToClientDisconnected" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Connect">
@@ -209,7 +213,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToConnectFailed" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Disconnect">
@@ -264,7 +270,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNetworkMessage" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NetworkSceneLoadFailed">
@@ -279,7 +287,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNetworkSceneLoadFailed" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NetworkUpdate">
@@ -294,7 +304,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNetworkUpdate" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NetworkUpdateSent">
@@ -309,7 +321,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNetworkUpdateSent" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PackageCacheDir">
@@ -409,7 +423,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToServerConnected" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ServerConnection">
@@ -442,7 +458,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToServerDisconnected" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SimulatedLatency">
@@ -542,7 +560,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ClientConnected event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ClientConnected" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToClientDisconnected">
@@ -562,7 +584,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ClientDisconnected event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ClientDisconnected" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToConnectFailed">
@@ -582,7 +608,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ConnectFailed event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ConnectFailed" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkMessage">
@@ -602,7 +632,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NetworkMessage event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.NetworkMessage" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkSceneLoadFailed">
@@ -622,7 +656,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NetworkSceneLoadFailed event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.NetworkSceneLoadFailed" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkUpdate">
@@ -642,7 +680,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NetworkUpdate event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.NetworkUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkUpdateSent">
@@ -662,7 +704,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NetworkUpdateSent event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.NetworkUpdateSent" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToServerConnected">
@@ -682,7 +728,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ServerConnected event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ServerConnected" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToServerDisconnected">
@@ -702,7 +752,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ServerDisconnected event raised by the Network.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ServerDisconnected" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">

@@ -502,7 +502,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollision" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PhysicsCollisionEnd">
@@ -517,7 +519,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollisionEnd" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PhysicsCollisionStart">
@@ -532,7 +536,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollisionStart" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PhysicsPostStep">
@@ -547,7 +553,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsPostStep" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PhysicsPreStep">
@@ -562,7 +570,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsPreStep" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RaycastSingle">
@@ -868,7 +878,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsCollision event raised by the PhysicsWorld.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsCollision" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsCollisionEnd">
@@ -888,7 +902,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsCollisionEnd event raised by the PhysicsWorld.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsCollisionEnd" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsCollisionStart">
@@ -908,7 +926,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsCollisionStart event raised by the PhysicsWorld.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsCollisionStart" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsPostStep">
@@ -928,7 +950,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsPostStep event raised by the PhysicsWorld.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsPostStep" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsPreStep">
@@ -948,7 +974,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PhysicsPreStep event raised by the PhysicsWorld.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsPreStep" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">

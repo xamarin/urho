@@ -13,6 +13,9 @@ let load path =
   f.Close()
   doc
 
+let xp s =
+  XElement.Parse (s)
+
 let events = new System.Collections.Generic.Dictionary<string,(string*string)>()
 let save path (doc:XDocument) =
   let settings = XmlWriterSettings ()
@@ -148,12 +151,13 @@ let processType (doc:XDocument) =
           setval mdoc "param[@name='handler']" "The handler to invoke when this event is raised."
           let summary = select mdoc "summary"
           if summary.Value = "To be added." then
-            setval mdoc "summary" <| sprintf "Subscribes to the %s event raised by the %s." eventName typeName
+            setval mdoc "summary" <| sprintf "Subscribes to the %s event raised by the %s (single subscriber)." eventName typeName
           setval mdoc "returns" "Returns an Urho.Subscription that can be used to cancel the subscription."
           let remarks = select mdoc "remarks"
-          if remarks.Value = "To be added." then
-            setval mdoc "remarks" ""
-
+          remarks.RemoveAll ()
+          xp "<para>This method will override any prior subscription, including those assigned to on event handlers.</para>"  |> remarks.Add
+          xp "<para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>" |> remarks.Add
+          sprintf "<para>For a more event-like approach, use the <see cref=\"E:Urho.%s.%s\"/> event.</para>" typeName eventName |> xp |> remarks.Add
           // Remember the method, so we can reference it from the event args
           let parameter = m.XPathSelectElement ("Parameters/Parameter[@Name='handler']")
           let eventArgsType = (((parameter.Attribute (xname "Type")).Value).Replace ("System.Action<Urho.","")).Replace (">","")
@@ -162,6 +166,17 @@ let processType (doc:XDocument) =
           else
             events.Add (eventArgsType, (eventName,typeName))
 
+          // Now do the event handler
+          let evtNode = doc.XPathSelectElement <| sprintf "Type/Members/Member[@MemberName='%s']" eventName
+          // For now, we do nothing.
+          // Perhaps the master documentation for the event should live here, and the SubscribeTo can copy that.
+
+          // One time use below, because after this, I went and typed manual docs.
+          //let evtRem = select evtNode "Docs/remarks"
+          //if evtRem.Value = "To be added." then
+          //  evtRem.RemoveAll ()
+          //  sprintf "<para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref=\"M:Urho.%s\"/> method.   That one will force that callback and will ignore any previously set events here.</para>" name |> xp |> evtRem.Add
+ 
   fillBaseType()
   fillType()
   fillTypeName()

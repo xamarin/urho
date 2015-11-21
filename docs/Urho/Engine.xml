@@ -25,19 +25,24 @@
       <para>The event order is:</para>
       <list type="bullet">
         <item>
-          <term>BeginFrame: signals the beginning of the new frame. <see cref="T:Urho.Input" /> and <see cref="T:Urho.Engine.Network" /> react to this to check for operating system window messages and arrived network packets.</term>
+          <term>
+            <see cref="E:Urho.Time.FrameStarted" />: signals the beginning of the new frame. <see cref="T:Urho.Input" /> and <see cref="T:Urho.Engine.Network" /> react to this to check for operating system window messages and arrived network packets.</term>
         </item>
         <item>
-          <term>Update: application-wide logic update event. By default each update-enabled <see cref="T:Urho.Scene" /> reacts to this and triggers the scene update (more on this below).</term>
+          <term>
+            <see cref="E:Urho.Engine.Update" />: application-wide logic update event. By default each update-enabled <see cref="T:Urho.Scene" /> reacts to this and triggers the scene update (more on this below).</term>
         </item>
         <item>
-          <term>PostUpdate: application-wide logic post-update event. The <see cref="T:Urho.UI" /> subsystem updates its logic here.</term>
+          <term>
+            <see cref="E:Urho.Engine.PostUpdate" />: application-wide logic post-update event. The <see cref="T:Urho.UI" /> subsystem updates its logic here.</term>
         </item>
         <item>
-          <term>RenderUpdate: <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.UI" /> generates render commands necessary to render the user interface.</term>
+          <term>
+            <see cref="E:Urho.Engine.RenderUpdate" />: <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.UI" /> generates render commands necessary to render the user interface.</term>
         </item>
         <item>
-          <term>PostRenderUpdate: by default nothing hooks to this. This can be used to implement logic that requires the rendering views to be up-to-date, for example to do accurate raycasts. Scenes may not be modified at this point; especially scene objects may not be deleted or crashes may occur.</term>
+          <term>
+            <see cref="T:Urho.Engine.PostRenderUpdate" />: by default nothing hooks to this. This can be used to implement logic that requires the rendering views to be up-to-date, for example to do accurate raycasts. Scenes may not be modified at this point; especially scene objects may not be deleted or crashes may occur.</term>
         </item>
         <item>
           <term>EndFrame: signals the end of the frame. Before this, rendering the frame and measuring the next frame's timestep will have occurred.</term>
@@ -99,7 +104,7 @@
       <para>Note that on iOS calling <see cref="M:Urho.Engine.Exit" /> is a no-op as there is no officially sanctioned way to manually exit your program. On Android it will cause the activity to manually exit.</para>
       <format type="text/html">
         <h2>Application Framework</h2>
-        <div>The&amp;amp;nbsp;<a href="">T:Urho.Application</a>&amp;amp;nbsp;class provides a minimal framework to run your game with a main loop and a handful of methods that you can override to prepare and run your game.</div>
+        <div>The&amp;amp;amp;amp;amp;amp;amp;amp;nbsp;<a href="">T:Urho.Application</a>&amp;amp;amp;amp;amp;amp;amp;amp;nbsp;class provides a minimal framework to run your game with a main loop and a handful of methods that you can override to prepare and run your game.</div>
       </format>
     </remarks>
   </Docs>
@@ -497,8 +502,8 @@
         <ReturnType>System.Action&lt;Urho.PostRenderUpdateEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Invoked after the <see cref="T:Urho.Engine.RenderUpdate" /> event has been raised. This can be used to implement logic that requires the rendering views to be up-to-date, for example to do accurate raycasts. </summary>
+        <remarks>Scenes may not be modified at this point; especially scene objects may not be deleted or crashes may occur.</remarks>
       </Docs>
     </Member>
     <Member MemberName="PostUpdate">
@@ -512,8 +517,8 @@
         <ReturnType>System.Action&lt;Urho.PostUpdateEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Event raised after the <see cref="E:Urho.Engine.Update" /> event is from the <see cref="M:Urho.Engine.UpdateFrame" /> method.</summary>
+        <remarks>The <see cref="T:Urho.UI" /> subsystem updates its logic here.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Render">
@@ -545,8 +550,9 @@
         <ReturnType>System.Action&lt;Urho.RenderUpdateEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Event raised after <see cref="E:Urho.Engine.PostUpdate" /> event in preparation for rendering.</summary>
+        <remarks>
+          <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.UI" /> generates render commands necessary to render the user interface.</remarks>
       </Docs>
     </Member>
     <Member MemberName="RunFrame">
@@ -584,7 +590,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PostRenderUpdate event raised by the Engine.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Engine.PostRenderUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPostUpdate">
@@ -604,7 +614,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the PostUpdate event raised by the Engine.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Engine.PostUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToRenderUpdate">
@@ -624,7 +638,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the RenderUpdate event raised by the Engine.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Engine.RenderUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TimeStepSmoothing">
@@ -722,8 +740,11 @@
         <ReturnType>System.Action&lt;Urho.UpdateEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Application-wide logic update event, the first called from the <see cref="M:Urho.Engine.UpdateFrame" /> method.</summary>
+        <remarks>
+          <para>By default each update-enabled <see cref="T:Urho.Scene" /> reacts to this and triggers the scene update</para>
+          <para></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateFrame">
@@ -738,8 +759,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Sends the frame update events.</summary>
+        <remarks>This method is usually invoked from the <see cref="M:Urho.Engine.RunFrame" /> method and it rasises the <see cref="E:Urho.Engine.Update" />, <see cref="E:Urho.Engine.PostUpdate" />, <see cref="E:Urho.Engine.RenderUpdate" /> and <see cref="E:Urho.Engine.PostRenderUpdate" /> events in that order.</remarks>
       </Docs>
     </Member>
   </Members>

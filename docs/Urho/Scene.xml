@@ -155,7 +155,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToAsyncLoadFinished" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AsyncLoadingMs">
@@ -208,7 +210,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToAsyncLoadProgress" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AsyncProgress">
@@ -241,7 +245,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToAttributeAnimationUpdate" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseType">
@@ -370,7 +376,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToComponentAdded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ComponentEnabledChanged">
@@ -385,7 +393,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToComponentEnabledChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ComponentRemoved">
@@ -400,7 +410,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToComponentRemoved" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DelayedMarkedDirty">
@@ -876,7 +888,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNodeAdded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NodeEnabledChanged">
@@ -891,7 +905,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNodeEnabledChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NodeNameChanged">
@@ -906,7 +922,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNodeNameChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NodeRemoved">
@@ -921,7 +939,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNodeRemoved" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PrepareNetworkUpdate">
@@ -1036,7 +1056,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToSceneDrawableUpdateFinished" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ScenePostUpdate">
@@ -1051,7 +1073,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToScenePostUpdate" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SceneSubsystemUpdate">
@@ -1066,7 +1090,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToSceneSubsystemUpdate" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SceneUpdate">
@@ -1081,7 +1107,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToSceneUpdate" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetUpdateEnabled">
@@ -1201,7 +1229,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AsyncLoadFinished event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.AsyncLoadFinished" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToAsyncLoadProgress">
@@ -1221,7 +1253,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AsyncLoadProgress event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.AsyncLoadProgress" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToAttributeAnimationUpdate">
@@ -1241,7 +1277,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the AttributeAnimationUpdate event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.AttributeAnimationUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentAdded">
@@ -1261,7 +1301,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ComponentAdded event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.ComponentAdded" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentEnabledChanged">
@@ -1281,7 +1325,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ComponentEnabledChanged event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.ComponentEnabledChanged" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentRemoved">
@@ -1301,7 +1349,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ComponentRemoved event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.ComponentRemoved" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeAdded">
@@ -1321,7 +1373,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeAdded event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.NodeAdded" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeEnabledChanged">
@@ -1341,7 +1397,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeEnabledChanged event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.NodeEnabledChanged" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeNameChanged">
@@ -1361,7 +1421,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeNameChanged event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.NodeNameChanged" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeRemoved">
@@ -1381,7 +1445,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NodeRemoved event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.NodeRemoved" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneDrawableUpdateFinished">
@@ -1401,7 +1469,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the SceneDrawableUpdateFinished event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.SceneDrawableUpdateFinished" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToScenePostUpdate">
@@ -1421,7 +1493,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the ScenePostUpdate event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.ScenePostUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneSubsystemUpdate">
@@ -1441,7 +1517,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the SceneSubsystemUpdate event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.SceneSubsystemUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSceneUpdate">
@@ -1461,7 +1541,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the SceneUpdate event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.SceneUpdate" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUpdateSmoothing">
@@ -1481,7 +1565,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the UpdateSmoothing event raised by the Scene.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.UpdateSmoothing" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TimeScale">
@@ -1640,7 +1728,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToUpdateSmoothing" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="VarNamesAttr">

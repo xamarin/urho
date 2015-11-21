@@ -225,7 +225,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNavigationObstacleAdded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NavigationObstacleRemoved">
@@ -240,7 +242,9 @@
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNavigationObstacleRemoved" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RegisterObject">
@@ -281,7 +285,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NavigationObstacleAdded event raised by the DynamicNavigationMesh.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.DynamicNavigationMesh.NavigationObstacleAdded" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNavigationObstacleRemoved">
@@ -301,7 +309,11 @@
         <param name="handler">The handler to invoke when this event is raised.</param>
         <summary>Subscribes to the NavigationObstacleRemoved event raised by the DynamicNavigationMesh.</summary>
         <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks></remarks>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.DynamicNavigationMesh.NavigationObstacleRemoved" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">
