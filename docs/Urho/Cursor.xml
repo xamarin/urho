@@ -11,9 +11,55 @@
   <Interfaces />
   <Docs>
     <summary>
-            Mouse cursor %UI element.
+            Mouse cursor UI element.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Urho3D supports custom <see cref="T:Urho.Cursor" /> Shapes defined from an <see cref="T:Urho.Image" />.</para>
+      <para>The Shape can be an OS default from the CursorShape enum, which are automatically switched to and from by the UI subsystem, but can be manually switched to using <see cref="M:Urho.Cursor.SetShape" /></para>
+      <para>Alternatively they can be defined using a name in a string <see cref="String" /> format to identify it.</para>
+      <para>There are a number of reserved names that are used for the OS defaults:</para>
+      <list type="bullet">
+        <item>
+          <term>Normal</term>
+        </item>
+        <item>
+          <term>IBeam</term>
+        </item>
+        <item>
+          <term>Cross</term>
+        </item>
+        <item>
+          <term>ResizeVertical</term>
+        </item>
+        <item>
+          <term>ResizeDiagonalTopRight</term>
+        </item>
+        <item>
+          <term>ResizeHorizontal</term>
+        </item>
+        <item>
+          <term>ResizeDiagonalTopLeft</term>
+        </item>
+        <item>
+          <term>ResizeAll</term>
+        </item>
+        <item>
+          <term>AcceptDrop</term>
+        </item>
+        <item>
+          <term>RejectDrop</term>
+        </item>
+        <item>
+          <term>Busy</term>
+        </item>
+        <item>
+          <term>BusyArrow</term>
+        </item>
+      </list>
+      <para>Cursor Shapes can be define in a number of different ways:</para>
+      <para />
+      <format type="text/html" />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
