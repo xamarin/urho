@@ -19,7 +19,7 @@ namespace $safeprojectname$
             // UI text 
             var helloText = new Text(Context)
                 {
-                    Value = "Hello World from $safeprojectname$",
+                    Value = "Hello World from UrhoSharp",
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center
                 };
