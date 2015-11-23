@@ -61,6 +61,7 @@ it takes 5-10 minutes.
 ```
 make iOS
 ```
+Note: Make sure you have an iOS 9.0 simulator target or modify [SDKVER](https://github.com/xamarin/urho/blob/master/MakeiOS#L3) to target another simulator.
 
 **7. Compile UrhoSharp for Android (armeabi, armeabi-v7a, x86)** 
 ```
