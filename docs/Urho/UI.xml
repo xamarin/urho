@@ -87,12 +87,11 @@
       <para>The root UI element can be queried from the UI subsystem. It is an empty canvas (<see cref="T:Urho.UIElement" />) as large as the application window, into which other elements can be added.</para>
       <para>Elements are added into each other similarly as scene nodes, using the <see cref="M:Urho.UIElement.AddChild" /> and <see cref="M:Urho.UIElement.RemoveChild" />. </para>
       <para>To allow the elements react to mouse input, either a mouse cursor element must be defined using the <see cref="P:Urho.UI.Cursor" /> property  or the operating system mouse cursor must be set visible from the <see cref="T:Urho.Input" /> subsystem.</para>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>
-          <br />
-        </h2>
+  <br />
+</h2>
       </format>
     </remarks>
   </Docs>
@@ -902,8 +901,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -919,8 +917,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

@@ -10,10 +10,59 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Graphics subsystem. Manages the application window, rendering state and GPU resources.
+    <summary>Graphics subsystem. Manages the application window, rendering state and GPU resources.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Graphics implements the low-level functionality:</para>
+      <list type="bullet">
+        <item>
+          <term>Creating the window and the rendering context.</term>
+        </item>
+        <item>
+          <term>Setting the screen mode.</term>
+        </item>
+        <item>
+          <term>Keeping track of GPU resources.</term>
+        </item>
+        <item>
+          <term>Keeping track of rendering context state (current rendertarget, vertex and index buffers, textures, shaders and renderstates)</term>
+        </item>
+        <item>
+          <term>Loading shaders.</term>
+        </item>
+        <item>
+          <term>Performing primitive rendering operations.</term>
+        </item>
+        <item>
+          <term>Handling disconnected GPUs.</term>
+        </item>
+      </list>
+      <para>The screen resolution, fullscreen or windowed mode, vertical sync and hardware multisampling level are all set at once by calling <see cref="M:Urho.Graphics.SetMode" />. </para>
+      <para>When setting the initial screen mode, Graphics does a few checks:</para>
+      <list type="bullet">
+        <item>
+          <term>For Direct3D9, shader model 3.0 support is checked.</term>
+        </item>
+        <item>
+          <term>For OpenGL, version 3.2 support is checked for first and used if available. As a fallback, version 2.0 with EXT_framebuffer_object, EXT_packed_depth_stencil and EXT_texture_filter_anisotropic extensions is checked for. The ARB_instanced_arrays extension is also checked for but not required; it will enable hardware instancing support when present.</term>
+        </item>
+        <item>
+          <term>Are hardware shadow maps supported? Both AMD &amp; NVIDIA style shadow maps can be used. If neither are available, no shadows will be rendered.</term>
+        </item>
+        <item>
+          <term>Are light pre-pass and deferred rendering modes supported? These require sufficient multiple rendertarget support, and R32F texture format support.</term>
+        </item>
+      </list>
+      <para>The actual rendering of 3D views is driven by the <see cref="T:Urho.Renderer" /> class.</para>
+      <format type="text/html">
+        <h2>Dealing with GPU Disconnetion</h2>
+        <div>
+          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;nbsp;</p>
+          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Additionally, to work around possible GPU driver bugs the desktop OpenGL context will be voluntarily destroyed and recreated when changing screen mode or toggling between fullscreen and windowed. Therefore, on all graphics APIs one must be prepared for losing GPU resources.</p>
+          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
+        </div>
+      </format>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -2938,8 +2987,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -2955,8 +3003,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
