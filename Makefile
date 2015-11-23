@@ -39,4 +39,5 @@ PchMac: $(LOCAL_CLANG)
 	make -j1 Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -o bindings/Urho.pch bindings/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
 
 ParseEventsMac:
+	@if test ! -d bindings/generated; then echo "Please generate the C# files using SharpieBinder or use `make SharpieBinder`" && exit 1; fi
 	cd bindings && perl parse.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
