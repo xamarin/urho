@@ -42,8 +42,11 @@ make PchMac
 Open SharpieBinder/SharpieBinder.sln via Xamarin Studio and change
 .NET runtime to 64 bit mono (installed from homebrew is usually
 located in "/usr/local/Cellar/4.x.x.x"). Run SharpieBinder project and
-make sure it generated *.cs files in /bindings/generated dir. Then
-execute:
+make sure it generated *.cs files in /bindings/generated dir.
+
+Alternatively, you can do `make SharpieBinder`.
+
+Then execute:
 
 ```
 make ParseEventsMac
