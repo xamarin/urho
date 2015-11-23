@@ -113,7 +113,8 @@
         <param name="node">The node to append to the scene.</param>
         <param name="index">
           <para>If index is greater than current children size, append the new child at the end.</para>
-          <para></para>
+          <para>
+          </para>
         </param>
         <summary>
             Add a child scene node at a specific index. </summary>
@@ -445,7 +446,8 @@
         <param name="id">identifier to assign to the child, if the node is attached to a scene, and the ID already exists, a new ID will be assigned.</param>
         <param name="mode">
           <para>Component and child node creation mode for networking.</para>
-          <para></para>
+          <para>
+          </para>
         </param>
         <summary>
             Create a child node with specific ID.
@@ -528,7 +530,8 @@
             </summary>
         <returns>Returns the created component.  The result will already be attached to the node.</returns>
         <remarks>
-          <para></para>
+          <para>
+          </para>
           <example>
             <code lang="C#"><![CDATA[var planeObject = planeNode.CreateComponent (StaticModel.TypeStatic, CreateMode.Replicated, 0) as StaticModel;
 planeObject.Model = cache.GetModel ("Models/Plane.mdl");
@@ -566,8 +569,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <summary>Creates a component with the Node’s context and attaches it to the node.</summary>
         <returns>Returns the created component.  The result will already be attached to the node.</returns>
         <remarks>
-          <para></para>
-          <para></para>
+          <para>
+          </para>
+          <para>
+          </para>
           <example>
             <code lang="C#"><![CDATA[var planeObject = planeNode.CreateComponent<StaticModel> ();
 planeObject.Model = cache.GetModel ("Models/Plane.mdl");
@@ -604,7 +609,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="type">UrhoType to create, </param>
         <param name="mode">
           <para>Creation mode for the component, or Replicated if not specified.</para>
-          <para></para>
+          <para>
+          </para>
         </param>
         <param name="id">ID to assign to the component, or null if not specified.</param>
         <summary>Creates a component with the Node’s context and attaches it to the node using an UrhoType description.</summary>
@@ -3323,7 +3329,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -3339,7 +3346,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
