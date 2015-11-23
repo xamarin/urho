@@ -24,8 +24,7 @@ Windows and OS X environment.  Please follow these steps:
 **2. Clone the repository including submodules**
 
 ```
-git clone git@github.com:xamarin/urho.git
-git submodule update --init
+git clone git@github.com:xamarin/urho.git --recursive
 ```
 
 **3. Compile Urho.pch**
