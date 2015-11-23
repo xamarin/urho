@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Runtime.InteropServices;
+using Urho.Physics;
+using Urho.UI;
+using Urho.Urho2D;
 
 namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Urho
+namespace Urho.Navigation
 {
 	partial class NavigationMesh
 	{

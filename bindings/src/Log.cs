@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-namespace Urho
+namespace Urho.IO
 {
 
 	public partial class Log

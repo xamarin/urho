@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Urho {
+namespace Urho.Network {
 	public partial class Network {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static int Network_Connect (IntPtr handle, string address, short port, IntPtr scene);

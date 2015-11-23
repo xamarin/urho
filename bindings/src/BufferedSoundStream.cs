@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Urho {
+namespace Urho.Audio {
 	public partial class BufferedSoundStream {
 		public void AddData (byte [] data, int start = 0, int count = -1)
 		{

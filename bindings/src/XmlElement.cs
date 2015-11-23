@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Urho
+namespace Urho.Resources
 {
 	partial class XmlElement
 	{

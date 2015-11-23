@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using Urho.Network;
 
 namespace Urho {
 	public partial class Controls {

@@ -8,6 +8,7 @@
 //
 
 using System.Linq;
+using Urho.Resources;
 
 namespace Urho
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Urho {
+namespace Urho.Network {
 	public partial class Connection {
 		public void SendMessage (int msgId, bool reliable, bool inOrder, byte [] buffer, uint contentId = 0)
 		{

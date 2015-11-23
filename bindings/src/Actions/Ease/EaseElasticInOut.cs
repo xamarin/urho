@@ -1,4 +1,5 @@
-namespace Urho
+using Urho;
+namespace Urho.Actions
 {
 	public class EaseElasticInOut : EaseElastic
 	{

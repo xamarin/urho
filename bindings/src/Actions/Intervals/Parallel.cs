@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Urho;
 
-namespace Urho
+namespace Urho.Actions
 {
 	public class Parallel : FiniteTimeAction
 	{

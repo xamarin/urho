@@ -1,7 +1,8 @@
 using System;
 using System.Diagnostics;
+using Urho;
 
-namespace Urho
+namespace Urho.Actions
 {
 	public class Spawn : FiniteTimeAction
 	{

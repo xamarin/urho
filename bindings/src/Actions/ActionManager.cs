@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System;
+using Urho;
 
-namespace Urho
+namespace Urho.Actions
 {
 	public class ActionManager : IDisposable
 	{
