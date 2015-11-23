@@ -52,8 +52,7 @@ namespace Urho
 			text.VerticalAlignment = VerticalAlignment.Top;
 			text.HorizontalAlignment = HorizontalAlignment.Right;
 			text.TextAlignment = HorizontalAlignment.Right;
-			var xml = cache.GetXmlFile("UI/DefaultStyle.xml");
-			text.SetStyle("DebugHudText", xml);
+			text.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 18);
 
 			root.AddChild(text);
 			subscription = application.Engine.SubscribeToPostUpdate(OnPostUpdate);
