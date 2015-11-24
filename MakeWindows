@@ -10,4 +10,4 @@ libUrho3D.a: Urho3D_Windows
 
 
 CoreData.pak:
-	Urho3D/Urho3D_Windows/bin/tool/PackageTool.exe Urho3D/Source/bin/CoreData Bin/CoreData.pak -q
+	mkdir -p Bin && Urho3D/Urho3D_Windows/bin/tool/PackageTool.exe Urho3D/Source/bin/CoreData Bin/CoreData.pak -q
