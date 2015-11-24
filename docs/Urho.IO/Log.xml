@@ -1,0 +1,400 @@
+<Type Name="Log" FullName="Urho.Log">
+  <TypeSignature Language="C#" Value="public class Log : Urho.UrhoObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Log extends Urho.UrhoObject" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.UrhoObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Logging subsystem.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Log (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of Log, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Log (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">The context that this object will be attached to.</param>
+        <summary>Creates an instance of Log that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of Log attached to the specified execution context.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Log (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system base type.</summary>
+        <value>StringHash representing the base type for this Urho type.</value>
+        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Close">
+      <MemberSignature Language="C#" Value="public void Close ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Close() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Close the log file.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsQuiet">
+      <MemberSignature Language="C#" Value="public bool IsQuiet ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsQuiet() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether log is in quiet mode (only errors printed to standard error stream).
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LastMessage">
+      <MemberSignature Language="C#" Value="public string LastMessage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string LastMessage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return last log message.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Level">
+      <MemberSignature Language="C#" Value="public int Level { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Level" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return logging level.
+            Or
+            Set logging level.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogLevel">
+      <MemberSignature Language="C#" Value="public Urho.LogLevel LogLevel { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.LogLevel LogLevel" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LogLevel</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LogMessage">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.LogMessageEventArgs&gt; LogMessage;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.LogMessageEventArgs&gt; LogMessage" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.LogMessageEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToLogMessage" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Open">
+      <MemberSignature Language="C#" Value="public void Open (string fileName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Open(string fileName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fileName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fileName">To be added.</param>
+        <summary>
+            Open the log file.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetQuiet">
+      <MemberSignature Language="C#" Value="public void SetQuiet (bool quiet);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetQuiet(bool quiet) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="quiet" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="quiet">To be added.</param>
+        <summary>
+            Set quiet mode ie. only print error entries to standard error stream (which is normally redirected to console also). Output to log file is not affected by this mode.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToLogMessage">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLogMessage (Action&lt;Urho.LogMessageEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLogMessage(class System.Action`1&lt;valuetype Urho.LogMessageEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.LogMessageEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the LogMessage event raised by the Log.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Log.LogMessage" /> event.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TimeStamp">
+      <MemberSignature Language="C#" Value="public bool TimeStamp { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool TimeStamp" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether log messages are timestamped.
+            Or
+            Set whether to timestamp log messages.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system type.</summary>
+        <value>StringHash representing the type for this C# type.</value>
+        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name, accessible as a static method.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Write">
+      <MemberSignature Language="C#" Value="public static void Write (Urho.LogLevel level, string message);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Write(valuetype Urho.LogLevel level, string message) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="level" Type="Urho.LogLevel" />
+        <Parameter Name="message" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="level">To be added.</param>
+        <param name="message">To be added.</param>
+        <summary>
+            Write to the log. If logging level is higher than the level of the message, the message is ignored.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WriteRaw">
+      <MemberSignature Language="C#" Value="public static void WriteRaw (string message, bool error);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WriteRaw(string message, bool error) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="error" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="message">To be added.</param>
+        <param name="error">To be added.</param>
+        <summary>
+            Write raw output to the log.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

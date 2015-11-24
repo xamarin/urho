@@ -1,0 +1,34 @@
+<Type Name="NameChangedEventArgs" FullName="Urho.NameChangedEventArgs">
+  <TypeSignature Language="C#" Value="public struct NameChangedEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit NameChangedEventArgs extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Event arguments for the UIElement's NameChanged event</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Element">
+      <MemberSignature Language="C#" Value="public Urho.UIElement Element { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Element" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UIElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,98 @@
+<Type Name="PhysicsBeginContact2DEventArgs" FullName="Urho.PhysicsBeginContact2DEventArgs">
+  <TypeSignature Language="C#" Value="public struct PhysicsBeginContact2DEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit PhysicsBeginContact2DEventArgs extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Event arguments for the PhysicsWorld2D's PhysicsBeginContact2D event</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="BodyA">
+      <MemberSignature Language="C#" Value="public Urho.RigidBody2D BodyA { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody2D BodyA" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RigidBody2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BodyB">
+      <MemberSignature Language="C#" Value="public Urho.RigidBody2D BodyB { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody2D BodyB" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RigidBody2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NodeA">
+      <MemberSignature Language="C#" Value="public Urho.Node NodeA { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node NodeA" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NodeB">
+      <MemberSignature Language="C#" Value="public Urho.Node NodeB { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node NodeB" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="World">
+      <MemberSignature Language="C#" Value="public Urho.PhysicsWorld2D World { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.PhysicsWorld2D World" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PhysicsWorld2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

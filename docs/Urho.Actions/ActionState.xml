@@ -1,0 +1,187 @@
+<Type Name="ActionState" FullName="Urho.ActionState">
+  <TypeSignature Language="C#" Value="public abstract class ActionState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit ActionState extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Encapsulates the states of a running action.</summary>
+    <remarks>ActionStates encapsulate the running state of an Action when the <see cref="M:Urho.Action.StartAction" /> method is invoked to trigger the execution fo the action.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ActionState (Urho.BaseAction action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.BaseAction action, class Urho.Node target) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="action" Type="Urho.BaseAction" />
+        <Parameter Name="target" Type="Urho.Node" />
+      </Parameters>
+      <Docs>
+        <param name="action">Points to the action that is triggering the creation of this state, this is the blueprint for what the action should do.</param>
+        <param name="target">The node that this action will be operating on.</param>
+        <summary>Creates a new action state</summary>
+        <remarks>
+          <para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Action">
+      <MemberSignature Language="C#" Value="public Urho.BaseAction Action { get; protected set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.BaseAction Action" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.BaseAction</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Links to the action for which this action state was created.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsDone">
+      <MemberSignature Language="C#" Value="public virtual bool IsDone { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsDone" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets a value indicating whether this instance is done.
+            </summary>
+        <value>
+          <c>true</c> if this instance is done; otherwise, <c>false</c>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OriginalTarget">
+      <MemberSignature Language="C#" Value="public Urho.Node OriginalTarget { get; protected set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node OriginalTarget" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The node that this action will be operating on.</summary>
+        <value>
+          <para>
+          </para>
+        </value>
+        <remarks>
+          <para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Step">
+      <MemberSignature Language="C#" Value="protected virtual void Step (float dt);" />
+      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig newslot virtual instance void Step(float32 dt) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dt" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="dt">Delta Time</param>
+        <summary>
+            Called every frame with it's delta time.
+            DON'T override unless you know what you are doing.
+            </summary>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Stop">
+      <MemberSignature Language="C#" Value="protected virtual void Stop ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig newslot virtual instance void Stop() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Called after the action has finished.
+            It will set the 'Target' to null. </summary>
+        <remarks>You should never call this method manually. Instead, call the <see cref="M:Urho.Node.StopAction" /> method with this action state.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Target">
+      <MemberSignature Language="C#" Value="public Urho.Node Target { get; protected set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node Target" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the target.
+            Will be set with the 'StartAction' method of the corresponding Action.
+            When the 'Stop' method is called, Target will be set to null.
+            </summary>
+        <value>The target.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public virtual void Update (float time);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Update(float32 time) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="time">A value between 0 and 1
+            For example:
+            0 means that the action just started
+            0.5 means that the action is in the middle
+            1 means that the action is over</param>
+        <summary>
+            Called once per frame.
+            </summary>
+        <remarks>
+          <para>When you provide your own Actions, and your own action states, this is the method that will perform the actual changes to your <see cref="P:Urho.ActionState.Target" /> node.   The action should affect the state of the target node in an implementation specific way, and should be done in function of the specified dt.</para>
+          <para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

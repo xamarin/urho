@@ -1,0 +1,372 @@
+<Type Name="View3D" FullName="Urho.View3D">
+  <TypeSignature Language="C#" Value="public class View3D : Urho.Window" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit View3D extends Urho.Window" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Window</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            %UI element which renders a 3D scene.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public View3D (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of View3D, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public View3D (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">The context that this object will be attached to.</param>
+        <summary>Creates an instance of View3D that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of View3D attached to the specified execution context.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public View3D (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoUpdate">
+      <MemberSignature Language="C#" Value="public bool AutoUpdate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AutoUpdate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether render target updates automatically.
+            Or
+            Set render target auto update mode. Default is true.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system base type.</summary>
+        <value>StringHash representing the base type for this Urho type.</value>
+        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CameraNode">
+      <MemberSignature Language="C#" Value="public Urho.Node CameraNode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node CameraNode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return camera scene node.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DepthTexture">
+      <MemberSignature Language="C#" Value="public Urho.Texture2D DepthTexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D DepthTexture" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return depth stencil texture.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Format">
+      <MemberSignature Language="C#" Value="public uint Format { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Format" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return render texture pixel format.
+            Or
+            Set render texture pixel format. Default is RGB.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnResize">
+      <MemberSignature Language="C#" Value="public override void OnResize ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnResize() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            React to resize.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueueUpdate">
+      <MemberSignature Language="C#" Value="public void QueueUpdate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void QueueUpdate() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Queue manual update on the render texture.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderTexture">
+      <MemberSignature Language="C#" Value="public Urho.Texture2D RenderTexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D RenderTexture" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return render texture.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scene">
+      <MemberSignature Language="C#" Value="public Urho.Scene Scene { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Scene Scene" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Scene</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scene.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetView">
+      <MemberSignature Language="C#" Value="public void SetView (Urho.Scene scene, Urho.Camera camera, bool ownScene);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetView(class Urho.Scene scene, class Urho.Camera camera, bool ownScene) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="Urho.Scene" />
+        <Parameter Name="camera" Type="Urho.Camera" />
+        <Parameter Name="ownScene" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <param name="camera">To be added.</param>
+        <param name="ownScene">To be added.</param>
+        <summary>
+            Define the scene and camera to use in rendering. When ownScene is true the View3D will take ownership of them with shared pointers.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system type.</summary>
+        <value>StringHash representing the type for this C# type.</value>
+        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name, accessible as a static method.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Viewport">
+      <MemberSignature Language="C#" Value="public Urho.Viewport Viewport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Viewport Viewport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Viewport</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return viewport.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

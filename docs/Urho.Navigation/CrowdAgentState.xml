@@ -1,0 +1,61 @@
+<Type Name="CrowdAgentState" FullName="Urho.CrowdAgentState">
+  <TypeSignature Language="C#" Value="public enum CrowdAgentState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed CrowdAgentState extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            The agent is not in a valid state.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="StateInvalid">
+      <MemberSignature Language="C#" Value="StateInvalid" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CrowdAgentState StateInvalid = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CrowdAgentState</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="StateOffmesh">
+      <MemberSignature Language="C#" Value="StateOffmesh" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CrowdAgentState StateOffmesh = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CrowdAgentState</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="StateWalking">
+      <MemberSignature Language="C#" Value="StateWalking" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CrowdAgentState StateWalking = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.CrowdAgentState</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,630 @@
+<Type Name="ScrollView" FullName="Urho.ScrollView">
+  <TypeSignature Language="C#" Value="public class ScrollView : Urho.UIElement" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ScrollView extends Urho.UIElement" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.UIElement</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Scrollable %UI element for showing a (possibly large) child element.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ScrollView (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of ScrollView, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ScrollView (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">The context that this object will be attached to.</param>
+        <summary>Creates an instance of ScrollView that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of ScrollView attached to the specified execution context.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ScrollView (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyAttributes">
+      <MemberSignature Language="C#" Value="public override void ApplyAttributes ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void ApplyAttributes() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Apply attribute changes that can not be applied immediately.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoDisableChildren">
+      <MemberSignature Language="C#" Value="public bool AutoDisableChildren { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AutoDisableChildren" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether child element will be disabled while touch scrolling.
+            Or
+            Set whether child elements should be disabled while touch scrolling.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoDisableThreshold">
+      <MemberSignature Language="C#" Value="public float AutoDisableThreshold { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 AutoDisableThreshold" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return how much touch movement is needed to trigger child element disabling.
+            Or
+            Set how much touch movement is needed to trigger child element disabling.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system base type.</summary>
+        <value>StringHash representing the base type for this Urho type.</value>
+        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContentElement">
+      <MemberSignature Language="C#" Value="public Urho.UIElement ContentElement { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement ContentElement" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UIElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return content element.
+            Or
+            Set content element.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HorizontalScrollBar">
+      <MemberSignature Language="C#" Value="public Urho.ScrollBar HorizontalScrollBar { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ScrollBar HorizontalScrollBar" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ScrollBar</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return horizontal scroll bar.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnKey">
+      <MemberSignature Language="C#" Value="public override void OnKey (int key, int buttons, int qualifiers);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnKey(int32 key, int32 buttons, int32 qualifiers) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="System.Int32" />
+        <Parameter Name="buttons" Type="System.Int32" />
+        <Parameter Name="qualifiers" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="buttons">To be added.</param>
+        <param name="qualifiers">To be added.</param>
+        <summary>
+            React to a key press.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnResize">
+      <MemberSignature Language="C#" Value="public override void OnResize ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnResize() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            React to resize.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnWheel">
+      <MemberSignature Language="C#" Value="public override void OnWheel (int delta, int buttons, int qualifiers);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnWheel(int32 delta, int32 buttons, int32 qualifiers) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="delta" Type="System.Int32" />
+        <Parameter Name="buttons" Type="System.Int32" />
+        <Parameter Name="qualifiers" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="delta">To be added.</param>
+        <param name="buttons">To be added.</param>
+        <param name="qualifiers">To be added.</param>
+        <summary>
+            React to mouse wheel.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PageStep">
+      <MemberSignature Language="C#" Value="public float PageStep { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 PageStep" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return arrow key page step.
+            Or
+            Set arrow key page step.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScrollBarsAutoVisible">
+      <MemberSignature Language="C#" Value="public bool ScrollBarsAutoVisible { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ScrollBarsAutoVisible" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether scrollbars are automatically shown/hidden.
+            Or
+            Set whether to automatically show/hide scrollbars. Default true.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScrollDeceleration">
+      <MemberSignature Language="C#" Value="public float ScrollDeceleration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ScrollDeceleration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scroll deceleration.
+            Or
+            Set scroll deceleration.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScrollPanel">
+      <MemberSignature Language="C#" Value="public Urho.BorderImage ScrollPanel { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.BorderImage ScrollPanel" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.BorderImage</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scroll panel.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScrollSnapEpsilon">
+      <MemberSignature Language="C#" Value="public float ScrollSnapEpsilon { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ScrollSnapEpsilon" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return scroll snap epsilon
+            Or
+            Set scroll snap epsilon
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScrollStep">
+      <MemberSignature Language="C#" Value="public float ScrollStep { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ScrollStep" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return arrow key scroll step.
+            Or
+            Set arrow key scroll step. Also sets it on the scrollbars.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetScrollBarsVisible">
+      <MemberSignature Language="C#" Value="public void SetScrollBarsVisible (bool horizontal, bool vertical);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetScrollBarsVisible(bool horizontal, bool vertical) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="horizontal" Type="System.Boolean" />
+        <Parameter Name="vertical" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="horizontal">To be added.</param>
+        <param name="vertical">To be added.</param>
+        <summary>
+            Set scrollbars' visibility manually. Disables scrollbar autoshow/hide.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetViewPosition">
+      <MemberSignature Language="C#" Value="public void SetViewPosition (int x, int y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetViewPosition(int32 x, int32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Int32" />
+        <Parameter Name="y" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>
+            Set view offset from the top-left corner.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetViewPositionAttr">
+      <MemberSignature Language="C#" Value="public void SetViewPositionAttr (Urho.IntVector2 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetViewPositionAttr(valuetype Urho.IntVector2 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>
+            Set view position attribute.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToViewChanged">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToViewChanged (Action&lt;Urho.ViewChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToViewChanged(class System.Action`1&lt;valuetype Urho.ViewChangedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.ViewChangedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ViewChanged event raised by the ScrollView.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.ScrollView.ViewChanged" /> event.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system type.</summary>
+        <value>StringHash representing the type for this C# type.</value>
+        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name, accessible as a static method.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public override void Update (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void Update(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>
+            Perform UI element update.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VerticalScrollBar">
+      <MemberSignature Language="C#" Value="public Urho.ScrollBar VerticalScrollBar { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ScrollBar VerticalScrollBar" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ScrollBar</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return vertical scroll bar.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ViewChangedEventArgs&gt; ViewChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ViewChangedEventArgs&gt; ViewChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ViewChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToViewChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewPosition">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 ViewPosition { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 ViewPosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return view offset from the top-left corner.
+            Or
+            Set view offset from the top-left corner.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

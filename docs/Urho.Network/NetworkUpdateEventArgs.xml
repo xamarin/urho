@@ -1,0 +1,17 @@
+<Type Name="NetworkUpdateEventArgs" FullName="Urho.NetworkUpdateEventArgs">
+  <TypeSignature Language="C#" Value="public struct NetworkUpdateEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit NetworkUpdateEventArgs extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Event arguments for the Network's NetworkUpdate event</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

@@ -1,0 +1,411 @@
+<Type Name="SoundSource3D" FullName="Urho.SoundSource3D">
+  <TypeSignature Language="C#" Value="public class SoundSource3D : Urho.SoundSource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SoundSource3D extends Urho.SoundSource" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.SoundSource</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            %Sound source component with three-dimensional position.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SoundSource3D (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of SoundSource3D, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SoundSource3D (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">The context that this object will be attached to.</param>
+        <summary>Creates an instance of SoundSource3D that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of SoundSource3D attached to the specified execution context.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SoundSource3D (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system base type.</summary>
+        <value>StringHash representing the base type for this Urho type.</value>
+        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CalculateAttenuation">
+      <MemberSignature Language="C#" Value="public void CalculateAttenuation ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CalculateAttenuation() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Calculate attenuation and panning based on current position and listener position.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawDebugGeometry">
+      <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer debug, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer debug, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="debug" Type="Urho.DebugRenderer" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="debug">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>
+            Visualize the component as debug geometry.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FarDistance">
+      <MemberSignature Language="C#" Value="public float FarDistance { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 FarDistance" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return far distance.
+            Or
+            Set far distance. Outside this range sound will be completely attenuated.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InnerAngle">
+      <MemberSignature Language="C#" Value="public float InnerAngle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 InnerAngle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return inner angle in degrees.
+            Or
+            Set inner angle in degrees. Inside this angle sound will not be attenuated.By default 360, meaning direction never has an effect.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NearDistance">
+      <MemberSignature Language="C#" Value="public float NearDistance { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 NearDistance" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return near distance.
+            Or
+            Set near distance. Inside this range sound will not be attenuated.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OuterAngle">
+      <MemberSignature Language="C#" Value="public float OuterAngle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 OuterAngle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return outer angle in degrees.
+            Or
+            Set outer angle in degrees. Outside this angle sound will be completely attenuated. By default 360, meaning direction never has an effect.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RollAngleoffFactor">
+      <MemberSignature Language="C#" Value="public float RollAngleoffFactor ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 RollAngleoffFactor() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return rolloff power factor.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAngleAttenuation">
+      <MemberSignature Language="C#" Value="public void SetAngleAttenuation (float innerAngle, float outerAngle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAngleAttenuation(float32 innerAngle, float32 outerAngle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="innerAngle" Type="System.Single" />
+        <Parameter Name="outerAngle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="innerAngle">To be added.</param>
+        <param name="outerAngle">To be added.</param>
+        <summary>
+            Set angle attenuation parameters.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDistanceAttenuation">
+      <MemberSignature Language="C#" Value="public void SetDistanceAttenuation (float nearDistance, float farDistance, float rolloffFactor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDistanceAttenuation(float32 nearDistance, float32 farDistance, float32 rolloffFactor) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="nearDistance" Type="System.Single" />
+        <Parameter Name="farDistance" Type="System.Single" />
+        <Parameter Name="rolloffFactor" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="nearDistance">To be added.</param>
+        <param name="farDistance">To be added.</param>
+        <param name="rolloffFactor">To be added.</param>
+        <summary>
+            Set attenuation parameters.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRolloffFactor">
+      <MemberSignature Language="C#" Value="public void SetRolloffFactor (float factor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRolloffFactor(float32 factor) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="factor" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="factor">To be added.</param>
+        <summary>
+            Set rolloff power factor, defines attenuation function shape.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system type.</summary>
+        <value>StringHash representing the type for this C# type.</value>
+        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name, accessible as a static method.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public override void Update (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void Update(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>
+            Update sound source.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

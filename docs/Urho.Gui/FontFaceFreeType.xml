@@ -1,0 +1,143 @@
+<Type Name="FontFaceFreeType" FullName="Urho.FontFaceFreeType">
+  <TypeSignature Language="C#" Value="public class FontFaceFreeType : Urho.FontFace" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FontFaceFreeType extends Urho.FontFace" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.FontFace</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Free type font face description.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FontFaceFreeType (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of FontFaceFreeType, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FontFaceFreeType (Urho.Font font);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Font font) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="font" Type="Urho.Font" />
+      </Parameters>
+      <Docs>
+        <param name="font">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FontFaceFreeType (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetGlyph">
+      <MemberSignature Language="C#" Value="public override Urho.FontGlyph* GetGlyph (uint c);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance valuetype Urho.FontGlyph* GetGlyph(unsigned int32 c) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FontGlyph*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="c" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="c">To be added.</param>
+        <summary>
+            Return pointer to the glyph structure corresponding to a character. Return null if glyph not found.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasMutableGlyphs">
+      <MemberSignature Language="C#" Value="public override bool HasMutableGlyphs ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool HasMutableGlyphs() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return if font face uses mutable glyphs.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Load">
+      <MemberSignature Language="C#" Value="public override bool Load (byte* fontData, uint fontDataSize, int pointSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Load(unsigned int8* fontData, unsigned int32 fontDataSize, int32 pointSize) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fontData" Type="System.Byte*" />
+        <Parameter Name="fontDataSize" Type="System.UInt32" />
+        <Parameter Name="pointSize" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="fontData">To be added.</param>
+        <param name="fontDataSize">To be added.</param>
+        <param name="pointSize">To be added.</param>
+        <summary>
+            Load font face.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

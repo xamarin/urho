@@ -1,0 +1,39 @@
+<Type Name="IComponentDeserializer" FullName="Urho.IComponentDeserializer">
+  <TypeSignature Language="C#" Value="public interface IComponentDeserializer" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IComponentDeserializer" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Deserialize&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T Deserialize&lt;T&gt; (string key);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !!T Deserialize&lt;T&gt;(string key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="key" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

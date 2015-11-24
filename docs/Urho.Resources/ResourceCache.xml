@@ -1,0 +1,1677 @@
+<Type Name="ResourceCache" FullName="Urho.ResourceCache">
+  <TypeSignature Language="C#" Value="public class ResourceCache : Urho.UrhoObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ResourceCache extends Urho.UrhoObject" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.UrhoObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            %Resource cache subsystem. Loads resources on demand and stores them for later access.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ResourceCache (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of ResourceCache, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ResourceCache (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">The context that this object will be attached to.</param>
+        <summary>Creates an instance of ResourceCache that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of ResourceCache attached to the specified execution context.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ResourceCache (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddManualResource">
+      <MemberSignature Language="C#" Value="public bool AddManualResource (Urho.Resource resource);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool AddManualResource(class Urho.Resource resource) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resource" Type="Urho.Resource" />
+      </Parameters>
+      <Docs>
+        <param name="resource">To be added.</param>
+        <summary>
+            Add a manually created resource. Must be uniquely named.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddPackageFile">
+      <MemberSignature Language="C#" Value="public bool AddPackageFile (string fileName, uint priority);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool AddPackageFile(string fileName, unsigned int32 priority) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fileName" Type="System.String" />
+        <Parameter Name="priority" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="fileName">To be added.</param>
+        <param name="priority">To be added.</param>
+        <summary>
+            Add a package file for loading resources from by name. Optional priority parameter which will control search order.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddPackageFile">
+      <MemberSignature Language="C#" Value="public bool AddPackageFile (Urho.PackageFile package, uint priority);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool AddPackageFile(class Urho.PackageFile package, unsigned int32 priority) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="package" Type="Urho.PackageFile" />
+        <Parameter Name="priority" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="package">To be added.</param>
+        <param name="priority">To be added.</param>
+        <summary>
+            Add a package file for loading resources from. Optional priority parameter which will control search order.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResourceDir">
+      <MemberSignature Language="C#" Value="public bool AddResourceDir (string pathName, uint priority);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool AddResourceDir(string pathName, unsigned int32 priority) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pathName" Type="System.String" />
+        <Parameter Name="priority" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="pathName">To be added.</param>
+        <param name="priority">To be added.</param>
+        <summary>
+            Add a resource load directory. Optional priority parameter which will control search order.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddResourceRouter">
+      <MemberSignature Language="C#" Value="public void AddResourceRouter (Urho.ResourceRouter router, bool addAsFirst);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddResourceRouter(class Urho.ResourceRouter router, bool addAsFirst) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="router" Type="Urho.ResourceRouter" />
+        <Parameter Name="addAsFirst" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="router">To be added.</param>
+        <param name="addAsFirst">To be added.</param>
+        <summary>
+            Add a resource router object. By default there is none, so the routing process is skipped.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoReloadResources">
+      <MemberSignature Language="C#" Value="public bool AutoReloadResources { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AutoReloadResources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether automatic resource reloading is enabled.
+            Or
+            Enable or disable automatic reloading of resources as files are modified. Default false.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BackgroundLoadResource">
+      <MemberSignature Language="C#" Value="public bool BackgroundLoadResource (Urho.StringHash type, string name, bool sendEventOnFailure, Urho.Resource caller);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool BackgroundLoadResource(valuetype Urho.StringHash type, string name, bool sendEventOnFailure, class Urho.Resource caller) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+        <Parameter Name="caller" Type="Urho.Resource" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <param name="caller">To be added.</param>
+        <summary>
+            Background load a resource. An event will be sent when complete. Return true if successfully stored to the load queue, false if eg. already exists. Can be called from outside the main thread.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system base type.</summary>
+        <value>StringHash representing the base type for this Urho type.</value>
+        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Exists">
+      <MemberSignature Language="C#" Value="public bool Exists (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Exists(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Return whether a file exists by name.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FileChanged">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.FileChangedEventArgs&gt; FileChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.FileChangedEventArgs&gt; FileChanged" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.FileChangedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToFileChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FinishBackgroundResourcesMs">
+      <MemberSignature Language="C#" Value="public int FinishBackgroundResourcesMs { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 FinishBackgroundResourcesMs" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return how many milliseconds maximum to spend on finishing background loaded resources.
+            Or
+            Set how many milliseconds maximum per frame to spend on finishing background loaded resources.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAnimation">
+      <MemberSignature Language="C#" Value="public Urho.Animation GetAnimation (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Animation GetAnimation(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Animation</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAnimationSet2D">
+      <MemberSignature Language="C#" Value="public Urho.AnimationSet2D GetAnimationSet2D (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.AnimationSet2D GetAnimationSet2D(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AnimationSet2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetExistingResource">
+      <MemberSignature Language="C#" Value="public Urho.Resource GetExistingResource (Urho.StringHash type, string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resource GetExistingResource(valuetype Urho.StringHash type, string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resource</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFile">
+      <MemberSignature Language="C#" Value="public Urho.File GetFile (string name, bool sendEventOnFailure);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.File GetFile(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.File</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>
+            Open and return a file from the resource load paths or from inside a package file. If not found, use a fallback search with absolute path. Return null if fails. Can be called from outside the main thread.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFont">
+      <MemberSignature Language="C#" Value="public Urho.Font GetFont (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Font GetFont(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Font</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetImage">
+      <MemberSignature Language="C#" Value="public Urho.Image GetImage (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Image GetImage(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Image</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJsonFile">
+      <MemberSignature Language="C#" Value="public Urho.JsonFile GetJsonFile (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.JsonFile GetJsonFile(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.JsonFile</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMaterial">
+      <MemberSignature Language="C#" Value="public Urho.Material GetMaterial (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Material GetMaterial(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMemoryBudget">
+      <MemberSignature Language="C#" Value="public uint GetMemoryBudget (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetMemoryBudget(valuetype Urho.StringHash type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>
+            Return memory budget for a resource type.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMemoryUse">
+      <MemberSignature Language="C#" Value="public uint GetMemoryUse (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetMemoryUse(valuetype Urho.StringHash type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>
+            Return total memory use for a resource type.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetModel">
+      <MemberSignature Language="C#" Value="public Urho.Model GetModel (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Model GetModel(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetObjectAnimation">
+      <MemberSignature Language="C#" Value="public Urho.ObjectAnimation GetObjectAnimation (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ObjectAnimation GetObjectAnimation(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ObjectAnimation</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetParticleEffect">
+      <MemberSignature Language="C#" Value="public Urho.ParticleEffect GetParticleEffect (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ParticleEffect GetParticleEffect(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ParticleEffect</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetParticleEffect2D">
+      <MemberSignature Language="C#" Value="public Urho.ParticleEffect2D GetParticleEffect2D (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ParticleEffect2D GetParticleEffect2D(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ParticleEffect2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetPListFile">
+      <MemberSignature Language="C#" Value="public Urho.PListFile GetPListFile (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.PListFile GetPListFile(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PListFile</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetPreferredResourceDir">
+      <MemberSignature Language="C#" Value="public string GetPreferredResourceDir (string path);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string GetPreferredResourceDir(string path) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="path" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="path">To be added.</param>
+        <summary>
+            Return either the path itself or its parent, based on which of them has recognized resource subdirectories.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetResource">
+      <MemberSignature Language="C#" Value="public Urho.Resource GetResource (Urho.StringHash type, string name, bool sendEventOnFailure);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resource GetResource(valuetype Urho.StringHash type, string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resource</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>
+            Return a resource by type and name. Load if not loaded yet. Return null if not found or if fails, unless SetReturnFailedResources(true) has been called. Can be called only from the main thread.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetResourceFileName">
+      <MemberSignature Language="C#" Value="public string GetResourceFileName (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string GetResourceFileName(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Return full absolute file name of resource if possible.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetResourceRouter">
+      <MemberSignature Language="C#" Value="public Urho.ResourceRouter GetResourceRouter (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ResourceRouter GetResourceRouter(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ResourceRouter</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return a resource router by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetShader">
+      <MemberSignature Language="C#" Value="public Urho.Shader GetShader (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Shader GetShader(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Shader</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSound">
+      <MemberSignature Language="C#" Value="public Urho.Sound GetSound (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Sound GetSound(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Sound</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSprite2D">
+      <MemberSignature Language="C#" Value="public Urho.Sprite2D GetSprite2D (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Sprite2D GetSprite2D(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Sprite2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSpriteSheet2D">
+      <MemberSignature Language="C#" Value="public Urho.SpriteSheet2D GetSpriteSheet2D (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.SpriteSheet2D GetSpriteSheet2D(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SpriteSheet2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTechnique">
+      <MemberSignature Language="C#" Value="public Urho.Technique GetTechnique (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Technique GetTechnique(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTempResource">
+      <MemberSignature Language="C#" Value="public Urho.Resource GetTempResource (Urho.StringHash type, string name, bool sendEventOnFailure);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resource GetTempResource(valuetype Urho.StringHash type, string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resource</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>
+            Load a resource without storing it in the resource cache. Return null if not found or if fails. Can be called from outside the main thread if the resource itself is safe to load completely (it does not possess for example GPU data.)
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTexture2D">
+      <MemberSignature Language="C#" Value="public Urho.Texture2D GetTexture2D (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Texture2D GetTexture2D(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTmxFile2D">
+      <MemberSignature Language="C#" Value="public Urho.TmxFile2D GetTmxFile2D (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.TmxFile2D GetTmxFile2D(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TmxFile2D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetValueAnimation">
+      <MemberSignature Language="C#" Value="public Urho.ValueAnimation GetValueAnimation (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ValueAnimation GetValueAnimation(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ValueAnimation</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetXmlFile">
+      <MemberSignature Language="C#" Value="public Urho.XmlFile GetXmlFile (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.XmlFile GetXmlFile(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.XmlFile</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="sendEventOnFailure">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadFailed">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.LoadFailedEventArgs&gt; LoadFailed;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.LoadFailedEventArgs&gt; LoadFailed" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.LoadFailedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToLoadFailed" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumBackgroundLoadResources">
+      <MemberSignature Language="C#" Value="public uint NumBackgroundLoadResources { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumBackgroundLoadResources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of pending background-loaded resources.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PackageFiles">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Urho.PackageFile&gt; PackageFiles { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Urho.PackageFile&gt; PackageFiles" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Urho.PackageFile&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return added package files.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReleaseAllResources">
+      <MemberSignature Language="C#" Value="public void ReleaseAllResources (bool force);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseAllResources(bool force) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="force" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="force">To be added.</param>
+        <summary>
+            Release all resources. When called with the force flag false, releases all currently unused resources.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReleaseResource">
+      <MemberSignature Language="C#" Value="public void ReleaseResource (Urho.StringHash type, string name, bool force);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseResource(valuetype Urho.StringHash type, string name, bool force) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="force" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="force">To be added.</param>
+        <summary>
+            Release a resource by name.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReleaseResources">
+      <MemberSignature Language="C#" Value="public void ReleaseResources (string partialName, bool force);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseResources(string partialName, bool force) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="partialName" Type="System.String" />
+        <Parameter Name="force" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="partialName">To be added.</param>
+        <param name="force">To be added.</param>
+        <summary>
+            Release resources of all types by partial name.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReleaseResources">
+      <MemberSignature Language="C#" Value="public void ReleaseResources (Urho.StringHash type, bool force);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseResources(valuetype Urho.StringHash type, bool force) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="force" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="force">To be added.</param>
+        <summary>
+            Release all resources of a specific type.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReleaseResources">
+      <MemberSignature Language="C#" Value="public void ReleaseResources (Urho.StringHash type, string partialName, bool force);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseResources(valuetype Urho.StringHash type, string partialName, bool force) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="partialName" Type="System.String" />
+        <Parameter Name="force" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="partialName">To be added.</param>
+        <param name="force">To be added.</param>
+        <summary>
+            Release resources of a specific type and partial name.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReloadResource">
+      <MemberSignature Language="C#" Value="public bool ReloadResource (Urho.Resource resource);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ReloadResource(class Urho.Resource resource) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resource" Type="Urho.Resource" />
+      </Parameters>
+      <Docs>
+        <param name="resource">To be added.</param>
+        <summary>
+            Reload a resource. Return true on success. The resource will not be removed from the cache in case of failure.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReloadResourceWithDependencies">
+      <MemberSignature Language="C#" Value="public void ReloadResourceWithDependencies (string fileName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReloadResourceWithDependencies(string fileName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fileName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fileName">To be added.</param>
+        <summary>
+            Reload a resource based on filename. Causes also reload of dependent resources if necessary.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemovePackageFile">
+      <MemberSignature Language="C#" Value="public void RemovePackageFile (string fileName, bool releaseResources, bool forceRelease);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemovePackageFile(string fileName, bool releaseResources, bool forceRelease) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fileName" Type="System.String" />
+        <Parameter Name="releaseResources" Type="System.Boolean" />
+        <Parameter Name="forceRelease" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="fileName">To be added.</param>
+        <param name="releaseResources">To be added.</param>
+        <param name="forceRelease">To be added.</param>
+        <summary>
+            Remove a package file by name. Optionally release the resources loaded from it.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemovePackageFile">
+      <MemberSignature Language="C#" Value="public void RemovePackageFile (Urho.PackageFile package, bool releaseResources, bool forceRelease);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemovePackageFile(class Urho.PackageFile package, bool releaseResources, bool forceRelease) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="package" Type="Urho.PackageFile" />
+        <Parameter Name="releaseResources" Type="System.Boolean" />
+        <Parameter Name="forceRelease" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="package">To be added.</param>
+        <param name="releaseResources">To be added.</param>
+        <param name="forceRelease">To be added.</param>
+        <summary>
+            Remove a package file. Optionally release the resources loaded from it.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveResourceDir">
+      <MemberSignature Language="C#" Value="public void RemoveResourceDir (string pathName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveResourceDir(string pathName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pathName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="pathName">To be added.</param>
+        <summary>
+            Remove a resource load directory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveResourceRouter">
+      <MemberSignature Language="C#" Value="public void RemoveResourceRouter (Urho.ResourceRouter router);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveResourceRouter(class Urho.ResourceRouter router) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="router" Type="Urho.ResourceRouter" />
+      </Parameters>
+      <Docs>
+        <param name="router">To be added.</param>
+        <summary>
+            Remove a resource router object.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetDependencies">
+      <MemberSignature Language="C#" Value="public void ResetDependencies (Urho.Resource resource);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetDependencies(class Urho.Resource resource) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resource" Type="Urho.Resource" />
+      </Parameters>
+      <Docs>
+        <param name="resource">To be added.</param>
+        <summary>
+            Reset dependencies for a resource.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResourceBackgroundLoaded">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt; ResourceBackgroundLoaded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ResourceBackgroundLoadedEventArgs&gt; ResourceBackgroundLoaded" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToResourceBackgroundLoaded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResourceNotFound">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ResourceNotFoundEventArgs&gt; ResourceNotFound;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ResourceNotFoundEventArgs&gt; ResourceNotFound" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ResourceNotFoundEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToResourceNotFound" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReturnFailedResources">
+      <MemberSignature Language="C#" Value="public bool ReturnFailedResources { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ReturnFailedResources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether resources that failed to load are returned.
+            Or
+            Enable or disable returning resources that failed to load. Default false. This may be useful in editing to not lose resource ref attributes.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SanitateResourceDirName">
+      <MemberSignature Language="C#" Value="public string SanitateResourceDirName (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string SanitateResourceDirName(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Remove unnecessary constructs from a resource directory name and ensure it to be an absolute path.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SanitateResourceName">
+      <MemberSignature Language="C#" Value="public string SanitateResourceName (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string SanitateResourceName(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+            Remove unsupported constructs from the resource name to prevent ambiguity, and normalize absolute filename to resource path relative if possible.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SearchPackagesFirst">
+      <MemberSignature Language="C#" Value="public bool SearchPackagesFirst { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SearchPackagesFirst" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether when getting resources should check package files or directories first.
+            Or
+            Define whether when getting resources should check package files or directories first. True for packages, false for directories.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMemoryBudget">
+      <MemberSignature Language="C#" Value="public void SetMemoryBudget (Urho.StringHash type, uint budget);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMemoryBudget(valuetype Urho.StringHash type, unsigned int32 budget) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+        <Parameter Name="budget" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="budget">To be added.</param>
+        <summary>
+            Set memory budget for a specific resource type, default 0 is unlimited.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StoreResourceDependency">
+      <MemberSignature Language="C#" Value="public void StoreResourceDependency (Urho.Resource resource, string dependency);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StoreResourceDependency(class Urho.Resource resource, string dependency) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resource" Type="Urho.Resource" />
+        <Parameter Name="dependency" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="resource">To be added.</param>
+        <param name="dependency">To be added.</param>
+        <summary>
+            Store a dependency for a resource. If a dependency file changes, the resource will be reloaded.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToFileChanged">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFileChanged (Action&lt;Urho.FileChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFileChanged(class System.Action`1&lt;valuetype Urho.FileChangedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.FileChangedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the FileChanged event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.ResourceCache.FileChanged" /> event.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToLoadFailed">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLoadFailed (Action&lt;Urho.LoadFailedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLoadFailed(class System.Action`1&lt;valuetype Urho.LoadFailedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.LoadFailedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the LoadFailed event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.ResourceCache.LoadFailed" /> event.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToResourceBackgroundLoaded">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResourceBackgroundLoaded (Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResourceBackgroundLoaded(class System.Action`1&lt;valuetype Urho.ResourceBackgroundLoadedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.ResourceBackgroundLoadedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ResourceBackgroundLoaded event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.ResourceCache.ResourceBackgroundLoaded" /> event.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToResourceNotFound">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResourceNotFound (Action&lt;Urho.ResourceNotFoundEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResourceNotFound(class System.Action`1&lt;valuetype Urho.ResourceNotFoundEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.ResourceNotFoundEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ResourceNotFound event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.ResourceCache.ResourceNotFound" /> event.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToUnknownResourceType">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUnknownResourceType (Action&lt;Urho.UnknownResourceTypeEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUnknownResourceType(class System.Action`1&lt;valuetype Urho.UnknownResourceTypeEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.UnknownResourceTypeEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the UnknownResourceType event raised by the ResourceCache.</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.ResourceCache.UnknownResourceType" /> event.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TotalMemoryUse">
+      <MemberSignature Language="C#" Value="public uint TotalMemoryUse { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TotalMemoryUse" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return total memory use for all resources.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system type.</summary>
+        <value>StringHash representing the type for this C# type.</value>
+        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name, accessible as a static method.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnknownResourceType">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.UnknownResourceTypeEventArgs&gt; UnknownResourceType;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.UnknownResourceTypeEventArgs&gt; UnknownResourceType" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.UnknownResourceTypeEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>
+          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToUnknownResourceType" /> method.   That one will force that callback and will ignore any previously set events here.</para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

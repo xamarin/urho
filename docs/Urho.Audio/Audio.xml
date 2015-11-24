@@ -1,0 +1,579 @@
+<Type Name="Audio" FullName="Urho.Audio">
+  <TypeSignature Language="C#" Value="public class Audio : Urho.UrhoObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Audio extends Urho.UrhoObject" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.UrhoObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Audio subsystem, used to playback both regular audio and 3D sound.</summary>
+    <remarks>
+      <para>The Audio subsystem implements an audio output stream. Once it has been initialized, the following operations are supported:</para>
+      <list type="bullet">
+        <item>
+          <term>Playing raw audio, Ogg Vorbis or WAV <see cref="T:Urho.Sound" /> resources using the <see cref="T:Urho.SoundSource" /> component. This allows manual stereo panning of mono sounds; stereo sounds will be output with their original stereo mix.</term>
+        </item>
+        <item>
+          <term>Playing the above sound formats in pseudo-3D using the <see cref="T:Urho.SoundSource3D" /> component. It has stereo positioning and distance attenuation, but does not (at least yet) filter the sound depending on the direction.</term>
+        </item>
+      </list>
+      <para>To hear pseudo-3D positional sounds, a <see cref="T:Urho.SoundListener" /> component must exist in a scene node and be assigned to the audio subsystem by setting the <see cref="P:Urho.Audio.Listener" /> property. If the sound listener's scene node exists within a specific scene, it will only hear sounds from that scene, but if it has been created into a "sceneless" node it will hear sounds from all scenes.</para>
+      <para>The output is software mixed for an unlimited amount of simultaneous sounds. Ogg Vorbis sounds are decoded on the fly, and decoding them can be memory- and CPU-intensive, so WAV files are recommended when a large number of short sound effects need to be played.</para>
+      <para>For purposes of volume control, each <see cref="T:Urho.SoundSource" /> can be classified into a user defined group which is multiplied with a master category and the individual <see cref="T:Urho.SoundSource" /> gain set using <see cref="P:Urho.SoundSource.Gain" /> for the final volume level.</para>
+      <para>To control the category volumes, set the <see cref="M:Urho.Audio.SetMasterGain" />, which defines the category if it didn't already exist.</para>
+      <para>The <see cref="T:Urho.SoundSource" /> components support automatic removal from the node they belong to, once playback is finished. To use, set the <see cref="P:Urho.SoundSource.AutoRemove property" /> on them. This may be useful when a game object plays several "fire and forget" sound effects.</para>
+      <para>
+      </para>
+      <format type="text/html">
+        <h2>Sound Parameters</h2>
+      </format>
+      <para>
+      </para>
+      <para>A standard WAV file can not tell whether it should loop, and raw audio does not contain any header information. Parameters for the<see cref="Sound" /> resource can optionally be specified through an XML file that has the same name as the sound, but .xml extension. Possible elements are “format” which allows optional attributes “frequency” (and a value in Hz), “sixteenbits” (with either “true” and “false” values) and “stereo” (with either “true” and “false” values).  The other element is “loop” and it allows the optional attributes “enable” (with either “true” and “false” values) and “start” and “end” </para>
+      <para>The frequency is in Hz, and loop start and end are bytes from the start of audio data. If a loop is enabled without specifying the start and end, it is assumed to be the whole sound. Ogg Vorbis compressed sounds do not support specifying the loop range, only whether whole sound looping is enabled or disabled.</para>
+      <para>The <see cref="Audio" /> subsystem is always instantiated, but in headless mode it is not active. In headless mode the playback of sounds is simulated, taking the sound length and frequency into account. This allows basing logic on whether a specific sound is still playing or not, even in server code.</para>
+      <format type="text/html">
+        <h2>Sound Streaming</h2>
+      </format>
+      <para>In addition to playing existing sound resources, sound can be generated during runtime using the <see cref="T:Urho.SoundSource" />  class and its subclasses. To start playback of a stream on a <see cref="T:Urho.SoundSource" />, call <see cref="M:Urho.SoundSource.Play(Urho.SoundStream)" />.</para>
+      <para>Sound streaming is used internally to implement on-the-fly Ogg Vorbis decoding. See the SoundSynthesis sample for an example of using the <see cref="T:Urho.BufferedSoundStream" /> subclass, which allows the sound data to be queued for playback from the main thread.</para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Audio (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of Audio, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Audio (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">The context that this object will be attached to.</param>
+        <summary>Creates an instance of Audio that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of Audio attached to the specified execution context.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Audio (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddSoundSource">
+      <MemberSignature Language="C#" Value="public void AddSoundSource (Urho.SoundSource soundSource);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddSoundSource(class Urho.SoundSource soundSource) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="soundSource" Type="Urho.SoundSource" />
+      </Parameters>
+      <Docs>
+        <param name="soundSource">To be added.</param>
+        <summary>
+            Add a sound source to keep track of. Called by SoundSource.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system base type.</summary>
+        <value>StringHash representing the base type for this Urho type.</value>
+        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMasterGain">
+      <MemberSignature Language="C#" Value="public float GetMasterGain (string type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetMasterGain(string type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>
+            Return master gain for a specific sound source type. Unknown sound types will return full gain (1).
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSoundSourceMasterGain">
+      <MemberSignature Language="C#" Value="public float GetSoundSourceMasterGain (Urho.StringHash typeHash);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetSoundSourceMasterGain(valuetype Urho.StringHash typeHash) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="typeHash" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="typeHash">To be added.</param>
+        <summary>
+            Return sound type specific gain multiplied by master gain.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasMasterGain">
+      <MemberSignature Language="C#" Value="public bool HasMasterGain (string type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasMasterGain(string type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>
+            Return whether the specified master gain has been defined.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Interpolation">
+      <MemberSignature Language="C#" Value="public bool Interpolation { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Interpolation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether output is interpolated.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsInitialized">
+      <MemberSignature Language="C#" Value="public bool IsInitialized ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsInitialized() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether an audio stream has been reserved.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsPlaying">
+      <MemberSignature Language="C#" Value="public bool IsPlaying ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsPlaying() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether audio is being output.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsStereo">
+      <MemberSignature Language="C#" Value="public bool IsStereo ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsStereo() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Return whether output is stereo.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Listener">
+      <MemberSignature Language="C#" Value="public Urho.SoundListener Listener { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.SoundListener Listener" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SoundListener</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return active sound listener.
+            Or
+            Set active sound listener for 3D sounds.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MixOutput">
+      <MemberSignature Language="C#" Value="public void MixOutput (IntPtr dest, uint samples);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void MixOutput(native int dest, unsigned int32 samples) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="System.IntPtr" />
+        <Parameter Name="samples" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="samples">To be added.</param>
+        <summary>
+            Mix sound sources into the buffer.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MixRate">
+      <MemberSignature Language="C#" Value="public int MixRate { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MixRate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return mixing rate.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Play">
+      <MemberSignature Language="C#" Value="public bool Play ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Play() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Restart sound output.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveSoundSource">
+      <MemberSignature Language="C#" Value="public void RemoveSoundSource (Urho.SoundSource soundSource);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveSoundSource(class Urho.SoundSource soundSource) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="soundSource" Type="Urho.SoundSource" />
+      </Parameters>
+      <Docs>
+        <param name="soundSource">To be added.</param>
+        <summary>
+            Remove a sound source. Called by SoundSource.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SampleSize">
+      <MemberSignature Language="C#" Value="public uint SampleSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 SampleSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return byte size of one sample.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMasterGain">
+      <MemberSignature Language="C#" Value="public void SetMasterGain (string type, float gain);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMasterGain(string type, float32 gain) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="System.String" />
+        <Parameter Name="gain" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="gain">To be added.</param>
+        <summary>
+            Set master gain on a specific sound type such as sound effects, music or voice.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMode">
+      <MemberSignature Language="C#" Value="public bool SetMode (int bufferLengthMSec, int mixRate, bool stereo, bool interpolation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetMode(int32 bufferLengthMSec, int32 mixRate, bool stereo, bool interpolation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="bufferLengthMSec" Type="System.Int32" />
+        <Parameter Name="mixRate" Type="System.Int32" />
+        <Parameter Name="stereo" Type="System.Boolean" />
+        <Parameter Name="interpolation" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="bufferLengthMSec">To be added.</param>
+        <param name="mixRate">To be added.</param>
+        <param name="stereo">To be added.</param>
+        <param name="interpolation">To be added.</param>
+        <summary>
+            Initialize sound output with specified buffer length and output mode.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Stop">
+      <MemberSignature Language="C#" Value="public void Stop ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Stop() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Suspend sound output.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StopSound">
+      <MemberSignature Language="C#" Value="public void StopSound (Urho.Sound sound);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StopSound(class Urho.Sound sound) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sound" Type="Urho.Sound" />
+      </Parameters>
+      <Docs>
+        <param name="sound">To be added.</param>
+        <summary>
+            Stop any sound source playing a certain sound clip.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system type.</summary>
+        <value>StringHash representing the type for this C# type.</value>
+        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name, accessible as a static method.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public void Update (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Update(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

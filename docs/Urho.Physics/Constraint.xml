@@ -1,0 +1,613 @@
+<Type Name="Constraint" FullName="Urho.Constraint">
+  <TypeSignature Language="C#" Value="public class Constraint : Urho.Component" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Constraint extends Urho.Component" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Component</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Physics constraint component. Connects two rigid bodies together, or one rigid body to a static point.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Constraint (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of Constraint, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Constraint (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">The context that this object will be attached to.</param>
+        <summary>Creates an instance of Constraint that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of Constraint attached to the specified execution context.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Constraint (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyAttributes">
+      <MemberSignature Language="C#" Value="public override void ApplyAttributes ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void ApplyAttributes() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Apply attribute changes that can not be applied immediately. Called after scene load or a network update.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyFrames">
+      <MemberSignature Language="C#" Value="public void ApplyFrames ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyFrames() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Apply constraint frames.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system base type.</summary>
+        <value>StringHash representing the base type for this Urho type.</value>
+        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CFM">
+      <MemberSignature Language="C#" Value="public float CFM { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 CFM" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return constraint force mixing parameter.
+            Or
+            Set constraint force mixing parameter. Zero = leave to default.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConstraintType">
+      <MemberSignature Language="C#" Value="public Urho.ConstraintType ConstraintType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.ConstraintType ConstraintType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ConstraintType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return constraint type.
+            Or
+            Set constraint type and recreate the constraint.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DisableCollision">
+      <MemberSignature Language="C#" Value="public bool DisableCollision { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DisableCollision" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether collisions between connected bodies are disabled.
+            Or
+            Set whether to disable collisions between connected bodies.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawDebugGeometry">
+      <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer debug, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer debug, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="debug" Type="Urho.DebugRenderer" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="debug">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>
+            Visualize the component as debug geometry.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ERP">
+      <MemberSignature Language="C#" Value="public float ERP { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ERP" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return constraint error reduction parameter.
+            Or
+            Set constraint error reduction parameter. Zero = leave to default.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HighLimit">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 HighLimit { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 HighLimit" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return high limit.
+            Or
+            Set high limit. Interpretation is constraint type specific.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LowLimit">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 LowLimit { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 LowLimit" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return low limit.
+            Or
+            Set low limit. Interpretation is constraint type specific.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSetEnabled">
+      <MemberSignature Language="C#" Value="public override void OnSetEnabled ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnSetEnabled() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Handle enabled/disabled state change.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OtherBody">
+      <MemberSignature Language="C#" Value="public Urho.RigidBody OtherBody { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody OtherBody" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RigidBody</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return the other rigid body. May be null if connected to the static world.
+            Or
+            Set other body to connect to. Set to null to connect to the static world.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OtherPosition">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 OtherPosition { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 OtherPosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return constraint position relative to other body.
+            Or
+            Set constraint position relative to the other body. If connected to the static world, is a world space position.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OtherRotation">
+      <MemberSignature Language="C#" Value="public Urho.Quaternion OtherRotation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Quaternion OtherRotation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return constraint rotation relative to other body.
+            Or
+            Set constraint rotation relative to the other body. If connected to the static world, is a world space rotation.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OwnBody">
+      <MemberSignature Language="C#" Value="public Urho.RigidBody OwnBody { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody OwnBody" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RigidBody</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return rigid body in own scene node.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicsWorld">
+      <MemberSignature Language="C#" Value="public Urho.PhysicsWorld PhysicsWorld { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.PhysicsWorld PhysicsWorld" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.PhysicsWorld</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return physics world.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Position">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Position { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Position" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return constraint position relative to own body.
+            Or
+            Set constraint position relative to own body.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReleaseConstraint">
+      <MemberSignature Language="C#" Value="public void ReleaseConstraint ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseConstraint() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Release the constraint.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotation">
+      <MemberSignature Language="C#" Value="public Urho.Quaternion Rotation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Quaternion Rotation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return constraint rotation relative to own body.
+            Or
+            Set constraint rotation relative to own body.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAxis">
+      <MemberSignature Language="C#" Value="public void SetAxis (Urho.Vector3 axis);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAxis(valuetype Urho.Vector3 axis) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="axis" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="axis">To be added.</param>
+        <summary>
+            Set constraint rotation relative to own body by specifying the axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetOtherAxis">
+      <MemberSignature Language="C#" Value="public void SetOtherAxis (Urho.Vector3 axis);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetOtherAxis(valuetype Urho.Vector3 axis) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="axis" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="axis">To be added.</param>
+        <summary>
+            Set constraint rotation relative to the other body by specifying the axis.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWorldPosition">
+      <MemberSignature Language="C#" Value="public void SetWorldPosition (Urho.Vector3 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWorldPosition(valuetype Urho.Vector3 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>
+            Set constraint world space position. Resets both own and other body relative position, ie. zeroes the constraint error.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system type.</summary>
+        <value>StringHash representing the type for this C# type.</value>
+        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name, accessible as a static method.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorldPosition">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 WorldPosition { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 WorldPosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return constraint world position, calculated from own body.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

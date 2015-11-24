@@ -1,0 +1,824 @@
+<Type Name="Text3D" FullName="Urho.Text3D">
+  <TypeSignature Language="C#" Value="public class Text3D : Urho.Drawable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Text3D extends Urho.Drawable" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Drawable</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            3D text component.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Text3D (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
+        <summary>Constructs a new instance of Text3D, given a raw pointer to an unmanaged object</summary>
+        <remarks>
+          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Text3D (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">The context that this object will be attached to.</param>
+        <summary>Creates an instance of Text3D that is attached to an execution context.</summary>
+        <remarks>
+          <para>This creates an instance of Text3D attached to the specified execution context.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Text3D (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
+        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+        <remarks>
+          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
+          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
+          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApplyAttributes">
+      <MemberSignature Language="C#" Value="public override void ApplyAttributes ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void ApplyAttributes() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Apply attribute changes that can not be applied immediately.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BaseType">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system base type.</summary>
+        <value>StringHash representing the base type for this Urho type.</value>
+        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ColorAttr">
+      <MemberSignature Language="C#" Value="public Urho.Color ColorAttr { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color ColorAttr" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Get color attribute. Uses just the top-left color.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EffectColor">
+      <MemberSignature Language="C#" Value="public Urho.Color EffectColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color EffectColor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return effect color.
+            Or
+            Set effect color.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EffectDepthBias">
+      <MemberSignature Language="C#" Value="public float EffectDepthBias { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 EffectDepthBias" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return effect depth bias.
+            Or
+            Set effect Z bias.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FaceCameraMode">
+      <MemberSignature Language="C#" Value="public Urho.FaceCameraMode FaceCameraMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FaceCameraMode FaceCameraMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FaceCameraMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return how the text rotates in relation to the camera.
+            Or
+            Set how the text should rotate in relation to the camera. Default is to not rotate (FC_NONE.)
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Font">
+      <MemberSignature Language="C#" Value="public Urho.Font Font { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Font Font" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Font</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return font.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FontAttr">
+      <MemberSignature Language="C#" Value="public Urho.ResourceRef FontAttr { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.ResourceRef FontAttr" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ResourceRef</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return font attribute.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FontSize">
+      <MemberSignature Language="C#" Value="public int FontSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 FontSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return font size.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetCharPosition">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 GetCharPosition (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntVector2 GetCharPosition(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return position of character by index relative to the text element origin.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetCharSize">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 GetCharSize (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntVector2 GetCharSize(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return size of character by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetColor">
+      <MemberSignature Language="C#" Value="public Urho.Color GetColor (Urho.Corner corner);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Color GetColor(valuetype Urho.Corner corner) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="corner" Type="Urho.Corner" />
+      </Parameters>
+      <Docs>
+        <param name="corner">To be added.</param>
+        <summary>
+            Return corner color.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRowWidth">
+      <MemberSignature Language="C#" Value="public int GetRowWidth (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetRowWidth(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Return width of row by index.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HorizontalAlignment">
+      <MemberSignature Language="C#" Value="public Urho.HorizontalAlignment HorizontalAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HorizontalAlignment HorizontalAlignment" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return horizontal alignment.
+            Or
+            Set horizontal alignment.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Material">
+      <MemberSignature Language="C#" Value="public Urho.Material Material { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Material Material" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return material.
+            Or
+            Set material.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaterialAttr">
+      <MemberSignature Language="C#" Value="public Urho.ResourceRef MaterialAttr { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.ResourceRef MaterialAttr" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ResourceRef</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return material attribute.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumChars">
+      <MemberSignature Language="C#" Value="public uint NumChars { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumChars" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of characters.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumRows">
+      <MemberSignature Language="C#" Value="public uint NumRows { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumRows" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return number of rows.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Opacity">
+      <MemberSignature Language="C#" Value="public float Opacity { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Opacity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return opacity.
+            Or
+            Set opacity.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterObject">
+      <MemberSignature Language="C#" Value="public static void RegisterObject (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void RegisterObject(class Urho.Context context) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="Urho.Context" />
+      </Parameters>
+      <Docs>
+        <param name="context">To be added.</param>
+        <summary>
+            Register object factory. Drawable must be registered first.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RowHeight">
+      <MemberSignature Language="C#" Value="public int RowHeight { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 RowHeight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return row height.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RowSpacing">
+      <MemberSignature Language="C#" Value="public float RowSpacing { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 RowSpacing" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return row spacing.
+            Or
+            Set row spacing, 1.0 for original font spacing.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAlignment">
+      <MemberSignature Language="C#" Value="public void SetAlignment (Urho.HorizontalAlignment hAlign, Urho.VerticalAlignment vAlign);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAlignment(valuetype Urho.HorizontalAlignment hAlign, valuetype Urho.VerticalAlignment vAlign) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hAlign" Type="Urho.HorizontalAlignment" />
+        <Parameter Name="vAlign" Type="Urho.VerticalAlignment" />
+      </Parameters>
+      <Docs>
+        <param name="hAlign">To be added.</param>
+        <param name="vAlign">To be added.</param>
+        <summary>
+            Set horizontal and vertical alignment.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetColor">
+      <MemberSignature Language="C#" Value="public void SetColor (Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetColor(valuetype Urho.Color color) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="color" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="color">To be added.</param>
+        <summary>
+            Set color on all corners.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetColor">
+      <MemberSignature Language="C#" Value="public void SetColor (Urho.Corner corner, Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetColor(valuetype Urho.Corner corner, valuetype Urho.Color color) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="corner" Type="Urho.Corner" />
+        <Parameter Name="color" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="corner">To be added.</param>
+        <param name="color">To be added.</param>
+        <summary>
+            Set color on one corner.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetFont">
+      <MemberSignature Language="C#" Value="public bool SetFont (string fontName, int size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(string fontName, int32 size) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fontName" Type="System.String" />
+        <Parameter Name="size" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="fontName">To be added.</param>
+        <param name="size">To be added.</param>
+        <summary>
+            Set font and font size and use signed distance field font. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetFont">
+      <MemberSignature Language="C#" Value="public bool SetFont (Urho.Font font, int size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(class Urho.Font font, int32 size) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="font" Type="Urho.Font" />
+        <Parameter Name="size" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="font">To be added.</param>
+        <param name="size">To be added.</param>
+        <summary>
+            Set font and font size and use signed distance field font. Return true if successful.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Text">
+      <MemberSignature Language="C#" Value="public string Text { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Text" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return text.
+            Or
+            Set text. Text is assumed to be either ASCII or UTF8-encoded.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextAlignment">
+      <MemberSignature Language="C#" Value="public Urho.HorizontalAlignment TextAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HorizontalAlignment TextAlignment" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return row alignment.
+            Or
+            Set row alignment.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextEffect">
+      <MemberSignature Language="C#" Value="public Urho.TextEffect TextEffect { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TextEffect TextEffect" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextEffect</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return text effect.
+            Or
+            Set text effect.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's type system type.</summary>
+        <value>StringHash representing the type for this C# type.</value>
+        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeName">
+      <MemberSignature Language="C#" Value="public override string TypeName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeNameStatic">
+      <MemberSignature Language="C#" Value="public static string TypeNameStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string TypeNameStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Urho's low-level type name, accessible as a static method.</summary>
+        <value>Stringified low-level type name.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeStatic">
+      <MemberSignature Language="C#" Value="public static Urho.StringHash TypeStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash TypeStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.StringHash</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateGeometryType">
+      <MemberSignature Language="C#" Value="public override Urho.UpdateGeometryType UpdateGeometryType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.UpdateGeometryType UpdateGeometryType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UpdateGeometryType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return whether a geometry update is necessary, and if it can happen in a worker thread.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VerticalAlignment">
+      <MemberSignature Language="C#" Value="public Urho.VerticalAlignment VerticalAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.VerticalAlignment VerticalAlignment" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VerticalAlignment</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return vertical alignment.
+            Or
+            Set vertical alignment.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Width">
+      <MemberSignature Language="C#" Value="public int Width { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Width" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return text width.
+            Or
+            Set text width. Only has effect in word wrap mode.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Wordwrap">
+      <MemberSignature Language="C#" Value="public bool Wordwrap { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Wordwrap" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Return wordwrap mode.
+            Or
+            Set wordwrap. In wordwrap mode the text element will respect its current width. Otherwise it resizes itself freely.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

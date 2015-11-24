@@ -1,0 +1,17 @@
+<Type Name="ReloadFinishedEventArgs" FullName="Urho.ReloadFinishedEventArgs">
+  <TypeSignature Language="C#" Value="public struct ReloadFinishedEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ReloadFinishedEventArgs extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Event arguments for the Resource's ReloadFinished event</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

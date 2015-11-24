@@ -1,0 +1,47 @@
+<Type Name="EmitterType2D" FullName="Urho.EmitterType2D">
+  <TypeSignature Language="C#" Value="public enum EmitterType2D" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed EmitterType2D extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            2D particle emitter types.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Gravity">
+      <MemberSignature Language="C#" Value="Gravity" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.EmitterType2D Gravity = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EmitterType2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Radial">
+      <MemberSignature Language="C#" Value="Radial" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.EmitterType2D Radial = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EmitterType2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
