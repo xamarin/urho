@@ -164,9 +164,6 @@ namespace Urho {
 	public struct Variant {
 	}
 
-	[StructLayout (LayoutKind.Sequential)]
-	public struct XPathResultSet {
-	}
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct WeakPtr {
@@ -524,6 +521,12 @@ namespace Urho.Physics {
 		public RigidBody Body => Runtime.LookupObject<RigidBody>(bodyPtr);
 	}
 
+}
+
+namespace Urho.Resources {
+	[StructLayout (LayoutKind.Sequential)]
+	public struct XPathResultSet {
+	}
 }
 
 namespace System {
