@@ -1,12 +1,12 @@
-<Type Name="BufferedSoundStream" FullName="Urho.BufferedSoundStream">
-  <TypeSignature Language="C#" Value="public class BufferedSoundStream : Urho.SoundStream" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BufferedSoundStream extends Urho.SoundStream" />
+<Type Name="BufferedSoundStream" FullName="Urho.Audio.BufferedSoundStream">
+  <TypeSignature Language="C#" Value="public class BufferedSoundStream : Urho.Audio.SoundStream" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BufferedSoundStream extends Urho.Audio.SoundStream" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.SoundStream</BaseTypeName>
+    <BaseTypeName>Urho.Audio.SoundStream</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

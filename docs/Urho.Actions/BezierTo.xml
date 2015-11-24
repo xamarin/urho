@@ -1,12 +1,12 @@
-<Type Name="BezierTo" FullName="Urho.BezierTo">
-  <TypeSignature Language="C#" Value="public class BezierTo : Urho.BezierBy" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BezierTo extends Urho.BezierBy" />
+<Type Name="BezierTo" FullName="Urho.Actions.BezierTo">
+  <TypeSignature Language="C#" Value="public class BezierTo : Urho.Actions.BezierBy" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BezierTo extends Urho.Actions.BezierBy" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.BezierBy</BaseTypeName>
+    <BaseTypeName>Urho.Actions.BezierBy</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,15 +15,15 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BezierTo (float t, Urho.BezierConfig c);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 t, valuetype Urho.BezierConfig c) cil managed" />
+      <MemberSignature Language="C#" Value="public BezierTo (float t, Urho.Actions.BezierConfig c);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 t, valuetype Urho.Actions.BezierConfig c) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="t" Type="System.Single" />
-        <Parameter Name="c" Type="Urho.BezierConfig" />
+        <Parameter Name="c" Type="Urho.Actions.BezierConfig" />
       </Parameters>
       <Docs>
         <param name="t">To be added.</param>
@@ -33,21 +33,21 @@
       </Docs>
     </Member>
     <Member MemberName="StartAction">
-      <MemberSignature Language="C#" Value="protected override Urho.ActionState StartAction (Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class Urho.ActionState StartAction(class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="protected override Urho.Actions.ActionState StartAction (Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class Urho.Actions.ActionState StartAction(class Urho.Node target) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ActionState</ReturnType>
+        <ReturnType>Urho.Actions.ActionState</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>
         <param name="target">
-          <para>The new <see cref="T:Urho.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</para>
+          <para>The new <see cref="T:Urho.Actions.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</para>
         </param>
         <summary>Creates the action state for this action, called on demand from the framework to start executing the recipe.</summary>
         <returns>To be added.</returns>

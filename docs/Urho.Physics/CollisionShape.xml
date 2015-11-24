@@ -1,4 +1,4 @@
-<Type Name="CollisionShape" FullName="Urho.CollisionShape">
+<Type Name="CollisionShape" FullName="Urho.Physics.CollisionShape">
   <TypeSignature Language="C#" Value="public class CollisionShape : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CollisionShape extends Urho.Component" />
   <AssemblyInfo>
@@ -249,14 +249,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsWorld">
-      <MemberSignature Language="C#" Value="public Urho.PhysicsWorld PhysicsWorld { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.PhysicsWorld PhysicsWorld" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.PhysicsWorld PhysicsWorld { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.PhysicsWorld PhysicsWorld" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PhysicsWorld</ReturnType>
+        <ReturnType>Urho.Physics.PhysicsWorld</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -656,14 +656,14 @@
       </Docs>
     </Member>
     <Member MemberName="ShapeType">
-      <MemberSignature Language="C#" Value="public Urho.ShapeType ShapeType { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.ShapeType ShapeType" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.ShapeType ShapeType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Physics.ShapeType ShapeType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

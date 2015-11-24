@@ -1,4 +1,4 @@
-<Type Name="CompressedFormat" FullName="Urho.CompressedFormat">
+<Type Name="CompressedFormat" FullName="Urho.Resources.CompressedFormat">
   <TypeSignature Language="C#" Value="public enum CompressedFormat" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed CompressedFormat extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Dxt1">
       <MemberSignature Language="C#" Value="Dxt1" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat Dxt1 = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat Dxt1 = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Dxt3">
       <MemberSignature Language="C#" Value="Dxt3" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat Dxt3 = int32(3)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat Dxt3 = int32(3)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Dxt5">
       <MemberSignature Language="C#" Value="Dxt5" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat Dxt5 = int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat Dxt5 = int32(4)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -59,13 +59,13 @@
     </Member>
     <Member MemberName="Etc1">
       <MemberSignature Language="C#" Value="Etc1" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat Etc1 = int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat Etc1 = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -73,13 +73,13 @@
     </Member>
     <Member MemberName="None">
       <MemberSignature Language="C#" Value="None" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat None = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat None = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -87,13 +87,13 @@
     </Member>
     <Member MemberName="PvrtcRgbaN2Bpp">
       <MemberSignature Language="C#" Value="PvrtcRgbaN2Bpp" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat PvrtcRgbaN2Bpp = int32(7)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat PvrtcRgbaN2Bpp = int32(7)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -101,13 +101,13 @@
     </Member>
     <Member MemberName="PvrtcRgbaN4Bpp">
       <MemberSignature Language="C#" Value="PvrtcRgbaN4Bpp" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat PvrtcRgbaN4Bpp = int32(9)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat PvrtcRgbaN4Bpp = int32(9)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -115,13 +115,13 @@
     </Member>
     <Member MemberName="PvrtcRgbN2Bpp">
       <MemberSignature Language="C#" Value="PvrtcRgbN2Bpp" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat PvrtcRgbN2Bpp = int32(6)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat PvrtcRgbN2Bpp = int32(6)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -129,13 +129,13 @@
     </Member>
     <Member MemberName="PvrtcRgbN4Bpp">
       <MemberSignature Language="C#" Value="PvrtcRgbN4Bpp" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat PvrtcRgbN4Bpp = int32(8)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat PvrtcRgbN4Bpp = int32(8)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -143,13 +143,13 @@
     </Member>
     <Member MemberName="Rgba">
       <MemberSignature Language="C#" Value="Rgba" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CompressedFormat Rgba = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.CompressedFormat Rgba = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

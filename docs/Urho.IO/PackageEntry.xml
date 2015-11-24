@@ -1,4 +1,4 @@
-<Type Name="PackageEntry" FullName="Urho.PackageEntry">
+<Type Name="PackageEntry" FullName="Urho.IO.PackageEntry">
   <TypeSignature Language="C#" Value="public struct PackageEntry" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit PackageEntry extends System.ValueType" />
   <AssemblyInfo>

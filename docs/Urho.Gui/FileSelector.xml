@@ -1,4 +1,4 @@
-<Type Name="FileSelector" FullName="Urho.FileSelector">
+<Type Name="FileSelector" FullName="Urho.Gui.FileSelector">
   <TypeSignature Language="C#" Value="public class FileSelector : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FileSelector extends Urho.UrhoObject" />
   <AssemblyInfo>
@@ -91,14 +91,14 @@
       </Docs>
     </Member>
     <Member MemberName="CancelButton">
-      <MemberSignature Language="C#" Value="public Urho.Button CancelButton { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Button CancelButton" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Button CancelButton { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Button CancelButton" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Button</ReturnType>
+        <ReturnType>Urho.Gui.Button</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -109,14 +109,14 @@
       </Docs>
     </Member>
     <Member MemberName="CloseButton">
-      <MemberSignature Language="C#" Value="public Urho.Button CloseButton { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Button CloseButton" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Button CloseButton { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Button CloseButton" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Button</ReturnType>
+        <ReturnType>Urho.Gui.Button</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -127,14 +127,14 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultStyle">
-      <MemberSignature Language="C#" Value="public Urho.XmlFile DefaultStyle { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.XmlFile DefaultStyle" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlFile DefaultStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.XmlFile DefaultStyle" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.XmlFile</ReturnType>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -167,14 +167,14 @@
       </Docs>
     </Member>
     <Member MemberName="FileList">
-      <MemberSignature Language="C#" Value="public Urho.ListView FileList { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ListView FileList" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.ListView FileList { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.ListView FileList" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ListView</ReturnType>
+        <ReturnType>Urho.Gui.ListView</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -205,14 +205,14 @@
       </Docs>
     </Member>
     <Member MemberName="FileNameEdit">
-      <MemberSignature Language="C#" Value="public Urho.LineEdit FileNameEdit { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.LineEdit FileNameEdit" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.LineEdit FileNameEdit { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.LineEdit FileNameEdit" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.LineEdit</ReturnType>
+        <ReturnType>Urho.Gui.LineEdit</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -223,14 +223,14 @@
       </Docs>
     </Member>
     <Member MemberName="FileSelected">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.FileSelectedEventArgs&gt; FileSelected;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.FileSelectedEventArgs&gt; FileSelected" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.FileSelectedEventArgs&gt; FileSelected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.FileSelectedEventArgs&gt; FileSelected" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.FileSelectedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.FileSelectedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -276,14 +276,14 @@
       </Docs>
     </Member>
     <Member MemberName="FilterList">
-      <MemberSignature Language="C#" Value="public Urho.DropDownList FilterList { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.DropDownList FilterList" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.DropDownList FilterList { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.DropDownList FilterList" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.DropDownList</ReturnType>
+        <ReturnType>Urho.Gui.DropDownList</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -294,14 +294,14 @@
       </Docs>
     </Member>
     <Member MemberName="OKButton">
-      <MemberSignature Language="C#" Value="public Urho.Button OKButton { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Button OKButton" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Button OKButton { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Button OKButton" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Button</ReturnType>
+        <ReturnType>Urho.Gui.Button</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -332,14 +332,14 @@
       </Docs>
     </Member>
     <Member MemberName="PathEdit">
-      <MemberSignature Language="C#" Value="public Urho.LineEdit PathEdit { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.LineEdit PathEdit" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.LineEdit PathEdit { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.LineEdit PathEdit" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.LineEdit</ReturnType>
+        <ReturnType>Urho.Gui.LineEdit</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -394,8 +394,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToFileSelected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFileSelected (Action&lt;Urho.FileSelectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFileSelected(class System.Action`1&lt;valuetype Urho.FileSelectedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFileSelected (Action&lt;Urho.Gui.FileSelectedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFileSelected(class System.Action`1&lt;valuetype Urho.Gui.FileSelectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -404,7 +404,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.FileSelectedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.FileSelectedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -413,7 +413,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.FileSelector.FileSelected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.IO.FileSelector.FileSelected" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -438,14 +438,14 @@
       </Docs>
     </Member>
     <Member MemberName="TitleText">
-      <MemberSignature Language="C#" Value="public Urho.Text TitleText { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Text TitleText" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Text TitleText { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Text TitleText" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Text</ReturnType>
+        <ReturnType>Urho.Gui.Text</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -540,14 +540,14 @@
       </Docs>
     </Member>
     <Member MemberName="Window">
-      <MemberSignature Language="C#" Value="public Urho.Window Window { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Window Window" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Window Window { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Window Window" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Window</ReturnType>
+        <ReturnType>Urho.Gui.Window</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

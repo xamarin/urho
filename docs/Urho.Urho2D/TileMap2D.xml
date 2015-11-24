@@ -1,4 +1,4 @@
-<Type Name="TileMap2D" FullName="Urho.TileMap2D">
+<Type Name="TileMap2D" FullName="Urho.Urho2D.TileMap2D">
   <TypeSignature Language="C#" Value="public class TileMap2D : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TileMap2D extends Urho.Component" />
   <AssemblyInfo>
@@ -132,14 +132,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetLayer">
-      <MemberSignature Language="C#" Value="public Urho.TileMapLayer2D GetLayer (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.TileMapLayer2D GetLayer(unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.TileMapLayer2D GetLayer (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Urho2D.TileMapLayer2D GetLayer(unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TileMapLayer2D</ReturnType>
+        <ReturnType>Urho.Urho2D.TileMapLayer2D</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
@@ -154,14 +154,14 @@
       </Docs>
     </Member>
     <Member MemberName="Info">
-      <MemberSignature Language="C#" Value="public Urho.TileMapInfo2D Info { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TileMapInfo2D Info" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.TileMapInfo2D Info { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Urho2D.TileMapInfo2D Info" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TileMapInfo2D</ReturnType>
+        <ReturnType>Urho.Urho2D.TileMapInfo2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -235,14 +235,14 @@
       </Docs>
     </Member>
     <Member MemberName="TmxFile">
-      <MemberSignature Language="C#" Value="public Urho.TmxFile2D TmxFile { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.TmxFile2D TmxFile" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.TmxFile2D TmxFile { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.TmxFile2D TmxFile" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TmxFile2D</ReturnType>
+        <ReturnType>Urho.Urho2D.TmxFile2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

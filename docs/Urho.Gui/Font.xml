@@ -1,12 +1,12 @@
-<Type Name="Font" FullName="Urho.Font">
-  <TypeSignature Language="C#" Value="public class Font : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Font extends Urho.Resource" />
+<Type Name="Font" FullName="Urho.Gui.Font">
+  <TypeSignature Language="C#" Value="public class Font : Urho.Resources.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Font extends Urho.Resources.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Resource</BaseTypeName>
+    <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,7 +15,7 @@
             </summary>
     <remarks>
       <para>UrhoSharp supports both FreeType (.ttf, .otf) and http://www.angelcode.com/products/bmfont/ "bitmap" fonts.<see cref="" /></para>
-      <para>For FreeType fonts, it is possible to adjust the positioning of the font glyphs. See <see cref="P:Urho.Font.AbsoluteGlyphOffset" /> to set a fixed pixel offset for all point sizes, or <see cref="P:Urho.Font.ScaledGlyphOffset" /> to set a floating point offset that will be multiplied with the point size before applying. The offset information can be also stored in an accompanying XML file next to the font file, which is formatted in the following way: (it is legal to specify either or both of absolute and scaled offsets, and either or both of X and Y coordinates)</para>
+      <para>For FreeType fonts, it is possible to adjust the positioning of the font glyphs. See <see cref="P:Urho.Gui.Font.AbsoluteGlyphOffset" /> to set a fixed pixel offset for all point sizes, or <see cref="P:Urho.Gui.Font.ScaledGlyphOffset" /> to set a floating point offset that will be multiplied with the point size before applying. The offset information can be also stored in an accompanying XML file next to the font file, which is formatted in the following way: (it is legal to specify either or both of absolute and scaled offsets, and either or both of X and Y coordinates)</para>
     </remarks>
   </Docs>
   <Members>
@@ -114,14 +114,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetFace">
-      <MemberSignature Language="C#" Value="public Urho.FontFace GetFace (int pointSize);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.FontFace GetFace(int32 pointSize) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.FontFace GetFace (int pointSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.FontFace GetFace(int32 pointSize) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FontFace</ReturnType>
+        <ReturnType>Urho.Gui.FontFace</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="pointSize" Type="System.Int32" />

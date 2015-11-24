@@ -1,4 +1,4 @@
-<Type Name="ObserverPositionSendMode" FullName="Urho.ObserverPositionSendMode">
+<Type Name="ObserverPositionSendMode" FullName="Urho.Network.ObserverPositionSendMode">
   <TypeSignature Language="C#" Value="public enum ObserverPositionSendMode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ObserverPositionSendMode extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="None">
       <MemberSignature Language="C#" Value="None" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ObserverPositionSendMode None = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Network.ObserverPositionSendMode None = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ObserverPositionSendMode</ReturnType>
+        <ReturnType>Urho.Network.ObserverPositionSendMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Position">
       <MemberSignature Language="C#" Value="Position" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ObserverPositionSendMode Position = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Network.ObserverPositionSendMode Position = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ObserverPositionSendMode</ReturnType>
+        <ReturnType>Urho.Network.ObserverPositionSendMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="PositionRotation">
       <MemberSignature Language="C#" Value="PositionRotation" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ObserverPositionSendMode PositionRotation = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Network.ObserverPositionSendMode PositionRotation = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ObserverPositionSendMode</ReturnType>
+        <ReturnType>Urho.Network.ObserverPositionSendMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -1,12 +1,12 @@
-<Type Name="DynamicNavigationMesh" FullName="Urho.DynamicNavigationMesh">
-  <TypeSignature Language="C#" Value="public class DynamicNavigationMesh : Urho.NavigationMesh" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DynamicNavigationMesh extends Urho.NavigationMesh" />
+<Type Name="DynamicNavigationMesh" FullName="Urho.Navigation.DynamicNavigationMesh">
+  <TypeSignature Language="C#" Value="public class DynamicNavigationMesh : Urho.Navigation.NavigationMesh" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DynamicNavigationMesh extends Urho.Navigation.NavigationMesh" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.NavigationMesh</BaseTypeName>
+    <BaseTypeName>Urho.Navigation.NavigationMesh</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -214,14 +214,14 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationObstacleAdded">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NavigationObstacleAddedEventArgs&gt; NavigationObstacleAdded;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NavigationObstacleAddedEventArgs&gt; NavigationObstacleAdded" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Navigation.NavigationObstacleAddedEventArgs&gt; NavigationObstacleAdded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Navigation.NavigationObstacleAddedEventArgs&gt; NavigationObstacleAdded" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NavigationObstacleAddedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Navigation.NavigationObstacleAddedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -231,14 +231,14 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationObstacleRemoved">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NavigationObstacleRemovedEventArgs&gt; NavigationObstacleRemoved;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NavigationObstacleRemovedEventArgs&gt; NavigationObstacleRemoved" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Navigation.NavigationObstacleRemovedEventArgs&gt; NavigationObstacleRemoved;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Navigation.NavigationObstacleRemovedEventArgs&gt; NavigationObstacleRemoved" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NavigationObstacleRemovedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Navigation.NavigationObstacleRemovedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -269,8 +269,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNavigationObstacleAdded">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationObstacleAdded (Action&lt;Urho.NavigationObstacleAddedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationObstacleAdded(class System.Action`1&lt;valuetype Urho.NavigationObstacleAddedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationObstacleAdded (Action&lt;Urho.Navigation.NavigationObstacleAddedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationObstacleAdded(class System.Action`1&lt;valuetype Urho.Navigation.NavigationObstacleAddedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -279,7 +279,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NavigationObstacleAddedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Navigation.NavigationObstacleAddedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -288,13 +288,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.DynamicNavigationMesh.NavigationObstacleAdded" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Navigation.DynamicNavigationMesh.NavigationObstacleAdded" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNavigationObstacleRemoved">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationObstacleRemoved (Action&lt;Urho.NavigationObstacleRemovedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationObstacleRemoved(class System.Action`1&lt;valuetype Urho.NavigationObstacleRemovedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationObstacleRemoved (Action&lt;Urho.Navigation.NavigationObstacleRemovedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationObstacleRemoved(class System.Action`1&lt;valuetype Urho.Navigation.NavigationObstacleRemovedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -303,7 +303,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NavigationObstacleRemovedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Navigation.NavigationObstacleRemovedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -312,7 +312,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.DynamicNavigationMesh.NavigationObstacleRemoved" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Navigation.DynamicNavigationMesh.NavigationObstacleRemoved" /> event.</para>
         </remarks>
       </Docs>
     </Member>

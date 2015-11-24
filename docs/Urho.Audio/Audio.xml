@@ -1,4 +1,4 @@
-<Type Name="Audio" FullName="Urho.Audio">
+<Type Name="Audio" FullName="Urho.Audio.Audio">
   <TypeSignature Language="C#" Value="public class Audio : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Audio extends Urho.UrhoObject" />
   <AssemblyInfo>
@@ -16,17 +16,17 @@
       <para>The Audio subsystem implements an audio output stream. Once it has been initialized, the following operations are supported:</para>
       <list type="bullet">
         <item>
-          <term>Playing raw audio, Ogg Vorbis or WAV <see cref="T:Urho.Sound" /> resources using the <see cref="T:Urho.SoundSource" /> component. This allows manual stereo panning of mono sounds; stereo sounds will be output with their original stereo mix.</term>
+          <term>Playing raw audio, Ogg Vorbis or WAV <see cref="T:Urho.Audio.Sound" /> resources using the <see cref="T:Urho.Audio.SoundSource" /> component. This allows manual stereo panning of mono sounds; stereo sounds will be output with their original stereo mix.</term>
         </item>
         <item>
-          <term>Playing the above sound formats in pseudo-3D using the <see cref="T:Urho.SoundSource3D" /> component. It has stereo positioning and distance attenuation, but does not (at least yet) filter the sound depending on the direction.</term>
+          <term>Playing the above sound formats in pseudo-3D using the <see cref="T:Urho.Audio.SoundSource3D" /> component. It has stereo positioning and distance attenuation, but does not (at least yet) filter the sound depending on the direction.</term>
         </item>
       </list>
-      <para>To hear pseudo-3D positional sounds, a <see cref="T:Urho.SoundListener" /> component must exist in a scene node and be assigned to the audio subsystem by setting the <see cref="P:Urho.Audio.Listener" /> property. If the sound listener's scene node exists within a specific scene, it will only hear sounds from that scene, but if it has been created into a "sceneless" node it will hear sounds from all scenes.</para>
+      <para>To hear pseudo-3D positional sounds, a <see cref="T:Urho.Audio.SoundListener" /> component must exist in a scene node and be assigned to the audio subsystem by setting the <see cref="P:Urho.Audio.Audio.Listener" /> property. If the sound listener's scene node exists within a specific scene, it will only hear sounds from that scene, but if it has been created into a "sceneless" node it will hear sounds from all scenes.</para>
       <para>The output is software mixed for an unlimited amount of simultaneous sounds. Ogg Vorbis sounds are decoded on the fly, and decoding them can be memory- and CPU-intensive, so WAV files are recommended when a large number of short sound effects need to be played.</para>
-      <para>For purposes of volume control, each <see cref="T:Urho.SoundSource" /> can be classified into a user defined group which is multiplied with a master category and the individual <see cref="T:Urho.SoundSource" /> gain set using <see cref="P:Urho.SoundSource.Gain" /> for the final volume level.</para>
-      <para>To control the category volumes, set the <see cref="M:Urho.Audio.SetMasterGain" />, which defines the category if it didn't already exist.</para>
-      <para>The <see cref="T:Urho.SoundSource" /> components support automatic removal from the node they belong to, once playback is finished. To use, set the <see cref="P:Urho.SoundSource.AutoRemove property" /> on them. This may be useful when a game object plays several "fire and forget" sound effects.</para>
+      <para>For purposes of volume control, each <see cref="T:Urho.Audio.SoundSource" /> can be classified into a user defined group which is multiplied with a master category and the individual <see cref="T:Urho.Audio.SoundSource" /> gain set using <see cref="P:Urho.Audio.SoundSource.Gain" /> for the final volume level.</para>
+      <para>To control the category volumes, set the <see cref="M:Urho.Audio.Audio.SetMasterGain" />, which defines the category if it didn't already exist.</para>
+      <para>The <see cref="T:Urho.Audio.SoundSource" /> components support automatic removal from the node they belong to, once playback is finished. To use, set the <see cref="P:Urho.Audio.SoundSource.AutoRemove property" /> on them. This may be useful when a game object plays several "fire and forget" sound effects.</para>
       <para>
       </para>
       <format type="text/html">
@@ -40,8 +40,8 @@
       <format type="text/html">
         <h2>Sound Streaming</h2>
       </format>
-      <para>In addition to playing existing sound resources, sound can be generated during runtime using the <see cref="T:Urho.SoundSource" />  class and its subclasses. To start playback of a stream on a <see cref="T:Urho.SoundSource" />, call <see cref="M:Urho.SoundSource.Play(Urho.SoundStream)" />.</para>
-      <para>Sound streaming is used internally to implement on-the-fly Ogg Vorbis decoding. See the SoundSynthesis sample for an example of using the <see cref="T:Urho.BufferedSoundStream" /> subclass, which allows the sound data to be queued for playback from the main thread.</para>
+      <para>In addition to playing existing sound resources, sound can be generated during runtime using the <see cref="T:Urho.Audio.SoundSource" />  class and its subclasses. To start playback of a stream on a <see cref="T:Urho.Audio.SoundSource" />, call <see cref="M:Urho.Audio.SoundSource.Play(Urho.SoundStream)" />.</para>
+      <para>Sound streaming is used internally to implement on-the-fly Ogg Vorbis decoding. See the SoundSynthesis sample for an example of using the <see cref="T:Urho.Audio.BufferedSoundStream" /> subclass, which allows the sound data to be queued for playback from the main thread.</para>
     </remarks>
   </Docs>
   <Members>
@@ -104,8 +104,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddSoundSource">
-      <MemberSignature Language="C#" Value="public void AddSoundSource (Urho.SoundSource soundSource);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddSoundSource(class Urho.SoundSource soundSource) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddSoundSource (Urho.Audio.SoundSource soundSource);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddSoundSource(class Urho.Audio.SoundSource soundSource) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -114,7 +114,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="soundSource" Type="Urho.SoundSource" />
+        <Parameter Name="soundSource" Type="Urho.Audio.SoundSource" />
       </Parameters>
       <Docs>
         <param name="soundSource">To be added.</param>
@@ -282,14 +282,14 @@
       </Docs>
     </Member>
     <Member MemberName="Listener">
-      <MemberSignature Language="C#" Value="public Urho.SoundListener Listener { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.SoundListener Listener" />
+      <MemberSignature Language="C#" Value="public Urho.Audio.SoundListener Listener { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Audio.SoundListener Listener" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.SoundListener</ReturnType>
+        <ReturnType>Urho.Audio.SoundListener</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -362,8 +362,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveSoundSource">
-      <MemberSignature Language="C#" Value="public void RemoveSoundSource (Urho.SoundSource soundSource);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveSoundSource(class Urho.SoundSource soundSource) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveSoundSource (Urho.Audio.SoundSource soundSource);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveSoundSource(class Urho.Audio.SoundSource soundSource) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -372,7 +372,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="soundSource" Type="Urho.SoundSource" />
+        <Parameter Name="soundSource" Type="Urho.Audio.SoundSource" />
       </Parameters>
       <Docs>
         <param name="soundSource">To be added.</param>
@@ -470,8 +470,8 @@
       </Docs>
     </Member>
     <Member MemberName="StopSound">
-      <MemberSignature Language="C#" Value="public void StopSound (Urho.Sound sound);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StopSound(class Urho.Sound sound) cil managed" />
+      <MemberSignature Language="C#" Value="public void StopSound (Urho.Audio.Sound sound);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StopSound(class Urho.Audio.Sound sound) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -480,7 +480,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="sound" Type="Urho.Sound" />
+        <Parameter Name="sound" Type="Urho.Audio.Sound" />
       </Parameters>
       <Docs>
         <param name="sound">To be added.</param>

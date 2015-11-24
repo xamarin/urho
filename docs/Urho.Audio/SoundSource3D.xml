@@ -1,12 +1,12 @@
-<Type Name="SoundSource3D" FullName="Urho.SoundSource3D">
-  <TypeSignature Language="C#" Value="public class SoundSource3D : Urho.SoundSource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SoundSource3D extends Urho.SoundSource" />
+<Type Name="SoundSource3D" FullName="Urho.Audio.SoundSource3D">
+  <TypeSignature Language="C#" Value="public class SoundSource3D : Urho.Audio.SoundSource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SoundSource3D extends Urho.Audio.SoundSource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.SoundSource</BaseTypeName>
+    <BaseTypeName>Urho.Audio.SoundSource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

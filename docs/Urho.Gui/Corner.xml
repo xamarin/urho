@@ -1,4 +1,4 @@
-<Type Name="Corner" FullName="Urho.Corner">
+<Type Name="Corner" FullName="Urho.Gui.Corner">
   <TypeSignature Language="C#" Value="public enum Corner" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed Corner extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="BottomLeft">
       <MemberSignature Language="C#" Value="BottomLeft" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Corner BottomLeft = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.Corner BottomLeft = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Corner</ReturnType>
+        <ReturnType>Urho.Gui.Corner</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="BottomRight">
       <MemberSignature Language="C#" Value="BottomRight" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Corner BottomRight = int32(3)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.Corner BottomRight = int32(3)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Corner</ReturnType>
+        <ReturnType>Urho.Gui.Corner</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="MaxUielementCorners">
       <MemberSignature Language="C#" Value="MaxUielementCorners" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Corner MaxUielementCorners = int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.Corner MaxUielementCorners = int32(4)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Corner</ReturnType>
+        <ReturnType>Urho.Gui.Corner</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -59,13 +59,13 @@
     </Member>
     <Member MemberName="TopLeft">
       <MemberSignature Language="C#" Value="TopLeft" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Corner TopLeft = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.Corner TopLeft = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Corner</ReturnType>
+        <ReturnType>Urho.Gui.Corner</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -73,13 +73,13 @@
     </Member>
     <Member MemberName="Topright">
       <MemberSignature Language="C#" Value="Topright" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Corner Topright = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.Corner Topright = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Corner</ReturnType>
+        <ReturnType>Urho.Gui.Corner</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

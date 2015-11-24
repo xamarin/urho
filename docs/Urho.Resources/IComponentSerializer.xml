@@ -1,4 +1,4 @@
-<Type Name="IComponentSerializer" FullName="Urho.IComponentSerializer">
+<Type Name="IComponentSerializer" FullName="Urho.Resources.IComponentSerializer">
   <TypeSignature Language="C#" Value="public interface IComponentSerializer" />
   <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IComponentSerializer" />
   <AssemblyInfo>

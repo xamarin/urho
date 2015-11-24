@@ -1,12 +1,12 @@
-<Type Name="DropDownList" FullName="Urho.DropDownList">
-  <TypeSignature Language="C#" Value="public class DropDownList : Urho.Menu" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DropDownList extends Urho.Menu" />
+<Type Name="DropDownList" FullName="Urho.Gui.DropDownList">
+  <TypeSignature Language="C#" Value="public class DropDownList : Urho.Gui.Menu" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DropDownList extends Urho.Gui.Menu" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Menu</BaseTypeName>
+    <BaseTypeName>Urho.Gui.Menu</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -75,8 +75,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddItem">
-      <MemberSignature Language="C#" Value="public void AddItem (Urho.UIElement item);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddItem(class Urho.UIElement item) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddItem (Urho.Gui.UIElement item);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddItem(class Urho.Gui.UIElement item) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -85,7 +85,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="item" Type="Urho.UIElement" />
+        <Parameter Name="item" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="item">To be added.</param>
@@ -130,14 +130,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetItem">
-      <MemberSignature Language="C#" Value="public Urho.UIElement GetItem (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement GetItem(unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetItem (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement GetItem(unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
@@ -152,8 +152,8 @@
       </Docs>
     </Member>
     <Member MemberName="InsertItem">
-      <MemberSignature Language="C#" Value="public void InsertItem (uint index, Urho.UIElement item);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void InsertItem(unsigned int32 index, class Urho.UIElement item) cil managed" />
+      <MemberSignature Language="C#" Value="public void InsertItem (uint index, Urho.Gui.UIElement item);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void InsertItem(unsigned int32 index, class Urho.Gui.UIElement item) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -163,7 +163,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
-        <Parameter Name="item" Type="Urho.UIElement" />
+        <Parameter Name="item" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
@@ -175,14 +175,14 @@
       </Docs>
     </Member>
     <Member MemberName="ItemSelected">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ItemSelectedEventArgs&gt; ItemSelected;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ItemSelectedEventArgs&gt; ItemSelected" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ItemSelectedEventArgs&gt; ItemSelected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ItemSelectedEventArgs&gt; ItemSelected" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ItemSelectedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ItemSelectedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -192,14 +192,14 @@
       </Docs>
     </Member>
     <Member MemberName="ListView">
-      <MemberSignature Language="C#" Value="public Urho.ListView ListView { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ListView ListView" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.ListView ListView { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.ListView ListView" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ListView</ReturnType>
+        <ReturnType>Urho.Gui.ListView</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -282,14 +282,14 @@
       </Docs>
     </Member>
     <Member MemberName="Placeholder">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Placeholder { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Placeholder" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Placeholder { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Placeholder" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -380,8 +380,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveItem">
-      <MemberSignature Language="C#" Value="public void RemoveItem (Urho.UIElement item);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveItem(class Urho.UIElement item) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveItem (Urho.Gui.UIElement item);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveItem(class Urho.Gui.UIElement item) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -390,7 +390,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="item" Type="Urho.UIElement" />
+        <Parameter Name="item" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="item">To be added.</param>
@@ -421,14 +421,14 @@
       </Docs>
     </Member>
     <Member MemberName="SelectedItem">
-      <MemberSignature Language="C#" Value="public Urho.UIElement SelectedItem { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement SelectedItem" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement SelectedItem { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement SelectedItem" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -480,8 +480,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToItemSelected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemSelected (Action&lt;Urho.ItemSelectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemSelected(class System.Action`1&lt;valuetype Urho.ItemSelectedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemSelected (Action&lt;Urho.Gui.ItemSelectedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemSelected(class System.Action`1&lt;valuetype Urho.Gui.ItemSelectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -490,7 +490,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ItemSelectedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ItemSelectedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -499,7 +499,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.DropDownList.ItemSelected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.DropDownList.ItemSelected" /> event.</para>
         </remarks>
       </Docs>
     </Member>

@@ -1,4 +1,4 @@
-<Type Name="Texture2D" FullName="Urho.Texture2D">
+<Type Name="Texture2D" FullName="Urho.Urho2D.Texture2D">
   <TypeSignature Language="C#" Value="public class Texture2D : Urho.Texture" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Texture2D extends Urho.Texture" />
   <AssemblyInfo>

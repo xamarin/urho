@@ -1,4 +1,4 @@
-<Type Name="NavigationMesh" FullName="Urho.NavigationMesh">
+<Type Name="NavigationMesh" FullName="Urho.Navigation.NavigationMesh">
   <TypeSignature Language="C#" Value="public class NavigationMesh : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit NavigationMesh extends Urho.Component" />
   <AssemblyInfo>
@@ -456,8 +456,8 @@
       </Docs>
     </Member>
     <Member MemberName="FindNearestPoint">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 FindNearestPoint (Urho.Vector3 point, Urho.Vector3 extents, Urho.dtQueryFilter* filter, uint* nearestRef);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 FindNearestPoint(valuetype Urho.Vector3 point, valuetype Urho.Vector3 extents, valuetype Urho.dtQueryFilter* filter, unsigned int32* nearestRef) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 FindNearestPoint (Urho.Vector3 point, Urho.Vector3 extents, Urho.Navigation.dtQueryFilter* filter, uint* nearestRef);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 FindNearestPoint(valuetype Urho.Vector3 point, valuetype Urho.Vector3 extents, valuetype Urho.Navigation.dtQueryFilter* filter, unsigned int32* nearestRef) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -468,7 +468,7 @@
       <Parameters>
         <Parameter Name="point" Type="Urho.Vector3" />
         <Parameter Name="extents" Type="Urho.Vector3" />
-        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="filter" Type="Urho.Navigation.dtQueryFilter*" />
         <Parameter Name="nearestRef" Type="System.UInt32*" />
       </Parameters>
       <Docs>
@@ -528,8 +528,8 @@
       </Docs>
     </Member>
     <Member MemberName="GetDistanceToWall">
-      <MemberSignature Language="C#" Value="public float GetDistanceToWall (Urho.Vector3 point, float radius, Urho.Vector3 extents, Urho.dtQueryFilter* filter, Urho.Vector3* hitPos, Urho.Vector3* hitNormal);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetDistanceToWall(valuetype Urho.Vector3 point, float32 radius, valuetype Urho.Vector3 extents, valuetype Urho.dtQueryFilter* filter, valuetype Urho.Vector3* hitPos, valuetype Urho.Vector3* hitNormal) cil managed" />
+      <MemberSignature Language="C#" Value="public float GetDistanceToWall (Urho.Vector3 point, float radius, Urho.Vector3 extents, Urho.Navigation.dtQueryFilter* filter, Urho.Vector3* hitPos, Urho.Vector3* hitNormal);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetDistanceToWall(valuetype Urho.Vector3 point, float32 radius, valuetype Urho.Vector3 extents, valuetype Urho.Navigation.dtQueryFilter* filter, valuetype Urho.Vector3* hitPos, valuetype Urho.Vector3* hitNormal) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -541,7 +541,7 @@
         <Parameter Name="point" Type="Urho.Vector3" />
         <Parameter Name="radius" Type="System.Single" />
         <Parameter Name="extents" Type="Urho.Vector3" />
-        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="filter" Type="Urho.Navigation.dtQueryFilter*" />
         <Parameter Name="hitPos" Type="Urho.Vector3*" />
         <Parameter Name="hitNormal" Type="Urho.Vector3*" />
       </Parameters>
@@ -560,8 +560,8 @@
       </Docs>
     </Member>
     <Member MemberName="GetRandomPoint">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPoint (Urho.dtQueryFilter* filter, uint* randomRef);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetRandomPoint(valuetype Urho.dtQueryFilter* filter, unsigned int32* randomRef) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPoint (Urho.Navigation.dtQueryFilter* filter, uint* randomRef);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetRandomPoint(valuetype Urho.Navigation.dtQueryFilter* filter, unsigned int32* randomRef) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -570,7 +570,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="filter" Type="Urho.Navigation.dtQueryFilter*" />
         <Parameter Name="randomRef" Type="System.UInt32*" />
       </Parameters>
       <Docs>
@@ -584,8 +584,8 @@
       </Docs>
     </Member>
     <Member MemberName="GetRandomPointInCircle">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, Urho.Vector3 extents, Urho.dtQueryFilter* filter, uint* randomRef);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetRandomPointInCircle(valuetype Urho.Vector3 center, float32 radius, valuetype Urho.Vector3 extents, valuetype Urho.dtQueryFilter* filter, unsigned int32* randomRef) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, Urho.Vector3 extents, Urho.Navigation.dtQueryFilter* filter, uint* randomRef);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetRandomPointInCircle(valuetype Urho.Vector3 center, float32 radius, valuetype Urho.Vector3 extents, valuetype Urho.Navigation.dtQueryFilter* filter, unsigned int32* randomRef) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -597,7 +597,7 @@
         <Parameter Name="center" Type="Urho.Vector3" />
         <Parameter Name="radius" Type="System.Single" />
         <Parameter Name="extents" Type="Urho.Vector3" />
-        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="filter" Type="Urho.Navigation.dtQueryFilter*" />
         <Parameter Name="randomRef" Type="System.UInt32*" />
       </Parameters>
       <Docs>
@@ -651,8 +651,8 @@
       </Docs>
     </Member>
     <Member MemberName="MoveAlongSurface">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, int maxVisited, Urho.dtQueryFilter* filter);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 MoveAlongSurface(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, valuetype Urho.Vector3 extents, int32 maxVisited, valuetype Urho.dtQueryFilter* filter) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, int maxVisited, Urho.Navigation.dtQueryFilter* filter);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 MoveAlongSurface(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, valuetype Urho.Vector3 extents, int32 maxVisited, valuetype Urho.Navigation.dtQueryFilter* filter) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -665,7 +665,7 @@
         <Parameter Name="end" Type="Urho.Vector3" />
         <Parameter Name="extents" Type="Urho.Vector3" />
         <Parameter Name="maxVisited" Type="System.Int32" />
-        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="filter" Type="Urho.Navigation.dtQueryFilter*" />
       </Parameters>
       <Docs>
         <param name="start">To be added.</param>
@@ -681,14 +681,14 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationAreaRebuilt">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NavigationAreaRebuiltEventArgs&gt; NavigationAreaRebuilt;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NavigationAreaRebuiltEventArgs&gt; NavigationAreaRebuilt" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Navigation.NavigationAreaRebuiltEventArgs&gt; NavigationAreaRebuilt;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Navigation.NavigationAreaRebuiltEventArgs&gt; NavigationAreaRebuilt" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NavigationAreaRebuiltEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Navigation.NavigationAreaRebuiltEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -698,14 +698,14 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationMeshRebuilt">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NavigationMeshRebuiltEventArgs&gt; NavigationMeshRebuilt;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NavigationMeshRebuiltEventArgs&gt; NavigationMeshRebuilt" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Navigation.NavigationMeshRebuiltEventArgs&gt; NavigationMeshRebuilt;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Navigation.NavigationMeshRebuiltEventArgs&gt; NavigationMeshRebuilt" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NavigationMeshRebuiltEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Navigation.NavigationMeshRebuiltEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -753,14 +753,14 @@
       </Docs>
     </Member>
     <Member MemberName="PartitionType">
-      <MemberSignature Language="C#" Value="public Urho.NavmeshPartitionType PartitionType { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.NavmeshPartitionType PartitionType" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.NavmeshPartitionType PartitionType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Navigation.NavmeshPartitionType PartitionType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.NavmeshPartitionType</ReturnType>
+        <ReturnType>Urho.Navigation.NavmeshPartitionType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -773,8 +773,8 @@
       </Docs>
     </Member>
     <Member MemberName="Raycast">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, Urho.dtQueryFilter* filter, Urho.Vector3* hitNormal);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 Raycast(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, valuetype Urho.Vector3 extents, valuetype Urho.dtQueryFilter* filter, valuetype Urho.Vector3* hitNormal) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, Urho.Navigation.dtQueryFilter* filter, Urho.Vector3* hitNormal);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 Raycast(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, valuetype Urho.Vector3 extents, valuetype Urho.Navigation.dtQueryFilter* filter, valuetype Urho.Vector3* hitNormal) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -786,7 +786,7 @@
         <Parameter Name="start" Type="Urho.Vector3" />
         <Parameter Name="end" Type="Urho.Vector3" />
         <Parameter Name="extents" Type="Urho.Vector3" />
-        <Parameter Name="filter" Type="Urho.dtQueryFilter*" />
+        <Parameter Name="filter" Type="Urho.Navigation.dtQueryFilter*" />
         <Parameter Name="hitNormal" Type="Urho.Vector3*" />
       </Parameters>
       <Docs>
@@ -908,8 +908,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNavigationAreaRebuilt">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationAreaRebuilt (Action&lt;Urho.NavigationAreaRebuiltEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationAreaRebuilt(class System.Action`1&lt;valuetype Urho.NavigationAreaRebuiltEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationAreaRebuilt (Action&lt;Urho.Navigation.NavigationAreaRebuiltEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationAreaRebuilt(class System.Action`1&lt;valuetype Urho.Navigation.NavigationAreaRebuiltEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -918,7 +918,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NavigationAreaRebuiltEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Navigation.NavigationAreaRebuiltEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -927,13 +927,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.NavigationMesh.NavigationAreaRebuilt" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Navigation.NavigationMesh.NavigationAreaRebuilt" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNavigationMeshRebuilt">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationMeshRebuilt (Action&lt;Urho.NavigationMeshRebuiltEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationMeshRebuilt(class System.Action`1&lt;valuetype Urho.NavigationMeshRebuiltEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationMeshRebuilt (Action&lt;Urho.Navigation.NavigationMeshRebuiltEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationMeshRebuilt(class System.Action`1&lt;valuetype Urho.Navigation.NavigationMeshRebuiltEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -942,7 +942,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NavigationMeshRebuiltEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Navigation.NavigationMeshRebuiltEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -951,7 +951,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.NavigationMesh.NavigationMeshRebuilt" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Navigation.NavigationMesh.NavigationMeshRebuilt" /> event.</para>
         </remarks>
       </Docs>
     </Member>

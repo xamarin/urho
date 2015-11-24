@@ -1,12 +1,12 @@
-<Type Name="ConstraintPulley2D" FullName="Urho.ConstraintPulley2D">
-  <TypeSignature Language="C#" Value="public class ConstraintPulley2D : Urho.Constraint2D" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ConstraintPulley2D extends Urho.Constraint2D" />
+<Type Name="ConstraintPulley2D" FullName="Urho.Urho2D.ConstraintPulley2D">
+  <TypeSignature Language="C#" Value="public class ConstraintPulley2D : Urho.Urho2D.Constraint2D" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ConstraintPulley2D extends Urho.Urho2D.Constraint2D" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Constraint2D</BaseTypeName>
+    <BaseTypeName>Urho.Urho2D.Constraint2D</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

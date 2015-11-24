@@ -1,4 +1,4 @@
-<Type Name="UIMouseClickEndEventArgs" FullName="Urho.UIMouseClickEndEventArgs">
+<Type Name="UIMouseClickEndEventArgs" FullName="Urho.Gui.UIMouseClickEndEventArgs">
   <TypeSignature Language="C#" Value="public struct UIMouseClickEndEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit UIMouseClickEndEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="BeginElement">
-      <MemberSignature Language="C#" Value="public Urho.UIElement BeginElement { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement BeginElement" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement BeginElement { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement BeginElement" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -63,14 +63,14 @@
       </Docs>
     </Member>
     <Member MemberName="Element">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Element { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Element" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Element { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Element" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

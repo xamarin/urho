@@ -1,12 +1,12 @@
-<Type Name="Sound" FullName="Urho.Sound">
-  <TypeSignature Language="C#" Value="public class Sound : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Sound extends Urho.Resource" />
+<Type Name="Sound" FullName="Urho.Audio.Sound">
+  <TypeSignature Language="C#" Value="public class Sound : Urho.Resources.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Sound extends Urho.Resources.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Resource</BaseTypeName>
+    <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -109,14 +109,14 @@
       </Docs>
     </Member>
     <Member MemberName="DecoderStream">
-      <MemberSignature Language="C#" Value="public Urho.SoundStream DecoderStream { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.SoundStream DecoderStream" />
+      <MemberSignature Language="C#" Value="public Urho.Audio.SoundStream DecoderStream { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Audio.SoundStream DecoderStream" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.SoundStream</ReturnType>
+        <ReturnType>Urho.Audio.SoundStream</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

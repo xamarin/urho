@@ -1,4 +1,4 @@
-<Type Name="ReloadStartedEventArgs" FullName="Urho.ReloadStartedEventArgs">
+<Type Name="ReloadStartedEventArgs" FullName="Urho.Resources.ReloadStartedEventArgs">
   <TypeSignature Language="C#" Value="public struct ReloadStartedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ReloadStartedEventArgs extends System.ValueType" />
   <AssemblyInfo>

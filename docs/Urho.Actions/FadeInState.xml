@@ -1,12 +1,12 @@
-<Type Name="FadeInState" FullName="Urho.FadeInState">
-  <TypeSignature Language="C#" Value="public class FadeInState : Urho.FiniteTimeActionState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FadeInState extends Urho.FiniteTimeActionState" />
+<Type Name="FadeInState" FullName="Urho.Actions.FadeInState">
+  <TypeSignature Language="C#" Value="public class FadeInState : Urho.Actions.FiniteTimeActionState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FadeInState extends Urho.Actions.FiniteTimeActionState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.FiniteTimeActionState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.FiniteTimeActionState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public FadeInState (Urho.FadeIn action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.FadeIn action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public FadeInState (Urho.Actions.FadeIn action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.FadeIn action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.FadeIn" />
+        <Parameter Name="action" Type="Urho.Actions.FadeIn" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

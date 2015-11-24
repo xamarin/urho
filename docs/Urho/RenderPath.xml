@@ -70,8 +70,8 @@
       </Docs>
     </Member>
     <Member MemberName="Append">
-      <MemberSignature Language="C#" Value="public bool Append (Urho.XmlFile file);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Append(class Urho.XmlFile file) cil managed" />
+      <MemberSignature Language="C#" Value="public bool Append (Urho.Resources.XmlFile file);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Append(class Urho.Resources.XmlFile file) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -80,7 +80,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="file" Type="Urho.XmlFile" />
+        <Parameter Name="file" Type="Urho.Resources.XmlFile" />
       </Parameters>
       <Docs>
         <param name="file">To be added.</param>
@@ -131,8 +131,8 @@
       </Docs>
     </Member>
     <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public bool Load (Urho.XmlFile file);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.XmlFile file) cil managed" />
+      <MemberSignature Language="C#" Value="public bool Load (Urho.Resources.XmlFile file);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.Resources.XmlFile file) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -141,7 +141,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="file" Type="Urho.XmlFile" />
+        <Parameter Name="file" Type="Urho.Resources.XmlFile" />
       </Parameters>
       <Docs>
         <param name="file">To be added.</param>

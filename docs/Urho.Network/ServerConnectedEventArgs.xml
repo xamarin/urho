@@ -1,4 +1,4 @@
-<Type Name="ServerConnectedEventArgs" FullName="Urho.ServerConnectedEventArgs">
+<Type Name="ServerConnectedEventArgs" FullName="Urho.Network.ServerConnectedEventArgs">
   <TypeSignature Language="C#" Value="public struct ServerConnectedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ServerConnectedEventArgs extends System.ValueType" />
   <AssemblyInfo>

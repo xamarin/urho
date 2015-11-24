@@ -1,12 +1,12 @@
-<Type Name="EaseElasticInState" FullName="Urho.EaseElasticInState">
-  <TypeSignature Language="C#" Value="public class EaseElasticInState : Urho.EaseElasticState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EaseElasticInState extends Urho.EaseElasticState" />
+<Type Name="EaseElasticInState" FullName="Urho.Actions.EaseElasticInState">
+  <TypeSignature Language="C#" Value="public class EaseElasticInState : Urho.Actions.EaseElasticState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EaseElasticInState extends Urho.Actions.EaseElasticState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.EaseElasticState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.EaseElasticState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public EaseElasticInState (Urho.EaseElasticIn action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.EaseElasticIn action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public EaseElasticInState (Urho.Actions.EaseElasticIn action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.EaseElasticIn action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.EaseElasticIn" />
+        <Parameter Name="action" Type="Urho.Actions.EaseElasticIn" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

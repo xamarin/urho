@@ -75,14 +75,14 @@
       </Docs>
     </Member>
     <Member MemberName="Background">
-      <MemberSignature Language="C#" Value="public Urho.BorderImage Background { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.BorderImage Background" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.BorderImage Background { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.BorderImage Background" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.BorderImage</ReturnType>
+        <ReturnType>Urho.Gui.BorderImage</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -109,14 +109,14 @@
       </Docs>
     </Member>
     <Member MemberName="CloseButton">
-      <MemberSignature Language="C#" Value="public Urho.Button CloseButton { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Button CloseButton" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Button CloseButton { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Button CloseButton" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Button</ReturnType>
+        <ReturnType>Urho.Gui.Button</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -182,14 +182,14 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultStyle">
-      <MemberSignature Language="C#" Value="public Urho.XmlFile DefaultStyle { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.XmlFile DefaultStyle" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlFile DefaultStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.XmlFile DefaultStyle" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.XmlFile</ReturnType>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -317,14 +317,14 @@
       </Docs>
     </Member>
     <Member MemberName="LineEdit">
-      <MemberSignature Language="C#" Value="public Urho.LineEdit LineEdit { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.LineEdit LineEdit" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.LineEdit LineEdit { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.LineEdit LineEdit" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.LineEdit</ReturnType>
+        <ReturnType>Urho.Gui.LineEdit</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

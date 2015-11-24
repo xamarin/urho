@@ -215,14 +215,14 @@
       </Docs>
     </Member>
     <Member MemberName="ScreenJoystick">
-      <MemberSignature Language="C#" Value="public Urho.UIElement ScreenJoystick { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement ScreenJoystick" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement ScreenJoystick { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement ScreenJoystick" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

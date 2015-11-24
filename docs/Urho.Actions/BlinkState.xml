@@ -1,12 +1,12 @@
-<Type Name="BlinkState" FullName="Urho.BlinkState">
-  <TypeSignature Language="C#" Value="public class BlinkState : Urho.FiniteTimeActionState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BlinkState extends Urho.FiniteTimeActionState" />
+<Type Name="BlinkState" FullName="Urho.Actions.BlinkState">
+  <TypeSignature Language="C#" Value="public class BlinkState : Urho.Actions.FiniteTimeActionState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BlinkState extends Urho.Actions.FiniteTimeActionState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.FiniteTimeActionState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.FiniteTimeActionState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BlinkState (Urho.Blink action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Blink action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public BlinkState (Urho.Actions.Blink action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.Blink action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.Blink" />
+        <Parameter Name="action" Type="Urho.Actions.Blink" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

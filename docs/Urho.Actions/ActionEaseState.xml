@@ -1,12 +1,12 @@
-<Type Name="ActionEaseState" FullName="Urho.ActionEaseState">
-  <TypeSignature Language="C#" Value="public class ActionEaseState : Urho.FiniteTimeActionState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ActionEaseState extends Urho.FiniteTimeActionState" />
+<Type Name="ActionEaseState" FullName="Urho.Actions.ActionEaseState">
+  <TypeSignature Language="C#" Value="public class ActionEaseState : Urho.Actions.FiniteTimeActionState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ActionEaseState extends Urho.Actions.FiniteTimeActionState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.FiniteTimeActionState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.FiniteTimeActionState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -17,14 +17,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ActionEaseState (Urho.ActionEase action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.ActionEase action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public ActionEaseState (Urho.Actions.ActionEase action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.ActionEase action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.ActionEase" />
+        <Parameter Name="action" Type="Urho.Actions.ActionEase" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>
@@ -37,14 +37,14 @@
       </Docs>
     </Member>
     <Member MemberName="InnerActionState">
-      <MemberSignature Language="C#" Value="protected Urho.FiniteTimeActionState InnerActionState { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.FiniteTimeActionState InnerActionState" />
+      <MemberSignature Language="C#" Value="protected Urho.Actions.FiniteTimeActionState InnerActionState { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Actions.FiniteTimeActionState InnerActionState" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FiniteTimeActionState</ReturnType>
+        <ReturnType>Urho.Actions.FiniteTimeActionState</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

@@ -1,4 +1,4 @@
-<Type Name="PhysicsWorld2D" FullName="Urho.PhysicsWorld2D">
+<Type Name="PhysicsWorld2D" FullName="Urho.Urho2D.PhysicsWorld2D">
   <TypeSignature Language="C#" Value="public class PhysicsWorld2D : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PhysicsWorld2D extends Urho.Component" />
   <AssemblyInfo>
@@ -75,8 +75,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddRigidBody">
-      <MemberSignature Language="C#" Value="public void AddRigidBody (Urho.RigidBody2D rigidBody);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddRigidBody(class Urho.RigidBody2D rigidBody) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddRigidBody (Urho.Urho2D.RigidBody2D rigidBody);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddRigidBody(class Urho.Urho2D.RigidBody2D rigidBody) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -85,7 +85,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="rigidBody" Type="Urho.RigidBody2D" />
+        <Parameter Name="rigidBody" Type="Urho.Urho2D.RigidBody2D" />
       </Parameters>
       <Docs>
         <param name="rigidBody">To be added.</param>
@@ -313,14 +313,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetRigidBody">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody2D GetRigidBody (Urho.Vector2 point, uint collisionMask);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.RigidBody2D GetRigidBody(valuetype Urho.Vector2 point, unsigned int32 collisionMask) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.RigidBody2D GetRigidBody (Urho.Vector2 point, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Urho2D.RigidBody2D GetRigidBody(valuetype Urho.Vector2 point, unsigned int32 collisionMask) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody2D</ReturnType>
+        <ReturnType>Urho.Urho2D.RigidBody2D</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="point" Type="Urho.Vector2" />
@@ -337,14 +337,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetRigidBody">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody2D GetRigidBody (int screenX, int screenY, uint collisionMask);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.RigidBody2D GetRigidBody(int32 screenX, int32 screenY, unsigned int32 collisionMask) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.RigidBody2D GetRigidBody (int screenX, int screenY, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Urho2D.RigidBody2D GetRigidBody(int32 screenX, int32 screenY, unsigned int32 collisionMask) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody2D</ReturnType>
+        <ReturnType>Urho.Urho2D.RigidBody2D</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="screenX" Type="System.Int32" />
@@ -402,14 +402,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsBeginContact2D">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsBeginContact2DEventArgs&gt; PhysicsBeginContact2D;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsBeginContact2DEventArgs&gt; PhysicsBeginContact2D" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Urho2D.PhysicsBeginContact2DEventArgs&gt; PhysicsBeginContact2D;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsBeginContact2DEventArgs&gt; PhysicsBeginContact2D" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsBeginContact2DEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Urho2D.PhysicsBeginContact2DEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -419,14 +419,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsEndContact2D">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsEndContact2DEventArgs&gt; PhysicsEndContact2D;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsEndContact2DEventArgs&gt; PhysicsEndContact2D" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Urho2D.PhysicsEndContact2DEventArgs&gt; PhysicsEndContact2D;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsEndContact2DEventArgs&gt; PhysicsEndContact2D" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsEndContact2DEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Urho2D.PhysicsEndContact2DEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -436,14 +436,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsPostStep2D">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsPostStep2DEventArgs&gt; PhysicsPostStep2D;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsPostStep2DEventArgs&gt; PhysicsPostStep2D" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Urho2D.PhysicsPostStep2DEventArgs&gt; PhysicsPostStep2D;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsPostStep2DEventArgs&gt; PhysicsPostStep2D" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsPostStep2DEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Urho2D.PhysicsPostStep2DEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -453,14 +453,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsPreStep2D">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsPreStep2DEventArgs&gt; PhysicsPreStep2D;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsPreStep2DEventArgs&gt; PhysicsPreStep2D" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Urho2D.PhysicsPreStep2DEventArgs&gt; PhysicsPreStep2D;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsPreStep2DEventArgs&gt; PhysicsPreStep2D" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsPreStep2DEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Urho2D.PhysicsPreStep2DEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -511,8 +511,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveRigidBody">
-      <MemberSignature Language="C#" Value="public void RemoveRigidBody (Urho.RigidBody2D rigidBody);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveRigidBody(class Urho.RigidBody2D rigidBody) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveRigidBody (Urho.Urho2D.RigidBody2D rigidBody);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveRigidBody(class Urho.Urho2D.RigidBody2D rigidBody) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -521,7 +521,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="rigidBody" Type="Urho.RigidBody2D" />
+        <Parameter Name="rigidBody" Type="Urho.Urho2D.RigidBody2D" />
       </Parameters>
       <Docs>
         <param name="rigidBody">To be added.</param>
@@ -553,8 +553,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsBeginContact2D">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsBeginContact2D (Action&lt;Urho.PhysicsBeginContact2DEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsBeginContact2D(class System.Action`1&lt;valuetype Urho.PhysicsBeginContact2DEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsBeginContact2D (Action&lt;Urho.Urho2D.PhysicsBeginContact2DEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsBeginContact2D(class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsBeginContact2DEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -563,7 +563,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsBeginContact2DEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Urho2D.PhysicsBeginContact2DEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -572,13 +572,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld2D.PhysicsBeginContact2D" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld2D.PhysicsBeginContact2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsEndContact2D">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsEndContact2D (Action&lt;Urho.PhysicsEndContact2DEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsEndContact2D(class System.Action`1&lt;valuetype Urho.PhysicsEndContact2DEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsEndContact2D (Action&lt;Urho.Urho2D.PhysicsEndContact2DEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsEndContact2D(class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsEndContact2DEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -587,7 +587,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsEndContact2DEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Urho2D.PhysicsEndContact2DEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -596,13 +596,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld2D.PhysicsEndContact2D" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld2D.PhysicsEndContact2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsPostStep2D">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPostStep2D (Action&lt;Urho.PhysicsPostStep2DEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPostStep2D(class System.Action`1&lt;valuetype Urho.PhysicsPostStep2DEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPostStep2D (Action&lt;Urho.Urho2D.PhysicsPostStep2DEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPostStep2D(class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsPostStep2DEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -611,7 +611,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsPostStep2DEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Urho2D.PhysicsPostStep2DEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -620,13 +620,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld2D.PhysicsPostStep2D" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld2D.PhysicsPostStep2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsPreStep2D">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPreStep2D (Action&lt;Urho.PhysicsPreStep2DEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPreStep2D(class System.Action`1&lt;valuetype Urho.PhysicsPreStep2DEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPreStep2D (Action&lt;Urho.Urho2D.PhysicsPreStep2DEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPreStep2D(class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsPreStep2DEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -635,7 +635,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsPreStep2DEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Urho2D.PhysicsPreStep2DEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -644,7 +644,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld2D.PhysicsPreStep2D" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld2D.PhysicsPreStep2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>

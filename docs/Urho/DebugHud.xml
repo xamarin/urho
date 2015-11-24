@@ -109,14 +109,14 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultStyle">
-      <MemberSignature Language="C#" Value="public Urho.XmlFile DefaultStyle { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.XmlFile DefaultStyle" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlFile DefaultStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.XmlFile DefaultStyle" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.XmlFile</ReturnType>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -149,14 +149,14 @@
       </Docs>
     </Member>
     <Member MemberName="ModeText">
-      <MemberSignature Language="C#" Value="public Urho.Text ModeText { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Text ModeText" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Text ModeText { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Text ModeText" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Text</ReturnType>
+        <ReturnType>Urho.Gui.Text</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -207,14 +207,14 @@
       </Docs>
     </Member>
     <Member MemberName="ProfilerText">
-      <MemberSignature Language="C#" Value="public Urho.Text ProfilerText { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Text ProfilerText" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Text ProfilerText { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Text ProfilerText" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Text</ReturnType>
+        <ReturnType>Urho.Gui.Text</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -270,14 +270,14 @@
       </Docs>
     </Member>
     <Member MemberName="StatsText">
-      <MemberSignature Language="C#" Value="public Urho.Text StatsText { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Text StatsText" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Text StatsText { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Text StatsText" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Text</ReturnType>
+        <ReturnType>Urho.Gui.Text</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

@@ -1,4 +1,4 @@
-<Type Name="FileSelectedEventArgs" FullName="Urho.FileSelectedEventArgs">
+<Type Name="FileSelectedEventArgs" FullName="Urho.Gui.FileSelectedEventArgs">
   <TypeSignature Language="C#" Value="public struct FileSelectedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit FileSelectedEventArgs extends System.ValueType" />
   <AssemblyInfo>

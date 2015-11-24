@@ -1,12 +1,12 @@
-<Type Name="Spawn" FullName="Urho.Spawn">
-  <TypeSignature Language="C#" Value="public class Spawn : Urho.FiniteTimeAction" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Spawn extends Urho.FiniteTimeAction" />
+<Type Name="Spawn" FullName="Urho.Actions.Spawn">
+  <TypeSignature Language="C#" Value="public class Spawn : Urho.Actions.FiniteTimeAction" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Spawn extends Urho.Actions.FiniteTimeAction" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.FiniteTimeAction</BaseTypeName>
+    <BaseTypeName>Urho.Actions.FiniteTimeAction</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Spawn (Urho.FiniteTimeAction[] actions);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.FiniteTimeAction[] actions) cil managed" />
+      <MemberSignature Language="C#" Value="public Spawn (Urho.Actions.FiniteTimeAction[] actions);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.FiniteTimeAction[] actions) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="actions" Type="Urho.FiniteTimeAction[]">
+        <Parameter Name="actions" Type="Urho.Actions.FiniteTimeAction[]">
           <Attributes>
             <Attribute>
               <AttributeName>System.ParamArray</AttributeName>
@@ -37,15 +37,15 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="protected Spawn (Urho.FiniteTimeAction action1, Urho.FiniteTimeAction action2);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(class Urho.FiniteTimeAction action1, class Urho.FiniteTimeAction action2) cil managed" />
+      <MemberSignature Language="C#" Value="protected Spawn (Urho.Actions.FiniteTimeAction action1, Urho.Actions.FiniteTimeAction action2);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.FiniteTimeAction action1, class Urho.Actions.FiniteTimeAction action2) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action1" Type="Urho.FiniteTimeAction" />
-        <Parameter Name="action2" Type="Urho.FiniteTimeAction" />
+        <Parameter Name="action1" Type="Urho.Actions.FiniteTimeAction" />
+        <Parameter Name="action2" Type="Urho.Actions.FiniteTimeAction" />
       </Parameters>
       <Docs>
         <param name="action1">To be added.</param>
@@ -55,14 +55,14 @@
       </Docs>
     </Member>
     <Member MemberName="ActionOne">
-      <MemberSignature Language="C#" Value="public Urho.FiniteTimeAction ActionOne { get; protected set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.FiniteTimeAction ActionOne" />
+      <MemberSignature Language="C#" Value="public Urho.Actions.FiniteTimeAction ActionOne { get; protected set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Actions.FiniteTimeAction ActionOne" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FiniteTimeAction</ReturnType>
+        <ReturnType>Urho.Actions.FiniteTimeAction</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -71,14 +71,14 @@
       </Docs>
     </Member>
     <Member MemberName="ActionTwo">
-      <MemberSignature Language="C#" Value="public Urho.FiniteTimeAction ActionTwo { get; protected set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.FiniteTimeAction ActionTwo" />
+      <MemberSignature Language="C#" Value="public Urho.Actions.FiniteTimeAction ActionTwo { get; protected set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Actions.FiniteTimeAction ActionTwo" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FiniteTimeAction</ReturnType>
+        <ReturnType>Urho.Actions.FiniteTimeAction</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -87,14 +87,14 @@
       </Docs>
     </Member>
     <Member MemberName="Reverse">
-      <MemberSignature Language="C#" Value="public override Urho.FiniteTimeAction Reverse ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance class Urho.FiniteTimeAction Reverse() cil managed" />
+      <MemberSignature Language="C#" Value="public override Urho.Actions.FiniteTimeAction Reverse ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance class Urho.Actions.FiniteTimeAction Reverse() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FiniteTimeAction</ReturnType>
+        <ReturnType>Urho.Actions.FiniteTimeAction</ReturnType>
       </ReturnValue>
       <Parameters />
       <Docs>
@@ -104,21 +104,21 @@
       </Docs>
     </Member>
     <Member MemberName="StartAction">
-      <MemberSignature Language="C#" Value="protected override Urho.ActionState StartAction (Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class Urho.ActionState StartAction(class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="protected override Urho.Actions.ActionState StartAction (Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class Urho.Actions.ActionState StartAction(class Urho.Node target) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ActionState</ReturnType>
+        <ReturnType>Urho.Actions.ActionState</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>
         <param name="target">
-          <para>The new <see cref="T:Urho.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</para>
+          <para>The new <see cref="T:Urho.Actions.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</para>
         </param>
         <summary>Creates the action state for this action, called on demand from the framework to start executing the recipe.</summary>
         <returns>To be added.</returns>

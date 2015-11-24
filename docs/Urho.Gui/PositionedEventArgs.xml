@@ -1,4 +1,4 @@
-<Type Name="PositionedEventArgs" FullName="Urho.PositionedEventArgs">
+<Type Name="PositionedEventArgs" FullName="Urho.Gui.PositionedEventArgs">
   <TypeSignature Language="C#" Value="public struct PositionedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit PositionedEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="Element">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Element { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Element" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Element { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Element" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

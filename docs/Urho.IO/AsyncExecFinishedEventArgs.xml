@@ -1,4 +1,4 @@
-<Type Name="AsyncExecFinishedEventArgs" FullName="Urho.AsyncExecFinishedEventArgs">
+<Type Name="AsyncExecFinishedEventArgs" FullName="Urho.IO.AsyncExecFinishedEventArgs">
   <TypeSignature Language="C#" Value="public struct AsyncExecFinishedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit AsyncExecFinishedEventArgs extends System.ValueType" />
   <AssemblyInfo>

@@ -1,4 +1,4 @@
-<Type Name="LoopMode2D" FullName="Urho.LoopMode2D">
+<Type Name="LoopMode2D" FullName="Urho.Urho2D.LoopMode2D">
   <TypeSignature Language="C#" Value="public enum LoopMode2D" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed LoopMode2D extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Default">
       <MemberSignature Language="C#" Value="Default" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LoopMode2D Default = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.LoopMode2D Default = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.LoopMode2D</ReturnType>
+        <ReturnType>Urho.Urho2D.LoopMode2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="ForceClamped">
       <MemberSignature Language="C#" Value="ForceClamped" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LoopMode2D ForceClamped = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.LoopMode2D ForceClamped = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.LoopMode2D</ReturnType>
+        <ReturnType>Urho.Urho2D.LoopMode2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="ForceLooped">
       <MemberSignature Language="C#" Value="ForceLooped" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LoopMode2D ForceLooped = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.LoopMode2D ForceLooped = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.LoopMode2D</ReturnType>
+        <ReturnType>Urho.Urho2D.LoopMode2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

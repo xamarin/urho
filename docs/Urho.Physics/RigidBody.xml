@@ -1,4 +1,4 @@
-<Type Name="RigidBody" FullName="Urho.RigidBody">
+<Type Name="RigidBody" FullName="Urho.Physics.RigidBody">
   <TypeSignature Language="C#" Value="public class RigidBody : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit RigidBody extends Urho.Component" />
   <AssemblyInfo>
@@ -93,8 +93,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddConstraint">
-      <MemberSignature Language="C#" Value="public void AddConstraint (Urho.Constraint constraint);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddConstraint(class Urho.Constraint constraint) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddConstraint (Urho.Physics.Constraint constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddConstraint(class Urho.Physics.Constraint constraint) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -103,7 +103,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="constraint" Type="Urho.Constraint" />
+        <Parameter Name="constraint" Type="Urho.Physics.Constraint" />
       </Parameters>
       <Docs>
         <param name="constraint">To be added.</param>
@@ -453,14 +453,14 @@
       </Docs>
     </Member>
     <Member MemberName="CollisionEventMode">
-      <MemberSignature Language="C#" Value="public Urho.CollisionEventMode CollisionEventMode { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CollisionEventMode CollisionEventMode" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.CollisionEventMode CollisionEventMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Physics.CollisionEventMode CollisionEventMode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CollisionEventMode</ReturnType>
+        <ReturnType>Urho.Physics.CollisionEventMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -825,14 +825,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsWorld">
-      <MemberSignature Language="C#" Value="public Urho.PhysicsWorld PhysicsWorld { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.PhysicsWorld PhysicsWorld" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.PhysicsWorld PhysicsWorld { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.PhysicsWorld PhysicsWorld" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PhysicsWorld</ReturnType>
+        <ReturnType>Urho.Physics.PhysicsWorld</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -918,8 +918,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveConstraint">
-      <MemberSignature Language="C#" Value="public void RemoveConstraint (Urho.Constraint constraint);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveConstraint(class Urho.Constraint constraint) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveConstraint (Urho.Physics.Constraint constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveConstraint(class Urho.Physics.Constraint constraint) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -928,7 +928,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="constraint" Type="Urho.Constraint" />
+        <Parameter Name="constraint" Type="Urho.Physics.Constraint" />
       </Parameters>
       <Docs>
         <param name="constraint">To be added.</param>

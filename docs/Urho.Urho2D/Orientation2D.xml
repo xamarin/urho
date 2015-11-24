@@ -1,4 +1,4 @@
-<Type Name="Orientation2D" FullName="Urho.Orientation2D">
+<Type Name="Orientation2D" FullName="Urho.Urho2D.Orientation2D">
   <TypeSignature Language="C#" Value="public enum Orientation2D" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed Orientation2D extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Isometric">
       <MemberSignature Language="C#" Value="Isometric" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Orientation2D Isometric = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.Orientation2D Isometric = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Orientation2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Orientation2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Orthogonal">
       <MemberSignature Language="C#" Value="Orthogonal" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Orientation2D Orthogonal = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.Orientation2D Orthogonal = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Orientation2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Orientation2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Staggered">
       <MemberSignature Language="C#" Value="Staggered" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Orientation2D Staggered = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.Orientation2D Staggered = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Orientation2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Orientation2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

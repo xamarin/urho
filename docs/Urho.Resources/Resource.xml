@@ -1,4 +1,4 @@
-<Type Name="Resource" FullName="Urho.Resource">
+<Type Name="Resource" FullName="Urho.Resources.Resource">
   <TypeSignature Language="C#" Value="public class Resource : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Resource extends Urho.UrhoObject" />
   <AssemblyInfo>
@@ -75,14 +75,14 @@
       </Docs>
     </Member>
     <Member MemberName="AsyncLoadState">
-      <MemberSignature Language="C#" Value="public Urho.AsyncLoadState AsyncLoadState { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.AsyncLoadState AsyncLoadState" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.AsyncLoadState AsyncLoadState { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Resources.AsyncLoadState AsyncLoadState" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.AsyncLoadState</ReturnType>
+        <ReturnType>Urho.Resources.AsyncLoadState</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -204,14 +204,14 @@
       </Docs>
     </Member>
     <Member MemberName="ReloadFailed">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ReloadFailedEventArgs&gt; ReloadFailed;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ReloadFailedEventArgs&gt; ReloadFailed" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Resources.ReloadFailedEventArgs&gt; ReloadFailed;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Resources.ReloadFailedEventArgs&gt; ReloadFailed" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ReloadFailedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Resources.ReloadFailedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -221,14 +221,14 @@
       </Docs>
     </Member>
     <Member MemberName="ReloadFinished">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ReloadFinishedEventArgs&gt; ReloadFinished;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ReloadFinishedEventArgs&gt; ReloadFinished" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Resources.ReloadFinishedEventArgs&gt; ReloadFinished;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Resources.ReloadFinishedEventArgs&gt; ReloadFinished" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ReloadFinishedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Resources.ReloadFinishedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -238,14 +238,14 @@
       </Docs>
     </Member>
     <Member MemberName="ReloadStarted">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ReloadStartedEventArgs&gt; ReloadStarted;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ReloadStartedEventArgs&gt; ReloadStarted" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Resources.ReloadStartedEventArgs&gt; ReloadStarted;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Resources.ReloadStartedEventArgs&gt; ReloadStarted" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ReloadStartedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Resources.ReloadStartedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -273,8 +273,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToReloadFailed">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadFailed (Action&lt;Urho.ReloadFailedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadFailed(class System.Action`1&lt;valuetype Urho.ReloadFailedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadFailed (Action&lt;Urho.Resources.ReloadFailedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadFailed(class System.Action`1&lt;valuetype Urho.Resources.ReloadFailedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -283,7 +283,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ReloadFailedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Resources.ReloadFailedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -292,13 +292,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Resource.ReloadFailed" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Resources.Resource.ReloadFailed" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToReloadFinished">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadFinished (Action&lt;Urho.ReloadFinishedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadFinished(class System.Action`1&lt;valuetype Urho.ReloadFinishedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadFinished (Action&lt;Urho.Resources.ReloadFinishedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadFinished(class System.Action`1&lt;valuetype Urho.Resources.ReloadFinishedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -307,7 +307,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ReloadFinishedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Resources.ReloadFinishedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -316,13 +316,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Resource.ReloadFinished" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Resources.Resource.ReloadFinished" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToReloadStarted">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadStarted (Action&lt;Urho.ReloadStartedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadStarted(class System.Action`1&lt;valuetype Urho.ReloadStartedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReloadStarted (Action&lt;Urho.Resources.ReloadStartedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReloadStarted(class System.Action`1&lt;valuetype Urho.Resources.ReloadStartedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -331,7 +331,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ReloadStartedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Resources.ReloadStartedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -340,7 +340,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Resource.ReloadStarted" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Resources.Resource.ReloadStarted" /> event.</para>
         </remarks>
       </Docs>
     </Member>

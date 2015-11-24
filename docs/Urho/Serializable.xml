@@ -273,8 +273,8 @@
       </Docs>
     </Member>
     <Member MemberName="LoadXml">
-      <MemberSignature Language="C#" Value="public virtual bool LoadXml (Urho.XmlElement source, bool setInstanceDefault);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool LoadXml(class Urho.XmlElement source, bool setInstanceDefault) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool LoadXml(class Urho.Resources.XmlElement source, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -283,7 +283,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="source" Type="Urho.XmlElement" />
+        <Parameter Name="source" Type="Urho.Resources.XmlElement" />
         <Parameter Name="setInstanceDefault" Type="System.Boolean" />
       </Parameters>
       <Docs>
@@ -422,8 +422,8 @@
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public virtual bool SaveXml (Urho.XmlElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool SaveXml(class Urho.XmlElement dest) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual bool SaveXml (Urho.Resources.XmlElement dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool SaveXml(class Urho.Resources.XmlElement dest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -432,7 +432,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="dest" Type="Urho.XmlElement" />
+        <Parameter Name="dest" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>

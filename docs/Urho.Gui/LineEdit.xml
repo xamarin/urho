@@ -1,12 +1,12 @@
-<Type Name="LineEdit" FullName="Urho.LineEdit">
-  <TypeSignature Language="C#" Value="public class LineEdit : Urho.BorderImage" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit LineEdit extends Urho.BorderImage" />
+<Type Name="LineEdit" FullName="Urho.Gui.LineEdit">
+  <TypeSignature Language="C#" Value="public class LineEdit : Urho.Gui.BorderImage" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit LineEdit extends Urho.Gui.BorderImage" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.BorderImage</BaseTypeName>
+    <BaseTypeName>Urho.Gui.BorderImage</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -109,14 +109,14 @@
       </Docs>
     </Member>
     <Member MemberName="CharEntry">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.CharEntryEventArgs&gt; CharEntry;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.CharEntryEventArgs&gt; CharEntry" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.CharEntryEventArgs&gt; CharEntry;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.CharEntryEventArgs&gt; CharEntry" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.CharEntryEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.CharEntryEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -126,14 +126,14 @@
       </Docs>
     </Member>
     <Member MemberName="Cursor">
-      <MemberSignature Language="C#" Value="public Urho.BorderImage Cursor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.BorderImage Cursor" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.BorderImage Cursor { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.BorderImage Cursor" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.BorderImage</ReturnType>
+        <ReturnType>Urho.Gui.BorderImage</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -281,8 +281,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnClickBegin">
-      <MemberSignature Language="C#" Value="public override void OnClickBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnClickBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -296,7 +296,7 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -312,8 +312,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnDoubleClick">
-      <MemberSignature Language="C#" Value="public override void OnDoubleClick (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDoubleClick(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnDoubleClick (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnDoubleClick(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -327,7 +327,7 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -477,8 +477,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToCharEntry">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCharEntry (Action&lt;Urho.CharEntryEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCharEntry(class System.Action`1&lt;valuetype Urho.CharEntryEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCharEntry (Action&lt;Urho.Gui.CharEntryEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCharEntry(class System.Action`1&lt;valuetype Urho.Gui.CharEntryEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -487,7 +487,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.CharEntryEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.CharEntryEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -496,13 +496,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.LineEdit.CharEntry" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.LineEdit.CharEntry" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToTextChanged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextChanged (Action&lt;Urho.TextChangedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextChanged(class System.Action`1&lt;valuetype Urho.TextChangedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextChanged (Action&lt;Urho.Gui.TextChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextChanged(class System.Action`1&lt;valuetype Urho.Gui.TextChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -511,7 +511,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.TextChangedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.TextChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -520,13 +520,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.LineEdit.TextChanged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.LineEdit.TextChanged" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToTextFinished">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextFinished (Action&lt;Urho.TextFinishedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextFinished(class System.Action`1&lt;valuetype Urho.TextFinishedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextFinished (Action&lt;Urho.Gui.TextFinishedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextFinished(class System.Action`1&lt;valuetype Urho.Gui.TextFinishedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -535,7 +535,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.TextFinishedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.TextFinishedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -544,13 +544,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.LineEdit.TextFinished" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.LineEdit.TextFinished" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUnhandledKey">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUnhandledKey (Action&lt;Urho.UnhandledKeyEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUnhandledKey(class System.Action`1&lt;valuetype Urho.UnhandledKeyEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUnhandledKey (Action&lt;Urho.Gui.UnhandledKeyEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUnhandledKey(class System.Action`1&lt;valuetype Urho.Gui.UnhandledKeyEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -559,7 +559,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.UnhandledKeyEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.UnhandledKeyEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -568,7 +568,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.LineEdit.UnhandledKey" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.LineEdit.UnhandledKey" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -593,14 +593,14 @@
       </Docs>
     </Member>
     <Member MemberName="TextChanged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TextChangedEventArgs&gt; TextChanged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TextChangedEventArgs&gt; TextChanged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.TextChangedEventArgs&gt; TextChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.TextChangedEventArgs&gt; TextChanged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.TextChangedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.TextChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -610,14 +610,14 @@
       </Docs>
     </Member>
     <Member MemberName="TextElement">
-      <MemberSignature Language="C#" Value="public Urho.Text TextElement { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Text TextElement" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Text TextElement { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Text TextElement" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Text</ReturnType>
+        <ReturnType>Urho.Gui.Text</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -628,14 +628,14 @@
       </Docs>
     </Member>
     <Member MemberName="TextFinished">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.TextFinishedEventArgs&gt; TextFinished;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.TextFinishedEventArgs&gt; TextFinished" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.TextFinishedEventArgs&gt; TextFinished;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.TextFinishedEventArgs&gt; TextFinished" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.TextFinishedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.TextFinishedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -711,14 +711,14 @@
       </Docs>
     </Member>
     <Member MemberName="UnhandledKey">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.UnhandledKeyEventArgs&gt; UnhandledKey;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.UnhandledKeyEventArgs&gt; UnhandledKey" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.UnhandledKeyEventArgs&gt; UnhandledKey;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.UnhandledKeyEventArgs&gt; UnhandledKey" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.UnhandledKeyEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.UnhandledKeyEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

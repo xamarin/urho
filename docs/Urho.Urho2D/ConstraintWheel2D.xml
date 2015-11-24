@@ -1,12 +1,12 @@
-<Type Name="ConstraintWheel2D" FullName="Urho.ConstraintWheel2D">
-  <TypeSignature Language="C#" Value="public class ConstraintWheel2D : Urho.Constraint2D" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ConstraintWheel2D extends Urho.Constraint2D" />
+<Type Name="ConstraintWheel2D" FullName="Urho.Urho2D.ConstraintWheel2D">
+  <TypeSignature Language="C#" Value="public class ConstraintWheel2D : Urho.Urho2D.Constraint2D" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ConstraintWheel2D extends Urho.Urho2D.Constraint2D" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Constraint2D</BaseTypeName>
+    <BaseTypeName>Urho.Urho2D.Constraint2D</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

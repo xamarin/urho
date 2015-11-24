@@ -1,4 +1,4 @@
-<Type Name="TileMapObject2D" FullName="Urho.TileMapObject2D">
+<Type Name="TileMapObject2D" FullName="Urho.Urho2D.TileMapObject2D">
   <TypeSignature Language="C#" Value="public class TileMapObject2D : Urho.RefCounted" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TileMapObject2D extends Urho.RefCounted" />
   <AssemblyInfo>
@@ -172,14 +172,14 @@
       </Docs>
     </Member>
     <Member MemberName="ObjectType">
-      <MemberSignature Language="C#" Value="public Urho.TileMapObjectType2D ObjectType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TileMapObjectType2D ObjectType" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.TileMapObjectType2D ObjectType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Urho2D.TileMapObjectType2D ObjectType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TileMapObjectType2D</ReturnType>
+        <ReturnType>Urho.Urho2D.TileMapObjectType2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -244,14 +244,14 @@
       </Docs>
     </Member>
     <Member MemberName="TileSprite">
-      <MemberSignature Language="C#" Value="public Urho.Sprite2D TileSprite { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Sprite2D TileSprite" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Sprite2D TileSprite { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Sprite2D TileSprite" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Sprite2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Sprite2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

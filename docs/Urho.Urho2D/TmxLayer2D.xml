@@ -1,4 +1,4 @@
-<Type Name="TmxLayer2D" FullName="Urho.TmxLayer2D">
+<Type Name="TmxLayer2D" FullName="Urho.Urho2D.TmxLayer2D">
   <TypeSignature Language="C#" Value="public class TmxLayer2D : Urho.RefCounted" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TmxLayer2D extends Urho.RefCounted" />
   <AssemblyInfo>
@@ -57,15 +57,15 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public TmxLayer2D (Urho.TmxFile2D tmxFile, Urho.TileMapLayerType2D type);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.TmxFile2D tmxFile, valuetype Urho.TileMapLayerType2D type) cil managed" />
+      <MemberSignature Language="C#" Value="public TmxLayer2D (Urho.Urho2D.TmxFile2D tmxFile, Urho.Urho2D.TileMapLayerType2D type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Urho2D.TmxFile2D tmxFile, valuetype Urho.Urho2D.TileMapLayerType2D type) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="tmxFile" Type="Urho.TmxFile2D" />
-        <Parameter Name="type" Type="Urho.TileMapLayerType2D" />
+        <Parameter Name="tmxFile" Type="Urho.Urho2D.TmxFile2D" />
+        <Parameter Name="type" Type="Urho.Urho2D.TileMapLayerType2D" />
       </Parameters>
       <Docs>
         <param name="tmxFile">To be added.</param>
@@ -174,14 +174,14 @@
       </Docs>
     </Member>
     <Member MemberName="TmxFile">
-      <MemberSignature Language="C#" Value="public Urho.TmxFile2D TmxFile { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.TmxFile2D TmxFile" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.TmxFile2D TmxFile { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.TmxFile2D TmxFile" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TmxFile2D</ReturnType>
+        <ReturnType>Urho.Urho2D.TmxFile2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -192,14 +192,14 @@
       </Docs>
     </Member>
     <Member MemberName="Type">
-      <MemberSignature Language="C#" Value="public Urho.TileMapLayerType2D Type { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TileMapLayerType2D Type" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.TileMapLayerType2D Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Urho2D.TileMapLayerType2D Type" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TileMapLayerType2D</ReturnType>
+        <ReturnType>Urho.Urho2D.TileMapLayerType2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Urho's type system type.</summary>

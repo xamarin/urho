@@ -1,4 +1,4 @@
-<Type Name="LoadFailedEventArgs" FullName="Urho.LoadFailedEventArgs">
+<Type Name="LoadFailedEventArgs" FullName="Urho.Resources.LoadFailedEventArgs">
   <TypeSignature Language="C#" Value="public struct LoadFailedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit LoadFailedEventArgs extends System.ValueType" />
   <AssemblyInfo>

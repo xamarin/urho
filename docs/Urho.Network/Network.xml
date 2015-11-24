@@ -1,4 +1,4 @@
-<Type Name="Network" FullName="Urho.Network">
+<Type Name="Network" FullName="Urho.Network.Network">
   <TypeSignature Language="C#" Value="public class Network : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Network extends Urho.UrhoObject" />
   <AssemblyInfo>
@@ -144,14 +144,14 @@
       </Docs>
     </Member>
     <Member MemberName="ClientConnected">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ClientConnectedEventArgs&gt; ClientConnected;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ClientConnectedEventArgs&gt; ClientConnected" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.ClientConnectedEventArgs&gt; ClientConnected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.ClientConnectedEventArgs&gt; ClientConnected" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ClientConnectedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.ClientConnectedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -161,14 +161,14 @@
       </Docs>
     </Member>
     <Member MemberName="ClientDisconnected">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ClientDisconnectedEventArgs&gt; ClientDisconnected;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ClientDisconnectedEventArgs&gt; ClientDisconnected" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.ClientDisconnectedEventArgs&gt; ClientDisconnected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.ClientDisconnectedEventArgs&gt; ClientDisconnected" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ClientDisconnectedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.ClientDisconnectedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -202,14 +202,14 @@
       </Docs>
     </Member>
     <Member MemberName="ConnectFailed">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ConnectFailedEventArgs&gt; ConnectFailed;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ConnectFailedEventArgs&gt; ConnectFailed" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.ConnectFailedEventArgs&gt; ConnectFailed;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.ConnectFailedEventArgs&gt; ConnectFailed" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ConnectFailedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.ConnectFailedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -259,14 +259,14 @@
       </Docs>
     </Member>
     <Member MemberName="NetworkMessage">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NetworkMessageEventArgs&gt; NetworkMessage;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NetworkMessageEventArgs&gt; NetworkMessage" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.NetworkMessageEventArgs&gt; NetworkMessage;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.NetworkMessageEventArgs&gt; NetworkMessage" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NetworkMessageEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.NetworkMessageEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -276,14 +276,14 @@
       </Docs>
     </Member>
     <Member MemberName="NetworkSceneLoadFailed">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NetworkSceneLoadFailedEventArgs&gt; NetworkSceneLoadFailed;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NetworkSceneLoadFailedEventArgs&gt; NetworkSceneLoadFailed" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.NetworkSceneLoadFailedEventArgs&gt; NetworkSceneLoadFailed;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.NetworkSceneLoadFailedEventArgs&gt; NetworkSceneLoadFailed" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NetworkSceneLoadFailedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.NetworkSceneLoadFailedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -293,14 +293,14 @@
       </Docs>
     </Member>
     <Member MemberName="NetworkUpdate">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NetworkUpdateEventArgs&gt; NetworkUpdate;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NetworkUpdateEventArgs&gt; NetworkUpdate" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.NetworkUpdateEventArgs&gt; NetworkUpdate;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.NetworkUpdateEventArgs&gt; NetworkUpdate" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NetworkUpdateEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.NetworkUpdateEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -310,14 +310,14 @@
       </Docs>
     </Member>
     <Member MemberName="NetworkUpdateSent">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NetworkUpdateSentEventArgs&gt; NetworkUpdateSent;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NetworkUpdateSentEventArgs&gt; NetworkUpdateSent" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.NetworkUpdateSentEventArgs&gt; NetworkUpdateSent;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.NetworkUpdateSentEventArgs&gt; NetworkUpdateSent" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NetworkUpdateSentEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.NetworkUpdateSentEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -389,8 +389,8 @@
       </Docs>
     </Member>
     <Member MemberName="SendPackageToClients">
-      <MemberSignature Language="C#" Value="public void SendPackageToClients (Urho.Scene scene, Urho.PackageFile package);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SendPackageToClients(class Urho.Scene scene, class Urho.PackageFile package) cil managed" />
+      <MemberSignature Language="C#" Value="public void SendPackageToClients (Urho.Scene scene, Urho.IO.PackageFile package);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SendPackageToClients(class Urho.Scene scene, class Urho.IO.PackageFile package) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -400,7 +400,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="scene" Type="Urho.Scene" />
-        <Parameter Name="package" Type="Urho.PackageFile" />
+        <Parameter Name="package" Type="Urho.IO.PackageFile" />
       </Parameters>
       <Docs>
         <param name="scene">To be added.</param>
@@ -412,14 +412,14 @@
       </Docs>
     </Member>
     <Member MemberName="ServerConnected">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ServerConnectedEventArgs&gt; ServerConnected;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ServerConnectedEventArgs&gt; ServerConnected" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.ServerConnectedEventArgs&gt; ServerConnected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.ServerConnectedEventArgs&gt; ServerConnected" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ServerConnectedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.ServerConnectedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -429,14 +429,14 @@
       </Docs>
     </Member>
     <Member MemberName="ServerConnection">
-      <MemberSignature Language="C#" Value="public Urho.Connection ServerConnection { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Connection ServerConnection" />
+      <MemberSignature Language="C#" Value="public Urho.Network.Connection ServerConnection { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Network.Connection ServerConnection" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Connection</ReturnType>
+        <ReturnType>Urho.Network.Connection</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -447,14 +447,14 @@
       </Docs>
     </Member>
     <Member MemberName="ServerDisconnected">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ServerDisconnectedEventArgs&gt; ServerDisconnected;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ServerDisconnectedEventArgs&gt; ServerDisconnected" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.ServerDisconnectedEventArgs&gt; ServerDisconnected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.ServerDisconnectedEventArgs&gt; ServerDisconnected" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ServerDisconnectedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.ServerDisconnectedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -544,8 +544,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToClientConnected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientConnected (Action&lt;Urho.ClientConnectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientConnected(class System.Action`1&lt;valuetype Urho.ClientConnectedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientConnected (Action&lt;Urho.Network.ClientConnectedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientConnected(class System.Action`1&lt;valuetype Urho.Network.ClientConnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -554,7 +554,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ClientConnectedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.ClientConnectedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -563,13 +563,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ClientConnected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.ClientConnected" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToClientDisconnected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientDisconnected (Action&lt;Urho.ClientDisconnectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientDisconnected(class System.Action`1&lt;valuetype Urho.ClientDisconnectedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientDisconnected (Action&lt;Urho.Network.ClientDisconnectedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientDisconnected(class System.Action`1&lt;valuetype Urho.Network.ClientDisconnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -578,7 +578,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ClientDisconnectedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.ClientDisconnectedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -587,13 +587,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ClientDisconnected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.ClientDisconnected" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToConnectFailed">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToConnectFailed (Action&lt;Urho.ConnectFailedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToConnectFailed(class System.Action`1&lt;valuetype Urho.ConnectFailedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToConnectFailed (Action&lt;Urho.Network.ConnectFailedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToConnectFailed(class System.Action`1&lt;valuetype Urho.Network.ConnectFailedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -602,7 +602,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ConnectFailedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.ConnectFailedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -611,13 +611,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ConnectFailed" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.ConnectFailed" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkMessage">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkMessage (Action&lt;Urho.NetworkMessageEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkMessage(class System.Action`1&lt;valuetype Urho.NetworkMessageEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkMessage (Action&lt;Urho.Network.NetworkMessageEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkMessage(class System.Action`1&lt;valuetype Urho.Network.NetworkMessageEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -626,7 +626,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NetworkMessageEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.NetworkMessageEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -635,13 +635,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.NetworkMessage" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.NetworkMessage" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkSceneLoadFailed">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkSceneLoadFailed (Action&lt;Urho.NetworkSceneLoadFailedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkSceneLoadFailed(class System.Action`1&lt;valuetype Urho.NetworkSceneLoadFailedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkSceneLoadFailed (Action&lt;Urho.Network.NetworkSceneLoadFailedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkSceneLoadFailed(class System.Action`1&lt;valuetype Urho.Network.NetworkSceneLoadFailedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -650,7 +650,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NetworkSceneLoadFailedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.NetworkSceneLoadFailedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -659,13 +659,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.NetworkSceneLoadFailed" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.NetworkSceneLoadFailed" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkUpdate">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkUpdate (Action&lt;Urho.NetworkUpdateEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkUpdate(class System.Action`1&lt;valuetype Urho.NetworkUpdateEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkUpdate (Action&lt;Urho.Network.NetworkUpdateEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkUpdate(class System.Action`1&lt;valuetype Urho.Network.NetworkUpdateEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -674,7 +674,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NetworkUpdateEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.NetworkUpdateEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -683,13 +683,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.NetworkUpdate" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.NetworkUpdate" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNetworkUpdateSent">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkUpdateSent (Action&lt;Urho.NetworkUpdateSentEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkUpdateSent(class System.Action`1&lt;valuetype Urho.NetworkUpdateSentEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNetworkUpdateSent (Action&lt;Urho.Network.NetworkUpdateSentEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNetworkUpdateSent(class System.Action`1&lt;valuetype Urho.Network.NetworkUpdateSentEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -698,7 +698,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NetworkUpdateSentEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.NetworkUpdateSentEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -707,13 +707,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.NetworkUpdateSent" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.NetworkUpdateSent" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToServerConnected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToServerConnected (Action&lt;Urho.ServerConnectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToServerConnected(class System.Action`1&lt;valuetype Urho.ServerConnectedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToServerConnected (Action&lt;Urho.Network.ServerConnectedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToServerConnected(class System.Action`1&lt;valuetype Urho.Network.ServerConnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -722,7 +722,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ServerConnectedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.ServerConnectedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -731,13 +731,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ServerConnected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.ServerConnected" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToServerDisconnected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToServerDisconnected (Action&lt;Urho.ServerDisconnectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToServerDisconnected(class System.Action`1&lt;valuetype Urho.ServerDisconnectedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToServerDisconnected (Action&lt;Urho.Network.ServerDisconnectedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToServerDisconnected(class System.Action`1&lt;valuetype Urho.Network.ServerDisconnectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -746,7 +746,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ServerDisconnectedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.ServerDisconnectedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -755,7 +755,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Network.ServerDisconnected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Network.ServerDisconnected" /> event.</para>
         </remarks>
       </Docs>
     </Member>

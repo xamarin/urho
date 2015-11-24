@@ -1,4 +1,4 @@
-<Type Name="RemoteEventDataEventArgs" FullName="Urho.RemoteEventDataEventArgs">
+<Type Name="RemoteEventDataEventArgs" FullName="Urho.Network.RemoteEventDataEventArgs">
   <TypeSignature Language="C#" Value="public struct RemoteEventDataEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit RemoteEventDataEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="Connection">
-      <MemberSignature Language="C#" Value="public Urho.Connection Connection { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Connection Connection" />
+      <MemberSignature Language="C#" Value="public Urho.Network.Connection Connection { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Network.Connection Connection" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Connection</ReturnType>
+        <ReturnType>Urho.Network.Connection</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

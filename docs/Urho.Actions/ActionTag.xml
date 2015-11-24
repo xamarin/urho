@@ -1,4 +1,4 @@
-<Type Name="ActionTag" FullName="Urho.ActionTag">
+<Type Name="ActionTag" FullName="Urho.Actions.ActionTag">
   <TypeSignature Language="C#" Value="public enum ActionTag" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ActionTag extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Invalid">
       <MemberSignature Language="C#" Value="Invalid" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ActionTag Invalid = int32(-1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Actions.ActionTag Invalid = int32(-1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ActionTag</ReturnType>
+        <ReturnType>Urho.Actions.ActionTag</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

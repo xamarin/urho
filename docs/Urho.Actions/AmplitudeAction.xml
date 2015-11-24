@@ -1,12 +1,12 @@
-<Type Name="AmplitudeAction" FullName="Urho.AmplitudeAction">
-  <TypeSignature Language="C#" Value="public abstract class AmplitudeAction : Urho.FiniteTimeAction" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit AmplitudeAction extends Urho.FiniteTimeAction" />
+<Type Name="AmplitudeAction" FullName="Urho.Actions.AmplitudeAction">
+  <TypeSignature Language="C#" Value="public abstract class AmplitudeAction : Urho.Actions.FiniteTimeAction" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit AmplitudeAction extends Urho.Actions.FiniteTimeAction" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.FiniteTimeAction</BaseTypeName>
+    <BaseTypeName>Urho.Actions.FiniteTimeAction</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

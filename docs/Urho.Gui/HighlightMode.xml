@@ -1,4 +1,4 @@
-<Type Name="HighlightMode" FullName="Urho.HighlightMode">
+<Type Name="HighlightMode" FullName="Urho.Gui.HighlightMode">
   <TypeSignature Language="C#" Value="public enum HighlightMode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed HighlightMode extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Always">
       <MemberSignature Language="C#" Value="Always" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.HighlightMode Always = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.HighlightMode Always = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HighlightMode</ReturnType>
+        <ReturnType>Urho.Gui.HighlightMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Focus">
       <MemberSignature Language="C#" Value="Focus" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.HighlightMode Focus = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.HighlightMode Focus = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HighlightMode</ReturnType>
+        <ReturnType>Urho.Gui.HighlightMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Never">
       <MemberSignature Language="C#" Value="Never" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.HighlightMode Never = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.HighlightMode Never = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HighlightMode</ReturnType>
+        <ReturnType>Urho.Gui.HighlightMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

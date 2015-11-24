@@ -1,4 +1,4 @@
-<Type Name="MessageACKEventArgs" FullName="Urho.MessageACKEventArgs">
+<Type Name="MessageACKEventArgs" FullName="Urho.Gui.MessageACKEventArgs">
   <TypeSignature Language="C#" Value="public struct MessageACKEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit MessageACKEventArgs extends System.ValueType" />
   <AssemblyInfo>

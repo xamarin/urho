@@ -1,4 +1,4 @@
-<Type Name="DragDropTestEventArgs" FullName="Urho.DragDropTestEventArgs">
+<Type Name="DragDropTestEventArgs" FullName="Urho.Gui.DragDropTestEventArgs">
   <TypeSignature Language="C#" Value="public struct DragDropTestEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit DragDropTestEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -31,14 +31,14 @@
       </Docs>
     </Member>
     <Member MemberName="Source">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Source { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Source" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Source { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Source" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -47,14 +47,14 @@
       </Docs>
     </Member>
     <Member MemberName="Target">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Target { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Target" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Target { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Target" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

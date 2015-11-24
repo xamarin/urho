@@ -1,4 +1,4 @@
-<Type Name="NavArea" FullName="Urho.NavArea">
+<Type Name="NavArea" FullName="Urho.Navigation.NavArea">
   <TypeSignature Language="C#" Value="public class NavArea : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit NavArea extends Urho.Component" />
   <AssemblyInfo>

@@ -1,12 +1,12 @@
-<Type Name="FiniteTimeActionState" FullName="Urho.FiniteTimeActionState">
-  <TypeSignature Language="C#" Value="public class FiniteTimeActionState : Urho.ActionState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FiniteTimeActionState extends Urho.ActionState" />
+<Type Name="FiniteTimeActionState" FullName="Urho.Actions.FiniteTimeActionState">
+  <TypeSignature Language="C#" Value="public class FiniteTimeActionState : Urho.Actions.ActionState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FiniteTimeActionState extends Urho.Actions.ActionState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.ActionState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.ActionState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public FiniteTimeActionState (Urho.FiniteTimeAction action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.FiniteTimeAction action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public FiniteTimeActionState (Urho.Actions.FiniteTimeAction action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.FiniteTimeAction action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.FiniteTimeAction" />
+        <Parameter Name="action" Type="Urho.Actions.FiniteTimeAction" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

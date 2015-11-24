@@ -278,14 +278,14 @@
       </Docs>
     </Member>
     <Member MemberName="HeightMap">
-      <MemberSignature Language="C#" Value="public Urho.Image HeightMap { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Image HeightMap" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.Image HeightMap { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.Image HeightMap" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Image</ReturnType>
+        <ReturnType>Urho.Resources.Image</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -604,8 +604,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetHeightMap">
-      <MemberSignature Language="C#" Value="public bool SetHeightMap (Urho.Image image);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetHeightMap(class Urho.Image image) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetHeightMap (Urho.Resources.Image image);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetHeightMap(class Urho.Resources.Image image) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -614,7 +614,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="image" Type="Urho.Image" />
+        <Parameter Name="image" Type="Urho.Resources.Image" />
       </Parameters>
       <Docs>
         <param name="image">To be added.</param>

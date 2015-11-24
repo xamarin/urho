@@ -1,4 +1,4 @@
-<Type Name="HorizontalAlignment" FullName="Urho.HorizontalAlignment">
+<Type Name="HorizontalAlignment" FullName="Urho.Gui.HorizontalAlignment">
   <TypeSignature Language="C#" Value="public enum HorizontalAlignment" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed HorizontalAlignment extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Center">
       <MemberSignature Language="C#" Value="Center" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.HorizontalAlignment Center = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.HorizontalAlignment Center = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.HorizontalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Left">
       <MemberSignature Language="C#" Value="Left" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.HorizontalAlignment Left = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.HorizontalAlignment Left = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.HorizontalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Right">
       <MemberSignature Language="C#" Value="Right" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.HorizontalAlignment Right = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.HorizontalAlignment Right = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.HorizontalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -1,4 +1,4 @@
-<Type Name="MessageBox" FullName="Urho.MessageBox">
+<Type Name="MessageBox" FullName="Urho.Gui.MessageBox">
   <TypeSignature Language="C#" Value="public class MessageBox : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit MessageBox extends Urho.UrhoObject" />
   <AssemblyInfo>
@@ -57,8 +57,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public MessageBox (Urho.Context context, string messageString, string titleString, Urho.XmlFile layoutFile, Urho.XmlFile styleFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, string messageString, string titleString, class Urho.XmlFile layoutFile, class Urho.XmlFile styleFile) cil managed" />
+      <MemberSignature Language="C#" Value="public MessageBox (Urho.Context context, string messageString, string titleString, Urho.Resources.XmlFile layoutFile, Urho.Resources.XmlFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, string messageString, string titleString, class Urho.Resources.XmlFile layoutFile, class Urho.Resources.XmlFile styleFile) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -67,8 +67,8 @@
         <Parameter Name="context" Type="Urho.Context" />
         <Parameter Name="messageString" Type="System.String" />
         <Parameter Name="titleString" Type="System.String" />
-        <Parameter Name="layoutFile" Type="Urho.XmlFile" />
-        <Parameter Name="styleFile" Type="Urho.XmlFile" />
+        <Parameter Name="layoutFile" Type="Urho.Resources.XmlFile" />
+        <Parameter Name="styleFile" Type="Urho.Resources.XmlFile" />
       </Parameters>
       <Docs>
         <param name="context">The context that this object will be attached to.</param>
@@ -119,14 +119,14 @@
       </Docs>
     </Member>
     <Member MemberName="MessageACK">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.MessageACKEventArgs&gt; MessageACK;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.MessageACKEventArgs&gt; MessageACK" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.MessageACKEventArgs&gt; MessageACK;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.MessageACKEventArgs&gt; MessageACK" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.MessageACKEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.MessageACKEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -157,8 +157,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToMessageACK">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMessageACK (Action&lt;Urho.MessageACKEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMessageACK(class System.Action`1&lt;valuetype Urho.MessageACKEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToMessageACK (Action&lt;Urho.Gui.MessageACKEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToMessageACK(class System.Action`1&lt;valuetype Urho.Gui.MessageACKEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -167,7 +167,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.MessageACKEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.MessageACKEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -176,7 +176,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.MessageBox.MessageACK" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.MessageBox.MessageACK" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -267,14 +267,14 @@
       </Docs>
     </Member>
     <Member MemberName="Window">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Window { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Window" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Window { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Window" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

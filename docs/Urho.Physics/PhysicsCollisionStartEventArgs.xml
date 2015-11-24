@@ -1,4 +1,4 @@
-<Type Name="PhysicsCollisionStartEventArgs" FullName="Urho.PhysicsCollisionStartEventArgs">
+<Type Name="PhysicsCollisionStartEventArgs" FullName="Urho.Physics.PhysicsCollisionStartEventArgs">
   <TypeSignature Language="C#" Value="public struct PhysicsCollisionStartEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit PhysicsCollisionStartEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="BodyA">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody BodyA { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody BodyA" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.RigidBody BodyA { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.RigidBody BodyA" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody</ReturnType>
+        <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,14 +31,14 @@
       </Docs>
     </Member>
     <Member MemberName="BodyB">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody BodyB { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody BodyB" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.RigidBody BodyB { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.RigidBody BodyB" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody</ReturnType>
+        <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -47,14 +47,14 @@
       </Docs>
     </Member>
     <Member MemberName="Contacts">
-      <MemberSignature Language="C#" Value="public Urho.CollisionData[] Contacts { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CollisionData[] Contacts" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.CollisionData[] Contacts { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Physics.CollisionData[] Contacts" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CollisionData[]</ReturnType>
+        <ReturnType>Urho.Physics.CollisionData[]</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -111,14 +111,14 @@
       </Docs>
     </Member>
     <Member MemberName="World">
-      <MemberSignature Language="C#" Value="public Urho.PhysicsWorld World { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.PhysicsWorld World" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.PhysicsWorld World { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.PhysicsWorld World" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PhysicsWorld</ReturnType>
+        <ReturnType>Urho.Physics.PhysicsWorld</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

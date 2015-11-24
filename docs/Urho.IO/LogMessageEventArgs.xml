@@ -1,4 +1,4 @@
-<Type Name="LogMessageEventArgs" FullName="Urho.LogMessageEventArgs">
+<Type Name="LogMessageEventArgs" FullName="Urho.IO.LogMessageEventArgs">
   <TypeSignature Language="C#" Value="public struct LogMessageEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit LogMessageEventArgs extends System.ValueType" />
   <AssemblyInfo>

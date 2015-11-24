@@ -1,4 +1,4 @@
-<Type Name="Obstacle" FullName="Urho.Obstacle">
+<Type Name="Obstacle" FullName="Urho.Navigation.Obstacle">
   <TypeSignature Language="C#" Value="public class Obstacle : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Obstacle extends Urho.Component" />
   <AssemblyInfo>

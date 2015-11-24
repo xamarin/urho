@@ -1,4 +1,4 @@
-<Type Name="ShapeType" FullName="Urho.ShapeType">
+<Type Name="ShapeType" FullName="Urho.Physics.ShapeType">
   <TypeSignature Language="C#" Value="public enum ShapeType" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ShapeType extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Box">
       <MemberSignature Language="C#" Value="Box" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Box = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Box = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Capsule">
       <MemberSignature Language="C#" Value="Capsule" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Capsule = int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Capsule = int32(4)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Cone">
       <MemberSignature Language="C#" Value="Cone" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Cone = int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Cone = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -59,13 +59,13 @@
     </Member>
     <Member MemberName="Convexhull">
       <MemberSignature Language="C#" Value="Convexhull" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Convexhull = int32(7)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Convexhull = int32(7)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -73,13 +73,13 @@
     </Member>
     <Member MemberName="Cylinder">
       <MemberSignature Language="C#" Value="Cylinder" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Cylinder = int32(3)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Cylinder = int32(3)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -87,13 +87,13 @@
     </Member>
     <Member MemberName="Sphere">
       <MemberSignature Language="C#" Value="Sphere" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Sphere = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Sphere = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -101,13 +101,13 @@
     </Member>
     <Member MemberName="Staticplane">
       <MemberSignature Language="C#" Value="Staticplane" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Staticplane = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Staticplane = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -115,13 +115,13 @@
     </Member>
     <Member MemberName="Terrain">
       <MemberSignature Language="C#" Value="Terrain" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Terrain = int32(8)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Terrain = int32(8)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -129,13 +129,13 @@
     </Member>
     <Member MemberName="Trianglemesh">
       <MemberSignature Language="C#" Value="Trianglemesh" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShapeType Trianglemesh = int32(6)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Trianglemesh = int32(6)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ShapeType</ReturnType>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

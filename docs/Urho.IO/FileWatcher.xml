@@ -1,4 +1,4 @@
-<Type Name="FileWatcher" FullName="Urho.FileWatcher">
+<Type Name="FileWatcher" FullName="Urho.IO.FileWatcher">
   <TypeSignature Language="C#" Value="public class FileWatcher : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FileWatcher extends Urho.UrhoObject" />
   <AssemblyInfo>

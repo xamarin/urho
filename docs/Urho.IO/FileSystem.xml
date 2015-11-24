@@ -1,4 +1,4 @@
-<Type Name="FileSystem" FullName="Urho.FileSystem">
+<Type Name="FileSystem" FullName="Urho.IO.FileSystem">
   <TypeSignature Language="C#" Value="public class FileSystem : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FileSystem extends Urho.UrhoObject" />
   <AssemblyInfo>
@@ -75,14 +75,14 @@
       </Docs>
     </Member>
     <Member MemberName="AsyncExecFinished">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.AsyncExecFinishedEventArgs&gt; AsyncExecFinished;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.AsyncExecFinishedEventArgs&gt; AsyncExecFinished" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.IO.AsyncExecFinishedEventArgs&gt; AsyncExecFinished;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.IO.AsyncExecFinishedEventArgs&gt; AsyncExecFinished" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.AsyncExecFinishedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.IO.AsyncExecFinishedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -454,8 +454,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToAsyncExecFinished">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAsyncExecFinished (Action&lt;Urho.AsyncExecFinishedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAsyncExecFinished(class System.Action`1&lt;valuetype Urho.AsyncExecFinishedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToAsyncExecFinished (Action&lt;Urho.IO.AsyncExecFinishedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToAsyncExecFinished(class System.Action`1&lt;valuetype Urho.IO.AsyncExecFinishedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -464,7 +464,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.AsyncExecFinishedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.IO.AsyncExecFinishedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -473,7 +473,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.FileSystem.AsyncExecFinished" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.IO.FileSystem.AsyncExecFinished" /> event.</para>
         </remarks>
       </Docs>
     </Member>

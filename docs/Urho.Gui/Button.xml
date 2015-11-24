@@ -1,12 +1,12 @@
-<Type Name="Button" FullName="Urho.Button">
-  <TypeSignature Language="C#" Value="public class Button : Urho.BorderImage" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Button extends Urho.BorderImage" />
+<Type Name="Button" FullName="Urho.Gui.Button">
+  <TypeSignature Language="C#" Value="public class Button : Urho.Gui.BorderImage" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Button extends Urho.Gui.BorderImage" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.BorderImage</BaseTypeName>
+    <BaseTypeName>Urho.Gui.BorderImage</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -110,8 +110,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnClickBegin">
-      <MemberSignature Language="C#" Value="public override void OnClickBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnClickBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -125,7 +125,7 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -141,8 +141,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnClickEnd">
-      <MemberSignature Language="C#" Value="public override void OnClickEnd (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor, Urho.UIElement beginElement);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickEnd(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor, class Urho.UIElement beginElement) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnClickEnd (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor, Urho.Gui.UIElement beginElement);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickEnd(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor, class Urho.Gui.UIElement beginElement) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -156,8 +156,8 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-        <Parameter Name="beginElement" Type="Urho.UIElement" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
+        <Parameter Name="beginElement" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -199,14 +199,14 @@
       </Docs>
     </Member>
     <Member MemberName="Pressed">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PressedEventArgs&gt; Pressed;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PressedEventArgs&gt; Pressed" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.PressedEventArgs&gt; Pressed;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.PressedEventArgs&gt; Pressed" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PressedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.PressedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -277,14 +277,14 @@
       </Docs>
     </Member>
     <Member MemberName="Released">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ReleasedEventArgs&gt; Released;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ReleasedEventArgs&gt; Released" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ReleasedEventArgs&gt; Released;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ReleasedEventArgs&gt; Released" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ReleasedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ReleasedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -403,8 +403,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPressed">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPressed (Action&lt;Urho.PressedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPressed(class System.Action`1&lt;valuetype Urho.PressedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPressed (Action&lt;Urho.Gui.PressedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPressed(class System.Action`1&lt;valuetype Urho.Gui.PressedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -413,7 +413,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PressedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.PressedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -422,13 +422,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Button.Pressed" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.Button.Pressed" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToReleased">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReleased (Action&lt;Urho.ReleasedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReleased(class System.Action`1&lt;valuetype Urho.ReleasedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToReleased (Action&lt;Urho.Gui.ReleasedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToReleased(class System.Action`1&lt;valuetype Urho.Gui.ReleasedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -437,7 +437,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ReleasedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ReleasedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -446,7 +446,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Button.Released" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.Button.Released" /> event.</para>
         </remarks>
       </Docs>
     </Member>

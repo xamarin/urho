@@ -1,4 +1,4 @@
-<Type Name="SoundSource" FullName="Urho.SoundSource">
+<Type Name="SoundSource" FullName="Urho.Audio.SoundSource">
   <TypeSignature Language="C#" Value="public class SoundSource : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SoundSource extends Urho.Component" />
   <AssemblyInfo>
@@ -239,8 +239,8 @@
       </Docs>
     </Member>
     <Member MemberName="Play">
-      <MemberSignature Language="C#" Value="public void Play (Urho.Sound sound);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Sound sound) cil managed" />
+      <MemberSignature Language="C#" Value="public void Play (Urho.Audio.Sound sound);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Audio.Sound sound) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -249,7 +249,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="sound" Type="Urho.Sound" />
+        <Parameter Name="sound" Type="Urho.Audio.Sound" />
       </Parameters>
       <Docs>
         <param name="sound">To be added.</param>
@@ -260,8 +260,8 @@
       </Docs>
     </Member>
     <Member MemberName="Play">
-      <MemberSignature Language="C#" Value="public void Play (Urho.SoundStream stream);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.SoundStream stream) cil managed" />
+      <MemberSignature Language="C#" Value="public void Play (Urho.Audio.SoundStream stream);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Audio.SoundStream stream) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -270,7 +270,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="stream" Type="Urho.SoundStream" />
+        <Parameter Name="stream" Type="Urho.Audio.SoundStream" />
       </Parameters>
       <Docs>
         <param name="stream">To be added.</param>
@@ -281,8 +281,8 @@
       </Docs>
     </Member>
     <Member MemberName="Play">
-      <MemberSignature Language="C#" Value="public void Play (Urho.Sound sound, float frequency);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Sound sound, float32 frequency) cil managed" />
+      <MemberSignature Language="C#" Value="public void Play (Urho.Audio.Sound sound, float frequency);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Audio.Sound sound, float32 frequency) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -291,7 +291,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="sound" Type="Urho.Sound" />
+        <Parameter Name="sound" Type="Urho.Audio.Sound" />
         <Parameter Name="frequency" Type="System.Single" />
       </Parameters>
       <Docs>
@@ -304,8 +304,8 @@
       </Docs>
     </Member>
     <Member MemberName="Play">
-      <MemberSignature Language="C#" Value="public void Play (Urho.Sound sound, float frequency, float gain);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Sound sound, float32 frequency, float32 gain) cil managed" />
+      <MemberSignature Language="C#" Value="public void Play (Urho.Audio.Sound sound, float frequency, float gain);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Audio.Sound sound, float32 frequency, float32 gain) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -314,7 +314,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="sound" Type="Urho.Sound" />
+        <Parameter Name="sound" Type="Urho.Audio.Sound" />
         <Parameter Name="frequency" Type="System.Single" />
         <Parameter Name="gain" Type="System.Single" />
       </Parameters>
@@ -329,8 +329,8 @@
       </Docs>
     </Member>
     <Member MemberName="Play">
-      <MemberSignature Language="C#" Value="public void Play (Urho.Sound sound, float frequency, float gain, float panning);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Sound sound, float32 frequency, float32 gain, float32 panning) cil managed" />
+      <MemberSignature Language="C#" Value="public void Play (Urho.Audio.Sound sound, float frequency, float gain, float panning);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Play(class Urho.Audio.Sound sound, float32 frequency, float32 gain, float32 panning) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -339,7 +339,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="sound" Type="Urho.Sound" />
+        <Parameter Name="sound" Type="Urho.Audio.Sound" />
         <Parameter Name="frequency" Type="System.Single" />
         <Parameter Name="gain" Type="System.Single" />
         <Parameter Name="panning" Type="System.Single" />
@@ -478,14 +478,14 @@
       </Docs>
     </Member>
     <Member MemberName="Sound">
-      <MemberSignature Language="C#" Value="public Urho.Sound Sound { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Sound Sound" />
+      <MemberSignature Language="C#" Value="public Urho.Audio.Sound Sound { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Audio.Sound Sound" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Sound</ReturnType>
+        <ReturnType>Urho.Audio.Sound</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

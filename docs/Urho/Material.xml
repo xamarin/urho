@@ -1,12 +1,12 @@
 <Type Name="Material" FullName="Urho.Material">
-  <TypeSignature Language="C#" Value="public class Material : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Material extends Urho.Resource" />
+  <TypeSignature Language="C#" Value="public class Material : Urho.Resources.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Material extends Urho.Resources.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Resource</BaseTypeName>
+    <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -366,8 +366,8 @@
       </Docs>
     </Member>
     <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public bool Load (Urho.XmlElement source);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.XmlElement source) cil managed" />
+      <MemberSignature Language="C#" Value="public bool Load (Urho.Resources.XmlElement source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.Resources.XmlElement source) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -376,7 +376,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="source" Type="Urho.XmlElement" />
+        <Parameter Name="source" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
@@ -547,8 +547,8 @@
       </Docs>
     </Member>
     <Member MemberName="Save">
-      <MemberSignature Language="C#" Value="public bool Save (Urho.XmlElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Save(class Urho.XmlElement dest) cil managed" />
+      <MemberSignature Language="C#" Value="public bool Save (Urho.Resources.XmlElement dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Save(class Urho.Resources.XmlElement dest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -557,7 +557,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="dest" Type="Urho.XmlElement" />
+        <Parameter Name="dest" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>

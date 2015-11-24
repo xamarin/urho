@@ -1,4 +1,4 @@
-<Type Name="TraversalMode" FullName="Urho.TraversalMode">
+<Type Name="TraversalMode" FullName="Urho.Gui.TraversalMode">
   <TypeSignature Language="C#" Value="public enum TraversalMode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed TraversalMode extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="BreadthFirst">
       <MemberSignature Language="C#" Value="BreadthFirst" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TraversalMode BreadthFirst = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.TraversalMode BreadthFirst = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TraversalMode</ReturnType>
+        <ReturnType>Urho.Gui.TraversalMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="DepthFirst">
       <MemberSignature Language="C#" Value="DepthFirst" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TraversalMode DepthFirst = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Gui.TraversalMode DepthFirst = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TraversalMode</ReturnType>
+        <ReturnType>Urho.Gui.TraversalMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

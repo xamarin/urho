@@ -1,4 +1,4 @@
-<Type Name="ResourceNotFoundEventArgs" FullName="Urho.ResourceNotFoundEventArgs">
+<Type Name="ResourceNotFoundEventArgs" FullName="Urho.Resources.ResourceNotFoundEventArgs">
   <TypeSignature Language="C#" Value="public struct ResourceNotFoundEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ResourceNotFoundEventArgs extends System.ValueType" />
   <AssemblyInfo>

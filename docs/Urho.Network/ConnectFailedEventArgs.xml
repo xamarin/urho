@@ -1,4 +1,4 @@
-<Type Name="ConnectFailedEventArgs" FullName="Urho.ConnectFailedEventArgs">
+<Type Name="ConnectFailedEventArgs" FullName="Urho.Network.ConnectFailedEventArgs">
   <TypeSignature Language="C#" Value="public struct ConnectFailedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ConnectFailedEventArgs extends System.ValueType" />
   <AssemblyInfo>

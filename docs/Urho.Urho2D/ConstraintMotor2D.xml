@@ -1,12 +1,12 @@
-<Type Name="ConstraintMotor2D" FullName="Urho.ConstraintMotor2D">
-  <TypeSignature Language="C#" Value="public class ConstraintMotor2D : Urho.Constraint2D" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ConstraintMotor2D extends Urho.Constraint2D" />
+<Type Name="ConstraintMotor2D" FullName="Urho.Urho2D.ConstraintMotor2D">
+  <TypeSignature Language="C#" Value="public class ConstraintMotor2D : Urho.Urho2D.Constraint2D" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ConstraintMotor2D extends Urho.Urho2D.Constraint2D" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Constraint2D</BaseTypeName>
+    <BaseTypeName>Urho.Urho2D.Constraint2D</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

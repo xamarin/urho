@@ -1,4 +1,4 @@
-<Type Name="NavigationObstacleAddedEventArgs" FullName="Urho.NavigationObstacleAddedEventArgs">
+<Type Name="NavigationObstacleAddedEventArgs" FullName="Urho.Navigation.NavigationObstacleAddedEventArgs">
   <TypeSignature Language="C#" Value="public struct NavigationObstacleAddedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit NavigationObstacleAddedEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -47,14 +47,14 @@
       </Docs>
     </Member>
     <Member MemberName="Obstacle">
-      <MemberSignature Language="C#" Value="public Urho.Obstacle Obstacle { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Obstacle Obstacle" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.Obstacle Obstacle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Navigation.Obstacle Obstacle" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Obstacle</ReturnType>
+        <ReturnType>Urho.Navigation.Obstacle</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -1,12 +1,12 @@
-<Type Name="ListView" FullName="Urho.ListView">
-  <TypeSignature Language="C#" Value="public class ListView : Urho.ScrollView" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ListView extends Urho.ScrollView" />
+<Type Name="ListView" FullName="Urho.Gui.ListView">
+  <TypeSignature Language="C#" Value="public class ListView : Urho.Gui.ScrollView" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ListView extends Urho.Gui.ScrollView" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.ScrollView</BaseTypeName>
+    <BaseTypeName>Urho.Gui.ScrollView</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -75,8 +75,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddItem">
-      <MemberSignature Language="C#" Value="public void AddItem (Urho.UIElement item);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddItem(class Urho.UIElement item) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddItem (Urho.Gui.UIElement item);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddItem(class Urho.Gui.UIElement item) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -85,7 +85,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="item" Type="Urho.UIElement" />
+        <Parameter Name="item" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="item">To be added.</param>
@@ -253,8 +253,8 @@
       </Docs>
     </Member>
     <Member MemberName="EnsureItemVisibility">
-      <MemberSignature Language="C#" Value="public void EnsureItemVisibility (Urho.UIElement item);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void EnsureItemVisibility(class Urho.UIElement item) cil managed" />
+      <MemberSignature Language="C#" Value="public void EnsureItemVisibility (Urho.Gui.UIElement item);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void EnsureItemVisibility(class Urho.Gui.UIElement item) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -263,7 +263,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="item" Type="Urho.UIElement" />
+        <Parameter Name="item" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="item">To be added.</param>
@@ -299,8 +299,8 @@
       </Docs>
     </Member>
     <Member MemberName="FindItem">
-      <MemberSignature Language="C#" Value="public uint FindItem (Urho.UIElement item);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 FindItem(class Urho.UIElement item) cil managed" />
+      <MemberSignature Language="C#" Value="public uint FindItem (Urho.Gui.UIElement item);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 FindItem(class Urho.Gui.UIElement item) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -309,7 +309,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="item" Type="Urho.UIElement" />
+        <Parameter Name="item" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="item">To be added.</param>
@@ -321,14 +321,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetItem">
-      <MemberSignature Language="C#" Value="public Urho.UIElement GetItem (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement GetItem(unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetItem (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement GetItem(unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
@@ -364,14 +364,14 @@
       </Docs>
     </Member>
     <Member MemberName="HighlightMode">
-      <MemberSignature Language="C#" Value="public Urho.HighlightMode HighlightMode { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HighlightMode HighlightMode" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.HighlightMode HighlightMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.HighlightMode HighlightMode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HighlightMode</ReturnType>
+        <ReturnType>Urho.Gui.HighlightMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -384,8 +384,8 @@
       </Docs>
     </Member>
     <Member MemberName="InsertItem">
-      <MemberSignature Language="C#" Value="public void InsertItem (uint index, Urho.UIElement item, Urho.UIElement parentItem);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void InsertItem(unsigned int32 index, class Urho.UIElement item, class Urho.UIElement parentItem) cil managed" />
+      <MemberSignature Language="C#" Value="public void InsertItem (uint index, Urho.Gui.UIElement item, Urho.Gui.UIElement parentItem);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void InsertItem(unsigned int32 index, class Urho.Gui.UIElement item, class Urho.Gui.UIElement parentItem) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -395,8 +395,8 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
-        <Parameter Name="item" Type="Urho.UIElement" />
-        <Parameter Name="parentItem" Type="Urho.UIElement" />
+        <Parameter Name="item" Type="Urho.Gui.UIElement" />
+        <Parameter Name="parentItem" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
@@ -456,14 +456,14 @@
       </Docs>
     </Member>
     <Member MemberName="ItemClicked">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ItemClickedEventArgs&gt; ItemClicked;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ItemClickedEventArgs&gt; ItemClicked" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ItemClickedEventArgs&gt; ItemClicked;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ItemClickedEventArgs&gt; ItemClicked" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ItemClickedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ItemClickedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -473,14 +473,14 @@
       </Docs>
     </Member>
     <Member MemberName="ItemDeselected">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ItemDeselectedEventArgs&gt; ItemDeselected;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ItemDeselectedEventArgs&gt; ItemDeselected" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ItemDeselectedEventArgs&gt; ItemDeselected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ItemDeselectedEventArgs&gt; ItemDeselected" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ItemDeselectedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ItemDeselectedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -490,14 +490,14 @@
       </Docs>
     </Member>
     <Member MemberName="ItemDoubleClicked">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ItemDoubleClickedEventArgs&gt; ItemDoubleClicked;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ItemDoubleClickedEventArgs&gt; ItemDoubleClicked" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ItemDoubleClickedEventArgs&gt; ItemDoubleClicked;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ItemDoubleClickedEventArgs&gt; ItemDoubleClicked" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ItemDoubleClickedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ItemDoubleClickedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -507,14 +507,14 @@
       </Docs>
     </Member>
     <Member MemberName="ItemSelected">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ItemSelectedEventArgs&gt; ItemSelected;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ItemSelectedEventArgs&gt; ItemSelected" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ItemSelectedEventArgs&gt; ItemSelected;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ItemSelectedEventArgs&gt; ItemSelected" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ItemSelectedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ItemSelectedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -665,8 +665,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveItem">
-      <MemberSignature Language="C#" Value="public void RemoveItem (Urho.UIElement item, uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveItem(class Urho.UIElement item, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveItem (Urho.Gui.UIElement item, uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveItem(class Urho.Gui.UIElement item, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -675,7 +675,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="item" Type="Urho.UIElement" />
+        <Parameter Name="item" Type="Urho.Gui.UIElement" />
         <Parameter Name="index" Type="System.UInt32" />
       </Parameters>
       <Docs>
@@ -709,14 +709,14 @@
       </Docs>
     </Member>
     <Member MemberName="SelectedItem">
-      <MemberSignature Language="C#" Value="public Urho.UIElement SelectedItem { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement SelectedItem" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement SelectedItem { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement SelectedItem" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -747,14 +747,14 @@
       </Docs>
     </Member>
     <Member MemberName="SelectionChanged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.SelectionChangedEventArgs&gt; SelectionChanged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.SelectionChangedEventArgs&gt; SelectionChanged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.SelectionChangedEventArgs&gt; SelectionChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.SelectionChangedEventArgs&gt; SelectionChanged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.SelectionChangedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.SelectionChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -784,8 +784,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToItemClicked">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemClicked (Action&lt;Urho.ItemClickedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemClicked(class System.Action`1&lt;valuetype Urho.ItemClickedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemClicked (Action&lt;Urho.Gui.ItemClickedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemClicked(class System.Action`1&lt;valuetype Urho.Gui.ItemClickedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -794,7 +794,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ItemClickedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ItemClickedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -803,13 +803,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.ListView.ItemClicked" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.ListView.ItemClicked" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToItemDeselected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemDeselected (Action&lt;Urho.ItemDeselectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemDeselected(class System.Action`1&lt;valuetype Urho.ItemDeselectedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemDeselected (Action&lt;Urho.Gui.ItemDeselectedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemDeselected(class System.Action`1&lt;valuetype Urho.Gui.ItemDeselectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -818,7 +818,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ItemDeselectedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ItemDeselectedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -827,13 +827,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.ListView.ItemDeselected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.ListView.ItemDeselected" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToItemDoubleClicked">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemDoubleClicked (Action&lt;Urho.ItemDoubleClickedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemDoubleClicked(class System.Action`1&lt;valuetype Urho.ItemDoubleClickedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemDoubleClicked (Action&lt;Urho.Gui.ItemDoubleClickedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemDoubleClicked(class System.Action`1&lt;valuetype Urho.Gui.ItemDoubleClickedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -842,7 +842,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ItemDoubleClickedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ItemDoubleClickedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -851,13 +851,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.ListView.ItemDoubleClicked" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.ListView.ItemDoubleClicked" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToItemSelected">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemSelected (Action&lt;Urho.ItemSelectedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemSelected(class System.Action`1&lt;valuetype Urho.ItemSelectedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToItemSelected (Action&lt;Urho.Gui.ItemSelectedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToItemSelected(class System.Action`1&lt;valuetype Urho.Gui.ItemSelectedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -866,7 +866,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ItemSelectedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ItemSelectedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -875,13 +875,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.ListView.ItemSelected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.ListView.ItemSelected" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSelectionChanged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSelectionChanged (Action&lt;Urho.SelectionChangedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSelectionChanged(class System.Action`1&lt;valuetype Urho.SelectionChangedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSelectionChanged (Action&lt;Urho.Gui.SelectionChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSelectionChanged(class System.Action`1&lt;valuetype Urho.Gui.SelectionChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -890,7 +890,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.SelectionChangedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.SelectionChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -899,13 +899,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.ListView.SelectionChanged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.ListView.SelectionChanged" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToUnhandledKey">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUnhandledKey (Action&lt;Urho.UnhandledKeyEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUnhandledKey(class System.Action`1&lt;valuetype Urho.UnhandledKeyEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToUnhandledKey (Action&lt;Urho.Gui.UnhandledKeyEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToUnhandledKey(class System.Action`1&lt;valuetype Urho.Gui.UnhandledKeyEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -914,7 +914,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.UnhandledKeyEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.UnhandledKeyEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -923,7 +923,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.ListView.UnhandledKey" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.ListView.UnhandledKey" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -1038,14 +1038,14 @@
       </Docs>
     </Member>
     <Member MemberName="UnhandledKey">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.UnhandledKeyEventArgs&gt; UnhandledKey;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.UnhandledKeyEventArgs&gt; UnhandledKey" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.UnhandledKeyEventArgs&gt; UnhandledKey;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.UnhandledKeyEventArgs&gt; UnhandledKey" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.UnhandledKeyEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.UnhandledKeyEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

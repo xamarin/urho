@@ -1,4 +1,4 @@
-<Type Name="NetworkPriority" FullName="Urho.NetworkPriority">
+<Type Name="NetworkPriority" FullName="Urho.Network.NetworkPriority">
   <TypeSignature Language="C#" Value="public class NetworkPriority : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit NetworkPriority extends Urho.Component" />
   <AssemblyInfo>

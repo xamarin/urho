@@ -1,12 +1,12 @@
-<Type Name="ToolTip" FullName="Urho.ToolTip">
-  <TypeSignature Language="C#" Value="public class ToolTip : Urho.UIElement" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ToolTip extends Urho.UIElement" />
+<Type Name="ToolTip" FullName="Urho.Gui.ToolTip">
+  <TypeSignature Language="C#" Value="public class ToolTip : Urho.Gui.UIElement" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ToolTip extends Urho.Gui.UIElement" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.UIElement</BaseTypeName>
+    <BaseTypeName>Urho.Gui.UIElement</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

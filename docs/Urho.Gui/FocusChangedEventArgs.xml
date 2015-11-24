@@ -1,4 +1,4 @@
-<Type Name="FocusChangedEventArgs" FullName="Urho.FocusChangedEventArgs">
+<Type Name="FocusChangedEventArgs" FullName="Urho.Gui.FocusChangedEventArgs">
   <TypeSignature Language="C#" Value="public struct FocusChangedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit FocusChangedEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="ClickedElement">
-      <MemberSignature Language="C#" Value="public Urho.UIElement ClickedElement { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement ClickedElement" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement ClickedElement { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement ClickedElement" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,14 +31,14 @@
       </Docs>
     </Member>
     <Member MemberName="Element">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Element { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Element" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Element { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Element" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

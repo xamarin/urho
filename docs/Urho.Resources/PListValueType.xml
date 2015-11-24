@@ -1,4 +1,4 @@
-<Type Name="PListValueType" FullName="Urho.PListValueType">
+<Type Name="PListValueType" FullName="Urho.Resources.PListValueType">
   <TypeSignature Language="C#" Value="public enum PListValueType" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed PListValueType extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Bool">
       <MemberSignature Language="C#" Value="Bool" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PListValueType Bool = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.PListValueType Bool = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PListValueType</ReturnType>
+        <ReturnType>Urho.Resources.PListValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Float">
       <MemberSignature Language="C#" Value="Float" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PListValueType Float = int32(3)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.PListValueType Float = int32(3)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PListValueType</ReturnType>
+        <ReturnType>Urho.Resources.PListValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Int">
       <MemberSignature Language="C#" Value="Int" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PListValueType Int = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.PListValueType Int = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PListValueType</ReturnType>
+        <ReturnType>Urho.Resources.PListValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -59,13 +59,13 @@
     </Member>
     <Member MemberName="None">
       <MemberSignature Language="C#" Value="None" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PListValueType None = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.PListValueType None = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PListValueType</ReturnType>
+        <ReturnType>Urho.Resources.PListValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -73,13 +73,13 @@
     </Member>
     <Member MemberName="String">
       <MemberSignature Language="C#" Value="String" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PListValueType String = int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.PListValueType String = int32(4)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PListValueType</ReturnType>
+        <ReturnType>Urho.Resources.PListValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -87,13 +87,13 @@
     </Member>
     <Member MemberName="Valuemap">
       <MemberSignature Language="C#" Value="Valuemap" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PListValueType Valuemap = int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.PListValueType Valuemap = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PListValueType</ReturnType>
+        <ReturnType>Urho.Resources.PListValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -101,13 +101,13 @@
     </Member>
     <Member MemberName="Valuevector">
       <MemberSignature Language="C#" Value="Valuevector" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.PListValueType Valuevector = int32(6)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.PListValueType Valuevector = int32(6)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PListValueType</ReturnType>
+        <ReturnType>Urho.Resources.PListValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

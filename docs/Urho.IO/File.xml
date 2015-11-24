@@ -1,4 +1,4 @@
-<Type Name="File" FullName="Urho.File">
+<Type Name="File" FullName="Urho.IO.File">
   <TypeSignature Language="C#" Value="public class File : Urho.UrhoObject, Urho.IDeserializer, Urho.ISerializer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit File extends Urho.UrhoObject implements class Urho.IDeserializer, class Urho.ISerializer" />
   <AssemblyInfo>
@@ -82,8 +82,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public File (Urho.Context context, string fileName, Urho.FileMode mode);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, string fileName, valuetype Urho.FileMode mode) cil managed" />
+      <MemberSignature Language="C#" Value="public File (Urho.Context context, string fileName, Urho.IO.FileMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, string fileName, valuetype Urho.IO.FileMode mode) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -91,7 +91,7 @@
       <Parameters>
         <Parameter Name="context" Type="Urho.Context" />
         <Parameter Name="fileName" Type="System.String" />
-        <Parameter Name="mode" Type="Urho.FileMode" />
+        <Parameter Name="mode" Type="Urho.IO.FileMode" />
       </Parameters>
       <Docs>
         <param name="context">The context that this object will be attached to.</param>
@@ -104,15 +104,15 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public File (Urho.Context context, Urho.PackageFile package, string fileName);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, class Urho.PackageFile package, string fileName) cil managed" />
+      <MemberSignature Language="C#" Value="public File (Urho.Context context, Urho.IO.PackageFile package, string fileName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, class Urho.IO.PackageFile package, string fileName) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="context" Type="Urho.Context" />
-        <Parameter Name="package" Type="Urho.PackageFile" />
+        <Parameter Name="package" Type="Urho.IO.PackageFile" />
         <Parameter Name="fileName" Type="System.String" />
       </Parameters>
       <Docs>
@@ -252,14 +252,14 @@
       </Docs>
     </Member>
     <Member MemberName="Mode">
-      <MemberSignature Language="C#" Value="public Urho.FileMode Mode { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FileMode Mode" />
+      <MemberSignature Language="C#" Value="public Urho.IO.FileMode Mode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IO.FileMode Mode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FileMode</ReturnType>
+        <ReturnType>Urho.IO.FileMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -290,8 +290,8 @@
       </Docs>
     </Member>
     <Member MemberName="Open">
-      <MemberSignature Language="C#" Value="public bool Open (string fileName, Urho.FileMode mode);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Open(string fileName, valuetype Urho.FileMode mode) cil managed" />
+      <MemberSignature Language="C#" Value="public bool Open (string fileName, Urho.IO.FileMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Open(string fileName, valuetype Urho.IO.FileMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -301,7 +301,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="fileName" Type="System.String" />
-        <Parameter Name="mode" Type="Urho.FileMode" />
+        <Parameter Name="mode" Type="Urho.IO.FileMode" />
       </Parameters>
       <Docs>
         <param name="fileName">To be added.</param>
@@ -314,8 +314,8 @@
       </Docs>
     </Member>
     <Member MemberName="Open">
-      <MemberSignature Language="C#" Value="public bool Open (Urho.PackageFile package, string fileName);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Open(class Urho.PackageFile package, string fileName) cil managed" />
+      <MemberSignature Language="C#" Value="public bool Open (Urho.IO.PackageFile package, string fileName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Open(class Urho.IO.PackageFile package, string fileName) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -324,7 +324,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="package" Type="Urho.PackageFile" />
+        <Parameter Name="package" Type="Urho.IO.PackageFile" />
         <Parameter Name="fileName" Type="System.String" />
       </Parameters>
       <Docs>

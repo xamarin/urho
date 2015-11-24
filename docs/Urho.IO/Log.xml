@@ -1,4 +1,4 @@
-<Type Name="Log" FullName="Urho.Log">
+<Type Name="Log" FullName="Urho.IO.Log">
   <TypeSignature Language="C#" Value="public class Log : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Log extends Urho.UrhoObject" />
   <AssemblyInfo>
@@ -182,14 +182,14 @@
       </Docs>
     </Member>
     <Member MemberName="LogMessage">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.LogMessageEventArgs&gt; LogMessage;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.LogMessageEventArgs&gt; LogMessage" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.IO.LogMessageEventArgs&gt; LogMessage;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.IO.LogMessageEventArgs&gt; LogMessage" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.LogMessageEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.IO.LogMessageEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -241,8 +241,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToLogMessage">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLogMessage (Action&lt;Urho.LogMessageEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLogMessage(class System.Action`1&lt;valuetype Urho.LogMessageEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLogMessage (Action&lt;Urho.IO.LogMessageEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLogMessage(class System.Action`1&lt;valuetype Urho.IO.LogMessageEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -251,7 +251,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.LogMessageEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.IO.LogMessageEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -260,7 +260,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Log.LogMessage" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.IO.Log.LogMessage" /> event.</para>
         </remarks>
       </Docs>
     </Member>

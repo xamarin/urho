@@ -1,4 +1,4 @@
-<Type Name="Text3D" FullName="Urho.Text3D">
+<Type Name="Text3D" FullName="Urho.Gui.Text3D">
   <TypeSignature Language="C#" Value="public class Text3D : Urho.Drawable" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Text3D extends Urho.Drawable" />
   <AssemblyInfo>
@@ -187,14 +187,14 @@
       </Docs>
     </Member>
     <Member MemberName="Font">
-      <MemberSignature Language="C#" Value="public Urho.Font Font { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Font Font" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Font Font { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Font Font" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Font</ReturnType>
+        <ReturnType>Urho.Gui.Font</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -285,8 +285,8 @@
       </Docs>
     </Member>
     <Member MemberName="GetColor">
-      <MemberSignature Language="C#" Value="public Urho.Color GetColor (Urho.Corner corner);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Color GetColor(valuetype Urho.Corner corner) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Color GetColor (Urho.Gui.Corner corner);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Color GetColor(valuetype Urho.Gui.Corner corner) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -295,7 +295,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="corner" Type="Urho.Corner" />
+        <Parameter Name="corner" Type="Urho.Gui.Corner" />
       </Parameters>
       <Docs>
         <param name="corner">To be added.</param>
@@ -329,14 +329,14 @@
       </Docs>
     </Member>
     <Member MemberName="HorizontalAlignment">
-      <MemberSignature Language="C#" Value="public Urho.HorizontalAlignment HorizontalAlignment { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HorizontalAlignment HorizontalAlignment" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.HorizontalAlignment HorizontalAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.HorizontalAlignment HorizontalAlignment" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.HorizontalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -502,8 +502,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetAlignment">
-      <MemberSignature Language="C#" Value="public void SetAlignment (Urho.HorizontalAlignment hAlign, Urho.VerticalAlignment vAlign);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAlignment(valuetype Urho.HorizontalAlignment hAlign, valuetype Urho.VerticalAlignment vAlign) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetAlignment (Urho.Gui.HorizontalAlignment hAlign, Urho.Gui.VerticalAlignment vAlign);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAlignment(valuetype Urho.Gui.HorizontalAlignment hAlign, valuetype Urho.Gui.VerticalAlignment vAlign) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -512,8 +512,8 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="hAlign" Type="Urho.HorizontalAlignment" />
-        <Parameter Name="vAlign" Type="Urho.VerticalAlignment" />
+        <Parameter Name="hAlign" Type="Urho.Gui.HorizontalAlignment" />
+        <Parameter Name="vAlign" Type="Urho.Gui.VerticalAlignment" />
       </Parameters>
       <Docs>
         <param name="hAlign">To be added.</param>
@@ -546,8 +546,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetColor">
-      <MemberSignature Language="C#" Value="public void SetColor (Urho.Corner corner, Urho.Color color);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetColor(valuetype Urho.Corner corner, valuetype Urho.Color color) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetColor (Urho.Gui.Corner corner, Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetColor(valuetype Urho.Gui.Corner corner, valuetype Urho.Color color) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -556,7 +556,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="corner" Type="Urho.Corner" />
+        <Parameter Name="corner" Type="Urho.Gui.Corner" />
         <Parameter Name="color" Type="Urho.Color" />
       </Parameters>
       <Docs>
@@ -593,8 +593,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetFont">
-      <MemberSignature Language="C#" Value="public bool SetFont (Urho.Font font, int size);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(class Urho.Font font, int32 size) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetFont (Urho.Gui.Font font, int size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(class Urho.Gui.Font font, int32 size) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -603,7 +603,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="font" Type="Urho.Font" />
+        <Parameter Name="font" Type="Urho.Gui.Font" />
         <Parameter Name="size" Type="System.Int32" />
       </Parameters>
       <Docs>
@@ -637,14 +637,14 @@
       </Docs>
     </Member>
     <Member MemberName="TextAlignment">
-      <MemberSignature Language="C#" Value="public Urho.HorizontalAlignment TextAlignment { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HorizontalAlignment TextAlignment" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.HorizontalAlignment TextAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.HorizontalAlignment TextAlignment" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.HorizontalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -657,14 +657,14 @@
       </Docs>
     </Member>
     <Member MemberName="TextEffect">
-      <MemberSignature Language="C#" Value="public Urho.TextEffect TextEffect { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TextEffect TextEffect" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.TextEffect TextEffect { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.TextEffect TextEffect" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TextEffect</ReturnType>
+        <ReturnType>Urho.Gui.TextEffect</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -761,14 +761,14 @@
       </Docs>
     </Member>
     <Member MemberName="VerticalAlignment">
-      <MemberSignature Language="C#" Value="public Urho.VerticalAlignment VerticalAlignment { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.VerticalAlignment VerticalAlignment" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.VerticalAlignment VerticalAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.VerticalAlignment VerticalAlignment" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.VerticalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.VerticalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

@@ -1,4 +1,4 @@
-<Type Name="XPathResultSet" FullName="Urho.XPathResultSet">
+<Type Name="XPathResultSet" FullName="Urho.Resources.XPathResultSet">
   <TypeSignature Language="C#" Value="public struct XPathResultSet" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit XPathResultSet extends System.ValueType" />
   <AssemblyInfo>

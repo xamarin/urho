@@ -1,4 +1,4 @@
-<Type Name="CrowdObstacleAvoidanceParams" FullName="Urho.CrowdObstacleAvoidanceParams">
+<Type Name="CrowdObstacleAvoidanceParams" FullName="Urho.Navigation.CrowdObstacleAvoidanceParams">
   <TypeSignature Language="C#" Value="public struct CrowdObstacleAvoidanceParams" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit CrowdObstacleAvoidanceParams extends System.ValueType" />
   <AssemblyInfo>

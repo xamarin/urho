@@ -1,12 +1,12 @@
-<Type Name="CollisionChain2D" FullName="Urho.CollisionChain2D">
-  <TypeSignature Language="C#" Value="public class CollisionChain2D : Urho.CollisionShape2D" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CollisionChain2D extends Urho.CollisionShape2D" />
+<Type Name="CollisionChain2D" FullName="Urho.Urho2D.CollisionChain2D">
+  <TypeSignature Language="C#" Value="public class CollisionChain2D : Urho.Urho2D.CollisionShape2D" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CollisionChain2D extends Urho.Urho2D.CollisionShape2D" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.CollisionShape2D</BaseTypeName>
+    <BaseTypeName>Urho.Urho2D.CollisionShape2D</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

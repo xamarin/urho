@@ -1,4 +1,4 @@
-<Type Name="ChangeLanguageEventArgs" FullName="Urho.ChangeLanguageEventArgs">
+<Type Name="ChangeLanguageEventArgs" FullName="Urho.Resources.ChangeLanguageEventArgs">
   <TypeSignature Language="C#" Value="public struct ChangeLanguageEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ChangeLanguageEventArgs extends System.ValueType" />
   <AssemblyInfo>

@@ -1,4 +1,4 @@
-<Type Name="SoundStream" FullName="Urho.SoundStream">
+<Type Name="SoundStream" FullName="Urho.Audio.SoundStream">
   <TypeSignature Language="C#" Value="public class SoundStream : Urho.RefCounted" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SoundStream extends Urho.RefCounted" />
   <AssemblyInfo>

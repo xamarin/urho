@@ -1,4 +1,4 @@
-<Type Name="UnknownResourceTypeEventArgs" FullName="Urho.UnknownResourceTypeEventArgs">
+<Type Name="UnknownResourceTypeEventArgs" FullName="Urho.Resources.UnknownResourceTypeEventArgs">
   <TypeSignature Language="C#" Value="public struct UnknownResourceTypeEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit UnknownResourceTypeEventArgs extends System.ValueType" />
   <AssemblyInfo>

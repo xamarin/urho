@@ -1,12 +1,12 @@
-<Type Name="ShowState" FullName="Urho.ShowState">
-  <TypeSignature Language="C#" Value="public class ShowState : Urho.ActionInstantState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShowState extends Urho.ActionInstantState" />
+<Type Name="ShowState" FullName="Urho.Actions.ShowState">
+  <TypeSignature Language="C#" Value="public class ShowState : Urho.Actions.ActionInstantState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShowState extends Urho.Actions.ActionInstantState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.ActionInstantState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.ActionInstantState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ShowState (Urho.Show action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Show action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public ShowState (Urho.Actions.Show action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.Show action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.Show" />
+        <Parameter Name="action" Type="Urho.Actions.Show" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

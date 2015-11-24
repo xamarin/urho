@@ -1,12 +1,12 @@
-<Type Name="ScrollView" FullName="Urho.ScrollView">
-  <TypeSignature Language="C#" Value="public class ScrollView : Urho.UIElement" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ScrollView extends Urho.UIElement" />
+<Type Name="ScrollView" FullName="Urho.Gui.ScrollView">
+  <TypeSignature Language="C#" Value="public class ScrollView : Urho.Gui.UIElement" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ScrollView extends Urho.Gui.UIElement" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.UIElement</BaseTypeName>
+    <BaseTypeName>Urho.Gui.UIElement</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -149,14 +149,14 @@
       </Docs>
     </Member>
     <Member MemberName="ContentElement">
-      <MemberSignature Language="C#" Value="public Urho.UIElement ContentElement { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement ContentElement" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement ContentElement { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement ContentElement" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -169,14 +169,14 @@
       </Docs>
     </Member>
     <Member MemberName="HorizontalScrollBar">
-      <MemberSignature Language="C#" Value="public Urho.ScrollBar HorizontalScrollBar { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ScrollBar HorizontalScrollBar" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.ScrollBar HorizontalScrollBar { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.ScrollBar HorizontalScrollBar" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ScrollBar</ReturnType>
+        <ReturnType>Urho.Gui.ScrollBar</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -336,14 +336,14 @@
       </Docs>
     </Member>
     <Member MemberName="ScrollPanel">
-      <MemberSignature Language="C#" Value="public Urho.BorderImage ScrollPanel { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.BorderImage ScrollPanel" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.BorderImage ScrollPanel { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.BorderImage ScrollPanel" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.BorderImage</ReturnType>
+        <ReturnType>Urho.Gui.BorderImage</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -461,8 +461,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToViewChanged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToViewChanged (Action&lt;Urho.ViewChangedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToViewChanged(class System.Action`1&lt;valuetype Urho.ViewChangedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToViewChanged (Action&lt;Urho.Gui.ViewChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToViewChanged(class System.Action`1&lt;valuetype Urho.Gui.ViewChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -471,7 +471,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ViewChangedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ViewChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -480,7 +480,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.ScrollView.ViewChanged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.ScrollView.ViewChanged" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -572,14 +572,14 @@
       </Docs>
     </Member>
     <Member MemberName="VerticalScrollBar">
-      <MemberSignature Language="C#" Value="public Urho.ScrollBar VerticalScrollBar { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ScrollBar VerticalScrollBar" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.ScrollBar VerticalScrollBar { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.ScrollBar VerticalScrollBar" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ScrollBar</ReturnType>
+        <ReturnType>Urho.Gui.ScrollBar</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -590,14 +590,14 @@
       </Docs>
     </Member>
     <Member MemberName="ViewChanged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ViewChangedEventArgs&gt; ViewChanged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ViewChangedEventArgs&gt; ViewChanged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ViewChangedEventArgs&gt; ViewChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ViewChangedEventArgs&gt; ViewChanged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ViewChangedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ViewChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -1,4 +1,4 @@
-<Type Name="BezierConfig" FullName="Urho.BezierConfig">
+<Type Name="BezierConfig" FullName="Urho.Actions.BezierConfig">
   <TypeSignature Language="C#" Value="public struct BezierConfig" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit BezierConfig extends System.ValueType" />
   <AssemblyInfo>

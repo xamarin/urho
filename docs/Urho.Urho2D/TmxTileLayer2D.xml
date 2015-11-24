@@ -1,12 +1,12 @@
-<Type Name="TmxTileLayer2D" FullName="Urho.TmxTileLayer2D">
-  <TypeSignature Language="C#" Value="public class TmxTileLayer2D : Urho.TmxLayer2D" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TmxTileLayer2D extends Urho.TmxLayer2D" />
+<Type Name="TmxTileLayer2D" FullName="Urho.Urho2D.TmxTileLayer2D">
+  <TypeSignature Language="C#" Value="public class TmxTileLayer2D : Urho.Urho2D.TmxLayer2D" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit TmxTileLayer2D extends Urho.Urho2D.TmxLayer2D" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.TmxLayer2D</BaseTypeName>
+    <BaseTypeName>Urho.Urho2D.TmxLayer2D</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -37,14 +37,14 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public TmxTileLayer2D (Urho.TmxFile2D tmxFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.TmxFile2D tmxFile) cil managed" />
+      <MemberSignature Language="C#" Value="public TmxTileLayer2D (Urho.Urho2D.TmxFile2D tmxFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Urho2D.TmxFile2D tmxFile) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="tmxFile" Type="Urho.TmxFile2D" />
+        <Parameter Name="tmxFile" Type="Urho.Urho2D.TmxFile2D" />
       </Parameters>
       <Docs>
         <param name="tmxFile">To be added.</param>
@@ -73,14 +73,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetTile">
-      <MemberSignature Language="C#" Value="public Urho.Tile2D GetTile (int x, int y);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Tile2D GetTile(int32 x, int32 y) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Tile2D GetTile (int x, int y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Urho2D.Tile2D GetTile(int32 x, int32 y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Tile2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Tile2D</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="x" Type="System.Int32" />
@@ -97,8 +97,8 @@
       </Docs>
     </Member>
     <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public bool Load (Urho.XmlElement element, Urho.TileMapInfo2D info);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.XmlElement element, valuetype Urho.TileMapInfo2D info) cil managed" />
+      <MemberSignature Language="C#" Value="public bool Load (Urho.Resources.XmlElement element, Urho.Urho2D.TileMapInfo2D info);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.Resources.XmlElement element, valuetype Urho.Urho2D.TileMapInfo2D info) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -107,8 +107,8 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="element" Type="Urho.XmlElement" />
-        <Parameter Name="info" Type="Urho.TileMapInfo2D" />
+        <Parameter Name="element" Type="Urho.Resources.XmlElement" />
+        <Parameter Name="info" Type="Urho.Urho2D.TileMapInfo2D" />
       </Parameters>
       <Docs>
         <param name="element">To be added.</param>

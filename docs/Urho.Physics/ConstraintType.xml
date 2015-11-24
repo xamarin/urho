@@ -1,4 +1,4 @@
-<Type Name="ConstraintType" FullName="Urho.ConstraintType">
+<Type Name="ConstraintType" FullName="Urho.Physics.ConstraintType">
   <TypeSignature Language="C#" Value="public enum ConstraintType" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ConstraintType extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="ConeTwist">
       <MemberSignature Language="C#" Value="ConeTwist" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ConstraintType ConeTwist = int32(3)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ConstraintType ConeTwist = int32(3)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ConstraintType</ReturnType>
+        <ReturnType>Urho.Physics.ConstraintType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Hinge">
       <MemberSignature Language="C#" Value="Hinge" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ConstraintType Hinge = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ConstraintType Hinge = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ConstraintType</ReturnType>
+        <ReturnType>Urho.Physics.ConstraintType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Point">
       <MemberSignature Language="C#" Value="Point" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ConstraintType Point = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ConstraintType Point = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ConstraintType</ReturnType>
+        <ReturnType>Urho.Physics.ConstraintType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -59,13 +59,13 @@
     </Member>
     <Member MemberName="Slider">
       <MemberSignature Language="C#" Value="Slider" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ConstraintType Slider = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ConstraintType Slider = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ConstraintType</ReturnType>
+        <ReturnType>Urho.Physics.ConstraintType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

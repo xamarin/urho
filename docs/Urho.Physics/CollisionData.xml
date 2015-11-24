@@ -1,4 +1,4 @@
-<Type Name="CollisionData" FullName="Urho.CollisionData">
+<Type Name="CollisionData" FullName="Urho.Physics.CollisionData">
   <TypeSignature Language="C#" Value="public struct CollisionData" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit CollisionData extends System.ValueType" />
   <AssemblyInfo>

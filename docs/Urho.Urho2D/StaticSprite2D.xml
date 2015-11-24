@@ -1,12 +1,12 @@
-<Type Name="StaticSprite2D" FullName="Urho.StaticSprite2D">
-  <TypeSignature Language="C#" Value="public class StaticSprite2D : Urho.Drawable2D" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit StaticSprite2D extends Urho.Drawable2D" />
+<Type Name="StaticSprite2D" FullName="Urho.Urho2D.StaticSprite2D">
+  <TypeSignature Language="C#" Value="public class StaticSprite2D : Urho.Urho2D.Drawable2D" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit StaticSprite2D extends Urho.Urho2D.Drawable2D" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Drawable2D</BaseTypeName>
+    <BaseTypeName>Urho.Urho2D.Drawable2D</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -293,14 +293,14 @@
       </Docs>
     </Member>
     <Member MemberName="Sprite">
-      <MemberSignature Language="C#" Value="public Urho.Sprite2D Sprite { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Sprite2D Sprite" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Sprite2D Sprite { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Sprite2D Sprite" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Sprite2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Sprite2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

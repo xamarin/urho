@@ -1,12 +1,12 @@
-<Type Name="CallFuncOState" FullName="Urho.CallFuncOState">
-  <TypeSignature Language="C#" Value="public class CallFuncOState : Urho.CallFuncState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CallFuncOState extends Urho.CallFuncState" />
+<Type Name="CallFuncOState" FullName="Urho.Actions.CallFuncOState">
+  <TypeSignature Language="C#" Value="public class CallFuncOState : Urho.Actions.CallFuncState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CallFuncOState extends Urho.Actions.CallFuncState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.CallFuncState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.CallFuncState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CallFuncOState (Urho.CallFuncO action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.CallFuncO action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public CallFuncOState (Urho.Actions.CallFuncO action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.CallFuncO action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.CallFuncO" />
+        <Parameter Name="action" Type="Urho.Actions.CallFuncO" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

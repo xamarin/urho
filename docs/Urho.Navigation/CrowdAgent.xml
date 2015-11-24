@@ -1,4 +1,4 @@
-<Type Name="CrowdAgent" FullName="Urho.CrowdAgent">
+<Type Name="CrowdAgent" FullName="Urho.Navigation.CrowdAgent">
   <TypeSignature Language="C#" Value="public class CrowdAgent : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CrowdAgent extends Urho.Component" />
   <AssemblyInfo>
@@ -111,14 +111,14 @@
       </Docs>
     </Member>
     <Member MemberName="AgentState">
-      <MemberSignature Language="C#" Value="public Urho.CrowdAgentState AgentState { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CrowdAgentState AgentState" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.CrowdAgentState AgentState { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Navigation.CrowdAgentState AgentState" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CrowdAgentState</ReturnType>
+        <ReturnType>Urho.Navigation.CrowdAgentState</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -342,14 +342,14 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationPushiness">
-      <MemberSignature Language="C#" Value="public Urho.NavigationPushiness NavigationPushiness { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.NavigationPushiness NavigationPushiness" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.NavigationPushiness NavigationPushiness { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Navigation.NavigationPushiness NavigationPushiness" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.NavigationPushiness</ReturnType>
+        <ReturnType>Urho.Navigation.NavigationPushiness</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -362,14 +362,14 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationQuality">
-      <MemberSignature Language="C#" Value="public Urho.NavigationQuality NavigationQuality { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.NavigationQuality NavigationQuality" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.NavigationQuality NavigationQuality { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Navigation.NavigationQuality NavigationQuality" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.NavigationQuality</ReturnType>
+        <ReturnType>Urho.Navigation.NavigationQuality</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -499,14 +499,14 @@
       </Docs>
     </Member>
     <Member MemberName="RequestedTargetType">
-      <MemberSignature Language="C#" Value="public Urho.CrowdAgentRequestedTarget RequestedTargetType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CrowdAgentRequestedTarget RequestedTargetType" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.CrowdAgentRequestedTarget RequestedTargetType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Navigation.CrowdAgentRequestedTarget RequestedTargetType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CrowdAgentRequestedTarget</ReturnType>
+        <ReturnType>Urho.Navigation.CrowdAgentRequestedTarget</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -555,14 +555,14 @@
       </Docs>
     </Member>
     <Member MemberName="TargetState">
-      <MemberSignature Language="C#" Value="public Urho.CrowdAgentTargetState TargetState { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CrowdAgentTargetState TargetState" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.CrowdAgentTargetState TargetState { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Navigation.CrowdAgentTargetState TargetState" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CrowdAgentTargetState</ReturnType>
+        <ReturnType>Urho.Navigation.CrowdAgentTargetState</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

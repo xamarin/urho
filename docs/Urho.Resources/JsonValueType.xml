@@ -1,4 +1,4 @@
-<Type Name="JsonValueType" FullName="Urho.JsonValueType">
+<Type Name="JsonValueType" FullName="Urho.Resources.JsonValueType">
   <TypeSignature Language="C#" Value="public enum JsonValueType" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed JsonValueType extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Array">
       <MemberSignature Language="C#" Value="Array" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.JsonValueType Array = int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.JsonValueType Array = int32(4)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.JsonValueType</ReturnType>
+        <ReturnType>Urho.Resources.JsonValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Bool">
       <MemberSignature Language="C#" Value="Bool" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.JsonValueType Bool = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.JsonValueType Bool = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.JsonValueType</ReturnType>
+        <ReturnType>Urho.Resources.JsonValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Null">
       <MemberSignature Language="C#" Value="Null" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.JsonValueType Null = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.JsonValueType Null = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.JsonValueType</ReturnType>
+        <ReturnType>Urho.Resources.JsonValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -59,13 +59,13 @@
     </Member>
     <Member MemberName="Number">
       <MemberSignature Language="C#" Value="Number" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.JsonValueType Number = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.JsonValueType Number = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.JsonValueType</ReturnType>
+        <ReturnType>Urho.Resources.JsonValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -73,13 +73,13 @@
     </Member>
     <Member MemberName="Object">
       <MemberSignature Language="C#" Value="Object" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.JsonValueType Object = int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.JsonValueType Object = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.JsonValueType</ReturnType>
+        <ReturnType>Urho.Resources.JsonValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -87,13 +87,13 @@
     </Member>
     <Member MemberName="String">
       <MemberSignature Language="C#" Value="String" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.JsonValueType String = int32(3)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Resources.JsonValueType String = int32(3)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.JsonValueType</ReturnType>
+        <ReturnType>Urho.Resources.JsonValueType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

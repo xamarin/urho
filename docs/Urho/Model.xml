@@ -1,12 +1,12 @@
 <Type Name="Model" FullName="Urho.Model">
-  <TypeSignature Language="C#" Value="public class Model : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Model extends Urho.Resource" />
+  <TypeSignature Language="C#" Value="public class Model : Urho.Resources.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Model extends Urho.Resources.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Resource</BaseTypeName>
+    <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

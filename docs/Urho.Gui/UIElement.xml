@@ -1,4 +1,4 @@
-<Type Name="UIElement" FullName="Urho.UIElement">
+<Type Name="UIElement" FullName="Urho.Gui.UIElement">
   <TypeSignature Language="C#" Value="public class UIElement : Urho.Animatable" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit UIElement extends Urho.Animatable" />
   <AssemblyInfo>
@@ -15,12 +15,12 @@
             </summary>
     <remarks>
       <para>User interface elements are serializable, so they can be serialized to/from XML using their attributes. There are two distinct use cases for UI definition files: either defining just the UI element style and leaving the actual position and dimensions to be filled in later, or fully defining an UI element layout. The default element style definitions, used for example by the editor and the debug console, are in the file bin/Data/UI/DefaultStyle.xml.</para>
-      <para>The method <see cref="M:Urho.UI.LoadLayout" /> in UI will take an XML file and instantiate the elements defined in it. To be valid XML, there should be one root-level UI element. An optional style XML file can be specified; the idea is to first read the element's style from that file, then fill in the rest from the actual layout XML file. This way the layout file can be relatively simple, as the majority of the data is already defined.</para>
+      <para>The method <see cref="M:Urho.Gui.UI.LoadLayout" /> in UI will take an XML file and instantiate the elements defined in it. To be valid XML, there should be one root-level UI element. An optional style XML file can be specified; the idea is to first read the element's style from that file, then fill in the rest from the actual layout XML file. This way the layout file can be relatively simple, as the majority of the data is already defined.</para>
       <para>Note that a style can not be easily applied recursively to the loaded elements afterward. Therefore remember to specify the style file already when loading, or alternatively assign a default style file to the UI root element, which will then be picked up by all loaded layouts. This works because the UI subsystem searches the style file by going up the parental chain starting from target parent UI element. The search stops immediately when a style file is found or when it has reached the root element. Also note that UrhoSharp does not limit the number of style files being used at the same time in an application. You may have different style file set along the UI parental hierarchy, if your application needs that.</para>
       <para>You can also use the Editor application to create UI layouts. The serialization format is similar to scene XML serialization, with three important differences:</para>
-      <para>1) The element type to instantiate, and the style to use for it can be set separately. For example the following element definition tells to instantiate a <see cref="T:Urho.Button" /> element, and that it should use the style "CloseButton" defined in the style XML file.</para>
-      <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
-      <para>3) The popup element shown by <see cref="T:Urho.Menu" /> and <see cref="T:Urho.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true".</para>
+      <para>1) The element type to instantiate, and the style to use for it can be set separately. For example the following element definition tells to instantiate a <see cref="T:Urho.Gui.Button" /> element, and that it should use the style "CloseButton" defined in the style XML file.</para>
+      <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.Gui.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
+      <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true".</para>
       <para>
       </para>
       <see cref="" />
@@ -95,8 +95,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddChild">
-      <MemberSignature Language="C#" Value="public void AddChild (Urho.UIElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddChild(class Urho.UIElement element) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddChild (Urho.Gui.UIElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddChild(class Urho.Gui.UIElement element) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -105,7 +105,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="element" Type="Urho.UIElement" />
+        <Parameter Name="element" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="element">To be added.</param>
@@ -262,14 +262,14 @@
       </Docs>
     </Member>
     <Member MemberName="Children">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Urho.UIElement&gt; Children { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Urho.UIElement&gt; Children" />
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Urho.Gui.UIElement&gt; Children { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Urho.Gui.UIElement&gt; Children" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Urho.UIElement&gt;</ReturnType>
+        <ReturnType>System.Collections.Generic.IReadOnlyList&lt;Urho.Gui.UIElement&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -356,14 +356,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateBorderImage">
-      <MemberSignature Language="C#" Value="public Urho.BorderImage CreateBorderImage (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.BorderImage CreateBorderImage(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.BorderImage CreateBorderImage (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.BorderImage CreateBorderImage(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.BorderImage</ReturnType>
+        <ReturnType>Urho.Gui.BorderImage</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -378,14 +378,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateButton">
-      <MemberSignature Language="C#" Value="public Urho.Button CreateButton (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Button CreateButton(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Button CreateButton (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.Button CreateButton(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Button</ReturnType>
+        <ReturnType>Urho.Gui.Button</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -400,14 +400,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateCheckBox">
-      <MemberSignature Language="C#" Value="public Urho.CheckBox CreateCheckBox (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.CheckBox CreateCheckBox(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.CheckBox CreateCheckBox (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.CheckBox CreateCheckBox(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CheckBox</ReturnType>
+        <ReturnType>Urho.Gui.CheckBox</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -422,14 +422,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateChild">
-      <MemberSignature Language="C#" Value="public Urho.UIElement CreateChild (Urho.StringHash type, string name, uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement CreateChild(valuetype Urho.StringHash type, string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement CreateChild (Urho.StringHash type, string name, uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement CreateChild(valuetype Urho.StringHash type, string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="type" Type="Urho.StringHash" />
@@ -448,8 +448,8 @@
       </Docs>
     </Member>
     <Member MemberName="CreateChild&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public T CreateChild&lt;T&gt; (Urho.StringHash code, string name = &quot;&quot;, uint index = 4294967295) where T : Urho.UIElement;" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T CreateChild&lt;(class Urho.UIElement) T&gt;(valuetype Urho.StringHash code, string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public T CreateChild&lt;T&gt; (Urho.StringHash code, string name = &quot;&quot;, uint index = 4294967295) where T : Urho.Gui.UIElement;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T CreateChild&lt;(class Urho.Gui.UIElement) T&gt;(valuetype Urho.StringHash code, string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -480,14 +480,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateCursor">
-      <MemberSignature Language="C#" Value="public Urho.Cursor CreateCursor (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Cursor CreateCursor(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Cursor CreateCursor (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.Cursor CreateCursor(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Cursor</ReturnType>
+        <ReturnType>Urho.Gui.Cursor</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -502,14 +502,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateDropDownList">
-      <MemberSignature Language="C#" Value="public Urho.DropDownList CreateDropDownList (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.DropDownList CreateDropDownList(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.DropDownList CreateDropDownList (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.DropDownList CreateDropDownList(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.DropDownList</ReturnType>
+        <ReturnType>Urho.Gui.DropDownList</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -524,14 +524,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateLineEdit">
-      <MemberSignature Language="C#" Value="public Urho.LineEdit CreateLineEdit (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.LineEdit CreateLineEdit(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.LineEdit CreateLineEdit (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.LineEdit CreateLineEdit(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.LineEdit</ReturnType>
+        <ReturnType>Urho.Gui.LineEdit</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -546,14 +546,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateListView">
-      <MemberSignature Language="C#" Value="public Urho.ListView CreateListView (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ListView CreateListView(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.ListView CreateListView (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.ListView CreateListView(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ListView</ReturnType>
+        <ReturnType>Urho.Gui.ListView</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -568,14 +568,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateMenu">
-      <MemberSignature Language="C#" Value="public Urho.Menu CreateMenu (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Menu CreateMenu(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Menu CreateMenu (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.Menu CreateMenu(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Menu</ReturnType>
+        <ReturnType>Urho.Gui.Menu</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -590,14 +590,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateScrollBar">
-      <MemberSignature Language="C#" Value="public Urho.ScrollBar CreateScrollBar (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ScrollBar CreateScrollBar(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.ScrollBar CreateScrollBar (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.ScrollBar CreateScrollBar(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ScrollBar</ReturnType>
+        <ReturnType>Urho.Gui.ScrollBar</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -612,14 +612,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateScrollView">
-      <MemberSignature Language="C#" Value="public Urho.ScrollView CreateScrollView (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ScrollView CreateScrollView(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.ScrollView CreateScrollView (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.ScrollView CreateScrollView(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ScrollView</ReturnType>
+        <ReturnType>Urho.Gui.ScrollView</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -634,14 +634,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateSlider">
-      <MemberSignature Language="C#" Value="public Urho.Slider CreateSlider (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Slider CreateSlider(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Slider CreateSlider (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.Slider CreateSlider(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Slider</ReturnType>
+        <ReturnType>Urho.Gui.Slider</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -656,14 +656,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateSprite">
-      <MemberSignature Language="C#" Value="public Urho.Sprite CreateSprite (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Sprite CreateSprite(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Sprite CreateSprite (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.Sprite CreateSprite(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Sprite</ReturnType>
+        <ReturnType>Urho.Gui.Sprite</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -678,14 +678,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateText">
-      <MemberSignature Language="C#" Value="public Urho.Text CreateText (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Text CreateText(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Text CreateText (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.Text CreateText(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Text</ReturnType>
+        <ReturnType>Urho.Gui.Text</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -700,14 +700,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateToolTip">
-      <MemberSignature Language="C#" Value="public Urho.ToolTip CreateToolTip (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ToolTip CreateToolTip(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.ToolTip CreateToolTip (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.ToolTip CreateToolTip(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ToolTip</ReturnType>
+        <ReturnType>Urho.Gui.ToolTip</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -722,14 +722,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateView3D">
-      <MemberSignature Language="C#" Value="public Urho.View3D CreateView3D (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.View3D CreateView3D(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.View3D CreateView3D (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.View3D CreateView3D(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.View3D</ReturnType>
+        <ReturnType>Urho.Gui.View3D</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -744,14 +744,14 @@
       </Docs>
     </Member>
     <Member MemberName="CreateWindow">
-      <MemberSignature Language="C#" Value="public Urho.Window CreateWindow (string name = &quot;&quot;, uint index = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Window CreateWindow(string name, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Window CreateWindow (string name = &quot;&quot;, uint index = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.Window CreateWindow(string name, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Window</ReturnType>
+        <ReturnType>Urho.Gui.Window</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -766,14 +766,14 @@
       </Docs>
     </Member>
     <Member MemberName="Defocused">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.DefocusedEventArgs&gt; Defocused;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DefocusedEventArgs&gt; Defocused" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.DefocusedEventArgs&gt; Defocused;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.DefocusedEventArgs&gt; Defocused" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.DefocusedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.DefocusedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -837,14 +837,14 @@
       </Docs>
     </Member>
     <Member MemberName="DragBegin">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.DragBeginEventArgs&gt; DragBegin;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DragBeginEventArgs&gt; DragBegin" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.DragBeginEventArgs&gt; DragBegin;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.DragBeginEventArgs&gt; DragBegin" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.DragBeginEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.DragBeginEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -890,14 +890,14 @@
       </Docs>
     </Member>
     <Member MemberName="DragCancel">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.DragCancelEventArgs&gt; DragCancel;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DragCancelEventArgs&gt; DragCancel" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.DragCancelEventArgs&gt; DragCancel;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.DragCancelEventArgs&gt; DragCancel" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.DragCancelEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.DragCancelEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -907,14 +907,14 @@
       </Docs>
     </Member>
     <Member MemberName="DragDropFinish">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.DragDropFinishEventArgs&gt; DragDropFinish;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DragDropFinishEventArgs&gt; DragDropFinish" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.DragDropFinishEventArgs&gt; DragDropFinish;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.DragDropFinishEventArgs&gt; DragDropFinish" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.DragDropFinishEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.DragDropFinishEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -944,14 +944,14 @@
       </Docs>
     </Member>
     <Member MemberName="DragDropTest">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.DragDropTestEventArgs&gt; DragDropTest;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DragDropTestEventArgs&gt; DragDropTest" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.DragDropTestEventArgs&gt; DragDropTest;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.DragDropTestEventArgs&gt; DragDropTest" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.DragDropTestEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.DragDropTestEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -961,14 +961,14 @@
       </Docs>
     </Member>
     <Member MemberName="DragEnd">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.DragEndEventArgs&gt; DragEnd;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DragEndEventArgs&gt; DragEnd" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.DragEndEventArgs&gt; DragEnd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.DragEndEventArgs&gt; DragEnd" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.DragEndEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.DragEndEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -978,14 +978,14 @@
       </Docs>
     </Member>
     <Member MemberName="DragMove">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.DragMoveEventArgs&gt; DragMove;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DragMoveEventArgs&gt; DragMove" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.DragMoveEventArgs&gt; DragMove;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.DragMoveEventArgs&gt; DragMove" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.DragMoveEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.DragMoveEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -995,14 +995,14 @@
       </Docs>
     </Member>
     <Member MemberName="ElementAdded">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ElementAddedEventArgs&gt; ElementAdded;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ElementAddedEventArgs&gt; ElementAdded" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ElementAddedEventArgs&gt; ElementAdded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ElementAddedEventArgs&gt; ElementAdded" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ElementAddedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ElementAddedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -1012,14 +1012,14 @@
       </Docs>
     </Member>
     <Member MemberName="ElementEventSender">
-      <MemberSignature Language="C#" Value="public Urho.UIElement ElementEventSender { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement ElementEventSender" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement ElementEventSender { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement ElementEventSender" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -1030,14 +1030,14 @@
       </Docs>
     </Member>
     <Member MemberName="ElementRemoved">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ElementRemovedEventArgs&gt; ElementRemoved;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ElementRemovedEventArgs&gt; ElementRemoved" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ElementRemovedEventArgs&gt; ElementRemoved;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ElementRemovedEventArgs&gt; ElementRemoved" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ElementRemovedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ElementRemovedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -1087,8 +1087,8 @@
       </Docs>
     </Member>
     <Member MemberName="FilterAttributes">
-      <MemberSignature Language="C#" Value="public bool FilterAttributes (Urho.XmlElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool FilterAttributes(class Urho.XmlElement dest) cil managed" />
+      <MemberSignature Language="C#" Value="public bool FilterAttributes (Urho.Resources.XmlElement dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool FilterAttributes(class Urho.Resources.XmlElement dest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1097,7 +1097,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="dest" Type="Urho.XmlElement" />
+        <Parameter Name="dest" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>
@@ -1107,8 +1107,8 @@
       </Docs>
     </Member>
     <Member MemberName="FindChild">
-      <MemberSignature Language="C#" Value="public uint FindChild (Urho.UIElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 FindChild(class Urho.UIElement element) cil managed" />
+      <MemberSignature Language="C#" Value="public uint FindChild (Urho.Gui.UIElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 FindChild(class Urho.Gui.UIElement element) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1117,7 +1117,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="element" Type="Urho.UIElement" />
+        <Parameter Name="element" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="element">To be added.</param>
@@ -1129,14 +1129,14 @@
       </Docs>
     </Member>
     <Member MemberName="Focused">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.FocusedEventArgs&gt; Focused;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.FocusedEventArgs&gt; Focused" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.FocusedEventArgs&gt; Focused;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.FocusedEventArgs&gt; Focused" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.FocusedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.FocusedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -1146,14 +1146,14 @@
       </Docs>
     </Member>
     <Member MemberName="FocusMode">
-      <MemberSignature Language="C#" Value="public Urho.FocusMode FocusMode { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FocusMode FocusMode" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.FocusMode FocusMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.FocusMode FocusMode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FocusMode</ReturnType>
+        <ReturnType>Urho.Gui.FocusMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -1166,14 +1166,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetChild">
-      <MemberSignature Language="C#" Value="public Urho.UIElement GetChild (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement GetChild(unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetChild (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement GetChild(unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
@@ -1188,14 +1188,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetChild">
-      <MemberSignature Language="C#" Value="public Urho.UIElement GetChild (string name, bool recursive);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UIElement GetChild(string name, bool recursive) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetChild (string name, bool recursive);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement GetChild(string name, bool recursive) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -1212,8 +1212,8 @@
       </Docs>
     </Member>
     <Member MemberName="GetColor">
-      <MemberSignature Language="C#" Value="public Urho.Color GetColor (Urho.Corner corner);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Color GetColor(valuetype Urho.Corner corner) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Color GetColor (Urho.Gui.Corner corner);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Color GetColor(valuetype Urho.Gui.Corner corner) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1222,7 +1222,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="corner" Type="Urho.Corner" />
+        <Parameter Name="corner" Type="Urho.Gui.Corner" />
       </Parameters>
       <Docs>
         <param name="corner">To be added.</param>
@@ -1234,14 +1234,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetDefaultStyle">
-      <MemberSignature Language="C#" Value="public Urho.XmlFile GetDefaultStyle (bool recursiveUp);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.XmlFile GetDefaultStyle(bool recursiveUp) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlFile GetDefaultStyle (bool recursiveUp);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.XmlFile GetDefaultStyle(bool recursiveUp) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.XmlFile</ReturnType>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="recursiveUp" Type="System.Boolean" />
@@ -1334,14 +1334,14 @@
       </Docs>
     </Member>
     <Member MemberName="HorizontalAlignment">
-      <MemberSignature Language="C#" Value="public Urho.HorizontalAlignment HorizontalAlignment { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HorizontalAlignment HorizontalAlignment" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.HorizontalAlignment HorizontalAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.HorizontalAlignment HorizontalAlignment" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.HorizontalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -1354,14 +1354,14 @@
       </Docs>
     </Member>
     <Member MemberName="HoverBegin">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.HoverBeginEventArgs&gt; HoverBegin;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.HoverBeginEventArgs&gt; HoverBegin" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.HoverBeginEventArgs&gt; HoverBegin;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.HoverBeginEventArgs&gt; HoverBegin" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.HoverBeginEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.HoverBeginEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -1371,14 +1371,14 @@
       </Docs>
     </Member>
     <Member MemberName="HoverEnd">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.HoverEndEventArgs&gt; HoverEnd;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.HoverEndEventArgs&gt; HoverEnd" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.HoverEndEventArgs&gt; HoverEnd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.HoverEndEventArgs&gt; HoverEnd" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.HoverEndEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.HoverEndEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -1446,8 +1446,8 @@
       </Docs>
     </Member>
     <Member MemberName="InsertChild">
-      <MemberSignature Language="C#" Value="public void InsertChild (uint index, Urho.UIElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void InsertChild(unsigned int32 index, class Urho.UIElement element) cil managed" />
+      <MemberSignature Language="C#" Value="public void InsertChild (uint index, Urho.Gui.UIElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void InsertChild(unsigned int32 index, class Urho.Gui.UIElement element) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1457,7 +1457,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
-        <Parameter Name="element" Type="Urho.UIElement" />
+        <Parameter Name="element" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
@@ -1843,14 +1843,14 @@
       </Docs>
     </Member>
     <Member MemberName="LayoutMode">
-      <MemberSignature Language="C#" Value="public Urho.LayoutMode LayoutMode { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.LayoutMode LayoutMode" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.LayoutMode LayoutMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.LayoutMode LayoutMode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.LayoutMode</ReturnType>
+        <ReturnType>Urho.Gui.LayoutMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -1883,14 +1883,14 @@
       </Docs>
     </Member>
     <Member MemberName="LayoutUpdated">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.LayoutUpdatedEventArgs&gt; LayoutUpdated;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.LayoutUpdatedEventArgs&gt; LayoutUpdated" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.LayoutUpdatedEventArgs&gt; LayoutUpdated;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.LayoutUpdatedEventArgs&gt; LayoutUpdated" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.LayoutUpdatedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.LayoutUpdatedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -1900,8 +1900,8 @@
       </Docs>
     </Member>
     <Member MemberName="LoadChildXml">
-      <MemberSignature Language="C#" Value="public bool LoadChildXml (Urho.XmlElement childElem, Urho.XmlFile styleFile, bool setInstanceDefault);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadChildXml(class Urho.XmlElement childElem, class Urho.XmlFile styleFile, bool setInstanceDefault) cil managed" />
+      <MemberSignature Language="C#" Value="public bool LoadChildXml (Urho.Resources.XmlElement childElem, Urho.Resources.XmlFile styleFile, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadChildXml(class Urho.Resources.XmlElement childElem, class Urho.Resources.XmlFile styleFile, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1910,8 +1910,8 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="childElem" Type="Urho.XmlElement" />
-        <Parameter Name="styleFile" Type="Urho.XmlFile" />
+        <Parameter Name="childElem" Type="Urho.Resources.XmlElement" />
+        <Parameter Name="styleFile" Type="Urho.Resources.XmlFile" />
         <Parameter Name="setInstanceDefault" Type="System.Boolean" />
       </Parameters>
       <Docs>
@@ -1924,8 +1924,8 @@
       </Docs>
     </Member>
     <Member MemberName="LoadXml">
-      <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.XmlElement source, bool setInstanceDefault);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXml(class Urho.XmlElement source, bool setInstanceDefault) cil managed" />
+      <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXml(class Urho.Resources.XmlElement source, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1934,7 +1934,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="source" Type="Urho.XmlElement" />
+        <Parameter Name="source" Type="Urho.Resources.XmlElement" />
         <Parameter Name="setInstanceDefault" Type="System.Boolean" />
       </Parameters>
       <Docs>
@@ -1946,8 +1946,8 @@
       </Docs>
     </Member>
     <Member MemberName="LoadXml">
-      <MemberSignature Language="C#" Value="public virtual bool LoadXml (Urho.XmlElement source, Urho.XmlFile styleFile, bool setInstanceDefault);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool LoadXml(class Urho.XmlElement source, class Urho.XmlFile styleFile, bool setInstanceDefault) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual bool LoadXml (Urho.Resources.XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool LoadXml(class Urho.Resources.XmlElement source, class Urho.Resources.XmlFile styleFile, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1956,8 +1956,8 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="source" Type="Urho.XmlElement" />
-        <Parameter Name="styleFile" Type="Urho.XmlFile" />
+        <Parameter Name="source" Type="Urho.Resources.XmlElement" />
+        <Parameter Name="styleFile" Type="Urho.Resources.XmlFile" />
         <Parameter Name="setInstanceDefault" Type="System.Boolean" />
       </Parameters>
       <Docs>
@@ -2110,14 +2110,14 @@
       </Docs>
     </Member>
     <Member MemberName="NameChanged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NameChangedEventArgs&gt; NameChanged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NameChangedEventArgs&gt; NameChanged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.NameChangedEventArgs&gt; NameChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.NameChangedEventArgs&gt; NameChanged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.NameChangedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.NameChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -2127,8 +2127,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnClickBegin">
-      <MemberSignature Language="C#" Value="public virtual void OnClickBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnClickBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnClickBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnClickBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2142,7 +2142,7 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -2158,8 +2158,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnClickEnd">
-      <MemberSignature Language="C#" Value="public virtual void OnClickEnd (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor, Urho.UIElement beginElement);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnClickEnd(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor, class Urho.UIElement beginElement) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnClickEnd (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor, Urho.Gui.UIElement beginElement);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnClickEnd(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor, class Urho.Gui.UIElement beginElement) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2173,8 +2173,8 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-        <Parameter Name="beginElement" Type="Urho.UIElement" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
+        <Parameter Name="beginElement" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -2191,8 +2191,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnDoubleClick">
-      <MemberSignature Language="C#" Value="public virtual void OnDoubleClick (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDoubleClick(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnDoubleClick (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDoubleClick(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2206,7 +2206,7 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -2222,8 +2222,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnHover">
-      <MemberSignature Language="C#" Value="public virtual void OnHover (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnHover(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnHover (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnHover(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2236,7 +2236,7 @@
         <Parameter Name="screenPosition" Type="Urho.IntVector2" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -2418,14 +2418,14 @@
       </Docs>
     </Member>
     <Member MemberName="Parent">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Parent { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Parent" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Parent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Parent" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -2456,14 +2456,14 @@
       </Docs>
     </Member>
     <Member MemberName="Positioned">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PositionedEventArgs&gt; Positioned;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PositionedEventArgs&gt; Positioned" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.PositionedEventArgs&gt; Positioned;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.PositionedEventArgs&gt; Positioned" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PositionedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.PositionedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -2550,8 +2550,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveChild">
-      <MemberSignature Language="C#" Value="public void RemoveChild (Urho.UIElement element, uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveChild(class Urho.UIElement element, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveChild (Urho.Gui.UIElement element, uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveChild(class Urho.Gui.UIElement element, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2560,7 +2560,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="element" Type="Urho.UIElement" />
+        <Parameter Name="element" Type="Urho.Gui.UIElement" />
         <Parameter Name="index" Type="System.UInt32" />
       </Parameters>
       <Docs>
@@ -2612,14 +2612,14 @@
       </Docs>
     </Member>
     <Member MemberName="Resized">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ResizedEventArgs&gt; Resized;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ResizedEventArgs&gt; Resized" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ResizedEventArgs&gt; Resized;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ResizedEventArgs&gt; Resized" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ResizedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ResizedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -2629,14 +2629,14 @@
       </Docs>
     </Member>
     <Member MemberName="Root">
-      <MemberSignature Language="C#" Value="public Urho.UIElement Root { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UIElement Root" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Root { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Root" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UIElement</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -2647,8 +2647,8 @@
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.XmlElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXml(class Urho.XmlElement dest) cil managed" />
+      <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.Resources.XmlElement dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXml(class Urho.Resources.XmlElement dest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2657,7 +2657,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="dest" Type="Urho.XmlElement" />
+        <Parameter Name="dest" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>
@@ -2707,8 +2707,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetAlignment">
-      <MemberSignature Language="C#" Value="public void SetAlignment (Urho.HorizontalAlignment hAlign, Urho.VerticalAlignment vAlign);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAlignment(valuetype Urho.HorizontalAlignment hAlign, valuetype Urho.VerticalAlignment vAlign) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetAlignment (Urho.Gui.HorizontalAlignment hAlign, Urho.Gui.VerticalAlignment vAlign);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAlignment(valuetype Urho.Gui.HorizontalAlignment hAlign, valuetype Urho.Gui.VerticalAlignment vAlign) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2717,8 +2717,8 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="hAlign" Type="Urho.HorizontalAlignment" />
-        <Parameter Name="vAlign" Type="Urho.VerticalAlignment" />
+        <Parameter Name="hAlign" Type="Urho.Gui.HorizontalAlignment" />
+        <Parameter Name="vAlign" Type="Urho.Gui.VerticalAlignment" />
       </Parameters>
       <Docs>
         <param name="hAlign">To be added.</param>
@@ -2751,8 +2751,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetColor">
-      <MemberSignature Language="C#" Value="public void SetColor (Urho.Corner corner, Urho.Color color);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetColor(valuetype Urho.Corner corner, valuetype Urho.Color color) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetColor (Urho.Gui.Corner corner, Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetColor(valuetype Urho.Gui.Corner corner, valuetype Urho.Color color) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2761,7 +2761,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="corner" Type="Urho.Corner" />
+        <Parameter Name="corner" Type="Urho.Gui.Corner" />
         <Parameter Name="color" Type="Urho.Color" />
       </Parameters>
       <Docs>
@@ -2795,8 +2795,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetDefaultStyle">
-      <MemberSignature Language="C#" Value="public void SetDefaultStyle (Urho.XmlFile style);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDefaultStyle(class Urho.XmlFile style) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetDefaultStyle (Urho.Resources.XmlFile style);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDefaultStyle(class Urho.Resources.XmlFile style) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2805,7 +2805,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="style" Type="Urho.XmlFile" />
+        <Parameter Name="style" Type="Urho.Resources.XmlFile" />
       </Parameters>
       <Docs>
         <param name="style">To be added.</param>
@@ -3047,8 +3047,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetLayout">
-      <MemberSignature Language="C#" Value="public void SetLayout (Urho.LayoutMode mode, int spacing, Urho.IntRect border);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetLayout(valuetype Urho.LayoutMode mode, int32 spacing, valuetype Urho.IntRect border) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetLayout (Urho.Gui.LayoutMode mode, int spacing, Urho.IntRect border);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetLayout(valuetype Urho.Gui.LayoutMode mode, int32 spacing, valuetype Urho.IntRect border) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3057,7 +3057,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="mode" Type="Urho.LayoutMode" />
+        <Parameter Name="mode" Type="Urho.Gui.LayoutMode" />
         <Parameter Name="spacing" Type="System.Int32" />
         <Parameter Name="border" Type="Urho.IntRect" />
       </Parameters>
@@ -3118,8 +3118,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetParent">
-      <MemberSignature Language="C#" Value="public void SetParent (Urho.UIElement parent, uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetParent(class Urho.UIElement parent, unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetParent (Urho.Gui.UIElement parent, uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetParent(class Urho.Gui.UIElement parent, unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3128,7 +3128,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="parent" Type="Urho.UIElement" />
+        <Parameter Name="parent" Type="Urho.Gui.UIElement" />
         <Parameter Name="index" Type="System.UInt32" />
       </Parameters>
       <Docs>
@@ -3208,8 +3208,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetStyle">
-      <MemberSignature Language="C#" Value="public bool SetStyle (Urho.XmlElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetStyle(class Urho.XmlElement element) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetStyle (Urho.Resources.XmlElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetStyle(class Urho.Resources.XmlElement element) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3218,7 +3218,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="element" Type="Urho.XmlElement" />
+        <Parameter Name="element" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
         <param name="element">To be added.</param>
@@ -3228,8 +3228,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetStyle">
-      <MemberSignature Language="C#" Value="public bool SetStyle (string styleName, Urho.XmlFile file);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetStyle(string styleName, class Urho.XmlFile file) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetStyle (string styleName, Urho.Resources.XmlFile file);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetStyle(string styleName, class Urho.Resources.XmlFile file) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3239,7 +3239,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="styleName" Type="System.String" />
-        <Parameter Name="file" Type="Urho.XmlFile" />
+        <Parameter Name="file" Type="Urho.Resources.XmlFile" />
       </Parameters>
       <Docs>
         <param name="styleName">To be added.</param>
@@ -3250,8 +3250,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetStyleAuto">
-      <MemberSignature Language="C#" Value="public bool SetStyleAuto (Urho.XmlFile file);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetStyleAuto(class Urho.XmlFile file) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetStyleAuto (Urho.Resources.XmlFile file);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetStyleAuto(class Urho.Resources.XmlFile file) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3260,7 +3260,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="file" Type="Urho.XmlFile" />
+        <Parameter Name="file" Type="Urho.Resources.XmlFile" />
       </Parameters>
       <Docs>
         <param name="file">To be added.</param>
@@ -3579,8 +3579,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDefocused">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDefocused (Action&lt;Urho.DefocusedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDefocused(class System.Action`1&lt;valuetype Urho.DefocusedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDefocused (Action&lt;Urho.Gui.DefocusedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDefocused(class System.Action`1&lt;valuetype Urho.Gui.DefocusedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3589,7 +3589,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.DefocusedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.DefocusedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3598,13 +3598,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.Defocused" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.Defocused" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragBegin">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragBegin (Action&lt;Urho.DragBeginEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragBegin(class System.Action`1&lt;valuetype Urho.DragBeginEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragBegin (Action&lt;Urho.Gui.DragBeginEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragBegin(class System.Action`1&lt;valuetype Urho.Gui.DragBeginEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3613,7 +3613,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.DragBeginEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.DragBeginEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3622,13 +3622,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.DragBegin" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.DragBegin" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragCancel">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragCancel (Action&lt;Urho.DragCancelEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragCancel(class System.Action`1&lt;valuetype Urho.DragCancelEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragCancel (Action&lt;Urho.Gui.DragCancelEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragCancel(class System.Action`1&lt;valuetype Urho.Gui.DragCancelEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3637,7 +3637,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.DragCancelEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.DragCancelEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3646,13 +3646,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.DragCancel" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.DragCancel" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragDropFinish">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragDropFinish (Action&lt;Urho.DragDropFinishEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragDropFinish(class System.Action`1&lt;valuetype Urho.DragDropFinishEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragDropFinish (Action&lt;Urho.Gui.DragDropFinishEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragDropFinish(class System.Action`1&lt;valuetype Urho.Gui.DragDropFinishEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3661,7 +3661,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.DragDropFinishEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.DragDropFinishEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3670,13 +3670,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.DragDropFinish" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.DragDropFinish" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragDropTest">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragDropTest (Action&lt;Urho.DragDropTestEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragDropTest(class System.Action`1&lt;valuetype Urho.DragDropTestEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragDropTest (Action&lt;Urho.Gui.DragDropTestEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragDropTest(class System.Action`1&lt;valuetype Urho.Gui.DragDropTestEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3685,7 +3685,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.DragDropTestEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.DragDropTestEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3694,13 +3694,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.DragDropTest" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.DragDropTest" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragEnd">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragEnd (Action&lt;Urho.DragEndEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragEnd(class System.Action`1&lt;valuetype Urho.DragEndEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragEnd (Action&lt;Urho.Gui.DragEndEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragEnd(class System.Action`1&lt;valuetype Urho.Gui.DragEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3709,7 +3709,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.DragEndEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.DragEndEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3718,13 +3718,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.DragEnd" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.DragEnd" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToDragMove">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragMove (Action&lt;Urho.DragMoveEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragMove(class System.Action`1&lt;valuetype Urho.DragMoveEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToDragMove (Action&lt;Urho.Gui.DragMoveEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToDragMove(class System.Action`1&lt;valuetype Urho.Gui.DragMoveEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3733,7 +3733,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.DragMoveEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.DragMoveEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3742,13 +3742,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.DragMove" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.DragMove" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToElementAdded">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToElementAdded (Action&lt;Urho.ElementAddedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToElementAdded(class System.Action`1&lt;valuetype Urho.ElementAddedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToElementAdded (Action&lt;Urho.Gui.ElementAddedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToElementAdded(class System.Action`1&lt;valuetype Urho.Gui.ElementAddedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3757,7 +3757,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ElementAddedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ElementAddedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3766,13 +3766,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.ElementAdded" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.ElementAdded" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToElementRemoved">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToElementRemoved (Action&lt;Urho.ElementRemovedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToElementRemoved(class System.Action`1&lt;valuetype Urho.ElementRemovedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToElementRemoved (Action&lt;Urho.Gui.ElementRemovedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToElementRemoved(class System.Action`1&lt;valuetype Urho.Gui.ElementRemovedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3781,7 +3781,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ElementRemovedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ElementRemovedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3790,13 +3790,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.ElementRemoved" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.ElementRemoved" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToFocused">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFocused (Action&lt;Urho.FocusedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFocused(class System.Action`1&lt;valuetype Urho.FocusedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFocused (Action&lt;Urho.Gui.FocusedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFocused(class System.Action`1&lt;valuetype Urho.Gui.FocusedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3805,7 +3805,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.FocusedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.FocusedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3814,13 +3814,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.Focused" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.Focused" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToHoverBegin">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToHoverBegin (Action&lt;Urho.HoverBeginEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToHoverBegin(class System.Action`1&lt;valuetype Urho.HoverBeginEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToHoverBegin (Action&lt;Urho.Gui.HoverBeginEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToHoverBegin(class System.Action`1&lt;valuetype Urho.Gui.HoverBeginEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3829,7 +3829,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.HoverBeginEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.HoverBeginEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3838,13 +3838,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.HoverBegin" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.HoverBegin" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToHoverEnd">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToHoverEnd (Action&lt;Urho.HoverEndEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToHoverEnd(class System.Action`1&lt;valuetype Urho.HoverEndEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToHoverEnd (Action&lt;Urho.Gui.HoverEndEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToHoverEnd(class System.Action`1&lt;valuetype Urho.Gui.HoverEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3853,7 +3853,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.HoverEndEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.HoverEndEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3862,13 +3862,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.HoverEnd" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.HoverEnd" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToLayoutUpdated">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLayoutUpdated (Action&lt;Urho.LayoutUpdatedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLayoutUpdated(class System.Action`1&lt;valuetype Urho.LayoutUpdatedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToLayoutUpdated (Action&lt;Urho.Gui.LayoutUpdatedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToLayoutUpdated(class System.Action`1&lt;valuetype Urho.Gui.LayoutUpdatedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3877,7 +3877,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.LayoutUpdatedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.LayoutUpdatedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3886,13 +3886,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.LayoutUpdated" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.LayoutUpdated" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNameChanged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNameChanged (Action&lt;Urho.NameChangedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNameChanged(class System.Action`1&lt;valuetype Urho.NameChangedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNameChanged (Action&lt;Urho.Gui.NameChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNameChanged(class System.Action`1&lt;valuetype Urho.Gui.NameChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3901,7 +3901,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.NameChangedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.NameChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3910,13 +3910,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.NameChanged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.NameChanged" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPositioned">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPositioned (Action&lt;Urho.PositionedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPositioned(class System.Action`1&lt;valuetype Urho.PositionedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPositioned (Action&lt;Urho.Gui.PositionedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPositioned(class System.Action`1&lt;valuetype Urho.Gui.PositionedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3925,7 +3925,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PositionedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.PositionedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3934,13 +3934,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.Positioned" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.Positioned" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToResized">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResized (Action&lt;Urho.ResizedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResized(class System.Action`1&lt;valuetype Urho.ResizedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToResized (Action&lt;Urho.Gui.ResizedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToResized(class System.Action`1&lt;valuetype Urho.Gui.ResizedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3949,7 +3949,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ResizedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ResizedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3958,13 +3958,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.Resized" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.Resized" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToVisibleChanged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToVisibleChanged (Action&lt;Urho.VisibleChangedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToVisibleChanged(class System.Action`1&lt;valuetype Urho.VisibleChangedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToVisibleChanged (Action&lt;Urho.Gui.VisibleChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToVisibleChanged(class System.Action`1&lt;valuetype Urho.Gui.VisibleChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -3973,7 +3973,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.VisibleChangedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.VisibleChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -3982,19 +3982,19 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.UIElement.VisibleChanged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.UIElement.VisibleChanged" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="TraversalMode">
-      <MemberSignature Language="C#" Value="public Urho.TraversalMode TraversalMode { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TraversalMode TraversalMode" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.TraversalMode TraversalMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.TraversalMode TraversalMode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TraversalMode</ReturnType>
+        <ReturnType>Urho.Gui.TraversalMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -4132,14 +4132,14 @@
       </Docs>
     </Member>
     <Member MemberName="VerticalAlignment">
-      <MemberSignature Language="C#" Value="public Urho.VerticalAlignment VerticalAlignment { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.VerticalAlignment VerticalAlignment" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.VerticalAlignment VerticalAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.VerticalAlignment VerticalAlignment" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.VerticalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.VerticalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -4152,14 +4152,14 @@
       </Docs>
     </Member>
     <Member MemberName="VisibleChanged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.VisibleChangedEventArgs&gt; VisibleChanged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.VisibleChangedEventArgs&gt; VisibleChanged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.VisibleChangedEventArgs&gt; VisibleChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.VisibleChangedEventArgs&gt; VisibleChanged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.VisibleChangedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.VisibleChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -625,14 +625,14 @@
       </Docs>
     </Member>
     <Member MemberName="DepthTexture">
-      <MemberSignature Language="C#" Value="public Urho.Texture2D DepthTexture { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D DepthTexture" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Texture2D DepthTexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Texture2D DepthTexture" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Texture2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -997,8 +997,8 @@
       </Docs>
     </Member>
     <Member MemberName="GetFormat">
-      <MemberSignature Language="C#" Value="public uint GetFormat (Urho.CompressedFormat format);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetFormat(valuetype Urho.CompressedFormat format) cil managed" />
+      <MemberSignature Language="C#" Value="public uint GetFormat (Urho.Resources.CompressedFormat format);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetFormat(valuetype Urho.Resources.CompressedFormat format) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1007,7 +1007,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="format" Type="Urho.CompressedFormat" />
+        <Parameter Name="format" Type="Urho.Resources.CompressedFormat" />
       </Parameters>
       <Docs>
         <param name="format">To be added.</param>
@@ -1862,8 +1862,8 @@
       </Docs>
     </Member>
     <Member MemberName="ResolveToTexture">
-      <MemberSignature Language="C#" Value="public bool ResolveToTexture (Urho.Texture2D destination, Urho.IntRect viewport);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ResolveToTexture(class Urho.Texture2D destination, valuetype Urho.IntRect viewport) cil managed" />
+      <MemberSignature Language="C#" Value="public bool ResolveToTexture (Urho.Urho2D.Texture2D destination, Urho.IntRect viewport);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ResolveToTexture(class Urho.Urho2D.Texture2D destination, valuetype Urho.IntRect viewport) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1872,7 +1872,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="destination" Type="Urho.Texture2D" />
+        <Parameter Name="destination" Type="Urho.Urho2D.Texture2D" />
         <Parameter Name="viewport" Type="Urho.IntRect" />
       </Parameters>
       <Docs>
@@ -2107,8 +2107,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetDepthStencil">
-      <MemberSignature Language="C#" Value="public void SetDepthStencil (Urho.Texture2D texture);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDepthStencil(class Urho.Texture2D texture) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetDepthStencil (Urho.Urho2D.Texture2D texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDepthStencil(class Urho.Urho2D.Texture2D texture) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2117,7 +2117,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="texture" Type="Urho.Texture2D" />
+        <Parameter Name="texture" Type="Urho.Urho2D.Texture2D" />
       </Parameters>
       <Docs>
         <param name="texture">To be added.</param>
@@ -2211,8 +2211,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetRenderTarget">
-      <MemberSignature Language="C#" Value="public void SetRenderTarget (uint index, Urho.Texture2D texture);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRenderTarget(unsigned int32 index, class Urho.Texture2D texture) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetRenderTarget (uint index, Urho.Urho2D.Texture2D texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRenderTarget(unsigned int32 index, class Urho.Urho2D.Texture2D texture) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2222,7 +2222,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
-        <Parameter Name="texture" Type="Urho.Texture2D" />
+        <Parameter Name="texture" Type="Urho.Urho2D.Texture2D" />
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
@@ -2601,8 +2601,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetWindowIcon">
-      <MemberSignature Language="C#" Value="public void SetWindowIcon (Urho.Image windowIcon);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWindowIcon(class Urho.Image windowIcon) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetWindowIcon (Urho.Resources.Image windowIcon);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWindowIcon(class Urho.Resources.Image windowIcon) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2611,7 +2611,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="windowIcon" Type="Urho.Image" />
+        <Parameter Name="windowIcon" Type="Urho.Resources.Image" />
       </Parameters>
       <Docs>
         <param name="windowIcon">To be added.</param>
@@ -2987,7 +2987,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -3003,7 +3004,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

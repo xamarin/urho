@@ -1,4 +1,4 @@
-<Type Name="IActionTweenDelegate" FullName="Urho.IActionTweenDelegate">
+<Type Name="IActionTweenDelegate" FullName="Urho.Actions.IActionTweenDelegate">
   <TypeSignature Language="C#" Value="public interface IActionTweenDelegate" />
   <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IActionTweenDelegate" />
   <AssemblyInfo>

@@ -1,12 +1,12 @@
-<Type Name="MoveToState" FullName="Urho.MoveToState">
-  <TypeSignature Language="C#" Value="public class MoveToState : Urho.MoveByState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit MoveToState extends Urho.MoveByState" />
+<Type Name="MoveToState" FullName="Urho.Actions.MoveToState">
+  <TypeSignature Language="C#" Value="public class MoveToState : Urho.Actions.MoveByState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit MoveToState extends Urho.Actions.MoveByState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.MoveByState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.MoveByState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public MoveToState (Urho.MoveTo action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.MoveTo action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public MoveToState (Urho.Actions.MoveTo action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.MoveTo action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.MoveTo" />
+        <Parameter Name="action" Type="Urho.Actions.MoveTo" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

@@ -1,12 +1,12 @@
-<Type Name="ParticleEffect2D" FullName="Urho.ParticleEffect2D">
-  <TypeSignature Language="C#" Value="public class ParticleEffect2D : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ParticleEffect2D extends Urho.Resource" />
+<Type Name="ParticleEffect2D" FullName="Urho.Urho2D.ParticleEffect2D">
+  <TypeSignature Language="C#" Value="public class ParticleEffect2D : Urho.Resources.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ParticleEffect2D extends Urho.Resources.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Resource</BaseTypeName>
+    <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -171,14 +171,14 @@
       </Docs>
     </Member>
     <Member MemberName="EmitterType">
-      <MemberSignature Language="C#" Value="public Urho.EmitterType2D EmitterType { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.EmitterType2D EmitterType" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.EmitterType2D EmitterType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Urho2D.EmitterType2D EmitterType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.EmitterType2D</ReturnType>
+        <ReturnType>Urho.Urho2D.EmitterType2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -691,14 +691,14 @@
       </Docs>
     </Member>
     <Member MemberName="Sprite">
-      <MemberSignature Language="C#" Value="public Urho.Sprite2D Sprite { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Sprite2D Sprite" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Sprite2D Sprite { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Sprite2D Sprite" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Sprite2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Sprite2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

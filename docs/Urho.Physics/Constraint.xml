@@ -1,4 +1,4 @@
-<Type Name="Constraint" FullName="Urho.Constraint">
+<Type Name="Constraint" FullName="Urho.Physics.Constraint">
   <TypeSignature Language="C#" Value="public class Constraint : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Constraint extends Urho.Component" />
   <AssemblyInfo>
@@ -147,14 +147,14 @@
       </Docs>
     </Member>
     <Member MemberName="ConstraintType">
-      <MemberSignature Language="C#" Value="public Urho.ConstraintType ConstraintType { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.ConstraintType ConstraintType" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.ConstraintType ConstraintType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Physics.ConstraintType ConstraintType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ConstraintType</ReturnType>
+        <ReturnType>Urho.Physics.ConstraintType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -288,14 +288,14 @@
       </Docs>
     </Member>
     <Member MemberName="OtherBody">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody OtherBody { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody OtherBody" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.RigidBody OtherBody { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.RigidBody OtherBody" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody</ReturnType>
+        <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -348,14 +348,14 @@
       </Docs>
     </Member>
     <Member MemberName="OwnBody">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody OwnBody { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody OwnBody" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.RigidBody OwnBody { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.RigidBody OwnBody" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody</ReturnType>
+        <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -366,14 +366,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsWorld">
-      <MemberSignature Language="C#" Value="public Urho.PhysicsWorld PhysicsWorld { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.PhysicsWorld PhysicsWorld" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.PhysicsWorld PhysicsWorld { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.PhysicsWorld PhysicsWorld" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PhysicsWorld</ReturnType>
+        <ReturnType>Urho.Physics.PhysicsWorld</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

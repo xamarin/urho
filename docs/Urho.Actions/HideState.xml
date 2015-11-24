@@ -1,12 +1,12 @@
-<Type Name="HideState" FullName="Urho.HideState">
-  <TypeSignature Language="C#" Value="public class HideState : Urho.ActionInstantState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit HideState extends Urho.ActionInstantState" />
+<Type Name="HideState" FullName="Urho.Actions.HideState">
+  <TypeSignature Language="C#" Value="public class HideState : Urho.Actions.ActionInstantState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit HideState extends Urho.Actions.ActionInstantState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.ActionInstantState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.ActionInstantState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public HideState (Urho.Hide action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Hide action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public HideState (Urho.Actions.Hide action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.Hide action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.Hide" />
+        <Parameter Name="action" Type="Urho.Actions.Hide" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

@@ -1,12 +1,12 @@
-<Type Name="Slider" FullName="Urho.Slider">
-  <TypeSignature Language="C#" Value="public class Slider : Urho.BorderImage" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Slider extends Urho.BorderImage" />
+<Type Name="Slider" FullName="Urho.Gui.Slider">
+  <TypeSignature Language="C#" Value="public class Slider : Urho.Gui.BorderImage" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Slider extends Urho.Gui.BorderImage" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.BorderImage</BaseTypeName>
+    <BaseTypeName>Urho.Gui.BorderImage</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -112,14 +112,14 @@
       </Docs>
     </Member>
     <Member MemberName="Knob">
-      <MemberSignature Language="C#" Value="public Urho.BorderImage Knob { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.BorderImage Knob" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.BorderImage Knob { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.BorderImage Knob" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.BorderImage</ReturnType>
+        <ReturnType>Urho.Gui.BorderImage</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -130,8 +130,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnClickBegin">
-      <MemberSignature Language="C#" Value="public override void OnClickBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnClickBegin (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickBegin(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -145,7 +145,7 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -161,8 +161,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnClickEnd">
-      <MemberSignature Language="C#" Value="public override void OnClickEnd (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Cursor cursor, Urho.UIElement beginElement);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickEnd(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Cursor cursor, class Urho.UIElement beginElement) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnClickEnd (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int button, int buttons, int qualifiers, Urho.Gui.Cursor cursor, Urho.Gui.UIElement beginElement);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnClickEnd(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 button, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor, class Urho.Gui.UIElement beginElement) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -176,8 +176,8 @@
         <Parameter Name="button" Type="System.Int32" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
-        <Parameter Name="beginElement" Type="Urho.UIElement" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
+        <Parameter Name="beginElement" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -194,8 +194,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnHover">
-      <MemberSignature Language="C#" Value="public override void OnHover (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnHover(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnHover (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnHover(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -208,7 +208,7 @@
         <Parameter Name="screenPosition" Type="Urho.IntVector2" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -241,14 +241,14 @@
       </Docs>
     </Member>
     <Member MemberName="Orientation">
-      <MemberSignature Language="C#" Value="public Urho.Orientation Orientation { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Orientation Orientation" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Orientation Orientation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.Orientation Orientation" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Orientation</ReturnType>
+        <ReturnType>Urho.Gui.Orientation</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -322,14 +322,14 @@
       </Docs>
     </Member>
     <Member MemberName="SliderChanged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.SliderChangedEventArgs&gt; SliderChanged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.SliderChangedEventArgs&gt; SliderChanged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.SliderChangedEventArgs&gt; SliderChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.SliderChangedEventArgs&gt; SliderChanged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.SliderChangedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.SliderChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -339,14 +339,14 @@
       </Docs>
     </Member>
     <Member MemberName="SliderPaged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.SliderPagedEventArgs&gt; SliderPaged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.SliderPagedEventArgs&gt; SliderPaged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.SliderPagedEventArgs&gt; SliderPaged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.SliderPagedEventArgs&gt; SliderPaged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.SliderPagedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.SliderPagedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -356,8 +356,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSliderChanged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSliderChanged (Action&lt;Urho.SliderChangedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSliderChanged(class System.Action`1&lt;valuetype Urho.SliderChangedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSliderChanged (Action&lt;Urho.Gui.SliderChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSliderChanged(class System.Action`1&lt;valuetype Urho.Gui.SliderChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -366,7 +366,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.SliderChangedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.SliderChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -375,13 +375,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Slider.SliderChanged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.Slider.SliderChanged" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToSliderPaged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSliderPaged (Action&lt;Urho.SliderPagedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSliderPaged(class System.Action`1&lt;valuetype Urho.SliderPagedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToSliderPaged (Action&lt;Urho.Gui.SliderPagedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToSliderPaged(class System.Action`1&lt;valuetype Urho.Gui.SliderPagedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -390,7 +390,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.SliderPagedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.SliderPagedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -399,7 +399,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Slider.SliderPaged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.Slider.SliderPaged" /> event.</para>
         </remarks>
       </Docs>
     </Member>

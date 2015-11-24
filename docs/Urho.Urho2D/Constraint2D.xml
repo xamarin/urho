@@ -1,4 +1,4 @@
-<Type Name="Constraint2D" FullName="Urho.Constraint2D">
+<Type Name="Constraint2D" FullName="Urho.Urho2D.Constraint2D">
   <TypeSignature Language="C#" Value="public class Constraint2D : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Constraint2D extends Urho.Component" />
   <AssemblyInfo>
@@ -75,14 +75,14 @@
       </Docs>
     </Member>
     <Member MemberName="AttachedConstraint">
-      <MemberSignature Language="C#" Value="public Urho.Constraint2D AttachedConstraint { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Constraint2D AttachedConstraint" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Constraint2D AttachedConstraint { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Constraint2D AttachedConstraint" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Constraint2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Constraint2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -167,14 +167,14 @@
       </Docs>
     </Member>
     <Member MemberName="OtherBody">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody2D OtherBody { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody2D OtherBody" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.RigidBody2D OtherBody { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.RigidBody2D OtherBody" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody2D</ReturnType>
+        <ReturnType>Urho.Urho2D.RigidBody2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -187,14 +187,14 @@
       </Docs>
     </Member>
     <Member MemberName="OwnerBody">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody2D OwnerBody { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody2D OwnerBody" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.RigidBody2D OwnerBody { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.RigidBody2D OwnerBody" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody2D</ReturnType>
+        <ReturnType>Urho.Urho2D.RigidBody2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

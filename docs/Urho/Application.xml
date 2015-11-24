@@ -175,21 +175,21 @@
       </Docs>
     </Member>
     <Member MemberName="Audio">
-      <MemberSignature Language="C#" Value="public Urho.Audio Audio { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Audio Audio" />
+      <MemberSignature Language="C#" Value="public Urho.Audio.Audio Audio { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Audio.Audio Audio" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Audio</ReturnType>
+        <ReturnType>Urho.Audio.Audio</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Returns the Audio subsystem.</summary>
         <value>
           <para />
         </value>
-        <remarks>See the <see cref="T:Urho.Audio" /> class description for more information on how to use the Audio subsystem.</remarks>
+        <remarks>See the <see cref="T:Urho.Audio.Audio" /> class description for more information on how to use the Audio subsystem.</remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseType">
@@ -369,14 +369,14 @@
       </Docs>
     </Member>
     <Member MemberName="FileSystem">
-      <MemberSignature Language="C#" Value="public Urho.FileSystem FileSystem { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.FileSystem FileSystem" />
+      <MemberSignature Language="C#" Value="public Urho.IO.FileSystem FileSystem { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.IO.FileSystem FileSystem" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FileSystem</ReturnType>
+        <ReturnType>Urho.IO.FileSystem</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Returns the FileSystem subsystem.</summary>
@@ -438,14 +438,14 @@
       </Docs>
     </Member>
     <Member MemberName="Log">
-      <MemberSignature Language="C#" Value="public Urho.Log Log { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Log Log" />
+      <MemberSignature Language="C#" Value="public Urho.IO.Log Log { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.IO.Log Log" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Log</ReturnType>
+        <ReturnType>Urho.IO.Log</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Returns the Log subsystem.</summary>
@@ -454,14 +454,14 @@
       </Docs>
     </Member>
     <Member MemberName="Network">
-      <MemberSignature Language="C#" Value="public Urho.Network Network { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Network Network" />
+      <MemberSignature Language="C#" Value="public Urho.Network.Network Network { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Network.Network Network" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Network</ReturnType>
+        <ReturnType>Urho.Network.Network</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Returns the Network subsystem.</summary>
@@ -557,14 +557,14 @@
       </Docs>
     </Member>
     <Member MemberName="ResourceCache">
-      <MemberSignature Language="C#" Value="public Urho.ResourceCache ResourceCache { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ResourceCache ResourceCache" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.ResourceCache ResourceCache { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.ResourceCache ResourceCache" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ResourceCache</ReturnType>
+        <ReturnType>Urho.Resources.ResourceCache</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Returns the ResourceCache subsystem.</summary>
@@ -726,14 +726,14 @@
       </Docs>
     </Member>
     <Member MemberName="UI">
-      <MemberSignature Language="C#" Value="public Urho.UI UI { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.UI UI" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UI UI { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UI UI" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.UI</ReturnType>
+        <ReturnType>Urho.Gui.UI</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Returns the UI subsystem.</summary>

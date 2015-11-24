@@ -1,4 +1,4 @@
-<Type Name="OffMeshConnection" FullName="Urho.OffMeshConnection">
+<Type Name="OffMeshConnection" FullName="Urho.Navigation.OffMeshConnection">
   <TypeSignature Language="C#" Value="public class OffMeshConnection : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit OffMeshConnection extends Urho.Component" />
   <AssemblyInfo>

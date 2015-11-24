@@ -1,4 +1,4 @@
-<Type Name="PhysicsPreStepEventArgs" FullName="Urho.PhysicsPreStepEventArgs">
+<Type Name="PhysicsPreStepEventArgs" FullName="Urho.Physics.PhysicsPreStepEventArgs">
   <TypeSignature Language="C#" Value="public struct PhysicsPreStepEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit PhysicsPreStepEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -31,14 +31,14 @@
       </Docs>
     </Member>
     <Member MemberName="World">
-      <MemberSignature Language="C#" Value="public Urho.PhysicsWorld World { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.PhysicsWorld World" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.PhysicsWorld World { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.PhysicsWorld World" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.PhysicsWorld</ReturnType>
+        <ReturnType>Urho.Physics.PhysicsWorld</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

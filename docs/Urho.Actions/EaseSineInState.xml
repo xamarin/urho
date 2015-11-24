@@ -1,12 +1,12 @@
-<Type Name="EaseSineInState" FullName="Urho.EaseSineInState">
-  <TypeSignature Language="C#" Value="public class EaseSineInState : Urho.ActionEaseState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EaseSineInState extends Urho.ActionEaseState" />
+<Type Name="EaseSineInState" FullName="Urho.Actions.EaseSineInState">
+  <TypeSignature Language="C#" Value="public class EaseSineInState : Urho.Actions.ActionEaseState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EaseSineInState extends Urho.Actions.ActionEaseState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.ActionEaseState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.ActionEaseState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public EaseSineInState (Urho.EaseSineIn action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.EaseSineIn action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public EaseSineInState (Urho.Actions.EaseSineIn action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.EaseSineIn action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.EaseSineIn" />
+        <Parameter Name="action" Type="Urho.Actions.EaseSineIn" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

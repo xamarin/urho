@@ -1,4 +1,4 @@
-<Type Name="CollisionEventMode" FullName="Urho.CollisionEventMode">
+<Type Name="CollisionEventMode" FullName="Urho.Physics.CollisionEventMode">
   <TypeSignature Language="C#" Value="public enum CollisionEventMode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed CollisionEventMode extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Active">
       <MemberSignature Language="C#" Value="Active" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CollisionEventMode Active = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.CollisionEventMode Active = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CollisionEventMode</ReturnType>
+        <ReturnType>Urho.Physics.CollisionEventMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="Always">
       <MemberSignature Language="C#" Value="Always" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CollisionEventMode Always = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.CollisionEventMode Always = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CollisionEventMode</ReturnType>
+        <ReturnType>Urho.Physics.CollisionEventMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Never">
       <MemberSignature Language="C#" Value="Never" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.CollisionEventMode Never = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.CollisionEventMode Never = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CollisionEventMode</ReturnType>
+        <ReturnType>Urho.Physics.CollisionEventMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

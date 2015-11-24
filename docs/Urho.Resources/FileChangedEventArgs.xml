@@ -1,4 +1,4 @@
-<Type Name="FileChangedEventArgs" FullName="Urho.FileChangedEventArgs">
+<Type Name="FileChangedEventArgs" FullName="Urho.Resources.FileChangedEventArgs">
   <TypeSignature Language="C#" Value="public struct FileChangedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit FileChangedEventArgs extends System.ValueType" />
   <AssemblyInfo>

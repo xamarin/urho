@@ -1,12 +1,12 @@
-<Type Name="Window" FullName="Urho.Window">
-  <TypeSignature Language="C#" Value="public class Window : Urho.BorderImage" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Window extends Urho.BorderImage" />
+<Type Name="Window" FullName="Urho.Gui.Window">
+  <TypeSignature Language="C#" Value="public class Window : Urho.Gui.BorderImage" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Window extends Urho.Gui.BorderImage" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.BorderImage</BaseTypeName>
+    <BaseTypeName>Urho.Gui.BorderImage</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -208,14 +208,14 @@
       </Docs>
     </Member>
     <Member MemberName="ModalChanged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ModalChangedEventArgs&gt; ModalChanged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ModalChangedEventArgs&gt; ModalChanged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ModalChangedEventArgs&gt; ModalChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ModalChangedEventArgs&gt; ModalChanged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ModalChangedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Gui.ModalChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -285,8 +285,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnHover">
-      <MemberSignature Language="C#" Value="public override void OnHover (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int buttons, int qualifiers, Urho.Cursor cursor);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnHover(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 buttons, int32 qualifiers, class Urho.Cursor cursor) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnHover (Urho.IntVector2 position, Urho.IntVector2 screenPosition, int buttons, int qualifiers, Urho.Gui.Cursor cursor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnHover(valuetype Urho.IntVector2 position, valuetype Urho.IntVector2 screenPosition, int32 buttons, int32 qualifiers, class Urho.Gui.Cursor cursor) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -299,7 +299,7 @@
         <Parameter Name="screenPosition" Type="Urho.IntVector2" />
         <Parameter Name="buttons" Type="System.Int32" />
         <Parameter Name="qualifiers" Type="System.Int32" />
-        <Parameter Name="cursor" Type="Urho.Cursor" />
+        <Parameter Name="cursor" Type="Urho.Gui.Cursor" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
@@ -418,8 +418,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToModalChanged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToModalChanged (Action&lt;Urho.ModalChangedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToModalChanged(class System.Action`1&lt;valuetype Urho.ModalChangedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToModalChanged (Action&lt;Urho.Gui.ModalChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToModalChanged(class System.Action`1&lt;valuetype Urho.Gui.ModalChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -428,7 +428,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ModalChangedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.ModalChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -437,7 +437,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Window.ModalChanged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.Window.ModalChanged" /> event.</para>
         </remarks>
       </Docs>
     </Member>

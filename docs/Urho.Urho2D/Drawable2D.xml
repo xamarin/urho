@@ -1,4 +1,4 @@
-<Type Name="Drawable2D" FullName="Urho.Drawable2D">
+<Type Name="Drawable2D" FullName="Urho.Urho2D.Drawable2D">
   <TypeSignature Language="C#" Value="public class Drawable2D : Urho.Drawable" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Drawable2D extends Urho.Drawable" />
   <AssemblyInfo>

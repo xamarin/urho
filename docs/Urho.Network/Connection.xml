@@ -1,4 +1,4 @@
-<Type Name="Connection" FullName="Urho.Connection">
+<Type Name="Connection" FullName="Urho.Network.Connection">
   <TypeSignature Language="C#" Value="public class Connection : Urho.UrhoObject" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Connection extends Urho.UrhoObject" />
   <AssemblyInfo>
@@ -127,14 +127,14 @@
       </Docs>
     </Member>
     <Member MemberName="ClientIdentity">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ClientIdentityEventArgs&gt; ClientIdentity;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ClientIdentityEventArgs&gt; ClientIdentity" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.ClientIdentityEventArgs&gt; ClientIdentity;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.ClientIdentityEventArgs&gt; ClientIdentity" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ClientIdentityEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.ClientIdentityEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -144,14 +144,14 @@
       </Docs>
     </Member>
     <Member MemberName="ClientSceneLoaded">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ClientSceneLoadedEventArgs&gt; ClientSceneLoaded;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ClientSceneLoadedEventArgs&gt; ClientSceneLoaded" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.ClientSceneLoadedEventArgs&gt; ClientSceneLoaded;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.ClientSceneLoadedEventArgs&gt; ClientSceneLoaded" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.ClientSceneLoadedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Network.ClientSceneLoadedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -633,8 +633,8 @@
       </Docs>
     </Member>
     <Member MemberName="SendPackageToClient">
-      <MemberSignature Language="C#" Value="public void SendPackageToClient (Urho.PackageFile package);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SendPackageToClient(class Urho.PackageFile package) cil managed" />
+      <MemberSignature Language="C#" Value="public void SendPackageToClient (Urho.IO.PackageFile package);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SendPackageToClient(class Urho.IO.PackageFile package) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -643,7 +643,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="package" Type="Urho.PackageFile" />
+        <Parameter Name="package" Type="Urho.IO.PackageFile" />
       </Parameters>
       <Docs>
         <param name="package">To be added.</param>
@@ -711,8 +711,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToClientIdentity">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientIdentity (Action&lt;Urho.ClientIdentityEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientIdentity(class System.Action`1&lt;valuetype Urho.ClientIdentityEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientIdentity (Action&lt;Urho.Network.ClientIdentityEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientIdentity(class System.Action`1&lt;valuetype Urho.Network.ClientIdentityEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -721,7 +721,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ClientIdentityEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.ClientIdentityEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -730,13 +730,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Connection.ClientIdentity" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Connection.ClientIdentity" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToClientSceneLoaded">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientSceneLoaded (Action&lt;Urho.ClientSceneLoadedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientSceneLoaded(class System.Action`1&lt;valuetype Urho.ClientSceneLoadedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToClientSceneLoaded (Action&lt;Urho.Network.ClientSceneLoadedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToClientSceneLoaded(class System.Action`1&lt;valuetype Urho.Network.ClientSceneLoadedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -745,7 +745,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.ClientSceneLoadedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Network.ClientSceneLoadedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -754,7 +754,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Connection.ClientSceneLoaded" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Network.Connection.ClientSceneLoaded" /> event.</para>
         </remarks>
       </Docs>
     </Member>

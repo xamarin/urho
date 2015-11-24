@@ -1,12 +1,12 @@
-<Type Name="View3D" FullName="Urho.View3D">
-  <TypeSignature Language="C#" Value="public class View3D : Urho.Window" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit View3D extends Urho.Window" />
+<Type Name="View3D" FullName="Urho.Gui.View3D">
+  <TypeSignature Language="C#" Value="public class View3D : Urho.Gui.Window" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit View3D extends Urho.Gui.Window" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Window</BaseTypeName>
+    <BaseTypeName>Urho.Gui.Window</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -129,14 +129,14 @@
       </Docs>
     </Member>
     <Member MemberName="DepthTexture">
-      <MemberSignature Language="C#" Value="public Urho.Texture2D DepthTexture { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D DepthTexture" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Texture2D DepthTexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Texture2D DepthTexture" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Texture2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -224,14 +224,14 @@
       </Docs>
     </Member>
     <Member MemberName="RenderTexture">
-      <MemberSignature Language="C#" Value="public Urho.Texture2D RenderTexture { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D RenderTexture" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Texture2D RenderTexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Texture2D RenderTexture" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Texture2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

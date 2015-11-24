@@ -1,4 +1,4 @@
-<Type Name="PhysicsWorld" FullName="Urho.PhysicsWorld">
+<Type Name="PhysicsWorld" FullName="Urho.Physics.PhysicsWorld">
   <TypeSignature Language="C#" Value="public class PhysicsWorld : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PhysicsWorld extends Urho.Component" />
   <AssemblyInfo>
@@ -15,20 +15,20 @@
             </summary>
     <remarks>
       <para>Urho3D implements rigid body physics simulation using the Bullet library.</para>
-      <para>The physics simulation has its own fixed update rate, which by default is 60Hz. When the rendering framerate is higher than the physics update rate, physics motion is interpolated so that it always appears smooth. The update rate can be changed with <see cref="M:Urho.PhysicsWorld.Fps" /> property. The physics update rate also determines the frequency of fixed timestep scene logic updates. Hard limit for physics steps per frame or adaptive timestep can be configured with <see cref="P:Urho.PhysicsWorld.MaxSubSteps" /> property. These can help to prevent a "spiral of death" due to the CPU being unable to handle the physics load. However, note that using either can lead to time slowing down (when steps are limited) or inconsistent physics behavior (when using adaptive step.)</para>
+      <para>The physics simulation has its own fixed update rate, which by default is 60Hz. When the rendering framerate is higher than the physics update rate, physics motion is interpolated so that it always appears smooth. The update rate can be changed with <see cref="M:Urho.Physics.PhysicsWorld.Fps" /> property. The physics update rate also determines the frequency of fixed timestep scene logic updates. Hard limit for physics steps per frame or adaptive timestep can be configured with <see cref="P:Urho.Physics.PhysicsWorld.MaxSubSteps" /> property. These can help to prevent a "spiral of death" due to the CPU being unable to handle the physics load. However, note that using either can lead to time slowing down (when steps are limited) or inconsistent physics behavior (when using adaptive step.)</para>
       <para>The other physics components are:</para>
       <list type="bullet">
         <item>
           <term>
-            <see cref="T:Urho.RigidBody" />: a physics object instance. Its parameters include mass, linear/angular velocities, friction and restitution.</term>
+            <see cref="T:Urho.Physics.RigidBody" />: a physics object instance. Its parameters include mass, linear/angular velocities, friction and restitution.</term>
         </item>
         <item>
           <term>
-            <see cref="T:Urho.CollisionShape" />: defines physics collision geometry. The supported shapes are box, sphere, cylinder, capsule, cone, triangle mesh, convex hull and heightfield terrain (requires the <see cref="T:Urho.Terrain" /> component in the same node.)</term>
+            <see cref="T:Urho.Physics.CollisionShape" />: defines physics collision geometry. The supported shapes are box, sphere, cylinder, capsule, cone, triangle mesh, convex hull and heightfield terrain (requires the <see cref="T:Urho.Terrain" /> component in the same node.)</term>
         </item>
         <item>
           <term>
-            <see cref="T:Urho.Constraint" />: connects two RigidBodies together, or one <see cref="T:Urho.RigidBody" /> to a static point in the world. Point, hinge, slider and cone twist constraints are supported.</term>
+            <see cref="T:Urho.Physics.Constraint" />: connects two RigidBodies together, or one <see cref="T:Urho.Physics.RigidBody" /> to a static point in the world. Point, hinge, slider and cone twist constraints are supported.</term>
         </item>
       </list>
       <para>
@@ -38,23 +38,23 @@
       </format>
       <para>
       </para>
-      <para>Both a <see cref="T:Urho.RigidBody" /> and at least one <see cref="T:Urho.CollisionShape" /> component must exist in a scene node for it to behave physically (a collision shape by itself does nothing.) Several collision shapes may exist in the same node to create compound shapes. An offset position and rotation relative to the node's transform can be specified for each. Triangle mesh and convex hull geometries require specifying a <see cref="T:Urho.Model" /> resource and the LOD level to use.</para>
+      <para>Both a <see cref="T:Urho.Physics.RigidBody" /> and at least one <see cref="T:Urho.Physics.CollisionShape" /> component must exist in a scene node for it to behave physically (a collision shape by itself does nothing.) Several collision shapes may exist in the same node to create compound shapes. An offset position and rotation relative to the node's transform can be specified for each. Triangle mesh and convex hull geometries require specifying a <see cref="T:Urho.Model" /> resource and the LOD level to use.</para>
       <para>
-        <see cref="T:Urho.CollisionShape" /> provides two APIs for defining the collision geometry. Either setting individual properties such as the shape type or size, or specifying both the shape type and all its properties at once using <see cref="M:Urho.CollisionShape.SetBox" />, <see cref="M:Urho.CollisionShape.SetCapsule" /> or <see cref="M:Urho.CollisionShape.SetTriangleMesh" /> for example.</para>
+        <see cref="T:Urho.Physics.CollisionShape" /> provides two APIs for defining the collision geometry. Either setting individual properties such as the shape type or size, or specifying both the shape type and all its properties at once using <see cref="M:Urho.Physics.CollisionShape.SetBox" />, <see cref="M:Urho.Physics.CollisionShape.SetCapsule" /> or <see cref="M:Urho.Physics.CollisionShape.SetTriangleMesh" /> for example.</para>
       <para>RigidBodies can be either static or moving. A body is static if its mass is 0, and moving if the mass is greater than 0. Note that the triangle mesh collision shape is not supported for moving objects; it will not collide properly due to limitations in the Bullet library. In this case the convex hull shape can be used instead.</para>
       <para>The collision behaviour of a rigid body is controlled by several variables. </para>
-      <para>First, the collision layer and mask define which other objects to collide with: see <see cref="M:Urho.RigidBody.SetCollisionLayerAndMask" />. By default a rigid body is on layer 1; the layer will be ANDed with the other body's collision mask to see if the collision should be reported. A rigid body can also be set to trigger mode to only report collisions without actually applying collision forces. This can be used to implement trigger areas. Finally, the friction, rolling friction and restitution coefficients (between 0 - 1) control how kinetic energy is transferred in the collisions. Note that rolling friction is by default zero, and if you want for example a sphere rolling on the floor to eventually stop, you need to set a non-zero rolling friction on both the sphere and floor rigid bodies.</para>
-      <para>By default rigid bodies can move and rotate about all 3 coordinate axes when forces are applied. To limit the movement, use <see cref="M:Urho.RigidBody.SetLinearFactor" /> and <see cref="M:Urho.RigidBody.SetAngularFactor" /> and set the axes you wish to use to 1 and those you do not wish to use to 0. For example moving humanoid characters are often represented by a capsule shape: to ensure they stay upright and only rotate when you explicitly set the rotation in code, set the angular factor to 0, 0, 0.</para>
-      <para>To prevent tunneling of a fast moving rigid body through obstacles, continuous collision detection can be used. It approximates the object as a swept sphere, but has a performance cost, so it should be used only when necessary. Set the <see cref="T:Urho.RigidBody.CcdRadius" /> and <see cref="T:Urho.RigidBody.CcdMotionThreshold" /> with non-zero values to enable. To prevent false collisions, the body's actual collision shape should completely contain the radius. The motion threshold is the required motion per simulation step for CCD to kick in: for example a box with size 1 should have motion threshold 1 as well.</para>
-      <para>All physics calculations are performed in world space. Nodes containing a <see cref="T:Urho.RigidBody" /> component should preferably be parented to the <see cref="T:Urho.Scene" /> (root node) to ensure independent motion. For ragdolls this is not absolute, as retaining proper bone hierarchy is more important, but be aware that the ragdoll bones may drift far from the animated model's root scene node.</para>
-      <para>When several collision shapes are present in the same node, edits to them can cause redundant mass/inertia update computation in the <see cref="T:Urho.RigidBody" />. To optimize performance in these cases, the edits can be enclosed between calls to <see cref="M:Urho.RigidBody.DisableMassUpdate" /> and <see cref="M:Urho.RigidBody.EnableMassUpdate" />.</para>
+      <para>First, the collision layer and mask define which other objects to collide with: see <see cref="M:Urho.Physics.RigidBody.SetCollisionLayerAndMask" />. By default a rigid body is on layer 1; the layer will be ANDed with the other body's collision mask to see if the collision should be reported. A rigid body can also be set to trigger mode to only report collisions without actually applying collision forces. This can be used to implement trigger areas. Finally, the friction, rolling friction and restitution coefficients (between 0 - 1) control how kinetic energy is transferred in the collisions. Note that rolling friction is by default zero, and if you want for example a sphere rolling on the floor to eventually stop, you need to set a non-zero rolling friction on both the sphere and floor rigid bodies.</para>
+      <para>By default rigid bodies can move and rotate about all 3 coordinate axes when forces are applied. To limit the movement, use <see cref="M:Urho.Physics.RigidBody.SetLinearFactor" /> and <see cref="M:Urho.Physics.RigidBody.SetAngularFactor" /> and set the axes you wish to use to 1 and those you do not wish to use to 0. For example moving humanoid characters are often represented by a capsule shape: to ensure they stay upright and only rotate when you explicitly set the rotation in code, set the angular factor to 0, 0, 0.</para>
+      <para>To prevent tunneling of a fast moving rigid body through obstacles, continuous collision detection can be used. It approximates the object as a swept sphere, but has a performance cost, so it should be used only when necessary. Set the <see cref="T:Urho.Physics.RigidBody.CcdRadius" /> and <see cref="T:Urho.Physics.RigidBody.CcdMotionThreshold" /> with non-zero values to enable. To prevent false collisions, the body's actual collision shape should completely contain the radius. The motion threshold is the required motion per simulation step for CCD to kick in: for example a box with size 1 should have motion threshold 1 as well.</para>
+      <para>All physics calculations are performed in world space. Nodes containing a <see cref="T:Urho.Physics.RigidBody" /> component should preferably be parented to the <see cref="T:Urho.Scene" /> (root node) to ensure independent motion. For ragdolls this is not absolute, as retaining proper bone hierarchy is more important, but be aware that the ragdoll bones may drift far from the animated model's root scene node.</para>
+      <para>When several collision shapes are present in the same node, edits to them can cause redundant mass/inertia update computation in the <see cref="T:Urho.Physics.RigidBody" />. To optimize performance in these cases, the edits can be enclosed between calls to <see cref="M:Urho.Physics.RigidBody.DisableMassUpdate" /> and <see cref="M:Urho.Physics.RigidBody.EnableMassUpdate" />.</para>
       <para>
       </para>
       <format type="text/html">
         <h2>Constraint parameters</h2>
       </format>
-      <para>Constraint position (and rotation if relevant) need to be defined in relation to both connected bodies, see <see cref="M:Urho.Constraint.SetPosition" /> and <see cref="M:Urho.Constraint.SetOtherPosition" />. If the constraint connects a body to the static world, then the "other body position" and "other body rotation" mean the static end's transform in world space. There is also a helper function <see cref="M:Urho.Constraint.SetWorldPosition" /> to assign the constraint to a world-space position; this sets both relative positions.</para>
-      <para>Specifying the constraint's motion axis instead of rotation is provided as an alternative as it can be more intuitive, see <see cref="M:Urho.Constraint.SetAxis" />. However, by explicitly specifying a rotation you can be sure the constraint is oriented precisely as you want.</para>
+      <para>Constraint position (and rotation if relevant) need to be defined in relation to both connected bodies, see <see cref="M:Urho.Physics.Constraint.SetPosition" /> and <see cref="M:Urho.Physics.Constraint.SetOtherPosition" />. If the constraint connects a body to the static world, then the "other body position" and "other body rotation" mean the static end's transform in world space. There is also a helper function <see cref="M:Urho.Physics.Constraint.SetWorldPosition" /> to assign the constraint to a world-space position; this sets both relative positions.</para>
+      <para>Specifying the constraint's motion axis instead of rotation is provided as an alternative as it can be more intuitive, see <see cref="M:Urho.Physics.Constraint.SetAxis" />. However, by explicitly specifying a rotation you can be sure the constraint is oriented precisely as you want.</para>
       <para>Hinge, slider and cone twist constraints support defining limits for the motion. To be generic, these are encoded slightly unintuitively into Vector2’s. For a hinge constraint, the low and high limit X coordinates define the minimum and maximum angle in degrees. For example -45 to 45. For a slider constraint, the X coordinates define the maximum linear motion in world space units, and the Y coordinates define maximum angular motion in degrees. The cone twist constraint uses only the high limit to define the maximum angles (minimum angle is always -maximum) in the following manner: The X coordinate is the limit of the twist (main) axis, while Y is the limit of the swinging motion about the other axes.</para>
       <para>
       </para>
@@ -146,8 +146,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddCollisionShape">
-      <MemberSignature Language="C#" Value="public void AddCollisionShape (Urho.CollisionShape shape);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCollisionShape(class Urho.CollisionShape shape) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddCollisionShape (Urho.Physics.CollisionShape shape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCollisionShape(class Urho.Physics.CollisionShape shape) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -156,7 +156,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="shape" Type="Urho.CollisionShape" />
+        <Parameter Name="shape" Type="Urho.Physics.CollisionShape" />
       </Parameters>
       <Docs>
         <param name="shape">To be added.</param>
@@ -167,8 +167,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddConstraint">
-      <MemberSignature Language="C#" Value="public void AddConstraint (Urho.Constraint joint);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddConstraint(class Urho.Constraint joint) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddConstraint (Urho.Physics.Constraint joint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddConstraint(class Urho.Physics.Constraint joint) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -177,7 +177,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="joint" Type="Urho.Constraint" />
+        <Parameter Name="joint" Type="Urho.Physics.Constraint" />
       </Parameters>
       <Docs>
         <param name="joint">To be added.</param>
@@ -188,8 +188,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddRigidBody">
-      <MemberSignature Language="C#" Value="public void AddRigidBody (Urho.RigidBody body);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddRigidBody(class Urho.RigidBody body) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddRigidBody (Urho.Physics.RigidBody body);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddRigidBody(class Urho.Physics.RigidBody body) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -198,7 +198,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="body" Type="Urho.RigidBody" />
+        <Parameter Name="body" Type="Urho.Physics.RigidBody" />
       </Parameters>
       <Docs>
         <param name="body">To be added.</param>
@@ -243,8 +243,8 @@
       </Docs>
     </Member>
     <Member MemberName="ConvexCast">
-      <MemberSignature Language="C#" Value="public void ConvexCast (ref Urho.PhysicsRaycastResult result, Urho.CollisionShape shape, Urho.Vector3 startPos, Urho.Quaternion startRot, Urho.Vector3 endPos, Urho.Quaternion endRot, uint collisionMask);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ConvexCast(valuetype Urho.PhysicsRaycastResult result, class Urho.CollisionShape shape, valuetype Urho.Vector3 startPos, valuetype Urho.Quaternion startRot, valuetype Urho.Vector3 endPos, valuetype Urho.Quaternion endRot, unsigned int32 collisionMask) cil managed" />
+      <MemberSignature Language="C#" Value="public void ConvexCast (ref Urho.Physics.PhysicsRaycastResult result, Urho.Physics.CollisionShape shape, Urho.Vector3 startPos, Urho.Quaternion startRot, Urho.Vector3 endPos, Urho.Quaternion endRot, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ConvexCast(valuetype Urho.Physics.PhysicsRaycastResult result, class Urho.Physics.CollisionShape shape, valuetype Urho.Vector3 startPos, valuetype Urho.Quaternion startRot, valuetype Urho.Vector3 endPos, valuetype Urho.Quaternion endRot, unsigned int32 collisionMask) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -253,8 +253,8 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="result" Type="Urho.PhysicsRaycastResult&amp;" RefType="ref" />
-        <Parameter Name="shape" Type="Urho.CollisionShape" />
+        <Parameter Name="result" Type="Urho.Physics.PhysicsRaycastResult&amp;" RefType="ref" />
+        <Parameter Name="shape" Type="Urho.Physics.CollisionShape" />
         <Parameter Name="startPos" Type="Urho.Vector3" />
         <Parameter Name="startRot" Type="Urho.Quaternion" />
         <Parameter Name="endPos" Type="Urho.Vector3" />
@@ -496,14 +496,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsCollision">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsCollisionEventArgs&gt; PhysicsCollision;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsCollisionEventArgs&gt; PhysicsCollision" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Physics.PhysicsCollisionEventArgs&gt; PhysicsCollision;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Physics.PhysicsCollisionEventArgs&gt; PhysicsCollision" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsCollisionEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Physics.PhysicsCollisionEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -513,14 +513,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsCollisionEnd">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsCollisionEndEventArgs&gt; PhysicsCollisionEnd;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsCollisionEndEventArgs&gt; PhysicsCollisionEnd" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Physics.PhysicsCollisionEndEventArgs&gt; PhysicsCollisionEnd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Physics.PhysicsCollisionEndEventArgs&gt; PhysicsCollisionEnd" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsCollisionEndEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Physics.PhysicsCollisionEndEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -530,14 +530,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsCollisionStart">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsCollisionStartEventArgs&gt; PhysicsCollisionStart;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsCollisionStartEventArgs&gt; PhysicsCollisionStart" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Physics.PhysicsCollisionStartEventArgs&gt; PhysicsCollisionStart;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Physics.PhysicsCollisionStartEventArgs&gt; PhysicsCollisionStart" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsCollisionStartEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Physics.PhysicsCollisionStartEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -547,14 +547,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsPostStep">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsPostStepEventArgs&gt; PhysicsPostStep;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsPostStepEventArgs&gt; PhysicsPostStep" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Physics.PhysicsPostStepEventArgs&gt; PhysicsPostStep;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Physics.PhysicsPostStepEventArgs&gt; PhysicsPostStep" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsPostStepEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Physics.PhysicsPostStepEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -564,14 +564,14 @@
       </Docs>
     </Member>
     <Member MemberName="PhysicsPreStep">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.PhysicsPreStepEventArgs&gt; PhysicsPreStep;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.PhysicsPreStepEventArgs&gt; PhysicsPreStep" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Physics.PhysicsPreStepEventArgs&gt; PhysicsPreStep;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Physics.PhysicsPreStepEventArgs&gt; PhysicsPreStep" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.PhysicsPreStepEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Physics.PhysicsPreStepEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -581,8 +581,8 @@
       </Docs>
     </Member>
     <Member MemberName="RaycastSingle">
-      <MemberSignature Language="C#" Value="public void RaycastSingle (ref Urho.PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, uint collisionMask);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RaycastSingle(valuetype Urho.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 maxDistance, unsigned int32 collisionMask) cil managed" />
+      <MemberSignature Language="C#" Value="public void RaycastSingle (ref Urho.Physics.PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RaycastSingle(valuetype Urho.Physics.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 maxDistance, unsigned int32 collisionMask) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -591,7 +591,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="result" Type="Urho.PhysicsRaycastResult&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Physics.PhysicsRaycastResult&amp;" RefType="ref" />
         <Parameter Name="ray" Type="Urho.Ray" />
         <Parameter Name="maxDistance" Type="System.Single" />
         <Parameter Name="collisionMask" Type="System.UInt32" />
@@ -650,8 +650,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveCollisionShape">
-      <MemberSignature Language="C#" Value="public void RemoveCollisionShape (Urho.CollisionShape shape);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveCollisionShape(class Urho.CollisionShape shape) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveCollisionShape (Urho.Physics.CollisionShape shape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveCollisionShape(class Urho.Physics.CollisionShape shape) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -660,7 +660,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="shape" Type="Urho.CollisionShape" />
+        <Parameter Name="shape" Type="Urho.Physics.CollisionShape" />
       </Parameters>
       <Docs>
         <param name="shape">To be added.</param>
@@ -671,8 +671,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveConstraint">
-      <MemberSignature Language="C#" Value="public void RemoveConstraint (Urho.Constraint joint);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveConstraint(class Urho.Constraint joint) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveConstraint (Urho.Physics.Constraint joint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveConstraint(class Urho.Physics.Constraint joint) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -681,7 +681,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="joint" Type="Urho.Constraint" />
+        <Parameter Name="joint" Type="Urho.Physics.Constraint" />
       </Parameters>
       <Docs>
         <param name="joint">To be added.</param>
@@ -692,8 +692,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveRigidBody">
-      <MemberSignature Language="C#" Value="public void RemoveRigidBody (Urho.RigidBody body);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveRigidBody(class Urho.RigidBody body) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveRigidBody (Urho.Physics.RigidBody body);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveRigidBody(class Urho.Physics.RigidBody body) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -702,7 +702,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="body" Type="Urho.RigidBody" />
+        <Parameter Name="body" Type="Urho.Physics.RigidBody" />
       </Parameters>
       <Docs>
         <param name="body">To be added.</param>
@@ -818,8 +818,8 @@
       </Docs>
     </Member>
     <Member MemberName="SphereCast">
-      <MemberSignature Language="C#" Value="public void SphereCast (ref Urho.PhysicsRaycastResult result, Urho.Ray ray, float radius, float maxDistance, uint collisionMask);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SphereCast(valuetype Urho.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 radius, float32 maxDistance, unsigned int32 collisionMask) cil managed" />
+      <MemberSignature Language="C#" Value="public void SphereCast (ref Urho.Physics.PhysicsRaycastResult result, Urho.Ray ray, float radius, float maxDistance, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SphereCast(valuetype Urho.Physics.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 radius, float32 maxDistance, unsigned int32 collisionMask) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -828,7 +828,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="result" Type="Urho.PhysicsRaycastResult&amp;" RefType="ref" />
+        <Parameter Name="result" Type="Urho.Physics.PhysicsRaycastResult&amp;" RefType="ref" />
         <Parameter Name="ray" Type="Urho.Ray" />
         <Parameter Name="radius" Type="System.Single" />
         <Parameter Name="maxDistance" Type="System.Single" />
@@ -867,8 +867,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsCollision">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollision (Action&lt;Urho.PhysicsCollisionEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollision(class System.Action`1&lt;valuetype Urho.PhysicsCollisionEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollision (Action&lt;Urho.Physics.PhysicsCollisionEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollision(class System.Action`1&lt;valuetype Urho.Physics.PhysicsCollisionEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -877,7 +877,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsCollisionEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Physics.PhysicsCollisionEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -886,13 +886,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsCollision" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollision" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsCollisionEnd">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollisionEnd (Action&lt;Urho.PhysicsCollisionEndEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollisionEnd(class System.Action`1&lt;valuetype Urho.PhysicsCollisionEndEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollisionEnd (Action&lt;Urho.Physics.PhysicsCollisionEndEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollisionEnd(class System.Action`1&lt;valuetype Urho.Physics.PhysicsCollisionEndEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -901,7 +901,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsCollisionEndEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Physics.PhysicsCollisionEndEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -910,13 +910,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsCollisionEnd" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollisionEnd" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsCollisionStart">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollisionStart (Action&lt;Urho.PhysicsCollisionStartEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollisionStart(class System.Action`1&lt;valuetype Urho.PhysicsCollisionStartEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsCollisionStart (Action&lt;Urho.Physics.PhysicsCollisionStartEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsCollisionStart(class System.Action`1&lt;valuetype Urho.Physics.PhysicsCollisionStartEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -925,7 +925,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsCollisionStartEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Physics.PhysicsCollisionStartEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -934,13 +934,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsCollisionStart" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollisionStart" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsPostStep">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPostStep (Action&lt;Urho.PhysicsPostStepEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPostStep(class System.Action`1&lt;valuetype Urho.PhysicsPostStepEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPostStep (Action&lt;Urho.Physics.PhysicsPostStepEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPostStep(class System.Action`1&lt;valuetype Urho.Physics.PhysicsPostStepEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -949,7 +949,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsPostStepEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Physics.PhysicsPostStepEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -958,13 +958,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsPostStep" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPostStep" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToPhysicsPreStep">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPreStep (Action&lt;Urho.PhysicsPreStepEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPreStep(class System.Action`1&lt;valuetype Urho.PhysicsPreStepEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPreStep (Action&lt;Urho.Physics.PhysicsPreStepEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPreStep(class System.Action`1&lt;valuetype Urho.Physics.PhysicsPreStepEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -973,7 +973,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.PhysicsPreStepEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Physics.PhysicsPreStepEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -982,7 +982,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.PhysicsWorld.PhysicsPreStep" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPreStep" /> event.</para>
         </remarks>
       </Docs>
     </Member>

@@ -1,12 +1,12 @@
-<Type Name="EaseExponentialInState" FullName="Urho.EaseExponentialInState">
-  <TypeSignature Language="C#" Value="public class EaseExponentialInState : Urho.ActionEaseState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EaseExponentialInState extends Urho.ActionEaseState" />
+<Type Name="EaseExponentialInState" FullName="Urho.Actions.EaseExponentialInState">
+  <TypeSignature Language="C#" Value="public class EaseExponentialInState : Urho.Actions.ActionEaseState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EaseExponentialInState extends Urho.Actions.ActionEaseState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.ActionEaseState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.ActionEaseState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public EaseExponentialInState (Urho.EaseExponentialIn action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.EaseExponentialIn action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public EaseExponentialInState (Urho.Actions.EaseExponentialIn action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.EaseExponentialIn action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.EaseExponentialIn" />
+        <Parameter Name="action" Type="Urho.Actions.EaseExponentialIn" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

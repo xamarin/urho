@@ -1,4 +1,4 @@
-<Type Name="dtQueryFilter" FullName="Urho.dtQueryFilter">
+<Type Name="dtQueryFilter" FullName="Urho.Navigation.dtQueryFilter">
   <TypeSignature Language="C#" Value="public struct dtQueryFilter" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit dtQueryFilter extends System.ValueType" />
   <AssemblyInfo>

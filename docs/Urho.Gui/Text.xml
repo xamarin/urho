@@ -1,12 +1,12 @@
-<Type Name="Text" FullName="Urho.Text">
-  <TypeSignature Language="C#" Value="public class Text : Urho.UIElement" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Text extends Urho.UIElement" />
+<Type Name="Text" FullName="Urho.Gui.Text">
+  <TypeSignature Language="C#" Value="public class Text : Urho.Gui.UIElement" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Text extends Urho.Gui.UIElement" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.UIElement</BaseTypeName>
+    <BaseTypeName>Urho.Gui.UIElement</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -187,14 +187,14 @@
       </Docs>
     </Member>
     <Member MemberName="Font">
-      <MemberSignature Language="C#" Value="public Urho.Font Font { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Font Font" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.Font Font { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Font Font" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Font</ReturnType>
+        <ReturnType>Urho.Gui.Font</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -538,8 +538,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetFont">
-      <MemberSignature Language="C#" Value="public bool SetFont (Urho.Font font, int size);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(class Urho.Font font, int32 size) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetFont (Urho.Gui.Font font, int size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(class Urho.Gui.Font font, int32 size) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -548,7 +548,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="font" Type="Urho.Font" />
+        <Parameter Name="font" Type="Urho.Gui.Font" />
         <Parameter Name="size" Type="System.Int32" />
       </Parameters>
       <Docs>
@@ -606,14 +606,14 @@
       </Docs>
     </Member>
     <Member MemberName="TextAlignment">
-      <MemberSignature Language="C#" Value="public Urho.HorizontalAlignment TextAlignment { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HorizontalAlignment TextAlignment" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.HorizontalAlignment TextAlignment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.HorizontalAlignment TextAlignment" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HorizontalAlignment</ReturnType>
+        <ReturnType>Urho.Gui.HorizontalAlignment</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -626,14 +626,14 @@
       </Docs>
     </Member>
     <Member MemberName="TextEffect">
-      <MemberSignature Language="C#" Value="public Urho.TextEffect TextEffect { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TextEffect TextEffect" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.TextEffect TextEffect { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.TextEffect TextEffect" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.TextEffect</ReturnType>
+        <ReturnType>Urho.Gui.TextEffect</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

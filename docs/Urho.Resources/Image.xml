@@ -1,12 +1,12 @@
-<Type Name="Image" FullName="Urho.Image">
-  <TypeSignature Language="C#" Value="public class Image : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Image extends Urho.Resource" />
+<Type Name="Image" FullName="Urho.Resources.Image">
+  <TypeSignature Language="C#" Value="public class Image : Urho.Resources.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Image extends Urho.Resources.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Resource</BaseTypeName>
+    <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -151,14 +151,14 @@
       </Docs>
     </Member>
     <Member MemberName="CompressedFormat">
-      <MemberSignature Language="C#" Value="public Urho.CompressedFormat CompressedFormat { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CompressedFormat CompressedFormat" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.CompressedFormat CompressedFormat { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Resources.CompressedFormat CompressedFormat" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CompressedFormat</ReturnType>
+        <ReturnType>Urho.Resources.CompressedFormat</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -169,14 +169,14 @@
       </Docs>
     </Member>
     <Member MemberName="ConvertToRGBA">
-      <MemberSignature Language="C#" Value="public Urho.Image ConvertToRGBA ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Image ConvertToRGBA() cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.Image ConvertToRGBA ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.Image ConvertToRGBA() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Image</ReturnType>
+        <ReturnType>Urho.Resources.Image</ReturnType>
       </ReturnValue>
       <Parameters />
       <Docs>
@@ -434,14 +434,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetSubimage">
-      <MemberSignature Language="C#" Value="public Urho.Image GetSubimage (Urho.IntRect rect);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Image GetSubimage(valuetype Urho.IntRect rect) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.Image GetSubimage (Urho.IntRect rect);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.Image GetSubimage(valuetype Urho.IntRect rect) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Image</ReturnType>
+        <ReturnType>Urho.Resources.Image</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="rect" Type="Urho.IntRect" />
@@ -550,14 +550,14 @@
       </Docs>
     </Member>
     <Member MemberName="NextLevel">
-      <MemberSignature Language="C#" Value="public Urho.Image NextLevel { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Image NextLevel" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.Image NextLevel { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.Image NextLevel" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Image</ReturnType>
+        <ReturnType>Urho.Resources.Image</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -568,14 +568,14 @@
       </Docs>
     </Member>
     <Member MemberName="NextSibling">
-      <MemberSignature Language="C#" Value="public Urho.Image NextSibling { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Image NextSibling" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.Image NextSibling { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.Image NextSibling" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Image</ReturnType>
+        <ReturnType>Urho.Resources.Image</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

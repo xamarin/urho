@@ -1,4 +1,4 @@
-<Type Name="ServerDisconnectedEventArgs" FullName="Urho.ServerDisconnectedEventArgs">
+<Type Name="ServerDisconnectedEventArgs" FullName="Urho.Network.ServerDisconnectedEventArgs">
   <TypeSignature Language="C#" Value="public struct ServerDisconnectedEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ServerDisconnectedEventArgs extends System.ValueType" />
   <AssemblyInfo>

@@ -1,6 +1,6 @@
-<Type Name="XmlComponentSerializer" FullName="Urho.XmlComponentSerializer">
-  <TypeSignature Language="C#" Value="public class XmlComponentSerializer : Urho.IComponentDeserializer, Urho.IComponentSerializer" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit XmlComponentSerializer extends System.Object implements class Urho.IComponentDeserializer, class Urho.IComponentSerializer" />
+<Type Name="XmlComponentSerializer" FullName="Urho.Resources.XmlComponentSerializer">
+  <TypeSignature Language="C#" Value="public class XmlComponentSerializer : Urho.Resources.IComponentDeserializer, Urho.Resources.IComponentSerializer" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit XmlComponentSerializer extends System.Object implements class Urho.Resources.IComponentDeserializer, class Urho.Resources.IComponentSerializer" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -10,10 +10,10 @@
   </Base>
   <Interfaces>
     <Interface>
-      <InterfaceName>Urho.IComponentDeserializer</InterfaceName>
+      <InterfaceName>Urho.Resources.IComponentDeserializer</InterfaceName>
     </Interface>
     <Interface>
-      <InterfaceName>Urho.IComponentSerializer</InterfaceName>
+      <InterfaceName>Urho.Resources.IComponentSerializer</InterfaceName>
     </Interface>
   </Interfaces>
   <Docs>
@@ -24,14 +24,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public XmlComponentSerializer (Urho.XmlElement xmlElement);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.XmlElement xmlElement) cil managed" />
+      <MemberSignature Language="C#" Value="public XmlComponentSerializer (Urho.Resources.XmlElement xmlElement);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Resources.XmlElement xmlElement) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="xmlElement" Type="Urho.XmlElement" />
+        <Parameter Name="xmlElement" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
         <param name="xmlElement">To be added.</param>

@@ -1,12 +1,12 @@
-<Type Name="ReverseTimeState" FullName="Urho.ReverseTimeState">
-  <TypeSignature Language="C#" Value="public class ReverseTimeState : Urho.FiniteTimeActionState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ReverseTimeState extends Urho.FiniteTimeActionState" />
+<Type Name="ReverseTimeState" FullName="Urho.Actions.ReverseTimeState">
+  <TypeSignature Language="C#" Value="public class ReverseTimeState : Urho.Actions.FiniteTimeActionState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ReverseTimeState extends Urho.Actions.FiniteTimeActionState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.FiniteTimeActionState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.FiniteTimeActionState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ReverseTimeState (Urho.ReverseTime action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.ReverseTime action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public ReverseTimeState (Urho.Actions.ReverseTime action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.ReverseTime action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.ReverseTime" />
+        <Parameter Name="action" Type="Urho.Actions.ReverseTime" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>
@@ -33,14 +33,14 @@
       </Docs>
     </Member>
     <Member MemberName="Other">
-      <MemberSignature Language="C#" Value="protected Urho.FiniteTimeAction Other { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.FiniteTimeAction Other" />
+      <MemberSignature Language="C#" Value="protected Urho.Actions.FiniteTimeAction Other { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Actions.FiniteTimeAction Other" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FiniteTimeAction</ReturnType>
+        <ReturnType>Urho.Actions.FiniteTimeAction</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -49,14 +49,14 @@
       </Docs>
     </Member>
     <Member MemberName="OtherState">
-      <MemberSignature Language="C#" Value="protected Urho.FiniteTimeActionState OtherState { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.FiniteTimeActionState OtherState" />
+      <MemberSignature Language="C#" Value="protected Urho.Actions.FiniteTimeActionState OtherState { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Actions.FiniteTimeActionState OtherState" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FiniteTimeActionState</ReturnType>
+        <ReturnType>Urho.Actions.FiniteTimeActionState</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

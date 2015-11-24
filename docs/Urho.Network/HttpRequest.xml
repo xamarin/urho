@@ -1,4 +1,4 @@
-<Type Name="HttpRequest" FullName="Urho.HttpRequest">
+<Type Name="HttpRequest" FullName="Urho.Network.HttpRequest">
   <TypeSignature Language="C#" Value="public class HttpRequest : Urho.RefCounted, Urho.IDeserializer" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit HttpRequest extends Urho.RefCounted implements class Urho.IDeserializer" />
   <AssemblyInfo>
@@ -162,14 +162,14 @@
       </Docs>
     </Member>
     <Member MemberName="State">
-      <MemberSignature Language="C#" Value="public Urho.HttpRequestState State { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HttpRequestState State" />
+      <MemberSignature Language="C#" Value="public Urho.Network.HttpRequestState State { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Network.HttpRequestState State" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HttpRequestState</ReturnType>
+        <ReturnType>Urho.Network.HttpRequestState</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

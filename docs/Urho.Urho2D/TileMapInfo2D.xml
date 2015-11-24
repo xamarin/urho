@@ -1,4 +1,4 @@
-<Type Name="TileMapInfo2D" FullName="Urho.TileMapInfo2D">
+<Type Name="TileMapInfo2D" FullName="Urho.Urho2D.TileMapInfo2D">
   <TypeSignature Language="C#" Value="public struct TileMapInfo2D" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit TileMapInfo2D extends System.ValueType" />
   <AssemblyInfo>
@@ -62,14 +62,14 @@
       </Docs>
     </Member>
     <Member MemberName="Orientation">
-      <MemberSignature Language="C#" Value="public Urho.Orientation2D Orientation;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Orientation2D Orientation" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Orientation2D Orientation;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Urho2D.Orientation2D Orientation" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Orientation2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Orientation2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

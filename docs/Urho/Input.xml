@@ -15,7 +15,7 @@
             </summary>
     <remarks>
       <para>The Input subsystem provides keyboard, mouse, joystick and touch input both via a polled interface and events. This subsystem is also used for querying whether the application window has input focus or is minimized.</para>
-      <para>The subsystem is always instantiated, even in headless mode, but is active only once the application window has been created. Once active, the subsystem takes over the operating system mouse cursor. It will be hidden by default, so the <see cref="T:Urho.UI" /> should be used to render a software cursor if necessary. For editor-like applications the operating system cursor can be made visible by calling <see cref="M:Urho.Input.SetMouseVisible" />.</para>
+      <para>The subsystem is always instantiated, even in headless mode, but is active only once the application window has been created. Once active, the subsystem takes over the operating system mouse cursor. It will be hidden by default, so the <see cref="T:Urho.Gui.UI" /> should be used to render a software cursor if necessary. For editor-like applications the operating system cursor can be made visible by calling <see cref="M:Urho.Input.SetMouseVisible" />.</para>
       <para>You can subscribe to these events by using one of the SubscribeToXxx methods in UrhoObject:</para>
       <list type="bullet">
         <item>
@@ -154,7 +154,7 @@
       <format type="text/html">
         <h2>Platform-specific details</h2>
       </format>
-      <para>On platforms that support it (such as Android) an on-screen virtual keyboard can be shown or hidden. When shown, keypresses from the virtual keyboard will be sent as text input events just as if typed from an actual keyboard. Show or hide it by calling <see cref="S" />etScreenKeyboardVisible. The <see cref="T:Urho.UI" /> subsystem can also automatically show the virtual keyboard when a line editing element is focused, and hide it when defocused. This behavior can be controlled by calling SetUseScreenKeyboard.</para>
+      <para>On platforms that support it (such as Android) an on-screen virtual keyboard can be shown or hidden. When shown, keypresses from the virtual keyboard will be sent as text input events just as if typed from an actual keyboard. Show or hide it by calling <see cref="S" />etScreenKeyboardVisible. The <see cref="T:Urho.Gui.UI" /> subsystem can also automatically show the virtual keyboard when a line editing element is focused, and hide it when defocused. This behavior can be controlled by calling SetUseScreenKeyboard.</para>
       <para>On Windows the user must first touch the screen once before touch input is activated. Trying to record or load touch gestures will fail before that.</para>
     </remarks>
   </Docs>
@@ -218,8 +218,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddScreenJoystick">
-      <MemberSignature Language="C#" Value="public int AddScreenJoystick (Urho.XmlFile layoutFile, Urho.XmlFile styleFile);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 AddScreenJoystick(class Urho.XmlFile layoutFile, class Urho.XmlFile styleFile) cil managed" />
+      <MemberSignature Language="C#" Value="public int AddScreenJoystick (Urho.Resources.XmlFile layoutFile, Urho.Resources.XmlFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 AddScreenJoystick(class Urho.Resources.XmlFile layoutFile, class Urho.Resources.XmlFile styleFile) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -228,8 +228,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="layoutFile" Type="Urho.XmlFile" />
-        <Parameter Name="styleFile" Type="Urho.XmlFile" />
+        <Parameter Name="layoutFile" Type="Urho.Resources.XmlFile" />
+        <Parameter Name="styleFile" Type="Urho.Resources.XmlFile" />
       </Parameters>
       <Docs>
         <param name="layoutFile">To be added.</param>

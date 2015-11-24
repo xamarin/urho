@@ -1,4 +1,4 @@
-<Type Name="NavigationAreaRebuiltEventArgs" FullName="Urho.NavigationAreaRebuiltEventArgs">
+<Type Name="NavigationAreaRebuiltEventArgs" FullName="Urho.Navigation.NavigationAreaRebuiltEventArgs">
   <TypeSignature Language="C#" Value="public struct NavigationAreaRebuiltEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit NavigationAreaRebuiltEventArgs extends System.ValueType" />
   <AssemblyInfo>
@@ -47,14 +47,14 @@
       </Docs>
     </Member>
     <Member MemberName="Mesh">
-      <MemberSignature Language="C#" Value="public Urho.NavigationMesh Mesh { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.NavigationMesh Mesh" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.NavigationMesh Mesh { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Navigation.NavigationMesh Mesh" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.NavigationMesh</ReturnType>
+        <ReturnType>Urho.Navigation.NavigationMesh</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

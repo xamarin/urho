@@ -1,4 +1,4 @@
-<Type Name="FileMode" FullName="Urho.FileMode">
+<Type Name="FileMode" FullName="Urho.IO.FileMode">
   <TypeSignature Language="C#" Value="public enum FileMode" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed FileMode extends System.Enum" />
   <AssemblyInfo>
@@ -17,13 +17,13 @@
   <Members>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="Read" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FileMode Read = int32(0)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.IO.FileMode Read = int32(0)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FileMode</ReturnType>
+        <ReturnType>Urho.IO.FileMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,13 +31,13 @@
     </Member>
     <Member MemberName="ReadWrite">
       <MemberSignature Language="C#" Value="ReadWrite" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FileMode ReadWrite = int32(2)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.IO.FileMode ReadWrite = int32(2)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FileMode</ReturnType>
+        <ReturnType>Urho.IO.FileMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,13 +45,13 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="Write" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FileMode Write = int32(1)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.IO.FileMode Write = int32(1)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.FileMode</ReturnType>
+        <ReturnType>Urho.IO.FileMode</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -1,12 +1,12 @@
-<Type Name="BezierToState" FullName="Urho.BezierToState">
-  <TypeSignature Language="C#" Value="public class BezierToState : Urho.BezierByState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BezierToState extends Urho.BezierByState" />
+<Type Name="BezierToState" FullName="Urho.Actions.BezierToState">
+  <TypeSignature Language="C#" Value="public class BezierToState : Urho.Actions.BezierByState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BezierToState extends Urho.Actions.BezierByState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.BezierByState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.BezierByState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BezierToState (Urho.BezierBy action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.BezierBy action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public BezierToState (Urho.Actions.BezierBy action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.BezierBy action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.BezierBy" />
+        <Parameter Name="action" Type="Urho.Actions.BezierBy" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

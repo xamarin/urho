@@ -36,11 +36,11 @@
         </item>
         <item>
           <term>
-            <see cref="E:Urho.Engine.PostUpdate" />: application-wide logic post-update event. The <see cref="T:Urho.UI" /> subsystem updates its logic here.</term>
+            <see cref="E:Urho.Engine.PostUpdate" />: application-wide logic post-update event. The <see cref="T:Urho.Gui.UI" /> subsystem updates its logic here.</term>
         </item>
         <item>
           <term>
-            <see cref="E:Urho.Engine.RenderUpdate" />: <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.UI" /> generates render commands necessary to render the user interface.</term>
+            <see cref="E:Urho.Engine.RenderUpdate" />: <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.Gui.UI" /> generates render commands necessary to render the user interface.</term>
         </item>
         <item>
           <term>
@@ -56,7 +56,7 @@
           <term>SceneUpdate: variable timestep scene update. This is a good place to implement any scene logic that does not need to happen at a fixed step.</term>
         </item>
         <item>
-          <term>SceneSubsystemUpdate: update scene-wide subsystems. Currently only the <see cref="T:Urho.PhysicsWorld" /> component listens to this, which causes it to step the physics simulation and send the following two events for each simulation step:</term>
+          <term>SceneSubsystemUpdate: update scene-wide subsystems. Currently only the <see cref="T:Urho.Physics.PhysicsWorld" /> component listens to this, which causes it to step the physics simulation and send the following two events for each simulation step:</term>
         </item>
         <item>
           <term>PhysicsPreStep: called before the simulation iteration. Happens at a fixed rate (the physics FPS). If fixed timestep logic updates are needed, this is a good event to listen to.</term>
@@ -522,7 +522,7 @@
       </ReturnValue>
       <Docs>
         <summary>Event raised after the <see cref="E:Urho.Engine.Update" /> event is from the <see cref="M:Urho.Engine.UpdateFrame" /> method.</summary>
-        <remarks>The <see cref="T:Urho.UI" /> subsystem updates its logic here.</remarks>
+        <remarks>The <see cref="T:Urho.Gui.UI" /> subsystem updates its logic here.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Render">
@@ -556,7 +556,7 @@
       <Docs>
         <summary>Event raised after <see cref="E:Urho.Engine.PostUpdate" /> event in preparation for rendering.</summary>
         <remarks>
-          <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.UI" /> generates render commands necessary to render the user interface.</remarks>
+          <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.Gui.UI" /> generates render commands necessary to render the user interface.</remarks>
       </Docs>
     </Member>
     <Member MemberName="RunFrame">

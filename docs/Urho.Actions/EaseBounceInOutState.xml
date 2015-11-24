@@ -1,12 +1,12 @@
-<Type Name="EaseBounceInOutState" FullName="Urho.EaseBounceInOutState">
-  <TypeSignature Language="C#" Value="public class EaseBounceInOutState : Urho.ActionEaseState" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EaseBounceInOutState extends Urho.ActionEaseState" />
+<Type Name="EaseBounceInOutState" FullName="Urho.Actions.EaseBounceInOutState">
+  <TypeSignature Language="C#" Value="public class EaseBounceInOutState : Urho.Actions.ActionEaseState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EaseBounceInOutState extends Urho.Actions.ActionEaseState" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.ActionEaseState</BaseTypeName>
+    <BaseTypeName>Urho.Actions.ActionEaseState</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public EaseBounceInOutState (Urho.EaseBounceInOut action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.EaseBounceInOut action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="public EaseBounceInOutState (Urho.Actions.EaseBounceInOut action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.EaseBounceInOut action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="action" Type="Urho.EaseBounceInOut" />
+        <Parameter Name="action" Type="Urho.Actions.EaseBounceInOut" />
         <Parameter Name="target" Type="Urho.Node" />
       </Parameters>
       <Docs>

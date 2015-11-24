@@ -1,4 +1,4 @@
-<Type Name="RigidBody2D" FullName="Urho.RigidBody2D">
+<Type Name="RigidBody2D" FullName="Urho.Urho2D.RigidBody2D">
   <TypeSignature Language="C#" Value="public class RigidBody2D : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit RigidBody2D extends Urho.Component" />
   <AssemblyInfo>
@@ -75,8 +75,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddCollisionShape2D">
-      <MemberSignature Language="C#" Value="public void AddCollisionShape2D (Urho.CollisionShape2D collisionShape);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCollisionShape2D(class Urho.CollisionShape2D collisionShape) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddCollisionShape2D (Urho.Urho2D.CollisionShape2D collisionShape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCollisionShape2D(class Urho.Urho2D.CollisionShape2D collisionShape) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -85,7 +85,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="collisionShape" Type="Urho.CollisionShape2D" />
+        <Parameter Name="collisionShape" Type="Urho.Urho2D.CollisionShape2D" />
       </Parameters>
       <Docs>
         <param name="collisionShape">To be added.</param>
@@ -96,8 +96,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddConstraint2D">
-      <MemberSignature Language="C#" Value="public void AddConstraint2D (Urho.Constraint2D constraint);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddConstraint2D(class Urho.Constraint2D constraint) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddConstraint2D (Urho.Urho2D.Constraint2D constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddConstraint2D(class Urho.Urho2D.Constraint2D constraint) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -106,7 +106,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="constraint" Type="Urho.Constraint2D" />
+        <Parameter Name="constraint" Type="Urho.Urho2D.Constraint2D" />
       </Parameters>
       <Docs>
         <param name="constraint">To be added.</param>
@@ -310,14 +310,14 @@
       </Docs>
     </Member>
     <Member MemberName="BodyType">
-      <MemberSignature Language="C#" Value="public Urho.BodyType2D BodyType { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.BodyType2D BodyType" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.BodyType2D BodyType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Urho2D.BodyType2D BodyType" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.BodyType2D</ReturnType>
+        <ReturnType>Urho.Urho2D.BodyType2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -597,8 +597,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveCollisionShape2D">
-      <MemberSignature Language="C#" Value="public void RemoveCollisionShape2D (Urho.CollisionShape2D collisionShape);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveCollisionShape2D(class Urho.CollisionShape2D collisionShape) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveCollisionShape2D (Urho.Urho2D.CollisionShape2D collisionShape);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveCollisionShape2D(class Urho.Urho2D.CollisionShape2D collisionShape) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -607,7 +607,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="collisionShape" Type="Urho.CollisionShape2D" />
+        <Parameter Name="collisionShape" Type="Urho.Urho2D.CollisionShape2D" />
       </Parameters>
       <Docs>
         <param name="collisionShape">To be added.</param>
@@ -618,8 +618,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveConstraint2D">
-      <MemberSignature Language="C#" Value="public void RemoveConstraint2D (Urho.Constraint2D constraint);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveConstraint2D(class Urho.Constraint2D constraint) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveConstraint2D (Urho.Urho2D.Constraint2D constraint);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveConstraint2D(class Urho.Urho2D.Constraint2D constraint) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -628,7 +628,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="constraint" Type="Urho.Constraint2D" />
+        <Parameter Name="constraint" Type="Urho.Urho2D.Constraint2D" />
       </Parameters>
       <Docs>
         <param name="constraint">To be added.</param>

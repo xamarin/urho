@@ -1,4 +1,4 @@
-<Type Name="Navigable" FullName="Urho.Navigable">
+<Type Name="Navigable" FullName="Urho.Navigation.Navigable">
   <TypeSignature Language="C#" Value="public class Navigable : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Navigable extends Urho.Component" />
   <AssemblyInfo>

@@ -1,4 +1,4 @@
-<Type Name="SoundListener" FullName="Urho.SoundListener">
+<Type Name="SoundListener" FullName="Urho.Audio.SoundListener">
   <TypeSignature Language="C#" Value="public class SoundListener : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SoundListener extends Urho.Component" />
   <AssemblyInfo>

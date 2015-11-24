@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="Body">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody Body { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody Body" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.RigidBody Body { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.RigidBody Body" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody</ReturnType>
+        <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -31,14 +31,14 @@
       </Docs>
     </Member>
     <Member MemberName="Contacts">
-      <MemberSignature Language="C#" Value="public Urho.CollisionData[] Contacts { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.CollisionData[] Contacts" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.CollisionData[] Contacts { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Physics.CollisionData[] Contacts" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CollisionData[]</ReturnType>
+        <ReturnType>Urho.Physics.CollisionData[]</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -47,14 +47,14 @@
       </Docs>
     </Member>
     <Member MemberName="OtherBody">
-      <MemberSignature Language="C#" Value="public Urho.RigidBody OtherBody { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RigidBody OtherBody" />
+      <MemberSignature Language="C#" Value="public Urho.Physics.RigidBody OtherBody { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Physics.RigidBody OtherBody" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.RigidBody</ReturnType>
+        <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

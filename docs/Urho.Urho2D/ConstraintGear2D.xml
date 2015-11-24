@@ -1,12 +1,12 @@
-<Type Name="ConstraintGear2D" FullName="Urho.ConstraintGear2D">
-  <TypeSignature Language="C#" Value="public class ConstraintGear2D : Urho.Constraint2D" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ConstraintGear2D extends Urho.Constraint2D" />
+<Type Name="ConstraintGear2D" FullName="Urho.Urho2D.ConstraintGear2D">
+  <TypeSignature Language="C#" Value="public class ConstraintGear2D : Urho.Urho2D.Constraint2D" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ConstraintGear2D extends Urho.Urho2D.Constraint2D" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Constraint2D</BaseTypeName>
+    <BaseTypeName>Urho.Urho2D.Constraint2D</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -91,14 +91,14 @@
       </Docs>
     </Member>
     <Member MemberName="OtherConstraint">
-      <MemberSignature Language="C#" Value="public Urho.Constraint2D OtherConstraint { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Constraint2D OtherConstraint" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Constraint2D OtherConstraint { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Constraint2D OtherConstraint" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Constraint2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Constraint2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -111,14 +111,14 @@
       </Docs>
     </Member>
     <Member MemberName="OwnerConstraint">
-      <MemberSignature Language="C#" Value="public Urho.Constraint2D OwnerConstraint { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Constraint2D OwnerConstraint" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Constraint2D OwnerConstraint { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Constraint2D OwnerConstraint" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Constraint2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Constraint2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

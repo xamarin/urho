@@ -1,12 +1,12 @@
-<Type Name="SpriteSheet2D" FullName="Urho.SpriteSheet2D">
-  <TypeSignature Language="C#" Value="public class SpriteSheet2D : Urho.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SpriteSheet2D extends Urho.Resource" />
+<Type Name="SpriteSheet2D" FullName="Urho.Urho2D.SpriteSheet2D">
+  <TypeSignature Language="C#" Value="public class SpriteSheet2D : Urho.Resources.Resource" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SpriteSheet2D extends Urho.Resources.Resource" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Resource</BaseTypeName>
+    <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -137,14 +137,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetSprite">
-      <MemberSignature Language="C#" Value="public Urho.Sprite2D GetSprite (string name);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Sprite2D GetSprite(string name) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Sprite2D GetSprite (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Urho2D.Sprite2D GetSprite(string name) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Sprite2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Sprite2D</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
@@ -180,14 +180,14 @@
       </Docs>
     </Member>
     <Member MemberName="Texture">
-      <MemberSignature Language="C#" Value="public Urho.Texture2D Texture { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Texture2D Texture" />
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Texture2D Texture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Texture2D Texture" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Texture2D</ReturnType>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

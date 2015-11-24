@@ -144,8 +144,8 @@
       </Docs>
     </Member>
     <Member MemberName="CleanupConnection">
-      <MemberSignature Language="C#" Value="public void CleanupConnection (Urho.Connection connection);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CleanupConnection(class Urho.Connection connection) cil managed" />
+      <MemberSignature Language="C#" Value="public void CleanupConnection (Urho.Network.Connection connection);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CleanupConnection(class Urho.Network.Connection connection) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -154,7 +154,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="connection" Type="Urho.Connection" />
+        <Parameter Name="connection" Type="Urho.Network.Connection" />
       </Parameters>
       <Docs>
         <param name="connection">To be added.</param>
@@ -362,8 +362,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnDeserialize">
-      <MemberSignature Language="C#" Value="public virtual void OnDeserialize (Urho.IComponentDeserializer deserializer);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeserialize(class Urho.IComponentDeserializer deserializer) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnDeserialize (Urho.Resources.IComponentDeserializer deserializer);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeserialize(class Urho.Resources.IComponentDeserializer deserializer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -372,7 +372,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="deserializer" Type="Urho.IComponentDeserializer" />
+        <Parameter Name="deserializer" Type="Urho.Resources.IComponentDeserializer" />
       </Parameters>
       <Docs>
         <param name="deserializer">To be added.</param>
@@ -381,8 +381,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnSerialize">
-      <MemberSignature Language="C#" Value="public virtual void OnSerialize (Urho.IComponentSerializer serializer);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSerialize(class Urho.IComponentSerializer serializer) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnSerialize (Urho.Resources.IComponentSerializer serializer);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSerialize(class Urho.Resources.IComponentSerializer serializer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -391,7 +391,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="serializer" Type="Urho.IComponentSerializer" />
+        <Parameter Name="serializer" Type="Urho.Resources.IComponentSerializer" />
       </Parameters>
       <Docs>
         <param name="serializer">To be added.</param>
@@ -491,8 +491,8 @@
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.XmlElement dest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXml(class Urho.XmlElement dest) cil managed" />
+      <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.Resources.XmlElement dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXml(class Urho.Resources.XmlElement dest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -501,7 +501,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="dest" Type="Urho.XmlElement" />
+        <Parameter Name="dest" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>

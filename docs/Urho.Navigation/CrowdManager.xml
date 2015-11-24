@@ -1,4 +1,4 @@
-<Type Name="CrowdManager" FullName="Urho.CrowdManager">
+<Type Name="CrowdManager" FullName="Urho.Navigation.CrowdManager">
   <TypeSignature Language="C#" Value="public class CrowdManager : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CrowdManager extends Urho.Component" />
   <AssemblyInfo>
@@ -109,14 +109,14 @@
       </Docs>
     </Member>
     <Member MemberName="CrowdAgentFailure">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.CrowdAgentFailureEventArgs&gt; CrowdAgentFailure;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.CrowdAgentFailureEventArgs&gt; CrowdAgentFailure" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Navigation.CrowdAgentFailureEventArgs&gt; CrowdAgentFailure;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Navigation.CrowdAgentFailureEventArgs&gt; CrowdAgentFailure" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.CrowdAgentFailureEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Navigation.CrowdAgentFailureEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -126,14 +126,14 @@
       </Docs>
     </Member>
     <Member MemberName="CrowdAgentReposition">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.CrowdAgentRepositionEventArgs&gt; CrowdAgentReposition;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.CrowdAgentRepositionEventArgs&gt; CrowdAgentReposition" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Navigation.CrowdAgentRepositionEventArgs&gt; CrowdAgentReposition;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Navigation.CrowdAgentRepositionEventArgs&gt; CrowdAgentReposition" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.CrowdAgentRepositionEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Navigation.CrowdAgentRepositionEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -143,14 +143,14 @@
       </Docs>
     </Member>
     <Member MemberName="CrowdAgentStateChanged">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt; CrowdAgentStateChanged;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.CrowdAgentStateChangedEventArgs&gt; CrowdAgentStateChanged" />
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Navigation.CrowdAgentStateChangedEventArgs&gt; CrowdAgentStateChanged;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Navigation.CrowdAgentStateChangedEventArgs&gt; CrowdAgentStateChanged" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt;</ReturnType>
+        <ReturnType>System.Action&lt;Urho.Navigation.CrowdAgentStateChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -350,14 +350,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetObstacleAvoidanceParams">
-      <MemberSignature Language="C#" Value="public Urho.CrowdObstacleAvoidanceParams GetObstacleAvoidanceParams (uint obstacleAvoidanceType);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.CrowdObstacleAvoidanceParams GetObstacleAvoidanceParams(unsigned int32 obstacleAvoidanceType) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.CrowdObstacleAvoidanceParams GetObstacleAvoidanceParams (uint obstacleAvoidanceType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Navigation.CrowdObstacleAvoidanceParams GetObstacleAvoidanceParams(unsigned int32 obstacleAvoidanceType) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.CrowdObstacleAvoidanceParams</ReturnType>
+        <ReturnType>Urho.Navigation.CrowdObstacleAvoidanceParams</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="obstacleAvoidanceType" Type="System.UInt32" />
@@ -492,14 +492,14 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationMesh">
-      <MemberSignature Language="C#" Value="public Urho.NavigationMesh NavigationMesh { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.NavigationMesh NavigationMesh" />
+      <MemberSignature Language="C#" Value="public Urho.Navigation.NavigationMesh NavigationMesh { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Navigation.NavigationMesh NavigationMesh" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.NavigationMesh</ReturnType>
+        <ReturnType>Urho.Navigation.NavigationMesh</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -735,8 +735,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetObstacleAvoidanceParams">
-      <MemberSignature Language="C#" Value="public void SetObstacleAvoidanceParams (uint obstacleAvoidanceType, Urho.CrowdObstacleAvoidanceParams params);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetObstacleAvoidanceParams(unsigned int32 obstacleAvoidanceType, valuetype Urho.CrowdObstacleAvoidanceParams params) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetObstacleAvoidanceParams (uint obstacleAvoidanceType, Urho.Navigation.CrowdObstacleAvoidanceParams params);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetObstacleAvoidanceParams(unsigned int32 obstacleAvoidanceType, valuetype Urho.Navigation.CrowdObstacleAvoidanceParams params) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -746,7 +746,7 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="obstacleAvoidanceType" Type="System.UInt32" />
-        <Parameter Name="params" Type="Urho.CrowdObstacleAvoidanceParams" />
+        <Parameter Name="params" Type="Urho.Navigation.CrowdObstacleAvoidanceParams" />
       </Parameters>
       <Docs>
         <param name="obstacleAvoidanceType">To be added.</param>
@@ -758,8 +758,8 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToCrowdAgentFailure">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentFailure (Action&lt;Urho.CrowdAgentFailureEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentFailure(class System.Action`1&lt;valuetype Urho.CrowdAgentFailureEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentFailure (Action&lt;Urho.Navigation.CrowdAgentFailureEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentFailure(class System.Action`1&lt;valuetype Urho.Navigation.CrowdAgentFailureEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -768,7 +768,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.CrowdAgentFailureEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Navigation.CrowdAgentFailureEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -777,13 +777,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.CrowdManager.CrowdAgentFailure" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Navigation.CrowdManager.CrowdAgentFailure" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToCrowdAgentReposition">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentReposition (Action&lt;Urho.CrowdAgentRepositionEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentReposition(class System.Action`1&lt;valuetype Urho.CrowdAgentRepositionEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentReposition (Action&lt;Urho.Navigation.CrowdAgentRepositionEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentReposition(class System.Action`1&lt;valuetype Urho.Navigation.CrowdAgentRepositionEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -792,7 +792,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.CrowdAgentRepositionEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Navigation.CrowdAgentRepositionEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -801,13 +801,13 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.CrowdManager.CrowdAgentReposition" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Navigation.CrowdManager.CrowdAgentReposition" /> event.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToCrowdAgentStateChanged">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentStateChanged (Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentStateChanged(class System.Action`1&lt;valuetype Urho.CrowdAgentStateChangedEventArgs&gt; handler) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCrowdAgentStateChanged (Action&lt;Urho.Navigation.CrowdAgentStateChangedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCrowdAgentStateChanged(class System.Action`1&lt;valuetype Urho.Navigation.CrowdAgentStateChangedEventArgs&gt; handler) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -816,7 +816,7 @@
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.CrowdAgentStateChangedEventArgs&gt;" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Navigation.CrowdAgentStateChangedEventArgs&gt;" />
       </Parameters>
       <Docs>
         <param name="handler">The handler to invoke when this event is raised.</param>
@@ -825,7 +825,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.CrowdManager.CrowdAgentStateChanged" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Navigation.CrowdManager.CrowdAgentStateChanged" /> event.</para>
         </remarks>
       </Docs>
     </Member>
