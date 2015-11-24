@@ -4,7 +4,7 @@ using Urho.Navigation;
 using Urho.Physics;
 using Urho.Urho2D;
 using Urho.Resources;
-using Urho.UI;
+using Urho.Gui;
 using Urho.Network;
 
 namespace Urho {

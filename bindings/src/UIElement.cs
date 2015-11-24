@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Reflection;
 
-namespace Urho.UI {
+namespace Urho.Gui {
 	
 	public partial class UIElement
 	{

@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using Urho.Audio;
 using Urho.Resources;
-using Urho.UI;
+using Urho.Gui;
 using Urho.Urho2D;
 
 namespace Urho.Resources {

@@ -13,6 +13,7 @@ using Urho.IO;
 using Urho.Audio;
 using Urho.Resources;
 using Urho.Actions;
+using Urho.Gui;
 
 namespace Urho {
 	
@@ -259,11 +260,11 @@ namespace Urho {
 			}
 		}
 		
-		Urho.UI.UI uI;
-		public Urho.UI.UI UI {
+		UI uI;
+		public UI UI {
 			get {
 				if (uI == null)
-					uI = new UI.UI (UrhoObject_GetSubsystem (handle, Urho.UI.UI.TypeStatic.Code));
+					uI = new UI (UrhoObject_GetSubsystem (handle, UI.TypeStatic.Code));
 				return uI;
 			}
 		}
