@@ -19,16 +19,6 @@ namespace Urho {
 		}
 	}
 
-	[StructLayout(LayoutKind.Sequential)]
-	public struct PhysicsRaycastResult {
-		public Vector3 Position;
-		public Vector3 Normal;
-		public float Distance;
-
-		IntPtr bodyPtr;
-		public RigidBody Body => Runtime.LookupObject<RigidBody>(bodyPtr);
-	}
-
 	[StructLayout (LayoutKind.Sequential)]
 	public struct IntRect {
 		public int Left, Top, Right, Bottom;
@@ -317,35 +307,6 @@ namespace Urho {
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?
-	[StructLayout(LayoutKind.Sequential)]
-	public struct TileMapInfo2D {
-		public Orientation2D Orientation;
-		public int Width;
-		public int Height;
-		public float TileWidth;
-		public float TileHeight;
-
-		//calculated properties:
-		public float MapWidth => Width * TileWidth;
-		public float MapHeight
-		{
-			get
-			{
-				if (Orientation == Orientation2D.Staggered)
-					return (Height + 1) * 0.5f * TileHeight;
-				return Height * TileHeight;
-			}
-		}
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct dtQueryFilter {
-		//public float[] AreaCost;     // Cost per area type. (Used by default implementation.)
-		//public ushort IncludeFlags;  // Flags for polygons that can be visited. (Used by default implementation.)
-		//public ushort ExcludeFlags;  // Flags for polygons that should not be visted. (Used by default implementation.)
-	}
-
-	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
 	public struct ReplicationState {
 	}
@@ -459,25 +420,6 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct PackageEntry {
-	}
-
-
-	[StructLayout(LayoutKind.Sequential)]
-	public struct CrowdObstacleAvoidanceParams {
-		public float VelBias;
-		public float WeightDesVel;
-		public float WeightCurVel;
-		public float WeightSide;
-		public float WeightToi;
-		public float HorizTime;
-		public byte GridSize;
-		public byte AdaptiveDivs;
-		public byte AdaptiveRings;
-		public byte AdaptiveDepth;
-	};
-
-	[StructLayout (LayoutKind.Sequential)]
 	public struct BiasParameters {
 		public float ConstantBias;
 		public float SlopeScaleBias;
@@ -516,6 +458,73 @@ namespace Urho {
 	}
 }
 
+namespace Urho.IO {
+	[StructLayout (LayoutKind.Sequential)]
+	public struct PackageEntry {
+	}
+}
+
+namespace Urho.Urho2D {
+	// DEBATABLE: maybe we should let the binder handle it?
+	[StructLayout(LayoutKind.Sequential)]
+	public struct TileMapInfo2D {
+		public Orientation2D Orientation;
+		public int Width;
+		public int Height;
+		public float TileWidth;
+		public float TileHeight;
+
+		//calculated properties:
+		public float MapWidth => Width * TileWidth;
+		public float MapHeight
+		{
+			get
+			{
+				if (Orientation == Orientation2D.Staggered)
+					return (Height + 1) * 0.5f * TileHeight;
+				return Height * TileHeight;
+			}
+		}
+	}
+}
+
+namespace Urho.Navigation {
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct dtQueryFilter {
+		//public float[] AreaCost;     // Cost per area type. (Used by default implementation.)
+		//public ushort IncludeFlags;  // Flags for polygons that can be visited. (Used by default implementation.)
+		//public ushort ExcludeFlags;  // Flags for polygons that should not be visted. (Used by default implementation.)
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct CrowdObstacleAvoidanceParams {
+		public float VelBias;
+		public float WeightDesVel;
+		public float WeightCurVel;
+		public float WeightSide;
+		public float WeightToi;
+		public float HorizTime;
+		public byte GridSize;
+		public byte AdaptiveDivs;
+		public byte AdaptiveRings;
+		public byte AdaptiveDepth;
+	};
+
+}
+
+namespace Urho.Physics {
+	[StructLayout(LayoutKind.Sequential)]
+	public struct PhysicsRaycastResult {
+		public Vector3 Position;
+		public Vector3 Normal;
+		public float Distance;
+
+		IntPtr bodyPtr;
+		public RigidBody Body => Runtime.LookupObject<RigidBody>(bodyPtr);
+	}
+
+}
 
 namespace System {
 	//
