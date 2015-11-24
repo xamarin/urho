@@ -26,13 +26,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{ED29FA71-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{207BA5C8-8E07-4B99-BC08-5564F529698A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples", "Samples\Core\Urho.Samples.csproj", "{792AF649-1BB3-4242-8BA3-61F67E357B18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples", "Samples\FeatureSamples\Core\Urho.Samples.csproj", "{792AF649-1BB3-4242-8BA3-61F67E357B18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Droid", "Samples\Android\Urho.Samples.Droid.csproj", "{9599B6A8-09DA-455C-9391-319A1FCDC5B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Droid", "Samples\FeatureSamples\Android\Urho.Samples.Droid.csproj", "{9599B6A8-09DA-455C-9391-319A1FCDC5B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Desktop", "Samples\Desktop\Urho.Samples.Desktop.csproj", "{C9D62FA9-7107-466F-BD0D-B0AAA69D975B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Desktop", "Samples\FeatureSamples\Desktop\Urho.Samples.Desktop.csproj", "{C9D62FA9-7107-466F-BD0D-B0AAA69D975B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.iOS", "Samples\iOS\Urho.Samples.iOS.csproj", "{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.iOS", "Samples\FeatureSamples\iOS\Urho.Samples.iOS.csproj", "{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

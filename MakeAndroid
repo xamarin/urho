@@ -9,7 +9,7 @@ BUILD_TYPE=Release
 OUTPUT_DIR=Bin/Android/$(ABI)
 URHO3D_SRC_DIR=Urho3D/Source
 URHO3D_ANDROID_DIR=Urho3D/Urho3D_Android/$(ABI)
-
+OS=$(shell uname)
 
 ifeq ($(OS), Darwin)
 PREBUILT_DIR=darwin-x86_64

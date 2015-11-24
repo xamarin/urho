@@ -13,6 +13,11 @@ namespace Urho
 		{
 			if (!string.IsNullOrEmpty(pathToAssets))
 			{
+				if (!Directory.Exists(pathToAssets))
+				{
+					throw new InvalidDataException($"Directory {pathToAssets} not found");
+				}
+
 				const string coreDataFile = "CoreData.pak";
 				System.IO.File.Copy(
 					sourceFileName: Path.Combine(Environment.CurrentDirectory, coreDataFile), 

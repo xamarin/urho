@@ -31,3 +31,4 @@ _ReSharper*/
 /Urho3D/Urho3D_Android
 /Urho3D/Urho3D_Mac
 /Urho3D/Urho3D_IOS
+clang+llvm-3.7.0-x86_64-apple-darwin*
