@@ -8,6 +8,8 @@
 //
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Urho.Resources;
@@ -145,7 +147,7 @@ namespace Urho
 				return null;
 
 			var name = Marshal.PtrToStringAnsi(UrhoObject.UrhoObject_GetTypeName(ptr));
-			var type = Type.GetType(FindTypeByName(name));
+			var type = FindTypeByName(name);
 			var typeInfo = type.GetTypeInfo();
 			if (typeInfo.IsSubclassOf(typeof(Component)) || type == typeof(Component))
 			{
@@ -204,22 +206,38 @@ namespace Urho
 		// for Debug purposes
 		static internal int KnownObjectsCount => RefCountedCache.Count;
 
+		static Dictionary<string, Type> typesByNativeNames;
 		// special cases: (TODO: share this code with SharpieBinder somehow)
 		static Dictionary<string, string> typeNamesMap = new Dictionary<string, string>
 			{
-				{"Object", "Urho.UrhoObject"},
-				{"String", "Urho.UrhoString"},
-				{"Console", "Urho.UrhoConsole"},
-				{"XMLFile", "Urho.XmlFile"},
-				{"XMLElement", "Urho.XmlElement"},
+				{nameof(UrhoObject),  "Object"},
+				{nameof(UrhoConsole), "Console"},
+				{nameof(XmlFile),     "XMLFile"},
+				{nameof(JsonFile),    "JSONFile"},
 			};
 
-		static string FindTypeByName(string name)
+		static Type FindTypeByName(string name)
 		{
-			string result;
-			if (typeNamesMap.TryGetValue(name, out result))
-				return result;
-			return "Urho." + name;
+			if (typesByNativeNames == null)
+			{
+				typesByNativeNames = new Dictionary<string, Type>(200);
+				foreach (var type in typeof(Runtime).GetTypeInfo().Assembly.ExportedTypes)
+				{
+					if (!type.GetTypeInfo().IsSubclassOf(typeof(RefCounted)))
+						continue;
+
+					string remappedName;
+					if (!typeNamesMap.TryGetValue(type.Name, out remappedName))
+						remappedName = type.Name;
+
+					typesByNativeNames[remappedName] = type;
+				}
+			}
+			Type result;
+			if (!typesByNativeNames.TryGetValue(name, out result))
+				throw new Exception($"Type {name} not found.");
+
+			return result;
 		}
 	}
 }
