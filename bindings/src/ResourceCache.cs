@@ -10,8 +10,12 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Reflection;
+using Urho.Audio;
+using Urho.Resources;
+using Urho.Gui;
+using Urho.Urho2D;
 
-namespace Urho {
+namespace Urho.Resources {
 	
 	public partial class ResourceCache {
 #region Convenience methods to get resources

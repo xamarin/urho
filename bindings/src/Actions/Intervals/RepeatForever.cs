@@ -1,6 +1,7 @@
 using System.Diagnostics;
+using Urho;
 
-namespace Urho
+namespace Urho.Actions
 {
 	public class RepeatForever : FiniteTimeAction
 	{

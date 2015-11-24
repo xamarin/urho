@@ -1,6 +1,7 @@
 using System;
+using Urho;
 
-namespace Urho
+namespace Urho.Actions
 {
 	public class RotateTo : FiniteTimeAction
 	{

@@ -4,7 +4,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Urho {
+namespace Urho.Physics {
 	
 	public unsafe struct CollisionData  {
 		public Vector3 ContactPosition, ContactNormal;

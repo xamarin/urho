@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Urho.Resources;
 
-namespace Urho
+namespace Urho.Gui
 {
 	partial	class UI
 	{

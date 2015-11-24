@@ -9,6 +9,11 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Urho.IO;
+using Urho.Audio;
+using Urho.Resources;
+using Urho.Actions;
+using Urho.Gui;
 
 namespace Urho {
 	
@@ -183,11 +188,11 @@ namespace Urho {
 			}
 		}
 		
-		Network network;
-		public Network Network {
+		Urho.Network.Network network;
+		public Urho.Network.Network Network {
 			get {
 				if (network == null)
-					network = new Network (UrhoObject_GetSubsystem (handle, Network.TypeStatic.Code));
+					network = new Urho.Network.Network (UrhoObject_GetSubsystem (handle, Urho.Network.Network.TypeStatic.Code));
 				return network;
 			}
 		}
@@ -246,11 +251,11 @@ namespace Urho {
 			}
 		}
 		
-		Audio audio;
-		public Audio Audio {
+		Urho.Audio.Audio audio;
+		public Urho.Audio.Audio Audio {
 			get {
 				if (audio == null)
-					audio = new Audio (UrhoObject_GetSubsystem (handle, Audio.TypeStatic.Code));
+					audio = new Audio.Audio (UrhoObject_GetSubsystem (handle, Urho.Audio.Audio.TypeStatic.Code));
 				return audio;
 			}
 		}

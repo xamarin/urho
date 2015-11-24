@@ -1,6 +1,8 @@
 ﻿using System;
+using Urho;
+using Urho.Urho2D;
 
-namespace Urho
+namespace Urho.Actions
 {
 	public class FadeTo : FiniteTimeAction
 	{

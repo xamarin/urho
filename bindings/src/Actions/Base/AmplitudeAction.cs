@@ -1,4 +1,6 @@
-﻿namespace Urho
+﻿using Urho;
+
+namespace Urho.Actions
 {
 	public abstract class AmplitudeAction : FiniteTimeAction
 	{

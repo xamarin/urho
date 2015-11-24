@@ -1,4 +1,5 @@
-namespace Urho
+using Urho;
+namespace Urho.Actions
 {
 	// Extra action for making a Sequence or Spawn when only adding one action to it.
 	internal class ExtraAction : FiniteTimeAction

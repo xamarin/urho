@@ -1,6 +1,6 @@
 using System;
 
-namespace Urho
+namespace Urho.Actions
 {
 	public abstract class FiniteTimeAction : BaseAction
 	{

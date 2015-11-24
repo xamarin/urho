@@ -1,4 +1,5 @@
 ﻿using System;
+using Urho.Gui;
 
 namespace Urho
 {

@@ -1,7 +1,8 @@
 using System.Diagnostics;
 using System;
 
-namespace Urho
+using Urho;
+namespace Urho.Actions
 {
 	public interface IActionTweenDelegate
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Urho
+namespace Urho.Resources
 {
 	public interface IComponentSerializer
 	{

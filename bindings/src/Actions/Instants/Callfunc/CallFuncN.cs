@@ -1,6 +1,7 @@
 ﻿using System;
 
-namespace Urho
+using Urho;
+namespace Urho.Actions
 {
 	public class CallFuncN : CallFunc
 	{
