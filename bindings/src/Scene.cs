@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Urho.IO;
 using Urho.Resources;
 
 namespace Urho
@@ -14,28 +15,20 @@ namespace Urho
 			return Scene_LoadXMLFromCache(handle, cache.Handle, file);
 		}
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_LoadXMLFile(IntPtr handle, string file);
-
-		public bool LoadXml(string file)
+		public bool LoadXml(string path)
 		{
-			var result = Scene_LoadXMLFile(handle, file);
-			if (result)
+			using (var file = new File(Context, path, FileMode.Read))
 			{
-				// LoadXml will mark a lot of objects for collection
-				GC.Collect();
-				GC.WaitForPendingFinalizers();
-				GC.Collect();
+				return LoadXml(file);
 			}
-			return result;
 		}
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_SaveXMLFile(IntPtr handle, string file, string indentation);
-
-		public bool SaveXml(string file, string indentation = "\t")
+		public bool SaveXml(string path, string indentation = "\t")
 		{
-			return Scene_SaveXMLFile(handle, file, indentation);
+			using (var file = new File(Context, path, FileMode.Write))
+			{
+				return SaveXml(file, indentation);
+			}
 		}
 	}
 }

@@ -704,7 +704,9 @@ namespace SharpieBinder
 			case "struct Urho3D::PhysicsRaycastResult &":
 			case "const class Urho3D::Ray &":
 			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
-				return false;
+			case "class Urho3D::Serializer &":
+			case "class Urho3D::Deserializer &":
+					return false;
 			}
 
 			if (returnType) {
@@ -885,6 +887,12 @@ namespace SharpieBinder
 				highLevel = new SimpleType ("CascadeParameters");
 				lowLevel = new SimpleType ("CascadeParameters");
 				wrapKind = WrapKind.RefBlittable;
+				return;
+			case "class Urho3D::Serializer &":
+			case "class Urho3D::Deserializer &":
+				highLevel = new SimpleType ("File");
+				lowLevel = new SimpleType ("IntPtr");
+				wrapKind = WrapKind.HandleMember;
 				return;
 			case "struct Urho3D::TouchState *":
 				if (isReturn)
@@ -1471,6 +1479,11 @@ namespace SharpieBinder
 				switch (ctype) {
 				case "bool":
 					ctype = "int";
+					break;
+				case "Urho3D::Deserializer &":
+				case "Urho3D::Serializer &":
+					ctype = "File *";
+					paramInvoke = $"*{paramInvoke}";
 					break;
 				case "const class Urho3D::String &":
 					ctype = "const char *";
