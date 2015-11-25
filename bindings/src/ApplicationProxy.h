@@ -1,3 +1,5 @@
+#include "asserts.h"
+
 class ApplicationProxy;
 
 typedef void(*callback_t)(ApplicationProxy *);
@@ -15,6 +17,7 @@ public:
 
 	void Setup ()
 	{
+		//check_bindings_offsets();
 		setup (this);
 	}
 

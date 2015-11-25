@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -10,16 +11,8 @@ namespace StructsValidator
 	class Program
 	{
 		static string codeContent;
+		const string Header = 
 
-		static void Main(string[] args)
-		{
-			//get all structs from Urho.dll
-			var structs = typeof (UrhoObject).Assembly.GetTypes().Where(t => t.IsValueType && !t.IsPrimitive && !t.IsEnum);
-			
-			// only those with Sequential layout
-			structs = structs.Where(t => t.IsLayoutSequential).ToArray();
-
-			AppendC(
 @"using namespace Urho3D;
 
 void check_size(int actual, int expected, const char * typeName)
@@ -34,16 +27,25 @@ void check_offset(int actual, int expected, const char* typeName, const char* fi
 		printf(""offset(%s, %s) is %d but %d is expected"", typeName, fieldName, actual, expected);
 }
 
-int main()
-{");
+// test are generated for %ARCH%
+void check_bindings_offsets()
+{";
 
+
+		static void Main(string[] args)
+		{
+			//get all structs from Urho.dll
+			var structs = typeof (UrhoObject).Assembly.GetTypes().Where(t => t.IsValueType && !t.IsPrimitive && !t.IsEnum);
+			
+			// only those with Sequential layout
+			structs = structs.Where(t => t.IsLayoutSequential).ToArray();
+
+			AppendC(Header.Replace("%ARCH%", IntPtr.Size == 8 ? "64bit" : "32bit"));
 			foreach (var type in structs)
-			{
 				AddTest(type);
-			}
 			AppendC("}");
 
-			//TODO: flush codeContent, compile and execute.
+			File.WriteAllText("../../../../bindings/src/asserts.h", codeContent);
 		}
 
 		static void AddTest(Type type)
