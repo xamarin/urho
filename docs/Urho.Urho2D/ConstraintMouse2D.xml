@@ -13,7 +13,13 @@
     <summary>
             2D mouse constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Used to manipulate bodies with the mouse.  </para>
+      <para>This constraint is almost used in every Box2D tutorial available on the net, to allow interacting with the 2D scene. </para>
+      <para>It attempts to drive a point on a body towards the current position of the cursor. There is no restriction on rotation. This constraint has a target point, maximum force, frequency, and damping ratio. </para>
+      <para>The target point <see cref="P:Urho.Urho2D.ConstraintMouse2D.Target" /> initially coincides with the body’s anchor point. The maximum force <see cref="P:Urho.Urho2D.ConstraintMouse2D.MaxForce" /> is used to prevent violent reactions when multiple dynamic bodies interact. You can make this as large as you like. The frequency <see cref="P:Urho.Urho2D.ConstraintMouse2D.FrequencyHz" /> and damping ratio <see cref="P:Urho.Urho2D.ConstraintMouse2D.DampingRatio" /> are used to create a spring/damper effect similar to the <see cref="T:Urho.Urho2D.ConstraintDistance2D" />ConstraintDistance2D. </para>
+      <para>Many users have tried to adapt the ConstraintMouse2D for game play. Users often want to achieve precise positioning and instantaneous response. The ConstraintMouse2D doesn’t work very well in that context. You may wish to consider using kinematic bodies instead.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -220,8 +226,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -237,8 +242,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

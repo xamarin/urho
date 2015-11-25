@@ -13,7 +13,9 @@
     <summary>
             2D particle effect resource.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Holds the definition from a PEX file defining the behavior and texture of a 2D particle (ParticleEmitter2D). For an example, see bin/Data/Urho2D/greenspiral.pex.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -859,8 +861,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -876,8 +877,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

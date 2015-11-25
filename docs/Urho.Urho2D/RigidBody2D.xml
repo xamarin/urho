@@ -13,7 +13,16 @@
     <summary>
             2D rigid body component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>There are three different kinds of rigid bodies, as defined in <see cref="T:Urho.Urho2D.BodyType2D" />. Rigid bodies can be moved/rotated by applying forces and impulses.</para>
+      <para>Linear force, either progressive or gradual can be applied by using <see cref="M:Urho.Urho2D.RigidBody2D.ApplyForce" /> and <see cref="M:Urho.Urho2D.RigidBody2D.ApplyForceToCenter" />. </para>
+      <para>Linear or angular impuse, either as brutal or immediate can be applied by using <see cref="M:Urho.Urho2D.RigidBody2D.ApplyLinearImpulse" /> and <see cref="M:Urho.Urho2D.RigidBody2D.ApplyAngularImpulse" />.</para>
+      <para>Torque (angular force) can be controlled by using <see cref="M:Urho.Urho2D.RigidBody2D.ApplyTorque." /></para>
+      <para>You should establish the body type at creation, using the <see cref="P:Urho.Urho2D.RigidBody2D.BodyType" /> property, because changing the body type later is expensive.</para>
+      <para>You can also directly set the linear or angular velocity of the body using <see cref="P:Urho.Urho2D.RigidBody2D.LinearVelocity&amp;nbsp;" /> or <see cref="P:Urho.Urho2D.RigidBody2D.AngularVelocity" />. </para>
+      <para>To manually move or rotate a body, simply translate or rotate the node to which it belongs to.</para>
+      <para>You should set the <see cref="P:Urho.Urho2D.RigidBody2D.BodyType" /> early on, because changing it at a later time is an expensive operation.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -195,9 +204,9 @@
         <Parameter Name="wake" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="force">To be added.</param>
-        <param name="point">To be added.</param>
-        <param name="wake">To be added.</param>
+        <param name="force">Direction of the force.</param>
+        <param name="point">Where to apply the force.</param>
+        <param name="wake">To improve performance, you can request the body to sleep by setting 'wake' parameter to false.</param>
         <summary>
             Apply force.
             </summary>
@@ -219,12 +228,12 @@
         <Parameter Name="wake" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="force">To be added.</param>
-        <param name="wake">To be added.</param>
+        <param name="force">Direction of the force.</param>
+        <param name="wake">To improve performance, you can request the body to sleep by setting 'wake' parameter to false.</param>
         <summary>
             Apply force to center.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>This is the same as ApplyForce, the world point where to apply the force is set to center of mass, which prevents the body from rotating/spinning,</remarks>
       </Docs>
     </Member>
     <Member MemberName="ApplyLinearImpulse">
@@ -243,9 +252,9 @@
         <Parameter Name="wake" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="impulse">To be added.</param>
-        <param name="point">To be added.</param>
-        <param name="wake">To be added.</param>
+        <param name="impulse">Direction of the impulse.</param>
+        <param name="point">Where the impulse is applied.</param>
+        <param name="wake">To improve performance, you can request the body to sleep by setting 'wake' parameter to false.</param>
         <summary>
             Apply linear impulse.
             </summary>
@@ -268,7 +277,7 @@
       </Parameters>
       <Docs>
         <param name="torque">To be added.</param>
-        <param name="wake">To be added.</param>
+        <param name="wake">To improve performance, you can request the body to sleep by setting 'wake' parameter to false.</param>
         <summary>
             Apply Torque.
             </summary>
@@ -793,8 +802,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -810,8 +818,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

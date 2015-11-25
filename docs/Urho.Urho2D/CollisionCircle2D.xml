@@ -13,7 +13,11 @@
     <summary>
             2D circle collision component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Circle shapes have an optional position offset (<see cref="P:Urho.Urho2D.CollisionCircle2D.Center" />) and a radius (<see cref="P:Urho.Urho2D.CollisionCircle2D.Radius" />). </para>
+      <para></para>
+      <para>Circles are solid, you cannot make a hollow circle using the circle shape.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -203,8 +207,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -220,8 +223,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

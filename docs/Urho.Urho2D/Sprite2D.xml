@@ -11,9 +11,8 @@
   <Interfaces />
   <Docs>
     <summary>
-            Sprite.
-            </summary>
-    <remarks>To be added.</remarks>
+            Sprite loaded from a file.</summary>
+    <remarks>An image defined with texture, texture rectangle and hot spot.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -281,8 +280,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -298,8 +296,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

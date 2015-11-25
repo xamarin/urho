@@ -13,7 +13,12 @@
     <summary>
             2D revolute constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>This constraint forces two bodies to share a common hinge anchor point <see cref="P:Urho.Urho2D.ConstraintRevolute2D.Anchor" />. </para>
+      <para>You can control the relative rotation of the two bodies (the constraint angle) using a limit and/or a motor. A limit <see cref="P:Urho.Urho2D.ConstraintRevolute2D.EnableLimit" /> forces the joint angle to remain between a lower <see cref="P:Urho.Urho2D.ConstraintRevolute2D.LowerAngle" /> and upper <see cref="P:Urho.Urho2D.ConstraintRevolute2D.UpperAngle" /> bound. </para>
+      <para>The limit will apply as much torque as needed to make this happen. The limit range should include zero, otherwise the constraint will lurch when the simulation begins. A motor (<see cref="P:Urho.Urho2D.ConstraintRevolute2D.EnableMotor" />) allows you to specify the constraint speed (the time derivative of the angle). The speed (<see cref="P:Urho.Urho2D.ConstraintRevolute2D.MotorSpeed" />) can be negative or positive. </para>
+      <para>When the maximum torque (<see cref="P:Urho.Urho2D.ConstraintRevolute2D.MaxMotorTorque" />) is exceeded, the joint will slow down and can even reverse. You can use a motor to simulate friction. Just set the joint speed to zero, and set the maximum torque to some small, but significant value. The motor will try to prevent the constraint from rotating, but will yield to a significant load.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -260,8 +265,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -277,8 +281,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

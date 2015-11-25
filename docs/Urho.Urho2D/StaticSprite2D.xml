@@ -11,9 +11,12 @@
   <Interfaces />
   <Docs>
     <summary>
-            Static sprite component.
-            </summary>
-    <remarks>To be added.</remarks>
+            Static sprite renderer component.</summary>
+    <remarks>
+      <para>Renders static sprites that have been loaded with the single image files (<see cref="T:Urho.Urho2D.Sprite2D" />) or  spritesheets/texture atlases that are loaded using <see cref="T:Urho.Urho2D.SpriteSheet2D" /> class. </para>
+      <para />
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -359,8 +362,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -376,8 +378,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

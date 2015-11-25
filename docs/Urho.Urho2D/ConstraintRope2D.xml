@@ -13,7 +13,7 @@
     <summary>
             2D rope constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>This constraint restricts the maximum distance <see cref="P:Urho.Urho2D.ConstraintRope2D.MaxLength" /> between two points <see cref="P:Urho.Urho2D.ConstraintRope2D.OwnerBodyAnchor" /> and <see cref="P:Urho.Urho2D.ConstraintRope2D.OtherBodyAnchor" />. This can be useful to prevent chains of bodies from stretching, even under high load.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -200,8 +200,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -217,8 +216,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

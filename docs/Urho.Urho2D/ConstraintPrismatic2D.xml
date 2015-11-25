@@ -13,7 +13,7 @@
     <summary>
             2D prismatic constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>This constraint allows for relative translation of two bodies along a specified axis <see cref="P:Urho.Urho2D.ConstraintPrismatic2D.Axis" />. There's no rotation applied. This constraint definition is similar to <see cref="T:Urho.Urho2D.ConstraintRevolute2D" /> description; just substitute translation for angle and force for torque.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -280,8 +280,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -297,8 +296,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

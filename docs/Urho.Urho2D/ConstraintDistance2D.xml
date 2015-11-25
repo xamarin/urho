@@ -13,7 +13,10 @@
     <summary>
             2D distance constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>The distance between two anchor points <see cref="P:Urho.Urho2D.ConstraintDistance2D.OwnerBodyAnchor" /> and <see cref="P:Urho.Urho2D.ConstraintDistance2D.OtherBodyAnchor" /> on two bodies is kept constant. </para>
+      <para>The constraint can also be made soft, like a spring-damper connection. Softness is achieved by tuning frequency (<see cref="P:Urho.Urho2D.ConstraintDistance2D.FrequencyHz" /> is below half of the timestep) and damping ratio (<see cref="P:Urho.Urho2D.ConstraintDistance2D.DampingRatio" />).</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -220,8 +223,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -237,8 +239,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

@@ -13,7 +13,10 @@
     <summary>
             2D motor constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>This constraint lets you control the motion of a body by specifying target position (<see cref="P:Urho.Urho2D.ConstraintMotor2D.LinearOffset)" /> and rotation offsets (<see cref="P:Urho.Urho2D.ConstraintMotor2D.AngularOffset" />). </para>
+      <para>You can set the maximum motor force (<see cref="P:Urho.Urho2D.ConstraintMotor2D.MaxForce" />) and torque (<see cref="P:Urho.Urho2D.ConstraintMotor2D.MaxTorque" />) that will be applied to reach the target position and rotation. If the body is blocked, it will stop and the contact forces will be proportional to the maximum motor force and torque.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -240,8 +243,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -257,8 +259,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

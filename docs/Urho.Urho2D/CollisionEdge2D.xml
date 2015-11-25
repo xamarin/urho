@@ -13,7 +13,10 @@
     <summary>
             2D edge collision component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Edge shapes are line segments defined by 2 vertices <see cref="P:Urho.Urho2D.CollisionEdge2D.Vertex1" /> and <see cref="P:Urho.Urho2D.CollisionEdge2D.Vertex2" />. </para>
+      <para>They are provided to assist in making a free-form static environment for your game. A major limitation of edge shapes is that they can collide with circles and polygons but not with themselves. The collision algorithms used by Box2D require that at least one of two colliding shapes have volume. Edge shapes have no volume, so edge-edge collision is not possible.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -163,8 +166,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -180,8 +182,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

@@ -13,7 +13,13 @@
     <summary>
             2D particle emitter component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Used to display a <see cref="T:Urho.Urho2D.ParticleEffect2D" />. </para>
+      <para />
+      <para>Equivalent to a 3D ParticleEmitter. </para>
+      <para />
+      <para>For a demonstration, check example 25_Urho2DParticle.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -274,8 +280,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -291,8 +296,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

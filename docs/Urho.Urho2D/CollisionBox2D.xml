@@ -13,7 +13,11 @@
     <summary>
             2D box collision component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Box shapes have an optional position offset (<see cref="P:Urho.Urho2D.CollisionBox2D.Center" />), width and height size (<see cref="P:Urho.Urho2D.CollisionBox2D.Size" />) and a rotation angle expressed in degrees (<see cref="P:Urho.Urho2D.CollisionBox2D.Angle" />). </para>
+      <para></para>
+      <para>Boxes are solid, so if you need a hollow box shape then create one from a <see cref="T:Urho.Urho2D.CollisionChain2D" /> shape.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -246,8 +250,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -263,8 +266,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

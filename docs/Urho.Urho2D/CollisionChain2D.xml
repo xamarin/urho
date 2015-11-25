@@ -13,7 +13,7 @@
     <summary>
             2D chain collision component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>The chain shape provides an efficient way to connect many edges together to construct your static game worlds. You can connect chains together using ghost vertices. Self-intersection of chain shapes is not supported.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -205,8 +205,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -222,8 +221,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

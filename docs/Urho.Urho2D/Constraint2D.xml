@@ -13,7 +13,74 @@
     <summary>
             2D physics constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Base class for the various 2D physics constraints. </para>
+      <para></para>
+      <para>Constraints ('joints' in Box2D terminology) are used to constrain bodies to an anchor point or between themselves. Apply a constraint to a node, called the <see cref="P:Urho.Urho2D.Constraint2D.OwnerBody" /> and use <see cref="P:Urho.Urho2D.Constraint2D.OtherBody" /> to set the other node's body to be constrained to the owner body.</para>
+      <para></para>
+      <para>See 32_Urho2DConstraints sample for detailed examples and to help selecting the appropriate constraint. </para>
+      <para></para>
+      <para>Following are the available constraints classes, with the
+      indication of the corresponding 'joint' in Box2D manual (see
+      Chapter 8 Joints):</para>
+      <list type="bullet">
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintPulley2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintGear2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintMouse2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintWheel2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintWeld2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintRope2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintPrismatic2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintRevolute2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintDistance2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintMotor2D" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Urho2D.ConstraintFriction2D" />
+          </term>
+        </item>
+      </list>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -272,8 +339,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -289,8 +355,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

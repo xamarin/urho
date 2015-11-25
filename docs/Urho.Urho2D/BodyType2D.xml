@@ -26,7 +26,11 @@
         <ReturnType>Urho.Urho2D.BodyType2D</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>A dynamic body is fully simulated. It can be moved manually by the user, but normally it moves according to forces. A dynamic body can collide with all body types. A dynamic body always has finite, non-zero mass. If you try to set the mass of a dynamic body to zero, it will automatically acquire a mass of one kilogram.</para>
+          <para />
+          <para>Physics queries don't report triggers. To get notified when a sensor is triggered or cease to be triggered, subscribe to <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsBeginContact2D" /> and <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsEndContact2D" /> physics events.</para>
+        </summary>
       </Docs>
     </Member>
     <Member MemberName="Kinematic">
@@ -40,7 +44,7 @@
         <ReturnType>Urho.Urho2D.BodyType2D</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>a kinematic body moves under simulation according to its velocity. Kinematic bodies do not respond to forces. They can be moved manually by the user, but normally a kinematic body is moved by setting its velocity. A kinematic body behaves as if it has infinite mass, however, Box2D stores zero for the mass and the inverse mass. Kinematic bodies do not collide with other static or kinematic bodies.</summary>
       </Docs>
     </Member>
     <Member MemberName="Static">
@@ -54,7 +58,7 @@
         <ReturnType>Urho.Urho2D.BodyType2D</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>a static body does not move under simulation and behaves as if it has infinite mass. Internally, Box2D stores zero for the mass and the inverse mass. Static bodies can be moved manually by the user. A static body has zero velocity. Static bodies do not collide with other static or kinematic bodies.</summary>
       </Docs>
     </Member>
   </Members>

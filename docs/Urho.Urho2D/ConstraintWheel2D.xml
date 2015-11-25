@@ -13,7 +13,10 @@
     <summary>
             2D wheel constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>This constraint restricts a point on bodyB <see cref="T:Urho.Urho2D.ConstraintWheel2D.Anchoe" /> to a line on bodyA <see cref="P:Urho.Urho2D.ConstraintWheel2D.Axis" />. </para>
+      <para>It also provides a suspension spring.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -280,8 +283,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -297,8 +299,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

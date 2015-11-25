@@ -13,7 +13,11 @@
     <summary>
             2D pulley constraint component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>The pulley connects two bodies to ground <see cref="P:Urho.Urho2D.ConstraintPulley2D.OwnerBodyGroundAnchor" /> and <see cref="P:Urho.Urho2D.ConstraintPulley2D.OtherBodyGroundAnchor" /> and to each other <see cref="P:Urho.Urho2D.ConstraintPulley2D.OwnerBodyAnchor" /> and <see cref="P:Urho.Urho2D.ConstraintPulley2D.OtherBodyAnchor" />. </para>
+      <para>As one body goes up, the other goes down. You can supply a ratio <see cref="P:Urho.Urho2D.ConstraintPulley2D.Ratio" /> that simulates a block and tackle. This causes one side of the pulley to extend faster than the other. At the same time the constraint force is smaller on one side than the other. </para>
+      <para>You can use this to create mechanical leverage.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -240,8 +244,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -257,8 +260,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

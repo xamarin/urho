@@ -412,7 +412,7 @@
         <ReturnType>System.Action&lt;Urho.Urho2D.PhysicsBeginContact2DEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised for RigidBody2D of type dynamic on contact.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsBeginContact2D" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -429,7 +429,7 @@
         <ReturnType>System.Action&lt;Urho.Urho2D.PhysicsEndContact2DEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised for RigidBody2D of type dynamic on contact end.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsEndContact2D" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -697,8 +697,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -714,8 +713,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
