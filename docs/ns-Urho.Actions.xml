@@ -1,6 +1,191 @@
 <Namespace Name="Urho.Actions">
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Action framework for <see cref="T:Urho.Node" /></summary>
+    <remarks>
+      <para>You can add behavior to nodes very easily using Actions.   Actions are immutable objects, which allows you to reuse the action for driving different objects.  </para>
+      <para></para>
+      <para>Actions operate on nodes usually over a period of time, and you can use them to move, rotate, scale, fade, change their color or visibility, place or remove and to control some simple looping behavior.   To control the rate of change, you can use easing actions to wrap other actions and control precisely the timing and effect of the actions they wrap.</para>
+      <para></para>
+      <para>You trigger an action on a node by invoking the <see cref="M:Urho.Node.RunActionsAsync" /> method.  If you use this in combination with C# await, the method will only return after the action has completed.   If you do not, the action will execute and your code will continue running.</para>
+      <para></para>
+      <para>For example, consider a “cloud” node on your scene, you can fade it like this:</para>
+      <para></para>
+      <code lang="C#"><![CDATA[await cloud.RunActionsAsync (new FadeOut (duration: 3))]]></code>
+      <para></para>
+      <para>The above would fade lineraly the node for three seconds.</para>
+      <para></para>
+      <para>A common idiom is to create an action that performs the reverse operation:</para>
+      <code lang="C#"><![CDATA[var gotoExit = new MoveTo (duration: 3, position: exitLocation);
+var return = gotoExit.Reverse ();]]></code>
+      <para></para>
+      <para></para>
+      <para>You can also run one action after another by passing more than one action to <see cref="M:Urho.Node.RunActionsAsync" />, for example, you could first move the cloud, and then fade it away:</para>
+      <para></para>
+      <code lang="C#"><![CDATA[await cloud.RunActionsAsync (
+  new MoveBy  (duration: 1.5f, position: new Vector3(0, 0, 15),
+  new FadeOut (duration: 3));]]></code>
+      <para></para>
+      <para></para>
+      <para>If you want both actions to take place at the same time, you can use the Parallel action, and provide all the actions you want done in parallel:</para>
+      <code lang="C#"><![CDATA[await cloud.RunActionsAsync (
+  new Parallel (
+    new MoveBy  (duration: 3, position: new Vector3(0, 0, 15),
+    new FadeOut (duration: 3)));]]></code>
+      <para>This is a list of the available actions:</para>
+      <list type="bullet">
+        <item>
+          <term>Moving nodes: <see cref="T:Urho.Actions.MoveTo" />, <see cref="T:Urho.Actions.MoveBy" />, <see cref="T:Urho.Actions.Place" />, <see cref="T:Urho.Actions.BezierTo" />, <see cref="T:Urho.Actions.BezierBy" />, <see cref="T:Urho.Actions.JumpTo" />, <see cref="T:Urho.Actions.JumpBy" />.</term>
+        </item>
+        <item>
+          <term>Rotating nodes: <see cref="T:Urho.Actions.RotateTo" />, <see cref="T:Urho.Actions.RotateBy" />.</term>
+        </item>
+        <item>
+          <term>Scaling nodes: <see cref="T:Urho.Actions.ScaleTo" />, <see cref="T:Urho.Actions.ScaleBy" /></term>
+        </item>
+        <item>
+          <term>Fading nodes: <see cref="T:Urho.Actions.FadeIn" />, <see cref="T:Urho.Actions.FadeTo" />, <see cref="T:Urho.Actions.FadeOut" />, <see cref="T:Urho.Actions.Hide" />, Blink</term>
+        </item>
+        <item>
+          <term>Tinting: <see cref="T:Urho.Actions.TintTo" />, <see cref="T:Urho.Actions.TintBy" /></term>
+        </item>
+        <item>
+          <term>Instants: <see cref="T:Urho.Actions.Hide" />, <see cref="T:Urho.Actions.Show" />, <see cref="T:Urho.Actions.Place" />, <see cref="T:Urho.Actions.RemoveSelf" />, <see cref="T:Urho.Actions.ToggleVisibility" /></term>
+        </item>
+        <item>
+          <term>Looping: <see cref="T:Urho.Actions.Blink" />, <see cref="T:Urho.Actions.Repeat" />, <see cref="T:Urho.Actions.RepeatForever" />, <see cref="T:Urho.Actions.ReverseTime" />, </term>
+        </item>
+        <item>
+          <term>Timing: <see cref="T:Urho.Actions.DelayTime" />, <see cref="T:Urho.Actions.ReverseTime" /></term>
+        </item>
+        <item>
+          <term>Execution: <see cref="T:Urho.Actions.Parallel" />, <see cref="T:Urho.Actions.Spawn" /></term>
+        </item>
+        <item>
+          <term>Hooks: <see cref="T:Urho.Actions.CallFunc" />, <see cref="T:Urho.Actions.CallFuncN," /> <see cref="T:Urho.Actions.CallFuncND," /> <see cref="T:Urho.Actions.CallFuncO." /></term>
+        </item>
+      </list>
+      <format type="text/html">
+        <h2>Easing Actions</h2>
+      </format>
+      <para>
+	Easing is a way that directs the way that the animation will unfold, and it can make your animations a lot more pleasant. By default your actions will have a linear behavior, for example a MoveTo action would have a very robotic movement. You can wrap your Actions into an Easing action to change the behavior, for example, one that would slowly start the movement, accelerate and slowly reach the end (<see cref="T:Urho.Actions.EasyInOut" />).</para>
+      <para>You do this by wrapping an existing Action into an easing action, for example:</para>
+      <code lang="C#"><![CDATA[await cloud.RunActionAsync (
+  new EaseInOut (
+    new MoveTo (duration: 3, position: new Vector (0,0,15)), rate:1))]]></code>
+      <para>There are many easing modes, the following chart shows the various easing types and their behavior on the value of the object they are controlling over the period of time, from start to finish:</para>
+      <img href="easing-functions.png" />
+      <list type="bullet">
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBackIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBackInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBackOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBounceIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBounceInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBounceOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseCustom" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseElastic" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseElasticIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseElasticInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseElasticOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseExponentialIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseExponentialInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseExponentialOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseRateAction" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseSineIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseSineInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseSineOut" />
+          </term>
+        </item>
+      </list>
+      <format type="text/html">
+        <h2>Creating your own Actions</h2>
+      </format>
+      <para>The easiest thing to do is to subclass one of the variosu existing actions and add your own behavior to it. Each Action is a recipe that describes declaratively what will happen. These recipes can be created and then executed on different nodes. When the action is actually started, the <see cref="M:Urho.Actions.BaseAction.StartAction" /> method is invoked. This method needs to create an instance of a subclass of  <see cref="T:Urho.Actions.ActionState" /> that will record the state and perform the actual action on each time tick.</para>
+    </remarks>
   </Docs>
 </Namespace>

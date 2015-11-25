@@ -10,8 +10,33 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Base class for actions that have an immediate effect.</summary>
+    <remarks>
+      <para>This is a base class that will invoke the Update method in the <see cref="T:Urho.Actions.ActionState" /> with the value of one as soon as it is executed.   </para>
+      <para>The following example shows how you would implement an instant:</para>
+      <code lang="C#"><![CDATA[public class MyInstant : ActionInstant
+{
+    public MyInstant () {}
+    protected internal override ActionState StartAction(Node target)
+    {
+        return new MyInstantState (this, target);
+    }
+
+    public override FiniteTimeAction Reverse ()
+    {
+        return (new MyInstantReverse ());
+    }
+}
+
+public class MyInstantState : ActionInstantState
+{
+    public MyInstantState (MyInstant action, Node target)
+        : base (action, target) {}
+    public override void Update (float time)]]></code>
+      <para></para>
+      <para>In this imaginary action, you there would be an inverse operation called “MyInstantReverse”, which is used to implement the Reverse method in this case.</para>
+      <para>The “PerformOp” call is the one that does the change, and it will be invoked only once.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -23,7 +48,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new instance of the instant action</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -39,7 +64,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>This method must be overwritten and return the reverse action of your custom action.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

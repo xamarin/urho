@@ -12,8 +12,115 @@
   <Docs>
     <summary>Base class for all the Action Easing functions.</summary>
     <remarks>
-      <para>In general, you will be using one of the concrete subclasses: EaseBackIn, EaseBackInOut, EaseBackOut, EaseBounceIn, EaseBounceInOut, EaseBounceOut, EaseCustom, EaseElastic, EaseElasticIn, EaseElasticInOut, EaseElasticOut, EaseExponentialIn, EaseExponentialInOut, EaseExponentialOut, EaseIn, EaseInOut, EaseOut, EaseRateAction, EaseSineIn, EaseSineInOut and EaseSineOut.</para>
-      <para />
+      <para>In general, you will be using one of the concrete subclasses: </para>
+      <list type="bullet">
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBackIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBackInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBackOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBounceIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBounceInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseBounceOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseCustom" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseElastic" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseElasticIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseElasticInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseElasticOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseExponentialIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseExponentialInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseExponentialOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseRateAction" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseSineIn" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseSineInOut" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="T:Urho.Actions.EaseSineOut" />
+          </term>
+        </item>
+      </list>
+      <para></para>
     </remarks>
   </Docs>
   <Members>

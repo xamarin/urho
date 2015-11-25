@@ -10,10 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            Physics collision shape component.
-            </summary>
-    <remarks>To be added.</remarks>
+    <summary />
+    <remarks />
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -128,7 +126,13 @@
         <summary>
             Visualize the component as debug geometry.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>sadfasdfa</para>
+          <para>sfas</para>
+          <para>das</para>
+          <para>asdf</para>
+          <para>asdf</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LodLevel">
@@ -724,8 +728,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -741,8 +744,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
