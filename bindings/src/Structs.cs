@@ -256,10 +256,10 @@ namespace Urho {
 		byte animated; //bool is not blittable.
 		public bool Animated { get { return animated != 0; } set { animated = (byte)(value ? 1 : 0); } }
 
-		public int CollisionMask;
+		public byte CollisionMask;
 		public float Radius;
 		public BoundingBox BoundingBox;
-		private WeakPtr Node;
+		WeakPtr Node;
 	}
 
 	public unsafe class BoneWrapper
@@ -281,7 +281,7 @@ namespace Urho {
 		public Vector3 InitialScale { get { return b->InitialScale; } set { b->InitialScale = value; } }
 		public Matrix3x4 OffsetMatrix { get { return b->OffsetMatrix; } set { b->OffsetMatrix = value; } }
 		public bool Animated { get { return b->Animated; } set { b->Animated = value; } }
-		public int CollisionMask { get { return b->CollisionMask; } set { b->CollisionMask = value; } }
+		public byte CollisionMask { get { return b->CollisionMask; } set { b->CollisionMask = value; } }
 		public float Radius { get { return b->Radius; } set { b->Radius = value; } }
 		public BoundingBox BoundingBox { get { return b->BoundingBox; } set { b->BoundingBox = value; } }
 	}

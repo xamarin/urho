@@ -49,7 +49,7 @@ namespace Urho {
 		/// <summary>
 		/// Supports the simple style with callbacks
 		/// </summary>
-		public Application (Context context, ApplicationOptions options) : base (UrhoObjectFlag.Empty)
+		public Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
