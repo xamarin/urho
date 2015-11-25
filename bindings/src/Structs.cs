@@ -447,9 +447,9 @@ namespace Urho {
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct FocusParameters {
-		public bool Focus;
-		public bool NonUniform;
-		public bool AutoSize;
+		public byte Focus;
+		public byte NonUniform;
+		public byte AutoSize;
 		public float Quantize;
 		public float MinView;
 	}
