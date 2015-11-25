@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Invokes an <see cref="T:System.Action&amp;lt;Urho.Node&amp;gt;" /> on every Action Update tick, passing the node where the action is taking place.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

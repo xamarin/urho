@@ -10,10 +10,13 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Sound listener component
+    <summary>Sound listener component
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>This is used for 3D positional sounds. </para>
+      <para>To use this, the <see cref="T:Urho.Node" /> in the <see cref="T:Urho.Scene" /> must created that contains an instance of this component and be assigned by the audio subsystem by setting the <see cref="T:Urho.Audio.Listener" /> property.</para>
+      <para>If the sound listener's scene node exists within a specific scene, it will only hear sounds from that scene, but if it has been created into a "sceneless" node it will hear sounds from all scenes.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -140,8 +143,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -157,8 +159,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

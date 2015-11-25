@@ -10,10 +10,12 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Sound resource.
+    <summary>Sound resource.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Sounds can be played back with either the <see cref="T:Urho.Audio.SoundSource" /> or the <see cref="T:Urho.Audio.SoundSource3D" /> components. </para>
+      <para>This allows manual stereo panning of mono sounds; stereo sounds will be output with their original stereo mix.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -509,8 +511,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -526,8 +527,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

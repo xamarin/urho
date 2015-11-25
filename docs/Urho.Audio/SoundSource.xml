@@ -10,10 +10,17 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Sound source component with stereo position.
+    <summary>Sound source component with stereo position.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Provides support for playing back <see cref="T:Urho.Audio.Sound" />.</para>
+      <para></para>
+      <para></para>
+      <format type="text/html" />
+      <para></para>
+      <para>The <see cref="T:Urho.Audio.SoundSource" /> components support automatic removal from the node they belong to, once playback is finished. To use, set the <see cref="P:Urho.Audio.SoundSource.AutoRemove property" /> on them. This may be useful when a game object plays several "fire and forget" sound effects.</para>
+      <para></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -596,8 +603,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -613,8 +619,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

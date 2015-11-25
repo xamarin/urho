@@ -10,10 +10,9 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Sound stream that supports manual buffering of data from the main thread.
+    <summary>Sound stream that supports manual buffering of data from the main thread.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>Use this class to push audio data to be played back from the main thread.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -111,7 +110,7 @@
         <param name="data">To be added.</param>
         <param name="start">To be added.</param>
         <param name="count">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Buffer sound data from a byte array.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -134,7 +133,7 @@
         <param name="data">To be added.</param>
         <param name="start">To be added.</param>
         <param name="count">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Buffer sound data from a short array.To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

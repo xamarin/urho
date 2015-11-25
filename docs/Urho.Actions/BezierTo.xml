@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Sets the position of the node to follow a specified bezier path.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

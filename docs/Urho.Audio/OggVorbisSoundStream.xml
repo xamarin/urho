@@ -13,7 +13,7 @@
     <summary>
             Ogg Vorbis sound stream.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>Ogg Vorbis sound stream.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

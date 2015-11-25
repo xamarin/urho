@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Bezier path configuration using two control points and an end position.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

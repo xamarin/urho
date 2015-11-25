@@ -14,8 +14,12 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>The manager for all executing actions.</summary>
+    <remarks>
+      <para>This class manages all the executing actions.   The provided interface can be used to query and probe the running actions.</para>
+      <para />
+      <para>This class is a singleton.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -27,7 +31,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Constructor, instantiated internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -50,7 +54,7 @@
         <param name="action">To be added.</param>
         <param name="target">To be added.</param>
         <param name="paused">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Low-level: adds the specified action to the node.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -67,7 +71,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Releases the resources of the action manager.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -86,7 +90,7 @@
       </Parameters>
       <Docs>
         <param name="disposing">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Releases the resources of the action manager.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -102,7 +106,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Finalizer</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,7 +127,7 @@
       <Docs>
         <param name="tag">To be added.</param>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Returns the action that has the specified tag ID on the specified target.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -145,7 +149,7 @@
       <Docs>
         <param name="tag">To be added.</param>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Returns the ActionState associated with the specified tag ID on the specified target.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -165,7 +169,7 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Returns the number of actions executing on the given target</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -182,7 +186,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Pauses all the running actions and returns a list of the elements that were paused.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -202,7 +206,7 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Pauses the specified target.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -221,7 +225,7 @@
       </Parameters>
       <Docs>
         <param name="actionState">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Removes a specific action that is currently executing (based on its actionState).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -242,7 +246,7 @@
       <Docs>
         <param name="tag">To be added.</param>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Removes the specified action from a node, using a tag ID.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -258,7 +262,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Removes all running actions.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -277,7 +281,7 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Removes all running actions from a specific node.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -296,7 +300,7 @@
       </Parameters>
       <Docs>
         <param name="target">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Resumes the actions on the specified node.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -315,7 +319,7 @@
       </Parameters>
       <Docs>
         <param name="targetsToResume">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Resumes all the targets in the provided list.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -334,7 +338,7 @@
       </Parameters>
       <Docs>
         <param name="dt">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Action tick method, invoked externally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

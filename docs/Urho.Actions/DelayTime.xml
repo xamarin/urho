@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>An action which completes after the specified time.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

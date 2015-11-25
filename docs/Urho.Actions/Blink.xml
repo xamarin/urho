@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Blinks a node by setting its Enabled state.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

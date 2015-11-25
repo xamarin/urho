@@ -13,7 +13,10 @@
     <summary>
             Base class for sound streams.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>In addition to playing existing sound resources, sound can be generated during runtime using the <see cref="T:Urho.Audio.SoundSource" />  class and its subclasses. To start playback of a stream on a <see cref="T:Urho.Audio.SoundSource" />, call <see cref="M:Urho.Audio.SoundSource.Play(Urho.SoundStream)" />.</para>
+      <para>Sound streaming is used internally to implement on-the-fly Ogg Vorbis decoding. See the SoundSynthesis sample for an example of using the <see cref="T:Urho.Audio.BufferedSoundStream" /> subclass, which allows the sound data to be queued for playback from the main thread.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
