@@ -3,18 +3,19 @@ using namespace Urho3D;
 void check_size(int actual, int expected, const char * typeName)
 {
 	if (actual != expected)
-		printf("sizeof(%s) is %d but %d is expected\n", typeName, actual, expected);
+		printf("sizeof(%s) is %d but %d is expected", typeName, actual, expected);
 }
 
 void check_offset(int actual, int expected, const char* typeName, const char* fieldName)
 {
 	if (actual != expected)
-		printf("offset(%s, %s) is %d but %d is expected\n", typeName, fieldName, actual, expected);
+		printf("offset(%s, %s) is %d but %d is expected", typeName, fieldName, actual, expected);
 }
 
-// test are generated for 64bit
+// TESTS ARE GENERATED FOR 64bit. MAKE SURE YOU USE THE SAME ARCHITECTURE WHILE RUNNING THESE TESTS!
 void check_bindings_offsets()
 {
+
 	// IntVector2:
 	check_size(sizeof(IntVector2), 8, "IntVector2");
 	check_offset(offsetof(IntVector2, x_), 0, "IntVector2", "X");
@@ -25,15 +26,6 @@ void check_bindings_offsets()
 	check_offset(offsetof(Plane, normal_), 0, "Plane", "Normal");
 	check_offset(offsetof(Plane, absNormal_), 12, "Plane", "AbsNormal");
 	check_offset(offsetof(Plane, d_), 24, "Plane", "D");
-
-	// CollisionGeometryData:
-	check_size(sizeof(CollisionGeometryData), 1, "CollisionGeometryData");
-
-	// WorkItem:
-	check_size(sizeof(WorkItem), 1, "WorkItem");
-
-	// RefCount:
-	check_size(sizeof(RefCount), 1, "RefCount");
 
 	// Ray:
 	check_size(sizeof(Ray), 24, "Ray");
@@ -57,12 +49,6 @@ void check_bindings_offsets()
 	check_size(sizeof(ResourceRef), 24, "ResourceRef");
 	check_offset(offsetof(ResourceRef, type_), 0, "ResourceRef", "Type");
 	check_offset(offsetof(ResourceRef, name_), 8, "ResourceRef", "Name");
-
-	// HashIteratorBase:
-	check_size(sizeof(HashIteratorBase), 1, "HashIteratorBase");
-
-	// ResourceRefList:
-	check_size(sizeof(ResourceRefList), 1, "ResourceRefList");
 
 	// BoundingBox:
 	check_size(sizeof(BoundingBox), 28, "BoundingBox");
@@ -97,12 +83,6 @@ void check_bindings_offsets()
 	check_offset(offsetof(Color, b_), 8, "Color", "B");
 	check_offset(offsetof(Color, a_), 12, "Color", "A");
 
-	// Frustum:
-	check_size(sizeof(Frustum), 1, "Frustum");
-
-	// Variant:
-	check_size(sizeof(Variant), 1, "Variant");
-
 	// TouchState:
 	check_size(sizeof(TouchState), 48, "TouchState");
 	check_offset(offsetof(TouchState, touchID_), 0, "TouchState", "TouchID");
@@ -111,9 +91,6 @@ void check_bindings_offsets()
 	check_offset(offsetof(TouchState, delta_), 20, "TouchState", "Delta");
 	check_offset(offsetof(TouchState, pressure_), 28, "TouchState", "Pressure");
 	check_offset(offsetof(TouchState, touchedElement_), 32, "TouchState", "_TouchedElement");
-
-	// ColorFrame:
-	check_size(sizeof(ColorFrame), 1, "ColorFrame");
 
 	// JoystickState:
 	check_size(sizeof(JoystickState), 112, "JoystickState");
@@ -126,12 +103,6 @@ void check_bindings_offsets()
 	check_offset(offsetof(JoystickState, buttonPress_), 64, "JoystickState", "ButtonPress");
 	check_offset(offsetof(JoystickState, axes_), 80, "JoystickState", "Axes");
 	check_offset(offsetof(JoystickState, hats_), 96, "JoystickState", "Hats");
-
-	// TextureFrame:
-	check_size(sizeof(TextureFrame), 1, "TextureFrame");
-
-	// LightBatchQueue:
-	check_size(sizeof(LightBatchQueue), 1, "LightBatchQueue");
 
 	// Bone:
 	check_size(sizeof(Bone), 168, "Bone");
@@ -158,33 +129,6 @@ void check_bindings_offsets()
 	check_offset(offsetof(RayQueryResult, node_), 48, "RayQueryResult", "nodePtr");
 	check_offset(offsetof(RayQueryResult, subObject_), 56, "RayQueryResult", "SubObject");
 
-	// ReplicationState:
-	check_size(sizeof(ReplicationState), 1, "ReplicationState");
-
-	// NodeReplicationState:
-	check_size(sizeof(NodeReplicationState), 1, "NodeReplicationState");
-
-	// RenderPathCommand:
-	check_size(sizeof(RenderPathCommand), 1, "RenderPathCommand");
-
-	// GPUObject:
-	check_size(sizeof(GPUObject), 1, "GPUObject");
-
-	// GraphicsImpl:
-	check_size(sizeof(GraphicsImpl), 1, "GraphicsImpl");
-
-	// FontGlyph:
-	check_size(sizeof(FontGlyph), 1, "FontGlyph");
-
-	// ModelMorph:
-	check_size(sizeof(ModelMorph), 1, "ModelMorph");
-
-	// Octant:
-	check_size(sizeof(Octant), 1, "Octant");
-
-	// CompressedLevel:
-	check_size(sizeof(CompressedLevel), 1, "CompressedLevel");
-
 	// Billboard:
 	check_size(sizeof(Billboard), 68, "Billboard");
 	check_offset(offsetof(Billboard, position_), 0, "Billboard", "Position");
@@ -195,33 +139,18 @@ void check_bindings_offsets()
 	check_offset(offsetof(Billboard, enabled_), 60, "Billboard", "enabled");
 	check_offset(offsetof(Billboard, sortDistance_), 64, "Billboard", "SortDistance");
 
-	// AnimationTrack:
-	check_size(sizeof(AnimationTrack), 1, "AnimationTrack");
-
-	// CustomGeometryVertex:
-	check_size(sizeof(CustomGeometryVertex), 1, "CustomGeometryVertex");
-
-	// NetworkState:
-	check_size(sizeof(NetworkState), 1, "NetworkState");
-
-	// ComponentReplicationState:
-	check_size(sizeof(ComponentReplicationState), 1, "ComponentReplicationState");
-
-	// ShaderParameter:
-	check_size(sizeof(ShaderParameter), 1, "ShaderParameter");
-
 	// BiasParameters:
 	check_size(sizeof(BiasParameters), 8, "BiasParameters");
 	check_offset(offsetof(BiasParameters, constantBias_), 0, "BiasParameters", "ConstantBias");
 	check_offset(offsetof(BiasParameters, slopeScaledBias_), 4, "BiasParameters", "SlopeScaleBias");
 
 	// FocusParameters:
-	check_size(sizeof(FocusParameters), 20, "FocusParameters");
+	check_size(sizeof(FocusParameters), 12, "FocusParameters");
 	check_offset(offsetof(FocusParameters, focus_), 0, "FocusParameters", "Focus");
-	check_offset(offsetof(FocusParameters, nonUniform_), 4, "FocusParameters", "NonUniform");
-	check_offset(offsetof(FocusParameters, autoSize_), 8, "FocusParameters", "AutoSize");
-	check_offset(offsetof(FocusParameters, quantize_), 12, "FocusParameters", "Quantize");
-	check_offset(offsetof(FocusParameters, minView_), 16, "FocusParameters", "MinView");
+	check_offset(offsetof(FocusParameters, nonUniform_), 1, "FocusParameters", "NonUniform");
+	check_offset(offsetof(FocusParameters, autoSize_), 2, "FocusParameters", "AutoSize");
+	check_offset(offsetof(FocusParameters, quantize_), 4, "FocusParameters", "Quantize");
+	check_offset(offsetof(FocusParameters, minView_), 8, "FocusParameters", "MinView");
 
 	// Vector3:
 	check_size(sizeof(Vector3), 12, "Vector3");
@@ -240,9 +169,6 @@ void check_bindings_offsets()
 	check_offset(offsetof(Vector4, y_), 4, "Vector4", "Y");
 	check_offset(offsetof(Vector4, z_), 8, "Vector4", "Z");
 	check_offset(offsetof(Vector4, w_), 12, "Vector4", "W");
-
-	// PackageEntry:
-	check_size(sizeof(PackageEntry), 1, "PackageEntry");
 
 	// TileMapInfo2D:
 	check_size(sizeof(TileMapInfo2D), 20, "TileMapInfo2D");
@@ -271,7 +197,38 @@ void check_bindings_offsets()
 	check_offset(offsetof(PhysicsRaycastResult, normal_), 12, "PhysicsRaycastResult", "Normal");
 	check_offset(offsetof(PhysicsRaycastResult, distance_), 24, "PhysicsRaycastResult", "Distance");
 	check_offset(offsetof(PhysicsRaycastResult, body_), 32, "PhysicsRaycastResult", "bodyPtr");
-
-	// XPathResultSet:
-	check_size(sizeof(XPathResultSet), 1, "XPathResultSet");
 }
+
+/* Empty structs (stubs?):
+
+  CollisionGeometryData
+  WorkItem
+  RefCount
+  HashIteratorBase
+  Iterator
+  ResourceRefList
+  Frustum
+  Variant
+  ColorFrame
+  TextureFrame
+  LightBatchQueue
+  ReplicationState
+  NodeReplicationState
+  RenderPathCommand
+  GPUObject
+  GraphicsImpl
+  FontGlyph
+  RandomAccessIterator
+  ModelMorph
+  Octant
+  CompressedLevel
+  AnimationTrack
+  CustomGeometryVertex
+  NetworkState
+  ComponentReplicationState
+  ShaderParameter
+  PackageEntry
+  dtQueryFilter
+  XPathResultSet
+
+*/

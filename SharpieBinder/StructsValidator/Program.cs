@@ -27,7 +27,7 @@ void check_offset(int actual, int expected, const char* typeName, const char* fi
 		printf(""offset(%s, %s) is %d but %d is expected"", typeName, fieldName, actual, expected);
 }
 
-// test are generated for %ARCH%
+// TESTS ARE GENERATED FOR %ARCH%. MAKE SURE YOU USE THE SAME ARCHITECTURE WHILE RUNNING THESE TESTS!
 void check_bindings_offsets()
 {";
 
@@ -35,16 +35,16 @@ void check_bindings_offsets()
 		static void Main(string[] args)
 		{
 			//get all structs from Urho.dll
-			var structs = typeof (UrhoObject).Assembly.GetTypes().Where(t => t.IsValueType && !t.IsPrimitive && !t.IsEnum);
+			var structs = typeof (UrhoObject).Assembly.GetTypes().Where(t => t.IsValueType && !t.IsPrimitive && !t.IsEnum).ToArray();
 			
-			// only those with Sequential layout
-			structs = structs.Where(t => t.IsLayoutSequential).ToArray();
+			// only those with Sequential layout and Sizeof > 1 (not empty)
+			var notEmptyStructs = structs.Where(t => t.IsLayoutSequential && Marshal.SizeOf(t) > 1).ToArray();
 
 			AppendC(Header.Replace("%ARCH%", IntPtr.Size == 8 ? "64bit" : "32bit"));
-			foreach (var type in structs)
+			foreach (var type in notEmptyStructs)
 				AddTest(type);
 			AppendC("}");
-
+			AppendC($"\n/* Empty structs (stubs?):\n\n  {string.Join("\n  ", structs.Where(t => Marshal.SizeOf(t) <= 1).Select(t => t.Name).ToArray())}\n\n*/");
 			File.WriteAllText("../../../../bindings/src/asserts.h", codeContent);
 		}
 
@@ -73,7 +73,16 @@ void check_bindings_offsets()
 			fieldName = char.ToLowerInvariant(fieldName[0]) + fieldName.Substring(1);
 
 			if (fieldName.EndsWith("Ptr"))
-				fieldName = fieldName.Remove(0, fieldName.Length - 3);
+				fieldName = fieldName.Remove(fieldName.Length - 3);
+
+			if (fieldName.EndsWith("Id"))
+				fieldName = fieldName.Remove(fieldName.Length - 2) + "ID";
+
+			if (typeName == "BiasParameters" && fieldName == "slopeScaleBias")
+				return "slopeScaledBias_";
+
+			if (typeName == "AnimationTriggerPoint" && fieldName == "variant")
+				return "data_";
 
 			if (typeName != "CrowdObstacleAvoidanceParams")
 				fieldName += "_";
