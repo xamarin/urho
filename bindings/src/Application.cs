@@ -42,10 +42,14 @@ namespace Urho {
 		/// </summary>
 		public static bool EngineInited { get; set; }
 
+		public Application() : this(new Context(), null) {}
+
+		public Application(ApplicationOptions options) : this(new Context(), options) {}
+
 		/// <summary>
 		/// Supports the simple style with callbacks
 		/// </summary>
-		public Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
+		public Application (Context context, ApplicationOptions options) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
@@ -61,7 +65,6 @@ namespace Urho {
 			Options = options ?? ApplicationOptions.Default;
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString());
 			Runtime.RegisterObject (this);
-			Current = this;
 
 			Engine.SubscribeToUpdate(HandleUpdate);
 		}
@@ -120,7 +123,8 @@ namespace Urho {
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxySetup (IntPtr h)
 		{
-			GetApp (h).Setup ();
+			Current = GetApp(h);
+			Current.Setup ();
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
@@ -306,28 +310,30 @@ namespace Urho {
 
 		public static Application CreateInstance(Type applicationType, Context context = null)
 		{
-			/*
-			It tries to use one of these constructors:
-				1) ctor(Context)
-				2) ctor(Context, ApplicationOptions)
-			*/
 			foreach (var ctor in applicationType.GetTypeInfo().DeclaredConstructors)
 			{
 				var parameters = ctor.GetParameters();
 				if (parameters?.Length > 0)
 				{
-					if (parameters[0].ParameterType == typeof(Context))
+					if (parameters.Length == 2 &&
+						parameters[0].ParameterType == typeof(Context) &&
+						parameters[1].ParameterType == typeof(ApplicationOptions))
 					{
-						if (parameters.Length == 1)
-						{
-							return (Application)Activator.CreateInstance(applicationType, context ?? new Context());
-						}
+						return (Application)Activator.CreateInstance(applicationType, context ?? new Context(), null);
+					}
+					if (parameters.Length == 1 &&
+						parameters[0].ParameterType == typeof (ApplicationOptions))
+					{
 						return (Application)Activator.CreateInstance(applicationType, context ?? new Context(), null);
 					}
 				}
+				else
+				{
+					return (Application) Activator.CreateInstance(applicationType);
+				}
 			}
 
-			throw new InvalidOperationException($"{applicationType} should have a public ctor with a single argument (Context)");
+			throw new InvalidOperationException($"{applicationType} must have at least one of the following constructors: ctor(), ctor(ApplicationOptions) or ctor(Context, ApplicationOptions)");
 		}
 	}
 }
