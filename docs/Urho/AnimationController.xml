@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Component that drives an AnimatedModel's animations.
+    <summary>Component that drives an AnimatedModel's animations.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

@@ -9,8 +9,10 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Enumeration with the various key codes.</summary>
+    <remarks>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="A">
@@ -682,7 +684,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 0 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_1">
@@ -696,7 +698,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 1 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_2">
@@ -710,7 +712,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 2 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_3">
@@ -724,7 +726,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 3 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_4">
@@ -738,7 +740,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 4 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_5">
@@ -752,7 +754,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 5 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_6">
@@ -766,7 +768,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 6 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_7">
@@ -780,7 +782,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 7 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_8">
@@ -794,7 +796,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 8 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_9">
@@ -808,7 +810,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad 9 key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_Divide">
@@ -822,7 +824,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad division key.</summary>
       </Docs>
     </Member>
     <Member MemberName="Kp_ENTER">
@@ -836,7 +838,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad enter key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_Minus">
@@ -850,7 +852,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad minus key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_Multiply">
@@ -864,7 +866,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad multiply key.</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_Period">
@@ -878,7 +880,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad period key</summary>
       </Docs>
     </Member>
     <Member MemberName="KP_Plus">
@@ -892,7 +894,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Keypad plus key.</summary>
       </Docs>
     </Member>
     <Member MemberName="L">
@@ -1018,7 +1020,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 0</summary>
       </Docs>
     </Member>
     <Member MemberName="N1">
@@ -1032,7 +1034,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 1</summary>
       </Docs>
     </Member>
     <Member MemberName="N2">
@@ -1046,7 +1048,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 2</summary>
       </Docs>
     </Member>
     <Member MemberName="N3">
@@ -1060,7 +1062,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 3</summary>
       </Docs>
     </Member>
     <Member MemberName="N4">
@@ -1074,7 +1076,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 4</summary>
       </Docs>
     </Member>
     <Member MemberName="N5">
@@ -1088,7 +1090,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 5</summary>
       </Docs>
     </Member>
     <Member MemberName="N6">
@@ -1102,7 +1104,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 6</summary>
       </Docs>
     </Member>
     <Member MemberName="N7">
@@ -1116,7 +1118,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 7</summary>
       </Docs>
     </Member>
     <Member MemberName="N8">
@@ -1130,7 +1132,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 8</summary>
       </Docs>
     </Member>
     <Member MemberName="N9">
@@ -1144,7 +1146,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Key 9</summary>
       </Docs>
     </Member>
     <Member MemberName="NumlockClear">
@@ -1200,7 +1202,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Pagedown key</summary>
       </Docs>
     </Member>
     <Member MemberName="PageUp">
@@ -1214,7 +1216,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Pageup key</summary>
       </Docs>
     </Member>
     <Member MemberName="Pause">
@@ -1228,7 +1230,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Pause key</summary>
       </Docs>
     </Member>
     <Member MemberName="PrintScreen">
@@ -1242,7 +1244,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Printscreen key</summary>
       </Docs>
     </Member>
     <Member MemberName="Q">
@@ -1438,7 +1440,7 @@
         <ReturnType>Urho.Key</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Spacebar key</summary>
       </Docs>
     </Member>
     <Member MemberName="T">

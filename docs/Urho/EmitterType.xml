@@ -26,7 +26,7 @@
         <ReturnType>Urho.EmitterType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Box emitter</summary>
       </Docs>
     </Member>
     <Member MemberName="Sphere">
@@ -40,7 +40,7 @@
         <ReturnType>Urho.EmitterType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sphere emitter</summary>
       </Docs>
     </Member>
   </Members>

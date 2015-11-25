@@ -10,10 +10,9 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Connection to a remote network host.
+    <summary>Connection to a remote network host.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>On the client, this object is retrieved after a successful connection from the <see cref="P:Urho.Network.Network.ServerConnection" /> property.   On the server, a new instance of this object is created for every connected client.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -137,7 +136,7 @@
         <ReturnType>System.Action&lt;Urho.Network.ClientIdentityEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised on the server after the connection and contains the client identity information.   The default is to accept all connections.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToClientIdentity" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -579,7 +578,7 @@
         <param name="inOrder">To be added.</param>
         <param name="buffer">To be added.</param>
         <param name="contentId">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Sends a message over the connection.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -608,9 +607,7 @@
         <param name="data">To be added.</param>
         <param name="numBytes">To be added.</param>
         <param name="contentID">To be added.</param>
-        <summary>
-            Send a message.
-            </summary>
+        <summary>Sends a message over the connection.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -824,8 +821,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -841,8 +837,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

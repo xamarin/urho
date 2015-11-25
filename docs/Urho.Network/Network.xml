@@ -10,10 +10,13 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Network subsystem. Manages client-server communications using the UDP protocol.
+    <summary>Network subsystem. Manages client-server communications using the UDP protocol.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Use the <see cref="T:Urho.Network.Network" /> subsystem to start a server, or to connect to a server.</para>
+      <para />
+      <para>To start a server, call the <see cref="M:Urho.Network.Network.StartServer" /> method, to connect to a server, use the <see cref="T:Urho.Network.Network.Connect" /> method.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -788,8 +791,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -805,8 +807,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

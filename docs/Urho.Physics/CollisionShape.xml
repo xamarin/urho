@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary />
+    <summary>Physics collision shape component.</summary>
     <remarks />
   </Docs>
   <Members>

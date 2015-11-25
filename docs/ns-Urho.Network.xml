@@ -1,6 +1,11 @@
 <Namespace Name="Urho.Network">
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Networking support for client/server communication between networked UrhoSharp programs.</summary>
+    <remarks>
+      <para>The Network subsystem provides reliable and unreliable UDP messaging using kNet. A server can be created that listens for incoming connections, and client connections can be made to the server. After connecting, code running on the server can assign the client into a scene to enable scene replication, provided that when connecting, the client specified a blank scene for receiving the updates.</para>
+      <para>Scene replication is one-directional: the server always has authority and sends scene updates to the client at a fixed update rate, by default 30 FPS. The client responds by sending controls updates (buttons, yaw and pitch + possible extra data) also at a fixed rate.</para>
+      <para>Bidirectional communication between the server and the client can happen either using raw network messages, which are binary-serialized data, or remote events, which operate like ordinary events, but are processed on the receiving end only. Code on the server can send messages or remote events either to one client, all clients assigned into a particular scene, or to all connected clients. In contrast the client can only send messages or remote events to the server, not directly to other clients.</para>
+      <para>Note that if a particular networked application does not need scene replication, network messages and remote events can also be transmitted without assigning the client to a scene. The Chat example does just that: it does not create a scene either on the server or the client.</para>
+    </remarks>
   </Docs>
 </Namespace>

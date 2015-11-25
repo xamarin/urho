@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Controls sent over the network</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -23,7 +23,10 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <para>Initializes the instance with Pitch, Yaw and Buttons state set to zero.</para>
+          <para></para>
+        </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -38,7 +41,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Button state</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -74,7 +77,7 @@
       </Parameters>
       <Docs>
         <param name="button">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Checks if the specified button is down.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -96,7 +99,7 @@
       <Docs>
         <param name="button">To be added.</param>
         <param name="previousControls">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Checks if the specified buttons are pressed in this frame, requires the previous frame control state.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -112,7 +115,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Mouse pitch</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -129,7 +132,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Resets to the initial state (buttons, yaw and pitch are set to zero).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -150,7 +153,7 @@
       <Docs>
         <param name="buttons">To be added.</param>
         <param name="down">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set or release buttons.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -165,7 +168,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Mouse yaw.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
