@@ -78,11 +78,8 @@ void check_bindings_offsets()
 			if (fieldName.EndsWith("Id"))
 				fieldName = fieldName.Remove(fieldName.Length - 2) + "ID";
 
-			if (typeName == "BiasParameters" && fieldName == "slopeScaleBias")
-				return "slopeScaledBias_";
-
-			if (typeName == "AnimationTriggerPoint" && fieldName == "variant")
-				return "data_";
+			if (typeName == "BiasParameters" && fieldName == "slopeScaleBias") return "slopeScaledBias_";
+			if (typeName == "AnimationTriggerPoint" && fieldName == "variant") return "data_";
 
 			if (typeName != "CrowdObstacleAvoidanceParams")
 				fieldName += "_";
@@ -104,7 +101,6 @@ void check_bindings_offsets()
 				"ProfilerBlock",
 				"WeakPtr",
 				"VectorBase",
-				"dtQueryFilter",
 				"RandomAccessIterator",
 				"Matrix3",
 				"Matrix4",
