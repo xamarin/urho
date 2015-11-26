@@ -17,7 +17,6 @@ public:
 
 	void Setup ()
 	{
-		//check_bindings_offsets();
 		setup (this);
 	}
 

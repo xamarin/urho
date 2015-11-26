@@ -11,26 +11,6 @@ namespace StructsValidator
 	class Program
 	{
 		static string codeContent;
-		const string Header = 
-
-@"using namespace Urho3D;
-
-void check_size(int actual, int expected, const char * typeName)
-{
-	if (actual != expected)
-		printf(""sizeof(%s) is %d but %d is expected"", typeName, actual, expected);
-}
-
-void check_offset(int actual, int expected, const char* typeName, const char* fieldName)
-{
-	if (actual != expected)
-		printf(""offset(%s, %s) is %d but %d is expected"", typeName, fieldName, actual, expected);
-}
-
-// TESTS ARE GENERATED FOR %ARCH%. MAKE SURE YOU USE THE SAME ARCHITECTURE WHILE RUNNING THESE TESTS!
-void check_bindings_offsets()
-{";
-
 
 		static void Main(string[] args)
 		{
@@ -40,7 +20,11 @@ void check_bindings_offsets()
 			// only those with Sequential layout and Sizeof > 1 (not empty)
 			var notEmptyStructs = structs.Where(t => t.IsLayoutSequential && Marshal.SizeOf(t) > 1).ToArray();
 
-			AppendC(Header.Replace("%ARCH%", IntPtr.Size == 8 ? "64bit" : "32bit"));
+			AppendC("using namespace Urho3D;\n\n");
+			AppendC($"// TESTS ARE GENERATED FOR {(IntPtr.Size == 8 ? "64bit" : "32bit")}. MAKE SURE YOU USE THE SAME ARCHITECTURE WHILE RUNNING THESE TESTS!");
+			AppendC( "// MAKE SURE YOU USE THE SAME ARCHITECTURE WHILE RUNNING THESE TESTS!");
+			AppendC("void check_bindings_offsets()\n{");
+
 			foreach (var type in notEmptyStructs)
 				AddTest(type);
 			AppendC("}");
@@ -57,13 +41,13 @@ void check_bindings_offsets()
 
 			var size = Marshal.SizeOf(type);
 			AppendC($"\n\t// {managedName}:");
-			AppendC($"\tcheck_size(sizeof({nativeName}), {size}, \"{managedName}\");");
+			AppendC($"\tstatic_assert(sizeof({nativeName}) == {size}, \"{managedName} has wrong size ({size})\");");
 			foreach (var field in type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
 			{
 				var managedFieldName = field.Name;
 				var nativeFieldName = ResolveUrhoTypeField(managedName, managedFieldName);
 				var offset = Marshal.OffsetOf(type, managedFieldName);
-				AppendC($"\tcheck_offset(offsetof({nativeName}, {nativeFieldName}), {offset}, \"{managedName}\", \"{managedFieldName}\");");
+				AppendC($"\tstatic_assert(offsetof({nativeName}, {nativeFieldName}) == {offset}, \"{managedName}.{managedFieldName} has wrong offset ({offset})\");");
 			}
 		}
 
