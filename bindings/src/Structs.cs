@@ -7,6 +7,24 @@ using Urho.Gui;
 using Urho.Urho2D;
 using Urho.Resources;
 namespace Urho {
+
+	// Boolean is not blittable so this structs hepls with conversion to bool and vise versa
+	public struct BlittableBoolean {
+		byte byteValue;
+
+		public BlittableBoolean(bool value) { byteValue = Convert.ToByte(value);}
+		public BlittableBoolean(byte value) { byteValue = value; }
+
+		public bool Value
+		{
+			get { return Convert.ToBoolean(byteValue); }
+			set { byteValue = Convert.ToByte(value); }
+		}
+
+		public static explicit operator BlittableBoolean(bool value) => new BlittableBoolean { Value = value };
+		public static implicit operator bool (BlittableBoolean value) => value.Value;
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Ray {
 		public Vector3 Origin;
@@ -74,22 +92,20 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct BoundingBox {
 		public Vector3 Min, Max;
-
-		byte defined; //bool is not blittable.
-		public bool Defined { get { return defined != 0; } set { defined = (byte)(value ? 1 : 0); } }
+		public BlittableBoolean Defined;
 
 		public BoundingBox (float min, float max)
 		{
 			Min = new Vector3 (min, min, min);
 			Max = new Vector3 (max, max, max);
-			defined = 1;
+			Defined = new BlittableBoolean(true);
 		}
 
 		public BoundingBox (Vector3 min, Vector3 max)
 		{
 			Min = min;
 			Max = max;
-			defined = 1;
+			Defined = new BlittableBoolean(true);
 		}
 	}
 
@@ -188,8 +204,8 @@ namespace Urho {
 	
 	[StructLayout (LayoutKind.Sequential)]
 	public struct WeakPtr {
-		internal IntPtr ptr;
-		internal IntPtr refCountPtr;
+		IntPtr ptr;
+		IntPtr refCountPtr;
 
 		public T GetUrhoObject<T>() where T : UrhoObject => Runtime.LookupObject<T>(ptr);
 		public T GetRefCounted<T>() where T : RefCounted => Runtime.LookupRefCounted<T>(ptr);
