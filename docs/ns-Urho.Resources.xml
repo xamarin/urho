@@ -1,6 +1,6 @@
 <Namespace Name="Urho.Resources">
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Supports loading of resources in UrhoSharp.</summary>
     <remarks>To be added.</remarks>
   </Docs>
 </Namespace>

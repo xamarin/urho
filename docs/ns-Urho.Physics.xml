@@ -1,6 +1,39 @@
 <Namespace Name="Urho.Physics">
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Rigid body physics simulation.</summary>
+    <remarks>
+      <para>To use the physics system in your program, you must first create a <see cref="T:Urho.Physics.PhysicsWorld" /> component in your scene.  A <see cref="T:Urho.Physics.RigidBody" /> component can be attached to a node to give it a physical properties like giving it a mass, friction, restitution and linear and angular velocities.   </para>
+      <para>You use a <see cref="T:Urho.Physics.CollisionShape" /> to define the physics of the collision geometry.   There are several built-in types defined in the <see cref="T:Urho.Physics.ShapeType" /> enumeration.</para>
+      <para>
+        <see cref="T:Urho.Physics.Constraints" /> connect two rigid bodies together or a rigid body to a static point in the world.</para>
+      <para>
+        <format type="text/html">
+          <h2>Movement and Collision</h2>
+        </format>
+      </para>
+      <para>
+	Both a RigidBody and a CollisionShape are needed in a
+	scene node to behave physically. You can add several collision
+	shapes to a node to create compound shapes.</para>
+
+      <para>
+	For more information, see the documentation for
+	<see cref="T:Urho.Physics.RigidBody"/>
+      </para>
+
+      <format type="text/html">
+        <h2>Physics Simulation Rate</h2>
+      </format>
+      <para>The physics simulation has its own fixed update rate, which by default is 60Hz.</para>
+      <para>When the rendering framerate is higher than the physics
+      update rate, physics motion is interpolated so that it always
+      appears smooth. The update rate can be changed via
+      the <see cref="P:Urho.Physics.PhysicsWorld.Fps"/> property. The
+      physics update rate also determines the frequency of fixed
+      timestep scene logic updates. </para>
+      <para>Hard limit for physics steps per frame or adaptive
+      timestep can be configured
+      with <see cref="P:Urho.Physics.PhysicsWorld.MaxSubSteps"/> property. These can help to prevent a "spiral of death" due to the CPU being unable to handle the physics load. However, note that using either can lead to time slowing down (when steps are limited) or inconsistent physics behavior (when using adaptive step.)</para>
+    </remarks>
   </Docs>
 </Namespace>

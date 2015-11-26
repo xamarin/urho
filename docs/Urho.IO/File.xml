@@ -17,8 +17,7 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>
-            %File opened either through the filesystem or from within a package file.
+    <summary>File opened either through the filesystem or from within a package file.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
@@ -412,8 +411,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -429,8 +427,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

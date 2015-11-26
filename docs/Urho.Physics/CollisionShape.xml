@@ -11,7 +11,43 @@
   <Interfaces />
   <Docs>
     <summary>Physics collision shape component.</summary>
-    <remarks />
+    <remarks>
+      <para>Use the collision shape component to configure the geometrical shape of the node.</para>
+      <para></para>
+      <para>You configure the CollisionShape by calling one of the Set methods to configure the shape, the supported shapes are:</para>
+      <list type="bullet">
+        <item>
+          <term>Box shape, configure with <see cref="M:Urho.Physics.CollisionShape.SetBox" /></term>
+        </item>
+        <item>
+          <term>Capsule shape, configure with <see cref="M:Urho.Physics.CollisionShape.SetCapsule" /></term>
+        </item>
+        <item>
+          <term>Cone shape, configure with <see cref="M:Urho.Physics.CollisionShape.SetCone" /></term>
+        </item>
+        <item>
+          <term>Convex hull shape, configure with: <see cref="M:Urho.Physics.CollisionShape.SetConvexHull" /> or <see cref="M:Urho.Physics.CollisionShape.SetCustomConvexHull" /></term>
+        </item>
+        <item>
+          <term>Cylinder shape, configure with <see cref="M:Urho.Physics.CollisionShape.SetCylinder" /></term>
+        </item>
+        <item>
+          <term>Triangle mesh, configure with <see cref="M:Urho.Physics.CollisionShape.SetTriangleMesh" /></term>
+        </item>
+        <item>
+          <term>Sphere shape, configure with </term>
+        </item>
+        <item>
+          <term>Cylinder shape, configure with <see cref="M:Urho.Physics.CollisionShape.SetSphere" /></term>
+        </item>
+        <item>
+          <term>Static plane, configure with <see cref="M:Urho.Physics.CollisionShape.SetStaticPlane" /></term>
+        </item>
+        <item>
+          <term>Heighfield terrain, configure with <see cref="M:Urho.Physics.CollisionShape.SetTerrain" /> (this requires a <see cref="T:Urho.Terrain" /> component on the same node).</term>
+        </item>
+      </list>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

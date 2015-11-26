@@ -26,7 +26,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Box type.</summary>
       </Docs>
     </Member>
     <Member MemberName="Capsule">
@@ -40,7 +40,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Capsule type.</summary>
       </Docs>
     </Member>
     <Member MemberName="Cone">
@@ -54,7 +54,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Cone type.</summary>
       </Docs>
     </Member>
     <Member MemberName="Convexhull">
@@ -68,7 +68,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Convexhull type.</summary>
       </Docs>
     </Member>
     <Member MemberName="Cylinder">
@@ -82,7 +82,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Cylinder.</summary>
       </Docs>
     </Member>
     <Member MemberName="Sphere">
@@ -96,7 +96,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sphere shape.</summary>
       </Docs>
     </Member>
     <Member MemberName="Staticplane">
@@ -110,7 +110,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Static plane shape.</summary>
       </Docs>
     </Member>
     <Member MemberName="Terrain">
@@ -124,7 +124,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Terrain type.</summary>
       </Docs>
     </Member>
     <Member MemberName="Trianglemesh">
@@ -138,7 +138,7 @@
         <ReturnType>Urho.Physics.ShapeType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Shape defined by a triangle mesh.</summary>
       </Docs>
     </Member>
   </Members>

@@ -13,7 +13,100 @@
     <summary>
             Physics rigid body component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>
+	RigidBodies can be either static or moving. A body is static
+	if its mass is 0, and moving if the mass is greater than
+	0. Note that the triangle mesh collision shape is not
+	supported for moving objects; it will not collide properly due
+	to limitations in the Bullet library. In this case the convex
+	hull shape can be used instead.
+      </para>
+      <para>
+	The collision behaviour of a rigid body is controlled by
+	several variables. First, the collision layer and mask define
+	which other objects to collide with: see
+	<see cref="P:Urho.Physics.RigidBody.CollisionLayer" /> and
+	<see cref="P:Urho.Physics.RigidBody.CollisionMask" />.
+      </para>
+      <para>
+	By default a rigid body is on layer 1; the layer will be ANDed
+	with the other body's collision mask to see if the collision
+	should be reported. A rigid body can also be set to trigger
+	mode to only report collisions without actually applying
+	collision forces. This can be used to implement trigger
+	areas.  Use the
+	<see cref="P:Urho.Physics.RigidBody.SetTrigger" /> method to do
+	this.
+      </para>
+      <para>
+	Friction, rolling friction and restitution
+	coefficients control how kinetic energy is
+	transferred in the collisions.   These are set with the
+	<see cref="P:Urho.Physics.RigidBody.Friction" />,
+	<see cref="P:Urho.Physics.RigidBody.RollingFriction" /> and
+	<see cref="P:Urho.Physics.RigidBody.Restitution" /> properties.
+      </para>
+      <para>
+	Note that rolling friction is
+	by default zero, and if you want for example a sphere rolling
+	on the floor to eventually stop, you need to set a non-zero
+	rolling friction on both the sphere and floor rigid bodies.
+      </para>
+      <para>
+	By default rigid bodies can move and rotate about all 3
+	coordinate axes when forces are applied. To limit the
+	movement, use
+	<see cref="M:Urho.Physics.RigidBody.SetLinearFactor" /> and <see cref="M:Urho.Physics.RigidBody.SetAngularFactor" /> and set
+	the axes you wish to use to 1 and those you do not wish to use
+	to 0. For example moving humanoid characters are often
+	represented by a capsule shape: to ensure they stay upright
+	and only rotate when you explicitly set the rotation in code,
+	set the angular factor to 0, 0, 0.
+      </para>
+      <para>
+	To prevent tunneling of a fast moving rigid body through
+	obstacles, continuous collision detection (CCD) can be used. It
+	approximates the object as a swept sphere, but has a
+	performance cost, so it should be used only when
+	necessary. Set the
+	<see cref="P:Urho.Physics.RigidBody.CcdRadius" /> and
+	<see cref="P:Urho.Physics.RigidBody.CcdMotionThreshold" /> properties
+	to non-zero values to enable. To prevent false collisions,
+	the body's actual collision shape should completely contain
+	the radius. The motion threshold is the required motion per
+	simulation step for CCD to kick in: for example a box with
+	size 1 should have motion threshold 1 as well.
+      </para>
+      <para>
+	All physics calculations are performed in world space. Nodes
+	containing a RigidBody component should preferably be parented
+	to the Scene (root node) to ensure independent motion. For
+	ragdolls this is not absolute, as retaining proper bone
+	hierarchy is more important, but be aware that the ragdoll
+	bones may drift far from the animated model's root scene node.
+      </para>
+      <para>
+	When several collision shapes are present in the same node,
+	edits to them can cause redundant mass/inertia update
+	computation in the RigidBody. To optimize performance in these
+	cases, the edits can be enclosed between calls to
+	<see cref="M:Urho.Physics.RigidBody.DisableMassUpdate" /> and <see cref="P:Urho.Physics.RigidBody.EnableMassUpdate" />.
+      </para>
+      <para>The following example shows how you setup both the rigid body on a node to be a box shape, and how to set it up so it detects collisions:</para>
+      <para></para>
+      <code lang="C#"><![CDATA[void SetupNode (Node node)
+    var body = node.CreateComponent<RigidBody> ();
+    body.Mass = 1;
+    body.SetKinematic (true);
+    var shape = node.CreateComponent<CollisionShape> ();
+    shape.SetBox (new Vector3(1,1,1), Vector.Zero, Quaternion.Identity);
+    node.NodeCollisionStart += (args) => {
+        Console.WriteLine (“Collision with {0}”, args.OtherNode);
+    };
+}]]></code>
+      <para></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -426,7 +519,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-            Return continuous collision detection swept sphere radius.
+            Return Continuous Collision Detection (CCD) swept sphere radius.
             Or
             Set continuous collision detection swept sphere radius.
             </summary>
@@ -607,7 +700,7 @@
             Or
             Set friction coefficient.
             </summary>
-        <value>To be added.</value>
+        <value>Value is between 0 and 1.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -972,7 +1065,7 @@
             Or
             Set restitution coefficient.
             </summary>
-        <value>To be added.</value>
+        <value>Value is between 0 and 1.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -992,7 +1085,7 @@
             Or
             Set rolling friction coefficient.
             </summary>
-        <value>To be added.</value>
+        <value>Value is between 0 and 1.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1246,7 +1339,7 @@
         <summary>
             Set rigid body trigger mode. In trigger mode collisions are reported but do not apply forces.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>This can be used to implement trigger areas.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">
@@ -1278,8 +1371,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1295,8 +1387,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
