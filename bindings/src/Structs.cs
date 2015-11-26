@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using Urho.Physics;
 using Urho.Gui;
 using Urho.Urho2D;
-
+using Urho.Resources;
 namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Ray {
@@ -195,6 +195,8 @@ namespace Urho {
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct ColorFrame {
+		public Color Color;
+		public float Time;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -305,16 +307,6 @@ namespace Urho {
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
-	public struct ReplicationState {
-	}
-
-	// DEBATABLE: maybe we should let the binder handle it?
-	[StructLayout (LayoutKind.Sequential)]
-	public struct NodeReplicationState {
-	}
-
-	// DEBATABLE: maybe we should let the binder handle it?
-	[StructLayout (LayoutKind.Sequential)]
 	public struct RenderPathCommand {
 	}
 	
@@ -326,9 +318,14 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct GraphicsImpl {
 	}
-	// DEBATABLE: maybe we should let the binder handle it?
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct FontGlyph {
+		public short X, Y, Width, Height, OffsetX, OffsetY, AdvanceX;
+		public int Page;
+		byte used;
+		public bool Used { get { return used != 0; } set { used = (byte) (value ? 1 : 0); }}
+		
 	}
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
@@ -345,6 +342,10 @@ namespace Urho {
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
 	public struct CompressedLevel {
+		public IntPtr ImageData;
+		public CompressedFormat Format;
+		public int Width, Height, Depth;
+		public uint BlockSize, DataSize, RowSize, RowCount;
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?
@@ -455,9 +456,11 @@ namespace Urho {
 	}
 }
 
+
 namespace Urho.IO {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct PackageEntry {
+		public int Offset, Size, Checksum;
 	}
 }
 
@@ -526,6 +529,25 @@ namespace Urho.Physics {
 namespace Urho.Resources {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct XPathResultSet {
+	}
+}
+
+namespace Urho.Network {
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct ReplicationState {
+		IntPtr connection;
+		public Connection Connection => Runtime.LookupObject<Connection> (connection);
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public unsafe struct DirtyBits {
+		public fixed byte Data [8];
+		public byte Count;
+	}
+	
+	[StructLayout (LayoutKind.Sequential)]
+	public struct NodeReplicationState {
 	}
 }
 
