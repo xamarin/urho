@@ -37,9 +37,9 @@ void check_bindings_offsets()
 	static_assert(offsetof(Rect, defined_) == 16, "Rect.defined has wrong offset (16)");
 
 	// ResourceRef:
-	//FIX: static_assert(sizeof(ResourceRef) == 24, "ResourceRef has wrong size (24)");
+	static_assert(sizeof(ResourceRef) == 24, "ResourceRef has wrong size (24)");
 	static_assert(offsetof(ResourceRef, type_) == 0, "ResourceRef.Type has wrong offset (0)");
-	//FIX: static_assert(offsetof(ResourceRef, name_) == 8, "ResourceRef.Name has wrong offset (8)");
+	static_assert(offsetof(ResourceRef, name_) == 8, "ResourceRef.Name has wrong offset (8)");
 
 	// BoundingBox:
 	static_assert(sizeof(BoundingBox) == 28, "BoundingBox has wrong size (28)");
@@ -48,9 +48,9 @@ void check_bindings_offsets()
 	static_assert(offsetof(BoundingBox, defined_) == 24, "BoundingBox.defined has wrong offset (24)");
 
 	// AnimationTriggerPoint:
-	//FIX: static_assert(sizeof(AnimationTriggerPoint) == 16, "AnimationTriggerPoint has wrong size (16)");
+	//FIXME: static_assert(sizeof(AnimationTriggerPoint) == 16, "AnimationTriggerPoint has wrong size (16)");
 	static_assert(offsetof(AnimationTriggerPoint, time_) == 0, "AnimationTriggerPoint.Time has wrong offset (0)");
-	//FIX: static_assert(offsetof(AnimationTriggerPoint, data_) == 8, "AnimationTriggerPoint.Variant has wrong offset (8)");
+	static_assert(offsetof(AnimationTriggerPoint, data_) == 8, "AnimationTriggerPoint.Variant has wrong offset (8)");
 
 	// Matrix3x4:
 	static_assert(sizeof(Matrix3x4) == 48, "Matrix3x4 has wrong size (48)");
@@ -89,19 +89,19 @@ void check_bindings_offsets()
 	static_assert(offsetof(ColorFrame, time_) == 16, "ColorFrame.Time has wrong offset (16)");
 
 	// JoystickState:
-	//FIX: static_assert(sizeof(JoystickState) == 112, "JoystickState has wrong size (112)");
+	static_assert(sizeof(JoystickState) == 112, "JoystickState has wrong size (112)");
 	static_assert(offsetof(JoystickState, joystick_) == 0, "JoystickState.JoystickPtr has wrong offset (0)");
 	static_assert(offsetof(JoystickState, joystickID_) == 8, "JoystickState.JoystickIdPtr has wrong offset (8)");
-	//FIX: static_assert(offsetof(JoystickState, controller_) == 16, "JoystickState.ControllerPtr has wrong offset (16)");
-	//FIX: static_assert(offsetof(JoystickState, screenJoystick_) == 24, "JoystickState.ScreenJoystickPtr has wrong offset (24)");
-	//FIX: static_assert(offsetof(JoystickState, name_) == 32, "JoystickState.Name has wrong offset (32)");
-	//FIX: static_assert(offsetof(JoystickState, buttons_) == 48, "JoystickState.Buttons has wrong offset (48)");
-	//FIX: static_assert(offsetof(JoystickState, buttonPress_) == 64, "JoystickState.ButtonPress has wrong offset (64)");
-	//FIX: static_assert(offsetof(JoystickState, axes_) == 80, "JoystickState.Axes has wrong offset (80)");
-	//FIX: static_assert(offsetof(JoystickState, hats_) == 96, "JoystickState.Hats has wrong offset (96)");
+	static_assert(offsetof(JoystickState, controller_) == 16, "JoystickState.ControllerPtr has wrong offset (16)");
+	static_assert(offsetof(JoystickState, screenJoystick_) == 24, "JoystickState.ScreenJoystickPtr has wrong offset (24)");
+	static_assert(offsetof(JoystickState, name_) == 32, "JoystickState.Name has wrong offset (32)");
+	static_assert(offsetof(JoystickState, buttons_) == 48, "JoystickState.Buttons has wrong offset (48)");
+	static_assert(offsetof(JoystickState, buttonPress_) == 64, "JoystickState.ButtonPress has wrong offset (64)");
+	static_assert(offsetof(JoystickState, axes_) == 80, "JoystickState.Axes has wrong offset (80)");
+	static_assert(offsetof(JoystickState, hats_) == 96, "JoystickState.Hats has wrong offset (96)");
 
 	// Bone:
-	//FIX: static_assert(sizeof(Bone) == 168, "Bone has wrong size (168)");
+	static_assert(sizeof(Bone) == 168, "Bone has wrong size (168)");
 	static_assert(offsetof(Bone, name_) == 0, "Bone.Name has wrong offset (0)");
 	static_assert(offsetof(Bone, nameHash_) == 16, "Bone.NameHash has wrong offset (16)");
 	static_assert(offsetof(Bone, parentIndex_) == 20, "Bone.ParentIndex has wrong offset (20)");
@@ -113,17 +113,17 @@ void check_bindings_offsets()
 	static_assert(offsetof(Bone, collisionMask_) == 113, "Bone.CollisionMask has wrong offset (113)");
 	static_assert(offsetof(Bone, radius_) == 116, "Bone.Radius has wrong offset (116)");
 	static_assert(offsetof(Bone, boundingBox_) == 120, "Bone.BoundingBox has wrong offset (120)");
-	//FIX: static_assert(offsetof(Bone, node_) == 152, "Bone.Node has wrong offset (152)");
+	static_assert(offsetof(Bone, node_) == 152, "Bone.Node has wrong offset (152)");
 
 	// RayQueryResult:
-	//FIX: static_assert(sizeof(RayQueryResult) == 64, "RayQueryResult has wrong size (64)");
+	static_assert(sizeof(RayQueryResult) == 64, "RayQueryResult has wrong size (64)");
 	static_assert(offsetof(RayQueryResult, position_) == 0, "RayQueryResult.Position has wrong offset (0)");
 	static_assert(offsetof(RayQueryResult, normal_) == 12, "RayQueryResult.Normal has wrong offset (12)");
 	static_assert(offsetof(RayQueryResult, textureUV_) == 24, "RayQueryResult.TextureUV has wrong offset (24)");
 	static_assert(offsetof(RayQueryResult, distance_) == 32, "RayQueryResult.Distance has wrong offset (32)");
-	//FIX: static_assert(offsetof(RayQueryResult, drawable_) == 40, "RayQueryResult.drawablePtr has wrong offset (40)");
-	//FIX: static_assert(offsetof(RayQueryResult, node_) == 48, "RayQueryResult.nodePtr has wrong offset (48)");
-	//FIX: static_assert(offsetof(RayQueryResult, subObject_) == 56, "RayQueryResult.SubObject has wrong offset (56)");
+	static_assert(offsetof(RayQueryResult, drawable_) == 40, "RayQueryResult.drawablePtr has wrong offset (40)");
+	static_assert(offsetof(RayQueryResult, node_) == 48, "RayQueryResult.nodePtr has wrong offset (48)");
+	static_assert(offsetof(RayQueryResult, subObject_) == 56, "RayQueryResult.SubObject has wrong offset (56)");
 
 	// FontGlyph:
 	static_assert(sizeof(FontGlyph) == 24, "FontGlyph has wrong size (24)");
@@ -227,11 +227,11 @@ void check_bindings_offsets()
 	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveDepth) == 27, "CrowdObstacleAvoidanceParams.AdaptiveDepth has wrong offset (27)");
 
 	// PhysicsRaycastResult:
-	//FIX: static_assert(sizeof(PhysicsRaycastResult) == 40, "PhysicsRaycastResult has wrong size (40)");
+	static_assert(sizeof(PhysicsRaycastResult) == 40, "PhysicsRaycastResult has wrong size (40)");
 	static_assert(offsetof(PhysicsRaycastResult, position_) == 0, "PhysicsRaycastResult.Position has wrong offset (0)");
 	static_assert(offsetof(PhysicsRaycastResult, normal_) == 12, "PhysicsRaycastResult.Normal has wrong offset (12)");
 	static_assert(offsetof(PhysicsRaycastResult, distance_) == 24, "PhysicsRaycastResult.Distance has wrong offset (24)");
-	//FIX: static_assert(offsetof(PhysicsRaycastResult, body_) == 32, "PhysicsRaycastResult.bodyPtr has wrong offset (32)");
+	static_assert(offsetof(PhysicsRaycastResult, body_) == 32, "PhysicsRaycastResult.bodyPtr has wrong offset (32)");
 }
 #endif
 
