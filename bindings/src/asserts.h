@@ -48,9 +48,25 @@ void check_bindings_offsets()
 	static_assert(offsetof(BoundingBox, defined_) == 24, "BoundingBox.defined has wrong offset (24)");
 
 	// AnimationTriggerPoint:
-	//FIXME: static_assert(sizeof(AnimationTriggerPoint) == 16, "AnimationTriggerPoint has wrong size (16)");
+	static_assert(sizeof(AnimationTriggerPoint) == 48, "AnimationTriggerPoint has wrong size (48)");
 	static_assert(offsetof(AnimationTriggerPoint, time_) == 0, "AnimationTriggerPoint.Time has wrong offset (0)");
 	static_assert(offsetof(AnimationTriggerPoint, data_) == 8, "AnimationTriggerPoint.Variant has wrong offset (8)");
+
+	// VariantValue:
+	static_assert(sizeof(VariantValue) == 32, "VariantValue has wrong size (32)");
+	static_assert(offsetof(VariantValue, int_) == 0, "VariantValue.Int has wrong offset (0)");
+	static_assert(offsetof(VariantValue, bool_) == 0, "VariantValue.Bool has wrong offset (0)");
+	static_assert(offsetof(VariantValue, float_) == 0, "VariantValue.Float has wrong offset (0)");
+	static_assert(offsetof(VariantValue, ptr_) == 0, "VariantValue.Ptr has wrong offset (0)");
+	static_assert(offsetof(VariantValue, int2_) == 8, "VariantValue.Int2 has wrong offset (8)");
+	static_assert(offsetof(VariantValue, float2_) == 8, "VariantValue.Float2 has wrong offset (8)");
+	static_assert(offsetof(VariantValue, ptr2_) == 8, "VariantValue.Ptr2 has wrong offset (8)");
+	static_assert(offsetof(VariantValue, int3_) == 16, "VariantValue.Int3 has wrong offset (16)");
+	static_assert(offsetof(VariantValue, float3_) == 16, "VariantValue.Float3 has wrong offset (16)");
+	static_assert(offsetof(VariantValue, ptr3_) == 16, "VariantValue.Ptr3 has wrong offset (16)");
+	static_assert(offsetof(VariantValue, int4_) == 24, "VariantValue.Int4 has wrong offset (24)");
+	static_assert(offsetof(VariantValue, float4_) == 24, "VariantValue.Float4 has wrong offset (24)");
+	static_assert(offsetof(VariantValue, ptr4_) == 24, "VariantValue.Ptr4 has wrong offset (24)");
 
 	// Matrix3x4:
 	static_assert(sizeof(Matrix3x4) == 48, "Matrix3x4 has wrong size (48)");
@@ -178,6 +194,18 @@ void check_bindings_offsets()
 	static_assert(offsetof(Vector3, y_) == 4, "Vector3.Y has wrong offset (4)");
 	static_assert(offsetof(Vector3, z_) == 8, "Vector3.Z has wrong offset (8)");
 
+	// Matrix3:
+	static_assert(sizeof(Matrix3) == 36, "Matrix3 has wrong size (36)");
+	static_assert(offsetof(Matrix3, m00_) == 0, "Matrix3.R0C0 has wrong offset (0)");
+	static_assert(offsetof(Matrix3, m01_) == 4, "Matrix3.R0C1 has wrong offset (4)");
+	static_assert(offsetof(Matrix3, m02_) == 8, "Matrix3.R0C2 has wrong offset (8)");
+	static_assert(offsetof(Matrix3, m10_) == 12, "Matrix3.R1C0 has wrong offset (12)");
+	static_assert(offsetof(Matrix3, m11_) == 16, "Matrix3.R1C1 has wrong offset (16)");
+	static_assert(offsetof(Matrix3, m12_) == 20, "Matrix3.R1C2 has wrong offset (20)");
+	static_assert(offsetof(Matrix3, m20_) == 24, "Matrix3.R2C0 has wrong offset (24)");
+	static_assert(offsetof(Matrix3, m21_) == 28, "Matrix3.R2C1 has wrong offset (28)");
+	static_assert(offsetof(Matrix3, m22_) == 32, "Matrix3.R2C2 has wrong offset (32)");
+
 	// Vector2:
 	static_assert(sizeof(Vector2) == 8, "Vector2 has wrong size (8)");
 	static_assert(offsetof(Vector2, x_) == 0, "Vector2.X has wrong offset (0)");
@@ -244,7 +272,6 @@ void check_bindings_offsets()
   Iterator
   ResourceRefList
   Frustum
-  Variant
   TextureFrame
   LightBatchQueue
   RenderPathCommand

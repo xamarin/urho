@@ -96,7 +96,33 @@ namespace Urho {
 	[StructLayout(LayoutKind.Sequential)]
 	public struct AnimationTriggerPoint {
 		public float Time;
-		public IntPtr Variant;
+		public Variant Variant;
+	}
+
+	[StructLayout(LayoutKind.Explicit)]
+	public struct VariantValue {
+		[FieldOffset(0)] public int Int;
+		[FieldOffset(0)] public byte Bool;
+		[FieldOffset(0)] public float Float;
+		[FieldOffset(0)] public IntPtr Ptr;
+
+		[FieldOffset(8)] public int Int2;
+		[FieldOffset(8)] public float Float2;
+		[FieldOffset(8)] public IntPtr Ptr2;
+
+		[FieldOffset(16)] public int Int3;
+		[FieldOffset(16)] public float Float3;
+		[FieldOffset(16)] public IntPtr Ptr3;
+
+		[FieldOffset(24)] public int Int4;
+		[FieldOffset(24)] public float Float4;
+		[FieldOffset(24)] public IntPtr Ptr4;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Variant {
+		public VariantType Type;
+		public VariantValue Value;
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -159,16 +185,14 @@ namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Frustum {
 	}
-
-	[StructLayout (LayoutKind.Sequential)]
-	public struct Variant {
-	}
-
-
+	
 	[StructLayout (LayoutKind.Sequential)]
 	public struct WeakPtr {
 		internal IntPtr ptr;
 		internal IntPtr refCountPtr;
+
+		public T GetUrhoObject<T>() where T : UrhoObject => Runtime.LookupObject<T>(ptr);
+		public T GetRefCounted<T>() where T : RefCounted => Runtime.LookupRefCounted<T>(ptr);
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -176,21 +200,9 @@ namespace Urho {
 		public int TouchID;
 		public IntVector2 Position, LastPosition, Delta;
 		public float Pressure;
-		private WeakPtr _TouchedElement;
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
-		extern static IntPtr TouchState_GetTouchedElement (ref TouchState state);
-		
-		public UIElement TouchedElement ()
-		{
-			return Runtime.LookupObject<UIElement>(_TouchedElement.ptr);
-
-			var x = TouchState_GetTouchedElement (ref this);
-			if (x == IntPtr.Zero)
-				return null;
-			
-			return Runtime.LookupObject<UIElement> (x);
-		}
+		WeakPtr touchedElementPtr;
+		public UIElement TouchedElement => touchedElementPtr.GetUrhoObject<UIElement>();
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -204,9 +216,11 @@ namespace Urho {
 		public IntPtr JoystickPtr;
 		public IntPtr JoystickIdPtr;
 		public IntPtr ControllerPtr;
-		public IntPtr ScreenJoystickPtr;
-		public UIElement ScreenJoystick => Runtime.LookupObject<UIElement>(ScreenJoystickPtr);
-        public UrhoString Name;
+
+		IntPtr screenJoystickPtr;
+		public UIElement ScreenJoystick => Runtime.LookupObject<UIElement>(screenJoystickPtr);
+
+		public UrhoString Name;
 		public VectorBase Buttons;
 		public VectorBase ButtonPress;
 		public VectorBase Axes;
@@ -549,20 +563,4 @@ namespace Urho.Network {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct NodeReplicationState {
 	}
-}
-
-namespace System {
-	//
-	// Hacks until I get Sharpie to not mess with my types
-	//
-	[StructLayout (LayoutKind.Sequential)]
-	public struct nuint {
-		UIntPtr x;
-	}
-
-	[StructLayout (LayoutKind.Sequential)]
-	public struct nint {
-		IntPtr x;
-	}
-
 }
