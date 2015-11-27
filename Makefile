@@ -54,3 +54,11 @@ SharpieBinder: bindings/Urho.pch
 ParseEventsMac:
 	@if test ! -d bindings/generated; then echo "Please generate the C# files using SharpieBinder or use 'make SharpieBinder'" && exit 1; fi
 	cd bindings && perl parse.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
+
+# change references from nuget to projectreferences for Samples/
+RemoveNugetFromSamples:
+	csc bindings/RemoveNugetFromSamples.cs && ./RemoveNugetFromSamples.exe && rm -f RemoveNugetFromSamples.exe
+	
+# change references from nuget to projectreferences for Samples/
+RemoveNugetFromSamplesMono:
+	mcs bindings/RemoveNugetFromSamples.cs -r:System.Xml.dll -r:System.Xml.Linq.dll && mono RemoveNugetFromSamples.exe && rm -f bindings/RemoveNugetFromSamples.exe

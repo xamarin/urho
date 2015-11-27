@@ -25,13 +25,13 @@ class P
 		ns = nsStr;
 
 		//FeatureSamples.Core
-		var coreCsproj = @"..\Samples\FeatureSamples\Core\Urho.Samples.csproj";
+		var coreCsproj = @"Samples/FeatureSamples/Core/Urho.Samples.csproj";
 		var coreDoc = XDocument.Load(coreCsproj);
 		ReplaceRef(coreDoc, "Urho, ", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
 		coreDoc.Save(coreCsproj);
 
 		//FeatureSamples.Droid
-		var droidCsproj = @"..\Samples\FeatureSamples\Android\Urho.Samples.Droid.csproj";
+		var droidCsproj = @"Samples/FeatureSamples/Android/Urho.Samples.Droid.csproj";
 		var droidDoc = XDocument.Load(droidCsproj);
 		ReplaceRef(droidDoc, "Urho, ", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
 		ReplaceRef(droidDoc, "Urho.Droid, ", "{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}", @"..\..\..\Bindings\Android\Urho.Droid.csproj", "Urho.Droid");
@@ -40,7 +40,7 @@ class P
 		droidDoc.Save(droidCsproj);
 
 		//FeatureSamples.iOS
-		var iosCsproj = @"..\Samples\FeatureSamples\iOS\Urho.Samples.iOS.csproj";
+		var iosCsproj = @"Samples/FeatureSamples/iOS/Urho.Samples.iOS.csproj";
 		var iosDoc = XDocument.Load(iosCsproj);
 		ReplaceRef(iosDoc, "Urho, ", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
 		ReplaceRef(iosDoc, "Urho.iOS, ", "{9ae80bd9-e1e2-41da-bb6f-712b35028bd9}", @"..\..\..\Bindings\iOS\Urho.iOS.csproj", "Urho.iOS");
@@ -48,7 +48,7 @@ class P
 		iosDoc.Save(iosCsproj);
 
 		//FeatureSamples.Desktop
-		var desktopCsproj = @"..\Samples\FeatureSamples\Desktop\Urho.Samples.Desktop.csproj";
+		var desktopCsproj = @"Samples/FeatureSamples/Desktop/Urho.Samples.Desktop.csproj";
 		var desktopDoc = XDocument.Load(desktopCsproj);
 		ReplaceRef(desktopDoc, "Urho, ", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
 		ReplaceRef(desktopDoc, "Urho.Desktop, ", "{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}", @"..\..\..\Bindings\Desktop\Urho.Desktop.csproj", "Urho.Desktop");
