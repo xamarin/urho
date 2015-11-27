@@ -68,8 +68,7 @@ const char* SDL_IOS_GetDocumentsDir()
 // Entry point for SDL (Android)
 int RunApplication()
 {
-	SharedPtr<Context> context(new Context());
-	return sdlCallback(context);
+	return sdlCallback(NULL);
 }
 DEFINE_MAIN(RunApplication());
 #endif

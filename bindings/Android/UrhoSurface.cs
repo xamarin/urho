@@ -32,7 +32,7 @@ namespace Urho.Droid
 		public static SDLSurface CreateSurface(Activity activity, Type applicationType)
 		{
 			UrhoEngine.Init();
-			UrhoEngine.RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, new Context(contextPtr)).Run());
+			UrhoEngine.RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType).Run());
 			return SDLActivity.CreateSurface(activity);
 		}
 

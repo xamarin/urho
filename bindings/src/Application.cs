@@ -141,22 +141,24 @@ namespace Urho {
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxyStop (IntPtr h)
 		{
+			var context = Current.Context;
 			GetApp (h).Stop ();
-		}
-
-		public virtual void Setup () {}
-
-		public virtual void Start () {}
-
-		public virtual void Stop ()
-		{
 			Runtime.Cleanup();
-			//Engine.DumpResources(true);
+			if (context.Refs() > 0)
+				context.ReleaseRef();
+			context.Dispose();
+			Current = null;
 		}
 
-		internal ActionManager ActionManager { get; } = new ActionManager();
+		protected virtual void Setup () {}
+
+		protected virtual void Start () {}
+
+		protected virtual void Stop () {}
 
 		protected virtual void OnUpdate(float timeStep) { }
+
+		internal ActionManager ActionManager { get; } = new ActionManager();
 
 
 		[DllImport("mono-urho", EntryPoint = "Urho_GetPlatform", CallingConvention = CallingConvention.Cdecl)]
