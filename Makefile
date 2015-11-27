@@ -57,8 +57,8 @@ ParseEventsMac:
 
 # change references from nuget to projectreferences for Samples/
 RemoveNugetFromSamples:
-	csc bindings/RemoveNugetFromSamples.cs && ./RemoveNugetFromSamples.exe && rm -f RemoveNugetFromSamples.exe
+	csc bindings/RemoveNugetFromSamples.cs && ./RemoveNugetFromSamples.exe -refsonly && rm -f RemoveNugetFromSamples.exe
 	
 # change references from nuget to projectreferences for Samples/
 RemoveNugetFromSamplesMono:
-	mcs bindings/RemoveNugetFromSamples.cs -r:System.Xml.dll -r:System.Xml.Linq.dll && mono RemoveNugetFromSamples.exe && rm -f bindings/RemoveNugetFromSamples.exe
+	mcs bindings/RemoveNugetFromSamples.cs -r:System.Xml.dll -r:System.Xml.Linq.dll && mono RemoveNugetFromSamples.exe -refsonly && rm -f bindings/RemoveNugetFromSamples.exe

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Runtime.InteropServices;
 using Urho.Physics;
@@ -242,10 +243,15 @@ namespace Urho {
 		public VectorBase Axes;
 		public VectorBase Hats;
 
-		public bool GetButtonDown(int position) => Axes.ToArray<byte>()[position] != 0;
-		public bool GetButtonPress(int position) => Axes.ToArray<byte>()[position] != 0;
-		public float GetAxisPosition(int position) => Axes.ToArray<float>()[position];
-		public int GetHatPosition(int position) => Axes.ToArray<int>()[position];
+		public float GetAxisPosition(int position)
+		{
+			if (position >= Axes.Size)
+				return 0.0f;
+
+			float[] result = new float[Axes.Size];
+			Marshal.Copy(Axes.Buffer, result, 0, (int)Axes.Size);
+			return result[position];
+		}
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -253,18 +259,6 @@ namespace Urho {
 		public uint Size;
 		public uint Capacity;
 		public IntPtr Buffer;
-
-		public T[] ToArray<T>() where T : struct 
-		{
-			T[] result = new T[Size];
-			var typeSize = Marshal.SizeOf(typeof (T));
-			for (int i = 0; i < Size; i++)
-			{
-				var ptr = Marshal.ReadIntPtr(Buffer, typeSize*i);
-				result[i] = (T)Marshal.PtrToStructure(ptr, typeof (T));
-			}
-			return result;
-		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
