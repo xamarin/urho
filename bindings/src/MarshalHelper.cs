@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Urho
 {
-	public static class MarshallHelper
+	public static class MarshalHelper
 	{
 		public static unsafe float ReadSingle(this IntPtr ptr, int offset)
 		{
@@ -13,7 +13,7 @@ namespace Urho
 				return *(float*)&value32;
 			}
 			var value64 = Marshal.ReadInt64(ptr, offset);
-			return *(float*)&value64;
+			return (float)*(double*) &value64;
 		}
 
 		public static float[] ToFloatsArray(this IntPtr ptr, int size)
