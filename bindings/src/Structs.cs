@@ -247,28 +247,32 @@ namespace Urho {
 		{
 			if (position >= Axes.Size) 
 				return 0;
-			return Axes.Buffer.ToFloatsArray((int)Axes.Size)[position];
+
+			return Axes.Buffer.ReadSingle(position * sizeof(float));
 		}
 
 		public byte GetButtonDown(int position)
 		{
 			if (position >= Buttons.Size)
 				return 0;
-			return Buttons.Buffer.ToBytesArray((int)Buttons.Size)[position];
+
+			return Marshal.ReadByte(Buttons.Buffer, position * sizeof(byte));
 		}
 
 		public byte GetButtonPress(int position)
 		{
 			if (position >= ButtonPress.Size)
 				return 0;
-			return ButtonPress.Buffer.ToBytesArray((int)ButtonPress.Size)[position];
+
+			return Marshal.ReadByte(ButtonPress.Buffer, position * sizeof(byte));
 		}
 
 		public int GetHatPosition(int position)
 		{
 			if (position >= Hats.Size)
 				return 0;
-			return Hats.Buffer.ToIntsArray((int)Hats.Size)[position];
+			
+			return Marshal.ReadInt32(Hats.Buffer, position * sizeof(int));
 		}
 	}
 
