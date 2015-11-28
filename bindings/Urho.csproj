@@ -363,6 +363,7 @@
     <Compile Include="src\BillboardSet.cs" />
     <Compile Include="src\BufferedSoundStream.cs" />
     <Compile Include="src\ListBasedUpdateSynchronizationContext.cs" />
+    <Compile Include="src\MarshallHelper.cs" />
     <Compile Include="src\Math\EaseMath.cs" />
     <Compile Include="src\Math\SplineMath.cs" />
     <Compile Include="src\MonoDebugHud.cs" />
