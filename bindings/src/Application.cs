@@ -32,12 +32,29 @@ namespace Urho {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		static extern IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args);
 
-		/// <summary>
-		/// Last created application
-		/// </summary>
-		public static Application Current { get; private set; }
+		static Application current;
+		public static Application Current
+		{
+			get
+			{
+				if (current == null) 
+					throw new InvalidOperationException("The application is not configured yet");
+				return current;
+			}
+			private set { current = value; }
+		}
 
-		public static Context CurrentContext { get; private set; }
+		static Context currentContext;
+		public static Context CurrentContext
+		{
+			get
+			{
+				if (currentContext == null)
+					throw new InvalidOperationException("The application is not configured yet");
+				return currentContext;
+			}
+			private set { currentContext = value; }
+		}
 
 		/// <summary>
 		/// Call UrhoEngine.Init() to initialize the engine
@@ -51,7 +68,7 @@ namespace Urho {
 		/// <summary>
 		/// Supports the simple style with callbacks
 		/// </summary>
-		protected Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
+		Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
@@ -168,6 +185,7 @@ namespace Urho {
 		static extern IntPtr GetPlatform();
 
 		static Platforms platform;
+
 		public static Platforms Platform {
 			get {
 				if (platform == Platforms.Unknown)
