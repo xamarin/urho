@@ -49,7 +49,7 @@ namespace Urho
 			var root = ui.Root;
 			var cache = application.ResourceCache;
 
-			text = new Text(application.Context);
+			text = new Text();
 			text.VerticalAlignment = VerticalAlignment.Top;
 			text.HorizontalAlignment = HorizontalAlignment.Right;
 			text.TextAlignment = HorizontalAlignment.Right;

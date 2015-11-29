@@ -37,6 +37,8 @@ namespace Urho {
 		/// </summary>
 		public static Application Current { get; private set; }
 
+		public static Context CurrentContext { get; private set; }
+
 		/// <summary>
 		/// Call UrhoEngine.Init() to initialize the engine
 		/// </summary>
@@ -49,7 +51,7 @@ namespace Urho {
 		/// <summary>
 		/// Supports the simple style with callbacks
 		/// </summary>
-		public Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
+		protected Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
@@ -82,10 +84,10 @@ namespace Urho {
 		/// <summary>
 		/// Waits given _game_ time.
 		/// </summary>
-		public static Task Delay(float durationMs)
+		public static Task Delay(float durationSec)
 		{
 			var tcs = new TaskCompletionSource<bool>();
-			var state = Current.ActionManager.AddAction(new Sequence(new DelayTime(durationMs), new CallFunc(() => tcs.TrySetResult(true))), null);
+			var state = Current.ActionManager.AddAction(new Sequence(new DelayTime(durationSec), new CallFunc(() => tcs.TrySetResult(true))), null);
 			return tcs.Task;
 		}
 
@@ -124,6 +126,7 @@ namespace Urho {
 		static void ProxySetup (IntPtr h)
 		{
 			Current = GetApp(h);
+			CurrentContext = Current.Context;
 			Current.Setup ();
 		}
 
@@ -312,27 +315,18 @@ namespace Urho {
 
 		public static Application CreateInstance(Type applicationType, Context context = null)
 		{
-			foreach (var ctor in applicationType.GetTypeInfo().DeclaredConstructors)
+			var ctors = applicationType.GetTypeInfo().DeclaredConstructors.ToArray();
+
+			var ctorWithOptions = ctors.FirstOrDefault(c => c.GetParameters().Length == 1 && c.GetParameters()[0].ParameterType == typeof (ApplicationOptions));
+			if (ctorWithOptions != null)
 			{
-				var parameters = ctor.GetParameters();
-				if (parameters?.Length > 0)
-				{
-					if (parameters.Length == 2 &&
-						parameters[0].ParameterType == typeof(Context) &&
-						parameters[1].ParameterType == typeof(ApplicationOptions))
-					{
-						return (Application)Activator.CreateInstance(applicationType, context ?? new Context(), null);
-					}
-					if (parameters.Length == 1 &&
-						parameters[0].ParameterType == typeof (ApplicationOptions))
-					{
-						return (Application)Activator.CreateInstance(applicationType, context ?? new Context(), null);
-					}
-				}
-				else
-				{
-					return (Application) Activator.CreateInstance(applicationType);
-				}
+				return (Application) Activator.CreateInstance(applicationType, null);
+			}
+
+			var ctorDefault = ctors.FirstOrDefault(c => c.GetParameters().Length == 0);
+			if (ctorDefault != null)
+			{
+				return (Application) Activator.CreateInstance(applicationType);
 			}
 
 			throw new InvalidOperationException($"{applicationType} must have at least one of the following constructors: ctor(), ctor(ApplicationOptions) or ctor(Context, ApplicationOptions)");

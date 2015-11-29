@@ -607,7 +607,7 @@ namespace SharpieBinder
 				// The construtor with the emtpy chain flag
 				nativeCtor = new ConstructorDeclaration
 				{
-					Modifiers = Modifiers.Public,
+					Modifiers = Modifiers.Protected,
 					Body = new BlockStatement(),
 					Initializer = new ConstructorInitializer()
 				};
@@ -1446,7 +1446,7 @@ namespace SharpieBinder
 
 				if (constructor == null)
 					method.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
-				else
+				else if (parameter.ToString() != "Context")
 					constructor.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
 
 				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName, pinvokeMod));
@@ -1456,9 +1456,16 @@ namespace SharpieBinder
 					break;
 				case WrapKind.HandleMember:
 				case WrapKind.UrhoObject:
-					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
+					if (parameter.ToString() == "Context")
+					{
+						invoke.Arguments.Add(csParser.ParseExpression("Application.CurrentContext.Handle"));
+					}
+					else
+					{
+						var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
 						csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".Handle"));
-					invoke.Arguments.Add (cond);
+						invoke.Arguments.Add (cond);
+					}
 					break;
 				case WrapKind.EventHandler:
 					invoke.Arguments.Add(parameterReference);

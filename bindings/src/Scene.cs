@@ -17,7 +17,7 @@ namespace Urho
 
 		public bool LoadXml(string path)
 		{
-			using (var file = new File(Context, path, FileMode.Read))
+			using (var file = new File(path, FileMode.Read))
 			{
 				return LoadXml(file);
 			}
@@ -25,7 +25,7 @@ namespace Urho
 
 		public bool SaveXml(string path, string indentation = "\t")
 		{
-			using (var file = new File(Context, path, FileMode.Write))
+			using (var file = new File(path, FileMode.Write))
 			{
 				return SaveXml(file, indentation);
 			}
