@@ -382,7 +382,7 @@
     <Compile Include="src\Enums.cs" />
     <Compile Include="src\Input.cs" />
     <Compile Include="src\Log.cs" />
-    <Compile Include="src\IndexBufer.cs" />
+    <Compile Include="src\IndexBuffer.cs" />
     <Compile Include="src\Model.cs" />
     <Compile Include="src\NavigationMesh.cs" />
     <Compile Include="src\Network.cs" />
