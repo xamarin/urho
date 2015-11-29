@@ -1,5 +1,6 @@
 ﻿using System;
 using Urho;
+using Urho.Shapes;
 using Urho.Urho2D;
 
 namespace Urho.Actions
@@ -29,6 +30,7 @@ namespace Urho.Actions
 	public class FadeInState : FiniteTimeActionState
 	{
 		StaticSprite2D staticSprite;
+		Shape shape;
 
 		protected uint Times { get; set; }
 
@@ -38,15 +40,23 @@ namespace Urho.Actions
 			: base (action, target)
 		{
 			staticSprite = Target.GetComponent<StaticSprite2D>();
-			if (staticSprite == null)
-			{
-				throw new NotSupportedException("The node should have StaticSprite2D");
-			}
+			if (staticSprite != null)
+				return;
+
+			shape = Target.GetComponent<Shape>();
+			if (shape != null)
+				return;
+
+			throw new NotSupportedException("The node should have StaticSprite2D or Shape component");
 		}
 
 		public override void Update (float time)
 		{
-			staticSprite.Alpha = time;
+			if (staticSprite != null)
+				staticSprite.Alpha = time;
+
+			if (shape != null)
+				shape.Color = new Color(shape.Color, time);
 		}
 	}
 }

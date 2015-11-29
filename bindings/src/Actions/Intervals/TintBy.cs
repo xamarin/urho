@@ -1,6 +1,7 @@
 using System;
 using Urho;
 using Urho.Actions;
+using Urho.Shapes;
 using Urho.Urho2D;
 
 namespace Urho.Actions
@@ -38,6 +39,7 @@ namespace Urho.Actions
 	public class TintByState : FiniteTimeActionState
 	{
 		StaticSprite2D staticSprite;
+		Shape shape;
 
 		protected float DeltaB { get; set; }
 
@@ -59,23 +61,39 @@ namespace Urho.Actions
 			DeltaR = action.DeltaR;
 
 			staticSprite = Target.GetComponent<StaticSprite2D>();
-			if (staticSprite == null)
+			if (staticSprite != null)
 			{
-				throw new NotSupportedException("The node should have StaticSprite2D component. To change color of 3D objects you can use ColorAnimation (see 31_MaterialAnimation)");
+				var color = staticSprite.Color;
+				FromR = color.R;
+				FromG = color.G;
+				FromB = color.B;
+				return;
 			}
 
-			var color = staticSprite.Color;
-			FromR = color.R;
-			FromG = color.G;
-			FromB = color.B;
+			shape = Target.GetComponent<Shape>();
+			if (shape != null)
+			{
+				FromR = shape.Color.R;
+				FromG = shape.Color.G;
+				FromB = shape.Color.B;
+				return;
+			}
+
+			throw new NotSupportedException("The node should have StaticSprite2D or Shape component");
 		}
 
 		public override void Update (float time)
 		{
-			staticSprite.Color = new Color (
+			var color = new Color(
 				FromR + DeltaR * time,
 				FromG + DeltaG * time,
 				FromB + DeltaB * time);
+
+			if (staticSprite != null)
+				staticSprite.Color = color;
+
+			if (shape != null)
+				shape.Color = color;
 		}
 	}
 }

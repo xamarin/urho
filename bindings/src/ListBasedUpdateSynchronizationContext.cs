@@ -37,14 +37,15 @@ namespace Urho
 
 		public void PumpActions()
 		{
-			var copy = new List<Action>(list);
-			foreach (var action in copy)
-				action();
-
+			List<Action> copy;
 			lock (list)
 			{
+				copy = new List<Action>(list);
 				list.Clear();
 			}
+
+			foreach (var action in copy)
+				action();
 		}
 	}
 }
