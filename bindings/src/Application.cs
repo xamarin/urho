@@ -329,7 +329,7 @@ namespace Urho {
 				return (Application) Activator.CreateInstance(applicationType);
 			}
 
-			throw new InvalidOperationException($"{applicationType} must have at least one of the following constructors: ctor(), ctor(ApplicationOptions) or ctor(Context, ApplicationOptions)");
+			throw new InvalidOperationException($"{applicationType} doesn't have parameterless constructor.");
 		}
 	}
 }
