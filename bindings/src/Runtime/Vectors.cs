@@ -26,11 +26,11 @@ namespace Urho
 
 			public override IEnumerator<T> GetEnumerator() => new ProxyUrhoObjectEnumerator<T>(handle);
 
-			class ProxyUrhoObjectEnumerator<T> : IEnumerator, IEnumerator<T> where T : UrhoObject
+			class ProxyUrhoObjectEnumerator<U> : IEnumerator, IEnumerator<U> where U : UrhoObject
 			{
 				readonly IntPtr handle;
 				int index;
-				T current;
+				U current;
 
 				public ProxyUrhoObjectEnumerator(IntPtr handle)
 				{
@@ -43,7 +43,7 @@ namespace Urho
 					if (count < 1 || count <= index)
 						return false;
 
-					current = Runtime.LookupObject<T>(VectorSharedPtr_GetIdx(handle, index));
+					current = Runtime.LookupObject<U>(VectorSharedPtr_GetIdx(handle, index));
 					index++;
 					return true;
 				}
@@ -54,7 +54,7 @@ namespace Urho
 					current = null;
 				}
 
-				T IEnumerator<T>.Current => current;
+				U IEnumerator<U>.Current => current;
 
 				public object Current => current;
 
@@ -81,11 +81,11 @@ namespace Urho
 
 			public virtual IEnumerator<T> GetEnumerator () => new ProxyRefCountedEnumerator<T>(handle);
 
-			class ProxyRefCountedEnumerator<T> : IEnumerator, IEnumerator<T> where T : RefCounted
+			class ProxyRefCountedEnumerator<U> : IEnumerator, IEnumerator<U> where U : RefCounted
 			{
 				readonly IntPtr handle;
 				int index;
-				T current;
+				U current;
 
 				public ProxyRefCountedEnumerator(IntPtr handle)
 				{
@@ -98,7 +98,7 @@ namespace Urho
 					if (count < 1 || count <= index)
 						return false;
 
-					current = Runtime.LookupRefCounted<T>(VectorSharedPtr_GetIdx(handle, index));
+					current = Runtime.LookupRefCounted<U>(VectorSharedPtr_GetIdx(handle, index));
 					index++;
 					return true;
 				}
@@ -109,7 +109,7 @@ namespace Urho
 					current = null;
 				}
 
-				T IEnumerator<T>.Current => current;
+				U IEnumerator<U>.Current => current;
 
 				public object Current => current;
 
