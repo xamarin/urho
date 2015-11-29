@@ -1442,11 +1442,9 @@ namespace SharpieBinder
 					break;
 				}
 
-
-
 				if (constructor == null)
 					method.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
-				else if (parameter.ToString() != "Context")
+				else
 					constructor.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
 
 				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName, pinvokeMod));
@@ -1456,16 +1454,9 @@ namespace SharpieBinder
 					break;
 				case WrapKind.HandleMember:
 				case WrapKind.UrhoObject:
-					if (parameter.ToString() == "Context")
-					{
-						invoke.Arguments.Add(csParser.ParseExpression("Application.CurrentContext.Handle"));
-					}
-					else
-					{
-						var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
-						csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".Handle"));
-						invoke.Arguments.Add (cond);
-					}
+					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
+					csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".Handle"));
+					invoke.Arguments.Add (cond);
 					break;
 				case WrapKind.EventHandler:
 					invoke.Arguments.Add(parameterReference);
@@ -1509,6 +1500,19 @@ namespace SharpieBinder
 			}
 			cinvoke.Append(")");
 			cmethodBuilder.Append(")\n{\n\t");
+
+			// if the type has a ctor accepting Context - add a parameterless one that will use "this(Application.CurrentContext)"
+			if (isConstructor &&
+				decl.Parameters.Count() == 1 &&
+				decl.Parameters.ElementAt(0).QualType.ToString() == "class Urho3D::Context *") {
+				var ctor = new ConstructorDeclaration {
+						Modifiers = Modifiers.Public,
+						Body = new BlockStatement(),
+						Initializer = new ConstructorInitializer { ConstructorInitializerType = ConstructorInitializerType.This }
+					};
+				ctor.Initializer.Arguments.Add(csParser.ParseExpression("Application.CurrentContext"));
+				currentType.Members.Add(ctor);
+			}
 
 			if (method != null && methodReturn is Sharpie.Bind.Types.VoidType) {
 				method.Body.Add(invoke);
