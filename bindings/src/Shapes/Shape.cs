@@ -9,6 +9,7 @@ namespace Urho.Shapes
 		public override void OnAttachedToNode(Node node)
 		{
 			Model = Application.ResourceCache.GetModel(ModelResource);
+			Color = color;
 		}
 
 		protected abstract string ModelResource { get; }
@@ -40,7 +41,7 @@ namespace Urho.Shapes
 
 		public override void OnDeserialize(IComponentDeserializer d)
 		{
-			Color = d.Deserialize<Color>(nameof(Color));
+			color = d.Deserialize<Color>(nameof(Color));
 		}
 
 		public override void OnSerialize(IComponentSerializer s)
