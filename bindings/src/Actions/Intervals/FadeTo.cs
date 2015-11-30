@@ -63,7 +63,11 @@ namespace Urho.Actions
 
 		public override void Update (float time)
 		{
-			staticSprite.Alpha = FromOpacity + (ToOpacity - FromOpacity) * time;
+			if (staticSprite != null)
+				staticSprite.Alpha = FromOpacity + (ToOpacity - FromOpacity) * time;
+
+			if (shape != null)
+				shape.Color = new Color(shape.Color, FromOpacity + (ToOpacity - FromOpacity) * time);
 		}
 	}
 }
