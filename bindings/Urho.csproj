@@ -381,6 +381,7 @@
     <Compile Include="src\Shapes\Pyramid.cs" />
     <Compile Include="src\Shapes\Shape.cs" />
     <Compile Include="src\Shapes\Sphere.cs" />
+    <Compile Include="src\Shapes\Torus.cs" />
     <Compile Include="src\UrhoConsole.cs" />
     <Compile Include="src\Collision.cs" />
     <Compile Include="src\Component.cs" />

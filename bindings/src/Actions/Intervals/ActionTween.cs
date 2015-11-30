@@ -1,14 +1,7 @@
-using System.Diagnostics;
 using System;
 
-using Urho;
 namespace Urho.Actions
 {
-	public interface IActionTweenDelegate
-	{
-		void UpdateTweenAction (float value, string key);
-	}
-
 	public class ActionTween : FiniteTimeAction
 	{
 		#region Properties
@@ -20,19 +13,13 @@ namespace Urho.Actions
 
 		#endregion Properties
 
-
 		#region Constructors
 
-		public ActionTween (float duration, string key, float from, float to)
-			: base (duration)
+		public ActionTween (float duration, string key, float from, float to, Action<float,string> tweenAction)
 		{
 			Key = key;
 			To = to;
 			From = from;
-		}
-
-		public ActionTween (float duration, string key, float from, float to, Action<float,string> tweenAction) : this (duration, key, from, to)
-		{
 			TweenAction = tweenAction;
 		}
 
@@ -41,7 +28,6 @@ namespace Urho.Actions
 		protected internal override ActionState StartAction(Node target)
 		{
 			return new ActionTweenState (this, target);
-
 		}
 
 		public override FiniteTimeAction Reverse ()
@@ -65,7 +51,6 @@ namespace Urho.Actions
 		public ActionTweenState (ActionTween action, Node target)
 			: base (action, target)
 		{ 
-			Debug.Assert (Target is IActionTweenDelegate, "target must implement ActionTweenDelegate");
 			TweenAction = action.TweenAction;
 			From = action.From;
 			To = action.To;
@@ -76,14 +61,7 @@ namespace Urho.Actions
 		public override void Update (float time)
 		{
 			float amt = To - Delta * (1 - time);
-			if (TweenAction != null)
-			{
-				TweenAction (amt, Key);
-			}
-			else if (Target is IActionTweenDelegate)
-			{
-				((IActionTweenDelegate)Target).UpdateTweenAction (amt, Key);
-			}
+			TweenAction?.Invoke (amt, Key);
 		}
 
 	}
