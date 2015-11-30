@@ -8,6 +8,9 @@ Urho3D_Windows:
 libUrho3D.a: Urho3D_Windows
 	cd Urho3D/Urho3D_Windows && cmake --build . --target Urho3D --config Release && cmake --build . --target Urho3D --config Debug && cmake --build . --target PackageTool --config Release
 
-
-CoreData.pak:
-	mkdir -p Bin && Urho3D/Urho3D_Windows/bin/tool/PackageTool.exe Urho3D/Source/bin/CoreData Bin/CoreData.pak -q
+# move several mdl files from Data to CoreData 
+MoveSomeAssetsFromDataToCoreData:
+	cd Urho3D/Source/bin && mkdir -p CoreData/Models && cp Data/Models/Box.mdl CoreData/Models/Box.mdl && cp Data/Models/Cone.mdl CoreData/Models/Cone.mdl && cp Data/Models/Cylinder.mdl CoreData/Models/Cylinder.mdl && cp Data/Models/Plane.mdl CoreData/Models/Plane.mdl && cp Data/Models/Pyramid.mdl CoreData/Models/Pyramid.mdl && cp Data/Models/Sphere.mdl CoreData/Models/Sphere.mdl && cp Data/Models/Torus.mdl CoreData/Models/Torus.mdl
+	
+CoreData.pak: MoveSomeAssetsFromDataToCoreData
+	mkdir -p Bin && Urho3D/Urho3D_Windows/bin/tool/PackageTool.exe Urho3D/Source/bin/CoreData Bin/CoreData.pak -q && rm -r Urho3D/Source/bin/CoreData/Models
