@@ -375,6 +375,10 @@
     <Compile Include="src\Runtime\RefCountedCache.cs" />
     <Compile Include="src\Runtime\Vectors.cs" />
     <Compile Include="src\Shapes\Box.cs" />
+    <Compile Include="src\Shapes\Cone.cs" />
+    <Compile Include="src\Shapes\Cylinder.cs" />
+    <Compile Include="src\Shapes\Plane.cs" />
+    <Compile Include="src\Shapes\Pyramid.cs" />
     <Compile Include="src\Shapes\Shape.cs" />
     <Compile Include="src\Shapes\Sphere.cs" />
     <Compile Include="src\UrhoConsole.cs" />

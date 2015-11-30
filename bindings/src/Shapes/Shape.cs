@@ -11,7 +11,7 @@ namespace Urho.Shapes
 			Model = Application.ResourceCache.GetModel(ModelResource);
 		}
 
-		protected virtual string ModelResource { get; }
+		protected abstract string ModelResource { get; }
 
 		Color color;
 		public Color Color
