@@ -16,10 +16,10 @@ namespace $safeprojectname$
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            var mLayout = new AbsoluteLayout(this);
+            var layout = new AbsoluteLayout(this);
             var surface = UrhoSurface.CreateSurface<MyGame>(this);
-            mLayout.AddView(surface);
-            SetContentView(mLayout);
+            layout.AddView(surface);
+            SetContentView(layout);
         }
 
         protected override void OnResume()

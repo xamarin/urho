@@ -50,15 +50,15 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Urho, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\UrhoSharp.1.0.149\lib\MonoAndroid\Urho.dll</HintPath>
+      <HintPath>..\..\packages\UrhoSharp.1.0.218\lib\MonoAndroid\Urho.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Urho.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\UrhoSharp.1.0.149\lib\MonoAndroid\Urho.Droid.dll</HintPath>
+      <HintPath>..\..\packages\UrhoSharp.1.0.218\lib\MonoAndroid\Urho.Droid.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Urho.Droid.SdlBindings, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\UrhoSharp.1.0.149\lib\MonoAndroid\Urho.Droid.SdlBindings.dll</HintPath>
+      <HintPath>..\..\packages\UrhoSharp.1.0.218\lib\MonoAndroid\Urho.Droid.SdlBindings.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -71,6 +71,8 @@
     <AndroidAsset Include="Assets\Data\Fonts\Font.ttf" />
     <AndroidAsset Include="Assets\Data\Models\Box.mdl" />
     <AndroidAsset Include="Assets\Data\Models\Sphere.mdl" />
+    <AndroidAsset Include="Assets\Data\Materials\BoxMaterial.xml" />
+    <AndroidAsset Include="Assets\Data\Textures\xamarin.png" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -89,11 +91,11 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-  <Import Project="..\..\packages\UrhoSharp.1.0.149\build\MonoAndroid\UrhoSharp.targets" Condition="Exists('..\..\packages\UrhoSharp.1.0.149\build\MonoAndroid\UrhoSharp.targets')" />
+  <Import Project="..\..\packages\UrhoSharp.1.0.218\build\MonoAndroid\UrhoSharp.targets" Condition="Exists('..\..\packages\UrhoSharp.1.0.218\build\MonoAndroid\UrhoSharp.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\UrhoSharp.1.0.149\build\MonoAndroid\UrhoSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\UrhoSharp.1.0.149\build\MonoAndroid\UrhoSharp.targets'))" />
+    <Error Condition="!Exists('..\..\packages\UrhoSharp.1.0.218\build\MonoAndroid\UrhoSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\UrhoSharp.1.0.218\build\MonoAndroid\UrhoSharp.targets'))" />
   </Target>
 </Project>

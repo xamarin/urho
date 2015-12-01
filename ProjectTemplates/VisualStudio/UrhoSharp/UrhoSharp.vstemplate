@@ -28,7 +28,7 @@
   </WizardExtension>
   <WizardData>
     <packages>
-      <package id="UrhoSharp" version="1.0.100" />
+      <package id="UrhoSharp" version="1.0.218" />
     </packages>
   </WizardData>
 </VSTemplate>

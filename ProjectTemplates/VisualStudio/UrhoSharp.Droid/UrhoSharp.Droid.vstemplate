@@ -24,6 +24,12 @@
             <ProjectItem ReplaceParameters="false" TargetFileName="Box.mdl">Box.mdl</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="Sphere.mdl">Sphere.mdl</ProjectItem>
           </Folder>
+		  <Folder Name="Materials" TargetFolderName="Materials">
+            <ProjectItem ReplaceParameters="false" TargetFileName="BoxMaterial.xml">BoxMaterial.xml</ProjectItem>
+          </Folder>
+		  <Folder Name="Textures" TargetFolderName="Textures">
+            <ProjectItem ReplaceParameters="false" TargetFileName="xamarin.png">xamarin.png</ProjectItem>
+          </Folder>
         </Folder>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="MainActivity.cs">MainActivity.cs</ProjectItem>
@@ -51,7 +57,7 @@
   </WizardExtension>
   <WizardData>
     <packages>
-      <package id="UrhoSharp" version="1.0.100" />
+      <package id="UrhoSharp" version="1.0.218" />
     </packages>
   </WizardData>
 </VSTemplate>

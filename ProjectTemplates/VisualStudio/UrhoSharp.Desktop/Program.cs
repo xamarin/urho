@@ -7,7 +7,7 @@ namespace $safeprojectname$
         static void Main(string[] args)
         {
             UrhoEngine.Init();
-            new MyGame(new Context()).Run();
+            new MyGame().Run();
         }
     }
 }

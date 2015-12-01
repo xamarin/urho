@@ -1,29 +1,36 @@
-﻿using Urho;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Urho;
+using Urho.Gui;
+using Urho.Actions;
+using Urho.Shapes;
 
 namespace $safeprojectname$
 {
     public class MyGame : Application
     {
-        public MyGame(Context context) : base(context) {}
+        public MyGame() : base(new ApplicationOptions { })
+        {
+        }
 
-        public override void Start()
+        protected override void Start()
         {
             CreateScene();
 
             // Subscribe to Esc key:
-            SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Engine.Exit(); });
+            Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Engine.Exit(); });
         }
 
         async void CreateScene()
         {
             // UI text 
-            var helloText = new Text(Context)
-                {
-                    Value = "Hello World from UrhoSharp",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                };
-            helloText.SetColor(new Color(0f, 1f, 1f));
+            var helloText = new Text(Context);
+            helloText.Value = "Hello World from UrhoSharp";
+            helloText.HorizontalAlignment = HorizontalAlignment.Center;
+            helloText.VerticalAlignment = VerticalAlignment.Top;
+            helloText.SetColor(new Color(r: 0f, g: 1f, b: 1f));
             helloText.SetFont(font: ResourceCache.GetFont("Fonts/Font.ttf"), size: 30);
             UI.Root.AddChild(helloText);
 
@@ -31,18 +38,21 @@ namespace $safeprojectname$
             var scene = new Scene(Context);
             scene.CreateComponent<Octree>();
 
-            // Box
-            Node boxNode = scene.CreateChild();
-            boxNode.Position = new Vector3(0, 0, 5);
+            // Box	
+            Node boxNode = scene.CreateChild(name: "Box node");
+            boxNode.Position = new Vector3(x: 0, y: 0, z: 5);
             boxNode.SetScale(0f);
-            boxNode.Rotation = new Quaternion(60, 0, 30);
-            StaticModel modelObject = boxNode.CreateComponent<StaticModel>();
-            modelObject.Model = ResourceCache.GetModel("Models/Box.mdl");
+            boxNode.Rotation = new Quaternion(x: 60, y: 0, z: 30);
 
+            StaticModel boxModel = boxNode.CreateComponent<StaticModel>();
+            boxModel.Model = ResourceCache.GetModel("Models/Box.mdl");
+            boxModel.SetMaterial(ResourceCache.GetMaterial("Materials/BoxMaterial.xml"));
+            
             // Light
             Node lightNode = scene.CreateChild(name: "light");
-            lightNode.SetDirection(new Vector3(0.6f, -1.0f, 0.8f));
-            lightNode.CreateComponent<Light>();
+            var light = lightNode.CreateComponent<Light>();
+            light.Range = 10;
+            light.Brightness = 1.5f;
 
             // Camera
             Node cameraNode = scene.CreateChild(name: "camera");

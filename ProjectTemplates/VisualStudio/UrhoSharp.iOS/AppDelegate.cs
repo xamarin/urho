@@ -21,7 +21,7 @@ namespace $safeprojectname$
         {
             await Task.Yield();
             UrhoEngine.Init();
-            new MyGame(new Context()).Run();
+            new MyGame().Run();
         }
     }
 }
