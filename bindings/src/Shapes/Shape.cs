@@ -14,7 +14,7 @@ namespace Urho.Shapes
 
 		protected abstract string ModelResource { get; }
 
-		Color color;
+		Color color = Color.Magenta;
 		public Color Color
 		{
 			set
