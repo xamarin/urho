@@ -121,12 +121,11 @@ namespace SharpieBinder
 			}
 
 			if (name.StartsWith("Get") || name.StartsWith("Is")) {
-				if (gs.Getter != null)
-					throw new Exception("Can not happen");
+				Console.WriteLine($"Getter exists for {name}");
 				gs.Getter = decl;
 			} else {
 				if (gs.Setter != null) {
-					throw new Exception("Can not happen");
+					Console.WriteLine($"Setter exists for {name}");
 				}
 				gs.Setter = decl;
 			}
