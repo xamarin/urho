@@ -151,11 +151,14 @@ namespace Urho.Actions
 						currentTarget.ActionIndex < currentTarget.ActionStates.Count;
 						currentTarget.ActionIndex++)
 					{
-
 						currentTarget.CurrentActionState = currentTarget.ActionStates[currentTarget.ActionIndex];
 						if (currentTarget.CurrentActionState == null)
 						{
 							continue;
+						}
+						if (currentTarget.Target.IsDeleted)
+						{
+							break;
 						}
 
 						currentTarget.CurrentActionSalvaged = false;
