@@ -28,7 +28,7 @@
       </Parameters>
       <Docs>
         <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-        <summary>Constructs a new instance of PhysicsWorld2D, given a raw pointer to an unmanaged object</summary>
+        <summary>Constructs a new instance of Urho.Urho2D.PhysicsWorld2D, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
           <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
@@ -572,7 +572,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld2D.PhysicsBeginContact2D" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsBeginContact2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -596,7 +596,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld2D.PhysicsEndContact2D" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsEndContact2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -620,7 +620,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld2D.PhysicsPostStep2D" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsPostStep2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -644,7 +644,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Physics.PhysicsWorld2D.PhysicsPreStep2D" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsPreStep2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>

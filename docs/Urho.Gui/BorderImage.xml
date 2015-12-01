@@ -14,13 +14,10 @@
             </summary>
     <remarks>
       <para>The <see cref="T:Urho.Gui.BorderImage" /> and elements deriving from it specify a texture and an absolute pixel rect within it to use for rendering; see <see cref="P:Urho.Gui.BorderImage.Texture" /> and <see cref="P:Urho.Gui.BorderImage.ImageRect" />. The texture is modulated with the element's color. To allow for more versatile scaling the element can be divided into 9 sub-quads or patches by specifying the width of each of its borders, see <see cref="P:Urho.Gui.BorderImage.Border" />. Setting zero borders (the default) causes the element to be drawn as one quad.</para>
-      <para>
-      </para>
+      <para></para>
       <para>The absolute pixel rects interact poorly with the <see cref="T:Urho.Renderer" /> texture quality setting, which reduces texture sizes by skipping the topmost mipmaps. Generating mipmaps is also often unnecessary for UI textures, as they are usually displayed with 1:1 ratio on the screen. Therefore it's a good practice to use the following accompanying settings XML file for UI textures to disable quality reduction and mipmaps (mipmap enable set to false, quality low set to zero in the texture xml group).</para>
-      <para>
-      </para>
-      <para>
-      </para>
+      <para></para>
+      <para></para>
     </remarks>
   </Docs>
   <Members>
@@ -36,7 +33,7 @@
       </Parameters>
       <Docs>
         <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-        <summary>Constructs a new instance of BorderImage, given a raw pointer to an unmanaged object</summary>
+        <summary>Constructs a new instance of Urho.Gui.BorderImage, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
           <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
@@ -367,8 +364,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -384,8 +380,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

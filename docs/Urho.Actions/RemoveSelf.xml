@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Removes the node from its container (another node)</summary>
+    <remarks>Invokes the Node’s Parent RemoveChild.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -39,7 +39,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>This operation is not supported for this kind of action.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

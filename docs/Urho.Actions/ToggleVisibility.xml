@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Toggles the visibility of a node.</summary>
+    <remarks>Toggles the status of the <see cref="P:Urho.Node.IsEnabled" /> property of the target node.  </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

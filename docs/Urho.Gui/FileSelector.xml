@@ -28,7 +28,7 @@
       </Parameters>
       <Docs>
         <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-        <summary>Constructs a new instance of FileSelector, given a raw pointer to an unmanaged object</summary>
+        <summary>Constructs a new instance of Urho.Gui.FileSelector, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
           <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
@@ -413,7 +413,7 @@
         <remarks>
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.IO.FileSelector.FileSelected" /> event.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.FileSelector.FileSelected" /> event.</para>
         </remarks>
       </Docs>
     </Member>
@@ -484,8 +484,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -501,8 +500,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">

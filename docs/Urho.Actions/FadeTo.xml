@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Alters the alpha component of the <see cref="T:Urho.Urho2D.StaticSprite2D" /> component or <see cref="T:Urho.Shapes.Shape" /> component of a <see cref="T:Urho.Node" />.</summary>
+    <remarks>This changes the alpha transparency to the specified opacity of an attached <see cref="T:Urho.Urho2D.StaticSprite2D" /> component of a node by altering the alpha component on the <see cref="P:Urho.Urho2D.StaticSprite2D.Color" /> property, or the attached <see cref="T:Urho.Shapes.Shape" /> component of a node by altering the alpha component on the <see cref="P:Urho.Shapes.Shape.Color" /> property.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

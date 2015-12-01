@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Sets the position of a node.</summary>
+    <remarks>Sets the <see cref="P:Urho.Node.Position" /> property of the target node to to false.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -26,7 +26,7 @@
       </Parameters>
       <Docs>
         <param name="pos">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Creates the action from a 3d vector.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -46,7 +46,7 @@
         <param name="posX">To be added.</param>
         <param name="posY">To be added.</param>
         <param name="posZ">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Creates the action from integer values.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,7 +61,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The position configured for this action.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

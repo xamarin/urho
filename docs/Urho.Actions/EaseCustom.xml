@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Custom easing function using a function that provides the easing values.</summary>
+    <remarks>This is an easing action that can use a delegate to compute the easing behavior.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -26,9 +26,9 @@
         <Parameter Name="easeFunc" Type="System.Func&lt;System.Single,System.Single&gt;" />
       </Parameters>
       <Docs>
-        <param name="action">To be added.</param>
-        <param name="easeFunc">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="action">The easing action that this is wrapping.</param>
+        <param name="easeFunc">Function that takes as input the time, and returns the transformed time that should be passed to the underlying wrapped action.</param>
+        <summary>Initializes the custom easing function with a function that will apply a distortion over time.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -43,7 +43,7 @@
         <ReturnType>System.Func&lt;System.Single,System.Single&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The configured easing function.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -60,7 +60,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns an <see cref="T:Urho.Actions.ReverseTime" /> instance of this action.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

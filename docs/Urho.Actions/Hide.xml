@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Hides a node.</summary>
+    <remarks>Sets the Enabled property of the target node to to false.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -39,7 +39,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns an instance of <see cref="T:Urho.Actions.Show" /></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

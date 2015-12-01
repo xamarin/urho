@@ -103,7 +103,9 @@
       </list>
       <para>Note that on iOS calling <see cref="M:Urho.Engine.Exit" /> is a no-op as there is no officially sanctioned way to manually exit your program. On Android it will cause the activity to manually exit.</para>
       <format type="text/html">
-        <h2>Application Framework</h2> <div>The&amp;amp;amp;amp;amp;amp;amp;amp;amp;nbsp;<a href="">T:Urho.Application</a>&amp;amp;amp;amp;amp;amp;amp;amp;amp;nbsp;class provides a minimal framework to run your game with a main loop and a handful of methods that you can override to prepare and run your game.</div></format>
+        <h2>Application Framework</h2>
+        <div>The&amp;amp;amp;amp;amp;amp;amp;amp;amp;nbsp;<a href="">T:Urho.Application</a>&amp;amp;amp;amp;amp;amp;amp;amp;amp;nbsp;class provides a minimal framework to run your game with a main loop and a handful of methods that you can override to prepare and run your game.</div>
+      </format>
     </remarks>
   </Docs>
   <Members>
@@ -119,7 +121,7 @@
       </Parameters>
       <Docs>
         <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-        <summary>Constructs a new instance of Engine, given a raw pointer to an unmanaged object</summary>
+        <summary>Constructs a new instance of Urho.Engine, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
           <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>

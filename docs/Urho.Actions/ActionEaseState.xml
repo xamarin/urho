@@ -10,7 +10,9 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Encapsultes the state of an easing function, for internal use of the Easing action functions.</summary>
+    <summary>
+      <para>Encapsulates the running state for the <see cref="T:Urho.Actions.ActionEaseState" /> action.</para>
+    </summary>
     <remarks>
       <para></para>
     </remarks>

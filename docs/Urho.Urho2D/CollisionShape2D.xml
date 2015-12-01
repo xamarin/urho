@@ -18,27 +18,38 @@
       <para></para>
       <para></para>
       <format type="text/html">
-        <div>Box2D supports collision filtering (restricting which other objects to collide with) using categories and groups:</div> <div>
-  <br />
-</div> <div>Collision categories: First assign the collision shape to a category, using <a href="">P:Urho.Urho2D.CollisionShape2D.CategoryBits</a>. Sixteen categories are available.</div> <div>
-  <br />
-</div> <div>Then you can specify what other categories the given collision shape can collide with, using&amp;amp;amp;nbsp;<a href="">P:Urho.Urho2D.CollisionShape2D.MaskBits</a>.</div> <div>
-  <br />
-</div> <div>Collision groups: positive and negative indices assigned using&amp;amp;amp;nbsp;<a href="">P:Urho.Urho2D.CollisionShape2D.GroupIndex</a>. All collision shapes within the same group index either always collide (positive index) or never collide (negative index).</div> <div>
-  <br />
-</div> <div>Note that:</div> <div>
-  <ul>
-    <li>a collision group has higher precedence than collision category</li>
-    <li>a collision shape on a static body can only collide with a dynamic body</li>
-    <li>a collision shape on a kinematic body can only collide with a dynamic body</li>
-    <li>collision shapes on the same body never collide with each other</li>
-  </ul>
-</div> <div>
-  <p>A collision shape can be set to trigger mode to only report collisions without actually applying collision forces. This can be used to implement trigger areas. Note that:</p>
-  <h2>Sensors</h2>
-  <p>A sensor can be triggered only by dynamic bodies&amp;amp;nbsp;<a href="">T:Urho.Urho2D.BodyType2D</a>’s Dynamic.</p>
-  <p>Physics queries don't report triggers. To get notified when a sensor is triggered or cease to be triggered, subscribe to <a href="">E:Urho.Urho2D.PhysicsWorld2D.PhysicsBeginContact2D</a>&amp;amp;nbsp;and&amp;amp;nbsp;<a href="">E:Urho.Urho2D.PhysicsWorld2D.PhysicsEndContact2D</a>&amp;amp;nbsp;physics events.</p>
-</div></format>
+        <div>Box2D supports collision filtering (restricting which other objects to collide with) using categories and groups:</div>
+        <div>
+          <br />
+        </div>
+        <div>Collision categories: First assign the collision shape to a category, using <a href="">P:Urho.Urho2D.CollisionShape2D.CategoryBits</a>. Sixteen categories are available.</div>
+        <div>
+          <br />
+        </div>
+        <div>Then you can specify what other categories the given collision shape can collide with, using&amp;amp;amp;nbsp;<a href="">P:Urho.Urho2D.CollisionShape2D.MaskBits</a>.</div>
+        <div>
+          <br />
+        </div>
+        <div>Collision groups: positive and negative indices assigned using&amp;amp;amp;nbsp;<a href="">P:Urho.Urho2D.CollisionShape2D.GroupIndex</a>. All collision shapes within the same group index either always collide (positive index) or never collide (negative index).</div>
+        <div>
+          <br />
+        </div>
+        <div>Note that:</div>
+        <div>
+          <ul>
+            <li>a collision group has higher precedence than collision category</li>
+            <li>a collision shape on a static body can only collide with a dynamic body</li>
+            <li>a collision shape on a kinematic body can only collide with a dynamic body</li>
+            <li>collision shapes on the same body never collide with each other</li>
+          </ul>
+        </div>
+        <div>
+          <p>A collision shape can be set to trigger mode to only report collisions without actually applying collision forces. This can be used to implement trigger areas. Note that:</p>
+          <h2>Sensors</h2>
+          <p>A sensor can be triggered only by dynamic bodies&amp;amp;nbsp;<a href="">T:Urho.Urho2D.BodyType2D</a>’s Dynamic.</p>
+          <p>Physics queries don't report triggers. To get notified when a sensor is triggered or cease to be triggered, subscribe to <a href="">E:Urho.Urho2D.PhysicsWorld2D.PhysicsBeginContact2D</a>&amp;amp;nbsp;and&amp;amp;nbsp;<a href="">E:Urho.Urho2D.PhysicsWorld2D.PhysicsEndContact2D</a>&amp;amp;nbsp;physics events.</p>
+        </div>
+      </format>
       <format type="text/html" />
       <para></para>
     </remarks>
@@ -56,7 +67,7 @@
       </Parameters>
       <Docs>
         <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-        <summary>Constructs a new instance of CollisionShape2D, given a raw pointer to an unmanaged object</summary>
+        <summary>Constructs a new instance of Urho.Urho2D.CollisionShape2D, given a raw pointer to an unmanaged object</summary>
         <remarks>
           <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
           <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>

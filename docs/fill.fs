@@ -39,7 +39,7 @@ let membername (x:XElement) =
 
 let getTypeName (doc:XDocument) =
   let tnode = doc.XPathSelectElement ("Type")
-  let attr = tnode.Attribute (xname "Name")
+  let attr = tnode.Attribute (xname "FullName")
   attr.Value
 
 let processEventArgs (doc:XDocument) =
@@ -157,7 +157,7 @@ let processType (doc:XDocument) =
           remarks.RemoveAll ()
           xp "<para>This method will override any prior subscription, including those assigned to on event handlers.</para>"  |> remarks.Add
           xp "<para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>" |> remarks.Add
-          sprintf "<para>For a more event-like approach, use the <see cref=\"E:Urho.%s.%s\"/> event.</para>" typeName eventName |> xp |> remarks.Add
+          sprintf "<para>For a more event-like approach, use the <see cref=\"E:%s.%s\"/> event.</para>" typeName eventName |> xp |> remarks.Add
           // Remember the method, so we can reference it from the event args
           let parameter = m.XPathSelectElement ("Parameters/Parameter[@Name='handler']")
           let eventArgsType = (((parameter.Attribute (xname "Type")).Value).Replace ("System.Action<Urho.","")).Replace (">","")
@@ -177,31 +177,12 @@ let processType (doc:XDocument) =
           //  evtRem.RemoveAll ()
           //  sprintf "<para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref=\"M:Urho.%s\"/> method.   That one will force that callback and will ignore any previously set events here.</para>" name |> xp |> evtRem.Add
  
-  let fillStartAction() =
-    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='StartAction']" do
-      match x with
-      | null -> ()
-      | mem ->
-        if (mem.ToString ()).Contains ("Urho.ActionState") then
-          let mdoc = mem.XPathSelectElement "Docs"
-          setval mdoc "summary" "Creates the action state for this action, called on demand from the framework to start executing the recipe."
-          let remarks = select mdoc "remarks"
-          remarks.RemoveAll ()
-          xp "<para>The new <see cref=\"T:Urho.ActionState\"/> that encapsulates the state and provides the implementation to perform this action.</para>" |> remarks.Add
-          setval mdoc "remarks" "New action that will perform the inverse of this action"
-          let par = match select mdoc "param[@name='target']" with
-                    | null -> select mdoc "param"
-                    | v -> v
-          par.RemoveAll ();
-          par.SetAttributeValue (xname "name", "target")
-          sprintf "<para>The new <see cref=\"T:Urho.ActionState\"/> that encapsulates the state and provides the implementation to perform your action.</para>" |> xp |> par.Add
-
   let fillReverse() =
     for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='Reverse']" do
       match x with
       | null -> ()
       | mem ->
-        if (mem.ToString ()).Contains ("Urho.FiniteTimeAction") then
+        if (mem.ToString ()).Contains ("Urho.Actions.FiniteTimeAction") then
           let mdoc = mem.XPathSelectElement "Docs"
           setval mdoc "summary" "Returns a new action that performs the exact inverse of this action."
           setval mdoc "remarks" ""
@@ -215,10 +196,47 @@ let processType (doc:XDocument) =
   fillTypeNameStatic()
   fillTypeCtor()
   fillSubscribe()
-  fillStartAction()
   //fillReverse()
   doc
 
+let processAction (path:string) (doc:XDocument) = 
+  let fillStartAction() =
+    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='StartAction']" do
+      match x with
+      | null -> ()
+      | mem ->
+        if (mem.ToString ()).Contains ("Urho.Actions.ActionState") then
+          let mdoc = mem.XPathSelectElement "Docs"
+          setval mdoc "summary" "Creates the action state for this action, called on demand from the framework to start executing the recipe."
+          let remarks = select mdoc "remarks"
+          remarks.RemoveAll ()
+          xp "<para>The new <see cref=\"T:Urho.Actions.ActionState\"/> that encapsulates the state and provides the implementation to perform this action.</para>" |> remarks.Add
+          setval mdoc "remarks" "New action that will perform the inverse of this action"
+          let par = match select mdoc "param[@name='target']" with
+                    | null -> select mdoc "param"
+                    | v -> v
+          par.RemoveAll ();
+          par.SetAttributeValue (xname "name", "target")
+          sprintf "<para>The new <see cref=\"T:Urho.Actions.ActionState\"/> that encapsulates the state and provides the implementation to perform your action.</para>" |> xp |> par.Add
+    ()
+
+    
+  match path.EndsWith ("State.xml"), path with
+    | false,_ ->
+      fillStartAction()
+    | true, "Urho.Actions/ActionState.xml" ->
+      ()
+    | true, _ -> 
+      let typeDoc = doc.XPathSelectElement ("/Type")
+      let fullName = (typeDoc.Attribute (xname "FullName")).Value
+      let sum = doc.XPathSelectElement ("/Type/Docs/summary")
+      sum.RemoveAll ()
+      xp ("<para>Encapsulates the running state for the <see cref=\"T:" + fullName + "\"/> action.</para>") |> sum.Add
+      let rem = doc.XPathSelectElement ("/Type/Docs/remarks")
+      rem.RemoveAll ()
+      xp ("<para>This object is created on demand when the action starts executing on a node, and it tracks the state of the action as it executes.</para>") |> rem.Add
+  doc
+      
 let processPath path =
   match load path with
     | null ->
@@ -230,14 +248,19 @@ let processPath path =
         | true  -> ()
 
 
-for xmlDoc in Directory.GetFiles ("Urho", "*xml") do
-  processPath xmlDoc
+for dir in ["Urho"; "Urho.Audio"; "Urho.Gui"; "Urho.IO"; "Urho.Navigation"; "Urho.Network"; "Urho.Physics"; "Urho.Resources"; "Urho.Urho2D"] do
+  for xmlDoc in Directory.GetFiles (dir, "*xml") do
+    processPath xmlDoc
 
+for xmlDoc in Directory.GetFiles ("Urho.Actions", "*xml") do
+  match load xmlDoc with
+    | null -> printfn "Failed to load action %s" xmlDoc
+    | doc ->
+      processAction xmlDoc doc |> save xmlDoc
+      
 for xmlDoc in Directory.GetFiles ("Urho", "*EventArgs.xml") do
   match load xmlDoc with
     | null -> printfn "Failed to load %s" xmlDoc
     | doc ->
       processEventArgs doc |> save xmlDoc
       
-
-
