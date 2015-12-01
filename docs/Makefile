@@ -12,3 +12,6 @@ update:
 	#mdoc update --delete -o . --type=Urho.UrhoEngine ../bindings/Desktop/bin/Debug/Urho.Desktop.dll
 	mdoc export-msxdoc --out=Urho.xml .
 	perl -pi -e 's/To be added.//' Urho.xml
+	
+assemble:
+	mdoc assemble . --out=Urho
