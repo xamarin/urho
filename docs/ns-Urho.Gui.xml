@@ -1,6 +1,6 @@
 <Namespace Name="Urho.Gui">
   <Docs>
-    <summary>To be added.</summary>
+    <summary>User interface framework to use inside <see cref="T:Urho.Applications" />, it is a limited toolkit suitable for some in-game user interfaces.</summary>
     <remarks>To be added.</remarks>
   </Docs>
 </Namespace>

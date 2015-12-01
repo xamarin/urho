@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %UI element which allows sub-pixel positioning and size, as well as rotation. Only other Sprites should be added as child elements.
+    <summary>UI element which allows sub-pixel positioning and size, as well as rotation. Only other Sprites should be added as child elements.
             </summary>
     <remarks>
       <para>Sprites are a special kind of UI element that allow subpixel (float) positioning and scaling, as well as rotation, while the other elements use integer positioning for pixel-perfect display. Sprites can be used to implement rotating HUD elements such as minimaps or speedometer needles.<see cref="" /></para>

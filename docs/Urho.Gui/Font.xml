@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Font resource.
+    <summary>Font resource.
             </summary>
     <remarks>
       <para>UrhoSharp supports both FreeType (.ttf, .otf) and http://www.angelcode.com/products/bmfont/ "bitmap" fonts.<see cref="" /></para>

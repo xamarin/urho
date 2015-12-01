@@ -14,6 +14,7 @@
             Root scene node, represents the whole scene.
             </summary>
     <remarks>
+      <para>When you create a Scene, it is automatically attached to the specified context (or the default as exposed by <see cref="P:Urho.Application.CurrentContext)" />.   The Scene is just the toplevel <see cref="T:Urho.Node" /> and it holds the various nodes for your application.   </para>
       <para>In general, you will want to add an Octree component to your scene, without it, none of the visual components will be shown.  The default Octree component volume goes from (-1000,-1000,-1000) to (1000,1000,1000) in world coordinates.</para>
       <para></para>
       <example>

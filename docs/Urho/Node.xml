@@ -2003,8 +2003,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <Parameter Name="dest" Type="Urho.Resources.XmlElement" />
       </Parameters>
       <Docs>
-        <param name="dest">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="dest">The destiation to store the node on.</param>
+        <summary>Saves the entire node as a prefab into the provided XmlElement.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

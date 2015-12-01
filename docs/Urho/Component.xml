@@ -13,7 +13,39 @@
     <summary>
             Base class for components. Components can be attached to scene nodes.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Serialization</para>
+      <para></para>
+      <para>To implement serialization you would override the OnSerialize and OnDeserialize methods and store your component state on the provided serializer and deserializer objects.</para>
+      <para></para>
+      <code lang="C#"><![CDATA[class MyComponent : Component {
+    // Constructor needed for deserialization
+    public MyComponent(IntPtr handle) : base(handle) { }
+    public MyComponent() { }
+    // user defined properties (managed state):
+    public Quaternion MyRotation { get; set; }
+    public string MyName { get; set; }
+        
+    public override void OnSerialize(IComponentSerializer ser)
+    {
+        // register our properties with their names as keys using nameof()
+        ser.Serialize(nameof(MyRotation), MyRotation);
+        ser.Serialize(nameof(MyName), MyName);
+    }
+        
+    public override void OnDeserialize(IComponentDeserializer des)
+    {
+        MyRotation = des.Deserialize<Quaternion>(nameof(MyRotation));
+        MyName = des.Deserialize<string>(nameof(MyName));
+    }
+    // called when the component is attached to some node
+    public override void OnAttachedToNode()
+    {
+        var node = this.Node;
+    }
+}]]></code>
+      <para></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -375,9 +407,9 @@
         <Parameter Name="deserializer" Type="Urho.Resources.IComponentDeserializer" />
       </Parameters>
       <Docs>
-        <param name="deserializer">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="deserializer">Object used to retrieve the stored information</param>
+        <summary>Overridable method to deserialize the component state</summary>
+        <remarks>Implement this method to have the Urho runtime initialize your object state from a previously saved state.</remarks>
       </Docs>
     </Member>
     <Member MemberName="OnSerialize">
@@ -394,9 +426,9 @@
         <Parameter Name="serializer" Type="Urho.Resources.IComponentSerializer" />
       </Parameters>
       <Docs>
-        <param name="serializer">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="serializer">You serialize the state into this object.</param>
+        <summary>Overridable method to serialize the component state</summary>
+        <remarks>You typically override this method in your application to save the state of your component.   Saving takes place by saving the state on the API surfaced by the serializer parameter.</remarks>
       </Docs>
     </Member>
     <Member MemberName="OnSetEnabled">

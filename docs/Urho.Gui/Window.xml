@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Window %UI element that can optionally by moved or resized.
+    <summary>Window UI element that can optionally by moved or resized.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

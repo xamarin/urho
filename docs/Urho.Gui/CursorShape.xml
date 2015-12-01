@@ -9,8 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>
-            %Cursor shapes recognized by the UI subsystem.
+    <summary>Cursor shapes recognized by the UI subsystem.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

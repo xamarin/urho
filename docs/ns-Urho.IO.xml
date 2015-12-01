@@ -1,6 +1,6 @@
 <Namespace Name="Urho.IO">
   <Docs>
-    <summary>To be added.</summary>
+    <summary>File system abstraction used by the framework.</summary>
     <remarks>To be added.</remarks>
   </Docs>
 </Namespace>

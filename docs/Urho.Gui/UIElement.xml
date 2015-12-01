@@ -11,7 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>
-            Base class for %UI elements.
+            Base class for UI elements.
             </summary>
     <remarks>
       <para>User interface elements are serializable, so they can be serialized to/from XML using their attributes. There are two distinct use cases for UI definition files: either defining just the UI element style and leaving the actual position and dimensions to be filled in later, or fully defining an UI element layout. The default element style definitions, used for example by the editor and the debug console, are in the file bin/Data/UI/DefaultStyle.xml.</para>

@@ -1,6 +1,6 @@
 <Namespace Name="Urho.Actions">
   <Docs>
-    <summary>Action framework for <see cref="T:Urho.Node" /></summary>
+    <summary>Action framework for <see cref="T:Urho.Node" /> used to animate or change properties in an <see cref="T:Urho.Node" />.</summary>
     <remarks>
       <para>You can add behavior to nodes very easily using Actions.   Actions are immutable objects, which allows you to reuse the action for driving different objects.  </para>
       <para></para>

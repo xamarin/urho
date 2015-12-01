@@ -13,7 +13,7 @@
     <summary>
             Urho3D execution context. Provides access to subsystems, object factories and attributes, and event receivers.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>By default the empty constructors for nodes will create the objects in the current Context (Available in the <see cref="P:Urho.Application.CurrentContext" />).   </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %UI element which renders a 3D scene.
+    <summary>UI element which renders a 3D scene.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

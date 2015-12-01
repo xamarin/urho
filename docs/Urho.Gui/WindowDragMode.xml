@@ -9,8 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>
-            %Window movement and resizing modes.
+    <summary>Window movement and resizing modes.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

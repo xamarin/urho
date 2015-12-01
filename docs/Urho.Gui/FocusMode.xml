@@ -9,8 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>
-            %UI element focus mode.
+    <summary>UI element focus mode.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

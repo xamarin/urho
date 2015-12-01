@@ -7,7 +7,7 @@
   </AssemblyInfo>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Interface that provides a serialization API to retrieve state during a load operation.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -29,10 +29,10 @@
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <param name="key">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">The key to retrieve from storage.</param>
+        <summary>Retrieves an object with the given key and with the given type.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>The valid types for T are string, Vector2, Vector3, Vector4, IntRect, Quaternion, Colors, floats, ints, unsigned ints, bools and doubles.</remarks>
       </Docs>
     </Member>
   </Members>

@@ -11,7 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>
-            Scrollable %UI element for showing a (possibly large) child element.
+            Scrollable UI element for showing a (possibly large) child element.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

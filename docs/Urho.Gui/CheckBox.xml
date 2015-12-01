@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %UI element that can be toggled between unchecked and checked state.
+    <summary>UI element that can be toggled between unchecked and checked state.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

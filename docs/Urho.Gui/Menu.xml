@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Menu %UI element that optionally shows a popup.
+    <summary>Menu UI element that optionally shows a popup.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

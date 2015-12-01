@@ -7,8 +7,10 @@
   </AssemblyInfo>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Interface that provides a serialization API to store state during a save operation.</summary>
+    <remarks>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Serialize">
@@ -26,9 +28,9 @@
         <Parameter Name="value" Type="System.Object" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">A unique value.</param>
+        <param name="value">The types can be strings, Vector2, Vector3, Vector4, IntRect, Quaternion, Colors, floats, ints, unsigned ints, bools and doubles.</param>
+        <summary>Serializes the value with the specified key.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

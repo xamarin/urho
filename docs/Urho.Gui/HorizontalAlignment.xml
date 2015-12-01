@@ -9,8 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>
-            %UI element horizontal alignment.
+    <summary>UI element horizontal alignment.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>

@@ -1,6 +1,6 @@
 <Namespace Name="Urho.Navigation">
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides Path Navigation functionality for your application.</summary>
     <remarks>To be added.</remarks>
   </Docs>
 </Namespace>

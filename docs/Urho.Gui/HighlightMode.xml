@@ -9,8 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>
-            %ListView selection highlight mode.
+    <summary>ListView selection highlight mode.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
