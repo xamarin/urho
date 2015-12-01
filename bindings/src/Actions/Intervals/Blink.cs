@@ -39,7 +39,7 @@ namespace Urho.Actions
 			: base (action, target)
 		{ 
 			Times = action.Times;
-			OriginalState = target.IsEnabled();
+			OriginalState = target.Enabled;
 		}
 
 		public override void Update (float time)
@@ -48,13 +48,13 @@ namespace Urho.Actions
 			{
 				float slice = 1.0f / Times;
 				float m = time % slice;
-				Target.SetEnabled(m > (slice / 2));
+				Target.Enabled = m > (slice / 2);
 			}
 		}
 
 		protected internal override void Stop ()
 		{
-			Target.SetEnabled(OriginalState);
+			Target.Enabled = OriginalState;
 			base.Stop ();
 		}
 

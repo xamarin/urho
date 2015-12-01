@@ -18,8 +18,8 @@ namespace Urho.Actions
 	{
 		public ShowState (Show action, Node target)
 			: base (action, target)
-		{   
-			target.SetEnabled(true);
+		{
+			target.Enabled = true;
 		}
 	}
 }

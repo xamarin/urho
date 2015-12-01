@@ -82,6 +82,14 @@ namespace SharpieBinder
 					return;
 				if (decl.ReturnQualType.ToString() == "void")
 					return;
+				if (name == "IsElementEventSender" ||
+					name == "IsOpen" ||
+					name == "IsPressed")
+					return;
+
+				//TODO: remove this if (to convert all "Is" methods to properties, not only IsEnabled):
+				if (name.StartsWith("Is") && name != "IsEnabled")
+					return;
 
 				type = decl.ReturnQualType;
 			} else if (name.StartsWith("Set")) {
@@ -102,7 +110,8 @@ namespace SharpieBinder
 				typeProperties = new Dictionary<string, Dictionary<QualType, GetterSetter>>();
 				allProperties[decl.Parent.Name] = typeProperties;
 			}
-			var propName = name.Substring(3);
+
+			var propName = name.Substring(name.StartsWith("Is") ? 2 : 3);
 
 			Dictionary<QualType, GetterSetter> property;
 

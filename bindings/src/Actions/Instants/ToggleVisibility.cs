@@ -22,7 +22,7 @@ namespace Urho.Actions
 		public ToggleVisibilityState (ToggleVisibility action, Node target)
 			: base (action, target)
 		{
-			target.SetEnabled(!target.IsEnabled());
+			target.Enabled = !target.Enabled;
 		}
 	}
 }

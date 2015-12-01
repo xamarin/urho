@@ -28,7 +28,7 @@ namespace Urho.Actions
 		public HideState (Hide action, Node target)
 			: base (action, target)
 		{   
-			target.SetEnabled(false);
+			target.Enabled = false;
 		}
 	}
 }
