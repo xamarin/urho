@@ -5,51 +5,43 @@ namespace Urho
 {
 	internal class UrhoEventAdapter<TEventArgs>
 	{
-		readonly Dictionary<IntPtr, List<WeakReference<Action<TEventArgs>>>> managedSubscribersByObjects;
+		readonly Dictionary<IntPtr, List<Action<TEventArgs>>> managedSubscribersByObjects;
 		readonly Dictionary<IntPtr, Subscription> nativeSubscriptionsForObjects;
 
 		public UrhoEventAdapter()
 		{
-			managedSubscribersByObjects = new Dictionary<IntPtr, List<WeakReference<Action<TEventArgs>>>>();
+			managedSubscribersByObjects = new Dictionary<IntPtr, List<Action<TEventArgs>>>();
 			nativeSubscriptionsForObjects = new Dictionary<IntPtr, Subscription>();
 		}
 
 		public void AddManagedSubscriber(IntPtr handle, Action<TEventArgs> action, Func<Action<TEventArgs>, Subscription> nativeSubscriber)
 		{
-			List<WeakReference<Action<TEventArgs>>> listOfManagedSubscribers;
+			List<Action<TEventArgs>> listOfManagedSubscribers;
 			if (!managedSubscribersByObjects.TryGetValue(handle, out listOfManagedSubscribers))
 			{
-				listOfManagedSubscribers = new List<WeakReference<Action<TEventArgs>>> { new WeakReference<Action<TEventArgs>>(action) };
+				listOfManagedSubscribers = new List<Action<TEventArgs>> { action };
 				managedSubscribersByObjects[handle] = listOfManagedSubscribers;
 				nativeSubscriptionsForObjects[handle] = nativeSubscriber(args => 
 					{
 						foreach (var managedSubscriber in listOfManagedSubscribers)
 						{
-							Action<TEventArgs> actionRef;
-							if (managedSubscriber.TryGetTarget(out actionRef))
-							{
-								actionRef(args);
-							}
+							managedSubscriber(args);
 						}
 					});
 			}
 			else
 			{
 				//this handle is already subscribed to the native event - don't call native subscription again - just add it to the list.
-				listOfManagedSubscribers.Add(new WeakReference<Action<TEventArgs>>(action));
+				listOfManagedSubscribers.Add(action);
 			}
 		}
 
 		public void RemoveManagedSubscriber(IntPtr handle, Action<TEventArgs> action)
 		{
-			List<WeakReference<Action<TEventArgs>>> listOfManagedSubscribers;
+			List<Action<TEventArgs>> listOfManagedSubscribers;
 			if (managedSubscribersByObjects.TryGetValue(handle, out listOfManagedSubscribers))
 			{
-				listOfManagedSubscribers.RemoveAll(weakRef =>
-					{
-						Action<TEventArgs> item;
-						return weakRef.TryGetTarget(out item) && item == action;
-					});
+				listOfManagedSubscribers.RemoveAll(a => a == action);
 
 				if (listOfManagedSubscribers.Count < 1)
 				{
