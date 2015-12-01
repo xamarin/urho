@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<monodoc>
+  <node label="Urho" name="Urho" parent="libraries"/>
+  <source provider="ecma" basefile="Urho" path="Urho"/>
+</monodoc>
