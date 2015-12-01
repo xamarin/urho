@@ -1217,7 +1217,7 @@ namespace SharpieBinder
 			var propertyInfo = ScanBaseTypes.GetPropertyInfo(decl);
 			if (propertyInfo != null) {
 				propertyInfo.HostType = currentType;
-				if (decl.Name.StartsWith("Get"))
+				if (decl.Name.StartsWith("Get") || decl.Name.StartsWith("Is"))
 					propertyInfo.MethodReturn = methodReturn.Clone();
 			}
 

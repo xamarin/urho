@@ -77,7 +77,7 @@ namespace SharpieBinder
 			// This is a get method that does not get anything
 
 			QualType type;
-			if (name.StartsWith("Get")) {
+			if (name.StartsWith("Get") || name.StartsWith("Is")) {
 				if (decl.Parameters.Count() != 0)
 					return;
 				if (decl.ReturnQualType.ToString() == "void")
@@ -115,7 +115,7 @@ namespace SharpieBinder
 				gs = new GetterSetter() { Name = propName };
 			}
 
-			if (name.StartsWith("Get")) {
+			if (name.StartsWith("Get") || name.StartsWith("Is")) {
 				if (gs.Getter != null)
 					throw new Exception("Can not happen");
 				gs.Getter = decl;
