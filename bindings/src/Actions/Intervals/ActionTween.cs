@@ -15,7 +15,7 @@ namespace Urho.Actions
 
 		#region Constructors
 
-		public ActionTween (float duration, string key, float from, float to, Action<float,string> tweenAction)
+		public ActionTween (float duration, string key, float from, float to, Action<float,string> tweenAction) : base(duration)
 		{
 			Key = key;
 			To = to;
