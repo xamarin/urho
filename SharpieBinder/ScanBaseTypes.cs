@@ -87,10 +87,6 @@ namespace SharpieBinder
 					name == "IsPressed")
 					return;
 
-				//TODO: remove this if (to convert all "Is" methods to properties, not only IsEnabled):
-				if (name.StartsWith("Is") && name != "IsEnabled")
-					return;
-
 				type = decl.ReturnQualType;
 			} else if (name.StartsWith("Set")) {
 				if (decl.Parameters.Count() != 1)
