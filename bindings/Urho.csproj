@@ -417,6 +417,7 @@
     <Compile Include="external\Vector2.cs" />
     <Compile Include="external\Vector4.cs" />
     <Compile Include="src\VertexBuffer.cs" />
+    <Compile Include="src\Viewport.cs" />
     <Compile Include="src\XmlElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
