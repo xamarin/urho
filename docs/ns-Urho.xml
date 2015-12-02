@@ -1,6 +1,6 @@
 <Namespace Name="Urho">
   <Docs>
-    <summary>API for the UrhoSharp Game Engine.   Contains the core types for the game engine, including the <see cref="T:Urho.Scene," /> <see cref="T:Urho.Node," /> <see cref="T:Urho.Camera," /> <see cref="T:Urho.Light," /> <see cref="T:Urho.Viewport" />.</summary>
+    <summary>API for the UrhoSharp Game Engine.   Contains the core types for the game engine, including the <see cref="T:Urho.Scene" />, <see cref="T:Urho.Node" />, <see cref="T:Urho.Camera" />, <see cref="T:Urho.Light" />, <see cref="T:Urho.Viewport" />.</summary>
     <remarks>To be added.</remarks>
   </Docs>
 </Namespace>
