@@ -13,5 +13,56 @@
     <summary>Supports the Urho interoperability engine, a weak native urho pointer.</summary>
     <remarks>Not to be used by user code.</remarks>
   </Docs>
-  <Members />
+  <Members>
+    <Member MemberName="GetRefCounted&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T GetRefCounted&lt;T&gt; () where T : Urho.RefCounted;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T GetRefCounted&lt;(class Urho.RefCounted) T&gt;() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Urho.RefCounted</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters />
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetUrhoObject&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T GetUrhoObject&lt;T&gt; () where T : Urho.UrhoObject;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T GetUrhoObject&lt;(class Urho.UrhoObject) T&gt;() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Urho.UrhoObject</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters />
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
 </Type>

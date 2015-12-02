@@ -1,0 +1,48 @@
+<Type Name="DirtyBits" FullName="Urho.Network.DirtyBits">
+  <TypeSignature Language="C#" Value="public struct DirtyBits" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit DirtyBits extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Count">
+      <MemberSignature Language="C#" Value="public byte Count;" />
+      <MemberSignature Language="ILAsm" Value=".field public unsigned int8 Count" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Byte</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Data">
+      <MemberSignature Language="C#" Value="public Urho.Network.DirtyBits.&lt;Data&gt;__FixedBuffer0 Data;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Network.DirtyBits/&lt;Data&gt;__FixedBuffer0 Data" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Network.DirtyBits+&lt;Data&gt;__FixedBuffer0</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

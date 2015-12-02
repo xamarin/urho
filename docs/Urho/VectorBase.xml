@@ -59,32 +59,5 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ToArray&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public T[] ToArray&lt;T&gt; () where T : struct;" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T[] ToArray&lt;struct .ctor (class System.ValueType) T&gt;() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>T[]</ReturnType>
-      </ReturnValue>
-      <TypeParameters>
-        <TypeParameter Name="T">
-          <Constraints>
-            <ParameterAttribute>DefaultConstructorConstraint</ParameterAttribute>
-            <ParameterAttribute>NotNullableValueTypeConstraint</ParameterAttribute>
-            <BaseTypeName>System.ValueType</BaseTypeName>
-          </Constraints>
-        </TypeParameter>
-      </TypeParameters>
-      <Parameters />
-      <Docs>
-        <typeparam name="T">To be added.</typeparam>
-        <summary>Retrieves up to Size elemenst from the location in memory pointed at by Buffer and casts each individual member into a type of T.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
   </Members>
 </Type>

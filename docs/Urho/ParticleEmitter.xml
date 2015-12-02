@@ -11,11 +11,24 @@
   <Interfaces />
   <Docs>
     <summary>
-            %Particle emitter component.
+            Particle emitter component.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ParticleEmitter ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public ParticleEmitter (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
@@ -55,8 +68,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ParticleEmitter (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected ParticleEmitter (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -146,23 +159,20 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsEmitting">
-      <MemberSignature Language="C#" Value="public bool IsEmitting ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsEmitting() cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Emitting">
+      <MemberSignature Language="C#" Value="public bool Emitting { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Emitting" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
-        <summary>
-            Return whether is currently emitting.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Controls whether is currently emitting.</summary>
+        <value>To be added.</value>
+        <remarks>If the state was changed, also resets the emission period timer..</remarks>
       </Docs>
     </Member>
     <Member MemberName="NumParticles">
@@ -295,27 +305,6 @@
             Set whether particles should be serialized. Default true, set false to reduce scene file size.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetEmitting">
-      <MemberSignature Language="C#" Value="public void SetEmitting (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetEmitting(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set whether should be emitting. If the state was changed, also resets the emission period timer.
-            </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

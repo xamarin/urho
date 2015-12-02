@@ -17,6 +17,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Navigable ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public Navigable (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -55,8 +68,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Navigable (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected Navigable (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -90,22 +103,19 @@
         <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsRecursive">
-      <MemberSignature Language="C#" Value="public bool IsRecursive ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRecursive() cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Recursive">
+      <MemberSignature Language="C#" Value="public bool Recursive { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Recursive" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
-        <summary>
-            Return whether geometry is automatically collected from child nodes.
-            </summary>
-        <returns>To be added.</returns>
+        <summary>Set whether geometry is automatically collected from child nodes. Default true.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -126,27 +136,6 @@
         <param name="context">To be added.</param>
         <summary>
             Register object factory.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetRecursive">
-      <MemberSignature Language="C#" Value="public void SetRecursive (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRecursive(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set whether geometry is automatically collected from child nodes. Default true.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>

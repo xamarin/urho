@@ -1,0 +1,6 @@
+<Namespace Name="Urho.Shapes">
+  <Docs>
+    <summary>Convenience types to create commno shapes in nodes.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Namespace>

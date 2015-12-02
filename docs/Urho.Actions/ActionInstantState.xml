@@ -13,7 +13,9 @@
     <summary>
       <para>Encapsulates the running state for the <see cref="T:Urho.Actions.ActionInstantState" /> action.</para>
     </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>This object is created on demand when the action starts executing on a node, and it tracks the state of the action as it executes.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

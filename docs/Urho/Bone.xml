@@ -46,14 +46,14 @@
       </Docs>
     </Member>
     <Member MemberName="CollisionMask">
-      <MemberSignature Language="C#" Value="public int CollisionMask;" />
-      <MemberSignature Language="ILAsm" Value=".field public int32 CollisionMask" />
+      <MemberSignature Language="C#" Value="public byte CollisionMask;" />
+      <MemberSignature Language="ILAsm" Value=".field public unsigned int8 CollisionMask" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Supported collision types.</summary>

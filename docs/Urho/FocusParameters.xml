@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="AutoSize">
-      <MemberSignature Language="C#" Value="public bool AutoSize;" />
-      <MemberSignature Language="ILAsm" Value=".field public bool AutoSize" />
+      <MemberSignature Language="C#" Value="public byte AutoSize;" />
+      <MemberSignature Language="ILAsm" Value=".field public unsigned int8 AutoSize" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="Focus">
-      <MemberSignature Language="C#" Value="public bool Focus;" />
-      <MemberSignature Language="ILAsm" Value=".field public bool Focus" />
+      <MemberSignature Language="C#" Value="public byte Focus;" />
+      <MemberSignature Language="ILAsm" Value=".field public unsigned int8 Focus" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -60,14 +60,14 @@
       </Docs>
     </Member>
     <Member MemberName="NonUniform">
-      <MemberSignature Language="C#" Value="public bool NonUniform;" />
-      <MemberSignature Language="ILAsm" Value=".field public bool NonUniform" />
+      <MemberSignature Language="C#" Value="public byte NonUniform;" />
+      <MemberSignature Language="ILAsm" Value=".field public unsigned int8 NonUniform" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

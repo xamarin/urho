@@ -17,6 +17,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Terrain ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public Terrain (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -55,8 +68,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Terrain (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected Terrain (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -313,63 +326,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsOccludee">
-      <MemberSignature Language="C#" Value="public bool IsOccludee ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsOccludee() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return occludee flag.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsOccluder">
-      <MemberSignature Language="C#" Value="public bool IsOccluder ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsOccluder() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return occluder flag.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsVisible">
-      <MemberSignature Language="C#" Value="public bool IsVisible ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsVisible() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return visible flag.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="LightMask">
       <MemberSignature Language="C#" Value="public uint LightMask { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 LightMask" />
@@ -524,6 +480,38 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Occludee">
+      <MemberSignature Language="C#" Value="public bool Occludee { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Occludee" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls the Occludee flag for patches.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Occluder">
+      <MemberSignature Language="C#" Value="public bool Occluder { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Occluder" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls the Occluder flag for patches.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="OcclusionLodLevel">
       <MemberSignature Language="C#" Value="public uint OcclusionLodLevel { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 OcclusionLodLevel" />
@@ -642,48 +630,6 @@
         <param name="value">To be added.</param>
         <summary>
             Set max LOD levels attribute.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetOccludee">
-      <MemberSignature Language="C#" Value="public void SetOccludee (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetOccludee(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set occludee flag for patches.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetOccluder">
-      <MemberSignature Language="C#" Value="public void SetOccluder (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetOccluder(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set occlusion flag for patches. Occlusion uses the coarsest LOD by default.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -952,6 +898,22 @@
             Or
             Set view mask for patches. Is and'ed with camera's view mask to see if the object should be rendered.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Visible">
+      <MemberSignature Language="C#" Value="public bool Visible { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Visible" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return visible flag.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

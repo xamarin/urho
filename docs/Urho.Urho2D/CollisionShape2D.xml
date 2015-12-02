@@ -76,8 +76,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CollisionShape2D (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected CollisionShape2D (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -227,25 +227,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsTrigger">
-      <MemberSignature Language="C#" Value="public bool IsTrigger ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsTrigger() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return trigger.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="MaskBits">
       <MemberSignature Language="C#" Value="public int MaskBits { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 MaskBits" />
@@ -379,24 +360,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetTrigger">
-      <MemberSignature Language="C#" Value="public void SetTrigger (bool trigger);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTrigger(bool trigger) cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Trigger">
+      <MemberSignature Language="C#" Value="public bool Trigger { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Trigger" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="trigger" Type="System.Boolean" />
-      </Parameters>
       <Docs>
-        <param name="trigger">To be added.</param>
-        <summary>
-            Set trigger.
-            </summary>
+        <summary>Controls the trigger.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

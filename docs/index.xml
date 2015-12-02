@@ -131,7 +131,6 @@
       <Type Name="FiniteTimeActionState" Kind="Class" />
       <Type Name="Hide" Kind="Class" />
       <Type Name="HideState" Kind="Class" />
-      <Type Name="IActionTweenDelegate" Kind="Interface" />
       <Type Name="JumpBy" Kind="Class" />
       <Type Name="JumpByState" Kind="Class" />
       <Type Name="JumpTo" Kind="Class" />
@@ -464,7 +463,6 @@
       <Type Name="ComponentAddedEventArgs" Kind="Structure" />
       <Type Name="ComponentEnabledChangedEventArgs" Kind="Structure" />
       <Type Name="ComponentRemovedEventArgs" Kind="Structure" />
-      <Type Name="ComponentReplicationState" Kind="Structure" />
       <Type Name="CompressedLevel" Kind="Structure" />
       <Type Name="ConsoleCommandEventArgs" Kind="Structure" />
       <Type Name="ConstantBuffer" Kind="Class" />
@@ -568,7 +566,6 @@
       <Type Name="NodeEnabledChangedEventArgs" Kind="Structure" />
       <Type Name="NodeNameChangedEventArgs" Kind="Structure" />
       <Type Name="NodeRemovedEventArgs" Kind="Structure" />
-      <Type Name="NodeReplicationState" Kind="Structure" />
       <Type Name="ObjectAnimation" Kind="Class" />
       <Type Name="ObjectCallbackSignature" Kind="Delegate" />
       <Type Name="ObjectFactory" Kind="Class" />
@@ -605,7 +602,6 @@
       <Type Name="RenderTargetSizeMode" Kind="Enumeration" />
       <Type Name="RenderUpdateEventArgs" Kind="Structure" />
       <Type Name="Renderer" Kind="Class" />
-      <Type Name="ReplicationState" Kind="Structure" />
       <Type Name="ResourceRef" Kind="Structure" />
       <Type Name="ResourceRefList" Kind="Structure" />
       <Type Name="ResourceRouter" Kind="Class" />

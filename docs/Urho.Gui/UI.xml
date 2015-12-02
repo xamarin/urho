@@ -97,6 +97,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public UI ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public UI (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -135,8 +148,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public UI (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected UI (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -347,6 +360,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Dragging">
+      <MemberSignature Language="C#" Value="public bool Dragging { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Dragging" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether a drag is in progress.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FocusChanged">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.FocusChangedEventArgs&gt; FocusChanged;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.FocusChangedEventArgs&gt; FocusChanged" />
@@ -511,40 +540,24 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsDragging">
-      <MemberSignature Language="C#" Value="public bool IsDragging ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsDragging() cil managed" />
+    <Member MemberName="LoadLayout">
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.IO.File source, Urho.Resources.XmlFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement LoadLayout(class Urho.IO.File source, class Urho.Resources.XmlFile styleFile) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="source" Type="Urho.IO.File" />
+        <Parameter Name="styleFile" Type="Urho.Resources.XmlFile" />
+      </Parameters>
       <Docs>
-        <summary>
-            Return whether a drag is in progress.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsNonFocusedMouseWheel">
-      <MemberSignature Language="C#" Value="public bool IsNonFocusedMouseWheel ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsNonFocusedMouseWheel() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether mouse wheel can control also a non-focused element.
-            </summary>
+        <param name="source">To be added.</param>
+        <param name="styleFile">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -610,6 +623,22 @@
             Or
             Set maximum font face texture size. Must be a power of two. Default is 2048.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NonFocusedMouseWheel">
+      <MemberSignature Language="C#" Value="public bool NonFocusedMouseWheel { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool NonFocusedMouseWheel" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Determines whether mouse wheel can control also a non-focused element..</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -707,6 +736,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SaveLayout">
+      <MemberSignature Language="C#" Value="public bool SaveLayout (Urho.IO.File dest, Urho.Gui.UIElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveLayout(class Urho.IO.File dest, class Urho.Gui.UIElement element) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="element" Type="Urho.Gui.UIElement" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="element">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetFocusElement">
       <MemberSignature Language="C#" Value="public void SetFocusElement (Urho.Gui.UIElement element, bool byKey);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetFocusElement(class Urho.Gui.UIElement element, bool byKey) cil managed" />
@@ -752,27 +803,6 @@
             Only the modal element can clear its modal status or when it is being destructed.
             </summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetNonFocusedMouseWheel">
-      <MemberSignature Language="C#" Value="public void SetNonFocusedMouseWheel (bool nonFocusedMouseWheel);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetNonFocusedMouseWheel(bool nonFocusedMouseWheel) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="nonFocusedMouseWheel" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="nonFocusedMouseWheel">To be added.</param>
-        <summary>
-            Set whether mouse wheel can control also a non-focused element.
-            </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

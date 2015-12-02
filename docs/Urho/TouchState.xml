@@ -75,19 +75,18 @@
       </Docs>
     </Member>
     <Member MemberName="TouchedElement">
-      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement TouchedElement ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement TouchedElement() cil managed" />
-      <MemberType>Method</MemberType>
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement TouchedElement { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement TouchedElement" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

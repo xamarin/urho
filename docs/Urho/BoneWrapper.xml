@@ -65,14 +65,14 @@
       </Docs>
     </Member>
     <Member MemberName="CollisionMask">
-      <MemberSignature Language="C#" Value="public int CollisionMask { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 CollisionMask" />
+      <MemberSignature Language="C#" Value="public byte CollisionMask { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int8 CollisionMask" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Supported collision types.</summary>

@@ -26,6 +26,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RigidBody2D ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public RigidBody2D (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -64,8 +77,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public RigidBody2D (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected RigidBody2D (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -122,6 +135,22 @@
         <summary>
             Add constraint.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AllowSleep">
+      <MemberSignature Language="C#" Value="public bool AllowSleep { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AllowSleep" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Sets allow sleep flag.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -302,6 +331,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Awake">
+      <MemberSignature Language="C#" Value="public bool Awake { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Awake" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls the Awake mode.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="BaseType">
       <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
@@ -338,6 +383,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Bullet">
+      <MemberSignature Language="C#" Value="public bool Bullet { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Bullet" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls the bullet mode.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="CreateBody">
       <MemberSignature Language="C#" Value="public void CreateBody ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateBody() cil managed" />
@@ -353,6 +414,22 @@
         <summary>
             Create body.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FixedRotation">
+      <MemberSignature Language="C#" Value="public bool FixedRotation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool FixedRotation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls whether rotation is fixed.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -393,82 +470,6 @@
             Set inertia.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsAllowSleep">
-      <MemberSignature Language="C#" Value="public bool IsAllowSleep ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsAllowSleep() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return allow sleep.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsAwake">
-      <MemberSignature Language="C#" Value="public bool IsAwake ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsAwake() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return awake.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsBullet">
-      <MemberSignature Language="C#" Value="public bool IsBullet ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsBullet() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return bullet mode.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsFixedRotation">
-      <MemberSignature Language="C#" Value="public bool IsFixedRotation ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsFixedRotation() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return fixed rotation.
-            </summary>
-        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -643,90 +644,6 @@
         <param name="constraint">To be added.</param>
         <summary>
             Remove constraint.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetAllowSleep">
-      <MemberSignature Language="C#" Value="public void SetAllowSleep (bool allowSleep);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAllowSleep(bool allowSleep) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="allowSleep" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="allowSleep">To be added.</param>
-        <summary>
-            Set allow sleep.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetAwake">
-      <MemberSignature Language="C#" Value="public void SetAwake (bool awake);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAwake(bool awake) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="awake" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="awake">To be added.</param>
-        <summary>
-            Set awake.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetBullet">
-      <MemberSignature Language="C#" Value="public void SetBullet (bool bullet);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBullet(bool bullet) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="bullet" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="bullet">To be added.</param>
-        <summary>
-            Set bullet mode.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetFixedRotation">
-      <MemberSignature Language="C#" Value="public void SetFixedRotation (bool fixedRotation);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetFixedRotation(bool fixedRotation) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="fixedRotation" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="fixedRotation">To be added.</param>
-        <summary>
-            Set fixed rotation.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>

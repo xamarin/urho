@@ -35,6 +35,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public UIElement ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public UIElement (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -73,8 +86,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public UIElement (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected UIElement (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -992,6 +1005,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="Editable">
+      <MemberSignature Language="C#" Value="public bool Editable { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Editable" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls whether value is editable through input.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ElementAdded">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ElementAddedEventArgs&gt; ElementAdded;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ElementAddedEventArgs&gt; ElementAdded" />
@@ -1066,6 +1095,38 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Enabled">
+      <MemberSignature Language="C#" Value="public bool Enabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Enabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls whether the element reacts to input.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnabledSelf">
+      <MemberSignature Language="C#" Value="public bool EnabledSelf { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool EnabledSelf" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Returns the element's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="EnableLayoutUpdate">
       <MemberSignature Language="C#" Value="public void EnableLayoutUpdate ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void EnableLayoutUpdate() cil managed" />
@@ -1123,6 +1184,54 @@
             Find child index. Return M_MAX_UNSIGNED if not found.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FixedHeight">
+      <MemberSignature Language="C#" Value="public bool FixedHeight { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool FixedHeight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return true if height is fixed.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FixedSize">
+      <MemberSignature Language="C#" Value="public bool FixedSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool FixedSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return true if size is fixed.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FixedWidth">
+      <MemberSignature Language="C#" Value="public bool FixedWidth { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool FixedWidth" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return true if width is fixed.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1385,6 +1494,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="Hovering">
+      <MemberSignature Language="C#" Value="public bool Hovering { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Hovering" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether the cursor is hovering on this element.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Indent">
       <MemberSignature Language="C#" Value="public int Indent { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 Indent" />
@@ -1466,22 +1591,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsEditable">
-      <MemberSignature Language="C#" Value="public bool IsEditable ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsEditable() cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Internal">
+      <MemberSignature Language="C#" Value="public bool Internal { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Internal" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
-        <summary>
-            Return whether value is editable through input.
-            </summary>
-        <returns>To be added.</returns>
+        <summary>Flag that determines whether is internally created.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1499,120 +1621,6 @@
       <Docs>
         <summary>
             Return whether element should send child added / removed events by itself. If false, defers to parent element.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsEnabled">
-      <MemberSignature Language="C#" Value="public bool IsEnabled ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsEnabled() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether reacts to input.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsEnabledSelf">
-      <MemberSignature Language="C#" Value="public bool IsEnabledSelf ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsEnabledSelf() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Returns the element's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsFixedHeight">
-      <MemberSignature Language="C#" Value="public bool IsFixedHeight ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsFixedHeight() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return true if height is fixed.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsFixedSize">
-      <MemberSignature Language="C#" Value="public bool IsFixedSize ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsFixedSize() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return true if size is fixed.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsFixedWidth">
-      <MemberSignature Language="C#" Value="public bool IsFixedWidth ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsFixedWidth() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return true if width is fixed.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsHovering">
-      <MemberSignature Language="C#" Value="public bool IsHovering ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsHovering() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether the cursor is hovering on this element.
             </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -1661,82 +1669,6 @@
         <param name="isScreen">To be added.</param>
         <summary>
             Return whether a point (either in element or screen coordinates) is inside the combined rect of the element and its children.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsInternal">
-      <MemberSignature Language="C#" Value="public bool IsInternal ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsInternal() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether is internally created.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsSelected">
-      <MemberSignature Language="C#" Value="public bool IsSelected ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsSelected() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether is selected. Actual meaning is element dependent.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsVisible">
-      <MemberSignature Language="C#" Value="public bool IsVisible ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsVisible() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether element itself should be visible. Elements can be also hidden due to the parent being not visible, use IsVisibleEffective() to check.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsVisibleEffective">
-      <MemberSignature Language="C#" Value="public bool IsVisibleEffective ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsVisibleEffective() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether element is effectively visible (parent element chain is visible.)
             </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -1916,6 +1848,26 @@
         <param name="childElem">To be added.</param>
         <param name="styleFile">To be added.</param>
         <param name="setInstanceDefault">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadXml">
+      <MemberSignature Language="C#" Value="public bool LoadXml (Urho.IO.File source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadXml(class Urho.IO.File source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -2664,6 +2616,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SaveXml">
+      <MemberSignature Language="C#" Value="public bool SaveXml (Urho.IO.File dest, string indentation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(class Urho.IO.File dest, string indentation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="indentation" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="indentation">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ScreenPosition">
       <MemberSignature Language="C#" Value="public virtual Urho.IntVector2 ScreenPosition { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 ScreenPosition" />
@@ -2701,6 +2675,22 @@
             Convert screen coordinates to element coordinates.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Selected">
+      <MemberSignature Language="C#" Value="public bool Selected { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Selected" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether is selected. Actual meaning is element dependent.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2811,27 +2801,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetEditable">
-      <MemberSignature Language="C#" Value="public void SetEditable (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetEditable(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set whether value is editable through input. Not applicable to all elements. Default true.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SetElementEventSender">
       <MemberSignature Language="C#" Value="public void SetElementEventSender (bool flag);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetElementEventSender(bool flag) cil managed" />
@@ -2849,27 +2818,6 @@
         <param name="flag">To be added.</param>
         <summary>
             Set element event sender flag. When child element is added or deleted, the event would be sent using UIElement found in the parental chain having this flag set. If not set, the event is sent using UI's root as per normal.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetEnabled">
-      <MemberSignature Language="C#" Value="public void SetEnabled (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetEnabled(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set whether reacts to input. Default false, but is enabled by subclasses if applicable.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3002,48 +2950,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetHovering">
-      <MemberSignature Language="C#" Value="public void SetHovering (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetHovering(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set hovering state.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetInternal">
-      <MemberSignature Language="C#" Value="public void SetInternal (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetInternal(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Mark as internally (programmatically) created. Used when an element composes itself out of child elements.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SetLayout">
       <MemberSignature Language="C#" Value="public void SetLayout (Urho.Gui.LayoutMode mode, int spacing, Urho.IntRect border);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetLayout(valuetype Urho.Gui.LayoutMode mode, int32 spacing, valuetype Urho.IntRect border) cil managed" />
@@ -3157,27 +3063,6 @@
         <param name="y">To be added.</param>
         <summary>
             Set position.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetSelected">
-      <MemberSignature Language="C#" Value="public void SetSelected (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetSelected(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set selected mode. Actual meaning is element dependent, for example constant hover or pressed effect.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3493,27 +3378,6 @@
         <param name="value">To be added.</param>
         <summary>
             Set a user variable.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetVisible">
-      <MemberSignature Language="C#" Value="public void SetVisible (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVisible(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set whether is visible. Visibility propagates to child elements.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -4147,6 +4011,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Visible">
+      <MemberSignature Language="C#" Value="public bool Visible { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Visible" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Determines whether element itself should be visible. Elements can be also hidden due to the parent being not visible, use VisibleEffective to check.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="VisibleChanged">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.VisibleChangedEventArgs&gt; VisibleChanged;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.VisibleChangedEventArgs&gt; VisibleChanged" />
@@ -4162,6 +4042,22 @@
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToVisibleChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VisibleEffective">
+      <MemberSignature Language="C#" Value="public bool VisibleEffective { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool VisibleEffective" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether element is effectively visible (parent element chain is visible.)</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Width">

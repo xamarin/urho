@@ -14,7 +14,7 @@
       <para>Encapsulates the running state for the <see cref="T:Urho.Actions.ActionEaseState" /> action.</para>
     </summary>
     <remarks>
-      <para></para>
+      <para>This object is created on demand when the action starts executing on a node, and it tracks the state of the action as it executes.</para>
     </remarks>
   </Docs>
   <Members>

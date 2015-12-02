@@ -36,8 +36,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Connection (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected Connection (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -125,6 +125,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Client">
+      <MemberSignature Language="C#" Value="public bool Client { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Client" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether is a client connection.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ClientIdentity">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.Network.ClientIdentityEventArgs&gt; ClientIdentity;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Network.ClientIdentityEventArgs&gt; ClientIdentity" />
@@ -179,6 +195,38 @@
         <summary>
             Set network simulation parameters. Called by Network.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Connected">
+      <MemberSignature Language="C#" Value="public bool Connected { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Connected" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether is fully connected.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConnectPending">
+      <MemberSignature Language="C#" Value="public bool ConnectPending { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ConnectPending" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether connection is pending.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -252,82 +300,6 @@
             Return progress of current package download, or 1.0 if no downloads.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsClient">
-      <MemberSignature Language="C#" Value="public bool IsClient ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsClient() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether is a client connection.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsConnected">
-      <MemberSignature Language="C#" Value="public bool IsConnected ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsConnected() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether is fully connected.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsConnectPending">
-      <MemberSignature Language="C#" Value="public bool IsConnectPending ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsConnectPending() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether connection is pending.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsSceneLoaded">
-      <MemberSignature Language="C#" Value="public bool IsSceneLoaded ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsSceneLoaded() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether the scene is loaded and ready to receive server updates.
-            </summary>
-        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -537,6 +509,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SceneLoaded">
+      <MemberSignature Language="C#" Value="public bool SceneLoaded { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SceneLoaded" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether the scene is loaded and ready to receive server updates.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SendClientUpdate">
       <MemberSignature Language="C#" Value="public void SendClientUpdate ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SendClientUpdate() cil managed" />
@@ -682,27 +670,6 @@
       <Docs>
         <summary>
             Send scene update messages. Called by Network.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetConnectPending">
-      <MemberSignature Language="C#" Value="public void SetConnectPending (bool connectPending);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetConnectPending(bool connectPending) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="connectPending" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="connectPending">To be added.</param>
-        <summary>
-            Set the connection pending status. Called by Network.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>

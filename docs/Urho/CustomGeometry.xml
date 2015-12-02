@@ -17,6 +17,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CustomGeometry ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public CustomGeometry (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -55,8 +68,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CustomGeometry (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected CustomGeometry (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -309,6 +322,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Dynamic">
+      <MemberSignature Language="C#" Value="public bool Dynamic { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Dynamic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Determines whether vertex buffer dynamic mode is enabled.</summary>
+        <value>To be added.</value>
+        <remarks>When setting the vertex buffer dynamic mode. A dynamic buffer should be faster to update frequently. Effective at the next Commit() call.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetLodGeometry">
       <MemberSignature Language="C#" Value="public override Urho.Geometry GetLodGeometry (uint batchIndex, uint level);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance class Urho.Geometry GetLodGeometry(unsigned int32 batchIndex, unsigned int32 level) cil managed" />
@@ -401,25 +430,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsDynamic">
-      <MemberSignature Language="C#" Value="public bool IsDynamic ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsDynamic() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether vertex buffer dynamic mode is enabled.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="NumGeometries">
       <MemberSignature Language="C#" Value="public uint NumGeometries { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumGeometries" />
@@ -475,27 +485,6 @@
         <param name="context">To be added.</param>
         <summary>
             Register object factory. Drawable must be registered first.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetDynamic">
-      <MemberSignature Language="C#" Value="public void SetDynamic (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDynamic(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set vertex buffer dynamic mode. A dynamic buffer should be faster to update frequently. Effective at the next Commit() call.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>

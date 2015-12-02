@@ -17,6 +17,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LineEdit ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public LineEdit (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -55,8 +68,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public LineEdit (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected LineEdit (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -163,6 +176,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CursorMovable">
+      <MemberSignature Language="C#" Value="public bool CursorMovable { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool CursorMovable" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls whether the cursor can be moved.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="CursorPosition">
       <MemberSignature Language="C#" Value="public uint CursorPosition { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 CursorPosition" />
@@ -175,9 +204,7 @@
       </ReturnValue>
       <Docs>
         <summary>
-            Return cursor position.
-            Or
-            Set cursor position.
+	  The cursor position.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -200,63 +227,6 @@
             Set echo character for password entry and such. 0 (default) shows the actual text.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsCursorMovable">
-      <MemberSignature Language="C#" Value="public bool IsCursorMovable ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsCursorMovable() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether can move cursor with arrows or mouse.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsTextCopyable">
-      <MemberSignature Language="C#" Value="public bool IsTextCopyable ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsTextCopyable() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether copy-paste operations are allowed.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsTextSelectable">
-      <MemberSignature Language="C#" Value="public bool IsTextSelectable ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsTextSelectable() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether selections are allowed.
-            </summary>
-        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -413,69 +383,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetCursorMovable">
-      <MemberSignature Language="C#" Value="public void SetCursorMovable (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCursorMovable(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set whether can move cursor with arrows or mouse, default true.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetTextCopyable">
-      <MemberSignature Language="C#" Value="public void SetTextCopyable (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTextCopyable(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set whether copy-paste operations are allowed, default true.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetTextSelectable">
-      <MemberSignature Language="C#" Value="public void SetTextSelectable (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTextSelectable(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set whether selections are allowed, default true.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SubscribeToCharEntry">
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCharEntry (Action&lt;Urho.Gui.CharEntryEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCharEntry(class System.Action`1&lt;valuetype Urho.Gui.CharEntryEventArgs&gt; handler) cil managed" />
@@ -609,6 +516,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="TextCopyable">
+      <MemberSignature Language="C#" Value="public bool TextCopyable { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool TextCopyable" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls whether copy-paste operations are allowed.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TextElement">
       <MemberSignature Language="C#" Value="public Urho.Gui.Text TextElement { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Text TextElement" />
@@ -642,6 +565,22 @@
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToTextFinished" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextSelectable">
+      <MemberSignature Language="C#" Value="public bool TextSelectable { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool TextSelectable" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The current state of text selection, whether it is enabled or not.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">

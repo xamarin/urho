@@ -37,8 +37,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public IndexBuffer (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected IndexBuffer (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -92,6 +92,22 @@
         <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Dynamic">
+      <MemberSignature Language="C#" Value="public bool Dynamic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Dynamic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether is dynamic.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IndexCount">
       <MemberSignature Language="C#" Value="public uint IndexCount { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 IndexCount" />
@@ -128,63 +144,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsDynamic">
-      <MemberSignature Language="C#" Value="public bool IsDynamic ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsDynamic() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether is dynamic.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsLocked">
-      <MemberSignature Language="C#" Value="public bool IsLocked ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsLocked() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether is currently locked.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsShadowed">
-      <MemberSignature Language="C#" Value="public bool IsShadowed ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsShadowed() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether CPU memory shadowing is enabled.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Lock">
       <MemberSignature Language="C#" Value="public IntPtr Lock (uint start, uint count, bool discard);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance native int Lock(unsigned int32 start, unsigned int32 count, bool discard) cil managed" />
@@ -208,6 +167,22 @@
             Lock the buffer for write-only editing. Return data pointer if successful. Optionally discard data outside the range.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Locked">
+      <MemberSignature Language="C#" Value="public bool Locked { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Locked" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether is currently locked.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -316,27 +291,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetShadowed">
-      <MemberSignature Language="C#" Value="public void SetShadowed (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShadowed(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Enable shadowing in CPU memory. Shadowing is forced on if the graphics subsystem does not exist.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SetSize">
       <MemberSignature Language="C#" Value="public bool SetSize (uint indexCount, bool largeIndices, bool dynamic);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetSize(unsigned int32 indexCount, bool largeIndices, bool dynamic) cil managed" />
@@ -379,6 +333,22 @@
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Shadowed">
+      <MemberSignature Language="C#" Value="public bool Shadowed { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Shadowed" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether CPU memory shadowing is enabled.</summary>
+        <value>To be added.</value>
+        <remarks>Shadowing is forced on if the graphics subsystem does not existTo be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">

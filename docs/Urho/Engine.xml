@@ -110,6 +110,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Engine ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public Engine (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -148,8 +161,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Engine (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected Engine (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -334,60 +347,51 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsExiting">
-      <MemberSignature Language="C#" Value="public bool IsExiting ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsExiting() cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Exiting">
+      <MemberSignature Language="C#" Value="public bool Exiting { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Exiting" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
-        <summary>
-            Return whether exit has been requested.
-            </summary>
-        <returns>To be added.</returns>
+        <summary>Return whether exit has been requested.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsHeadless">
-      <MemberSignature Language="C#" Value="public bool IsHeadless ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsHeadless() cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Headless">
+      <MemberSignature Language="C#" Value="public bool Headless { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Headless" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
-        <summary>
-            Return whether the engine has been created in headless mode.
-            </summary>
-        <returns>To be added.</returns>
+        <summary>Return whether the engine has been created in headless mode.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsInitialized">
-      <MemberSignature Language="C#" Value="public bool IsInitialized ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsInitialized() cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Initialized">
+      <MemberSignature Language="C#" Value="public bool Initialized { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Initialized" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
-        <summary>
-            Return whether engine has been initialized.
-            </summary>
-        <returns>To be added.</returns>
+        <summary>Return whether engine has been initialized.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

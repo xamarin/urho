@@ -44,6 +44,19 @@ model.SetMaterial(material);]]></code>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Node ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public Node (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -82,8 +95,8 @@ model.SetMaterial(material);]]></code>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Node (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected Node (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -223,8 +236,8 @@ model.SetMaterial(material);]]></code>
       </Docs>
     </Member>
     <Member MemberName="AddReplicationState">
-      <MemberSignature Language="C#" Value="public virtual void AddReplicationState (Urho.NodeReplicationState* state);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddReplicationState(valuetype Urho.NodeReplicationState* state) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void AddReplicationState (Urho.Network.NodeReplicationState* state);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddReplicationState(valuetype Urho.Network.NodeReplicationState* state) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -233,13 +246,11 @@ model.SetMaterial(material);]]></code>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="state" Type="Urho.NodeReplicationState*" />
+        <Parameter Name="state" Type="Urho.Network.NodeReplicationState*" />
       </Parameters>
       <Docs>
         <param name="state">To be added.</param>
-        <summary>
-            Add a replication state that is tracking this node.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -568,8 +579,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </Docs>
     </Member>
     <Member MemberName="CreateComponent&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public T CreateComponent&lt;T&gt; (Urho.CreateMode mode = Urho.CreateMode.Replicated, uint id = 0) where T : Urho.Component;" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T CreateComponent&lt;(class Urho.Component) T&gt;(valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
+      <MemberSignature Language="C#" Value="public T CreateComponent&lt;T&gt; (Urho.CreateMode mode = Urho.CreateMode.Replicated, uint id = 0) where T : Urho.Componentnew();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T CreateComponent&lt;.ctor (class Urho.Component) T&gt;(valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -662,6 +673,54 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <summary>
             Return forward direction in parent space. Positive Z axis equals identity rotation.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dirty">
+      <MemberSignature Language="C#" Value="public bool Dirty { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Dirty" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Determines whether transform has changed and world transform needs recalculation.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Enabled">
+      <MemberSignature Language="C#" Value="public bool Enabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Enabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls whether the node is enabled. Disables nodes effectively disable all their components.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnabledSelf">
+      <MemberSignature Language="C#" Value="public bool EnabledSelf { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool EnabledSelf" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -908,9 +967,9 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <remarks>You should ideally have unique IDs.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsDirty">
-      <MemberSignature Language="C#" Value="public bool IsDirty ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsDirty() cil managed" />
+    <Member MemberName="Load">
+      <MemberSignature Language="C#" Value="public override bool Load (Urho.IO.File source, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Load(class Urho.IO.File source, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -918,49 +977,14 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="source" Type="Urho.IO.File" />
+        <Parameter Name="setInstanceDefault" Type="System.Boolean" />
+      </Parameters>
       <Docs>
-        <summary>
-            Return whether transform has changed and world transform needs recalculation.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsEnabled">
-      <MemberSignature Language="C#" Value="public bool IsEnabled ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsEnabled() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether is enabled. Disables nodes effectively disable all their components.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsEnabledSelf">
-      <MemberSignature Language="C#" Value="public bool IsEnabledSelf ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsEnabledSelf() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Returns the node's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.
-            </summary>
+        <param name="source">To be added.</param>
+        <param name="setInstanceDefault">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1970,6 +1994,26 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Save">
+      <MemberSignature Language="C#" Value="public override bool Save (Urho.IO.File dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Save(class Urho.IO.File dest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SaveDefaultAttributes">
       <MemberSignature Language="C#" Value="public override bool SaveDefaultAttributes ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveDefaultAttributes() cil managed" />
@@ -2005,6 +2049,28 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       <Docs>
         <param name="dest">The destiation to store the node on.</param>
         <summary>Saves the entire node as a prefab into the provided XmlElement.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveXml">
+      <MemberSignature Language="C#" Value="public virtual bool SaveXml (Urho.IO.File dest, string indentation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool SaveXml(class Urho.IO.File dest, string indentation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="indentation" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="indentation">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2168,27 +2234,6 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="direction">To be added.</param>
         <summary>
             Set forward direction in parent space. Positive Z axis equals identity rotation.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetEnabled">
-      <MemberSignature Language="C#" Value="public void SetEnabled (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetEnabled(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set enabled/disabled state without recursion. Components in a disabled node become effectively disabled regardless of their own enable/disable state.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>

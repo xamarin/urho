@@ -51,18 +51,17 @@
       </Docs>
     </Member>
     <Member MemberName="Defined">
-      <MemberSignature Language="C#" Value="public bool Defined { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool Defined" />
-      <MemberType>Property</MemberType>
+      <MemberSignature Language="C#" Value="public Urho.BlittableBoolean Defined;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.BlittableBoolean Defined" />
+      <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>Urho.BlittableBoolean</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

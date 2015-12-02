@@ -10,8 +10,12 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Easing function: back in and out.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      <para>Encapsulates the running state for the <see cref="T:Urho.Actions.EaseBackInOutState" /> action.</para>
+    </summary>
+    <remarks>
+      <para>This object is created on demand when the action starts executing on a node, and it tracks the state of the action as it executes.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

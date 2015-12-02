@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="Variant">
-      <MemberSignature Language="C#" Value="public IntPtr Variant;" />
-      <MemberSignature Language="ILAsm" Value=".field public native int Variant" />
+      <MemberSignature Language="C#" Value="public Urho.Variant Variant;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Variant Variant" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
+        <ReturnType>Urho.Variant</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

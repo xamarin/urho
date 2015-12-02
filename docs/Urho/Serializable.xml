@@ -17,6 +17,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Serializable ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public Serializable (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -55,8 +68,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Serializable (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected Serializable (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -253,9 +266,9 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsTemporary">
-      <MemberSignature Language="C#" Value="public bool IsTemporary ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsTemporary() cil managed" />
+    <Member MemberName="Load">
+      <MemberSignature Language="C#" Value="public virtual bool Load (Urho.IO.File source, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Load(class Urho.IO.File source, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -263,11 +276,14 @@
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="source" Type="Urho.IO.File" />
+        <Parameter Name="setInstanceDefault" Type="System.Boolean" />
+      </Parameters>
       <Docs>
-        <summary>
-            Return whether is temporary.
-            </summary>
+        <param name="source">To be added.</param>
+        <param name="setInstanceDefault">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -366,6 +382,46 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ReadDeltaUpdate">
+      <MemberSignature Language="C#" Value="public bool ReadDeltaUpdate (Urho.IO.File source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ReadDeltaUpdate(class Urho.IO.File source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadLatestDataUpdate">
+      <MemberSignature Language="C#" Value="public bool ReadLatestDataUpdate (Urho.IO.File source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ReadLatestDataUpdate(class Urho.IO.File source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RemoveInstanceDefault">
       <MemberSignature Language="C#" Value="public void RemoveInstanceDefault ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveInstanceDefault() cil managed" />
@@ -399,6 +455,26 @@
         <summary>
             Reset all editable attributes to their default values.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Save">
+      <MemberSignature Language="C#" Value="public virtual bool Save (Urho.IO.File dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Save(class Urho.IO.File dest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -944,27 +1020,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetTemporary">
-      <MemberSignature Language="C#" Value="public void SetTemporary (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTemporary(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set temporary flag. Temporary objects will not be saved.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SubscribeToInterceptNetworkUpdate">
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToInterceptNetworkUpdate (Action&lt;Urho.InterceptNetworkUpdateEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToInterceptNetworkUpdate(class System.Action`1&lt;valuetype Urho.InterceptNetworkUpdateEventArgs&gt; handler) cil managed" />
@@ -1011,6 +1066,22 @@
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
           <para>For a more event-like approach, use the <see cref="E:Urho.Serializable.TemporaryChanged" /> event.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Temporary">
+      <MemberSignature Language="C#" Value="public bool Temporary { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Temporary" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Flags whether the Node or Component is flagged as temporary or not.</summary>
+        <value>To be added.</value>
+        <remarks>Nodes that are flagged as temporary will not be saved.</remarks>
       </Docs>
     </Member>
     <Member MemberName="TemporaryChanged">
@@ -1091,6 +1162,48 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WriteInitialDeltaUpdate">
+      <MemberSignature Language="C#" Value="public void WriteInitialDeltaUpdate (Urho.IO.File dest, byte timeStamp);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WriteInitialDeltaUpdate(class Urho.IO.File dest, unsigned int8 timeStamp) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="timeStamp" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="timeStamp">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WriteLatestDataUpdate">
+      <MemberSignature Language="C#" Value="public void WriteLatestDataUpdate (Urho.IO.File dest, byte timeStamp);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WriteLatestDataUpdate(class Urho.IO.File dest, unsigned int8 timeStamp) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="timeStamp" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="timeStamp">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -110,6 +110,19 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RigidBody ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public RigidBody (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -148,8 +161,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public RigidBody (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
+      <MemberSignature Language="C#" Value="protected RigidBody (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -182,6 +195,22 @@
         <summary>
             Activate rigid body if it was resting.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Active">
+      <MemberSignature Language="C#" Value="public bool Active { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Active" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether rigid body is active (not sleeping).</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -746,61 +775,20 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="IsActive">
-      <MemberSignature Language="C#" Value="public bool IsActive ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsActive() cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Kinematic">
+      <MemberSignature Language="C#" Value="public bool Kinematic { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Kinematic" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
-        <summary>
-            Return whether rigid body is active (not sleeping.)
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsKinematic">
-      <MemberSignature Language="C#" Value="public bool IsKinematic ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsKinematic() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return kinematic mode flag.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="IsTrigger">
-      <MemberSignature Language="C#" Value="public bool IsTrigger ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsTrigger() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Return whether this RigidBody is acting as a trigger.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Controls the Kinematic mode.</summary>
+        <value>To be added.</value>
+        <remarks>When the kinematic mode is on, forces are not applied to the rigid body.</remarks>
       </Docs>
     </Member>
     <Member MemberName="LinearDamping">
@@ -1193,27 +1181,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetKinematic">
-      <MemberSignature Language="C#" Value="public void SetKinematic (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetKinematic(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set rigid body kinematic mode. In kinematic mode forces are not applied to the rigid body.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SetLinearFactor">
       <MemberSignature Language="C#" Value="public void SetLinearFactor (Urho.Vector3 factor);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetLinearFactor(valuetype Urho.Vector3 factor) cil managed" />
@@ -1321,25 +1288,20 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetTrigger">
-      <MemberSignature Language="C#" Value="public void SetTrigger (bool enable);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTrigger(bool enable) cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="Trigger">
+      <MemberSignature Language="C#" Value="public bool Trigger { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Trigger" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="enable" Type="System.Boolean" />
-      </Parameters>
       <Docs>
-        <param name="enable">To be added.</param>
-        <summary>
-            Set rigid body trigger mode. In trigger mode collisions are reported but do not apply forces.
-            </summary>
-        <remarks>This can be used to implement trigger areas.</remarks>
+        <summary>Controls the trigger mode (whether collisions are reported, but no forces are applied).</summary>
+        <value>To be added.</value>
+        <remarks>In trigger mode collisions are reported but do not apply forces.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Type">
