@@ -3,7 +3,7 @@ In order to run a game:
 2) use the following code snippet in order to open a new fullscreen activity with the game:
 
 UrhoEngine.Init();
-new MyGame(new Context()).Run();//Run is not blocking for iOS
+new MyGame().Run();//Run is not blocking for iOS
 
 
 

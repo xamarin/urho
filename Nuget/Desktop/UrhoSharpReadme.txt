@@ -1,7 +1,7 @@
 Use the following code snippet in order to show a game:
 
 UrhoEngine.Init(pathToAssets);
-new MyGame(new Context()).Run();
+new MyGame().Run();
 
 if pathToAssets is null - current directory will be used. The pathToAssets should contain "Data" folder with all your assets.
 

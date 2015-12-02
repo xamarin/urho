@@ -6,8 +6,8 @@
        <title>UrhoSharp</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
-       <licenseUrl>http://xamarin.github.io/urho</licenseUrl>
-       <projectUrl>http://xamarin.github.io/urho</projectUrl>
+<licenseUrl>http://developer.xamarin.com/guides/cross-platform/urho/</licenseUrl>
+<projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
        <iconUrl>file://Nuget/UrhoSharpNuget.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
