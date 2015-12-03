@@ -10,8 +10,14 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Base class for the shapes in the namespace.</summary>
+    <remarks>
+      <para>You can subclass this class if you want to create your own shape.  </para>
+      <para />
+      <para>Shapes are components loaded from a model, and with a convenience <see cref="P:Urho.Shapes.Shape.Color" /> property surfaced that controls the color of the shape.   The color control is implemented by using an <see cref="T:Urho.Technique" /> that is bundled in CoreData called Techniques/NoTextureAlpha.xml and the color is applied by setting the the MatDiffColor shader parameter.</para>
+      <para />
+      <para>To create your own shape, override the <see cref="T:Urho.Shapes.Shape.ModelResource" /> property to return the path of the model.   The path should be a file that can be located in the CoreData package for your application.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -23,8 +29,10 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Constructs an instance of the type, for internal use.   These types are created by calling <see cref="M:Urho.Node.CreateComponent" /></para>
+        </summary>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Color">
@@ -38,7 +46,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Color for the shape.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -54,9 +62,9 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAttachedToNode">
@@ -74,7 +82,7 @@
       </Parameters>
       <Docs>
         <param name="node">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Implements OnAttachedToNode.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -93,7 +101,7 @@
       </Parameters>
       <Docs>
         <param name="d">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Deserialization that restores the shape from storage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -112,7 +120,7 @@
       </Parameters>
       <Docs>
         <param name="s">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Serialization that saves the shape from storage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

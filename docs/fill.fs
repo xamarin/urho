@@ -86,6 +86,13 @@ let processType (doc:XDocument) =
         setval mdoc "summary" "Urho's low-level type name, accessible as a static method."
         setval mdoc "value" "Stringified low-level type name."
         setval mdoc "remarks" ""
+  let fillTypeStatic() =
+    match doc.XPathSelectElement "Type/Members/Member[@MemberName='TypeStatic']/Docs" with
+      | null -> ()
+      | mdoc ->
+        setval mdoc "summary" "Urho's low-level type, accessible as a static method."
+        setval mdoc "value" "This returns the Urho's type and is surface for the low-level Urho code."
+        setval mdoc "remarks" ""
 
   let fillTypeCtor() =
     for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
@@ -196,6 +203,7 @@ let processType (doc:XDocument) =
   fillTypeNameStatic()
   fillTypeCtor()
   fillSubscribe()
+  fillTypeStatic()
   //fillReverse()
   doc
 
@@ -236,7 +244,23 @@ let processAction (path:string) (doc:XDocument) =
       rem.RemoveAll ()
       xp ("<para>This object is created on demand when the action starts executing on a node, and it tracks the state of the action as it executes.</para>") |> rem.Add
   doc
-      
+
+let processShape (doc:XDocument) =
+  match doc.XPathSelectElement "Type/Members/Member[@MemberName='.ctor']" with
+    | null -> ()
+    | ctor ->
+      let summary = select ctor "Docs/summary"
+      summary.RemoveAll ()
+      xp "<para>Constructs an instance of the type, for internal use.   These types are created by calling <see cref=\"M:Urho.Node.CreateComponent\"/></para>" |> summary.Add
+      setval ctor "Docs/remarks" ""
+
+  match doc.XPathSelectElement "Type/Members/Member[@MemberName='ModelResource']" with
+    | null -> ()
+    | model ->
+        setval model "Docs/summary" "Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist."
+        setval model "Docs/remarks" ""
+  doc
+  
 let processPath path =
   match load path with
     | null ->
@@ -248,6 +272,12 @@ let processPath path =
         | true  -> ()
 
 
+for xmlDoc in Directory.GetFiles ("Urho.Shapes", "*xml") do
+  match load xmlDoc with
+    | null -> printfn "Failed to load shape %s" xmlDoc
+    | doc ->
+      processShape doc |> save xmlDoc
+  
 for dir in ["Urho"; "Urho.Audio"; "Urho.Gui"; "Urho.IO"; "Urho.Navigation"; "Urho.Network"; "Urho.Physics"; "Urho.Resources"; "Urho.Urho2D"] do
   for xmlDoc in Directory.GetFiles (dir, "*xml") do
     processPath xmlDoc
@@ -257,7 +287,8 @@ for xmlDoc in Directory.GetFiles ("Urho.Actions", "*xml") do
     | null -> printfn "Failed to load action %s" xmlDoc
     | doc ->
       processAction xmlDoc doc |> save xmlDoc
-      
+
+
 for xmlDoc in Directory.GetFiles ("Urho", "*EventArgs.xml") do
   match load xmlDoc with
     | null -> printfn "Failed to load %s" xmlDoc

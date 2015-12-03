@@ -1,6 +1,10 @@
 <Namespace Name="Urho">
   <Docs>
     <summary>API for the UrhoSharp Game Engine.   Contains the core types for the game engine, including the <see cref="T:Urho.Scene" />, <see cref="T:Urho.Node" />, <see cref="T:Urho.Camera" />, <see cref="T:Urho.Light" />, <see cref="T:Urho.Viewport" />.</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>For an introduction to the UrhoSharp framework, please refer to the </para>
+      <format type="text/html">
+        <a href="https://developer.xamarin.com/guides/cross-platform/urho/using/">Using UrhoSharp</a>&amp;nbsp;document.</format>
+    </remarks>
   </Docs>
 </Namespace>

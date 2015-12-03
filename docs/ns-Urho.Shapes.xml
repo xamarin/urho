@@ -1,6 +1,23 @@
 <Namespace Name="Urho.Shapes">
   <Docs>
     <summary>Convenience types to create commno shapes in nodes.</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Shapes are components configured to loads some basic models and provide access to its color property.   They are convenience components that you can use during development or to build very simple 3D scenes.   </para>
+      <para />
+      <para>To use these, you create a component of the desired shape in your <see cref="T:Urho.Node" /> and configure its color.</para>
+      <para />
+      <code lang="C#"><![CDATA[void MakeBox (Scene scene)
+{
+    var node = scene.CreateChild ();
+    node.Position = new Vector (0,0,0);
+    node.SetScale (0);
+    node.Rotation (60, 0, 30);
+
+    // Create a Box Shape component:
+    var box = node.CreateComponent<Box> ();
+    box.Color = Color.Blue;
+}]]></code>
+      <para />
+    </remarks>
   </Docs>
 </Namespace>

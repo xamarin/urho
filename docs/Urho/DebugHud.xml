@@ -398,9 +398,9 @@
         <ReturnType>Urho.StringHash</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Urho's low-level type, accessible as a static method.</summary>
+        <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">
