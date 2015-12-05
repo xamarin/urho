@@ -76,10 +76,10 @@
         <param name="titleString">To be added.</param>
         <param name="layoutFile">To be added.</param>
         <param name="styleFile">To be added.</param>
-        <summary>Creates an instance of MessageBox that is attached to an execution context.</summary>
-        <remarks>
-          <para>This creates an instance of MessageBox attached to the specified execution context.</para>
-        </remarks>
+        <summary>
+          <para>Constructs a new instance of Urho.Gui.MessageBox linked to a specific <see cref="T:Urho.Context" />.</para>
+        </summary>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseType">

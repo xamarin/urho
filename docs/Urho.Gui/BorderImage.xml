@@ -30,8 +30,10 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>Constructs a new instance of Urho.Gui.BorderImage which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
+        </summary>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -66,10 +68,10 @@
       </Parameters>
       <Docs>
         <param name="context">The context that this object will be attached to.</param>
-        <summary>Creates an instance of BorderImage that is attached to an execution context.</summary>
-        <remarks>
-          <para>This creates an instance of BorderImage attached to the specified execution context.</para>
-        </remarks>
+        <summary>
+          <para>Constructs a new instance of Urho.Gui.BorderImage linked to a specific <see cref="T:Urho.Context" />.</para>
+        </summary>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">

@@ -54,7 +54,7 @@ let processEventArgs (doc:XDocument) =
 
 let processType (doc:XDocument) =
   let typeName = getTypeName doc
-    
+
   let fillBaseType() =
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='BaseType']/Docs" with
       | null -> ()
@@ -95,22 +95,34 @@ let processType (doc:XDocument) =
         setval mdoc "remarks" ""
 
   let fillTypeCtor() =
-    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
-      match x with
+    match doc.XPathSelectElement "Type/Members/Member[@MemberName='.ctor']/Parameters/Parameters[@Name='handle']" with
       | null -> ()
-      | mem ->
-        match mem.XPathSelectElement "Parameters/Parameter[@Name='handle']" with
+      | pnode ->
+        let mdoc = pnode.Parent.Parent.XPathSelectElement "Docs"
+        setval mdoc "param[@name='handle']" "Pointer to the raw unmanaged Urho object."
+        setval mdoc "summary" <| (sprintf "Constructs a new instance of %s, given a raw pointer to an unmanaged object" typeName)
+        let remarks = select mdoc "remarks"
+        remarks.RemoveAll ()
+        XElement.Parse ("<para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>") |> remarks.Add
+        XElement.Parse ("<para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>") |> remarks.Add
+        XElement.Parse ("<para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>") |> remarks.Add
+    match doc.XPathSelectElement "Type/Members/Member[@MemberName='.ctor']/Parameters/Parameter[@Name='context' and @Type='Urho.Context']" with
+      | null ->  ()
+      | pnodep ->
+        let pnode = pnodep.Parent.Parent
+        let psum = select pnode "Docs/summary"
+        psum.RemoveAll ()
+        XElement.Parse (sprintf "<para>Constructs a new instance of %s linked to a specific <see cref=\"T:Urho.Context\"/>.</para>" typeName) |> psum.Add
+        setval pnode "Docs/remarks" ""
+        match doc.XPathSelectElement "Type/Members/Member[@MemberName='.ctor']/Parameters[count(*)=0]" with
           | null -> ()
-          | hmember ->
-            let mdoc = mem.XPathSelectElement "Docs"
-            setval mdoc "param[@name='handle']" "Pointer to the raw unmanaged Urho object."
-            setval mdoc "summary" <| (sprintf "Constructs a new instance of %s, given a raw pointer to an unmanaged object" typeName)
-            let remarks = select mdoc "remarks"
-            remarks.RemoveAll ()
-            XElement.Parse ("<para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>") |> remarks.Add
-            XElement.Parse ("<para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>") |> remarks.Add
-            XElement.Parse ("<para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>") |> remarks.Add
-
+          | empty ->
+            let emptyCtor = empty.Parent
+            let sum = select emptyCtor "Docs/summary"
+            sum.RemoveAll ()
+            XElement.Parse (sprintf "<para>Constructs a new instance of %s which is tied to the <see cref=\"P:Urho.Application.CurrentContext\"/>.</para>" typeName)|> sum.Add
+            setval emptyCtor "Docs/remarks" ""
+            
   let fillTypeEmpty() =
     for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
       match x with
@@ -127,23 +139,6 @@ let processType (doc:XDocument) =
             XElement.Parse ("<para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>") |> remarks.Add
             XElement.Parse ("<para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>") |> remarks.Add
             XElement.Parse ("<para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>") |> remarks.Add
-
-  let fillTypeContext() =
-    for x in doc.XPathSelectElements "Type/Members/Member[@MemberName='.ctor']" do
-      match x with
-      | null -> ()
-      | mem ->
-        match mem.XPathSelectElement "Parameters/Parameter[@Name='context']" with
-          | null -> ()
-          | hmember ->
-            if mem.XPathSelectElements "Parameters" |> Seq.length = 1 then
-              let mdoc = mem.XPathSelectElement "Docs"
-              setval mdoc "param[@name='context']" "The context that this object will be attached to."
-              setval mdoc "summary" <| (sprintf "Creates an instance of %s that is attached to an execution context." typeName)
-              let remarks = select mdoc "remarks"
-              remarks.RemoveAll ()
-              sprintf "<para>This creates an instance of %s attached to the specified execution context.</para>" typeName |> XElement.Parse |> remarks.Add
-              ()
 
   // For subscriptions, we like to fill in the stubs, but let the user
   // enter a different value if he wants to for the summary.

@@ -70,10 +70,10 @@
       <Docs>
         <param name="context">The context that this object will be attached to.</param>
         <param name="forceHeadless">To be added.</param>
-        <summary>Creates an instance of IndexBuffer that is attached to an execution context.</summary>
-        <remarks>
-          <para>This creates an instance of IndexBuffer attached to the specified execution context.</para>
-        </remarks>
+        <summary>
+          <para>Constructs a new instance of Urho.IndexBuffer linked to a specific <see cref="T:Urho.Context" />.</para>
+        </summary>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseType">
