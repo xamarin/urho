@@ -1,14 +1,25 @@
 # UrhoSharp
 
-Code to integrate with the Urho3D engine
+C# Bindings to the [Urho3D](http://urho3d.github.io/) engine.
 
-This is designed to be a binding to the C++ API of the Urho3D engine.
+The bindings/ for UrhoSharp are licensed under the MIT license, as
+found on the LICENSE file.   
 
-For information on the binding strategy, see the document at:
+# Sample
 
-https://docs.google.com/document/d/1uuPwkmnGWdlhRe0-8VqLVtYyo1Hv1cgl_ZxmjwxMiFA/edit#heading=h.ozhfa8u99ynm
+Sample code lives in https://github.com/xamarin/urho-samples and
+repository has them as a git submodule. Samples use Urho via nuget.
+
+![Very simple sample](https://hsto.org/files/ec1/1c8/d0c/ec11c8d0c4494048bc614e3166df4f3b.png)
+
+Some screencasts:
+
+* http://screencast.com/t/EmFj3O0K8 
+* http://screencast.com/t/Xh8G4StiABY
 
 # How to build
+
+This is currently a little messy, so YMMV.
 
 In order to compile binaries for all platforms you will need both
 Windows and OS X environment.  Please follow these steps:
@@ -94,14 +105,3 @@ Then, open Urho.sln and compile MonoUrho.Windows project in Release configuratio
 
 All compiled binaries could be found in the Bin/{platform} folder.
 
-# Sample
-
-Sample code lives in https://github.com/xamarin/urho-samples and
-repository has them as a git submodule. Samples use Urho via nuget.
-
-![Very simple sample](https://hsto.org/files/ec1/1c8/d0c/ec11c8d0c4494048bc614e3166df4f3b.png)
-
-Some screencasts:
-
-* http://screencast.com/t/EmFj3O0K8 
-* http://screencast.com/t/Xh8G4StiABY

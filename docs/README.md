@@ -6,14 +6,7 @@ Monodoc tools do not seem to run with PCL references).
 The result was imported, and after this point, it is unlikely that it would be wise
 to update from the C++ sources.
 
-# Auto-documenting features
-
-Easing functions
-BaseType - StringHash
-Type - Stringhash
-Typename - string
-Typenamestatic -string
-TaskT returns
-IntPtr constructors
-
+The contents of this directory contain both original Xamarin content
+and content produced originally the Urho3D project and Cocos2D
+projects and have been adjusted to fit the C# bindings.
 

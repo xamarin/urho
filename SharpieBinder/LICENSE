@@ -1,0 +1,8 @@
+The binaries in the SharpieBinder directory are included for
+convenience and are part of the Xamarin Platform which is licensed
+under the Xamarin Software License
+https://xamarin.com/platform/license
+
+Xamarin grants you permission to use the binaries in the
+SharpieBindier directory to update and recompile the bindings for
+UrhoSharp.
