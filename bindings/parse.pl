@@ -124,6 +124,7 @@ sub mapType {
     }
 
     return "uint" if $t eq "unsigned";
+    return "bool" if $t eq "Bool";
     return "float" if $t eq "Float";
     return "IntPtr" if $t eq "User-defined";
     return "CollisionData []" if $pt eq "Buffer containing";

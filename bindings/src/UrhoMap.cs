@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using Urho.Audio;
 using Urho.Navigation;
 using Urho.Physics;
 using Urho.Urho2D;
@@ -15,6 +16,26 @@ namespace Urho {
 	internal static class UrhoMap  {
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr urho_map_get_ptr (IntPtr handle, int stringHash);
+
+		static public SoundSource get_SoundSource(IntPtr handle, int stringHash)
+		{
+			return Runtime.LookupObject<SoundSource>(urho_map_get_ptr(handle, stringHash));
+		}
+
+		static public Sound get_Sound(IntPtr handle, int stringHash)
+		{
+			return Runtime.LookupObject<Sound>(urho_map_get_ptr(handle, stringHash));
+		}
+
+		static public Animation get_Animation(IntPtr handle, int stringHash)
+		{
+			return Runtime.LookupObject<Animation>(urho_map_get_ptr(handle, stringHash));
+		}
+
+		static public ParticleEffect get_ParticleEffect(IntPtr handle, int stringHash)
+		{
+			return Runtime.LookupObject<ParticleEffect>(urho_map_get_ptr(handle, stringHash));
+		}
 
 		static public Camera get_Camera (IntPtr handle, int stringHash)
 		{

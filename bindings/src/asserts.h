@@ -31,10 +31,9 @@ void check_bindings_offsets()
 	static_assert(offsetof(IntRect, bottom_) == 12, "IntRect.Bottom has wrong offset (12)");
 
 	// Rect:
-	static_assert(sizeof(Rect) == 20, "Rect has wrong size (20)");
+	static_assert(sizeof(Rect) == 16, "Rect has wrong size (16)");
 	static_assert(offsetof(Rect, min_) == 0, "Rect.Min has wrong offset (0)");
 	static_assert(offsetof(Rect, max_) == 8, "Rect.Max has wrong offset (8)");
-	static_assert(offsetof(Rect, defined_) == 16, "Rect.defined has wrong offset (16)");
 
 	// ResourceRef:
 	static_assert(sizeof(ResourceRef) == 24, "ResourceRef has wrong size (24)");
@@ -42,10 +41,11 @@ void check_bindings_offsets()
 	static_assert(offsetof(ResourceRef, name_) == 8, "ResourceRef.Name has wrong offset (8)");
 
 	// BoundingBox:
-	static_assert(sizeof(BoundingBox) == 28, "BoundingBox has wrong size (28)");
+	static_assert(sizeof(BoundingBox) == 32, "BoundingBox has wrong size (32)");
 	static_assert(offsetof(BoundingBox, min_) == 0, "BoundingBox.Min has wrong offset (0)");
-	static_assert(offsetof(BoundingBox, max_) == 12, "BoundingBox.Max has wrong offset (12)");
-	static_assert(offsetof(BoundingBox, defined_) == 24, "BoundingBox.defined has wrong offset (24)");
+	static_assert(offsetof(BoundingBox, dummyMin_) == 12, "BoundingBox.DummyMin has wrong offset (12)");
+	static_assert(offsetof(BoundingBox, max_) == 16, "BoundingBox.Max has wrong offset (16)");
+	static_assert(offsetof(BoundingBox, dummyMax_) == 28, "BoundingBox.DummyMax has wrong offset (28)");
 
 	// AnimationTriggerPoint:
 	static_assert(sizeof(AnimationTriggerPoint) == 48, "AnimationTriggerPoint has wrong size (48)");
@@ -97,7 +97,7 @@ void check_bindings_offsets()
 	static_assert(offsetof(TouchState, lastPosition_) == 12, "TouchState.LastPosition has wrong offset (12)");
 	static_assert(offsetof(TouchState, delta_) == 20, "TouchState.Delta has wrong offset (20)");
 	static_assert(offsetof(TouchState, pressure_) == 28, "TouchState.Pressure has wrong offset (28)");
-	static_assert(offsetof(TouchState, touchedElement_) == 32, "TouchState._TouchedElement has wrong offset (32)");
+	static_assert(offsetof(TouchState, touchedElement_) == 32, "TouchState.touchedElementPtr has wrong offset (32)");
 
 	// ColorFrame:
 	static_assert(sizeof(ColorFrame) == 20, "ColorFrame has wrong size (20)");
@@ -109,7 +109,7 @@ void check_bindings_offsets()
 	static_assert(offsetof(JoystickState, joystick_) == 0, "JoystickState.JoystickPtr has wrong offset (0)");
 	static_assert(offsetof(JoystickState, joystickID_) == 8, "JoystickState.JoystickIdPtr has wrong offset (8)");
 	static_assert(offsetof(JoystickState, controller_) == 16, "JoystickState.ControllerPtr has wrong offset (16)");
-	static_assert(offsetof(JoystickState, screenJoystick_) == 24, "JoystickState.ScreenJoystickPtr has wrong offset (24)");
+	static_assert(offsetof(JoystickState, screenJoystick_) == 24, "JoystickState.screenJoystickPtr has wrong offset (24)");
 	static_assert(offsetof(JoystickState, name_) == 32, "JoystickState.Name has wrong offset (32)");
 	static_assert(offsetof(JoystickState, buttons_) == 48, "JoystickState.Buttons has wrong offset (48)");
 	static_assert(offsetof(JoystickState, buttonPress_) == 64, "JoystickState.ButtonPress has wrong offset (64)");
@@ -166,14 +166,14 @@ void check_bindings_offsets()
 	static_assert(offsetof(CompressedLevel, rows_) == 36, "CompressedLevel.RowCount has wrong offset (36)");
 
 	// Billboard:
-	static_assert(sizeof(Billboard) == 68, "Billboard has wrong size (68)");
+	static_assert(sizeof(Billboard) == 64, "Billboard has wrong size (64)");
 	static_assert(offsetof(Billboard, position_) == 0, "Billboard.Position has wrong offset (0)");
 	static_assert(offsetof(Billboard, size_) == 12, "Billboard.Size has wrong offset (12)");
 	static_assert(offsetof(Billboard, uv_) == 20, "Billboard.Uv has wrong offset (20)");
-	static_assert(offsetof(Billboard, color_) == 40, "Billboard.Color has wrong offset (40)");
-	static_assert(offsetof(Billboard, rotation_) == 56, "Billboard.Rotation has wrong offset (56)");
-	static_assert(offsetof(Billboard, enabled_) == 60, "Billboard.enabled has wrong offset (60)");
-	static_assert(offsetof(Billboard, sortDistance_) == 64, "Billboard.SortDistance has wrong offset (64)");
+	static_assert(offsetof(Billboard, color_) == 36, "Billboard.Color has wrong offset (36)");
+	static_assert(offsetof(Billboard, rotation_) == 52, "Billboard.Rotation has wrong offset (52)");
+	static_assert(offsetof(Billboard, enabled_) == 56, "Billboard.enabled has wrong offset (56)");
+	static_assert(offsetof(Billboard, sortDistance_) == 60, "Billboard.SortDistance has wrong offset (60)");
 
 	// BiasParameters:
 	static_assert(sizeof(BiasParameters) == 8, "BiasParameters has wrong size (8)");

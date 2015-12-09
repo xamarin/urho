@@ -33,24 +33,26 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
+	public unsafe struct TypeInfo {
+		public StringHash Type;
+		public UrhoString TypeName;
+		public TypeInfo* BaseTypeInfo;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
 	public struct Rect {
 		public Vector2 Min, Max;
-
-		byte defined; //bool is not blittable.
-		public bool Defined { get { return defined != 0; } set { defined = (byte)(value ? 1 : 0); } }
 
 		public Rect (int left, int top, int right, int bottom)
 		{
 			Min = new Vector2 (left, top);
 			Max = new Vector2 (right, bottom);
-			defined = 1;
 		}
 		
 		public Rect (Vector2 min, Vector2 max)
 		{
 			Min = min;
 			Max = max;
-			defined = 1;
 		}
 	}
 
@@ -74,23 +76,25 @@ namespace Urho {
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct BoundingBox {
-		public Vector3 Min, Max;
-
-		byte defined; //bool is not blittable.
-		public bool Defined { get { return defined != 0; } set { defined = (byte)(value ? 1 : 0); } }
+		public Vector3 Min;
+		public float DummyMin;
+		public Vector3 Max;
+		public float DummyMax;
 
 		public BoundingBox (float min, float max)
 		{
+			DummyMax = 0;
+			DummyMin = 0;
 			Min = new Vector3 (min, min, min);
 			Max = new Vector3 (max, max, max);
-			defined = 1;
 		}
 
 		public BoundingBox (Vector3 min, Vector3 max)
 		{
+			DummyMax = 0;
+			DummyMin = 0;
 			Min = min;
 			Max = max;
-			defined = 1;
 		}
 	}
 

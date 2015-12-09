@@ -95,6 +95,7 @@ namespace StructsValidator
 				"Quaternion",
 				"Matrix4",
 				"UrhoString",
+				"TypeInfo",
 				"CascadeParameters",
 				//??:
 				"__StaticArrayInitTypeSize=16",

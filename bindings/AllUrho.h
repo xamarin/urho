@@ -11,6 +11,7 @@
 
 #include <Urho3D/Audio/Audio.h>
 #include <Urho3D/Audio/AudioDefs.h>
+#include <Urho3D/Audio/AudioEvents.h>
 #include <Urho3D/Audio/BufferedSoundStream.h>
 #include <Urho3D/Audio/OggVorbisSoundStream.h>
 #include <Urho3D/Audio/Sound.h>
