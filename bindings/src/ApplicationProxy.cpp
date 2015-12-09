@@ -70,5 +70,5 @@ int RunApplication()
 {
 	return sdlCallback(NULL);
 }
-DEFINE_MAIN(RunApplication());
+URHO3D_DEFINE_MAIN(RunApplication());
 #endif
