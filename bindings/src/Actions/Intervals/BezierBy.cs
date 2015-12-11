@@ -67,14 +67,20 @@ namespace Urho.Actions
 				float yc = BezierConfig.ControlPoint2.Y;
 				float yd = BezierConfig.EndPosition.Y;
 
+				float za = 0;
+				float zb = BezierConfig.ControlPoint1.Z;
+				float zc = BezierConfig.ControlPoint2.Z;
+				float zd = BezierConfig.EndPosition.Z;
+
 				float x = SplineMath.CubicBezier (xa, xb, xc, xd, time);
 				float y = SplineMath.CubicBezier (ya, yb, yc, yd, time);
+				float z = SplineMath.CubicBezier (za, zb, zc, zd, time);
 
 				Vector3 currentPos = Target.Position;
 				Vector3 diff = currentPos - PreviousPosition;
 				StartPosition = StartPosition + diff;
 
-				Vector3 newPos = StartPosition + new Vector3 (x, y, StartPosition.Z);
+				Vector3 newPos = StartPosition + new Vector3 (x, y, z);
 				Target.Position = newPos;
 
 				PreviousPosition = newPos;
