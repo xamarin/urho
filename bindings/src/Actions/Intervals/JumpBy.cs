@@ -61,13 +61,14 @@ namespace Urho.Actions
 				float y = Height * 4f * frac * (1f - frac);
 				y += Delta.Y * time;
 				float x = Delta.X * time;
+				float z = Delta.Z * time;
 
 				Vector3 currentPos = Target.Position;
 
 				Vector3 diff = currentPos - P;
 				StartPosition = diff + StartPosition;
 
-				Vector3 newPos = StartPosition + new Vector3 (x, y, currentPos.Z);
+				Vector3 newPos = StartPosition + new Vector3 (x, y, z);
 				Target.Position = newPos;
 
 				P = newPos;
