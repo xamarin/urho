@@ -60,7 +60,7 @@ Urho3D_Android:
 	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android/$(ABI) && cmake -E chdir ../Urho3D_Android/$(ABI) cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=$(CURDIR)/$(URHO3D_SRC_DIR)/CMake/Toolchains/android.toolchain.cmake .../Urho3D_Android/$(ABI) -DANDROID=1 -DANDROID_ABI=$(ABI) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_SSE=0 $(CURDIR)/$(URHO3D_SRC_DIR)/
 	
 libUrho3D.a: Urho3D_Android
-	cd $(URHO3D_ANDROID_DIR) && make Urho3D
+	cd $(URHO3D_ANDROID_DIR) && make Urho3D -j2
 	
 MakeBinDirectory:
 	mkdir -p $(OUTPUT_DIR)
