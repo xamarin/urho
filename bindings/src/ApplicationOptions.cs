@@ -1,13 +1,28 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 
 namespace Urho
 {
 	/// <summary>
 	/// Application options, see full description at:
-	/// http://urho3d.github.io/documentation/1.4/_running.html 
+	/// http://urho3d.github.io/documentation/1.5/_running.html 
 	/// </summary>
 	public class ApplicationOptions
 	{
+		/// <param name="assetsFolder">usually it's "Data". Can be null if built-in assets are enough for you</param>
+		public ApplicationOptions(string assetsFolder)
+		{
+			if (assetsFolder != null)
+			{
+				ResourcePaths = new[] { assetsFolder };
+			}
+		}
+
+		public ApplicationOptions(string[] assetsFolders)
+		{
+			ResourcePaths = assetsFolders;
+		}
+
 		/// <summary>
 		/// Desktop only
 		/// </summary>
@@ -59,7 +74,7 @@ namespace Urho
 		public bool TouchEmulation { get; set; } = false;
 
 		/// <summary>
-		/// Add any flag listed here: http://urho3d.github.io/documentation/1.4/_running.html 
+		/// Add any flag listed here: http://urho3d.github.io/documentation/1.5/_running.html 
 		/// </summary>
 		public string AdditionalFlags { get; set; } = string.Empty;
 
@@ -89,8 +104,8 @@ namespace Urho
 			if (ResizableWindow)
 				builder.Append(" -s");
 
-			if (ResourcePaths?.Length > 0)
-				builder.AppendFormat(" -p \"{0}\"", string.Join(";", ResourcePaths));
+			var resourcePathes = new[] {"CoreData"}.Concat(ResourcePaths ?? new string[0]);
+			builder.AppendFormat(" -p \"{0}\"", string.Join(";", resourcePathes.Distinct()));
 
 			if (ResourcePackagesPaths?.Length > 0)
 				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
@@ -105,11 +120,5 @@ namespace Urho
 
 			return builder + " " + AdditionalFlags;
 		}
-
-		// Some predefined:
-
-		public static ApplicationOptions Default { get; } = new ApplicationOptions();
-
-		public static ApplicationOptions PortraitDefault { get; } = new ApplicationOptions { Height = 736, Width = 414, Orientation = OrientationType.Portrait };
 	}
 }

@@ -69,18 +69,18 @@ namespace Urho.Droid
 		/// <summary>
 		/// The simpliest way to launch a game. It opens a special full-screen activity
 		/// </summary>
-		public static void RunInActivity<TApplication>() where TApplication : Application
+		public static void RunInActivity<TApplication>(ApplicationOptions options = null) where TApplication : Application
 		{
-			RunInActivity(typeof (TApplication));
+			RunInActivity(typeof (TApplication), options);
 		}
 
 		/// <summary>
 		/// The simpliest way to launch a game. It opens a special full-screen activity
 		/// </summary>
-		public static void RunInActivity(Type applicationType)
+		public static void RunInActivity(Type applicationType, ApplicationOptions options = null)
 		{
 			UrhoEngine.Init();
-			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance(applicationType).Run());
+			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance(applicationType, options).Run());
 			var context = Android.App.Application.Context;
 			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));
 			intent.AddFlags(ActivityFlags.NewTask);

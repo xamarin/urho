@@ -81,7 +81,7 @@ namespace Urho {
 			startCallback = ProxyStart;
 			stopCallback = ProxyStop;
 
-			Options = options ?? ApplicationOptions.Default;
+			Options = options ?? new ApplicationOptions(assetsFolder: null);
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString());
 			Runtime.RegisterObject (this);
 
@@ -326,19 +326,19 @@ namespace Urho {
 			}
 		}
 
-		public static T CreateInstance<T>(Context context = null) where T : Application
+		public static T CreateInstance<T>(ApplicationOptions options = null) where T : Application
 		{
-			return (T)CreateInstance(typeof (T), context);
+			return (T)CreateInstance(typeof (T), options);
 		}
 
-		public static Application CreateInstance(Type applicationType, Context context = null)
+		public static Application CreateInstance(Type applicationType, ApplicationOptions options = null)
 		{
 			var ctors = applicationType.GetTypeInfo().DeclaredConstructors.ToArray();
 
 			var ctorWithOptions = ctors.FirstOrDefault(c => c.GetParameters().Length == 1 && c.GetParameters()[0].ParameterType == typeof (ApplicationOptions));
 			if (ctorWithOptions != null)
 			{
-				return (Application) Activator.CreateInstance(applicationType, null);
+				return (Application) Activator.CreateInstance(applicationType, options);
 			}
 
 			var ctorDefault = ctors.FirstOrDefault(c => c.GetParameters().Length == 0);

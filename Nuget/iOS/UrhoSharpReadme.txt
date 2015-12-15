@@ -1,13 +1,24 @@
-In order to run a game:
+In order to run your game application use the following code snippet:
+
+public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+{
+	Launch ();
+	return true;
+}
+
+async void Launch ()
+{
+	await Task.Yield (); //don't run the game directly in FinishedLaunching 
+	UrhoEngine.Init ();
+	new Demo ().Run ();
+}
+
+
+if you have some custom assets:
 1) Add "Data" folder containing your assets to "Resources" project folder and make sure all files have "BundleResource" build action.
-2) use the following code snippet in order to open a new fullscreen activity with the game:
+2) Pass new ApplicationOptions("Data") to your application like this:
+    new Demo(new ApplicationOptions("Data")).Run();
 
-UrhoEngine.Init();
-new MyGame().Run();//Run is not blocking for iOS
-
-
-
-
-
-
+	
+	
 CoreData assets and native libs for arm64, armv7 and i386 are added via .targets file by the nuget package.
