@@ -31,6 +31,7 @@ Windows and OS X environment.  Please follow these steps:
 - CMake (i.e. "brew install cmake")
 - Mono 64 bit (i.e. "brew install mono")
 - Command Line tools ("xcode-select --install")
+- Android NDK (and ANDROID_NDK variable)
 
 **2. Clone the repository including submodules**
 
@@ -87,10 +88,7 @@ make -j3 Android
 Obviously you can't do it on OS X so you have to switch to Windows environment. Make sure you have installed:
 - Visual Studio 2015
 - CMake
-- Mingw
-- You have these environment variables: CMAKE_C_COMPILER,
-  CMAKE_CXX_COMPILER. Bin folders of CMake and Mingw should be added
-  to PATH.
+- Cygwin or Mingw for "make"
 
 SharpieBinder doesn't work on Windows yet so you will have to copy
 bindings/generated folder from OS X environment to Windows.
