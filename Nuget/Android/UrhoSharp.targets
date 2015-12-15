@@ -582,5 +582,31 @@
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Textures\SpotWide.xml">
       <Link>Assets\CoreData\Textures\SpotWide.xml</Link>
     </AndroidAsset>
+	
+	<!-- Additional packages -->
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Models\Box.mdl">
+      <Link>Assets\CoreData\Models\Box.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Models\Cone.mdl">
+      <Link>Assets\CoreData\Models\Cone.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Models\Cylinder.mdl">
+      <Link>Assets\CoreData\Models\Cylinder.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Models\Plane.mdl">
+      <Link>Assets\CoreData\Models\Plane.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Models\Pyramid.mdl">
+      <Link>Assets\CoreData\Models\Pyramid.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Models\Sphere.mdl">
+      <Link>Assets\CoreData\Models\Sphere.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Models\Torus.mdl">
+      <Link>Assets\CoreData\Models\Torus.mdl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Fonts\Anonymous Pro.ttf">
+      <Link>Assets\CoreData\Fonts\Anonymous Pro.ttf</Link>
+    </AndroidAsset>
   </ItemGroup>
 </Project>
