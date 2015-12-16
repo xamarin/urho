@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace Urho
@@ -77,6 +78,12 @@ namespace Urho
 		/// Add any flag listed here: http://urho3d.github.io/documentation/1.5/_running.html 
 		/// </summary>
 		public string AdditionalFlags { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Windows: external window handle (WinForms Panel.Handle) to use in order to display Urho game
+		/// You can use it in WPF via WindowsFormsHost (and a WF panel inside it)
+		/// </summary>
+		public IntPtr ExternalWindow { get; set; }
 
 		public enum OrientationType
 		{

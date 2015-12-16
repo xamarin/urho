@@ -30,7 +30,7 @@ namespace Urho {
 		public delegate void ActionIntPtr (IntPtr value);
 
 		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
-		static extern IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args);
+		static extern IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args, IntPtr externalWindow);
 
 		static Application current;
 		public static Application Current
@@ -82,7 +82,7 @@ namespace Urho {
 			stopCallback = ProxyStop;
 
 			Options = options ?? new ApplicationOptions(assetsFolder: null);
-			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString());
+			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString(), Options.ExternalWindow);
 			Runtime.RegisterObject (this);
 
 			Engine.SubscribeToUpdate(HandleUpdate);

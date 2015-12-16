@@ -18,9 +18,9 @@ const char *sdlDocumentsDir;
 extern "C" {
 	
 	DllExport void *
-	ApplicationProxy_ApplicationProxy (Context *context, callback_t setup, callback_t start, callback_t stop, const char* args)
+	ApplicationProxy_ApplicationProxy (Context *context, callback_t setup, callback_t start, callback_t stop, const char* args, void * externalWindow)
 	{
-		return new ApplicationProxy (context, setup, start, stop, args);
+		return new ApplicationProxy (context, setup, start, stop, args, externalWindow);
 	}
 
 	DllExport void *
