@@ -59,6 +59,15 @@ Among the features of the Urho3D you will find:
    
      <file src="Bin/CoreData.pak" target="native/CoreData.pak" />
      <file src="Urho3D/Source/bin/CoreData/**" target="native" />
+	 <!--Additional assets:-->
+	 <file src="Urho3D/Source/bin/Data/Models/Box.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Box.mdl" />
+	 <file src="Urho3D/Source/bin/Data/Models/Cone.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Cone.mdl" />
+	 <file src="Urho3D/Source/bin/Data/Models/Cylinder.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Cylinder.mdl" />
+	 <file src="Urho3D/Source/bin/Data/Models/Plane.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Plane.mdl" />
+	 <file src="Urho3D/Source/bin/Data/Models/Pyramid.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Pyramid.mdl" />
+	 <file src="Urho3D/Source/bin/Data/Models/Sphere.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Sphere.mdl" />
+	 <file src="Urho3D/Source/bin/Data/Models/Torus.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Torus.mdl" />
+	 <file src="Urho3D/Source/bin/Data/Fonts/Anonymous Pro.ttf" target="native/Urho3D/Source/bin/CoreData/Fonts/Anonymous Pro.ttf" />
 
      <!--PCL-->
      <file src="Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
