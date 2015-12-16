@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "bindings\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonoUrho.Windows", "Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows.vcxproj", "{6F1CB939-16E1-4753-91B1-A0B5C04D3121}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.Windows", "Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows.vcxproj", "{6F1CB939-16E1-4753-91B1-A0B5C04D3121}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Droid", "Bindings\Android\Urho.Droid.csproj", "{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}"
 EndProject
@@ -33,6 +33,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.Desktop", "Samples\FeatureSamples\Desktop\Urho.Samples.Desktop.csproj", "{C9D62FA9-7107-466F-BD0D-B0AAA69D975B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Samples.iOS", "Samples\FeatureSamples\iOS\Urho.Samples.iOS.csproj", "{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Urho3D", "Urho3D\Urho3D_Windows\Source\Urho3D\Urho3D.vcxproj", "{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NativeWindows", "NativeWindows", "{02DFD71E-AC0B-4D8A-9038-CD4EE9ED7209}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -672,14 +676,64 @@ Global
 		{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF}.RelWithDebInfo|x64.Build.0 = AppStore|iPhone
 		{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF}.RelWithDebInfo|x86.ActiveCfg = AppStore|iPhone
 		{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF}.RelWithDebInfo|x86.Build.0 = AppStore|iPhone
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|Any CPU.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|Any CPU.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|iPhone.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|iPhone.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|x64.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|x64.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|x86.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Ad-Hoc|x86.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|Any CPU.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|Any CPU.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|iPhone.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|iPhone.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|iPhoneSimulator.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|iPhoneSimulator.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|x64.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|x64.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|x86.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.AppStore|x86.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Debug|iPhone.ActiveCfg = Debug|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Debug|iPhoneSimulator.ActiveCfg = Debug|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Debug|x64.ActiveCfg = Debug|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Debug|x64.Build.0 = Debug|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Debug|x86.ActiveCfg = Debug|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|Any CPU.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|Any CPU.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|iPhone.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|iPhone.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|iPhoneSimulator.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|iPhoneSimulator.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|x64.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|x64.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|x86.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Package|x86.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Release|Any CPU.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Release|iPhone.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Release|iPhoneSimulator.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Release|x64.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Release|x64.Build.0 = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.Release|x86.ActiveCfg = Release|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.RelWithDebInfo|Any CPU.ActiveCfg = RelWithDebInfo|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.RelWithDebInfo|iPhone.ActiveCfg = RelWithDebInfo|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.RelWithDebInfo|iPhoneSimulator.ActiveCfg = RelWithDebInfo|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4}.RelWithDebInfo|x86.ActiveCfg = RelWithDebInfo|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{6F1CB939-16E1-4753-91B1-A0B5C04D3121} = {02DFD71E-AC0B-4D8A-9038-CD4EE9ED7209}
 		{792AF649-1BB3-4242-8BA3-61F67E357B18} = {207BA5C8-8E07-4B99-BC08-5564F529698A}
 		{9599B6A8-09DA-455C-9391-319A1FCDC5B6} = {207BA5C8-8E07-4B99-BC08-5564F529698A}
 		{C9D62FA9-7107-466F-BD0D-B0AAA69D975B} = {207BA5C8-8E07-4B99-BC08-5564F529698A}
 		{4190D8C8-C168-4B6C-B76C-0F4F63E7D5CF} = {207BA5C8-8E07-4B99-BC08-5564F529698A}
+		{3F19C64C-C83E-34E6-AA8C-FC06EE4BBBB4} = {02DFD71E-AC0B-4D8A-9038-CD4EE9ED7209}
 	EndGlobalSection
 EndGlobal

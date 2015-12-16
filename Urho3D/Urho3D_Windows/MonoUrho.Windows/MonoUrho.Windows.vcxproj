@@ -36,6 +36,7 @@
     <ProjectGuid>{6F1CB939-16E1-4753-91B1-A0B5C04D3121}</ProjectGuid>
     <RootNamespace>MonoUrhoWindows</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>UrhoSharp.Windows</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
