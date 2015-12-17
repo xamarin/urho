@@ -76,22 +76,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="GetAttributeAnimation">
       <MemberSignature Language="C#" Value="public Urho.ValueAnimation GetAttributeAnimation (string name);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ValueAnimation GetAttributeAnimation(string name) cil managed" />
@@ -132,6 +116,26 @@
         <summary>
             Return attribute animation speed.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAttributeAnimationTime">
+      <MemberSignature Language="C#" Value="public float GetAttributeAnimationTime (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetAttributeAnimationTime(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -239,6 +243,41 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RemoveAttributeAnimation">
+      <MemberSignature Language="C#" Value="public void RemoveAttributeAnimation (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAttributeAnimation(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveObjectAnimation">
+      <MemberSignature Language="C#" Value="public void RemoveObjectAnimation ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveObjectAnimation() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SaveXml">
       <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.Resources.XmlElement dest);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXml(class Urho.Resources.XmlElement dest) cil managed" />
@@ -256,6 +295,25 @@
         <param name="dest">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAnimationTime">
+      <MemberSignature Language="C#" Value="public void SetAnimationTime (float time);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAnimationTime(float32 time) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -306,6 +364,27 @@
         <summary>
             Set attribute animation speed.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAttributeAnimationTime">
+      <MemberSignature Language="C#" Value="public void SetAttributeAnimationTime (string name, float time);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAttributeAnimationTime(string name, float32 time) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="time" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="time">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

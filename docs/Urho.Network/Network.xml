@@ -92,22 +92,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="BroadcastMessage">
       <MemberSignature Language="C#" Value="public void BroadcastMessage (int msgID, bool reliable, bool inOrder, byte* data, uint numBytes, uint contentID);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void BroadcastMessage(int32 msgID, bool reliable, bool inOrder, unsigned int8* data, unsigned int32 numBytes, unsigned int32 contentID) cil managed" />

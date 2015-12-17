@@ -56,22 +56,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Context">
       <MemberSignature Language="C#" Value="public Urho.Context Context { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Context Context" />
@@ -123,6 +107,22 @@
         <summary>Urho's type system type.</summary>
         <value>StringHash representing the type for this C# type.</value>
         <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeInfo">
+      <MemberSignature Language="C#" Value="public Urho.TypeInfo* TypeInfo { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TypeInfo* TypeInfo" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TypeInfo*</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeName">

@@ -232,22 +232,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="CleanupGeometryCache">
       <MemberSignature Language="C#" Value="public void CleanupGeometryCache ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CleanupGeometryCache() cil managed" />
@@ -801,6 +785,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Simulating">
+      <MemberSignature Language="C#" Value="public bool Simulating { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Simulating" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SphereCast">
       <MemberSignature Language="C#" Value="public void SphereCast (ref Urho.Physics.PhysicsRaycastResult result, Urho.Ray ray, float radius, float maxDistance, uint collisionMask);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SphereCast(valuetype Urho.Physics.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 radius, float32 maxDistance, unsigned int32 collisionMask) cil managed" />
@@ -1070,6 +1070,22 @@
         <summary>
             Refresh collisions only without updating dynamics.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateEnabled">
+      <MemberSignature Language="C#" Value="public bool UpdateEnabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UpdateEnabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -50,15 +50,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Defined">
-      <MemberSignature Language="C#" Value="public Urho.BlittableBoolean Defined;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.BlittableBoolean Defined" />
+    <Member MemberName="DummyMax">
+      <MemberSignature Language="C#" Value="public float DummyMax;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 DummyMax" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.BlittableBoolean</ReturnType>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DummyMin">
+      <MemberSignature Language="C#" Value="public float DummyMin;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 DummyMin" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

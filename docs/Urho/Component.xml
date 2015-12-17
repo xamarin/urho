@@ -158,38 +158,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="BaseTypeStatic">
-      <MemberSignature Language="C#" Value="public static Urho.StringHash BaseTypeStatic { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash BaseTypeStatic" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="CleanupConnection">
       <MemberSignature Language="C#" Value="public void CleanupConnection (Urho.Network.Connection connection);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CleanupConnection(class Urho.Network.Connection connection) cil managed" />

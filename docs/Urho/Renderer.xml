@@ -246,22 +246,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="BeginViewRender">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.BeginViewRenderEventArgs&gt; BeginViewRender;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.BeginViewRenderEventArgs&gt; BeginViewRender" />
@@ -467,6 +451,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetActualView">
+      <MemberSignature Language="C#" Value="public static Urho.View GetActualView (Urho.View view);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.View GetActualView(class Urho.View view) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.View</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Urho.View" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetDepthStencil">
       <MemberSignature Language="C#" Value="public Urho.RenderSurface GetDepthStencil (int width, int height);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.RenderSurface GetDepthStencil(int32 width, int32 height) cil managed" />
@@ -619,6 +623,26 @@
         <summary>
             Allocate an occlusion buffer.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetPreparedView">
+      <MemberSignature Language="C#" Value="public Urho.View GetPreparedView (Urho.Camera cullCamera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.View GetPreparedView(class Urho.Camera cullCamera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.View</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cullCamera" Type="Urho.Camera" />
+      </Parameters>
+      <Docs>
+        <param name="cullCamera">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1399,6 +1423,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="StorePreparedView">
+      <MemberSignature Language="C#" Value="public void StorePreparedView (Urho.View view, Urho.Camera cullCamera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StorePreparedView(class Urho.View view, class Urho.Camera cullCamera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Urho.View" />
+        <Parameter Name="cullCamera" Type="Urho.Camera" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="cullCamera">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SubscribeToBeginViewRender">
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToBeginViewRender (Action&lt;Urho.BeginViewRenderEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToBeginViewRender(class System.Action`1&lt;valuetype Urho.BeginViewRenderEventArgs&gt; handler) cil managed" />
@@ -1527,6 +1572,22 @@
             Or
             Set texture quality level. See the QUALITY constants in GraphicsDefs.h.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ThreadedOcclusion">
+      <MemberSignature Language="C#" Value="public bool ThreadedOcclusion { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ThreadedOcclusion" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

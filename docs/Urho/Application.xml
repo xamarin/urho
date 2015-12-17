@@ -198,22 +198,6 @@
         <remarks>See the <see cref="T:Urho.Audio.Audio" /> class description for more information on how to use the Audio subsystem.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Console">
       <MemberSignature Language="C#" Value="public Urho.UrhoConsole Console { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.UrhoConsole Console" />
@@ -231,8 +215,8 @@
       </Docs>
     </Member>
     <Member MemberName="CreateInstance">
-      <MemberSignature Language="C#" Value="public static Urho.Application CreateInstance (Type applicationType, Urho.Context context = null);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Application CreateInstance(class System.Type applicationType, class Urho.Context context) cil managed" />
+      <MemberSignature Language="C#" Value="public static Urho.Application CreateInstance (Type applicationType, Urho.ApplicationOptions options = null);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Application CreateInstance(class System.Type applicationType, class Urho.ApplicationOptions options) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -242,19 +226,19 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="applicationType" Type="System.Type" />
-        <Parameter Name="context" Type="Urho.Context" />
+        <Parameter Name="options" Type="Urho.ApplicationOptions" />
       </Parameters>
       <Docs>
-        <param name="applicationType">The type of the application to create, it must be a subclass of the <see cref="T:Urho.Application" /> class.</param>
-        <param name="context">The execution context to use for it, if null, a default instance of Context is created.</param>
-        <summary>Factory method used to create an Application from a Type.</summary>
-        <returns>The created application.</returns>
-        <remarks>This will try to invoke the constructor for the specified Type which takes a <see cref="T:Urho.C" />ontext parameter, or a <see cref="T:Urho.Context" /> parameter and an <see cref="T:Urho.ApplicationOptions" /> parameter.</remarks>
+        <param name="applicationType">To be added.</param>
+        <param name="options">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateInstance&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static T CreateInstance&lt;T&gt; (Urho.Context context = null) where T : Urho.Application;" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!T CreateInstance&lt;(class Urho.Application) T&gt;(class Urho.Context context) cil managed" />
+      <MemberSignature Language="C#" Value="public static T CreateInstance&lt;T&gt; (Urho.ApplicationOptions options = null) where T : Urho.Application;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!T CreateInstance&lt;(class Urho.Application) T&gt;(class Urho.ApplicationOptions options) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -270,11 +254,11 @@
         </TypeParameter>
       </TypeParameters>
       <Parameters>
-        <Parameter Name="context" Type="Urho.Context" />
+        <Parameter Name="options" Type="Urho.ApplicationOptions" />
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <param name="context">To be added.</param>
+        <param name="options">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>

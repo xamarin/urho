@@ -77,7 +77,10 @@ let processType (doc:XDocument) =
       | null -> ()
       | mdoc ->
         setval mdoc "summary" "Urho's low-level type name."
-        setval mdoc "value" "Stringified low-level type name."
+        try
+          setval mdoc "value" "Stringified low-level type name."
+        with
+          | ex -> printfn "Problem with type %s" typeName
         setval mdoc "remarks" ""
   let fillTypeNameStatic() =
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='TypeNameStatic']/Docs" with

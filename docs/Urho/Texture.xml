@@ -545,8 +545,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetMipsToSkip">
-      <MemberSignature Language="C#" Value="public void SetMipsToSkip (int quality, int mips);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMipsToSkip(int32 quality, int32 mips) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetMipsToSkip (int quality, int toSkip);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMipsToSkip(int32 quality, int32 toSkip) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -560,7 +560,7 @@
       </Parameters>
       <Docs>
         <param name="quality">To be added.</param>
-        <param name="mips">To be added.</param>
+        <param name="toSkip">To be added.</param>
         <summary>
             Set mip levels to skip on a quality setting when loading. Ensures higher quality levels do not skip more.
             </summary>

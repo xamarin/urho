@@ -24,15 +24,34 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ApplicationOptions ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="C#" Value="public ApplicationOptions (string assetsFolder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string assetsFolder) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="assetsFolder" Type="System.String" />
+      </Parameters>
       <Docs>
-        <summary>Empty construtor</summary>
+        <param name="assetsFolder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ApplicationOptions (string[] assetsFolders);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string[] assetsFolders) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="assetsFolders" Type="System.String[]" />
+      </Parameters>
+      <Docs>
+        <param name="assetsFolders">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -52,18 +71,18 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Default">
-      <MemberSignature Language="C#" Value="public static Urho.ApplicationOptions Default { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.ApplicationOptions Default" />
+    <Member MemberName="ExternalWindow">
+      <MemberSignature Language="C#" Value="public IntPtr ExternalWindow { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ExternalWindow" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.ApplicationOptions</ReturnType>
+        <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Convenience - default set of options.</summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -113,22 +132,6 @@
       </ReturnValue>
       <Docs>
         <summary>iOS only - orientation for the game</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="PortraitDefault">
-      <MemberSignature Language="C#" Value="public static Urho.ApplicationOptions PortraitDefault { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.ApplicationOptions PortraitDefault" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.ApplicationOptions</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Convenience - default set of options for portrait mode (800x500 on Portrait mode)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

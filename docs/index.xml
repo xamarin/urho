@@ -1,11 +1,9 @@
 <Overview>
   <Assemblies>
-    <Assembly Name="Urho.iOS" Version="1.0.0.0">
-    </Assembly>
     <Assembly Name="Urho" Version="1.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints | System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
@@ -40,15 +38,280 @@
         <Attribute>
           <AttributeName>System.Runtime.InteropServices.Guid("641886db-2c6c-4d33-88da-97bec0ec5f86")</AttributeName>
         </Attribute>
-        <Attribute>
-          <AttributeName>System.Runtime.Versioning.TargetFramework(".NETPortable,Version=v4.5,Profile=Profile7", FrameworkDisplayName=".NET Portable Subset")</AttributeName>
-        </Attribute>
       </Attributes>
     </Assembly>
   </Assemblies>
   <Remarks>To be added.</Remarks>
   <Copyright>To be added.</Copyright>
   <Types>
+    <Namespace Name="Urho">
+      <Type Name="Animatable" Kind="Class" />
+      <Type Name="AnimatedModel" Kind="Class" />
+      <Type Name="Animation" Kind="Class" />
+      <Type Name="AnimationController" Kind="Class" />
+      <Type Name="AnimationState" Kind="Class" />
+      <Type Name="AnimationTrack" Kind="Structure" />
+      <Type Name="AnimationTriggerEventArgs" Kind="Structure" />
+      <Type Name="AnimationTriggerPoint" Kind="Structure" />
+      <Type Name="Application" Kind="Class" />
+      <Type Name="Application+ActionIntPtr" Kind="Delegate" />
+      <Type Name="ApplicationOptions" Kind="Class" />
+      <Type Name="ApplicationOptions+OrientationType" Kind="Enumeration" />
+      <Type Name="AsyncLoadFinishedEventArgs" Kind="Structure" />
+      <Type Name="AsyncLoadProgressEventArgs" Kind="Structure" />
+      <Type Name="AttributeAccessor" Kind="Class" />
+      <Type Name="AttributeAnimationAddedEventArgs" Kind="Structure" />
+      <Type Name="AttributeAnimationInfo" Kind="Class" />
+      <Type Name="AttributeAnimationRemovedEventArgs" Kind="Structure" />
+      <Type Name="AttributeAnimationUpdateEventArgs" Kind="Structure" />
+      <Type Name="AttributeInfo" Kind="Structure" />
+      <Type Name="BeginRenderingEventArgs" Kind="Structure" />
+      <Type Name="BeginViewRenderEventArgs" Kind="Structure" />
+      <Type Name="BeginViewUpdateEventArgs" Kind="Structure" />
+      <Type Name="BiasParameters" Kind="Structure" />
+      <Type Name="Billboard" Kind="Structure" />
+      <Type Name="BillboardSet" Kind="Class" />
+      <Type Name="BillboardWrapper" Kind="Class" />
+      <Type Name="BlendMode" Kind="Enumeration" />
+      <Type Name="Bone" Kind="Structure" />
+      <Type Name="BoneHierarchyCreatedEventArgs" Kind="Structure" />
+      <Type Name="BoneWrapper" Kind="Class" />
+      <Type Name="BoundingBox" Kind="Structure" />
+      <Type Name="Camera" Kind="Class" />
+      <Type Name="CascadeParameters" Kind="Structure" />
+      <Type Name="CollisionGeometryData" Kind="Structure" />
+      <Type Name="Color" Kind="Structure" />
+      <Type Name="ColorFrame" Kind="Structure" />
+      <Type Name="CompareMode" Kind="Enumeration" />
+      <Type Name="Component" Kind="Class" />
+      <Type Name="ComponentAddedEventArgs" Kind="Structure" />
+      <Type Name="ComponentEnabledChangedEventArgs" Kind="Structure" />
+      <Type Name="ComponentRemovedEventArgs" Kind="Structure" />
+      <Type Name="ComponentReplicationState" Kind="Structure" />
+      <Type Name="CompressedLevel" Kind="Structure" />
+      <Type Name="ConsoleCommandEventArgs" Kind="Structure" />
+      <Type Name="ConstantBuffer" Kind="Class" />
+      <Type Name="Context" Kind="Class" />
+      <Type Name="Controls" Kind="Class" />
+      <Type Name="CreateMode" Kind="Enumeration" />
+      <Type Name="CubeMapFace" Kind="Enumeration" />
+      <Type Name="CubeMapLayout" Kind="Enumeration" />
+      <Type Name="CullMode" Kind="Enumeration" />
+      <Type Name="CustomGeometry" Kind="Class" />
+      <Type Name="CustomGeometryVertex" Kind="Structure" />
+      <Type Name="DebugHud" Kind="Class" />
+      <Type Name="DebugRenderer" Kind="Class" />
+      <Type Name="DecalSet" Kind="Class" />
+      <Type Name="DeferredLightPSVariation" Kind="Enumeration" />
+      <Type Name="DeferredLightVSVariation" Kind="Enumeration" />
+      <Type Name="DeviceLostEventArgs" Kind="Structure" />
+      <Type Name="DeviceResetEventArgs" Kind="Structure" />
+      <Type Name="Drawable" Kind="Class" />
+      <Type Name="DrawableFlags" Kind="Enumeration" />
+      <Type Name="DropFileEventArgs" Kind="Structure" />
+      <Type Name="ElementMask" Kind="Enumeration" />
+      <Type Name="EmitterType" Kind="Enumeration" />
+      <Type Name="EndRenderingEventArgs" Kind="Structure" />
+      <Type Name="EndViewRenderEventArgs" Kind="Structure" />
+      <Type Name="EndViewUpdateEventArgs" Kind="Structure" />
+      <Type Name="Engine" Kind="Class" />
+      <Type Name="ExitRequestedEventArgs" Kind="Structure" />
+      <Type Name="FaceCameraMode" Kind="Enumeration" />
+      <Type Name="FillMode" Kind="Enumeration" />
+      <Type Name="FocusParameters" Kind="Structure" />
+      <Type Name="FontGlyph" Kind="Structure" />
+      <Type Name="FrameEndedEventArgs" Kind="Structure" />
+      <Type Name="FrameStartedEventArgs" Kind="Structure" />
+      <Type Name="Frustum" Kind="Structure" />
+      <Type Name="FrustumPlane" Kind="Enumeration" />
+      <Type Name="Geometry" Kind="Class" />
+      <Type Name="GeometryType" Kind="Enumeration" />
+      <Type Name="GestureInputEventArgs" Kind="Structure" />
+      <Type Name="GestureRecordedEventArgs" Kind="Structure" />
+      <Type Name="GPUObject" Kind="Structure" />
+      <Type Name="Graphics" Kind="Class" />
+      <Type Name="GraphicsImpl" Kind="Structure" />
+      <Type Name="HashIteratorBase" Kind="Structure" />
+      <Type Name="IDeserializer" Kind="Interface" />
+      <Type Name="IndexBuffer" Kind="Class" />
+      <Type Name="Input" Kind="Class" />
+      <Type Name="InputFocusEventArgs" Kind="Structure" />
+      <Type Name="InterceptNetworkUpdateEventArgs" Kind="Structure" />
+      <Type Name="InterpMethod" Kind="Enumeration" />
+      <Type Name="InterpolationMode" Kind="Enumeration" />
+      <Type Name="Intersection" Kind="Enumeration" />
+      <Type Name="IntRect" Kind="Structure" />
+      <Type Name="IntVector2" Kind="Structure" />
+      <Type Name="ISerializer" Kind="Interface" />
+      <Type Name="Iterator" Kind="Structure" />
+      <Type Name="JoystickAxisMoveEventArgs" Kind="Structure" />
+      <Type Name="JoystickButtonDownEventArgs" Kind="Structure" />
+      <Type Name="JoystickButtonUpEventArgs" Kind="Structure" />
+      <Type Name="JoystickConnectedEventArgs" Kind="Structure" />
+      <Type Name="JoystickDisconnectedEventArgs" Kind="Structure" />
+      <Type Name="JoystickHatMoveEventArgs" Kind="Structure" />
+      <Type Name="JoystickState" Kind="Structure" />
+      <Type Name="Key" Kind="Enumeration" />
+      <Type Name="KeyDownEventArgs" Kind="Structure" />
+      <Type Name="KeyUpEventArgs" Kind="Structure" />
+      <Type Name="Light" Kind="Class" />
+      <Type Name="LightBatchQueue" Kind="Structure" />
+      <Type Name="LightPSVariation" Kind="Enumeration" />
+      <Type Name="LightType" Kind="Enumeration" />
+      <Type Name="LightVSVariation" Kind="Enumeration" />
+      <Type Name="ListBasedUpdateSynchronizationContext" Kind="Class" />
+      <Type Name="LoadMode" Kind="Enumeration" />
+      <Type Name="LockState" Kind="Enumeration" />
+      <Type Name="LogicComponent" Kind="Class" />
+      <Type Name="LogLevel" Kind="Enumeration" />
+      <Type Name="MarshalHelper" Kind="Class" />
+      <Type Name="Material" Kind="Class" />
+      <Type Name="MathHelper" Kind="Class" />
+      <Type Name="Matrix3" Kind="Structure" />
+      <Type Name="Matrix3x4" Kind="Structure" />
+      <Type Name="Matrix4" Kind="Structure" />
+      <Type Name="Model" Kind="Class" />
+      <Type Name="ModelMorph" Kind="Structure" />
+      <Type Name="MonoDebugHud" Kind="Class" />
+      <Type Name="MonoPInvokeCallbackAttribute" Kind="Class" />
+      <Type Name="MouseButton" Kind="Enumeration" />
+      <Type Name="MouseButtonDownEventArgs" Kind="Structure" />
+      <Type Name="MouseButtonUpEventArgs" Kind="Structure" />
+      <Type Name="MouseMode" Kind="Enumeration" />
+      <Type Name="MouseModeChangedEventArgs" Kind="Structure" />
+      <Type Name="MouseMovedEventArgs" Kind="Structure" />
+      <Type Name="MouseVisibleChangedEventArgs" Kind="Structure" />
+      <Type Name="MouseWheelEventArgs" Kind="Structure" />
+      <Type Name="MultiGestureEventArgs" Kind="Structure" />
+      <Type Name="NetworkState" Kind="Structure" />
+      <Type Name="Node" Kind="Class" />
+      <Type Name="NodeAddedEventArgs" Kind="Structure" />
+      <Type Name="NodeCollisionEndEventArgs" Kind="Structure" />
+      <Type Name="NodeCollisionEventArgs" Kind="Structure" />
+      <Type Name="NodeCollisionStartEventArgs" Kind="Structure" />
+      <Type Name="NodeEnabledChangedEventArgs" Kind="Structure" />
+      <Type Name="NodeNameChangedEventArgs" Kind="Structure" />
+      <Type Name="NodeRemovedEventArgs" Kind="Structure" />
+      <Type Name="ObjectAnimation" Kind="Class" />
+      <Type Name="ObjectCallbackSignature" Kind="Delegate" />
+      <Type Name="ObjectFactory" Kind="Class" />
+      <Type Name="OcclusionBuffer" Kind="Class" />
+      <Type Name="Octant" Kind="Structure" />
+      <Type Name="Octree" Kind="Class" />
+      <Type Name="ParticleEffect" Kind="Class" />
+      <Type Name="ParticleEmitter" Kind="Class" />
+      <Type Name="Pass" Kind="Class" />
+      <Type Name="PassLightingMode" Kind="Enumeration" />
+      <Type Name="Plane" Kind="Structure" />
+      <Type Name="Platforms" Kind="Enumeration" />
+      <Type Name="PodVector`1" DisplayName="PodVector&lt;T&gt;" Kind="Class" />
+      <Type Name="PostRenderUpdateEventArgs" Kind="Structure" />
+      <Type Name="PostUpdateEventArgs" Kind="Structure" />
+      <Type Name="PrimitiveType" Kind="Enumeration" />
+      <Type Name="Profiler" Kind="Class" />
+      <Type Name="ProfilerBlock" Kind="Structure" />
+      <Type Name="Quaternion" Kind="Structure" />
+      <Type Name="RandomAccessIterator" Kind="Structure" />
+      <Type Name="Ray" Kind="Structure" />
+      <Type Name="RayQueryLevel" Kind="Enumeration" />
+      <Type Name="RayQueryResult" Kind="Structure" />
+      <Type Name="Rect" Kind="Structure" />
+      <Type Name="RefCount" Kind="Structure" />
+      <Type Name="RefCounted" Kind="Class" />
+      <Type Name="RenderCommandSortMode" Kind="Enumeration" />
+      <Type Name="RenderCommandType" Kind="Enumeration" />
+      <Type Name="Renderer" Kind="Class" />
+      <Type Name="RenderPath" Kind="Class" />
+      <Type Name="RenderPathCommand" Kind="Structure" />
+      <Type Name="RenderSurface" Kind="Class" />
+      <Type Name="RenderSurfaceUpdateEventArgs" Kind="Structure" />
+      <Type Name="RenderSurfaceUpdateMode" Kind="Enumeration" />
+      <Type Name="RenderTargetSizeMode" Kind="Enumeration" />
+      <Type Name="RenderUpdateEventArgs" Kind="Structure" />
+      <Type Name="ResourceRef" Kind="Structure" />
+      <Type Name="ResourceRefList" Kind="Structure" />
+      <Type Name="ResourceRouter" Kind="Class" />
+      <Type Name="Scene" Kind="Class" />
+      <Type Name="SceneDrawableUpdateFinishedEventArgs" Kind="Structure" />
+      <Type Name="ScenePostUpdateEventArgs" Kind="Structure" />
+      <Type Name="SceneSubsystemUpdateEventArgs" Kind="Structure" />
+      <Type Name="SceneUpdateEventArgs" Kind="Structure" />
+      <Type Name="ScreenModeEventArgs" Kind="Structure" />
+      <Type Name="Serializable" Kind="Class" />
+      <Type Name="Shader" Kind="Class" />
+      <Type Name="ShaderParameter" Kind="Structure" />
+      <Type Name="ShaderParameterAnimationInfo" Kind="Class" />
+      <Type Name="ShaderParameterGroup" Kind="Enumeration" />
+      <Type Name="ShaderPrecache" Kind="Class" />
+      <Type Name="ShaderProgram" Kind="Class" />
+      <Type Name="ShaderType" Kind="Enumeration" />
+      <Type Name="ShaderVariation" Kind="Class" />
+      <Type Name="Skeleton" Kind="Class" />
+      <Type Name="Skybox" Kind="Class" />
+      <Type Name="SmoothedTransform" Kind="Class" />
+      <Type Name="SoundType" Kind="Enumeration" />
+      <Type Name="SplinePath" Kind="Class" />
+      <Type Name="StaticModel" Kind="Class" />
+      <Type Name="StaticModelGroup" Kind="Class" />
+      <Type Name="StencilOp" Kind="Enumeration" />
+      <Type Name="StringHash" Kind="Structure" />
+      <Type Name="StringHashRef" Kind="Structure" />
+      <Type Name="Subscription" Kind="Class" />
+      <Type Name="TargetPositionChangedEventArgs" Kind="Structure" />
+      <Type Name="TargetRotationChangedEventArgs" Kind="Structure" />
+      <Type Name="Technique" Kind="Class" />
+      <Type Name="TemporaryChangedEventArgs" Kind="Structure" />
+      <Type Name="Terrain" Kind="Class" />
+      <Type Name="TerrainCreatedEventArgs" Kind="Structure" />
+      <Type Name="TerrainPatch" Kind="Class" />
+      <Type Name="TextInputEventArgs" Kind="Structure" />
+      <Type Name="Texture" Kind="Class" />
+      <Type Name="Texture3D" Kind="Class" />
+      <Type Name="TextureAddressMode" Kind="Enumeration" />
+      <Type Name="TextureCoordinate" Kind="Enumeration" />
+      <Type Name="TextureCube" Kind="Class" />
+      <Type Name="TextureFilterMode" Kind="Enumeration" />
+      <Type Name="TextureFrame" Kind="Structure" />
+      <Type Name="TextureUnit" Kind="Enumeration" />
+      <Type Name="TextureUsage" Kind="Enumeration" />
+      <Type Name="Time" Kind="Class" />
+      <Type Name="TouchBeginEventArgs" Kind="Structure" />
+      <Type Name="TouchEndEventArgs" Kind="Structure" />
+      <Type Name="TouchMoveEventArgs" Kind="Structure" />
+      <Type Name="TouchState" Kind="Structure" />
+      <Type Name="TransformSpace" Kind="Enumeration" />
+      <Type Name="TypeInfo" Kind="Structure" />
+      <Type Name="UnknownComponent" Kind="Class" />
+      <Type Name="UpdateEventArgs" Kind="Structure" />
+      <Type Name="UpdateGeometryType" Kind="Enumeration" />
+      <Type Name="UpdateSmoothingEventArgs" Kind="Structure" />
+      <Type Name="UrhoConsole" Kind="Class" />
+      <Type Name="UrhoObject" Kind="Class" />
+      <Type Name="UrhoObjectFlag" Kind="Enumeration" />
+      <Type Name="UrhoString" Kind="Structure" />
+      <Type Name="ValueAnimation" Kind="Class" />
+      <Type Name="ValueAnimationInfo" Kind="Class" />
+      <Type Name="Variant" Kind="Structure" />
+      <Type Name="VariantType" Kind="Enumeration" />
+      <Type Name="VariantValue" Kind="Structure" />
+      <Type Name="Vector2" Kind="Structure" />
+      <Type Name="Vector3" Kind="Structure" />
+      <Type Name="Vector4" Kind="Structure" />
+      <Type Name="VectorBase" Kind="Structure" />
+      <Type Name="VertexBuffer" Kind="Class" />
+      <Type Name="VertexElement" Kind="Enumeration" />
+      <Type Name="VertexLightVSVariation" Kind="Enumeration" />
+      <Type Name="View" Kind="Class" />
+      <Type Name="ViewOverrideFlags" Kind="Enumeration" />
+      <Type Name="Viewport" Kind="Class" />
+      <Type Name="WeakPtr" Kind="Structure" />
+      <Type Name="WindowPosEventArgs" Kind="Structure" />
+      <Type Name="WorkItem" Kind="Structure" />
+      <Type Name="WorkItemCompletedEventArgs" Kind="Structure" />
+      <Type Name="WorkQueue" Kind="Class" />
+      <Type Name="WrapMode" Kind="Enumeration" />
+      <Type Name="Zone" Kind="Class" />
+    </Namespace>
     <Namespace Name="Urho.Actions">
       <Type Name="ActionEase" Kind="Class" />
       <Type Name="ActionEaseState" Kind="Class" />
@@ -206,8 +469,8 @@
       <Type Name="FileSelectedEventArgs" Kind="Structure" />
       <Type Name="FileSelector" Kind="Class" />
       <Type Name="FocusChangedEventArgs" Kind="Structure" />
-      <Type Name="FocusMode" Kind="Enumeration" />
       <Type Name="FocusedEventArgs" Kind="Structure" />
+      <Type Name="FocusMode" Kind="Enumeration" />
       <Type Name="Font" Kind="Class" />
       <Type Name="FontFace" Kind="Class" />
       <Type Name="FontFaceBitmap" Kind="Class" />
@@ -287,6 +550,7 @@
       <Type Name="CrowdAgentTargetState" Kind="Enumeration" />
       <Type Name="CrowdManager" Kind="Class" />
       <Type Name="CrowdObstacleAvoidanceParams" Kind="Structure" />
+      <Type Name="dtQueryFilter" Kind="Structure" />
       <Type Name="DynamicNavigationMesh" Kind="Class" />
       <Type Name="NavArea" Kind="Class" />
       <Type Name="Navigable" Kind="Class" />
@@ -300,7 +564,6 @@
       <Type Name="NavmeshPartitionType" Kind="Enumeration" />
       <Type Name="Obstacle" Kind="Class" />
       <Type Name="OffMeshConnection" Kind="Class" />
-      <Type Name="dtQueryFilter" Kind="Structure" />
     </Namespace>
     <Namespace Name="Urho.Network">
       <Type Name="ClientConnectedEventArgs" Kind="Structure" />
@@ -309,6 +572,7 @@
       <Type Name="ClientSceneLoadedEventArgs" Kind="Structure" />
       <Type Name="ConnectFailedEventArgs" Kind="Structure" />
       <Type Name="Connection" Kind="Class" />
+      <Type Name="DirtyBits" Kind="Structure" />
       <Type Name="HttpRequest" Kind="Class" />
       <Type Name="HttpRequestState" Kind="Enumeration" />
       <Type Name="Network" Kind="Class" />
@@ -317,8 +581,10 @@
       <Type Name="NetworkSceneLoadFailedEventArgs" Kind="Structure" />
       <Type Name="NetworkUpdateEventArgs" Kind="Structure" />
       <Type Name="NetworkUpdateSentEventArgs" Kind="Structure" />
+      <Type Name="NodeReplicationState" Kind="Structure" />
       <Type Name="ObserverPositionSendMode" Kind="Enumeration" />
       <Type Name="RemoteEventDataEventArgs" Kind="Structure" />
+      <Type Name="ReplicationState" Kind="Structure" />
       <Type Name="ServerConnectedEventArgs" Kind="Structure" />
       <Type Name="ServerDisconnectedEventArgs" Kind="Structure" />
     </Namespace>
@@ -362,10 +628,20 @@
       <Type Name="ResourceNotFoundEventArgs" Kind="Structure" />
       <Type Name="ResourceRequest" Kind="Enumeration" />
       <Type Name="UnknownResourceTypeEventArgs" Kind="Structure" />
-      <Type Name="XPathResultSet" Kind="Structure" />
       <Type Name="XmlComponentSerializer" Kind="Class" />
       <Type Name="XmlElement" Kind="Class" />
       <Type Name="XmlFile" Kind="Class" />
+      <Type Name="XPathResultSet" Kind="Structure" />
+    </Namespace>
+    <Namespace Name="Urho.Shapes">
+      <Type Name="Box" Kind="Class" />
+      <Type Name="Cone" Kind="Class" />
+      <Type Name="Cylinder" Kind="Class" />
+      <Type Name="Plane" Kind="Class" />
+      <Type Name="Pyramid" Kind="Class" />
+      <Type Name="Shape" Kind="Class" />
+      <Type Name="Sphere" Kind="Class" />
+      <Type Name="Torus" Kind="Class" />
     </Namespace>
     <Namespace Name="Urho.Urho2D">
       <Type Name="AnimatedSprite2D" Kind="Class" />
@@ -420,271 +696,133 @@
       <Type Name="TmxObjectGroup2D" Kind="Class" />
       <Type Name="TmxTileLayer2D" Kind="Class" />
     </Namespace>
-    <Namespace Name="Urho">
-      <Type Name="Animatable" Kind="Class" />
-      <Type Name="AnimatedModel" Kind="Class" />
-      <Type Name="Animation" Kind="Class" />
-      <Type Name="AnimationController" Kind="Class" />
-      <Type Name="AnimationState" Kind="Class" />
-      <Type Name="AnimationTrack" Kind="Structure" />
-      <Type Name="AnimationTriggerEventArgs" Kind="Structure" />
-      <Type Name="AnimationTriggerPoint" Kind="Structure" />
-      <Type Name="Application+ActionIntPtr" Kind="Delegate" />
-      <Type Name="Application" Kind="Class" />
-      <Type Name="ApplicationOptions+OrientationType" Kind="Enumeration" />
-      <Type Name="ApplicationOptions" Kind="Class" />
-      <Type Name="AsyncLoadFinishedEventArgs" Kind="Structure" />
-      <Type Name="AsyncLoadProgressEventArgs" Kind="Structure" />
-      <Type Name="AttributeAccessor" Kind="Class" />
-      <Type Name="AttributeAnimationAddedEventArgs" Kind="Structure" />
-      <Type Name="AttributeAnimationInfo" Kind="Class" />
-      <Type Name="AttributeAnimationRemovedEventArgs" Kind="Structure" />
-      <Type Name="AttributeAnimationUpdateEventArgs" Kind="Structure" />
-      <Type Name="AttributeInfo" Kind="Structure" />
-      <Type Name="BeginRenderingEventArgs" Kind="Structure" />
-      <Type Name="BeginViewRenderEventArgs" Kind="Structure" />
-      <Type Name="BeginViewUpdateEventArgs" Kind="Structure" />
-      <Type Name="BiasParameters" Kind="Structure" />
-      <Type Name="Billboard" Kind="Structure" />
-      <Type Name="BillboardSet" Kind="Class" />
-      <Type Name="BillboardWrapper" Kind="Class" />
-      <Type Name="BlendMode" Kind="Enumeration" />
-      <Type Name="Bone" Kind="Structure" />
-      <Type Name="BoneHierarchyCreatedEventArgs" Kind="Structure" />
-      <Type Name="BoneWrapper" Kind="Class" />
-      <Type Name="BoundingBox" Kind="Structure" />
-      <Type Name="Camera" Kind="Class" />
-      <Type Name="CascadeParameters" Kind="Structure" />
-      <Type Name="CollisionGeometryData" Kind="Structure" />
-      <Type Name="Color" Kind="Structure" />
-      <Type Name="ColorFrame" Kind="Structure" />
-      <Type Name="CompareMode" Kind="Enumeration" />
-      <Type Name="Component" Kind="Class" />
-      <Type Name="ComponentAddedEventArgs" Kind="Structure" />
-      <Type Name="ComponentEnabledChangedEventArgs" Kind="Structure" />
-      <Type Name="ComponentRemovedEventArgs" Kind="Structure" />
-      <Type Name="CompressedLevel" Kind="Structure" />
-      <Type Name="ConsoleCommandEventArgs" Kind="Structure" />
-      <Type Name="ConstantBuffer" Kind="Class" />
-      <Type Name="Context" Kind="Class" />
-      <Type Name="Controls" Kind="Class" />
-      <Type Name="CreateMode" Kind="Enumeration" />
-      <Type Name="CubeMapFace" Kind="Enumeration" />
-      <Type Name="CubeMapLayout" Kind="Enumeration" />
-      <Type Name="CullMode" Kind="Enumeration" />
-      <Type Name="CustomGeometry" Kind="Class" />
-      <Type Name="CustomGeometryVertex" Kind="Structure" />
-      <Type Name="DebugHud" Kind="Class" />
-      <Type Name="DebugRenderer" Kind="Class" />
-      <Type Name="DecalSet" Kind="Class" />
-      <Type Name="DeferredLightPSVariation" Kind="Enumeration" />
-      <Type Name="DeferredLightVSVariation" Kind="Enumeration" />
-      <Type Name="DeviceLostEventArgs" Kind="Structure" />
-      <Type Name="DeviceResetEventArgs" Kind="Structure" />
-      <Type Name="Drawable" Kind="Class" />
-      <Type Name="DrawableFlags" Kind="Enumeration" />
-      <Type Name="DropFileEventArgs" Kind="Structure" />
-      <Type Name="ElementMask" Kind="Enumeration" />
-      <Type Name="EmitterType" Kind="Enumeration" />
-      <Type Name="EndRenderingEventArgs" Kind="Structure" />
-      <Type Name="EndViewRenderEventArgs" Kind="Structure" />
-      <Type Name="EndViewUpdateEventArgs" Kind="Structure" />
-      <Type Name="Engine" Kind="Class" />
-      <Type Name="ExitRequestedEventArgs" Kind="Structure" />
-      <Type Name="FaceCameraMode" Kind="Enumeration" />
-      <Type Name="FillMode" Kind="Enumeration" />
-      <Type Name="FocusParameters" Kind="Structure" />
-      <Type Name="FontGlyph" Kind="Structure" />
-      <Type Name="FrameEndedEventArgs" Kind="Structure" />
-      <Type Name="FrameStartedEventArgs" Kind="Structure" />
-      <Type Name="Frustum" Kind="Structure" />
-      <Type Name="FrustumPlane" Kind="Enumeration" />
-      <Type Name="GPUObject" Kind="Structure" />
-      <Type Name="Geometry" Kind="Class" />
-      <Type Name="GeometryType" Kind="Enumeration" />
-      <Type Name="GestureInputEventArgs" Kind="Structure" />
-      <Type Name="GestureRecordedEventArgs" Kind="Structure" />
-      <Type Name="Graphics" Kind="Class" />
-      <Type Name="GraphicsImpl" Kind="Structure" />
-      <Type Name="HashIteratorBase" Kind="Structure" />
-      <Type Name="IDeserializer" Kind="Interface" />
-      <Type Name="ISerializer" Kind="Interface" />
-      <Type Name="IndexBuffer" Kind="Class" />
-      <Type Name="Input" Kind="Class" />
-      <Type Name="InputFocusEventArgs" Kind="Structure" />
-      <Type Name="IntRect" Kind="Structure" />
-      <Type Name="IntVector2" Kind="Structure" />
-      <Type Name="InterceptNetworkUpdateEventArgs" Kind="Structure" />
-      <Type Name="InterpMethod" Kind="Enumeration" />
-      <Type Name="InterpolationMode" Kind="Enumeration" />
-      <Type Name="Intersection" Kind="Enumeration" />
-      <Type Name="Iterator" Kind="Structure" />
-      <Type Name="JoystickAxisMoveEventArgs" Kind="Structure" />
-      <Type Name="JoystickButtonDownEventArgs" Kind="Structure" />
-      <Type Name="JoystickButtonUpEventArgs" Kind="Structure" />
-      <Type Name="JoystickConnectedEventArgs" Kind="Structure" />
-      <Type Name="JoystickDisconnectedEventArgs" Kind="Structure" />
-      <Type Name="JoystickHatMoveEventArgs" Kind="Structure" />
-      <Type Name="JoystickState" Kind="Structure" />
-      <Type Name="Key" Kind="Enumeration" />
-      <Type Name="KeyDownEventArgs" Kind="Structure" />
-      <Type Name="KeyUpEventArgs" Kind="Structure" />
-      <Type Name="Light" Kind="Class" />
-      <Type Name="LightBatchQueue" Kind="Structure" />
-      <Type Name="LightPSVariation" Kind="Enumeration" />
-      <Type Name="LightType" Kind="Enumeration" />
-      <Type Name="LightVSVariation" Kind="Enumeration" />
-      <Type Name="ListBasedUpdateSynchronizationContext" Kind="Class" />
-      <Type Name="LoadMode" Kind="Enumeration" />
-      <Type Name="LockState" Kind="Enumeration" />
-      <Type Name="LogLevel" Kind="Enumeration" />
-      <Type Name="LogicComponent" Kind="Class" />
-      <Type Name="Material" Kind="Class" />
-      <Type Name="MathHelper" Kind="Class" />
-      <Type Name="Matrix3" Kind="Structure" />
-      <Type Name="Matrix3x4" Kind="Structure" />
-      <Type Name="Matrix4" Kind="Structure" />
-      <Type Name="Model" Kind="Class" />
-      <Type Name="ModelMorph" Kind="Structure" />
-      <Type Name="MonoDebugHud" Kind="Class" />
-      <Type Name="MonoPInvokeCallbackAttribute" Kind="Class" />
-      <Type Name="MouseButton" Kind="Enumeration" />
-      <Type Name="MouseButtonDownEventArgs" Kind="Structure" />
-      <Type Name="MouseButtonUpEventArgs" Kind="Structure" />
-      <Type Name="MouseMode" Kind="Enumeration" />
-      <Type Name="MouseModeChangedEventArgs" Kind="Structure" />
-      <Type Name="MouseMovedEventArgs" Kind="Structure" />
-      <Type Name="MouseVisibleChangedEventArgs" Kind="Structure" />
-      <Type Name="MouseWheelEventArgs" Kind="Structure" />
-      <Type Name="MultiGestureEventArgs" Kind="Structure" />
-      <Type Name="NetworkState" Kind="Structure" />
-      <Type Name="Node" Kind="Class" />
-      <Type Name="NodeAddedEventArgs" Kind="Structure" />
-      <Type Name="NodeCollisionEndEventArgs" Kind="Structure" />
-      <Type Name="NodeCollisionEventArgs" Kind="Structure" />
-      <Type Name="NodeCollisionStartEventArgs" Kind="Structure" />
-      <Type Name="NodeEnabledChangedEventArgs" Kind="Structure" />
-      <Type Name="NodeNameChangedEventArgs" Kind="Structure" />
-      <Type Name="NodeRemovedEventArgs" Kind="Structure" />
-      <Type Name="ObjectAnimation" Kind="Class" />
-      <Type Name="ObjectCallbackSignature" Kind="Delegate" />
-      <Type Name="ObjectFactory" Kind="Class" />
-      <Type Name="OcclusionBuffer" Kind="Class" />
-      <Type Name="Octant" Kind="Structure" />
-      <Type Name="Octree" Kind="Class" />
-      <Type Name="ParticleEffect" Kind="Class" />
-      <Type Name="ParticleEmitter" Kind="Class" />
-      <Type Name="Pass" Kind="Class" />
-      <Type Name="PassLightingMode" Kind="Enumeration" />
-      <Type Name="Plane" Kind="Structure" />
-      <Type Name="Platforms" Kind="Enumeration" />
-      <Type Name="PodVector`1" DisplayName="PodVector&lt;T&gt;" Kind="Class" />
-      <Type Name="PostRenderUpdateEventArgs" Kind="Structure" />
-      <Type Name="PostUpdateEventArgs" Kind="Structure" />
-      <Type Name="PrimitiveType" Kind="Enumeration" />
-      <Type Name="Profiler" Kind="Class" />
-      <Type Name="ProfilerBlock" Kind="Structure" />
-      <Type Name="Quaternion" Kind="Structure" />
-      <Type Name="RandomAccessIterator" Kind="Structure" />
-      <Type Name="Ray" Kind="Structure" />
-      <Type Name="RayQueryLevel" Kind="Enumeration" />
-      <Type Name="RayQueryResult" Kind="Structure" />
-      <Type Name="Rect" Kind="Structure" />
-      <Type Name="RefCount" Kind="Structure" />
-      <Type Name="RefCounted" Kind="Class" />
-      <Type Name="RenderCommandSortMode" Kind="Enumeration" />
-      <Type Name="RenderCommandType" Kind="Enumeration" />
-      <Type Name="RenderPath" Kind="Class" />
-      <Type Name="RenderPathCommand" Kind="Structure" />
-      <Type Name="RenderSurface" Kind="Class" />
-      <Type Name="RenderSurfaceUpdateEventArgs" Kind="Structure" />
-      <Type Name="RenderSurfaceUpdateMode" Kind="Enumeration" />
-      <Type Name="RenderTargetSizeMode" Kind="Enumeration" />
-      <Type Name="RenderUpdateEventArgs" Kind="Structure" />
-      <Type Name="Renderer" Kind="Class" />
-      <Type Name="ResourceRef" Kind="Structure" />
-      <Type Name="ResourceRefList" Kind="Structure" />
-      <Type Name="ResourceRouter" Kind="Class" />
-      <Type Name="Scene" Kind="Class" />
-      <Type Name="SceneDrawableUpdateFinishedEventArgs" Kind="Structure" />
-      <Type Name="ScenePostUpdateEventArgs" Kind="Structure" />
-      <Type Name="SceneSubsystemUpdateEventArgs" Kind="Structure" />
-      <Type Name="SceneUpdateEventArgs" Kind="Structure" />
-      <Type Name="ScreenModeEventArgs" Kind="Structure" />
-      <Type Name="Serializable" Kind="Class" />
-      <Type Name="Shader" Kind="Class" />
-      <Type Name="ShaderParameter" Kind="Structure" />
-      <Type Name="ShaderParameterAnimationInfo" Kind="Class" />
-      <Type Name="ShaderParameterGroup" Kind="Enumeration" />
-      <Type Name="ShaderPrecache" Kind="Class" />
-      <Type Name="ShaderProgram" Kind="Class" />
-      <Type Name="ShaderType" Kind="Enumeration" />
-      <Type Name="ShaderVariation" Kind="Class" />
-      <Type Name="Skeleton" Kind="Class" />
-      <Type Name="Skybox" Kind="Class" />
-      <Type Name="SmoothedTransform" Kind="Class" />
-      <Type Name="SoundType" Kind="Enumeration" />
-      <Type Name="SplinePath" Kind="Class" />
-      <Type Name="StaticModel" Kind="Class" />
-      <Type Name="StaticModelGroup" Kind="Class" />
-      <Type Name="StencilOp" Kind="Enumeration" />
-      <Type Name="StringHash" Kind="Structure" />
-      <Type Name="StringHashRef" Kind="Structure" />
-      <Type Name="Subscription" Kind="Class" />
-      <Type Name="TargetPositionChangedEventArgs" Kind="Structure" />
-      <Type Name="TargetRotationChangedEventArgs" Kind="Structure" />
-      <Type Name="Technique" Kind="Class" />
-      <Type Name="TemporaryChangedEventArgs" Kind="Structure" />
-      <Type Name="Terrain" Kind="Class" />
-      <Type Name="TerrainCreatedEventArgs" Kind="Structure" />
-      <Type Name="TerrainPatch" Kind="Class" />
-      <Type Name="TextInputEventArgs" Kind="Structure" />
-      <Type Name="Texture" Kind="Class" />
-      <Type Name="Texture3D" Kind="Class" />
-      <Type Name="TextureAddressMode" Kind="Enumeration" />
-      <Type Name="TextureCoordinate" Kind="Enumeration" />
-      <Type Name="TextureCube" Kind="Class" />
-      <Type Name="TextureFilterMode" Kind="Enumeration" />
-      <Type Name="TextureFrame" Kind="Structure" />
-      <Type Name="TextureUnit" Kind="Enumeration" />
-      <Type Name="TextureUsage" Kind="Enumeration" />
-      <Type Name="Time" Kind="Class" />
-      <Type Name="TouchBeginEventArgs" Kind="Structure" />
-      <Type Name="TouchEndEventArgs" Kind="Structure" />
-      <Type Name="TouchMoveEventArgs" Kind="Structure" />
-      <Type Name="TouchState" Kind="Structure" />
-      <Type Name="TransformSpace" Kind="Enumeration" />
-      <Type Name="UnknownComponent" Kind="Class" />
-      <Type Name="UpdateEventArgs" Kind="Structure" />
-      <Type Name="UpdateGeometryType" Kind="Enumeration" />
-      <Type Name="UpdateSmoothingEventArgs" Kind="Structure" />
-      <Type Name="UrhoConsole" Kind="Class" />
-      <Type Name="UrhoObject" Kind="Class" />
-      <Type Name="UrhoObjectFlag" Kind="Enumeration" />
-      <Type Name="UrhoString" Kind="Structure" />
-      <Type Name="ValueAnimation" Kind="Class" />
-      <Type Name="ValueAnimationInfo" Kind="Class" />
-      <Type Name="Variant" Kind="Structure" />
-      <Type Name="VariantType" Kind="Enumeration" />
-      <Type Name="Vector2" Kind="Structure" />
-      <Type Name="Vector3" Kind="Structure" />
-      <Type Name="Vector4" Kind="Structure" />
-      <Type Name="VectorBase" Kind="Structure" />
-      <Type Name="VertexBuffer" Kind="Class" />
-      <Type Name="VertexElement" Kind="Enumeration" />
-      <Type Name="VertexLightVSVariation" Kind="Enumeration" />
-      <Type Name="View" Kind="Class" />
-      <Type Name="ViewOverrideFlags" Kind="Enumeration" />
-      <Type Name="Viewport" Kind="Class" />
-      <Type Name="WeakPtr" Kind="Structure" />
-      <Type Name="WindowPosEventArgs" Kind="Structure" />
-      <Type Name="WorkItem" Kind="Structure" />
-      <Type Name="WorkItemCompletedEventArgs" Kind="Structure" />
-      <Type Name="WorkQueue" Kind="Class" />
-      <Type Name="WrapMode" Kind="Enumeration" />
-      <Type Name="Zone" Kind="Class" />
-    </Namespace>
-
   </Types>
   <Title>Urho</Title>
+  <ExtensionMethods>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IntPtr" />
+      </Targets>
+      <Member MemberName="ReadSingle">
+        <MemberSignature Language="C#" Value="public static float ReadSingle (this IntPtr ptr, int offset);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 ReadSingle(native int ptr, int32 offset) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Single</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="ptr" Type="System.IntPtr" RefType="this" />
+          <Parameter Name="offset" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <param name="ptr">To be added.</param>
+          <param name="offset">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Urho.MarshalHelper" Member="M:Urho.MarshalHelper.ReadSingle(System.IntPtr,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IntPtr" />
+      </Targets>
+      <Member MemberName="ToBytesArray">
+        <MemberSignature Language="C#" Value="public static byte[] ToBytesArray (this IntPtr ptr, int size);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int8[] ToBytesArray(native int ptr, int32 size) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Byte[]</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="ptr" Type="System.IntPtr" RefType="this" />
+          <Parameter Name="size" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <param name="ptr">To be added.</param>
+          <param name="size">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Urho.MarshalHelper" Member="M:Urho.MarshalHelper.ToBytesArray(System.IntPtr,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IntPtr" />
+      </Targets>
+      <Member MemberName="ToFloatsArray">
+        <MemberSignature Language="C#" Value="public static float[] ToFloatsArray (this IntPtr ptr, int size);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32[] ToFloatsArray(native int ptr, int32 size) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Single[]</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="ptr" Type="System.IntPtr" RefType="this" />
+          <Parameter Name="size" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <param name="ptr">To be added.</param>
+          <param name="size">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Urho.MarshalHelper" Member="M:Urho.MarshalHelper.ToFloatsArray(System.IntPtr,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IntPtr" />
+      </Targets>
+      <Member MemberName="ToIntsArray">
+        <MemberSignature Language="C#" Value="public static int[] ToIntsArray (this IntPtr ptr, int size);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32[] ToIntsArray(native int ptr, int32 size) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Int32[]</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="ptr" Type="System.IntPtr" RefType="this" />
+          <Parameter Name="size" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <param name="ptr">To be added.</param>
+          <param name="size">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Urho.MarshalHelper" Member="M:Urho.MarshalHelper.ToIntsArray(System.IntPtr,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IntPtr" />
+      </Targets>
+      <Member MemberName="ToStructsArray&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static T[] ToStructsArray&lt;T&gt; (this IntPtr ptr, int size) where T : struct;" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!T[] ToStructsArray&lt;struct .ctor (class System.ValueType) T&gt;(native int ptr, int32 size) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>T[]</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T">
+            <Constraints>
+              <ParameterAttribute>DefaultConstructorConstraint</ParameterAttribute>
+              <ParameterAttribute>NotNullableValueTypeConstraint</ParameterAttribute>
+              <BaseTypeName>System.ValueType</BaseTypeName>
+            </Constraints>
+          </TypeParameter>
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="ptr" Type="System.IntPtr" RefType="this" />
+          <Parameter Name="size" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="ptr">To be added.</param>
+          <param name="size">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Urho.MarshalHelper" Member="M:Urho.MarshalHelper.ToStructsArray``1(System.IntPtr,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+  </ExtensionMethods>
 </Overview>

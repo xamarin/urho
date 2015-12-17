@@ -254,22 +254,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Exists">
       <MemberSignature Language="C#" Value="public bool Exists (string name);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Exists(string name) cil managed" />
@@ -508,45 +492,41 @@
       </Docs>
     </Member>
     <Member MemberName="GetMemoryBudget">
-      <MemberSignature Language="C#" Value="public uint GetMemoryBudget (Urho.StringHash type);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetMemoryBudget(valuetype Urho.StringHash type) cil managed" />
+      <MemberSignature Language="C#" Value="public ulong GetMemoryBudget (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int64 GetMemoryBudget(valuetype Urho.StringHash type) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
+        <ReturnType>System.UInt64</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="type" Type="Urho.StringHash" />
       </Parameters>
       <Docs>
         <param name="type">To be added.</param>
-        <summary>
-            Return memory budget for a resource type.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetMemoryUse">
-      <MemberSignature Language="C#" Value="public uint GetMemoryUse (Urho.StringHash type);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetMemoryUse(valuetype Urho.StringHash type) cil managed" />
+      <MemberSignature Language="C#" Value="public ulong GetMemoryUse (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int64 GetMemoryUse(valuetype Urho.StringHash type) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
+        <ReturnType>System.UInt64</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="type" Type="Urho.StringHash" />
       </Parameters>
       <Docs>
         <param name="type">To be added.</param>
-        <summary>
-            Return total memory use for a resource type.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1030,6 +1010,23 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="PrintMemoryUsage">
+      <MemberSignature Language="C#" Value="public string PrintMemoryUsage ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string PrintMemoryUsage() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ReleaseAllResources">
       <MemberSignature Language="C#" Value="public void ReleaseAllResources (bool force);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseAllResources(bool force) cil managed" />
@@ -1422,8 +1419,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetMemoryBudget">
-      <MemberSignature Language="C#" Value="public void SetMemoryBudget (Urho.StringHash type, uint budget);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMemoryBudget(valuetype Urho.StringHash type, unsigned int32 budget) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetMemoryBudget (Urho.StringHash type, ulong budget);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMemoryBudget(valuetype Urho.StringHash type, unsigned int64 budget) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1433,14 +1430,12 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="type" Type="Urho.StringHash" />
-        <Parameter Name="budget" Type="System.UInt32" />
+        <Parameter Name="budget" Type="System.UInt64" />
       </Parameters>
       <Docs>
         <param name="type">To be added.</param>
         <param name="budget">To be added.</param>
-        <summary>
-            Set memory budget for a specific resource type, default 0 is unlimited.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1588,14 +1583,14 @@
       </Docs>
     </Member>
     <Member MemberName="TotalMemoryUse">
-      <MemberSignature Language="C#" Value="public uint TotalMemoryUse { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TotalMemoryUse" />
+      <MemberSignature Language="C#" Value="public ulong TotalMemoryUse { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int64 TotalMemoryUse" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
+        <ReturnType>System.UInt64</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

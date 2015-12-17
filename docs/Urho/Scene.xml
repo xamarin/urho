@@ -280,22 +280,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="BeginThreadedUpdate">
       <MemberSignature Language="C#" Value="public void BeginThreadedUpdate ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void BeginThreadedUpdate() cil managed" />

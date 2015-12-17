@@ -56,38 +56,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public virtual Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="BaseTypeStatic">
-      <MemberSignature Language="C#" Value="public static Urho.StringHash BaseTypeStatic { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash BaseTypeStatic" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Category">
       <MemberSignature Language="C#" Value="public string Category { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Category" />
@@ -247,6 +215,86 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IsInstanceOf">
+      <MemberSignature Language="C#" Value="public bool IsInstanceOf (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsInstanceOf(valuetype Urho.StringHash type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsInstanceOf">
+      <MemberSignature Language="C#" Value="public bool IsInstanceOf (Urho.TypeInfo* typeInfo);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsInstanceOf(valuetype Urho.TypeInfo* typeInfo) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="typeInfo" Type="Urho.TypeInfo*" />
+      </Parameters>
+      <Docs>
+        <param name="typeInfo">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsTypeOf">
+      <MemberSignature Language="C#" Value="public static bool IsTypeOf (Urho.StringHash type);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsTypeOf(valuetype Urho.StringHash type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsTypeOf">
+      <MemberSignature Language="C#" Value="public static bool IsTypeOf (Urho.TypeInfo* typeInfo);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsTypeOf(valuetype Urho.TypeInfo* typeInfo) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="typeInfo" Type="Urho.TypeInfo*" />
+      </Parameters>
+      <Docs>
+        <param name="typeInfo">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SendEvent">
       <MemberSignature Language="C#" Value="public void SendEvent (Urho.StringHash eventType);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SendEvent(valuetype Urho.StringHash eventType) cil managed" />
@@ -330,6 +378,38 @@
         <summary>Urho's type system type.</summary>
         <value>StringHash representing the type for this C# type.</value>
         <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeInfo">
+      <MemberSignature Language="C#" Value="public Urho.TypeInfo* TypeInfo { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TypeInfo* TypeInfo" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TypeInfo*</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeInfoStatic">
+      <MemberSignature Language="C#" Value="public static Urho.TypeInfo* TypeInfoStatic { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.TypeInfo* TypeInfoStatic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TypeInfo*</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeName">

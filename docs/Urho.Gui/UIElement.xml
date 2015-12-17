@@ -164,38 +164,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="BaseTypeStatic">
-      <MemberSignature Language="C#" Value="public static Urho.StringHash BaseTypeStatic { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property valuetype Urho.StringHash BaseTypeStatic" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="BringToBackOnFocus">
       <MemberSignature Language="C#" Value="public bool BringToBackOnFocus { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool BringToBackOnFocus" />
@@ -1023,6 +991,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="EffectiveMinSize">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 EffectiveMinSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 EffectiveMinSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ElementAdded">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ElementAddedEventArgs&gt; ElementAdded;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ElementAddedEventArgs&gt; ElementAdded" />
@@ -1718,6 +1702,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="LayoutElementMaxSize">
+      <MemberSignature Language="C#" Value="public int LayoutElementMaxSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 LayoutElementMaxSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="LayoutFlexScale">
       <MemberSignature Language="C#" Value="public Urho.Vector2 LayoutFlexScale { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 LayoutFlexScale" />
@@ -1733,42 +1733,6 @@
             Return layout flex scale.
             Or
             Set layout flex scale.
-            </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="LayoutMaxSize">
-      <MemberSignature Language="C#" Value="public int LayoutMaxSize { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 LayoutMaxSize" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Return maximum layout element size in the layout direction. Only valid after layout has been calculated. Used internally by UI for optimizations.
-            </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="LayoutMinSize">
-      <MemberSignature Language="C#" Value="public int LayoutMinSize { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 LayoutMinSize" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Return minimum layout element size in the layout direction. Only valid after layout has been calculated. Used internally by UI for optimizations.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>

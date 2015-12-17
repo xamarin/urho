@@ -153,22 +153,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="BaseType">
-      <MemberSignature Language="C#" Value="public override Urho.StringHash BaseType { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash BaseType" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.StringHash</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Urho's type system base type.</summary>
-        <value>StringHash representing the base type for this Urho type.</value>
-        <remarks>This returns the Urho type system base type and is surfaced for low-level Urho code.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="DefineShape">
       <MemberSignature Language="C#" Value="public void DefineShape (string shape, Urho.Resources.Image image, Urho.IntRect imageRect, Urho.IntVector2 hotSpot);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DefineShape(string shape, class Urho.Resources.Image image, valuetype Urho.IntRect imageRect, valuetype Urho.IntVector2 hotSpot) cil managed" />
