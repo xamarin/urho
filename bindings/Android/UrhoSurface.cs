@@ -21,18 +21,18 @@ namespace Urho.Droid
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
-		public static SDLSurface CreateSurface<TApplication>(Activity activity) where TApplication : Application
+		public static SDLSurface CreateSurface<TApplication>(Activity activity, ApplicationOptions options = null) where TApplication : Application
 		{
-			return CreateSurface(activity, typeof (TApplication));
+			return CreateSurface(activity, typeof (TApplication), options);
 		}
 
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
-		public static SDLSurface CreateSurface(Activity activity, Type applicationType)
+		public static SDLSurface CreateSurface(Activity activity, Type applicationType, ApplicationOptions options = null)
 		{
 			UrhoEngine.Init();
-			UrhoEngine.RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType).Run());
+			UrhoEngine.RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, options).Run());
 			return SDLActivity.CreateSurface(activity);
 		}
 
