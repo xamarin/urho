@@ -36,7 +36,7 @@ Windows32:
 	make -j1 libUrho3D.a -f MakeWindows ARCH="" && make -j1 CoreData.pak -f MakeWindows
 
 Windows64:
-	make -j1 libUrho3D.a -f MakeWindows ARCH=" Win64" && make -j1 CoreData.pak -f MakeWindows
+	make -j1 libUrho3D.a -f MakeWindows && make -j1 CoreData.pak -f MakeWindows
 
 All-Macos: Android Mac iOS
 

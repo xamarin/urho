@@ -105,7 +105,8 @@ Among the features of the Urho3D you will find:
      <file src="Bin/Desktop/Urho.Desktop.XML" target="lib/net45/Urho.Desktop.XML" />
      <file src="Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/net45/Urho.XML" />
-     <file src="Bin/Desktop/mono-urho.dll" target="native/Win64/mono-urho.dll" />
+     <file src="Bin/Desktop/Win64/mono-urho.dll" target="native/Win64/mono-urho.dll" />
+     <file src="Bin/Desktop/Win32/mono-urho.dll" target="native/Win32/mono-urho.dll" />
      <file src="Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
    
    </files>
