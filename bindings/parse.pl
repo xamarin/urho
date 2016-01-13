@@ -105,6 +105,7 @@ print CS "using Urho.Resources;\n";
 print CS "using Urho.IO;\n";
 
 print CS "namespace Urho {\n\n";
+print CS "\t[UnmanagedFunctionPointer(CallingConvention.Cdecl)]";
 print CS "\tpublic delegate void ObjectCallbackSignature (IntPtr data, int stringhash, IntPtr variantMap);\n";
 print CS "}\n\n";
 print CPP "#define URHO3D_OPENGL\n";
