@@ -32,12 +32,15 @@ iOS:
 tvOS:
 	make -j1 fat-libmono-urho.dylib -f MaketvOS
 
-Windows:
-	make -j1 libUrho3D.a -f MakeWindows && make -j1 CoreData.pak -f MakeWindows
+Windows32:
+	make -j1 libUrho3D.a -f MakeWindows ARCH="" && make -j1 CoreData.pak -f MakeWindows
+
+Windows64:
+	make -j1 libUrho3D.a -f MakeWindows ARCH=" Win64" && make -j1 CoreData.pak -f MakeWindows
 
 All-Macos: Android Mac iOS
 
-All-Windows: Android Windows
+All-Windows: Android Windows64
 
 $(LOCAL_CLANG): 
 	if test ! -e clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; then curl -O http://llvm.org/releases/3.7.0/clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; fi
