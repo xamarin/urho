@@ -86,7 +86,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\..\Bin\Desktop</OutDir>
+    <OutDir>..\..\..\Bin\Desktop\Win64</OutDir>
     <TargetName>mono-urho</TargetName>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
@@ -98,7 +98,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\..\..\Bin\Desktop</OutDir>
+    <OutDir>..\..\..\Bin\Desktop\Win32</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetName>mono-urho</TargetName>
     <LinkIncremental>false</LinkIncremental>
@@ -136,9 +136,9 @@
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <SubSystem>Windows</SubSystem>
       <LinkTimeCodeGeneration />
-      <TargetMachine>MachineX64</TargetMachine>
+      <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers />
-      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions> /machine:x86 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
