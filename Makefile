@@ -33,10 +33,10 @@ tvOS:
 	make -j1 fat-libmono-urho.dylib -f MaketvOS
 
 Windows32:
-	make -j1 libUrho3D.a -f MakeWindows ARCH="" && make -j1 CoreData.pak -f MakeWindows
+	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14" && make -j1 CoreData.pak -f MakeWindows
 
 Windows64:
-	make -j1 libUrho3D.a -f MakeWindows && make -j1 CoreData.pak -f MakeWindows
+	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" && make -j1 CoreData.pak -f MakeWindows
 
 All-Macos: Android Mac iOS
 
