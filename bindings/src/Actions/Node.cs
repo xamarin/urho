@@ -30,6 +30,16 @@ namespace Urho
 			return tcs.Task;
 		}
 
+		public void RemoveAction(ActionState state)
+		{
+			Application.Current.ActionManager.RemoveAction(state);
+		}
+
+		public void RemoveAction(BaseAction action)
+		{
+			Application.Current.ActionManager.RemoveAction(action, this);
+		}
+
 		public void RemoveAllActions()
 		{
 			Application.Current.ActionManager.RemoveAllActionsFromTarget(this);
