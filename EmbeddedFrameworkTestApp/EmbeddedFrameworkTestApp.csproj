@@ -15,7 +15,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;__IOS__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -103,11 +103,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\bindings\iOS\Urho.iOS.csproj">
-      <Project>{048373c2-b60a-4f61-b095-287c57437efb}</Project>
+      <Project>{048373C2-B60A-4F61-B095-287C57437EFB}</Project>
       <Name>Urho.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\bindings\Urho.csproj">
-      <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
+      <Project>{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}</Project>
       <Name>Urho</Name>
     </ProjectReference>
   </ItemGroup>

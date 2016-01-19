@@ -15,6 +15,7 @@ namespace EmbeddedFrameworkTestApp
 
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
+			Urho.iOS.UrhoEngine.Init ();
 			var contextPtr = Context_Context();
 
 			Window = new UIWindow(UIScreen.MainScreen.Bounds);
