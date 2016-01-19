@@ -46,6 +46,9 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>1c92fa31-7088-4869-9304-8ff238fee60a</CodesignProvision>
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -100,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\bindings\iOS\Urho.iOS.Bindings\Urho.iOS.Bindings.csproj">
-      <Project>{048373c2-b60a-4f61-b095-287c57437efb}</Project>
+      <Project>{048373C2-B60A-4F61-B095-287C57437EFB}</Project>
       <Name>Urho.iOS.Bindings</Name>
     </ProjectReference>
   </ItemGroup>

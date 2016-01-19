@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Urho.Network {
 	public partial class Network {
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static int Network_Connect (IntPtr handle, string address, short port, IntPtr scene);
 
 		public bool Connect (string address, short port, Scene scene)

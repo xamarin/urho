@@ -24,7 +24,7 @@ namespace Urho {
 	[StructLayout(LayoutKind.Sequential)]
 	public unsafe partial struct WorkItem
 	{
-		[DllImport("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal static extern IntPtr WorkItem_WorkItem();
 
 		public WorkItem(IntPtr p)
@@ -35,7 +35,7 @@ namespace Urho {
 	[StructLayout(LayoutKind.Sequential)]
 	public unsafe partial struct RefCount
 	{
-		[DllImport("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal static extern IntPtr RefCount_RefCount();
 	}
 }

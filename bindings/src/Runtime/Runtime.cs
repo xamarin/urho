@@ -29,10 +29,10 @@ namespace Urho
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		delegate void MonoComponentCallback(IntPtr componentPtr, IntPtr xmlElementPtr, MonoComponentCallbackType eventType);
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RegisterMonoRefCountedCallback(MonoRefCountedCallback callback);
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RegisterMonoComponentCallback(MonoComponentCallback callback);
 
 		/// <summary>

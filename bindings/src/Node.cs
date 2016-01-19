@@ -15,7 +15,7 @@ using System.Reflection;
 namespace Urho {
 
 	internal partial class NodeHelper {
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal extern static IntPtr urho_node_get_components(IntPtr node, int code, int recursive, out int count);
 	}
 	

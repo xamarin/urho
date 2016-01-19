@@ -34,28 +34,28 @@ namespace Urho {
 			}
 		}
 		
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static void Controls_Destroy (IntPtr handle);
 		
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr Controls_Create ();
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static uint Controls_GetButtons (IntPtr handle);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static void Controls_SetButtons (IntPtr handle, uint value);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static float Controls_GetYaw (IntPtr handle);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static void Controls_SetYaw (IntPtr handle, float yaw);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static float Controls_GetPitch (IntPtr handle);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static void Controls_SetPitch (IntPtr handle, float yaw);
 		
 		public uint Buttons {
@@ -78,7 +78,7 @@ namespace Urho {
 			return ((Buttons & button) != 0) && ((previousControls.Buttons & button) != 0);
 		}
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void Controls_Reset (IntPtr handle);
 
 		public void Reset ()
@@ -86,7 +86,7 @@ namespace Urho {
 			Controls_Reset (handle);
 		}
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void Controls_Set (IntPtr handle, uint buttons, bool down);
 
 		public void Set (uint buttons, bool down)
@@ -94,7 +94,7 @@ namespace Urho {
 			Controls_Set (handle, buttons, down);
 		}
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal static extern bool Controls_IsDown (IntPtr handle, uint button);
 
 		public bool IsDown (uint button)

@@ -5,7 +5,7 @@ namespace Urho.Navigation
 {
 	partial class NavigationMesh
 	{
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal extern static IntPtr urho_navigationmesh_findpath(IntPtr navMesh, Vector3 start, Vector3 end, out int count);
 
 		public Vector3[] FindPath(Vector3 start, Vector3 end)

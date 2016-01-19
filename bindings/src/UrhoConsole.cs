@@ -5,10 +5,10 @@ namespace Urho
 {
 	partial class UrhoConsole
 	{
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Console_OpenConsoleWindow();
 		
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Console_GetConsoleInput();
 
 		public static void OpenConsoleWindow()

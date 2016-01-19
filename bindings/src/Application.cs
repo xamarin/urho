@@ -29,7 +29,7 @@ namespace Urho {
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		static extern IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args, IntPtr externalWindow);
 
 		static Application current;
@@ -181,7 +181,7 @@ namespace Urho {
 		internal ActionManager ActionManager { get; } = new ActionManager();
 
 
-		[DllImport("mono-urho", EntryPoint = "Urho_GetPlatform", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, EntryPoint = "Urho_GetPlatform", CallingConvention = CallingConvention.Cdecl)]
 		static extern IntPtr GetPlatform();
 
 		static Platforms platform;
@@ -314,7 +314,7 @@ namespace Urho {
 			}
 		}
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr Application_GetEngine (IntPtr handle);
 		Engine engine;
 

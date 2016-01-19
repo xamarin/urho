@@ -44,7 +44,7 @@ fat-libmono-urho.dylib:
 	make libmono-urho.dylib -f MakeiOS ARCH="i386" && make libmono-urho.dylib -f MakeiOS ARCH="armv7" && make libmono-urho.dylib -f MakeiOS ARCH="arm64" && cd $(OUTPUT_DIR) && lipo -create libmono-urho_i386.dylib libmono-urho_armv7.dylib libmono-urho_arm64.dylib -output libmono-urho.dylib
 
 Urho.framework: fat-libmono-urho.dylib
-	rm -rf $(OUTPUT_DIR)/Urho.framework && mkdir $(OUTPUT_DIR)/Urho.framework && cp bindings/iOS/Urho.iOS.Bindings/Urho.framework.plist $(OUTPUT_DIR)/Urho.framework/Urho.plist && cd $(OUTPUT_DIR) && cp libmono-Urho.dylib Urho.framework/Urho && install_name_tool -id @rpath/Urho.framework/Urho Urho.framework/Urho
+	rm -rf $(OUTPUT_DIR)/Urho.framework && mkdir $(OUTPUT_DIR)/Urho.framework && cp bindings/iOS/Urho.iOS.Bindings/Urho.framework.plist $(OUTPUT_DIR)/Urho.framework/Info.plist && cd $(OUTPUT_DIR) && cp libmono-Urho.dylib Urho.framework/Urho && install_name_tool -id mono-urho Urho.framework/Urho
 
 binding.o: 
 	$(CPP) -c -o $(OUTPUT_DIR)/binding.o bindings/generated/binding.cpp 

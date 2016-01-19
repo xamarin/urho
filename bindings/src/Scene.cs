@@ -7,7 +7,7 @@ namespace Urho
 {
 	partial class Scene
 	{
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool Scene_LoadXMLFromCache(IntPtr handle, IntPtr cache, string file);
 
 		public bool LoadXmlFromCache(ResourceCache cache, string file)

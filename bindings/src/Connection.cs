@@ -11,10 +11,10 @@ namespace Urho.Network {
 			}
 		}
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr Connection_GetControls (IntPtr handle);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static IntPtr Connection_SetControls (IntPtr handle, IntPtr controlHandle);
 		
 		public Controls Controls {

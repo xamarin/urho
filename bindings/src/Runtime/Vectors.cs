@@ -7,13 +7,13 @@ using System.Runtime.InteropServices;
 namespace Urho
 {
 	internal static class Vectors {
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal extern static int VectorSharedPtr_Count (IntPtr h);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal extern static IntPtr VectorSharedPtr_GetIdx (IntPtr h, int idx);
 
-		[DllImport ("mono-urho", CallingConvention=CallingConvention.Cdecl)]
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal extern static void VectorSharedPtr_SetIdx (IntPtr h, int idx, IntPtr v);
 
 		internal class ProxyUrhoObject<T> : ProxyRefCounted<T>, IReadOnlyList<T> where T : UrhoObject

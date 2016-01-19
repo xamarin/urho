@@ -143,13 +143,13 @@ namespace SharpieBinder
 				pn ("\treturn &(*obj)[idx];");
 				pn ("}");
 
-				ps.WriteLine ("\t\t[DllImport (\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]");
+				ps.WriteLine ("\t\t[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]");
 				ps.WriteLine ($"\t\tinternal extern static IntPtr {flatName}_new ();");
-				ps.WriteLine ("\t\t[DllImport (\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]");
+				ps.WriteLine ("\t\t[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]");
 				ps.WriteLine ($"\t\tinternal extern static void {flatName}_destroy (IntPtr handle);");
-				ps.WriteLine ("\t\t[DllImport (\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]");
+				ps.WriteLine ("\t\t[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]");
 				ps.WriteLine ($"\t\tinternal extern static int {flatName}_count (IntPtr handle);");
-				ps.WriteLine ("\t\t[DllImport (\"mono-urho\", CallingConvention=CallingConvention.Cdecl)]");
+				ps.WriteLine ("\t\t[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]");
 				ps.WriteLine ($"\t\tinternal extern static IntPtr {flatName}_item (IntPtr handle, int item);");
 				var elementType = p.Replace ("PODVEctor<class ", "").Trim ('>', '*', ' ');
 			}
@@ -1250,7 +1250,7 @@ namespace SharpieBinder
 				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
 
 			var dllImport = new Attribute { Type = new SimpleType("DllImport") };
-			dllImport.Arguments.Add (new PrimitiveExpression ("mono-urho"));
+			dllImport.Arguments.Add (csParser.ParseExpression ("Consts.NativeImport"));
 			dllImport.Arguments.Add (new AssignmentExpression (new IdentifierExpression ("CallingConvention"), csParser.ParseExpression ("CallingConvention.Cdecl")));
 			pinvoke.Attributes.Add(new AttributeSection(dllImport));
 

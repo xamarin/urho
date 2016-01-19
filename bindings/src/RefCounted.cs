@@ -38,7 +38,7 @@ namespace Urho {
 			GC.SuppressFinalize(this);
 		}
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void TryDeleteRefCounted(IntPtr handle);
 
 		/// <summary>
