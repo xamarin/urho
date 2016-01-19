@@ -1,36 +1,34 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("Urho.iOS")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Urho.iOS")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+using Foundation;
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
+// This attribute allows you to mark your assemblies as “safe to link”.
+// When the attribute is present, the linker—if enabled—will process the assembly
+// even if you’re using the “Link SDK assemblies only” option, which is the default for device builds.
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9ae80bd9-e1e2-41da-bb6f-712b35028bd9")]
+[assembly: LinkerSafe]
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+// Information about this assembly is defined by the following attributes.
+// Change them to the values specific to your project.
+
+[assembly: AssemblyTitle ("Urho.iOS.Bindings")]
+[assembly: AssemblyDescription ("")]
+[assembly: AssemblyConfiguration ("")]
+[assembly: AssemblyCompany ("")]
+[assembly: AssemblyProduct ("")]
+[assembly: AssemblyCopyright ("admin")]
+[assembly: AssemblyTrademark ("")]
+[assembly: AssemblyCulture ("")]
+
+// The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
+// The form "{Major}.{Minor}.*" will automatically update the build and revision,
+// and "{Major}.{Minor}.{Build}.*" will update just the revision.
+
+[assembly: AssemblyVersion ("1.0.*")]
+
+// The following attributes are used to specify the signing key for the assembly,
+// if desired. See the Mono documentation for more information about signing.
+
+//[assembly: AssemblyDelaySign(false)]
+//[assembly: AssemblyKeyFile("")]

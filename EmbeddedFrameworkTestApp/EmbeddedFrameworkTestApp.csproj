@@ -102,9 +102,13 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\bindings\iOS\Urho.iOS.Bindings\Urho.iOS.Bindings.csproj">
-      <Project>{048373C2-B60A-4F61-B095-287C57437EFB}</Project>
-      <Name>Urho.iOS.Bindings</Name>
+    <ProjectReference Include="..\bindings\iOS\Urho.iOS.csproj">
+      <Project>{048373c2-b60a-4f61-b095-287c57437efb}</Project>
+      <Name>Urho.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bindings\Urho.csproj">
+      <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
+      <Name>Urho</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
