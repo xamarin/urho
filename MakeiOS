@@ -47,16 +47,16 @@ Urho.framework: fat-libmono-urho.dylib
 	rm -rf $(OUTPUT_DIR)/Urho.framework && mkdir $(OUTPUT_DIR)/Urho.framework && cp bindings/iOS/Urho.framework.plist $(OUTPUT_DIR)/Urho.framework/Info.plist && cd $(OUTPUT_DIR) && cp libmono-Urho.dylib Urho.framework/Urho && install_name_tool -id @rpath/Urho.framework/Urho Urho.framework/Urho
 
 binding.o: 
-	$(CPP) -c -o $(OUTPUT_DIR)/binding.o bindings/generated/binding.cpp 
+	$(CPP) -c -o $(OUTPUT_DIR)/binding.o bindings/Portable/Generated/binding.cpp 
 
 glue.o:
-	$(CPP) -c -o $(OUTPUT_DIR)/glue.o bindings/src/glue.cpp 
+	$(CPP) -c -o $(OUTPUT_DIR)/glue.o bindings/Native/glue.cpp 
 
 vector.o:
-	$(CPP) -c -o $(OUTPUT_DIR)/vector.o bindings/src/vector.cpp 
+	$(CPP) -c -o $(OUTPUT_DIR)/vector.o bindings/Native/vector.cpp 
 
 events.o:
-	$(CPP) -c -o $(OUTPUT_DIR)/events.o bindings/generated/events.cpp
+	$(CPP) -c -o $(OUTPUT_DIR)/events.o bindings/Portable/Generated/events.cpp
 
 ApplicationProxy.o:
-	$(CPP) -c -o $(OUTPUT_DIR)/ApplicationProxy.o bindings/src/ApplicationProxy.cpp
+	$(CPP) -c -o $(OUTPUT_DIR)/ApplicationProxy.o bindings/Native/ApplicationProxy.cpp

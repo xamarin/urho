@@ -6,7 +6,7 @@
 #ifndef _MSC_VER
 #   include <unistd.h>
 #endif
-#include "../AllUrho.h"
+#include "AllUrho.h"
 #include "glue.h"
 using namespace Urho3D;
 

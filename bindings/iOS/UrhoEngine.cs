@@ -6,10 +6,10 @@ namespace Urho.iOS
 {
 	public static class UrhoEngine
 	{
-		[DllImport(Consts.NativeImport)]
+		[DllImport("@rpath/Urho.framework/Urho")]
 		static extern void InitSdl(string resDir, string docDir);
 
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		[DllImport("@rpath/Urho.framework/Urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetMainReady();
 
 		public static void Init()

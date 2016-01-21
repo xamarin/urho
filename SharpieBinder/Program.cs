@@ -7,7 +7,7 @@ namespace SharpieBinder
 	
 	class MainClass
 	{
-		const string Output = "../../bindings/generated";
+		const string Output = "../../bindings/Portable/Generated";
 
 		public static int Main (string[] args)
 		{

@@ -4,9 +4,9 @@
 #   include <unistd.h>
 #endif
 #include <stdlib.h>
-#include "../AllUrho.h"
+#include "AllUrho.h"
 #include "glue.h"
-#include "../src/interop.h"
+#include "interop.h"
 using namespace Urho3D;
 
 //

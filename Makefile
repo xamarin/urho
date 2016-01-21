@@ -38,9 +38,11 @@ Windows32:
 Windows64:
 	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" && make -j1 CoreData.pak -f MakeWindows
 
+Windows: Windows32 Windows64
+	
 All-Macos: Android Mac iOS
 
-All-Windows: Android Windows64
+All-Windows: Android Windows
 
 $(LOCAL_CLANG): 
 	if test ! -e clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; then curl -O http://llvm.org/releases/3.7.0/clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; fi
@@ -56,7 +58,7 @@ SharpieBinder: bindings/Urho.pch
 
 ParseEventsMac:
 	@if test ! -d bindings/generated; then echo "Please generate the C# files using SharpieBinder or use 'make SharpieBinder'" && exit 1; fi
-	cd bindings && perl parse.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
+	cd bindings && perl ParseEvents.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
 
 # change references from nuget to projectreferences for Samples/
 RemoveNugetFromSamples:
