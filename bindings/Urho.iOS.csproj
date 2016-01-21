@@ -32,10 +32,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Xml" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiDefinition.cs" />
+    <ObjcBindingApiDefinition Include="iOS\ApiDefinition.cs" />
     <Compile Include="iOS\SdlEvent.cs" />
     <Compile Include="Portable\Actions\ActionManager.cs" />
     <Compile Include="Portable\Actions\Base\Action.cs" />
@@ -424,7 +425,7 @@
     <Compile Include="Portable\VertexBuffer.cs" />
     <Compile Include="Portable\Viewport.cs" />
     <Compile Include="Portable\XmlElement.cs" />
-    <Compile Include="StructsAndEnums.cs" />
+    <ObjcBindingCoreSource Include="iOS\StructsAndEnums.cs" />
     <Compile Include="iOS\UrhoEngine.cs" />
     <Compile Include="iOS\UrhoSurface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

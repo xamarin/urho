@@ -90,8 +90,8 @@ $events{"NetworkSceneLoadFailed"} = "Urho.Network";
 $events{"RemoteEventData"} = "Urho.Network"; 
 
 
-open CS,">generated/Object.Events.cs" || die;
-open CPP,">generated/events.cpp" || die;
+open CS,">Portable/Generated/Object.Events.cs" || die;
+open CPP,">Portable/Generated/events.cpp" || die;
 print CS "using System;\n";
 print CS "using System.Runtime.InteropServices;\n";
 print CS "using Urho.Physics;\n";
