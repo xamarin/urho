@@ -7,7 +7,7 @@ namespace Urho.iOS
 {
 	public class UrhoSurface : UIView
 	{
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport("@rpath/Urho.framework/Urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetExternalViewPlaceholder(IntPtr viewPtr, IntPtr windowPtr);
 
 		public UrhoSurface()

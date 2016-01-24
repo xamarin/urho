@@ -27,7 +27,7 @@ Mac:
 	make -j1 libmono-urho.dylib -f MakeMac
 
 iOS:
-	make -j1 fat-libmono-urho.dylib -f MakeiOS
+	make -j1 Urho.framework -f MakeiOS
 
 tvOS:
 	make -j1 fat-libmono-urho.dylib -f MaketvOS
@@ -38,9 +38,11 @@ Windows32:
 Windows64:
 	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" && make -j1 CoreData.pak -f MakeWindows
 
+Windows: Windows32 Windows64
+	
 All-Macos: Android Mac iOS
 
-All-Windows: Android Windows64
+All-Windows: Android Windows
 
 $(LOCAL_CLANG): 
 	if test ! -e clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; then curl -O http://llvm.org/releases/3.7.0/clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; fi
@@ -49,14 +51,14 @@ $(LOCAL_CLANG):
 #compile Urho.pch for SharpieBinder on Mac
 PchMac: $(LOCAL_CLANG)
 	if test ! -e /usr/include; then xcode-select --install; fi
-	make -j1 Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -o bindings/Urho.pch bindings/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
+	make -j1 Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -o bindings/Urho.pch bindings/Native/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
 
 SharpieBinder: bindings/Urho.pch
 	cd SharpieBinder && $(NUGET) restore SharpieBinder.sln && $(BREW_XBUILD) SharpieBinder.csproj && cd bin && $(BREW_MONO) SharpieBinder.exe
 
 ParseEventsMac:
-	@if test ! -d bindings/generated; then echo "Please generate the C# files using SharpieBinder or use 'make SharpieBinder'" && exit 1; fi
-	cd bindings && perl parse.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
+	@if test ! -d bindings/Portable/Generated; then echo "Please generate the C# files using SharpieBinder or use 'make SharpieBinder'" && exit 1; fi
+	cd bindings && perl ParseEvents.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
 
 # change references from nuget to projectreferences for Samples/
 RemoveNugetFromSamples:

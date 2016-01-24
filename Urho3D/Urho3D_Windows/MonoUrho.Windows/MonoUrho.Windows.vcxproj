@@ -19,18 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Bindings\generated\binding.cpp" />
-    <ClCompile Include="..\..\..\Bindings\generated\events.cpp" />
-    <ClCompile Include="..\..\..\Bindings\src\ApplicationProxy.cpp" />
-    <ClCompile Include="..\..\..\Bindings\src\glue.cpp" />
-    <ClCompile Include="..\..\..\Bindings\src\vector.cpp" />
+    <ClCompile Include="..\..\..\Bindings\Portable\Generated\binding.cpp" />
+    <ClCompile Include="..\..\..\Bindings\Portable\Generated\events.cpp" />
+    <ClCompile Include="..\..\..\Bindings\Native\ApplicationProxy.cpp" />
+    <ClCompile Include="..\..\..\Bindings\Native\glue.cpp" />
+    <ClCompile Include="..\..\..\Bindings\Native\vector.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Bindings\AllUrho.h" />
-    <ClInclude Include="..\..\..\Bindings\src\ApplicationProxy.h" />
-    <ClInclude Include="..\..\..\Bindings\src\asserts.h" />
-    <ClInclude Include="..\..\..\Bindings\src\glue.h" />
-    <ClInclude Include="..\..\..\Bindings\src\interop.h" />
+    <ClInclude Include="..\..\..\Bindings\Native\AllUrho.h" />
+    <ClInclude Include="..\..\..\Bindings\Native\ApplicationProxy.h" />
+    <ClInclude Include="..\..\..\Bindings\Native\asserts.h" />
+    <ClInclude Include="..\..\..\Bindings\Native\glue.h" />
+    <ClInclude Include="..\..\..\Bindings\Native\interop.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6F1CB939-16E1-4753-91B1-A0B5C04D3121}</ProjectGuid>

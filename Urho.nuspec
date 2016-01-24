@@ -78,8 +78,6 @@ Among the features of the Urho3D you will find:
      <file src="Nuget/Android/UrhoSharpReadme.txt" target="content/MonoAndroid/UrhoSharpReadme.txt" />
      <file src="Bin/Android/Urho.Droid.SdlBindings.dll" target="lib/MonoAndroid/Urho.Droid.SdlBindings.dll" />
      <file src="Bin/Android/Urho.Droid.SdlBindings.XML" target="lib/MonoAndroid/Urho.Droid.SdlBindings.XML" />
-     <file src="Bin/Android/Urho.Droid.dll" target="lib/MonoAndroid/Urho.Droid.dll" />
-     <file src="Bin/Android/Urho.Droid.XML" target="lib/MonoAndroid/Urho.Droid.XML" />
      <file src="Bin/Android/Urho.dll" target="lib/MonoAndroid/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/MonoAndroid/Urho.XML" />
 
@@ -87,13 +85,10 @@ Among the features of the Urho3D you will find:
      <file src="Bin/Android/armeabi-v7a/libmono-urho.so" target="native/Android/armeabi-v7a/libmono-urho.so" />
      <file src="Bin/Android/armeabi/libmono-urho.so" target="native/Android/armeabi/libmono-urho.so" />
 
-
      <!--iOS-->
      <file src="Nuget/iOS/UrhoSharp.targets" target="build/Xamarin.iOS10" />
      <file src="Nuget/iOS/UrhoSharpReadme.txt" target="content/Xamarin.iOS10/UrhoSharpReadme.txt" />
-     <file src="Bin/iOS/libmono-urho.dylib" target="native/iOS/libmono-urho.dylib" />
-     <file src="Bin/iOS/Urho.iOS.dll" target="lib/Xamarin.iOS10/Urho.iOS.dll" />
-     <file src="Bin/iOS/Urho.iOS.XML" target="lib/Xamarin.iOS10/Urho.iOS.XML" />
+     <file src="Bin/iOS/Urho.framework.zip" target="lib/Xamarin.iOS10/Urho.framework.zip" />
      <file src="Bin/iOS/Urho.dll" target="lib/Xamarin.iOS10/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/Xamarin.iOS10/Urho.XML" />
 
@@ -101,8 +96,6 @@ Among the features of the Urho3D you will find:
      <!--Windows+Mac-->
      <file src="Nuget/Desktop/UrhoSharp.targets" target="build/net45" />
      <file src="Nuget/Desktop/UrhoSharpReadme.txt" target="content/net45/UrhoSharpReadme.txt" />
-     <file src="Bin/Desktop/Urho.Desktop.dll" target="lib/net45/Urho.Desktop.dll" />
-     <file src="Bin/Desktop/Urho.Desktop.XML" target="lib/net45/Urho.Desktop.XML" />
      <file src="Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/net45/Urho.XML" />
      <file src="Bin/Desktop/Win64/mono-urho.dll" target="native/Win64/mono-urho.dll" />
