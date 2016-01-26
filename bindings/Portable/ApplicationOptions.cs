@@ -60,11 +60,6 @@ namespace Urho
 		public string[] ResourcePaths { get; set; } = null;
 
 		/// <summary>
-		/// Resource prefix path, default to URHO3D_PREFIX_PATH env-var or executable path
-		/// </summary>
-		public string ResourcePrefixPath { get; set; } = null;
-
-		/// <summary>
 		/// Resource package files to use (default: empty)
 		/// </summary>
 		public string[] ResourcePackagesPaths { get; set; } = null;
@@ -116,9 +111,6 @@ namespace Urho
 
 			if (ResourcePackagesPaths?.Length > 0)
 				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
-
-			if (ResourcePrefixPath != null)
-				builder.AppendFormat(" -pp \"{0}\"", ResourcePrefixPath);
 
 			if (TouchEmulation)
 				builder.Append(" -touch");

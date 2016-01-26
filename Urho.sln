@@ -16,6 +16,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{ED29FA71-9
 		MakeiOS = MakeiOS
 		MakeMac = MakeMac
 		Urho.nuspec = Urho.nuspec
+		Nuget\Android\UrhoSharp.targets = Nuget\Android\UrhoSharp.targets
+		Nuget\Desktop\UrhoSharp.targets = Nuget\Desktop\UrhoSharp.targets
+		Nuget\iOS\UrhoSharp.targets = Nuget\iOS\UrhoSharp.targets
+		Nuget\Android\UrhoSharpReadme.txt = Nuget\Android\UrhoSharpReadme.txt
+		Nuget\Desktop\UrhoSharpReadme.txt = Nuget\Desktop\UrhoSharpReadme.txt
+		Nuget\iOS\UrhoSharpReadme.txt = Nuget\iOS\UrhoSharpReadme.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FeatureSamples", "FeatureSamples", "{207BA5C8-8E07-4B99-BC08-5564F529698A}"

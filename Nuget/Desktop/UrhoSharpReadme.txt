@@ -6,7 +6,6 @@ new MyGame().Run();
 
 If you have some custom assets (built-in are not enough for you):
 
-UrhoEngine.Init(pathToAssets);
 new MyGame(new ApplicationOptions("Data")).Run();
 
 if pathToAssets is null - current directory will be used. The pathToAssets should contain "Data" folder with all your assets.

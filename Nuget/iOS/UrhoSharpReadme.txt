@@ -9,8 +9,7 @@ public override bool FinishedLaunching (UIApplication application, NSDictionary 
 async void Launch ()
 {
 	await Task.Yield (); //don't run the game directly in FinishedLaunching 
-	UrhoEngine.Init ();
-	new Demo ().Run ();
+	new MyGame ().Run ();
 }
 
 
