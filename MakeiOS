@@ -60,3 +60,6 @@ events.o:
 
 ApplicationProxy.o:
 	$(CPP) -c -o $(OUTPUT_DIR)/ApplicationProxy.o bindings/Native/ApplicationProxy.cpp
+
+Urho.iOS.dll:
+	/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool -v build "--configuration:Release" -p:Urho.iOS Urho.sln

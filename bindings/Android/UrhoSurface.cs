@@ -22,7 +22,7 @@ namespace Urho.Droid
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate int SdlCallback(IntPtr context);
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void RegisterSdlLauncher(SdlCallback callback);
 
 		/// <summary>
