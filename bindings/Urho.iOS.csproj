@@ -434,7 +434,7 @@
     <Compile Include="Urho.framework.linkwith.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeFramework Include="..\..\Bin\iOS\Urho.framework" />
+    <ObjcBindingNativeFramework Include="..\Bin\iOS\Urho.framework" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Bin\iOS\Urho.framework.zip">
