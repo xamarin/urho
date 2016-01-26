@@ -11,7 +11,7 @@ namespace $safeprojectname$
 {
     public class MyGame : Application
     {
-        public MyGame() : base(new ApplicationOptions { })
+        public MyGame() : base(new ApplicationOptions("Data") { })
         {
         }
 

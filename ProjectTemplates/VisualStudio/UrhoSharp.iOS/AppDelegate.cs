@@ -20,7 +20,6 @@ namespace $safeprojectname$
         async void LaunchGame()
         {
             await Task.Yield();
-            UrhoEngine.Init();
             new MyGame().Run();
         }
     }

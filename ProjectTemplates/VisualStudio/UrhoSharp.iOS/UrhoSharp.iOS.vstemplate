@@ -41,7 +41,6 @@
         </Folder>
         <ProjectItem ReplaceParameters="false" TargetFileName="LaunchScreen.xib">LaunchScreen.xib</ProjectItem>
       </Folder>
-      <ProjectItem ReplaceParameters="true" TargetFileName="UrhoSharpReadme.txt">UrhoSharpReadme.txt</ProjectItem>
     </Project>
   </TemplateContent>
     <WizardExtension>
@@ -54,7 +53,7 @@
   </WizardExtension>
   <WizardData>
     <packages>
-      <package id="UrhoSharp" version="1.0.218" />
+      <package id="UrhoSharp" version="1.0.306" />
     </packages>
   </WizardData>
 </VSTemplate>

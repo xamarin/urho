@@ -36,7 +36,6 @@
       <Folder Name="Properties" TargetFolderName="Properties">
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       </Folder>
-      <ProjectItem ReplaceParameters="true" TargetFileName="UrhoSharpReadme.txt">UrhoSharpReadme.txt</ProjectItem>
     </Project>
   </TemplateContent>
     <WizardExtension>
@@ -49,7 +48,7 @@
   </WizardExtension>
   <WizardData>
     <packages>
-      <package id="UrhoSharp" version="1.0.218" />
+      <package id="UrhoSharp" version="1.0.306" />
     </packages>
   </WizardData>
 </VSTemplate>

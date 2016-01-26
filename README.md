@@ -88,14 +88,14 @@ make -j3 Android
 Obviously you can't do it on OS X so you have to switch to Windows environment. Make sure you have installed:
 - Visual Studio 2015
 - CMake
-- Cygwin or Mingw for "make"
+- GNU make (e.g. cygwin)
 
 SharpieBinder doesn't work on Windows yet so you will have to copy
 bindings/generated folder from OS X environment to Windows.
 
 Execute:
 ```
-make Windows
+make Windows64  (or Windows32)
 ```
 
 (you can also compile Android on Windows via *"make Android"*)
