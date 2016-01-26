@@ -22,10 +22,7 @@ namespace Urho.iOS
 
 		public override void WillMoveToWindow(UIWindow window)
 		{
-			if (!Application.EngineInited)
-			{
-				UrhoEngine.Init(); //just in case if user forgot to call it.
-			}
+			UrhoPlatformInitializer.DefaultInit();
 			SDL_SetExternalViewPlaceholder(Handle, window?.Handle ?? IntPtr.Zero);
 			base.WillMoveToWindow(window);
 		}

@@ -18,7 +18,7 @@ namespace Urho
 #if DESKTOP
 			Desktop.DesktopUrhoInitializer.OnInited();
 #elif IOS
-			iOS.IosPlatformInitializer.OnInited();
+			iOS.IosUrhoInitializer.OnInited();
 #elif ANDROID
 			Droid.DroidPlatformInitializer.OnInited();
 #else
