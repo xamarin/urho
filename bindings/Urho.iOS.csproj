@@ -437,10 +437,10 @@
     <ObjcBindingNativeFramework Include="..\..\Bin\iOS\Urho.framework" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Bin\iOS\Urho.framework.zip">
+    <Content Include="..\Bin\iOS\Urho.framework.zip">
       <Link>Urho.framework.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
