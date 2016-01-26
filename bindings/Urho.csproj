@@ -426,6 +426,7 @@
     <Compile Include="Portable\Viewport.cs" />
     <Compile Include="Portable\XmlElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Portable\UrhoPlatformInitializer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

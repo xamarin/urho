@@ -56,11 +56,6 @@ namespace Urho {
 			private set { currentContext = value; }
 		}
 
-		/// <summary>
-		/// Call UrhoEngine.Init() to initialize the engine
-		/// </summary>
-		public static bool EngineInited { get; set; }
-
 		public Application() : this(new Context(), null) {}
 
 		public Application(ApplicationOptions options) : this(new Context(), options) {}
@@ -151,16 +146,13 @@ namespace Urho {
 		static void ProxyStart (IntPtr h)
 		{
 			Runtime.Initialize();
-			if (!EngineInited)
-			{
-				throw new InvalidOperationException("Urho is not initialized. Please, call UrhoEngine.Init() before app.Run().");
-			}
 			GetApp (h).Start ();
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxyStop (IntPtr h)
 		{
+			UrhoPlatformInitializer.Initialized = false;
 			var context = Current.Context;
 			GetApp (h).Stop ();
 			Runtime.Cleanup();

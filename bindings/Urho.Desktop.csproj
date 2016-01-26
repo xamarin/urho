@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DESKTOP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -26,7 +26,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Bin\Desktop\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;DESKTOP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Desktop\UrhoEngine.cs" />
+    <Compile Include="Desktop\DesktopUrhoInitializer.cs" />
     <Compile Include="Portable\Actions\ActionManager.cs" />
     <Compile Include="Portable\Actions\Base\Action.cs" />
     <Compile Include="Portable\Actions\Base\AmplitudeAction.cs" />
@@ -425,6 +425,7 @@
     <Compile Include="Portable\UIElement.cs" />
     <Compile Include="Portable\UrhoConsole.cs" />
     <Compile Include="Portable\UrhoMap.cs" />
+    <Compile Include="Portable\UrhoPlatformInitializer.cs" />
     <Compile Include="Portable\VertexBuffer.cs" />
     <Compile Include="Portable\Viewport.cs" />
     <Compile Include="Portable\XmlElement.cs" />

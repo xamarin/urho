@@ -428,7 +428,7 @@
     <Compile Include="Portable\Viewport.cs" />
     <Compile Include="Portable\XmlElement.cs" />
     <ObjcBindingCoreSource Include="iOS\StructsAndEnums.cs" />
-    <Compile Include="iOS\UrhoEngine.cs" />
+    <Compile Include="iOS\IosPlatformInitializer.cs" />
     <Compile Include="iOS\UrhoSurface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Urho.framework.linkwith.cs" />

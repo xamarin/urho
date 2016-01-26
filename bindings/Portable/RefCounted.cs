@@ -86,10 +86,7 @@ namespace Urho {
 
 		protected void CheckEngine()
 		{
-			if (!Application.EngineInited)
-			{
-				throw new InvalidOperationException("The engine is not inited. Please call UrhoEngine.Init().");
-			}
+			UrhoPlatformInitializer.DefaultInit();
 		}
 
 		/// <summary>

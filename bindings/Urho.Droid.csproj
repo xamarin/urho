@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -31,7 +31,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Bin\Android\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Android\UrhoEngine.cs" />
+    <Compile Include="Android\DroidPlatformInitializer.cs" />
     <Compile Include="Android\UrhoSurface.cs" />
     <Compile Include="Portable\Actions\ActionManager.cs" />
     <Compile Include="Portable\Actions\Base\Action.cs" />
@@ -433,6 +433,7 @@
     <Compile Include="Portable\UIElement.cs" />
     <Compile Include="Portable\UrhoConsole.cs" />
     <Compile Include="Portable\UrhoMap.cs" />
+    <Compile Include="Portable\UrhoPlatformInitializer.cs" />
     <Compile Include="Portable\VertexBuffer.cs" />
     <Compile Include="Portable\Viewport.cs" />
     <Compile Include="Portable\XmlElement.cs" />

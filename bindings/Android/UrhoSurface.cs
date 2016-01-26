@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using Android.App;
 using Android.Content;
 using Android.Views;
@@ -18,6 +19,12 @@ namespace Urho.Droid
 	/// </summary>
 	public static class UrhoSurface
 	{
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate int SdlCallback(IntPtr context);
+
+		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RegisterSdlLauncher(SdlCallback callback);
+
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
@@ -31,8 +38,7 @@ namespace Urho.Droid
 		/// </summary>
 		public static SDLSurface CreateSurface(Activity activity, Type applicationType, ApplicationOptions options = null)
 		{
-			UrhoEngine.Init();
-			UrhoEngine.RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, options).Run());
+			RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, options).Run());
 			return SDLActivity.CreateSurface(activity);
 		}
 
@@ -79,8 +85,7 @@ namespace Urho.Droid
 		/// </summary>
 		public static void RunInActivity(Type applicationType, ApplicationOptions options = null)
 		{
-			UrhoEngine.Init();
-			UrhoEngine.RegisterSdlLauncher(_ => Application.CreateInstance(applicationType, options).Run());
+			RegisterSdlLauncher(_ => Application.CreateInstance(applicationType, options).Run());
 			var context = Android.App.Application.Context;
 			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));
 			intent.AddFlags(ActivityFlags.NewTask);
