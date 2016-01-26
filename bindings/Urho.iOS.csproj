@@ -425,6 +425,7 @@
     <Compile Include="Portable\UIElement.cs" />
     <Compile Include="Portable\UrhoConsole.cs" />
     <Compile Include="Portable\UrhoMap.cs" />
+    <Compile Include="Portable\UrhoPlatformInitializer.cs" />
     <Compile Include="Portable\VertexBuffer.cs" />
     <Compile Include="Portable\Viewport.cs" />
     <Compile Include="Portable\XmlElement.cs" />
