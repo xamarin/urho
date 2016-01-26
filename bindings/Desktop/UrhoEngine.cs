@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Urho
+namespace Urho.Desktop
 {
 	public static class UrhoEngine
 	{
