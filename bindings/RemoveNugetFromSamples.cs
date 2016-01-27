@@ -47,11 +47,11 @@ class P
 		RemoveTargets(iosDoc);
 		iosDoc.Save(iosCsproj);
 
-		//FeatureSamples.Desktop
-		var desktopCsproj = @"Samples/FeatureSamples/Desktop/Urho.Samples.Desktop.csproj";
+		//FeatureSamples.Mac
+		var desktopCsproj = @"Samples/FeatureSamples/Mac/Urho.Samples.Mac.csproj";
 		var desktopDoc = XDocument.Load(desktopCsproj);
 		ReplaceRef(desktopDoc, "Urho", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
-		ReplaceRef(desktopDoc, "Urho.Desktop", "{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}", @"..\..\..\Bindings\Desktop\Urho.Desktop.csproj", "Urho.Desktop");
+		ReplaceRef(desktopDoc, "Urho.Mac", "{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}", @"..\..\..\Bindings\Mac\Urho.Mac.csproj", "Urho.Mac");
 		RemoveTargets(desktopDoc);
 		desktopDoc.Save(desktopCsproj);
 	}
