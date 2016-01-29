@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrhoSharpVsix", "VSIX\UrhoSharpVsix.csproj", "{26A16684-0BC8-426E-8ECD-21E3D23926D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrhoSharpTemplateWizard", "VSIX\UrhoSharpTemplateWizard\UrhoSharpTemplateWizard.csproj", "{743B2C05-97BF-416F-A512-B4D8FF3EEBD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{26A16684-0BC8-426E-8ECD-21E3D23926D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26A16684-0BC8-426E-8ECD-21E3D23926D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26A16684-0BC8-426E-8ECD-21E3D23926D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{743B2C05-97BF-416F-A512-B4D8FF3EEBD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743B2C05-97BF-416F-A512-B4D8FF3EEBD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743B2C05-97BF-416F-A512-B4D8FF3EEBD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743B2C05-97BF-416F-A512-B4D8FF3EEBD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

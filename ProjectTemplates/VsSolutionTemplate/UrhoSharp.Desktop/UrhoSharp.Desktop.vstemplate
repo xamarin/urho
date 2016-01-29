@@ -39,8 +39,8 @@
     </Project>
   </TemplateContent>
     <WizardExtension>
-    <Assembly>Xamarin.VisualStudio.TemplateWizards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756</Assembly>
-    <FullClassName>Xamarin.VisualStudio.TemplateWizards.ExtractRootProjectNameWizard</FullClassName>
+    <Assembly>UrhoSharpTemplateWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f37fbcd47a310c3f</Assembly>
+    <FullClassName>UrhoSharpTemplateWizard.RootWizard</FullClassName>
   </WizardExtension>
   <WizardExtension>
     <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
