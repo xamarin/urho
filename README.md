@@ -1,18 +1,31 @@
 # UrhoSharp
 
-C# Bindings to the [Urho3D](http://urho3d.github.io/) engine.
+UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games
+that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a 
+portable class library, allowing your game code to be written once and shared across 
+all platforms. UrhoSharp is powered by [Urho3D](http://urho3d.github.io/), 
+a game engine that has been under development for more than a decade. 
 
-The bindings/ for UrhoSharp are licensed under the MIT license, as
+The bindings for Urho3D are licensed under the MIT license, as
 found on the LICENSE file.   
 
 # Sample
 
 Sample code lives in https://github.com/xamarin/urho-samples and
-repository has them as a git submodule. Samples use Urho via nuget.
+repository has them as a git submodule. Samples use UrhoSharp via nuget.
 
-![Very simple sample](https://hsto.org/files/ec1/1c8/d0c/ec11c8d0c4494048bc614e3166df4f3b.png)
+![Sample](https://github.com/xamarin/urho-samples/raw/master/SamplyGame/Screenshots/Video.gif)
 
-# How to build
+# Quick start
+
+To help developers get up and running quickly with UrhoSharp we are providing 
+a solution template for Visual Studio (you can find it in "Online templates" tab). 
+This template consists of PCL+Android+iOS+Mac/Windows with a simple scene and 
+some assets (Xamarin Studio templates will be available soon):
+
+![VS](https://habrastorage.org/files/f22/b49/ded/f22b49dedc264396a47015784bd9b35f.gif)
+
+# How to build bindings
 
 This is currently a little messy, so YMMV.
 
