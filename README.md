@@ -5,11 +5,12 @@ that run on Android, iOS, Mac, Windows and Unix. The game engine is available as
 portable class library, allowing your game code to be written once and shared across 
 all platforms. UrhoSharp is powered by [Urho3D](http://urho3d.github.io/), 
 a game engine that has been under development for more than a decade. 
+More information can be found in the [UrhoSharp documentation](http://developer.xamarin.com/guides/cross-platform/urho/introduction/).
 
 The bindings for Urho3D are licensed under the MIT license, as
 found on the LICENSE file.   
 
-# Sample
+# Samples
 
 Sample code lives in https://github.com/xamarin/urho-samples and
 repository has them as a git submodule. Samples use UrhoSharp via nuget.
@@ -19,7 +20,7 @@ repository has them as a git submodule. Samples use UrhoSharp via nuget.
 # Quick start
 
 To help developers get up and running quickly with UrhoSharp we are providing 
-a solution template for Visual Studio (you can find it in "Online templates" tab). 
+a [solution template](https://visualstudiogallery.msdn.microsoft.com/0851993e-16e9-417e-92f2-6bdb39308ed2) for Visual Studio (you can find it in "Online templates" tab). 
 This template consists of PCL+Android+iOS+Mac/Windows with a simple scene and 
 some assets (Xamarin Studio templates will be available soon):
 
