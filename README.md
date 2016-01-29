@@ -12,11 +12,6 @@ repository has them as a git submodule. Samples use Urho via nuget.
 
 ![Very simple sample](https://hsto.org/files/ec1/1c8/d0c/ec11c8d0c4494048bc614e3166df4f3b.png)
 
-Some screencasts:
-
-* http://screencast.com/t/EmFj3O0K8 
-* http://screencast.com/t/Xh8G4StiABY
-
 # How to build
 
 This is currently a little messy, so YMMV.
