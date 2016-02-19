@@ -44,6 +44,8 @@ namespace Urho {
 			private set { current = value; }
 		}
 
+		public static bool HasCurrent => current != null;
+
 		static Context currentContext;
 		public static Context CurrentContext
 		{
@@ -147,6 +149,7 @@ namespace Urho {
 		{
 			Runtime.Initialize();
 			GetApp (h).Start ();
+			Started?.Invoke();
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
@@ -160,12 +163,15 @@ namespace Urho {
 				context.ReleaseRef();
 			context.Dispose();
 			Current = null;
+			Stoped?.Invoke();
 		}
 
 		protected virtual void Setup () {}
 
+		public static event Action Started;
 		protected virtual void Start () {}
 
+		public static event Action Stoped;
 		protected virtual void Stop () {}
 
 		protected virtual void OnUpdate(float timeStep) { }
