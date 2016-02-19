@@ -1,4 +1,4 @@
-# UrhoSharp
+# ![](http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png) UrhoSharp
 
 UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games
 that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a 
@@ -6,7 +6,6 @@ portable class library, allowing your game code to be written once and shared ac
 all platforms. UrhoSharp is powered by [Urho3D](http://urho3d.github.io/), 
 a game engine that has been under development for more than a decade. 
 More information can be found in the [UrhoSharp documentation](http://developer.xamarin.com/guides/cross-platform/urho/introduction/).
-
 The bindings for Urho3D are licensed under the MIT license, as
 found on the LICENSE file.   
 
@@ -15,7 +14,12 @@ found on the LICENSE file.
 Sample code lives in https://github.com/xamarin/urho-samples and
 repository has them as a git submodule. Samples use UrhoSharp via nuget.
 
-![Sample](https://github.com/xamarin/urho-samples/raw/master/SamplyGame/Screenshots/Video.gif)
+![Sample](https://github.com/xamarin/urho-samples/raw/master/SamplyGame/Screenshots/Video.gif) ![Sample](https://github.com/xamarin/urho-samples/raw/master/SamplyGame/Screenshots/Video.gif)
+
+# Setup
+
+* Available on NuGet: http://www.nuget.org/packages/UrhoSharp
+* Install into your PCL project and Client projects.
 
 # Quick start
 
