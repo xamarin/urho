@@ -51,19 +51,19 @@ $(LOCAL_CLANG):
 #compile Urho.pch for SharpieBinder on Mac
 PchMac: $(LOCAL_CLANG)
 	if test ! -e /usr/include; then xcode-select --install; fi
-	make -j1 Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -o bindings/Urho.pch bindings/Native/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
+	make -j1 Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -o Bindings/Urho.pch Bindings/Native/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
 
-SharpieBinder: bindings/Urho.pch
+SharpieBinder: Bindings/Urho.pch
 	cd SharpieBinder && $(NUGET) restore SharpieBinder.sln && $(BREW_XBUILD) SharpieBinder.csproj && cd bin && $(BREW_MONO) SharpieBinder.exe
 
 ParseEventsMac:
-	@if test ! -d bindings/Portable/Generated; then echo "Please generate the C# files using SharpieBinder or use 'make SharpieBinder'" && exit 1; fi
-	cd bindings && perl ParseEvents.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
+	@if test ! -d Bindings/Portable/Generated; then echo "Please generate the C# files using SharpieBinder or use 'make SharpieBinder'" && exit 1; fi
+	cd Bindings && perl ParseEvents.pl ../Urho3D/Urho3D_Mac/include/Urho3d/*/*h
 
 # change references from nuget to projectreferences for Samples/
 RemoveNugetFromSamples:
-	csc bindings/RemoveNugetFromSamples.cs && ./RemoveNugetFromSamples.exe -refsonly && rm -f RemoveNugetFromSamples.exe
+	csc Bindings/RemoveNugetFromSamples.cs && ./RemoveNugetFromSamples.exe -refsonly && rm -f RemoveNugetFromSamples.exe
 	
 # change references from nuget to projectreferences for Samples/
 RemoveNugetFromSamplesMono:
-	mcs bindings/RemoveNugetFromSamples.cs -r:System.Xml.dll -r:System.Xml.Linq.dll && mono RemoveNugetFromSamples.exe -refsonly && rm -f bindings/RemoveNugetFromSamples.exe
+	mcs Bindings/RemoveNugetFromSamples.cs -r:System.Xml.dll -r:System.Xml.Linq.dll && mono RemoveNugetFromSamples.exe -refsonly && rm -f Bindings/RemoveNugetFromSamples.exe

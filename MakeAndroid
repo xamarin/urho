@@ -39,19 +39,19 @@ CXX_FLAGS=-fexceptions -frtti -std=c++11 -fpermissive -fPIC --sysroot=$(ANDK_DIR
 CXX_DEFINES=-DANDROID -DHAVE_STDINT_H -DKNET_UNIX -DURHO3D_FILEWATCHER -DURHO3D_LOGGING -DURHO3D_NAVIGATION -DURHO3D_NETWORK -DURHO3D_OPENGL -DURHO3D_PHYSICS -DURHO3D_PROFILING -DURHO3D_STATIC_DEFINE -DURHO3D_URHO2D
 
 ApplicationProxy.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.cpp.o -c bindings/Native/ApplicationProxy.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.cpp.o -c Bindings/Native/ApplicationProxy.cpp
 	
 Glue.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/glue.cpp.o -c bindings/Native/glue.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/glue.cpp.o -c Bindings/Native/glue.cpp
 	
 Vector.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/Vector.cpp.o -c bindings/Native/Vector.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/Vector.cpp.o -c Bindings/Native/Vector.cpp
 	
 Binding.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/binding.cpp.o -c bindings/Portable/Generated/binding.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/binding.cpp.o -c Bindings/Portable/Generated/binding.cpp
 	
 Events.o:
-	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/events.cpp.o -c bindings/Portable/Generated/events.cpp
+	$(ANDK_GPP) $(CXX_DEFINES) $(CXX_FLAGS) -o $(OUTPUT_DIR)/events.cpp.o -c Bindings/Portable/Generated/events.cpp
 
 SDL.o:
 	$(ANDK_GCC) $(C_DEFINES) $(C_FLAGS) -o $(OUTPUT_DIR)/SDL_android_main.c.o -c $(URHO3D_SRC_DIR)/Source/ThirdParty/SDL/src/main/android/SDL_android_main.c

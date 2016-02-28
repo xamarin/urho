@@ -26,16 +26,16 @@ MakeBinDirectory:
 	mkdir -p $(OUTPUT_DIR)
 	
 binding.o:
-	clang++ -g -c $(CXXFLAGS) -o $(OUTPUT_DIR)/binding.o bindings/Portable/Generated/binding.cpp 
+	clang++ -g -c $(CXXFLAGS) -o $(OUTPUT_DIR)/binding.o Bindings/Portable/Generated/binding.cpp 
 
 glue.o:
-	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/glue.o bindings/Native/glue.cpp 
+	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/glue.o Bindings/Native/glue.cpp 
 
 vector.o:
-	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/vector.o bindings/Native/vector.cpp 
+	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/vector.o Bindings/Native/vector.cpp 
 
 events.o:
-	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/events.o bindings/Portable/Generated/events.cpp $(URHO_FLAGS) 
+	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/events.o Bindings/Portable/Generated/events.cpp $(URHO_FLAGS) 
 
 ApplicationProxy.o:
-	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.o bindings/Native/ApplicationProxy.cpp $(URHO_FLAGS)
+	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.o Bindings/Native/ApplicationProxy.cpp $(URHO_FLAGS)

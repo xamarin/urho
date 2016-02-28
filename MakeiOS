@@ -44,22 +44,22 @@ fat-libmono-urho.dylib:
 	make libmono-urho.dylib -f MakeiOS ARCH="i386" && make libmono-urho.dylib -f MakeiOS ARCH="armv7" && make libmono-urho.dylib -f MakeiOS ARCH="arm64" && cd $(OUTPUT_DIR) && lipo -create libmono-urho_i386.dylib libmono-urho_armv7.dylib libmono-urho_arm64.dylib -output libmono-urho.dylib
 
 Urho.framework: fat-libmono-urho.dylib
-	rm -rf $(OUTPUT_DIR)/Urho.framework && mkdir $(OUTPUT_DIR)/Urho.framework && cp bindings/iOS/Urho.framework.plist $(OUTPUT_DIR)/Urho.framework/Info.plist && cd $(OUTPUT_DIR) && cp libmono-Urho.dylib Urho.framework/Urho && install_name_tool -id @rpath/Urho.framework/Urho Urho.framework/Urho && zip -r Urho.framework.zip Urho.framework
+	rm -rf $(OUTPUT_DIR)/Urho.framework && mkdir $(OUTPUT_DIR)/Urho.framework && cp Bindings/iOS/Urho.framework.plist $(OUTPUT_DIR)/Urho.framework/Info.plist && cd $(OUTPUT_DIR) && cp libmono-Urho.dylib Urho.framework/Urho && install_name_tool -id @rpath/Urho.framework/Urho Urho.framework/Urho && zip -r Urho.framework.zip Urho.framework
 
 binding.o: 
-	$(CPP) -c -o $(OUTPUT_DIR)/binding.o bindings/Portable/Generated/binding.cpp 
+	$(CPP) -c -o $(OUTPUT_DIR)/binding.o Bindings/Portable/Generated/binding.cpp 
 
 glue.o:
-	$(CPP) -c -o $(OUTPUT_DIR)/glue.o bindings/Native/glue.cpp 
+	$(CPP) -c -o $(OUTPUT_DIR)/glue.o Bindings/Native/glue.cpp 
 
 vector.o:
-	$(CPP) -c -o $(OUTPUT_DIR)/vector.o bindings/Native/vector.cpp 
+	$(CPP) -c -o $(OUTPUT_DIR)/vector.o Bindings/Native/vector.cpp 
 
 events.o:
-	$(CPP) -c -o $(OUTPUT_DIR)/events.o bindings/Portable/Generated/events.cpp
+	$(CPP) -c -o $(OUTPUT_DIR)/events.o Bindings/Portable/Generated/events.cpp
 
 ApplicationProxy.o:
-	$(CPP) -c -o $(OUTPUT_DIR)/ApplicationProxy.o bindings/Native/ApplicationProxy.cpp
+	$(CPP) -c -o $(OUTPUT_DIR)/ApplicationProxy.o Bindings/Native/ApplicationProxy.cpp
 
 Urho.iOS.dll:
 	/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool -v build "--configuration:Release" -p:Urho.iOS Urho.sln
