@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 
 namespace Urho.Desktop
 {
@@ -35,10 +36,11 @@ namespace Urho.Desktop
 
 		internal static void OnInited()
 		{
+			var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			//unlike the OS X, windows doesn't support FAT binaries
 			if (Environment.OSVersion.Platform == PlatformID.Win32NT &&
 				!Environment.Is64BitProcess &&
-				Is64Bit("mono-urho.dll"))
+				Is64Bit(Path.Combine(currentPath, "mono-urho.dll")))
 			{
 				throw new NotSupportedException("mono-urho.dll is 64bit, but current process is x86 (change target platform from Any CPU/x86 to x64)");
 			}
