@@ -34,7 +34,7 @@ namespace StructsValidator
 			AppendC("}");
 			AppendC("#endif");
 			AppendC($"\n/* Empty structs (stubs?):\n\n  {string.Join("\n  ", structs.Where(t => Marshal.SizeOf(t) <= 1).Select(t => t.Name).ToArray())}\n\n*/");
-			File.WriteAllText("../../../../bindings/src/asserts.h", codeContent);
+			File.WriteAllText("../../../../bindings/Native/asserts.h", codeContent);
 		}
 
 		static void AddTest(Type type)
