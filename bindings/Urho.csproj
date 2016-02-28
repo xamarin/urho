@@ -36,8 +36,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Portable\Actions\ActionManager.cs" />
@@ -429,6 +427,7 @@
     <Compile Include="Portable\XmlElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Portable\UrhoPlatformInitializer.cs" />
+    <Compile Include="Portable\Generated\ShadowQuality.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@ URHO_LIBS=-L$(URHO3D_MAC_DIR)/lib -framework AudioUnit -framework Carbon -framew
 CXXFLAGS=-g $(ARCH) -Wno-address-of-temporary -Wno-return-type-c-linkage -Wno-clang++11-extensions $(URHO_FLAGS)
 
 Urho3D_Mac:
-	$(URHO3D_SRC_DIR)/./cmake_macosx.sh $(URHO3D_MAC_DIR) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0
+	$(URHO3D_SRC_DIR)/./cmake_xcode.sh $(URHO3D_MAC_DIR) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0
 
 libUrho3D_32.a: Urho3D_Mac
 	cd $(URHO3D_MAC_DIR) && xcodebuild ARCHS=i386 ONLY_ACTIVE_ARCH=NO -target Urho3D -configuration Release && mv lib/libUrho3D.a lib/libUrho3D_32.a

@@ -29,8 +29,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DocumentationFile>
-    </DocumentationFile>
     <DefineConstants>__MOBILE__;__IOS__;IOS;</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
@@ -434,6 +432,7 @@
     <Compile Include="iOS\UrhoSurface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Urho.framework.linkwith.cs" />
+    <Compile Include="Portable\Generated\ShadowQuality.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingNativeFramework Include="..\Bin\iOS\Urho.framework" />
