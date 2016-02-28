@@ -390,6 +390,7 @@ namespace Urho {
 		public Rect Uv;
 		public Color Color;
 		public float Rotation;
+		public Vector3 Direction;
 
 		byte enabled; //bool is not blittable.
 		public bool Enabled { get { return enabled != 0; } set { enabled = (byte)(value ? 1 : 0); } }

@@ -12,11 +12,41 @@ void check_bindings_offsets()
 	static_assert(offsetof(IntVector2, x_) == 0, "IntVector2.X has wrong offset (0)");
 	static_assert(offsetof(IntVector2, y_) == 4, "IntVector2.Y has wrong offset (4)");
 
+	// Matrix3:
+	static_assert(sizeof(Matrix3) == 36, "Matrix3 has wrong size (36)");
+	static_assert(offsetof(Matrix3, m00_) == 0, "Matrix3.R0C0 has wrong offset (0)");
+	static_assert(offsetof(Matrix3, m01_) == 4, "Matrix3.R0C1 has wrong offset (4)");
+	static_assert(offsetof(Matrix3, m02_) == 8, "Matrix3.R0C2 has wrong offset (8)");
+	static_assert(offsetof(Matrix3, m10_) == 12, "Matrix3.R1C0 has wrong offset (12)");
+	static_assert(offsetof(Matrix3, m11_) == 16, "Matrix3.R1C1 has wrong offset (16)");
+	static_assert(offsetof(Matrix3, m12_) == 20, "Matrix3.R1C2 has wrong offset (20)");
+	static_assert(offsetof(Matrix3, m20_) == 24, "Matrix3.R2C0 has wrong offset (24)");
+	static_assert(offsetof(Matrix3, m21_) == 28, "Matrix3.R2C1 has wrong offset (28)");
+	static_assert(offsetof(Matrix3, m22_) == 32, "Matrix3.R2C2 has wrong offset (32)");
+
 	// Plane:
 	static_assert(sizeof(Plane) == 28, "Plane has wrong size (28)");
 	static_assert(offsetof(Plane, normal_) == 0, "Plane.Normal has wrong offset (0)");
 	static_assert(offsetof(Plane, absNormal_) == 12, "Plane.AbsNormal has wrong offset (12)");
 	static_assert(offsetof(Plane, d_) == 24, "Plane.D has wrong offset (24)");
+
+	// Vector2:
+	static_assert(sizeof(Vector2) == 8, "Vector2 has wrong size (8)");
+	static_assert(offsetof(Vector2, x_) == 0, "Vector2.X has wrong offset (0)");
+	static_assert(offsetof(Vector2, y_) == 4, "Vector2.Y has wrong offset (4)");
+
+	// Vector3:
+	static_assert(sizeof(Vector3) == 12, "Vector3 has wrong size (12)");
+	static_assert(offsetof(Vector3, x_) == 0, "Vector3.X has wrong offset (0)");
+	static_assert(offsetof(Vector3, y_) == 4, "Vector3.Y has wrong offset (4)");
+	static_assert(offsetof(Vector3, z_) == 8, "Vector3.Z has wrong offset (8)");
+
+	// Vector4:
+	static_assert(sizeof(Vector4) == 16, "Vector4 has wrong size (16)");
+	static_assert(offsetof(Vector4, x_) == 0, "Vector4.X has wrong offset (0)");
+	static_assert(offsetof(Vector4, y_) == 4, "Vector4.Y has wrong offset (4)");
+	static_assert(offsetof(Vector4, z_) == 8, "Vector4.Z has wrong offset (8)");
+	static_assert(offsetof(Vector4, w_) == 12, "Vector4.W has wrong offset (12)");
 
 	// Ray:
 	static_assert(sizeof(Ray) == 24, "Ray has wrong size (24)");
@@ -166,14 +196,15 @@ void check_bindings_offsets()
 	static_assert(offsetof(CompressedLevel, rows_) == 36, "CompressedLevel.RowCount has wrong offset (36)");
 
 	// Billboard:
-	static_assert(sizeof(Billboard) == 64, "Billboard has wrong size (64)");
+	static_assert(sizeof(Billboard) == 76, "Billboard has wrong size (76)");
 	static_assert(offsetof(Billboard, position_) == 0, "Billboard.Position has wrong offset (0)");
 	static_assert(offsetof(Billboard, size_) == 12, "Billboard.Size has wrong offset (12)");
 	static_assert(offsetof(Billboard, uv_) == 20, "Billboard.Uv has wrong offset (20)");
 	static_assert(offsetof(Billboard, color_) == 36, "Billboard.Color has wrong offset (36)");
 	static_assert(offsetof(Billboard, rotation_) == 52, "Billboard.Rotation has wrong offset (52)");
-	static_assert(offsetof(Billboard, enabled_) == 56, "Billboard.enabled has wrong offset (56)");
-	static_assert(offsetof(Billboard, sortDistance_) == 60, "Billboard.SortDistance has wrong offset (60)");
+	static_assert(offsetof(Billboard, direction_) == 56, "Billboard.Direction has wrong offset (56)");
+	static_assert(offsetof(Billboard, enabled_) == 68, "Billboard.enabled has wrong offset (68)");
+	static_assert(offsetof(Billboard, sortDistance_) == 72, "Billboard.SortDistance has wrong offset (72)");
 
 	// BiasParameters:
 	static_assert(sizeof(BiasParameters) == 8, "BiasParameters has wrong size (8)");
@@ -188,41 +219,24 @@ void check_bindings_offsets()
 	static_assert(offsetof(FocusParameters, quantize_) == 4, "FocusParameters.Quantize has wrong offset (4)");
 	static_assert(offsetof(FocusParameters, minView_) == 8, "FocusParameters.MinView has wrong offset (8)");
 
-	// Vector3:
-	static_assert(sizeof(Vector3) == 12, "Vector3 has wrong size (12)");
-	static_assert(offsetof(Vector3, x_) == 0, "Vector3.X has wrong offset (0)");
-	static_assert(offsetof(Vector3, y_) == 4, "Vector3.Y has wrong offset (4)");
-	static_assert(offsetof(Vector3, z_) == 8, "Vector3.Z has wrong offset (8)");
-
-	// Matrix3:
-	static_assert(sizeof(Matrix3) == 36, "Matrix3 has wrong size (36)");
-	static_assert(offsetof(Matrix3, m00_) == 0, "Matrix3.R0C0 has wrong offset (0)");
-	static_assert(offsetof(Matrix3, m01_) == 4, "Matrix3.R0C1 has wrong offset (4)");
-	static_assert(offsetof(Matrix3, m02_) == 8, "Matrix3.R0C2 has wrong offset (8)");
-	static_assert(offsetof(Matrix3, m10_) == 12, "Matrix3.R1C0 has wrong offset (12)");
-	static_assert(offsetof(Matrix3, m11_) == 16, "Matrix3.R1C1 has wrong offset (16)");
-	static_assert(offsetof(Matrix3, m12_) == 20, "Matrix3.R1C2 has wrong offset (20)");
-	static_assert(offsetof(Matrix3, m20_) == 24, "Matrix3.R2C0 has wrong offset (24)");
-	static_assert(offsetof(Matrix3, m21_) == 28, "Matrix3.R2C1 has wrong offset (28)");
-	static_assert(offsetof(Matrix3, m22_) == 32, "Matrix3.R2C2 has wrong offset (32)");
-
-	// Vector2:
-	static_assert(sizeof(Vector2) == 8, "Vector2 has wrong size (8)");
-	static_assert(offsetof(Vector2, x_) == 0, "Vector2.X has wrong offset (0)");
-	static_assert(offsetof(Vector2, y_) == 4, "Vector2.Y has wrong offset (4)");
-
-	// Vector4:
-	static_assert(sizeof(Vector4) == 16, "Vector4 has wrong size (16)");
-	static_assert(offsetof(Vector4, x_) == 0, "Vector4.X has wrong offset (0)");
-	static_assert(offsetof(Vector4, y_) == 4, "Vector4.Y has wrong offset (4)");
-	static_assert(offsetof(Vector4, z_) == 8, "Vector4.Z has wrong offset (8)");
-	static_assert(offsetof(Vector4, w_) == 12, "Vector4.W has wrong offset (12)");
-
 	// PackageEntry:
 	static_assert(sizeof(PackageEntry) == 12, "PackageEntry has wrong size (12)");
 	static_assert(offsetof(PackageEntry, offset_) == 0, "PackageEntry.Offset has wrong offset (0)");
 	static_assert(offsetof(PackageEntry, size_) == 4, "PackageEntry.Size has wrong offset (4)");
 	static_assert(offsetof(PackageEntry, checksum_) == 8, "PackageEntry.Checksum has wrong offset (8)");
+
+	// CrowdObstacleAvoidanceParams:
+	static_assert(sizeof(CrowdObstacleAvoidanceParams) == 28, "CrowdObstacleAvoidanceParams has wrong size (28)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, velBias) == 0, "CrowdObstacleAvoidanceParams.VelBias has wrong offset (0)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, weightDesVel) == 4, "CrowdObstacleAvoidanceParams.WeightDesVel has wrong offset (4)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, weightCurVel) == 8, "CrowdObstacleAvoidanceParams.WeightCurVel has wrong offset (8)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, weightSide) == 12, "CrowdObstacleAvoidanceParams.WeightSide has wrong offset (12)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, weightToi) == 16, "CrowdObstacleAvoidanceParams.WeightToi has wrong offset (16)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, horizTime) == 20, "CrowdObstacleAvoidanceParams.HorizTime has wrong offset (20)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, gridSize) == 24, "CrowdObstacleAvoidanceParams.GridSize has wrong offset (24)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveDivs) == 25, "CrowdObstacleAvoidanceParams.AdaptiveDivs has wrong offset (25)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveRings) == 26, "CrowdObstacleAvoidanceParams.AdaptiveRings has wrong offset (26)");
+	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveDepth) == 27, "CrowdObstacleAvoidanceParams.AdaptiveDepth has wrong offset (27)");
 
 	// TileMapInfo2D:
 	static_assert(sizeof(TileMapInfo2D) == 20, "TileMapInfo2D has wrong size (20)");
@@ -241,19 +255,6 @@ void check_bindings_offsets()
 	static_assert(offsetof(DirtyBits, data_) == 0, "DirtyBits.Data has wrong offset (0)");
 	static_assert(offsetof(DirtyBits, count_) == 8, "DirtyBits.Count has wrong offset (8)");
 
-	// CrowdObstacleAvoidanceParams:
-	static_assert(sizeof(CrowdObstacleAvoidanceParams) == 28, "CrowdObstacleAvoidanceParams has wrong size (28)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, velBias) == 0, "CrowdObstacleAvoidanceParams.VelBias has wrong offset (0)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, weightDesVel) == 4, "CrowdObstacleAvoidanceParams.WeightDesVel has wrong offset (4)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, weightCurVel) == 8, "CrowdObstacleAvoidanceParams.WeightCurVel has wrong offset (8)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, weightSide) == 12, "CrowdObstacleAvoidanceParams.WeightSide has wrong offset (12)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, weightToi) == 16, "CrowdObstacleAvoidanceParams.WeightToi has wrong offset (16)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, horizTime) == 20, "CrowdObstacleAvoidanceParams.HorizTime has wrong offset (20)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, gridSize) == 24, "CrowdObstacleAvoidanceParams.GridSize has wrong offset (24)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveDivs) == 25, "CrowdObstacleAvoidanceParams.AdaptiveDivs has wrong offset (25)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveRings) == 26, "CrowdObstacleAvoidanceParams.AdaptiveRings has wrong offset (26)");
-	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveDepth) == 27, "CrowdObstacleAvoidanceParams.AdaptiveDepth has wrong offset (27)");
-
 	// PhysicsRaycastResult:
 	static_assert(sizeof(PhysicsRaycastResult) == 40, "PhysicsRaycastResult has wrong size (40)");
 	static_assert(offsetof(PhysicsRaycastResult, position_) == 0, "PhysicsRaycastResult.Position has wrong offset (0)");
@@ -266,8 +267,9 @@ void check_bindings_offsets()
 /* Empty structs (stubs?):
 
   CollisionGeometryData
-  WorkItem
-  RefCount
+  ConvexData
+  HeightfieldData
+  TriangleMeshData
   HashIteratorBase
   Iterator
   ResourceRefList
@@ -285,8 +287,10 @@ void check_bindings_offsets()
   NetworkState
   ComponentReplicationState
   ShaderParameter
-  NodeReplicationState
+  WorkItem
+  RefCount
   dtQueryFilter
   XPathResultSet
+  NodeReplicationState
 
 */
