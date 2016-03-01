@@ -18,7 +18,6 @@ namespace Urho.Forms
 		{
 			SDLActivity.OnResume();
 			var surface = new AndroidUrhoSurface(Context);
-			surface.SetPadding(10, 10, 10, 10);
 			e.NewElement.UrhoApplicationLauncher = surface.Launcher;
 			SetNativeControl(surface);
 			base.OnElementChanged(e);
