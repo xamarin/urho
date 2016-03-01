@@ -48,6 +48,7 @@ namespace Urho.Forms
 		{
 			await launcherSemaphore.WaitAsync();
 			SDLActivity.OnDestroy();
+			surfaceViewPlaceholder.RemoveAllViews();
 			applicationTaskSource = new TaskCompletionSource<Application>();
 			Urho.Application.Started += UrhoApplicationStarted;
 			var surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context, type, options);
