@@ -19,9 +19,11 @@ Android_armeabi-v7a:
 	make -j1 libmono-urho.so -f MakeAndroid ABI="armeabi-v7a"
 Android_x86:
 	make -j1 libmono-urho.so -f MakeAndroid ABI="x86"
+Android_arm64-v8a:
+	make -j1 libmono-urho.so -f MakeAndroid ABI="arm64-v8a"
 
-# Make -j3 Android
-Android: Android_armeabi Android_armeabi-v7a Android_x86
+# Make -j4 Android
+Android: Android_arm64-v8a Android_armeabi Android_armeabi-v7a Android_x86
 
 Mac:
 	make -j1 libmono-urho.dylib -f MakeMac
