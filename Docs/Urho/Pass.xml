@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Material rendering pass, which defines shaders and render state.
+    <summary>Material rendering pass, which defines shaders and render state.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
