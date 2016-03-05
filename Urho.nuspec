@@ -76,8 +76,6 @@ Among the features of the Urho3D you will find:
      <!--Android-->
      <file src="Nuget/Android/UrhoSharp.targets" target="build/MonoAndroid" />
      <file src="Nuget/Android/UrhoSharpReadme.txt" target="content/MonoAndroid/UrhoSharpReadme.txt" />
-     <file src="Bin/Android/Urho.Droid.SdlBindings.dll" target="lib/MonoAndroid/Urho.Droid.SdlBindings.dll" />
-     <file src="Bin/Android/Urho.Droid.SdlBindings.XML" target="lib/MonoAndroid/Urho.Droid.SdlBindings.XML" />
      <file src="Bin/Android/Urho.dll" target="lib/MonoAndroid/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/MonoAndroid/Urho.XML" />
 
