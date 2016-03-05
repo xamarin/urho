@@ -1,24 +1,62 @@
-﻿using System.Linq;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Urho.Forms;
 using System.Runtime.InteropServices;
-using Foundation;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
+using UIKit;
 
-namespace Urho.iOS
+[assembly: ExportRendererAttribute(typeof(UrhoSurface), typeof(IosSurfaceRenderer))]
+
+namespace Urho.Forms
 {
-	public static class IosUrhoInitializer
+	public class IosSurfaceRenderer : ViewRenderer<UrhoSurface, IosUrhoSurface>
 	{
-		[DllImport(Consts.NativeImport)]
-		static extern void InitSdl(string resDir, string docDir);
-
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void SDL_SetMainReady();
-
-		internal static void OnInited()
+		protected override void OnElementChanged(ElementChangedEventArgs<UrhoSurface> e)
 		{
-			string docsDir = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.All, true).FirstOrDefault();
-			string resourcesDir = NSBundle.MainBundle.ResourcePath;
-			InitSdl(resourcesDir, docsDir);
-			SDL_SetMainReady();
-			NSFileManager.DefaultManager.ChangeCurrentDirectory(resourcesDir);
+			var surface = new IosUrhoSurface();
+			surface.BackgroundColor = UIColor.Red;
+			e.NewElement.UrhoApplicationLauncher = surface.Launcher;
+			SetNativeControl(surface);
 		}
 	}
+
+	public class IosUrhoSurface : UIView
+	{
+		static TaskCompletionSource<Application> applicationTaskSource;
+		static readonly SemaphoreSlim launcherSemaphore = new SemaphoreSlim(1);
+		static Urho.iOS.UrhoSurface surface;
+		static Urho.Application app;
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void SDL_SendAppEvent(Urho.iOS.SdlEvent sdlEvent);
+
+		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
+		{
+			await launcherSemaphore.WaitAsync();
+			applicationTaskSource = new TaskCompletionSource<Application>();
+			Urho.Application.Started += UrhoApplicationStarted;
+			if (surface != null)
+			{
+				//app.Graphics.Release (false, false);
+			}
+			else {
+				this.Add(surface = new Urho.iOS.UrhoSurface(this.Bounds));
+			}
+			app = Urho.Application.CreateInstance(type, options);
+			app.Run();
+
+			return await applicationTaskSource.Task;
+		}
+
+		void UrhoApplicationStarted()
+		{
+			Urho.Application.Started -= UrhoApplicationStarted;
+			applicationTaskSource?.TrySetResult(app);
+			launcherSemaphore.Release();
+		}
+	}
+
 }
+
