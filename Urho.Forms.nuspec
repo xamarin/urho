@@ -38,7 +38,7 @@
      <file src="docs/Urho.XML" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.Forms.XML" />
    
      <!--Android-->
-     <file src="Nuget/Android/UrhoSharp.targets" target="build/MonoAndroid" />
+     <file src="Nuget/Android/UrhoSharp.Forms.targets" target="build/MonoAndroid" />
      <file src="Bin/Android/Urho.dll" target="lib/MonoAndroid/Urho.Forms.dll" />
      <file src="docs/Urho.XML" target="lib/MonoAndroid/Urho.Forms.XML" />
 
@@ -47,18 +47,9 @@
      <file src="Bin/Android/armeabi/libmono-urho.so" target="native/Android/armeabi/libmono-urho.so" />
 
      <!--iOS-->
-     <file src="Nuget/iOS/UrhoSharp.targets" target="build/Xamarin.iOS10" />
+     <file src="Nuget/iOS/UrhoSharp.Forms.targets" target="build/Xamarin.iOS10" />
      <file src="Bin/iOS/Urho.Forms.dll" target="lib/Xamarin.iOS10/Urho.Forms.dll" />
      <file src="docs/Urho.XML" target="lib/Xamarin.iOS10/Urho.Forms.XML" />
-
-
-     <!--Windows+Mac-->
-     <file src="Nuget/Desktop/UrhoSharp.targets" target="build/net45" />
-     <file src="Bin/Desktop/Urho.Forms.dll" target="lib/net45/Urho.Forms.dll" />
-     <file src="docs/Urho.XML" target="lib/net45/Urho.Forms.XML" />
-     <file src="Bin/Desktop/Win64/mono-urho.dll" target="native/Win64/mono-urho.dll" />
-     <file src="Bin/Desktop/Win32/mono-urho.dll" target="native/Win32/mono-urho.dll" />
-     <file src="Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
    
    </files>
 </package>
