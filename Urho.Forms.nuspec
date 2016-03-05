@@ -3,7 +3,7 @@
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp.Forms</id>
        <version>1.0</version>
-       <title>UrhoSharp.Forms</title>
+       <title>UrhoSharp for Xamarin.Forms</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
        <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
@@ -13,6 +13,11 @@
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
        <tags>Urho Forms Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
+   
+    <dependencies>
+      <dependency id="Xamarin.Forms" />
+    </dependencies>
+   
    </metadata>
    <files>
    
