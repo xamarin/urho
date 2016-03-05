@@ -27,11 +27,16 @@ namespace Urho.iOS
 			initTaskSource = new TaskCompletionSource<bool>();
 		}
 
-		public override void WillMoveToWindow(UIWindow window)
+		public override async void WillMoveToWindow(UIWindow window)
 		{
 			UrhoPlatformInitializer.DefaultInit();
-			SDL_SetExternalViewPlaceholder(Handle, window?.Handle ?? IntPtr.Zero);
 			base.WillMoveToWindow(window);
+		}
+
+		public override void MovedToWindow()
+		{
+			base.MovedToWindow();
+			SDL_SetExternalViewPlaceholder(Handle, Window?.Handle ?? IntPtr.Zero);
 			initTaskSource.TrySetResult(true);
 		}
 	}

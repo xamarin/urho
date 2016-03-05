@@ -16,7 +16,7 @@ namespace Urho.Forms
 		protected override void OnElementChanged(ElementChangedEventArgs<UrhoSurface> e)
 		{
 			var surface = new IosUrhoSurface();
-			surface.BackgroundColor = UIColor.Red;
+			surface.BackgroundColor = UIColor.Black;
 			e.NewElement.UrhoApplicationLauncher = surface.Launcher;
 			SetNativeControl(surface);
 		}
