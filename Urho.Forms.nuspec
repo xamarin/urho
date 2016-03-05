@@ -39,7 +39,7 @@
    
      <!--Android-->
      <file src="Nuget/Android/UrhoSharp.Forms.targets" target="build/MonoAndroid" />
-     <file src="Bin/Android/Urho.dll" target="lib/MonoAndroid/Urho.Forms.dll" />
+     <file src="Bin/Android/Urho.Forms.dll" target="lib/MonoAndroid/Urho.Forms.dll" />
      <file src="docs/Urho.XML" target="lib/MonoAndroid/Urho.Forms.XML" />
 
      <file src="Bin/Android/x86/libmono-urho.so" target="native/Android/x86/libmono-urho.so" />
