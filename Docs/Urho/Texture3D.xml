@@ -227,24 +227,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="RenderSurface">
-      <MemberSignature Language="C#" Value="public Urho.RenderSurface RenderSurface { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.RenderSurface RenderSurface" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.RenderSurface</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Return render surface.
-            </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SetData">
       <MemberSignature Language="C#" Value="public bool SetData (uint level, int x, int y, int z, int width, int height, int depth, void* data);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetData(unsigned int32 level, int32 x, int32 y, int32 z, int32 width, int32 height, int32 depth, void* data) cil managed" />

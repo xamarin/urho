@@ -20,7 +20,8 @@
       <para>You can also use the Editor application to create UI layouts. The serialization format is similar to scene XML serialization, with three important differences:</para>
       <para>1) The element type to instantiate, and the style to use for it can be set separately. For example the following element definition tells to instantiate a <see cref="T:Urho.Gui.Button" /> element, and that it should use the style "CloseButton" defined in the style XML file.</para>
       <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.Gui.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
-      <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true".</para>
+      <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true”.</para>
+      <para>You can associate one or more strings to a UIElement, by using the <see cref="M:Urho.Gui.UIElement.AddTag" /> and the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> methods.</para>
       <para></para>
       <see cref="" />
       <para></para>
@@ -30,6 +31,7 @@
       <para>By default UI elements operate in a "free" layout mode, where child elements' positions can be specified relative to any of the parent element corners, but they are not automatically positioned or resized.</para>
       <para>To create automatically adjusting layouts, the layout mode can be switched to either "horizontal" or "vertical". Now the child elements will be positioned left to right or top to bottom, based on the order in which they were added. They will be preferably resized to fit the parent element, taking into account their minimum and maximum sizes, but failing to do that, the parent element will be resized.</para>
       <para>Left, top, right and bottom border widths and spacing between elements can also be specified for the layout. A grid layout is not directly supported, but it can be manually created with a horizontal layout inside a vertical layout, or vice versa.</para>
+      <para />
       <format type="text/html" />
     </remarks>
   </Docs>
@@ -126,6 +128,25 @@
             Add a child element.
             </summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTag">
+      <MemberSignature Language="C#" Value="public void AddTag (string tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTag(string tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tag">The string to associate</param>
+        <summary>Attaches the specified string as a tag to this UIElement.</summary>
+        <remarks>Use the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> to remove this tag, or the <see cref="M:Urho.Gui.UIElement.HasTag" /> method to determine if the element has the specified tag attached.</remarks>
       </Docs>
     </Member>
     <Member MemberName="AppliedStyle">
@@ -1406,6 +1427,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="HasTag">
+      <MemberSignature Language="C#" Value="public bool HasTag (string tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasTag(string tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tag">Tag string to probe.</param>
+        <summary>Determines if the UIElement has the associated tag attached to it.</summary>
+        <returns>True if the specified tag has been associated with this UIElement.</returns>
+        <remarks>Use the <see cref="M:Urho.Gui.UIElement.AddTag" /> to add a tag to a UIElement, and <see cref="M:Urho.Gui.UIElement.RemoveTag" /> to remove this tag.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Height">
       <MemberSignature Language="C#" Value="public int Height { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 Height" />
@@ -2465,6 +2506,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RemoveAllTags">
+      <MemberSignature Language="C#" Value="public void RemoveAllTags ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllTags() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RemoveChild">
       <MemberSignature Language="C#" Value="public void RemoveChild (Urho.Gui.UIElement element, uint index);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveChild(class Urho.Gui.UIElement element, unsigned int32 index) cil managed" />
@@ -2507,6 +2564,27 @@
             Remove a child element at index.
             </summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveTag">
+      <MemberSignature Language="C#" Value="public bool RemoveTag (string tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RemoveTag(string tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tag">Tag to remove</param>
+        <summary>Removes the specified tag from the UIElement.</summary>
+        <returns>
+          <see langword="true" /> if the tag existed, <see langword="false" /> otherwise.</returns>
+        <remarks>Use the <see cref="M:Urho.Gui.UIElement.AddTag" /> to add a tag to a UIElement, and <see cref="M:Urho.Gui.UIElement.HasTag" /> to determine if an element has the specified tag attached.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ResetDeepEnabled">

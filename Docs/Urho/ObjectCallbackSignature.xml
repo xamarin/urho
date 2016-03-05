@@ -8,6 +8,11 @@
   <Base>
     <BaseTypeName>System.Delegate</BaseTypeName>
   </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.UnmanagedFunctionPointer(System.Runtime.InteropServices.CallingConvention.Cdecl)</AttributeName>
+    </Attribute>
+  </Attributes>
   <Parameters>
     <Parameter Name="data" Type="System.IntPtr" />
     <Parameter Name="stringhash" Type="System.Int32" />

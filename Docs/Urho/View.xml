@@ -182,6 +182,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DrawFullscreenQuad">
+      <MemberSignature Language="C#" Value="public void DrawFullscreenQuad (bool nearQuad);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DrawFullscreenQuad(bool nearQuad) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="nearQuad" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="nearQuad">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="EndViewUpdate">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.EndViewUpdateEventArgs&gt; EndViewUpdate;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.EndViewUpdateEventArgs&gt; EndViewUpdate" />

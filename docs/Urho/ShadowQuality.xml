@@ -1,0 +1,101 @@
+<Type Name="ShadowQuality" FullName="Urho.ShadowQuality">
+  <TypeSignature Language="C#" Value="public enum ShadowQuality" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ShadowQuality extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="BlurVsm">
+      <MemberSignature Language="C#" Value="BlurVsm" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShadowQuality BlurVsm = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShadowQuality</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="PcfN16Bit">
+      <MemberSignature Language="C#" Value="PcfN16Bit" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShadowQuality PcfN16Bit = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShadowQuality</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="PcfN24Bit">
+      <MemberSignature Language="C#" Value="PcfN24Bit" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShadowQuality PcfN24Bit = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShadowQuality</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SimpleN16Bit">
+      <MemberSignature Language="C#" Value="SimpleN16Bit" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShadowQuality SimpleN16Bit = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShadowQuality</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SimpleN24Bit">
+      <MemberSignature Language="C#" Value="SimpleN24Bit" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShadowQuality SimpleN24Bit = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShadowQuality</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Vsm">
+      <MemberSignature Language="C#" Value="Vsm" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ShadowQuality Vsm = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ShadowQuality</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

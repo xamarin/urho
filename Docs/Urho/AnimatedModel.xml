@@ -810,6 +810,24 @@
         <remarks></remarks>
       </Docs>
     </Member>
+    <Member MemberName="UpdateBoneBoundingBox">
+      <MemberSignature Language="C#" Value="public void UpdateBoneBoundingBox ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateBoneBoundingBox() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Recalculates the bone bounding box.</summary>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="UpdateGeometryType">
       <MemberSignature Language="C#" Value="public override Urho.UpdateGeometryType UpdateGeometryType { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.UpdateGeometryType UpdateGeometryType" />

@@ -333,6 +333,29 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ApplyWorldTransform">
+      <MemberSignature Language="C#" Value="public void ApplyWorldTransform (Urho.Vector3 newWorldPosition, Urho.Quaternion newWorldRotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyWorldTransform(valuetype Urho.Vector3 newWorldPosition, valuetype Urho.Quaternion newWorldRotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="newWorldPosition" Type="Urho.Vector3" />
+        <Parameter Name="newWorldRotation" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="newWorldPosition">New world position to apply.</param>
+        <param name="newWorldRotation">New world rotation to apply.</param>
+        <summary>Applies the specified world osition and rotation.</summary>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Awake">
       <MemberSignature Language="C#" Value="public bool Awake { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool Awake" />

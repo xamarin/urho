@@ -1,6 +1,6 @@
-<Type Name="AnimationTriggerEventArgs" FullName="Urho.AnimationTriggerEventArgs">
-  <TypeSignature Language="C#" Value="public struct AnimationTriggerEventArgs" />
-  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit AnimationTriggerEventArgs extends System.ValueType" />
+<Type Name="CrowdAgentNodeFailureEventArgs" FullName="Urho.CrowdAgentNodeFailureEventArgs">
+  <TypeSignature Language="C#" Value="public struct CrowdAgentNodeFailureEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit CrowdAgentNodeFailureEventArgs extends System.ValueType" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -10,19 +10,19 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Event arguments for the Node's AnimationTrigger event</summary>
+    <summary>To be added.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
-    <Member MemberName="Animation">
-      <MemberSignature Language="C#" Value="public Urho.Animation Animation { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Animation Animation" />
+    <Member MemberName="CrowdAgent">
+      <MemberSignature Language="C#" Value="public Urho.Navigation.CrowdAgent CrowdAgent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Navigation.CrowdAgent CrowdAgent" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Animation</ReturnType>
+        <ReturnType>Urho.Navigation.CrowdAgent</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -30,15 +30,15 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Data">
-      <MemberSignature Language="C#" Value="public IntPtr Data { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance native int Data" />
+    <Member MemberName="CrowdAgentState">
+      <MemberSignature Language="C#" Value="public int CrowdAgentState { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 CrowdAgentState" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
+        <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -46,15 +46,15 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Name">
-      <MemberSignature Language="C#" Value="public string Name { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+    <Member MemberName="CrowdTargetState">
+      <MemberSignature Language="C#" Value="public int CrowdTargetState { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 CrowdTargetState" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
+        <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -78,15 +78,31 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Time">
-      <MemberSignature Language="C#" Value="public float Time { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance float32 Time" />
+    <Member MemberName="Position">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Position { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Position" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Single</ReturnType>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Velocity">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Velocity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Velocity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

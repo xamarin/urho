@@ -1,6 +1,6 @@
-<Type Name="PhysicsPreStep2DEventArgs" FullName="Urho.Urho2D.PhysicsPreStep2DEventArgs">
-  <TypeSignature Language="C#" Value="public struct PhysicsPreStep2DEventArgs" />
-  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit PhysicsPreStep2DEventArgs extends System.ValueType" />
+<Type Name="ParticleEffectFinishedEventArgs" FullName="Urho.ParticleEffectFinishedEventArgs">
+  <TypeSignature Language="C#" Value="public struct ParticleEffectFinishedEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit ParticleEffectFinishedEventArgs extends System.ValueType" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -10,19 +10,19 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Event arguments for the PhysicsWorld2D's PhysicsPreStep2D event</summary>
+    <summary>To be added.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
-    <Member MemberName="TimeStep">
-      <MemberSignature Language="C#" Value="public float TimeStep { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance float32 TimeStep" />
+    <Member MemberName="Effect">
+      <MemberSignature Language="C#" Value="public Urho.ParticleEffect Effect { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.ParticleEffect Effect" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Single</ReturnType>
+        <ReturnType>Urho.ParticleEffect</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -30,15 +30,15 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="World">
-      <MemberSignature Language="C#" Value="public Urho.Urho2D.PhysicsWorld2D World { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.PhysicsWorld2D World" />
+    <Member MemberName="Node">
+      <MemberSignature Language="C#" Value="public Urho.Node Node { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node Node" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Urho2D.PhysicsWorld2D</ReturnType>
+        <ReturnType>Urho.Node</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

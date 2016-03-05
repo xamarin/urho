@@ -3,7 +3,7 @@
     <Assembly Name="Urho" Version="1.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints | System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations)</AttributeName>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
@@ -12,7 +12,7 @@
           <AttributeName>System.Reflection.AssemblyConfiguration("")</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>System.Reflection.AssemblyCopyright("Copyright ©  2015")</AttributeName>
+          <AttributeName>System.Reflection.AssemblyCopyright("Copyright © Xamarin 2015-2016")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyDescription("")</AttributeName>
@@ -49,6 +49,7 @@
       <Type Name="AnimatedModel" Kind="Class" />
       <Type Name="Animation" Kind="Class" />
       <Type Name="AnimationController" Kind="Class" />
+      <Type Name="AnimationFinishedEventArgs" Kind="Structure" />
       <Type Name="AnimationState" Kind="Class" />
       <Type Name="AnimationTrack" Kind="Structure" />
       <Type Name="AnimationTriggerEventArgs" Kind="Structure" />
@@ -93,7 +94,12 @@
       <Type Name="ConstantBuffer" Kind="Class" />
       <Type Name="Context" Kind="Class" />
       <Type Name="Controls" Kind="Class" />
+      <Type Name="ConvexData" Kind="Structure" />
       <Type Name="CreateMode" Kind="Enumeration" />
+      <Type Name="CrowdAgentNodeFailureEventArgs" Kind="Structure" />
+      <Type Name="CrowdAgentNodeFormationEventArgs" Kind="Structure" />
+      <Type Name="CrowdAgentNodeRepositionEventArgs" Kind="Structure" />
+      <Type Name="CrowdAgentNodeStateChangedEventArgs" Kind="Structure" />
       <Type Name="CubeMapFace" Kind="Enumeration" />
       <Type Name="CubeMapLayout" Kind="Enumeration" />
       <Type Name="CullMode" Kind="Enumeration" />
@@ -119,6 +125,7 @@
       <Type Name="FaceCameraMode" Kind="Enumeration" />
       <Type Name="FillMode" Kind="Enumeration" />
       <Type Name="FocusParameters" Kind="Structure" />
+      <Type Name="FONT_TYPE" Kind="Enumeration" />
       <Type Name="FontGlyph" Kind="Structure" />
       <Type Name="FrameEndedEventArgs" Kind="Structure" />
       <Type Name="FrameStartedEventArgs" Kind="Structure" />
@@ -132,6 +139,7 @@
       <Type Name="Graphics" Kind="Class" />
       <Type Name="GraphicsImpl" Kind="Structure" />
       <Type Name="HashIteratorBase" Kind="Structure" />
+      <Type Name="HeightfieldData" Kind="Structure" />
       <Type Name="IDeserializer" Kind="Interface" />
       <Type Name="IndexBuffer" Kind="Class" />
       <Type Name="Input" Kind="Class" />
@@ -192,6 +200,8 @@
       <Type Name="NodeEnabledChangedEventArgs" Kind="Structure" />
       <Type Name="NodeNameChangedEventArgs" Kind="Structure" />
       <Type Name="NodeRemovedEventArgs" Kind="Structure" />
+      <Type Name="NodeTagAddedEventArgs" Kind="Structure" />
+      <Type Name="NodeTagRemovedEventArgs" Kind="Structure" />
       <Type Name="ObjectAnimation" Kind="Class" />
       <Type Name="ObjectCallbackSignature" Kind="Delegate" />
       <Type Name="ObjectFactory" Kind="Class" />
@@ -199,6 +209,7 @@
       <Type Name="Octant" Kind="Structure" />
       <Type Name="Octree" Kind="Class" />
       <Type Name="ParticleEffect" Kind="Class" />
+      <Type Name="ParticleEffectFinishedEventArgs" Kind="Structure" />
       <Type Name="ParticleEmitter" Kind="Class" />
       <Type Name="Pass" Kind="Class" />
       <Type Name="PassLightingMode" Kind="Enumeration" />
@@ -246,9 +257,11 @@
       <Type Name="ShaderProgram" Kind="Class" />
       <Type Name="ShaderType" Kind="Enumeration" />
       <Type Name="ShaderVariation" Kind="Class" />
+      <Type Name="ShadowQuality" Kind="Enumeration" />
       <Type Name="Skeleton" Kind="Class" />
       <Type Name="Skybox" Kind="Class" />
       <Type Name="SmoothedTransform" Kind="Class" />
+      <Type Name="SoundFinishedEventArgs" Kind="Structure" />
       <Type Name="SoundType" Kind="Enumeration" />
       <Type Name="SplinePath" Kind="Class" />
       <Type Name="StaticModel" Kind="Class" />
@@ -280,6 +293,7 @@
       <Type Name="TouchMoveEventArgs" Kind="Structure" />
       <Type Name="TouchState" Kind="Structure" />
       <Type Name="TransformSpace" Kind="Enumeration" />
+      <Type Name="TriangleMeshData" Kind="Structure" />
       <Type Name="TypeInfo" Kind="Structure" />
       <Type Name="UnknownComponent" Kind="Class" />
       <Type Name="UpdateEventArgs" Kind="Structure" />
@@ -447,6 +461,9 @@
       <Type Name="SoundSource" Kind="Class" />
       <Type Name="SoundSource3D" Kind="Class" />
       <Type Name="SoundStream" Kind="Class" />
+    </Namespace>
+    <Namespace Name="Urho.Desktop">
+      <Type Name="DesktopUrhoInitializer" Kind="Class" />
     </Namespace>
     <Namespace Name="Urho.Gui">
       <Type Name="BorderImage" Kind="Class" />
@@ -673,8 +690,6 @@
       <Type Name="ParticleEmitter2D" Kind="Class" />
       <Type Name="PhysicsBeginContact2DEventArgs" Kind="Structure" />
       <Type Name="PhysicsEndContact2DEventArgs" Kind="Structure" />
-      <Type Name="PhysicsPostStep2DEventArgs" Kind="Structure" />
-      <Type Name="PhysicsPreStep2DEventArgs" Kind="Structure" />
       <Type Name="PhysicsWorld2D" Kind="Class" />
       <Type Name="PropertySet2D" Kind="Class" />
       <Type Name="Renderer2D" Kind="Class" />

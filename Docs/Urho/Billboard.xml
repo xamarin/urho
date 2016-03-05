@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Single billboard.</summary>
+    <remarks>One billboard in the billboard set.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Color">
@@ -25,7 +25,22 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Color</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Direction">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Direction;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector3 Direction" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Direction</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -40,7 +55,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Enabled flag</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -56,7 +71,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Position</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,7 +86,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Rotation</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -86,7 +101,7 @@
         <ReturnType>Urho.Vector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Two-dimensional size</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,7 +116,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sort distance</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -116,7 +131,7 @@
         <ReturnType>Urho.Rect</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>UV Coordinates</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

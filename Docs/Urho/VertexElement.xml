@@ -129,7 +129,7 @@
     </Member>
     <Member MemberName="MaxVertexElements">
       <MemberSignature Language="C#" Value="MaxVertexElements" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElement MaxVertexElements = int32(13)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElement MaxVertexElements = int32(14)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -144,6 +144,20 @@
     <Member MemberName="Normal">
       <MemberSignature Language="C#" Value="Normal" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElement Normal = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Objectindex">
+      <MemberSignature Language="C#" Value="Objectindex" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElement Objectindex = int32(13)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

@@ -1,0 +1,36 @@
+<Type Name="HeightfieldData" FullName="Urho.HeightfieldData">
+  <TypeSignature Language="C#" Value="public struct HeightfieldData" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit HeightfieldData extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public HeightfieldData (Urho.Terrain terrain, uint lodLevel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Terrain terrain, unsigned int32 lodLevel) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="terrain" Type="Urho.Terrain" />
+        <Parameter Name="lodLevel" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="terrain">To be added.</param>
+        <param name="lodLevel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

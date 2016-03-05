@@ -29,6 +29,20 @@
         <summary>To be added.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Dirbillboard">
+      <MemberSignature Language="C#" Value="Dirbillboard" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType Dirbillboard = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.GeometryType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Instanced">
       <MemberSignature Language="C#" Value="Instanced" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType Instanced = int32(2)" />
@@ -45,7 +59,7 @@
     </Member>
     <Member MemberName="MaxGeometrytypes">
       <MemberSignature Language="C#" Value="MaxGeometrytypes" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType MaxGeometrytypes = int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType MaxGeometrytypes = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -87,7 +101,7 @@
     </Member>
     <Member MemberName="StaticNoinstancing">
       <MemberSignature Language="C#" Value="StaticNoinstancing" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType StaticNoinstancing = int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType StaticNoinstancing = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

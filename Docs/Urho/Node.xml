@@ -256,6 +256,25 @@ model.SetMaterial(material);]]></code>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AddTag">
+      <MemberSignature Language="C#" Value="public void AddTag (string tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTag(string tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tag">The string to associate</param>
+        <summary>Attaches the specified string as a tag to this Node.</summary>
+        <remarks>Use the <see cref="M:Urho.Node.RemoveTag" /> to remove this tag, or the <see cref="M:Urho.Node.HasTag" /> method to determine if the element has the specified tag attached.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AnimationTrigger">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.AnimationTriggerEventArgs&gt; AnimationTrigger;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.AnimationTriggerEventArgs&gt; AnimationTrigger" />
@@ -939,6 +958,27 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="HasTag">
+      <MemberSignature Language="C#" Value="public bool HasTag (string tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasTag(string tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tag">The tag to check</param>
+        <summary>Determines if the node has the specified tag attached to it.</summary>
+        <returns>
+          <see langword="true" /> if it does, <see langword="false" /> otherwise.</returns>
+        <remarks>Use the <see cref="M:Urho.Node.AddTag" /> to add a tag to the node and <see cref="M:Urho.Node.RemoveTag" /> to remove it.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ID">
       <MemberSignature Language="C#" Value="public uint ID { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 ID" />
@@ -1504,6 +1544,44 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RemoveAction">
+      <MemberSignature Language="C#" Value="public void RemoveAction (Urho.Actions.ActionState state);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAction(class Urho.Actions.ActionState state) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="state" Type="Urho.Actions.ActionState" />
+      </Parameters>
+      <Docs>
+        <param name="state">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAction">
+      <MemberSignature Language="C#" Value="public void RemoveAction (Urho.Actions.BaseAction action);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAction(class Urho.Actions.BaseAction action) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="action" Type="Urho.Actions.BaseAction" />
+      </Parameters>
+      <Docs>
+        <param name="action">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RemoveAllActions">
       <MemberSignature Language="C#" Value="public void RemoveAllActions ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllActions() cil managed" />
@@ -1554,6 +1632,24 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Remove all components from this node.
             </summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveAllTags">
+      <MemberSignature Language="C#" Value="public void RemoveAllTags ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllTags() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Removes all tags that have been associated with the node.</summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveChild">
@@ -1727,6 +1823,27 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Remove listener component.
             </summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveTag">
+      <MemberSignature Language="C#" Value="public bool RemoveTag (string tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RemoveTag(string tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tag">Tag to remove from the node.</param>
+        <summary>Removes a string tag from the Node.</summary>
+        <returns>
+          <see langword="true" /> if the tag exited on the node, <see langword="false" /> otherwise.</returns>
+        <remarks>Use the <see cref="M:Urho.Node.AddTag" /> to add a tag to the node and <see cref="M:Urho.Node.HasTag" /> to probe if it is attached.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ResetDeepEnabled">
@@ -2023,6 +2140,30 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveJson">
+      <MemberSignature Language="C#" Value="public virtual bool SaveJson (Urho.IO.File dest, string indentation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool SaveJson(class Urho.IO.File dest, string indentation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="indentation" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="dest">Where the json is stored at.</param>
+        <param name="indentation">Indentation to use for the data.</param>
+        <summary>Saves the entire node as a prefab as Json data.</summary>
+        <returns>Returns <see langword="true" /> on success.</returns>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SaveXml">

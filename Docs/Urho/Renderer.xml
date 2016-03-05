@@ -246,6 +246,27 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="ApplyShadowMapFilter">
+      <MemberSignature Language="C#" Value="public void ApplyShadowMapFilter (Urho.View view, Urho.Urho2D.Texture2D shadowMap);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyShadowMapFilter(class Urho.View view, class Urho.Urho2D.Texture2D shadowMap) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Urho.View" />
+        <Parameter Name="shadowMap" Type="Urho.Urho2D.Texture2D" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <param name="shadowMap">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="BeginViewRender">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.BeginViewRenderEventArgs&gt; BeginViewRender;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.BeginViewRenderEventArgs&gt; BeginViewRender" />
@@ -1345,6 +1366,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetVSMShadowParameters">
+      <MemberSignature Language="C#" Value="public void SetVSMShadowParameters (float minVariance, float lightBleedingReduction);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetVSMShadowParameters(float32 minVariance, float32 lightBleedingReduction) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="minVariance" Type="System.Single" />
+        <Parameter Name="lightBleedingReduction" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="minVariance">To be added.</param>
+        <param name="lightBleedingReduction">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ShadowCamera">
       <MemberSignature Language="C#" Value="public Urho.Camera ShadowCamera { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Camera ShadowCamera" />
@@ -1384,14 +1426,14 @@
       </Docs>
     </Member>
     <Member MemberName="ShadowQuality">
-      <MemberSignature Language="C#" Value="public int ShadowQuality { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 ShadowQuality" />
+      <MemberSignature Language="C#" Value="public Urho.ShadowQuality ShadowQuality { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.ShadowQuality ShadowQuality" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType>Urho.ShadowQuality</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -1399,6 +1441,22 @@
             Or
             Set shadow quality mode. See the SHADOWQUALITY constants in GraphicsDefs.h.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowSoftness">
+      <MemberSignature Language="C#" Value="public float ShadowSoftness { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ShadowSoftness" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1674,6 +1732,22 @@
         <summary>
             Update for rendering. Called by HandleRenderUpdate().
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VSMShadowParameters">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 VSMShadowParameters { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 VSMShadowParameters" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -15,8 +15,8 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public FadeOut (float durtaion);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 durtaion) cil managed" />
+      <MemberSignature Language="C#" Value="public FadeOut (float duration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -25,7 +25,7 @@
         <Parameter Name="durtaion" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="durtaion">To be added.</param>
+        <param name="duration">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>

@@ -642,6 +642,32 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="InstantiateJson">
+      <MemberSignature Language="C#" Value="public Urho.Node InstantiateJson (Urho.IO.File source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node InstantiateJson(class Urho.IO.File source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.IO.File" />
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+        <Parameter Name="mode" Type="Urho.CreateMode" />
+      </Parameters>
+      <Docs>
+        <param name="source">data source</param>
+        <param name="position">Position where the object will be instantiated.</param>
+        <param name="rotation">Rotation used for the object.</param>
+        <param name="mode">Creation mode.</param>
+        <summary>Instantiate scene content from JSON data. </summary>
+        <returns>Return root node if successful, <see langword="null" /> on error.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="InstantiateXml">
       <MemberSignature Language="C#" Value="public Urho.Node InstantiateXml (Urho.IO.File source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node InstantiateXml(class Urho.IO.File source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
@@ -659,12 +685,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="mode" Type="Urho.CreateMode" />
       </Parameters>
       <Docs>
-        <param name="source">To be added.</param>
-        <param name="position">To be added.</param>
-        <param name="rotation">To be added.</param>
-        <param name="mode">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="source">data source</param>
+        <param name="position">Position where the object will be instantiated.</param>
+        <param name="rotation">Rotation used for the object.</param>
+        <param name="mode">Creation mode.</param>
+        <summary>Instantiate scene content from serialized XML data.</summary>
+        <returns>Return root node if successful, <see langword="null" /> on error.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -685,11 +711,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="mode" Type="Urho.CreateMode" />
       </Parameters>
       <Docs>
-        <param name="source">To be added.</param>
-        <param name="position">To be added.</param>
-        <param name="rotation">To be added.</param>
-        <param name="mode">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="source">data source</param>
+        <param name="position">Position where the object will be instantiated.</param>
+        <param name="rotation">Rotation used for the object.</param>
+        <param name="mode">Creation mode.</param>
+        <summary>Instantiate scene content from serialized XML data.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -740,6 +766,28 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="LoadAsyncJson">
+      <MemberSignature Language="C#" Value="public bool LoadAsyncJson (Urho.IO.File file, Urho.LoadMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadAsyncJson(class Urho.IO.File file, valuetype Urho.LoadMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="file" Type="Urho.IO.File" />
+        <Parameter Name="mode" Type="Urho.LoadMode" />
+      </Parameters>
+      <Docs>
+        <param name="file">To be added.</param>
+        <param name="mode">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="LoadAsyncXml">
       <MemberSignature Language="C#" Value="public bool LoadAsyncXml (Urho.IO.File file, Urho.LoadMode mode);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadAsyncXml(class Urho.IO.File file, valuetype Urho.LoadMode mode) cil managed" />
@@ -757,6 +805,26 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <param name="file">To be added.</param>
         <param name="mode">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadJson">
+      <MemberSignature Language="C#" Value="public bool LoadJson (Urho.IO.File source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadJson(class Urho.IO.File source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -995,6 +1063,48 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="NodeTagAdded">
+      <MemberSignature Language="C#" Value="public void NodeTagAdded (Urho.Node node, string tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void NodeTagAdded(class Urho.Node node, string tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="node" Type="Urho.Node" />
+        <Parameter Name="tag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="node">To be added.</param>
+        <param name="tag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NodeTagRemoved">
+      <MemberSignature Language="C#" Value="public void NodeTagRemoved (Urho.Node node, string tag);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void NodeTagRemoved(class Urho.Node node, string tag) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="node" Type="Urho.Node" />
+        <Parameter Name="tag" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="node">To be added.</param>
+        <param name="tag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PrepareNetworkUpdate">
       <MemberSignature Language="C#" Value="public override void PrepareNetworkUpdate ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void PrepareNetworkUpdate() cil managed" />
@@ -1088,6 +1198,28 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveJson">
+      <MemberSignature Language="C#" Value="public override bool SaveJson (Urho.IO.File dest, string indentation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveJson(class Urho.IO.File dest, string indentation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="indentation" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="indentation">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>

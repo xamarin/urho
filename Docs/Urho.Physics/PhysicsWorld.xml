@@ -586,14 +586,43 @@
         <Parameter Name="collisionMask" Type="System.UInt32" />
       </Parameters>
       <Docs>
-        <param name="result">To be added.</param>
-        <param name="ray">To be added.</param>
-        <param name="maxDistance">To be added.</param>
-        <param name="collisionMask">To be added.</param>
+        <param name="result">Result is returned in this parameter.   If no body is hit by the <see langword="ray" />, the result is set to position zero, normal zero, distance is set to infinity, hitFraction to zero and the body to zero.</param>
+        <param name="ray">Ray that will be used to find a body.</param>
+        <param name="maxDistance">Maximum distance to raycast.</param>
+        <param name="collisionMask">Collision mask to use.</param>
         <summary>
             Perform a physics world raycast and return the closest hit.
             </summary>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RaycastSingleSegmented">
+      <MemberSignature Language="C#" Value="public void RaycastSingleSegmented (ref Urho.Physics.PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, float segmentDistance, uint collisionMask);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RaycastSingleSegmented(valuetype Urho.Physics.PhysicsRaycastResult result, valuetype Urho.Ray ray, float32 maxDistance, float32 segmentDistance, unsigned int32 collisionMask) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="result" Type="Urho.Physics.PhysicsRaycastResult&amp;" RefType="ref" />
+        <Parameter Name="ray" Type="Urho.Ray" />
+        <Parameter Name="maxDistance" Type="System.Single" />
+        <Parameter Name="segmentDistance" Type="System.Single" />
+        <Parameter Name="collisionMask" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="result">Result is returned in this parameter.   If no body is hit by the <see langword="ray" />, the result is set to position zero, normal zero, distance is set to infinity, hitFraction to zero and the body to zero.</param>
+        <param name="ray">Ray that will be used to find a body.</param>
+        <param name="maxDistance">Maximum distance to raycast.</param>
+        <param name="segmentDistance">The segment distance to use for each step</param>
+        <param name="collisionMask">Collision mask to use.</param>
+        <summary>Perform a physics world segmented raycast and return the closest hit. Useful for big scenes with many bodies.</summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RegisterObject">

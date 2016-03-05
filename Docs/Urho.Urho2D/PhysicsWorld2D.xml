@@ -431,40 +431,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="PhysicsPostStep2D">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Urho2D.PhysicsPostStep2DEventArgs&gt; PhysicsPostStep2D;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsPostStep2DEventArgs&gt; PhysicsPostStep2D" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.Urho2D.PhysicsPostStep2DEventArgs&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>
-          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsPostStep2D" /> method.   That one will force that callback and will ignore any previously set events here.</para>
-        </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="PhysicsPreStep2D">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Urho2D.PhysicsPreStep2DEventArgs&gt; PhysicsPreStep2D;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsPreStep2DEventArgs&gt; PhysicsPreStep2D" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.Urho2D.PhysicsPreStep2DEventArgs&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>
-          <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsPreStep2D" /> method.   That one will force that callback and will ignore any previously set events here.</para>
-        </remarks>
-      </Docs>
-    </Member>
     <Member MemberName="PositionIterations">
       <MemberSignature Language="C#" Value="public int PositionIterations { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 PositionIterations" />
@@ -572,54 +538,6 @@
           <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
           <para>For a more event-like approach, use the <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsEndContact2D" /> event.</para>
-        </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SubscribeToPhysicsPostStep2D">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPostStep2D (Action&lt;Urho.Urho2D.PhysicsPostStep2DEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPostStep2D(class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsPostStep2DEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.Urho2D.PhysicsPostStep2DEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the PhysicsPostStep2D event raised by the PhysicsWorld2D.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
-          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsPostStep2D" /> event.</para>
-        </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SubscribeToPhysicsPreStep2D">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToPhysicsPreStep2D (Action&lt;Urho.Urho2D.PhysicsPreStep2DEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToPhysicsPreStep2D(class System.Action`1&lt;valuetype Urho.Urho2D.PhysicsPreStep2DEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.Urho2D.PhysicsPreStep2DEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the PhysicsPreStep2D event raised by the PhysicsWorld2D.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
-          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsPreStep2D" /> event.</para>
         </remarks>
       </Docs>
     </Member>
