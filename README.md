@@ -14,7 +14,7 @@ found on the LICENSE file.
 Sample code lives in https://github.com/xamarin/urho-samples and
 repository has them as a git submodule. Samples use UrhoSharp via nuget.
 
-![Sample](https://github.com/xamarin/urho-samples/raw/master/SamplyGame/Screenshots/Video.gif) ![Sample](https://github.com/xamarin/urho-samples/raw/master/FeatureSamples/Core/41_Charts/Screenshots/Screenshot.gif)
+![Sample](https://github.com/xamarin/urho-samples/raw/master/SamplyGame/Screenshots/Video.gif) ![Sample](https://github.com/xamarin/urho-samples/raw/master/FormsSample/Screenshots/Android.gif)
 
 # Setup
 

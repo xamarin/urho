@@ -45,6 +45,7 @@ namespace Urho.Forms
 			{
 				this.Add(surface = new Urho.iOS.UrhoSurface(this.Bounds));
 			}
+			await Urho.iOS.UrhoSurface.InitializeTask;
 			app = Urho.Application.CreateInstance(type, options);
 			app.Run();
 
