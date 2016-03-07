@@ -73,5 +73,6 @@ RemoveNugetFromSamplesMono:
 refresh-docs:
 	make PchMac
 	make ParseEventsMac
-	xbuild Urho.sln
+	xbuild /target:clean bindings/Urho.Desktop.csproj
+	xbuild bindings/Urho.Desktop.csproj
 	(cd docs; make update)

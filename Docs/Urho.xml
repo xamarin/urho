@@ -458,8 +458,10 @@
             <remarks />
         </member>
         <member name="M:Urho.AnimatedModel.UpdateBoneBoundingBox">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Recalculates the bone bounding box.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.AnimatedModel.UpdateGeometryType">
             <summary>
@@ -1570,9 +1572,12 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.HasCurrent">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Determines if the Current property has been set.</summary>
+            <value>
+                <see langword="true" /> if it has been set, <see langword="false" /> otherwise.</value>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Application.Input">
             <summary>Returns the Input subsystem.</summary>
@@ -1650,16 +1655,16 @@
             <remarks></remarks>
         </member>
         <member name="E:Urho.Application.Started">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Event raised when your application has started.</summary>
+            <remarks>This event is invoked after the <see cref="M:Urho.Application.Start" /> virtual method is invoked on your application.</remarks>
         </member>
         <member name="M:Urho.Application.Stop">
             <summary>Method invoked to terminate your application.</summary>
             <remarks></remarks>
         </member>
         <member name="E:Urho.Application.Stoped">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Event raised when your application has stopped.</summary>
+            <remarks>This event is invoked after the <see cref="M:Urho.Application.Stop" /> virtual method is invoked on your application.</remarks>
         </member>
         <member name="P:Urho.Application.Time">
             <summary>Returns the Time subsystem.</summary>
@@ -2107,45 +2112,44 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.Billboard">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Single billboard.</summary>
+            <remarks>One billboard in the billboard set.</remarks>
         </member>
         <member name="F:Urho.Billboard.Color">
-            <summary></summary>
+            <summary>Color</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Billboard.Direction">
-            <summary></summary>
+            <summary>Direction</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Billboard.Enabled">
-            <summary></summary>
+            <summary>Enabled flag</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Billboard.Position">
-            <summary></summary>
+            <summary>Position</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Billboard.Rotation">
-            <summary></summary>
+            <summary>Rotation</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Billboard.Size">
-            <summary></summary>
+            <summary>Two-dimensional size</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Billboard.SortDistance">
-            <summary></summary>
+            <summary>Sort distance</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Billboard.Uv">
-            <summary></summary>
+            <summary>UV Coordinates</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.BillboardSet">
-            <summary>
-            %Billboard component.
+            <summary>Billboard component.
             </summary>
             <remarks></remarks>
         </member>
@@ -2497,7 +2501,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.BoundingBox">
-            <summary></summary>
+            <summary>3D bounding box</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.BoundingBox(System.Single,System.Single)">
@@ -2512,12 +2516,45 @@
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.BoundingBox.Center">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.BoundingBox.Defined">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="F:Urho.BoundingBox.DummyMax">
             <summary></summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.BoundingBox.DummyMin">
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.BoundingBox.HalfSize">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.BoundingBox.IsInside(Urho.BoundingBox)">
+            <param name="box"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.BoundingBox.IsInside(Urho.Vector3)">
+            <param name="point"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.BoundingBox.IsInsideFast(Urho.BoundingBox)">
+            <param name="box"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="F:Urho.BoundingBox.Max">
@@ -2528,9 +2565,13 @@
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.BoundingBox.Size">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Camera">
-            <summary>
-            %Camera component.
+            <summary>Camera component.
             </summary>
             <remarks></remarks>
         </member>
@@ -4502,8 +4543,7 @@
             <remarks />
         </member>
         <member name="T:Urho.DecalSet">
-            <summary>
-            %Decal renderer component.
+            <summary>Decal renderer component.
             </summary>
             <remarks></remarks>
         </member>
@@ -5656,7 +5696,7 @@
             <remarks></remarks>
         </member>
         <member name="F:Urho.FaceCameraMode.Direction">
-            <summary></summary>
+            <summary>If this mode is used, the billboard will rotate facing camera with direction as axis, so it will create pseudo 3D effect.</summary>
         </member>
         <member name="F:Urho.FaceCameraMode.LookAtXyz">
             <summary></summary>
@@ -12538,9 +12578,9 @@ model.SetMaterial(material);]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.AddTag(System.String)">
-            <param name="tag"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="tag">The string to associate</param>
+            <summary>Attaches the specified string as a tag to this Node.</summary>
+            <remarks>Use the <see cref="M:Urho.Node.RemoveTag" /> to remove this tag, or the <see cref="M:Urho.Node.HasTag" /> method to determine if the element has the specified tag attached.</remarks>
         </member>
         <member name="E:Urho.Node.AnimationTrigger">
             <summary></summary>
@@ -12799,10 +12839,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.HasTag(System.String)">
-            <param name="tag"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="tag">The tag to check</param>
+            <summary>Determines if the node has the specified tag attached to it.</summary>
+            <returns>
+                <see langword="true" /> if it does, <see langword="false" /> otherwise.</returns>
+            <remarks>Use the <see cref="M:Urho.Node.AddTag" /> to add a tag to the node and <see cref="M:Urho.Node.RemoveTag" /> to remove it.</remarks>
         </member>
         <member name="P:Urho.Node.ID">
             <summary>
@@ -13042,8 +13083,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.RemoveAllTags">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Removes all tags that have been associated with the node.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Node.RemoveChild(Urho.Node)">
             <param name="node"></param>
@@ -13103,10 +13146,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.RemoveTag(System.String)">
-            <param name="tag"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="tag">Tag to remove from the node.</param>
+            <summary>Removes a string tag from the Node.</summary>
+            <returns>
+                <see langword="true" /> if the tag exited on the node, <see langword="false" /> otherwise.</returns>
+            <remarks>Use the <see cref="M:Urho.Node.AddTag" /> to add a tag to the node and <see cref="M:Urho.Node.HasTag" /> to probe if it is attached.</remarks>
         </member>
         <member name="M:Urho.Node.ResetDeepEnabled">
             <summary>
@@ -13213,11 +13257,13 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SaveJson(Urho.IO.File,System.String)">
-            <param name="dest"></param>
-            <param name="indentation"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="dest">Where the json is stored at.</param>
+            <param name="indentation">Indentation to use for the data.</param>
+            <summary>Saves the entire node as a prefab as Json data.</summary>
+            <returns>Returns <see langword="true" /> on success.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Node.SaveXml(Urho.Resources.XmlElement)">
             <param name="dest">The destiation to store the node on.</param>
@@ -15144,8 +15190,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks />
         </member>
         <member name="T:Urho.Pass">
-            <summary>
-            %Material rendering pass, which defines shaders and render state.
+            <summary>Material rendering pass, which defines shaders and render state.
             </summary>
             <remarks></remarks>
         </member>
@@ -15957,21 +16002,70 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Ray">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Infinite straight line in a three-dimensional space</summary>
+            <remarks>Rays are lines that start at one point in space and point towards a specific direction</remarks>
         </member>
         <member name="C:Urho.Ray(Urho.Vector3,Urho.Vector3)">
             <param name="origin"></param>
             <param name="direction"></param>
+            <summary>Constructs from origin and direction, the direction will be normalized.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Ray.ClosestPoint(Urho.Ray)">
+            <param name="otherRay"></param>
             <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Ray.Direction">
+            <summary>Ray direction</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Ray.Distance(Urho.Vector3)">
+            <param name="point"></param>
             <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Ray.Equals(System.Object)">
+            <param name="obj"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Ray.GetHashCode">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Ray.HitDistance(Urho.Plane)">
+            <param name="plane"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Ray.op_Equality(Urho.Ray,Urho.Ray)">
+            <param name="left"></param>
+            <param name="right"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Ray.op_Inequality(Urho.Ray,Urho.Ray)">
+            <param name="left"></param>
+            <param name="right"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Ray.Origin">
+            <summary>Ray origin.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Ray.Project(Urho.Vector3)">
+            <param name="point"></param>
             <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="T:Urho.RayQueryLevel">
@@ -17701,29 +17795,29 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.InstantiateJson(Urho.IO.File,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
-            <param name="source"></param>
-            <param name="position"></param>
-            <param name="rotation"></param>
-            <param name="mode"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="source">data source</param>
+            <param name="position">Position where the object will be instantiated.</param>
+            <param name="rotation">Rotation used for the object.</param>
+            <param name="mode">Creation mode.</param>
+            <summary>Instantiate scene content from JSON data. </summary>
+            <returns>Return root node if successful, <see langword="null" /> on error.</returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.InstantiateXml(Urho.IO.File,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
-            <param name="source"></param>
-            <param name="position"></param>
-            <param name="rotation"></param>
-            <param name="mode"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="source">data source</param>
+            <param name="position">Position where the object will be instantiated.</param>
+            <param name="rotation">Rotation used for the object.</param>
+            <param name="mode">Creation mode.</param>
+            <summary>Instantiate scene content from serialized XML data.</summary>
+            <returns>Return root node if successful, <see langword="null" /> on error.</returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.InstantiateXml(Urho.Resources.XmlElement,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
-            <param name="source"></param>
-            <param name="position"></param>
-            <param name="rotation"></param>
-            <param name="mode"></param>
-            <summary></summary>
+            <param name="source">data source</param>
+            <param name="position">Position where the object will be instantiated.</param>
+            <param name="rotation">Rotation used for the object.</param>
+            <param name="mode">Creation mode.</param>
+            <summary>Instantiate scene content from serialized XML data.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -35934,7 +36028,8 @@ public class MyInstantState : ActionInstantState
                 <para>You can also use the Editor application to create UI layouts. The serialization format is similar to scene XML serialization, with three important differences:</para>
                 <para>1) The element type to instantiate, and the style to use for it can be set separately. For example the following element definition tells to instantiate a <see cref="T:Urho.Gui.Button" /> element, and that it should use the style "CloseButton" defined in the style XML file.</para>
                 <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.Gui.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
-                <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true".</para>
+                <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true”.</para>
+                <para>You can associate one or more strings to a UIElement, by using the <see cref="M:Urho.Gui.UIElement.AddTag" /> and the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> methods.</para>
                 <para />
                 <see cref="" />
                 <para />
@@ -35944,6 +36039,7 @@ public class MyInstantState : ActionInstantState
                 <para>By default UI elements operate in a "free" layout mode, where child elements' positions can be specified relative to any of the parent element corners, but they are not automatically positioned or resized.</para>
                 <para>To create automatically adjusting layouts, the layout mode can be switched to either "horizontal" or "vertical". Now the child elements will be positioned left to right or top to bottom, based on the order in which they were added. They will be preferably resized to fit the parent element, taking into account their minimum and maximum sizes, but failing to do that, the parent element will be resized.</para>
                 <para>Left, top, right and bottom border widths and spacing between elements can also be specified for the layout. A grid layout is not directly supported, but it can be manually created with a horizontal layout inside a vertical layout, or vice versa.</para>
+                <para />
                 <format type="text/html" />
             </remarks>
         </member>
@@ -35986,9 +36082,9 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.AddTag(System.String)">
-            <param name="tag"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="tag">The string to associate</param>
+            <summary>Attaches the specified string as a tag to this UIElement.</summary>
+            <remarks>Use the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> to remove this tag, or the <see cref="M:Urho.Gui.UIElement.HasTag" /> method to determine if the element has the specified tag attached.</remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.AppliedStyle">
             <summary>
@@ -36442,10 +36538,10 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.HasTag(System.String)">
-            <param name="tag"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="tag">Tag string to probe.</param>
+            <summary>Determines if the UIElement has the associated tag attached to it.</summary>
+            <returns>True if the specified tag has been associated with this UIElement.</returns>
+            <remarks>Use the <see cref="M:Urho.Gui.UIElement.AddTag" /> to add a tag to a UIElement, and <see cref="M:Urho.Gui.UIElement.RemoveTag" /> to remove this tag.</remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.Height">
             <summary>
@@ -36876,10 +36972,11 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.RemoveTag(System.String)">
-            <param name="tag"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="tag">Tag to remove</param>
+            <summary>Removes the specified tag from the UIElement.</summary>
+            <returns>
+                <see langword="true" /> if the tag existed, <see langword="false" /> otherwise.</returns>
+            <remarks>Use the <see cref="M:Urho.Gui.UIElement.AddTag" /> to add a tag to a UIElement, and <see cref="M:Urho.Gui.UIElement.HasTag" /> to determine if an element has the specified tag attached.</remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.ResetDeepEnabled">
             <summary>
@@ -42757,23 +42854,25 @@ public class MyInstantState : ActionInstantState
             </remarks>
         </member>
         <member name="M:Urho.Physics.PhysicsWorld.RaycastSingle(Urho.Physics.PhysicsRaycastResult@,Urho.Ray,System.Single,System.UInt32)">
-            <param name="result"></param>
-            <param name="ray"></param>
-            <param name="maxDistance"></param>
-            <param name="collisionMask"></param>
+            <param name="result">Result is returned in this parameter.   If no body is hit by the <see langword="ray" />, the result is set to position zero, normal zero, distance is set to infinity, hitFraction to zero and the body to zero.</param>
+            <param name="ray">Ray that will be used to find a body.</param>
+            <param name="maxDistance">Maximum distance to raycast.</param>
+            <param name="collisionMask">Collision mask to use.</param>
             <summary>
             Perform a physics world raycast and return the closest hit.
             </summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Physics.PhysicsWorld.RaycastSingleSegmented(Urho.Physics.PhysicsRaycastResult@,Urho.Ray,System.Single,System.Single,System.UInt32)">
-            <param name="result"></param>
-            <param name="ray"></param>
-            <param name="maxDistance"></param>
-            <param name="segmentDistance"></param>
-            <param name="collisionMask"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="result">Result is returned in this parameter.   If no body is hit by the <see langword="ray" />, the result is set to position zero, normal zero, distance is set to infinity, hitFraction to zero and the body to zero.</param>
+            <param name="ray">Ray that will be used to find a body.</param>
+            <param name="maxDistance">Maximum distance to raycast.</param>
+            <param name="segmentDistance">The segment distance to use for each step</param>
+            <param name="collisionMask">Collision mask to use.</param>
+            <summary>Perform a physics world segmented raycast and return the closest hit. Useful for big scenes with many bodies.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Physics.PhysicsWorld.RegisterObject(Urho.Context)">
             <param name="context"></param>
@@ -49904,10 +50003,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Urho2D.RigidBody2D.ApplyWorldTransform(Urho.Vector3,Urho.Quaternion)">
-            <param name="newWorldPosition"></param>
-            <param name="newWorldRotation"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="newWorldPosition">New world position to apply.</param>
+            <param name="newWorldRotation">New world rotation to apply.</param>
+            <summary>Applies the specified world osition and rotation.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Urho2D.RigidBody2D.Awake">
             <summary>Controls the Awake mode.</summary>

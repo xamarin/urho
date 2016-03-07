@@ -26,9 +26,11 @@
         <Parameter Name="max" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="min">To be added.</param>
-        <param name="max">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="min">Minimum value.</param>
+        <param name="max">Maximum value.</param>
+        <summary>
+          <para>Construct from minimum and maximum floats (all dimensions same.)</para>
+        </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -44,9 +46,42 @@
         <Parameter Name="max" Type="Urho.Vector3" />
       </Parameters>
       <Docs>
-        <param name="min">To be added.</param>
-        <param name="max">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="min">Minimum value.</param>
+        <param name="max">Maximum value.</param>
+        <summary>Construct from minimum and maximum vectors.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Center">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Center { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Center" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Returns the center of the bounding box.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Defined">
+      <MemberSignature Language="C#" Value="public bool Defined ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Defined() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Return true if this bounding box is defined via a previous call to Define() or Merge().</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,7 +96,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Unused, used for structure field padding.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,7 +111,91 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Unused, used for structure field padding.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HalfSize">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 HalfSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 HalfSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return the half-size of the bounding box.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsInside">
+      <MemberSignature Language="C#" Value="public Urho.Intersection IsInside (Urho.BoundingBox box);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Intersection IsInside(valuetype Urho.BoundingBox box) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Intersection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="box" Type="Urho.BoundingBox" />
+      </Parameters>
+      <Docs>
+        <param name="box">The box to test if it is inside this instance’s box.</param>
+        <summary>
+          <para>Test if another bounding box is inside, outside or intersects.</para>
+        </summary>
+        <returns>
+          <para>
+            <see cref="E:Urho.Intersection.Outside" /> if the specified <paramref name="box" /> is outside the current bounding box, or <see cref="E:Urho.Intersection.Inside" /> if the <paramref name="box" /> is fully contained within this bounding box, or <see cref="E:Urho.Intersection.Intersects" /> if the specified <paramref name="box" /> intersects this bounding box.</para>
+          <para></para>
+        </returns>
+        <remarks>If you are only interested on the Inside/Outside values and do not care about intersect, you can use the <see cref="M:Urho.BoundingBox.IsInsideFast" /> method which performs fewer tests.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsInside">
+      <MemberSignature Language="C#" Value="public Urho.Intersection IsInside (Urho.Vector3 point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Intersection IsInside(valuetype Urho.Vector3 point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Intersection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="point">The point to test.</param>
+        <summary>Test if a point is  inside, outside or intersects the bounding box.</summary>
+        <returns>
+          <see cref="E:Urho.Intersection.Outside" /> if the specified <paramref name="point" /> is outside the current bounding box or <see cref="E:Urho.Intersection.Inside" /> if the specified <paramref name="point" /> is inside this bounding box. </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsInsideFast">
+      <MemberSignature Language="C#" Value="public Urho.Intersection IsInsideFast (Urho.BoundingBox box);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Intersection IsInsideFast(valuetype Urho.BoundingBox box) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Intersection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="box" Type="Urho.BoundingBox" />
+      </Parameters>
+      <Docs>
+        <param name="box">The box to test if it is inside this instance’s box.</param>
+        <summary>Test if another bounding box is inside or outside/intersects.</summary>
+        <returns>
+          <see cref="E:Urho.Intersection.Outside" /> if the specified <paramref name="box" /> is outside the current bounding box or <see cref="E:Urho.Intersection.Inside" /> if the specified <paramref name="box" /> intersects or is completelly inside this bounding box.   If you want more precise information use the <see cref="M:Urho.BoundingBox.IsInside(Urho.BoundingBox)" /> method which can distinguish between <see cref="E:Urho.Intersection.Inside" /> and <see cref="E:Urho.Intersection.Intersects" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -91,7 +210,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Maximum vector</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -106,7 +225,23 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
+        <summary>Minimum vector.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Size">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Size { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Size" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
         <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

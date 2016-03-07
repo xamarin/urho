@@ -32,6 +32,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ClosestPoint">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 ClosestPoint (Urho.Ray otherRay);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 ClosestPoint(valuetype Urho.Ray otherRay) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="otherRay" Type="Urho.Ray" />
+      </Parameters>
+      <Docs>
+        <param name="otherRay">The other ray.</param>
+        <summary>Return closest point to another ray.</summary>
+        <returns>Vector representing the closest point to the other ray.</returns>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Direction">
       <MemberSignature Language="C#" Value="public Urho.Vector3 Direction;" />
       <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector3 Direction" />
@@ -44,7 +66,140 @@
       </ReturnValue>
       <Docs>
         <summary>Ray direction</summary>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Distance">
+      <MemberSignature Language="C#" Value="public float Distance (Urho.Vector3 point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 Distance(valuetype Urho.Vector3 point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="point">Point to compute the distance to.</param>
+        <summary>Return distance of a point from the ray.</summary>
+        <returns>Return distance of a point from the ray.</returns>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object obj) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obj" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="obj">The object to compare to.</param>
+        <summary>Compares the provided object with this ray</summary>
+        <returns>Returns <see langword="true" /> if the obj is a Ray, and the values of the array are the same as this array, <see langword="false" /> otherwise.</returns>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Returns the Ray’s hashcode.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HitDistance">
+      <MemberSignature Language="C#" Value="public float HitDistance (Urho.Plane plane);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 HitDistance(valuetype Urho.Plane plane) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plane" Type="Urho.Plane" />
+      </Parameters>
+      <Docs>
+        <param name="plane">The plane to compute the hit distance against.</param>
+        <summary>Computes the hit distance to a plane.</summary>
+        <returns>Return hit distance to a plane, or <see cref="T:System.Single.PositiveInfinity" /> if no hit.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Equality">
+      <MemberSignature Language="C#" Value="public static bool op_Equality (Urho.Ray left, Urho.Ray right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Equality(valuetype Urho.Ray left, valuetype Urho.Ray right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Ray" />
+        <Parameter Name="right" Type="Urho.Ray" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left ray</param>
+        <param name="right">Right ray</param>
+        <summary>Compares two rays for equality</summary>
+        <returns>
+          <see langword="true" /> if they are equal, <see langword="false" /> otherwise.</returns>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Inequality">
+      <MemberSignature Language="C#" Value="public static bool op_Inequality (Urho.Ray left, Urho.Ray right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Inequality(valuetype Urho.Ray left, valuetype Urho.Ray right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Ray" />
+        <Parameter Name="right" Type="Urho.Ray" />
+      </Parameters>
+      <Docs>
+        <param name="left">Left ray</param>
+        <param name="right">Right ray</param>
+        <summary>Compares two rays and determine if they are not equal.</summary>
+        <returns>
+          <see langword="true" /> if they are not equal, <see langword="false" /> otherwise.</returns>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Origin">
@@ -59,6 +214,28 @@
       </ReturnValue>
       <Docs>
         <summary>Ray origin.</summary>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Project">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Project (Urho.Vector3 point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 Project(valuetype Urho.Vector3 point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="point">Point to project</param>
+        <summary>Project a point on the ray</summary>
+        <returns>Computes the ray’s Origin + DotProductOf (<paramref name="point" />-Origin, Direction) * Direction.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
