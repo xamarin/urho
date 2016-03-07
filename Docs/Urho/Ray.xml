@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Infinite straight line in a three-dimensional space</summary>
+    <remarks>Rays are lines that start at one point in space and point towards a specific direction</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -28,7 +28,7 @@
       <Docs>
         <param name="origin">To be added.</param>
         <param name="direction">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Constructs from origin and direction, the direction will be normalized.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -43,7 +43,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Ray direction</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -58,7 +58,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Ray origin.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -18,6 +18,76 @@ namespace Urho {
 			Origin = origin;
 			Direction = Vector3.Normalize(direction);
 		}
+
+		public override bool Equals (object obj)
+		{
+			if (!(obj is Ray))
+				return false;
+
+			return (this == (Ray) obj);
+		}
+
+		public static bool operator == (Ray left, Ray right)
+		{
+			return ((left.Origin == right.Origin) && (left.Direction == right.Direction));
+		}
+
+		public static bool operator != (Ray left, Ray right)
+		{
+			return ((left.Origin != right.Origin) || (left.Direction != right.Direction));
+		}
+
+		public Vector3 Project (Vector3 point)
+		{
+			var offset = point - Origin;
+			return Origin + Vector3.Dot (offset, Direction) * Direction;
+		}
+
+		public override int GetHashCode ()
+		{
+			return Origin.GetHashCode () + Direction.GetHashCode ();
+		}
+
+		public float Distance (Vector3 point)
+		{
+			var projected = Project (point);
+			return (point - projected).Length;
+		}
+
+		public Vector3 ClosestPoint (Ray otherRay)
+		{
+			var p13 = Origin - otherRay.Origin;
+			var p43 = otherRay.Direction;
+			Vector3 p21 = Direction;
+
+			float d1343 = Vector3.Dot (p13, p43);
+			float d4321 = Vector3.Dot (p43, p21);
+			float d1321 = Vector3.Dot (p13, p21);
+			float d4343 = Vector3.Dot (p43, p43);
+			float d2121 = Vector3.Dot (p21, p21);
+
+			float d = d2121 * d4343 - d4321 * d4321;
+			if (Math.Abs(d) < float.Epsilon)
+				return Origin;
+			float n = d1343 * d4321 - d1321 * d4343;
+			float a = n / d;
+
+			return Origin + a * Direction;
+		}
+
+		public float HitDistance (Plane plane)
+		{
+			float d = Vector3.Dot (plane.Normal, Direction);
+			if (Math.Abs (d) >= float.Epsilon) {
+				float t = -(Vector3.Dot (plane.Normal, Origin) + plane.D) / d;
+				if (t >= 0.0f)
+					return t;
+				else
+					return float.PositiveInfinity;
+			} else
+				return float.PositiveInfinity;
+		}
+
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -95,6 +165,61 @@ namespace Urho {
 			DummyMin = 0;
 			Min = min;
 			Max = max;
+		}
+
+		public bool Defined ()
+		{
+			return Min.X != float.PositiveInfinity;
+		}
+
+		public Vector3 Center {
+			get {
+				return (Max + Min) * 0.5f;
+			}
+		}
+
+		public Vector3 Size {
+			get {
+				return Max - Min;
+			}
+		}
+		public Vector3 HalfSize {
+			get {
+				return (Max - Min)*0.5f;
+			}
+		}
+			
+		public Intersection IsInside (Vector3 point)
+		{
+			if (point.X < Min.X || point.X > Max.X ||
+			    point.Y < Min.Y || point.Y > Max.Y ||
+			    point.Z < Min.Z || point.Z > Max.Z)
+				return Intersection.Outside;
+			return Intersection.Inside;
+		}
+
+		public Intersection IsInside (BoundingBox box)
+		{
+			if (box.Max.X < Min.X || box.Min.X > Max.X || 
+				box.Max.Y < Min.Y || box.Min.Y > Max.Y ||
+			    box.Max.Z < Min.Z || box.Min.Z > Max.Z)
+				return Intersection.Outside;
+			else if (box.Min.X < Min.X || box.Max.X > Max.X || 
+					 box.Min.Y < Min.Y || box.Max.Y > Max.Y ||
+			         box.Min.Z < Min.Z || box.Max.Z > Max.Z)
+				return Intersection.Intersects;
+			else
+				return Intersection.Inside;
+		}
+
+		public Intersection IsInsideFast (BoundingBox box)
+		{
+			if (box.Max.X < Min.X || box.Min.X > Max.X || 
+				box.Max.Y < Min.Y || box.Min.Y > Max.Y ||
+				box.Max.Z < Min.Z || box.Min.Z > Max.Z)
+				return Intersection.Outside;
+			else
+				return Intersection.Inside;
 		}
 	}
 
