@@ -41,7 +41,7 @@ Windows64:
 	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" && make -j1 CoreData.pak -f MakeWindows
 
 Windows: Windows32 Windows64
-	
+
 All-Macos: Android Mac iOS
 
 All-Windows: Android Windows
@@ -65,7 +65,13 @@ ParseEventsMac:
 # change references from nuget to projectreferences for Samples/
 RemoveNugetFromSamples:
 	csc Bindings/RemoveNugetFromSamples.cs && ./RemoveNugetFromSamples.exe -refsonly && rm -f RemoveNugetFromSamples.exe
-	
+
 # change references from nuget to projectreferences for Samples/
 RemoveNugetFromSamplesMono:
 	mcs Bindings/RemoveNugetFromSamples.cs -r:System.Xml.dll -r:System.Xml.Linq.dll && mono RemoveNugetFromSamples.exe -refsonly && rm -f Bindings/RemoveNugetFromSamples.exe
+
+refresh-docs:
+	make PchMac
+	make ParseEventsMac
+	xbuild Urho.sln
+	(cd docs; make update)
