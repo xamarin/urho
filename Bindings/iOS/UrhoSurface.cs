@@ -17,19 +17,20 @@ namespace Urho.iOS
 
 		public UrhoSurface()
 		{
+			UrhoPlatformInitializer.DefaultInit();
 			initTaskSource = new TaskCompletionSource<bool>();
 			BackgroundColor = UIColor.Black;
 		}
 
 		public UrhoSurface(CGRect frame) : base(frame)
 		{
+			UrhoPlatformInitializer.DefaultInit();
 			BackgroundColor = UIColor.Black;
 			initTaskSource = new TaskCompletionSource<bool>();
 		}
 
 		public override async void WillMoveToWindow(UIWindow window)
 		{
-			UrhoPlatformInitializer.DefaultInit();
 			base.WillMoveToWindow(window);
 		}
 
