@@ -49,11 +49,17 @@ namespace Urho
 		/// </summary>
 		public bool LimitFps { get; set; } = true;
 
+#if XFORMS
+		/// <summary>
+		/// iOS only
+		/// </summary>
+		public OrientationType Orientation { get; set; } = OrientationType.Portrait;
+#else
 		/// <summary>
 		/// iOS only
 		/// </summary>
 		public OrientationType Orientation { get; set; } = OrientationType.Landscape;
-
+#endif
 		/// <summary>
 		/// Resource path(s) to use (default: Data, CoreData)
 		/// </summary>
@@ -83,7 +89,8 @@ namespace Urho
 		public enum OrientationType
 		{
 			Landscape,
-			Portrait
+			Portrait,
+			LandscapeAndPortrait
 		}
 
 		public override string ToString()
@@ -115,7 +122,18 @@ namespace Urho
 			if (TouchEmulation)
 				builder.Append(" -touch");
 
-			builder.AppendFormat(" -{0}", Orientation.ToString().ToLower());
+			switch (Orientation)
+			{
+				case OrientationType.Landscape:
+					builder.Append(" -landscape");
+					break;
+				case OrientationType.Portrait:
+					builder.Append(" -portrait");
+					break;
+				case OrientationType.LandscapeAndPortrait:
+					builder.Append(" -landscape -portrait");
+					break;
+			}
 
 			return builder + " " + AdditionalFlags;
 		}
