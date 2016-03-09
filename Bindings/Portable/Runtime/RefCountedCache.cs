@@ -23,7 +23,7 @@ namespace Urho
 					knownObject?.Reference?.Dispose();
 				}
 
-				knownObjects[refCounted.Handle] = new ReferenceHolder<RefCounted>(refCounted, weak: refCounted.Refs() < 1);
+				knownObjects[refCounted.Handle] = new ReferenceHolder<RefCounted>(refCounted, weak: refCounted.Refs() < 1 && !StrongRefByDefault(refCounted));
 			}
 		}
 
@@ -62,6 +62,13 @@ namespace Urho
 				}
 				knownObjects.Clear();
 			}
+		}
+
+		bool StrongRefByDefault(RefCounted refCounted)
+		{
+			if (refCounted is Scene)
+				return true;
+			return false;
 		}
 	}
 }
