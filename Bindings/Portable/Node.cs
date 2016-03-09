@@ -35,6 +35,9 @@ namespace Urho {
 				var node = Marshal.ReadIntPtr(ptr, i * IntPtr.Size);
 				res [i] = Runtime.LookupObject<Node> (node);
 			}
+			if (Component.IsDefinedInManagedCode<T>())
+				//is not really efficient, but underlying Urho3D knows nothing about components defined in C#
+				return res.Where(c => c.GetComponent<T>() != null).ToArray();
 			return res;
 		}
 		

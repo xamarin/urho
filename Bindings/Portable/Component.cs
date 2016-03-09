@@ -8,6 +8,7 @@
 //
 
 using System.Linq;
+using System.Reflection;
 using Urho.Resources;
 
 namespace Urho
@@ -51,6 +52,8 @@ namespace Urho
 		/// Make sure you set SubscribeToSceneUpdate property to true in order to receive Update events
 		/// </summary>
 		protected virtual void OnUpdate(float timeStep) { }
+
+		internal static bool IsDefinedInManagedCode<T>() => typeof(T).GetRuntimeProperty("TypeStatic") == null;
 
 		void HandleUpdate(UpdateEventArgs args)
 		{

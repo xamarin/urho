@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Urho.Resources;
@@ -176,13 +177,22 @@ namespace Urho
 			int c;
 			if (hashDict.TryGetValue (t, out c))
 				return new StringHash (c);
-			var typeStatic = t.GetRuntimeProperty("TypeStatic");
-			if (typeStatic == null)
-				throw new InvalidOperationException("The type doesn't have static TypeStatic property");
-
-			var hash = (StringHash)typeStatic.GetValue(null);
+			var hash = GetTypeStatic(t);
 			hashDict [t] = hash.Code;
 			return hash;
+		}
+
+		static StringHash GetTypeStatic(Type type)
+		{
+			var typeStatic = type.GetRuntimeProperty("TypeStatic");
+			while (typeStatic == null)
+			{
+				type = type.GetTypeInfo().BaseType;
+				if (type == typeof(object))
+					throw new InvalidOperationException("The type doesn't have static TypeStatic property");
+				typeStatic = type.GetRuntimeProperty("TypeStatic");
+			}
+			return (StringHash)typeStatic.GetValue(null);
 		}
 
 		static internal IReadOnlyList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject
