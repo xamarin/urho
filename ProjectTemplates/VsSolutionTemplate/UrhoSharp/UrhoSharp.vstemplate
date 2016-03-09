@@ -22,13 +22,4 @@
       </Folder>
     </Project>
   </TemplateContent>
-  <WizardExtension>
-    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
-    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
-  </WizardExtension>
-  <WizardData>
-    <packages>
-      <package id="UrhoSharp" version="1.0.360" />
-    </packages>
-  </WizardData>
 </VSTemplate>

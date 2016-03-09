@@ -8,6 +8,8 @@
     <ProjectType>CSharp</ProjectType>
     <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>UrhoGame</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
     <TemplateID>Xamarin.UrhoSharp.Blank.PCL</TemplateID>
   </TemplateData>
   <TemplateContent>
@@ -27,18 +29,7 @@
     </ProjectCollection>
   </TemplateContent>
   <WizardExtension>
-    <Assembly>Xamarin.VisualStudio.TemplateWizards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756</Assembly>
-    <FullClassName>Xamarin.VisualStudio.TemplateWizards.EnsureRegistryWizard</FullClassName>
+    <Assembly>UrhoSharpTemplateWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f37fbcd47a310c3f</Assembly>
+    <FullClassName>UrhoSharpTemplateWizard.RootWizard</FullClassName>
   </WizardExtension>
-  <WizardExtension>
-    <Assembly>Xamarin.VisualStudio.TemplateWizards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756</Assembly>
-    <FullClassName>Xamarin.VisualStudio.TemplateWizards.FixBuildConfigurationWizard</FullClassName>
-  </WizardExtension>
-  <WizardData>
-    <EnsureRegistryWizard>
-      <Key>_Config\Projects\{786C830F-07A1-408B-BD7F-6EE04809D6DB}</Key>
-      <ErrorMessageTitle>Portable Library Tools 2 required</ErrorMessageTitle>
-      <ErrorMessage>To create UrhoSharp projects please install Portable Library Tools 2.</ErrorMessage>
-    </EnsureRegistryWizard>
-  </WizardData>
 </VSTemplate>
