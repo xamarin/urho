@@ -1,12 +1,8 @@
+using System;
+using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
-
-/*
-	Changes nuget references to ProjectReferences in FeatureSamples.
-	Nuget doesn't support ItemGroups with conditions (it will overwrite them on the next package update) so that's why this script exists
-	By default, this utility removes urho.targets imports with native libs, use "-refsonly" arg to replace only <Reference>s
-*/
 
 class P
 {
@@ -27,44 +23,48 @@ class P
 		//FeatureSamples.Core
 		var coreCsproj = @"Samples/FeatureSamples/Core/Urho.Samples.csproj";
 		var coreDoc = XDocument.Load(coreCsproj);
-		ReplaceRef(coreDoc, "Urho", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
+		RemovePackagesConfig(coreDoc);
+		ReplaceRef(coreDoc, "Urho", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\Bindings\Urho.csproj");
 		coreDoc.Save(coreCsproj);
 
 		//FeatureSamples.Droid
 		var droidCsproj = @"Samples/FeatureSamples/Android/Urho.Samples.Droid.csproj";
 		var droidDoc = XDocument.Load(droidCsproj);
-		ReplaceRef(droidDoc, "Urho", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
-		ReplaceRef(droidDoc, "Urho.Droid", "{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}", @"..\..\..\Bindings\Android\Urho.Droid.csproj", "Urho.Droid");
-		ReplaceRef(droidDoc, "Urho.Droid.SdlBindings", "{9438f1bb-e800-48c0-95ce-f158a60abd36}", @"..\..\..\Bindings\Android\Urho.Android.SdlBindings\Urho.Droid.SdlBindings.csproj", "Urho.Droid.SdlBindings");
-		RemoveTargets(droidDoc);
+		RemovePackagesConfig(droidDoc);
+		ReplaceRef(droidDoc, "Urho", "{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}", @"..\..\..\Bindings\Urho.Droid.csproj");
 		droidDoc.Save(droidCsproj);
 
 		//FeatureSamples.iOS
 		var iosCsproj = @"Samples/FeatureSamples/iOS/Urho.Samples.iOS.csproj";
 		var iosDoc = XDocument.Load(iosCsproj);
-		ReplaceRef(iosDoc, "Urho", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
-		ReplaceRef(iosDoc, "Urho.iOS", "{9ae80bd9-e1e2-41da-bb6f-712b35028bd9}", @"..\..\..\Bindings\iOS\Urho.iOS.csproj", "Urho.iOS");
-		RemoveTargets(iosDoc);
+		RemovePackagesConfig(iosDoc);
+		ReplaceRef(iosDoc, "Urho", "{9ae80bd9-e1e2-41da-bb6f-712b35028bd9}", @"..\..\..\Bindings\Urho.iOS.csproj");
 		iosDoc.Save(iosCsproj);
 
 		//FeatureSamples.Mac
 		var desktopCsproj = @"Samples/FeatureSamples/Mac/Urho.Samples.Mac.csproj";
 		var desktopDoc = XDocument.Load(desktopCsproj);
-		ReplaceRef(desktopDoc, "Urho", "{641886db-2c6c-4d33-88da-97bec0ec5f86}", @"..\..\..\bindings\Urho.csproj", "Urho");
-		ReplaceRef(desktopDoc, "Urho.Mac", "{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}", @"..\..\..\Bindings\Mac\Urho.Mac.csproj", "Urho.Mac");
+		RemovePackagesConfig(desktopDoc);
+		ReplaceRef(desktopDoc, "Urho", "{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}", @"..\..\..\Bindings\Urho.Desktop.csproj");
 		RemoveTargets(desktopDoc);
 		desktopDoc.Save(desktopCsproj);
 	}
 
-	static void ReplaceRef(XDocument doc, string refName, string id, string path, string name)
+	static void ReplaceRef(XDocument doc, string refName, string id, string path)
 	{
-		var node = doc.XPathSelectElement($"//p:Reference[@Include='{refName}']", nsManager);
+		var node = doc.XPathSelectElement($"//p:Reference[@Include='{refName}' or contains(@Include, '{refName + ", "}')]", nsManager);
 		if (node == null)//means it's already converted to ProjectReference
 			return;
 		node.Parent.Add(new XElement(ns + "ProjectReference", new XAttribute("Include", path),
 			new XElement(ns + "Project", id),
-			new XElement(ns + "Name", name)));
+			new XElement(ns + "Name", Path.GetFileNameWithoutExtension(path))));
 		node.Remove();
+	}
+
+	static void RemovePackagesConfig(XDocument doc)
+	{
+		var node = doc.XPathSelectElement("//p:None[@Include='packages.config']", nsManager);
+		node?.Remove();
 	}
 
 	static void RemoveTargets(XDocument doc)
