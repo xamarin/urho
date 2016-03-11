@@ -48,6 +48,27 @@ class P
 		ReplaceRef(desktopDoc, "Urho", "{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}", @"..\..\..\Bindings\Urho.Desktop.csproj");
 		RemoveTargets(desktopDoc);
 		desktopDoc.Save(desktopCsproj);
+
+		//FormsSample.Core
+		var formsCoreCsproj = @"Samples/FormsSample/FormsSample/FormsSample.csproj";
+		var formsCoreDoc = XDocument.Load(formsCoreCsproj);
+		RemovePackagesConfig(formsCoreDoc);
+		ReplaceRef(formsCoreDoc, "Urho.Forms", "{D599C47F-B9E0-4A58-82E8-6286E0442E8F}", @"..\..\..\Bindings\Urho.Forms.csproj");
+		formsCoreDoc.Save(formsCoreCsproj);
+
+		//FormsSample.Droid
+		var formsDroidCsproj = @"Samples/FormsSample/FormsSample.Droid/FormsSample.Droid.csproj";
+		var formsDroidDoc = XDocument.Load(formsDroidCsproj);
+		RemovePackagesConfig(formsDroidDoc);
+		ReplaceRef(formsDroidDoc, "Urho.Forms", "{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}", @"..\..\..\Bindings\Urho.Forms.Droid.csproj");
+		formsDroidDoc.Save(formsDroidCsproj);
+
+		//FormsSample.iOS
+		var formsIosCsproj = @"Samples/FormsSample/FormsSample.iOS/FormsSample.iOS.csproj";
+		var formsIosDoc = XDocument.Load(formsIosCsproj);
+		RemovePackagesConfig(formsIosDoc);
+		ReplaceRef(formsIosDoc, "Urho.Forms", "{8F3352BA-BF6A-49F8-81D6-58D54B3EA72B}", @"..\..\..\Bindings\Urho.Forms.iOS.csproj");
+		formsIosDoc.Save(formsIosCsproj);
 	}
 
 	static void ReplaceRef(XDocument doc, string refName, string id, string path)
