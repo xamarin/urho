@@ -703,6 +703,7 @@ namespace Urho.Physics {
 		public Vector3 Position;
 		public Vector3 Normal;
 		public float Distance;
+		public float HitFraction;
 
 		IntPtr bodyPtr;
 		public RigidBody Body => Runtime.LookupObject<RigidBody>(bodyPtr);

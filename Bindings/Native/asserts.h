@@ -287,6 +287,7 @@ void check_bindings_offsets()
 	static_assert(offsetof(PhysicsRaycastResult, position_) == 0, "PhysicsRaycastResult.Position has wrong offset (0)");
 	static_assert(offsetof(PhysicsRaycastResult, normal_) == 12, "PhysicsRaycastResult.Normal has wrong offset (12)");
 	static_assert(offsetof(PhysicsRaycastResult, distance_) == 24, "PhysicsRaycastResult.Distance has wrong offset (24)");
+	static_assert(offsetof(PhysicsRaycastResult, hitFraction_) == 28, "PhysicsRaycastResult.HitFraction has wrong offset (28)");
 	static_assert(offsetof(PhysicsRaycastResult, body_) == 32, "PhysicsRaycastResult.bodyPtr has wrong offset (32)");
 }
 #endif
