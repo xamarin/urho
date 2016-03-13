@@ -63,24 +63,27 @@ let processType (doc:XDocument) =
         setval mdoc "value" "StringHash representing the base type for this Urho type."
         setval mdoc "remarks" "This returns the Urho type system base type and is surfaced for low-level Urho code."
   let fillType() =
-    match doc.XPathSelectElement "Type/Members/Member[@MemberName='Type']/Docs" with
+    match doc.XPathSelectElement "Type/Members/Member[@MemberName='Type']" with
       | null -> ()
-      | mdoc ->
-        setval mdoc "summary" "Urho's type system type."
-        try
-          setval mdoc "value" "StringHash representing the type for this C# type."
-        with
-          | ex -> ()
-        setval mdoc "remarks" "This returns the Urho's type and is surfaced for low-level Urho code."
+      | memberType ->
+        match memberType.XPathSelectElement "ReturnValue/ReturnType[text()= 'Urho.StringHash']" with
+          | null -> ()
+          | strhash ->
+            setval memberType "Docs/summary" "Urho's type system type."
+            try
+              setval memberType "Docs/value" "StringHash representing the type for this C# type."
+            with
+              | ex -> ()
+            setval memberType "Docs/remarks" "This returns the Urho's type and is surfaced for low-level Urho code."
   let fillTypeName() = 
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='TypeName']/Docs" with
       | null -> ()
       | mdoc ->
         setval mdoc "summary" "Urho's low-level type name."
-        try
-          setval mdoc "value" "Stringified low-level type name."
-        with
-          | ex -> printfn "Problem with type %s" typeName
+        match mdoc.XPathSelectElement "value" with
+          | null -> ()
+          | node ->
+            setval mdoc "value" "Stringified low-level type name."
         setval mdoc "remarks" ""
   let fillTypeNameStatic() =
     match doc.XPathSelectElement "Type/Members/Member[@MemberName='TypeNameStatic']/Docs" with
