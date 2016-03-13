@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Physics raycast hit</summary>
+    <remarks>This structure is returned from various <see cref="T:Urho.Physics.PhysicsWorld" /> methods that perform ray casts.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Body">
@@ -25,7 +25,7 @@
         <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Rigid body that was hit.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -41,7 +41,22 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Hit distance from ray origin.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HitFraction">
+      <MemberSignature Language="C#" Value="public float HitFraction;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 HitFraction" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Hit fraction.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -56,7 +71,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Hit worldspace normal.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,7 +86,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Hit worldspace position.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

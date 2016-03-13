@@ -12,7 +12,9 @@
     <summary>
             Rendering path command types.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Clear">
@@ -26,7 +28,7 @@
         <ReturnType>Urho.RenderCommandType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Clear any of color, depth and stencil. Color clear can optionally use the fog color from the Zone visible at the far clip distance.</summary>
       </Docs>
     </Member>
     <Member MemberName="Forwardlights">
@@ -40,7 +42,7 @@
         <ReturnType>Urho.RenderCommandType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Render per-pixel forward lighting for opaque objects with the specified pass name. Shadow maps are also rendered as necessary.</summary>
       </Docs>
     </Member>
     <Member MemberName="Lightvolumes">
@@ -54,7 +56,7 @@
         <ReturnType>Urho.RenderCommandType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Render deferred light volumes using the specified shaders. G-buffer textures can be bound as necessary.</summary>
       </Docs>
     </Member>
     <Member MemberName="None">
@@ -82,7 +84,7 @@
         <ReturnType>Urho.RenderCommandType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Render a viewport-sized quad using the specified shaders and compilation defines. Textures can be bound and additionally shader parameters and the blend mode (default=replace) can be specified.</summary>
       </Docs>
     </Member>
     <Member MemberName="Renderui">
@@ -96,7 +98,7 @@
         <ReturnType>Urho.RenderCommandType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Render the UI into the output rendertarget. Using this will cause the default %UI render to the backbuffer to be skipped.</summary>
       </Docs>
     </Member>
     <Member MemberName="Scenepass">
@@ -110,7 +112,7 @@
         <ReturnType>Urho.RenderCommandType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Render scene objects whose <see cref="T:Urho.Material" /> contains the specified pass. Will either be front-to-back ordered with state sorting, or back-to-front ordered with no state sorting. For deferred rendering, object lightmasks can be optionally marked to the stencil buffer. Vertex lights can optionally be handled during a pass, if it has the necessary shader combinations. Textures global to the pass can be bound to free texture units; these can either be the viewport, a named rendertarget, or a texture resource identified with its pathname.</summary>
       </Docs>
     </Member>
   </Members>

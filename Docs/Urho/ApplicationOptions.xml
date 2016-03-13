@@ -133,7 +133,7 @@
       <Docs>
         <summary>iOS only - orientation for the game</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>This describes the allowed orientation modes for the display.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ResizableWindow">

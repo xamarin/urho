@@ -27,8 +27,23 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para />
+          <para>Landscape orientation desired.</para>
+          <para></para>
         </summary>
+      </Docs>
+    </Member>
+    <Member MemberName="LandscapeAndPortrait">
+      <MemberSignature Language="C#" Value="LandscapeAndPortrait" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.ApplicationOptions/OrientationType LandscapeAndPortrait = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.ApplicationOptions+OrientationType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Landscape or portrait orientation accepted.</summary>
       </Docs>
     </Member>
     <Member MemberName="Portrait">
@@ -43,7 +58,8 @@
       </ReturnValue>
       <Docs>
         <summary>
-          <para />
+          <para>Portrati orientation desired.</para>
+          <para></para>
         </summary>
       </Docs>
     </Member>

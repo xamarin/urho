@@ -1809,6 +1809,9 @@
                 <para />
             </summary>
         </member>
+        <member name="F:Urho.ApplicationOptions+OrientationType.LandscapeAndPortrait">
+            <summary></summary>
+        </member>
         <member name="F:Urho.ApplicationOptions+OrientationType.Portrait">
             <summary>
                 <para />
@@ -2505,64 +2508,74 @@
             <remarks></remarks>
         </member>
         <member name="C:Urho.BoundingBox(System.Single,System.Single)">
-            <param name="min"></param>
-            <param name="max"></param>
-            <summary></summary>
+            <param name="min">Minimum value.</param>
+            <param name="max">Maximum value.</param>
+            <summary>
+                <para>Construct from minimum and maximum floats (all dimensions same.)</para>
+            </summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.BoundingBox(Urho.Vector3,Urho.Vector3)">
-            <param name="min"></param>
-            <param name="max"></param>
-            <summary></summary>
+            <param name="min">Minimum value.</param>
+            <param name="max">Maximum value.</param>
+            <summary>Construct from minimum and maximum vectors.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BoundingBox.Center">
-            <summary></summary>
+            <summary>Returns the center of the bounding box.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.BoundingBox.Defined">
-            <summary></summary>
+            <summary>Return true if this bounding box is defined via a previous call to Define() or Merge().</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="F:Urho.BoundingBox.DummyMax">
-            <summary></summary>
+            <summary>Unused, used for structure field padding.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.BoundingBox.DummyMin">
-            <summary></summary>
+            <summary>Unused, used for structure field padding.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BoundingBox.HalfSize">
-            <summary></summary>
+            <summary>Return the half-size of the bounding box.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.BoundingBox.IsInside(Urho.BoundingBox)">
-            <param name="box"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="box">The box to test if it is inside this instance’s box.</param>
+            <summary>
+                <para>Test if another bounding box is inside, outside or intersects.</para>
+            </summary>
+            <returns>
+                <para>
+                    <see cref="E:Urho.Intersection.Outside" /> if the specified <paramref name="box" /> is outside the current bounding box, or <see cref="E:Urho.Intersection.Inside" /> if the <paramref name="box" /> is fully contained within this bounding box, or <see cref="E:Urho.Intersection.Intersects" /> if the specified <paramref name="box" /> intersects this bounding box.</para>
+                <para />
+            </returns>
+            <remarks>If you are only interested on the Inside/Outside values and do not care about intersect, you can use the <see cref="M:Urho.BoundingBox.IsInsideFast" /> method which performs fewer tests.</remarks>
         </member>
         <member name="M:Urho.BoundingBox.IsInside(Urho.Vector3)">
-            <param name="point"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="point">The point to test.</param>
+            <summary>Test if a point is  inside, outside or intersects the bounding box.</summary>
+            <returns>
+                <see cref="E:Urho.Intersection.Outside" /> if the specified <paramref name="point" /> is outside the current bounding box or <see cref="E:Urho.Intersection.Inside" /> if the specified <paramref name="point" /> is inside this bounding box. </returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.BoundingBox.IsInsideFast(Urho.BoundingBox)">
-            <param name="box"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="box">The box to test if it is inside this instance’s box.</param>
+            <summary>Test if another bounding box is inside or outside/intersects.</summary>
+            <returns>
+                <see cref="E:Urho.Intersection.Outside" /> if the specified <paramref name="box" /> is outside the current bounding box or <see cref="E:Urho.Intersection.Inside" /> if the specified <paramref name="box" /> intersects or is completelly inside this bounding box.   If you want more precise information use the <see cref="M:Urho.BoundingBox.IsInside(Urho.BoundingBox)" /> method which can distinguish between <see cref="E:Urho.Intersection.Inside" /> and <see cref="E:Urho.Intersection.Intersects" />.</returns>
             <remarks></remarks>
         </member>
         <member name="F:Urho.BoundingBox.Max">
-            <summary></summary>
+            <summary>Maximum vector</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.BoundingBox.Min">
-            <summary></summary>
+            <summary>Minimum vector.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BoundingBox.Size">
@@ -16012,60 +16025,76 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Ray.ClosestPoint(Urho.Ray)">
-            <param name="otherRay"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="otherRay">The other ray.</param>
+            <summary>Return closest point to another ray.</summary>
+            <returns>Vector representing the closest point to the other ray.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="F:Urho.Ray.Direction">
             <summary>Ray direction</summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Ray.Distance(Urho.Vector3)">
-            <param name="point"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="point">Point to compute the distance to.</param>
+            <summary>Return distance of a point from the ray.</summary>
+            <returns>Return distance of a point from the ray.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Ray.Equals(System.Object)">
-            <param name="obj"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="obj">The object to compare to.</param>
+            <summary>Compares the provided object with this ray</summary>
+            <returns>Returns <see langword="true" /> if the obj is a Ray, and the values of the array are the same as this array, <see langword="false" /> otherwise.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Ray.GetHashCode">
-            <summary></summary>
+            <summary>Returns the Ray’s hashcode.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Ray.HitDistance(Urho.Plane)">
-            <param name="plane"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="plane">The plane to compute the hit distance against.</param>
+            <summary>Computes the hit distance to a plane.</summary>
+            <returns>Return hit distance to a plane, or <see cref="T:System.Single.PositiveInfinity" /> if no hit.</returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Ray.op_Equality(Urho.Ray,Urho.Ray)">
-            <param name="left"></param>
-            <param name="right"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="left">Left ray</param>
+            <param name="right">Right ray</param>
+            <summary>Compares two rays for equality</summary>
+            <returns>
+                <see langword="true" /> if they are equal, <see langword="false" /> otherwise.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Ray.op_Inequality(Urho.Ray,Urho.Ray)">
-            <param name="left"></param>
-            <param name="right"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="left">Left ray</param>
+            <param name="right">Right ray</param>
+            <summary>Compares two rays and determine if they are not equal.</summary>
+            <returns>
+                <see langword="true" /> if they are not equal, <see langword="false" /> otherwise.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="F:Urho.Ray.Origin">
             <summary>Ray origin.</summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Ray.Project(Urho.Vector3)">
-            <param name="point"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="point">Point to project</param>
+            <summary>Project a point on the ray</summary>
+            <returns>Computes the ray’s Origin + DotProductOf (<paramref name="point" />-Origin, Direction) * Direction.</returns>
             <remarks></remarks>
         </member>
         <member name="T:Urho.RayQueryLevel">
@@ -17271,6 +17300,102 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.RenderPathCommand">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.BlendMode">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.ClearColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.ClearDepth">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.ClearFlags">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.ClearStencil">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.DepthStencilName">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.Enabled">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.MarkToStencil">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.Metadata">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.Outputs">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.Pass">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.PassIndex">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.PixelShaderDefines">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.PixelShaderName">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.ShaderParameters">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.SortMode">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.Tag">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureNames">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.Type">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.UseFogColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.UseLitBase">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.VertexLights">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.VertexShaderDefines">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.VertexShaderName">
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -42583,6 +42708,10 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="F:Urho.Physics.PhysicsRaycastResult.Distance">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Physics.PhysicsRaycastResult.HitFraction">
             <summary></summary>
             <remarks></remarks>
         </member>
