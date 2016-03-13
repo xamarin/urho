@@ -15,10 +15,12 @@ namespace Urho.Forms
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<UrhoSurface> e)
 		{
-			var surface = new IosUrhoSurface();
-			surface.BackgroundColor = UIColor.Black;
-			e.NewElement.UrhoApplicationLauncher = surface.Launcher;
-			SetNativeControl(surface);
+			if (e.NewElement != null) {
+				var surface = new IosUrhoSurface();
+				surface.BackgroundColor = UIColor.Black;
+				e.NewElement.UrhoApplicationLauncher = surface.Launcher;
+				SetNativeControl(surface);
+			}
 		}
 	}
 
@@ -30,22 +32,27 @@ namespace Urho.Forms
 		static Urho.Application app;
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void SDL_SendAppEvent(Urho.iOS.SdlEvent sdlEvent);
+		public static extern void SDL_SendAppEvent(Urho.iOS.SdlEvent sdlEvent);
 
 		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
 		{
 			await launcherSemaphore.WaitAsync();
+			if (app != null)
+			{
+				app.Engine.Exit();
+				Urho.Application.StopCurrent ();
+			}
+
 			applicationTaskSource = new TaskCompletionSource<Application>();
 			Urho.Application.Started += UrhoApplicationStarted;
 			if (surface != null)
 			{
+				surface.RemoveFromSuperview ();
 				//app.Graphics.Release (false, false);
 			}
-			else
-			{
-				this.Add(surface = new Urho.iOS.UrhoSurface(this.Bounds));
-			}
-			await Urho.iOS.UrhoSurface.InitializeTask;
+			this.Add(surface = new Urho.iOS.UrhoSurface(this.Bounds));
+
+			await surface.InitializeTask;
 			app = Urho.Application.CreateInstance(type, options);
 			app.Run();
 

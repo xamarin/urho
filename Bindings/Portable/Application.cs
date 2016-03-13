@@ -85,6 +85,8 @@ namespace Urho {
 			Engine.SubscribeToUpdate(HandleUpdate);
 		}
 
+		public IntPtr Handle => handle;
+
 		/// <summary>
 		/// Application options
 		/// </summary>
@@ -164,6 +166,14 @@ namespace Urho {
 			context.Dispose();
 			Current = null;
 			Stoped?.Invoke();
+		}
+
+		public static void StopCurrent()
+		{
+			Current.Engine.Exit ();
+#if IOS
+			ProxyStop(Current.Handle);
+#endif
 		}
 
 		protected virtual void Setup () {}

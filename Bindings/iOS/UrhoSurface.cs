@@ -11,9 +11,12 @@ namespace Urho.iOS
 		[DllImport("@rpath/Urho.framework/Urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetExternalViewPlaceholder(IntPtr viewPtr, IntPtr windowPtr);
 
-		static TaskCompletionSource<bool> initTaskSource = new TaskCompletionSource<bool>();
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void SDL_SendAppEvent(Urho.iOS.SdlEvent sdlEvent);
 
-		public static Task InitializeTask => initTaskSource.Task;
+		TaskCompletionSource<bool> initTaskSource = new TaskCompletionSource<bool>();
+
+		public Task InitializeTask => initTaskSource.Task;
 
 		public UrhoSurface()
 		{
@@ -37,8 +40,13 @@ namespace Urho.iOS
 		public override void MovedToWindow()
 		{
 			base.MovedToWindow();
-			SDL_SetExternalViewPlaceholder(Handle, Window?.Handle ?? IntPtr.Zero);
-			initTaskSource.TrySetResult(true);
+			var wndHandle = Window?.Handle;
+			SDL_SetExternalViewPlaceholder(Handle, wndHandle ?? IntPtr.Zero);
+			if (wndHandle != null) {
+				initTaskSource.TrySetResult (true);
+			} else {
+				initTaskSource = new TaskCompletionSource<bool> ();
+			}
 		}
 	}
 }
