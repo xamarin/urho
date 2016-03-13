@@ -1757,7 +1757,7 @@
         <member name="P:Urho.ApplicationOptions.Orientation">
             <summary>iOS only - orientation for the game</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>This describes the allowed orientation modes for the display.</remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.ResizableWindow">
             <summary>Desktop only - provides a resizable window.</summary>
@@ -1806,14 +1806,16 @@
         </member>
         <member name="F:Urho.ApplicationOptions+OrientationType.Landscape">
             <summary>
+                <para>Landscape orientation desired.</para>
                 <para />
             </summary>
         </member>
         <member name="F:Urho.ApplicationOptions+OrientationType.LandscapeAndPortrait">
-            <summary></summary>
+            <summary>Landscape or portrait orientation accepted.</summary>
         </member>
         <member name="F:Urho.ApplicationOptions+OrientationType.Portrait">
             <summary>
+                <para>Portrati orientation desired.</para>
                 <para />
             </summary>
         </member>
@@ -16309,28 +16311,30 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Rendering path command types.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="F:Urho.RenderCommandType.Clear">
-            <summary></summary>
+            <summary>Clear any of color, depth and stencil. Color clear can optionally use the fog color from the Zone visible at the far clip distance.</summary>
         </member>
         <member name="F:Urho.RenderCommandType.Forwardlights">
-            <summary></summary>
+            <summary>Render per-pixel forward lighting for opaque objects with the specified pass name. Shadow maps are also rendered as necessary.</summary>
         </member>
         <member name="F:Urho.RenderCommandType.Lightvolumes">
-            <summary></summary>
+            <summary>Render deferred light volumes using the specified shaders. G-buffer textures can be bound as necessary.</summary>
         </member>
         <member name="F:Urho.RenderCommandType.None">
             <summary></summary>
         </member>
         <member name="F:Urho.RenderCommandType.Quad">
-            <summary></summary>
+            <summary>Render a viewport-sized quad using the specified shaders and compilation defines. Textures can be bound and additionally shader parameters and the blend mode (default=replace) can be specified.</summary>
         </member>
         <member name="F:Urho.RenderCommandType.Renderui">
-            <summary></summary>
+            <summary>Render the UI into the output rendertarget. Using this will cause the default %UI render to the backbuffer to be skipped.</summary>
         </member>
         <member name="F:Urho.RenderCommandType.Scenepass">
-            <summary></summary>
+            <summary>Render scene objects whose <see cref="T:Urho.Material" /> contains the specified pass. Will either be front-to-back ordered with state sorting, or back-to-front ordered with no state sorting. For deferred rendering, object lightmasks can be optionally marked to the stencil buffer. Vertex lights can optionally be handled during a pass, if it has the necessary shader combinations. Textures global to the pass can be bound to free texture units; these can either be the viewport, a named rendertarget, or a texture resource identified with its pathname.</summary>
         </member>
         <member name="T:Urho.Renderer">
             <summary>
@@ -17104,7 +17108,38 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Rendering path definition.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <see cref="T:Urho.Scene" /> rendering and any post-processing on a Viewport is defined by its RenderPath object, which can either be read from an XML file or be created programmatically.</para>
+                <para>The render path consists of rendertarget definitions and commands. The commands are executed in order to yield the rendering result. Each command outputs either to the destination rendertarget &amp; viewport (default if output definition is omitted), or one of the named rendertargets. MRT output is also possible. If the rendertarget is a cube map,</para>
+                <para>the face to render to (0-5) can also be specified.</para>
+                <para>A rendertarget's size can be either absolute or multiply or divide the destination viewport size. The multiplier or divisor does not need to be an integer number. Furthermore, a rendertarget can be declared "persistent" so that it will not be mixed with other rendertargets of the same size and format, and its contents can be assumed to be available also on subsequent frames.</para>
+                <para>Note that if you already have created a named rendertarget texture in code and have stored it into the resource cache by using <see cref="M:Urho.ResourceCache.AddManualResource" /> you can use it directly as an output (by referring to its name) without requiring a rendertarget definition for it.</para>
+                <para />
+                <para>The available commands are:</para>
+                <list type="bullet">
+                    <item>
+                        <term>clear: Clear any of color, depth and stencil. Color clear can optionally use the fog color from the Zone visible at the far clip distance.</term>
+                    </item>
+                    <item>
+                        <term>scenepass: Render scene objects whose <see cref="T:Urho.Material" /> contains the specified pass. Will either be front-to-back ordered with state sorting, or back-to-front ordered with no state sorting. For deferred rendering, object lightmasks can be optionally marked to the stencil buffer. Vertex lights can optionally be handled during a pass, if it has the necessary shader combinations. Textures global to the pass can be bound to free texture units; these can either be the viewport, a named rendertarget, or a texture resource identified with its pathname.</term>
+                    </item>
+                    <item>
+                        <term>quad: Render a viewport-sized quad using the specified shaders and compilation defines. Textures can be bound and additionally shader parameters and the blend mode (default=replace) can be specified.</term>
+                    </item>
+                    <item>
+                        <term>forwardlights: Render per-pixel forward lighting for opaque objects with the specified pass name. Shadow maps are also rendered as necessary.</term>
+                    </item>
+                    <item>
+                        <term>lightvolumes: Render deferred light volumes using the specified shaders. G-buffer textures can be bound as necessary.</term>
+                    </item>
+                    <item>
+                        <term>renderui: Render the UI into the output rendertarget. Using this will cause the default %UI render to the backbuffer to be skipped.</term>
+                    </item>
+                </list>
+                <para>A render path can be loaded from a main XML file by calling <see cref="M:Urho.RenderPath.Load" />, after which other XML files (for example one for each post-processing effect) can be appended to it by calling <see cref="M:Urho.RenderPath.Append" />. Rendertargets and commands can be enabled or disabled by calling <see cref="M:Urho.RenderPath.SetEnabled" /> to switch eg. a post-processing effect on or off. To aid in this, both can be identified by tag names, for example the bloom effect uses the tag "Bloom" for all of its rendertargets and commands.</para>
+                <para>It is legal to both write to the destination viewport and sample from it during the same command: pingpong copies of its contents will be made automatically. If the viewport has hardware multisampling on, the multisampled backbuffer will be resolved to a texture before sampling it.</para>
+            </remarks>
         </member>
         <member name="C:Urho.RenderPath">
             <summary></summary>
@@ -17300,103 +17335,103 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.RenderPathCommand">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Rendering path command.</summary>
+            <remarks>Viewports defines a command sequence for rendering a scene, called the Render Path.  </remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.BlendMode">
-            <summary></summary>
+            <summary>Blend mode, affects quad command only.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.ClearColor">
-            <summary></summary>
+            <summary>Clear color, affects the clear command only.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.ClearDepth">
-            <summary></summary>
+            <summary>Clear depth, affectrs the clear command only.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.ClearFlags">
-            <summary></summary>
+            <summary>Clear flags, affects the clear command only.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.ClearStencil">
-            <summary></summary>
+            <summary>Clear stencil, affects the clear command only.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.DepthStencilName">
-            <summary></summary>
+            <summary>Depth-stencil output name.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.Enabled">
-            <summary></summary>
+            <summary>Enabled flag.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.MarkToStencil">
-            <summary></summary>
+            <summary>Mark to stencil flag</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.Metadata">
-            <summary></summary>
+            <summary>Command/pass metadata.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.Outputs">
-            <summary></summary>
+            <summary>Output render targets and faces.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.Pass">
-            <summary></summary>
+            <summary>Scene pass name.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.PassIndex">
-            <summary></summary>
+            <summary>Scene pass index, filled by view.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.PixelShaderDefines">
-            <summary></summary>
+            <summary>Pixel shader defines</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.PixelShaderName">
-            <summary></summary>
+            <summary>Pixel shader name.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.ShaderParameters">
-            <summary></summary>
+            <summary>Pointers to a vector of paris of stringhashes and variants.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.SortMode">
-            <summary></summary>
+            <summary>Sorting mode.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.Tag">
-            <summary></summary>
+            <summary>Tag name</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureNames">
-            <summary></summary>
+            <summary>Textures (points to strings ontaining the texture names) </summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.Type">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Command type.</summary>
+            <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.UseFogColor">
-            <summary></summary>
+            <summary>Use fog color for clearing</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.UseLitBase">
-            <summary></summary>
+            <summary>Use lit base pass optimization for forward per-pixel lights.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.VertexLights">
-            <summary></summary>
+            <summary>Vertex lights flag.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.VertexShaderDefines">
-            <summary></summary>
+            <summary>Vertex shader defines</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.VertexShaderName">
-            <summary></summary>
+            <summary>Vertex shader name</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.RenderSurface">
@@ -42699,28 +42734,28 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="T:Urho.Physics.PhysicsRaycastResult">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Physics raycast hit</summary>
+            <remarks>This structure is returned from various <see cref="T:Urho.Physics.PhysicsWorld" /> methods that perform ray casts.</remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsRaycastResult.Body">
-            <summary></summary>
+            <summary>Rigid body that was hit.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Physics.PhysicsRaycastResult.Distance">
-            <summary></summary>
+            <summary>Hit distance from ray origin.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Physics.PhysicsRaycastResult.HitFraction">
-            <summary></summary>
+            <summary>Hit fraction.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Physics.PhysicsRaycastResult.Normal">
-            <summary></summary>
+            <summary>Hit worldspace normal.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Physics.PhysicsRaycastResult.Position">
-            <summary></summary>
+            <summary>Hit worldspace position.</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Physics.PhysicsWorld">
