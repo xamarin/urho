@@ -11,9 +11,6 @@ namespace Urho.iOS
 		[DllImport("@rpath/Urho.framework/Urho", CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetExternalViewPlaceholder(IntPtr viewPtr, IntPtr windowPtr);
 
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void SDL_SendAppEvent(Urho.iOS.SdlEvent sdlEvent);
-
 		TaskCompletionSource<bool> initTaskSource = new TaskCompletionSource<bool>();
 
 		public Task InitializeTask => initTaskSource.Task;
@@ -31,12 +28,7 @@ namespace Urho.iOS
 			BackgroundColor = UIColor.Black;
 			initTaskSource = new TaskCompletionSource<bool>();
 		}
-
-		public override async void WillMoveToWindow(UIWindow window)
-		{
-			base.WillMoveToWindow(window);
-		}
-
+		
 		public override void MovedToWindow()
 		{
 			base.MovedToWindow();
