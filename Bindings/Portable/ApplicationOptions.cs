@@ -98,7 +98,9 @@ namespace Urho
 			StringBuilder builder = new StringBuilder();
 			builder.Append("args");//it will be skipped by Urho;
 
+#if !IOS //always use -w on iOS
 			if (WindowedMode)
+#endif
 				builder.Append(" -w");
 
 			if (!LimitFps)
@@ -110,7 +112,9 @@ namespace Urho
 			if (Height > 0)
 				builder.AppendFormat(" -y {0}", Height);
 
+#if !IOS //always use -s on iOS
 			if (ResizableWindow)
+#endif
 				builder.Append(" -s");
 
 			var resourcePathes = new[] {"CoreData"}.Concat(ResourcePaths ?? new string[0]);
