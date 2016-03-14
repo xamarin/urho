@@ -12,7 +12,13 @@
   <Docs>
     <summary>Billboard component.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>After creating a <see cref="T:Urho.BillboardSet" />, you will configure the number of billboards by setting the <see cref="P:Urho.BillboardSet.NumBillboards" />.   </para>
+      <para />
+      <para>Configure individual <see cref="T:Urho.Billboard" /> objects by calling the <see cref="M:Urho.BillboardSet.GetBillboardSafe" /> (or the unsafe version, <see cref="M:Urho.BillboardSet.GetBillboard" />).</para>
+      <para />
+      <para>After making changes to the individual billboard objects, call the <see cref="M:Urho.BillboardSet.Commit" /> method to update the internals of the <see cref="T:Urho.BillboardSet" />.</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
