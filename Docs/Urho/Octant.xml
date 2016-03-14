@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>An Octree’s Octant.</summary>
+    <remarks>This is one of the components of the <see cref="T:Urho.Octree" /></remarks>
   </Docs>
   <Members />
 </Type>

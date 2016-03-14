@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a Color with transparency in Urho as four 32-bit floating point values.</summary>
+    <remarks>Individual channels should have values from zero to one.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -26,7 +26,7 @@
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Initializes the color from a color source and copies all elements from it.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -44,7 +44,7 @@
       <Docs>
         <param name="source">To be added.</param>
         <param name="alpha">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Initializes the color by copying the red, green and blue components from the source and using the specified value for the alpha component.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -66,7 +66,7 @@
         <param name="g">To be added.</param>
         <param name="b">To be added.</param>
         <param name="a">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Initializes a <see cref="T:Urho.Color" /> instance from the given red, green, blue and transparency values.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -81,7 +81,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The transparency (alpha) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -96,7 +96,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Blue component</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -111,7 +111,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque black color (RGB values are set to 0, 0, 0).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -126,7 +126,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque blue color (RGB values are set to 0, 0, 1).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -141,7 +141,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque cyan color (RGB values are set to 0, 1, 1).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -156,7 +156,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Green component</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -171,7 +171,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque grey color (RGB values are set to 0.5, 0.5, 0.5).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -186,7 +186,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque green color (RGB values are set to 0, 1, 0).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,7 +201,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque magenta color (RGB values are set to 1, 0, 1).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -216,7 +216,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Red component</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -231,7 +231,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque red color (RGB values are set to 1, 0, 0).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -246,7 +246,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Fully transparent color, has red, green, blue and alpha values set to zero.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -261,7 +261,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque white color (RGB values are set to 1, 1, 1).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -276,7 +276,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Opaque yellow color (RGB values are set to 1, 1, 0).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

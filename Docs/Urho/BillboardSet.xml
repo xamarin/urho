@@ -160,11 +160,11 @@
         <Parameter Name="index" Type="System.UInt32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
+        <param name="index">The index of the billboard in the collection to fetch.</param>
         <summary>
             Return billboard by index.
             </summary>
-        <returns>To be added.</returns>
+        <returns>Pointer to the billboard, or <see langword="null" /> if the index is out of bounds.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -182,9 +182,9 @@
         <Parameter Name="index" Type="System.UInt32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="index">The index of the billboard in the collection to fetch.</param>
+        <summary>Returns a safe Billboard (<see cref="T:Urho.BillboardWrapper" />) by index, without exposing an unsafe pointer.</summary>
+        <returns>A reference to the <see cref="T:Urho.BillboardWrapper" />, or <see langword="null" /> if the index is out of bounds.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

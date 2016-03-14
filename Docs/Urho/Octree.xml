@@ -10,10 +10,10 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Octree component. Should be added only to the root scene node
-            </summary>
-    <remarks>To be added.</remarks>
+    <summary>Octree component that implements spacial partitioning</summary>
+    <remarks>
+      <para>Implements spatial partitioning and accelerated visibility queries. Without this 3D objects can not be rendered.</para>
+      <para />Should be added only to the root scene node.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

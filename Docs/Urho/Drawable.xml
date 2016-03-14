@@ -71,7 +71,7 @@
       </Parameters>
       <Docs>
         <param name="light">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Adds the specified light.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -90,7 +90,7 @@
       </Parameters>
       <Docs>
         <param name="light">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Adds the specified vertex light.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

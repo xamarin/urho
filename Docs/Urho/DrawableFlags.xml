@@ -9,8 +9,8 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Drawable flags</summary>
+    <remarks>These are bit flags that are set on any subclass of <see cref="T:Urho.Drawable" /> to quickly determine the kind of Drawable it is.   The kind of drawable is used by the <see cref="T:Urho.View" /> class to determine how to render a particular component.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Any">
@@ -24,7 +24,7 @@
         <ReturnType>Urho.DrawableFlags</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Mask, used to match any drawable.</summary>
       </Docs>
     </Member>
     <Member MemberName="Geometry">
@@ -38,7 +38,7 @@
         <ReturnType>Urho.DrawableFlags</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The drawable is a Geometry (<see cref="T:Urho.StaticModel" />, <see cref="T:Urho.TerrainPatch" />, <see cref="T:Urho.BillboardSet" />, <see cref="T:Urho.CustomGeometry" />, <see cref="T:Urho.DecalSet" />, <see cref="T:Urho.UI.Text3D" />, <see cref="T:Urho.Urho2D.Renderer2D" />)</summary>
       </Docs>
     </Member>
     <Member MemberName="Geometry2D">
@@ -52,7 +52,7 @@
         <ReturnType>Urho.DrawableFlags</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The drawable is a 2D Geometry (<see cref="T:Urho.Urho2D.Drawable2D" />)</summary>
       </Docs>
     </Member>
     <Member MemberName="Light">
@@ -66,7 +66,7 @@
         <ReturnType>Urho.DrawableFlags</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The drawable is a Light (<see cref="T:Urho.Light)" /></summary>
       </Docs>
     </Member>
     <Member MemberName="Zone">
@@ -80,7 +80,7 @@
         <ReturnType>Urho.DrawableFlags</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The drawable is a zone (<see cref="T:Urho.Zone" />)</summary>
       </Docs>
     </Member>
   </Members>
