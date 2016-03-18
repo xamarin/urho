@@ -1,0 +1,47 @@
+```json
+{"platform":"WPF","uti":"com.xamarin.workbook"}
+```
+
+```csharp
+#r "C:\prj\urho\bindings\bin\Debug\Urho.dll"
+```
+
+```csharp
+using Urho; using Urho.Repl; using Urho.Actions; using Urho.Gui; using Urho.Resources; using Urho.Urho2D; using Urho.Shapes;
+```
+
+```csharp
+Environment.CurrentDirectory = @"C:\prj\urho";
+```
+
+```csharp
+//var game = await Simple3DScene.RunAsync(500, 400);
+```
+
+```csharp
+//var boxNode = game.RootNode.Children.First();
+```
+
+```csharp
+//boxNode.RunActionsAsync(new Urho.Actions.TintTo(2f, 1f, 1f, 0f));
+```
+
+```csharp
+//boxNode.RunActionsAsync(new Urho.Actions.TintTo(2f, 1f, 0f, 0f));
+```
+
+```csharp
+Environment.CommandLine
+```
+
+```csharp
+Environment.CurrentDirectory
+```
+
+```csharp
+System.IO.File.Exists(System.IO.Path.Combine(Environment.CurrentDirectory, "CoreData.pak"))
+```
+
+```csharp
+var game = await Simple3DScene.RunAsync(500, 400);
+```

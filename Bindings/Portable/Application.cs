@@ -5,6 +5,7 @@
 //
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -152,7 +153,21 @@ namespace Urho {
 			Runtime.Initialize();
 			GetApp (h).Start ();
 			Started?.Invoke();
+			MakeOnTop();
 		}
+
+		private static async void MakeOnTop()
+		{
+#if DESKTOP
+			await Task.Delay(500);
+			var title = Current.Graphics.WindowTitle;
+			var handle = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+			SetForegroundWindow((int)handle);
+#endif
+		}
+
+		[DllImport("User32.dll")]
+		public static extern Int32 SetForegroundWindow(int hWnd);
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxyStop (IntPtr h)
