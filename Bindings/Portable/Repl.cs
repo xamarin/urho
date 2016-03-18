@@ -26,10 +26,11 @@ namespace Urho.Repl
 				taskSource.TrySetResult(Current as Simple3DScene);
 			};
 
-			using (Stream input = typeof(Simple3DScene).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
-			using (Stream output = File.Create(Path.Combine(Environment.CurrentDirectory, "CoreData.pak")))
+			if (!File.Exists("CoreData.pak"))
 			{
-				input.CopyTo(output);
+				using (Stream input = typeof(Simple3DScene).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
+				using (Stream output = File.Create(Path.Combine("CoreData.pak")))
+					input.CopyTo(output);
 			}
 			Directory.CreateDirectory("Data");
 

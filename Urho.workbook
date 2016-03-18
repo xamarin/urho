@@ -11,37 +11,10 @@ using Urho; using Urho.Repl; using Urho.Actions; using Urho.Gui; using Urho.Reso
 ```
 
 ```csharp
-Environment.CurrentDirectory = @"C:\prj\urho";
-```
-
-```csharp
-//var game = await Simple3DScene.RunAsync(500, 400);
-```
-
-```csharp
-//var boxNode = game.RootNode.Children.First();
-```
-
-```csharp
-//boxNode.RunActionsAsync(new Urho.Actions.TintTo(2f, 1f, 1f, 0f));
-```
-
-```csharp
-//boxNode.RunActionsAsync(new Urho.Actions.TintTo(2f, 1f, 0f, 0f));
-```
-
-```csharp
-Environment.CommandLine
-```
-
-```csharp
-Environment.CurrentDirectory
-```
-
-```csharp
-System.IO.File.Exists(System.IO.Path.Combine(Environment.CurrentDirectory, "CoreData.pak"))
+Environment.CurrentDirectory = @"C:\prj"
 ```
 
 ```csharp
 var game = await Simple3DScene.RunAsync(500, 400);
 ```
+
