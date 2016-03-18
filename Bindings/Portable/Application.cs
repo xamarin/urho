@@ -176,7 +176,7 @@ namespace Urho {
 			var context = Current.Context;
 			GetApp (h).Stop ();
 			Runtime.Cleanup();
-#if !IOS
+#if !IOS && !DESKTOP
 			if (context.Refs() > 0)
 				context.ReleaseRef();
 #endif

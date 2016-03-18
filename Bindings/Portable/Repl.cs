@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Urho.Actions;
@@ -15,7 +17,7 @@ namespace Urho.Repl
 		{
 		}
 
-		public static Task<Simple3DScene> RunAsync(int width = 600, int height = 500, string customAssetsDir = null)
+		public static Task<Simple3DScene> RunAsync(int width = 600, int height = 500)
 		{
 			var taskSource = new TaskCompletionSource<Simple3DScene>();
 			Action callback = null;
@@ -23,9 +25,17 @@ namespace Urho.Repl
 				Started -= callback;
 				taskSource.TrySetResult(Current as Simple3DScene);
 			};
+
+			using (Stream input = typeof(Simple3DScene).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
+			using (Stream output = File.Create(Path.Combine(Environment.CurrentDirectory, "CoreData.pak")))
+			{
+				input.CopyTo(output);
+			}
+			Directory.CreateDirectory("Data");
+
 			Started += callback;
 			Task.Delay(1).ContinueWith(r => new Simple3DScene(
-				new ApplicationOptions(assetsFolder: customAssetsDir) {
+				new ApplicationOptions(assetsFolder: "Data") {
 					Width = width,
 					Height = height
 				}).Run(), TaskContinuationOptions.ExecuteSynchronously);

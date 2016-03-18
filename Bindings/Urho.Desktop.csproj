@@ -397,6 +397,7 @@
     <Compile Include="Portable\Octree.cs" />
     <Compile Include="Portable\PodVector.cs" />
     <Compile Include="Portable\RefCounted.cs" />
+    <Compile Include="Portable\Repl.cs" />
     <Compile Include="Portable\ResourceCache.cs" />
     <Compile Include="Portable\Runtime\IComponentSerializer.cs" />
     <Compile Include="Portable\Runtime\MonoPInvokeCallbackAttribute.cs" />
@@ -429,6 +430,11 @@
     <Compile Include="Portable\XmlElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Portable\Generated\ShadowQuality.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Bin\CoreData.pak">
+      <Link>CoreData.pak</Link>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
