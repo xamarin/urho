@@ -53,9 +53,9 @@ namespace Urho {
 			RemoveComponent (stringHash);
 		}
 
-		public T CreateComponent<T> (CreateMode mode = CreateMode.Replicated, uint id = 0) where T:Component, new()
+		public T CreateComponent<T> (CreateMode mode = CreateMode.Replicated, uint id = 0) where T:Component
 		{
-			var component = new T();
+			var component = Activator.CreateInstance<T>();
 			AddComponent(component, id, mode);
 			return component;
 		}

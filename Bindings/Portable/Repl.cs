@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using Urho.Actions;
-using Urho.Gui;
 using Urho.Shapes;
 
 namespace Urho.Repl
@@ -60,6 +55,12 @@ namespace Urho.Repl
 
 		public Viewport Viewport { get; private set; }
 
+		public bool MoveCamera { get; private set; }
+
+		public float Yaw { get; set; }
+
+		public float Pitch { get; set; }
+
 		public unsafe void SetBackgroundColor(Color color)
 		{
 			var rp = Viewport.RenderPath;
@@ -72,6 +73,14 @@ namespace Urho.Repl
 					cmd->ClearColor = color;
 				}
 			}
+		}
+
+		public Node AddShape<T>(Color color) where T : Shape
+		{
+			var child = RootNode.CreateChild();
+			var shape = child.CreateComponent<T>();
+			shape.Color = color;
+			return child;
 		}
 
 		protected override void Start()
@@ -101,6 +110,33 @@ namespace Urho.Repl
 
 			// Subscribe to Esc key:
 			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Engine.Exit(); });
+		}
+
+		protected override void OnUpdate(float timeStep)
+		{
+			if (MoveCamera)
+				SimpleMoveCamera3D(timeStep);
+			base.OnUpdate(timeStep);
+		}
+
+		protected void SimpleMoveCamera3D(float timeStep, float moveSpeed = 10.0f)
+		{
+			const float mouseSensitivity = .05f;
+
+			if (UI.FocusElement != null)
+				return;
+
+			var mouseMove = Input.MouseMove;
+			Yaw += mouseSensitivity * mouseMove.X;
+			Pitch += mouseSensitivity * mouseMove.Y;
+			Pitch = MathHelper.Clamp(Pitch, -90, 90);
+
+			CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
+
+			if (Input.GetKeyDown(Key.W)) CameraNode.Translate(Vector3.UnitZ * moveSpeed * timeStep);
+			if (Input.GetKeyDown(Key.S)) CameraNode.Translate(-Vector3.UnitZ * moveSpeed * timeStep);
+			if (Input.GetKeyDown(Key.A)) CameraNode.Translate(-Vector3.UnitX * moveSpeed * timeStep);
+			if (Input.GetKeyDown(Key.D)) CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep);
 		}
 
 		async void CreateSimpleScene()
