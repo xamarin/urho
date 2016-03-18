@@ -1,4 +1,5 @@
-#include "asserts.h"
+#include "asserts_32.h"
+#include "asserts_64.h"
 
 class ApplicationProxy;
 

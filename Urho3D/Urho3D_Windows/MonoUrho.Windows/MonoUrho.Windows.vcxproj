@@ -28,7 +28,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\Bindings\Native\AllUrho.h" />
     <ClInclude Include="..\..\..\Bindings\Native\ApplicationProxy.h" />
-    <ClInclude Include="..\..\..\Bindings\Native\asserts.h" />
+    <ClInclude Include="..\..\..\Bindings\Native\asserts_32.h" />
+    <ClInclude Include="..\..\..\Bindings\Native\asserts_64.h" />
     <ClInclude Include="..\..\..\Bindings\Native\glue.h" />
     <ClInclude Include="..\..\..\Bindings\Native\interop.h" />
   </ItemGroup>

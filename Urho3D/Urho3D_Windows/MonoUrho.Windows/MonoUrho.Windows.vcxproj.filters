@@ -15,36 +15,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Bindings\src\ApplicationProxy.cpp">
+    <ClCompile Include="..\..\..\Bindings\Portable\Generated\binding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Bindings\src\glue.cpp">
+    <ClCompile Include="..\..\..\Bindings\Portable\Generated\events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Bindings\src\vector.cpp">
+    <ClCompile Include="..\..\..\Bindings\Native\ApplicationProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Bindings\generated\binding.cpp">
+    <ClCompile Include="..\..\..\Bindings\Native\glue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Bindings\generated\events.cpp">
+    <ClCompile Include="..\..\..\Bindings\Native\vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Bindings\src\asserts.h">
+    <ClInclude Include="..\..\..\Bindings\Native\AllUrho.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Bindings\src\ApplicationProxy.h">
+    <ClInclude Include="..\..\..\Bindings\Native\ApplicationProxy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Bindings\src\glue.h">
+    <ClInclude Include="..\..\..\Bindings\Native\glue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Bindings\src\interop.h">
+    <ClInclude Include="..\..\..\Bindings\Native\interop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Bindings\AllUrho.h">
+    <ClInclude Include="..\..\..\Bindings\Native\asserts_32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Bindings\Native\asserts_64.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
