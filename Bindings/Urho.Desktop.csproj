@@ -387,6 +387,7 @@
     <Compile Include="Portable\ListBasedUpdateSynchronizationContext.cs" />
     <Compile Include="Portable\Log.cs" />
     <Compile Include="Portable\MarshalHelper.cs" />
+    <Compile Include="Portable\Material.cs" />
     <Compile Include="Portable\Math\EaseMath.cs" />
     <Compile Include="Portable\Math\SplineMath.cs" />
     <Compile Include="Portable\Model.cs" />

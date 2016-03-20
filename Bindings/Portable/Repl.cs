@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Urho.Actions;
 using Urho.Shapes;
@@ -31,11 +32,13 @@ namespace Urho.Repl
 			Directory.CreateDirectory("Data");
 
 			Started += callback;
+
 			Task.Delay(1).ContinueWith(r => new Simple3DScene(
 				new ApplicationOptions(assetsFolder: "Data") {
 					Width = width,
 					Height = height
 				}).Run(), TaskContinuationOptions.ExecuteSynchronously);
+
 			return taskSource.Task;
 		}
 
@@ -55,7 +58,7 @@ namespace Urho.Repl
 
 		public Viewport Viewport { get; private set; }
 
-		public bool MoveCamera { get; private set; }
+		public bool MoveCamera { get; set; }
 
 		public float Yaw { get; set; }
 
@@ -89,7 +92,7 @@ namespace Urho.Repl
 			Scene = new Scene(Context);
 			Octree = Scene.CreateComponent<Octree>();
 			RootNode = Scene.CreateChild("RootNode");
-			RootNode.Position = new Vector3(x: 0, y: 0, z: 5);
+			RootNode.Position = new Vector3(x: 0, y: 0, z: 8);
 
 			CreateSimpleScene();
 
@@ -155,7 +158,7 @@ namespace Urho.Repl
 			//boxModel.SetMaterial(ResourceCache.GetMaterial("Materials/BoxMaterial.xml"));
 
 			// Do actions
-			await boxNode.RunActionsAsync(new EaseBounceOut(new ScaleTo(duration: 1f, scale: 1)));
+			await boxNode.RunActionsAsync(new EaseBounceOut(new ScaleTo(duration: 1f, scale: 4)));
 			await boxNode.RunActionsAsync(new RepeatForever(
 				new RotateBy(duration: 1, deltaAngleX: 90, deltaAngleY: 0, deltaAngleZ: 0)));
 		}
