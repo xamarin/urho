@@ -159,7 +159,7 @@ namespace Urho {
 		private static async void MakeOnTop()
 		{
 #if DESKTOP
-			await Task.Delay(500);
+			await Task.Delay(1000);
 			var title = Current.Graphics.WindowTitle;
 			var handle = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
 			SetForegroundWindow((int)handle);

@@ -30,6 +30,12 @@ namespace Urho
 			return tcs.Task;
 		}
 
+		public void RunActions(params FiniteTimeAction[] actions)
+		{
+			var action = actions.Length > 1 ? new Sequence(actions) : actions[0];
+			Application.Current.ActionManager.AddAction(action, this);
+		}
+
 		public void RemoveAction(ActionState state)
 		{
 			Application.Current.ActionManager.RemoveAction(state);

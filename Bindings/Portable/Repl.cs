@@ -94,8 +94,6 @@ namespace Urho.Repl
 			RootNode = Scene.CreateChild("RootNode");
 			RootNode.Position = new Vector3(x: 0, y: 0, z: 8);
 
-			CreateSimpleScene();
-
 			// Light
 			LightNode = Scene.CreateChild(name: "light");
 			Light = LightNode.CreateComponent<Light>();
@@ -142,7 +140,7 @@ namespace Urho.Repl
 			if (Input.GetKeyDown(Key.D)) CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep);
 		}
 
-		async void CreateSimpleScene()
+		/*async void CreateSimpleScene()
 		{
 			// Box	
 			Node boxNode = RootNode.CreateChild(name: "Box node");
@@ -161,6 +159,6 @@ namespace Urho.Repl
 			await boxNode.RunActionsAsync(new EaseBounceOut(new ScaleTo(duration: 1f, scale: 4)));
 			await boxNode.RunActionsAsync(new RepeatForever(
 				new RotateBy(duration: 1, deltaAngleX: 90, deltaAngleY: 0, deltaAngleZ: 0)));
-		}
+		}*/
 	}
 }
