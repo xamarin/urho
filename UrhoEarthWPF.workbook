@@ -1,0 +1,59 @@
+```json
+{"platform":"WPF","uti":"com.xamarin.workbook"}
+```
+
+```csharp
+#r "C:\prj\urho\bindings\bin\Debug\Urho.dll"
+```
+
+```csharp
+using Urho; using Urho.Repl; using Urho.Actions; using Urho.Shapes;
+```
+
+```csharp
+//var app = await Simple3DScene.RunAsync();
+```
+
+```csharp
+//var sphereNode = app.RootNode.CreateChild();
+//var sphereComponent = sphereNode.CreateComponent<Sphere>();
+```
+
+```csharp
+//sphereComponent.Color = Color.Green;
+```
+
+```csharp
+//sphereNode.SetScale(4f);
+```
+
+```csharp
+/*#r "System.Net.Http"
+using System.Net.Http;
+
+var client = new HttpClient();
+using (var stream = await client.GetStreamAsync(""))
+using (var file = System.IO.File.Create(app.FileSystem.ProgramDir + "Data/earth.jpg"))
+	await stream.CopyToAsync(file);*/
+```
+
+```csharp
+//sphereComponent.SetMaterial(Material.FromImage("earth.jpg"));
+```
+
+```csharp
+//sphereNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: 10, deltaAngleZ: 0)))
+```
+
+```csharp
+//app.MoveCamera = true;
+```
+
+```csharp
+/*var moonNode = app.RootNode.CreateChild();
+var moonComponent = moonNode.CreateComponent<Sphere>();
+moonComponent.Color = Color.Gray;
+moonNode.SetScale(2f);
+moonNode.Position = new Vector3(4, 0, 0);*/
+```
+

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Urho.Actions;
+using Urho.Gui;
 using Urho.Shapes;
 
 namespace Urho.Repl
@@ -58,7 +60,7 @@ namespace Urho.Repl
 
 		public Viewport Viewport { get; private set; }
 
-		public bool MoveCamera { get; set; }
+		public bool MoveCamera { get; set; } = true;
 
 		public float Yaw { get; set; }
 
@@ -160,5 +162,72 @@ namespace Urho.Repl
 			await boxNode.RunActionsAsync(new RepeatForever(
 				new RotateBy(duration: 1, deltaAngleX: 90, deltaAngleY: 0, deltaAngleZ: 0)));
 		}*/
+	}
+
+	public class Bar : Component
+	{
+		Node barNode;
+		Node textNode;
+		Text3D text3D;
+		Color color;
+		float lastUpdateValue;
+		string name;
+
+		public float Value
+		{
+			get { return barNode.Scale.Y; }
+			set { barNode.RunActionsAsync(new EaseBackOut(new ScaleTo(3f, 1, value, 1))); }
+		}
+
+		public Bar(string name, Color color)
+		{
+			this.name = name;
+			this.color = color;
+			ReceiveSceneUpdates = true;
+		}
+
+		public override void OnAttachedToNode(Node node)
+		{
+			barNode = node.CreateChild();
+			barNode.Scale = new Vector3(1, 0, 1); //means zero height
+			var box = barNode.CreateComponent<Box>();
+			box.Color = color;
+
+			textNode = node.CreateChild();
+			//textNode.Rotate(new Quaternion(0, 180, 0), TransformSpace.World);
+			textNode.Position = new Vector3(0, 3, 0);
+			text3D = textNode.CreateComponent<Text3D>();
+			text3D.SetFont(Application.ResourceCache.GetFont("Fonts/Anonymous Pro.ttf"), 60);
+			text3D.TextEffect = TextEffect.Stroke;
+			text3D.Text = name;
+			//textNode.LookAt() //Look at camera
+
+			base.OnAttachedToNode(node);
+		}
+
+		protected override void OnUpdate(float timeStep)
+		{
+			var pos = barNode.Position;
+			var scale = barNode.Scale;
+			barNode.Position = new Vector3(pos.X, scale.Y / 2f, pos.Z);
+			textNode.Position = new Vector3(-0.5f, scale.Y + 0.5f, 0);
+			var newValue = (float)Math.Round(scale.Y, 1);
+			lastUpdateValue = newValue;
+		}
+
+		public void Deselect()
+		{
+			barNode.RemoveAllActions();//TODO: remove only "selection" action
+			barNode.RunActionsAsync(new EaseBackOut(new TintTo(1f, color.R, color.G, color.B)));
+		}
+
+		public void Select()
+		{
+			Selected?.Invoke(this);
+			// "blinking" animation
+			barNode.RunActionsAsync(new RepeatForever(new TintTo(0.3f, 1f, 1f, 1f), new TintTo(0.3f, color.R, color.G, color.B)));
+		}
+
+		public event Action<Bar> Selected;
 	}
 }

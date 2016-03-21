@@ -11,10 +11,13 @@ using Urho; using Urho.Repl; using Urho.Actions; using Urho.Gui; using Urho.Reso
 ```
 
 ```csharp
-Environment.CurrentDirectory = @"C:\prj"
+//Environment.CurrentDirectory = @"C:\prj"
 ```
 
 ```csharp
-var game = await Simple3DScene.RunAsync(500, 400);
+var app = await Simple3DScene.RunAsync(500, 400);
 ```
 
+```csharp
+app.MoveCamera = true;
+```
