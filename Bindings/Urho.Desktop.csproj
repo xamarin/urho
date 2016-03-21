@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Desktop\DesktopUrhoInitializer.cs" />
     <Compile Include="Portable\Actions\ActionManager.cs" />
+    <Compile Include="Portable\Actions\Intervals\RotateArroundBy.cs" />
     <Compile Include="Portable\Actions\NodeActionsExtensions.cs" />
     <Compile Include="Portable\Actions\Base\Action.cs" />
     <Compile Include="Portable\Actions\Base\AmplitudeAction.cs" />
