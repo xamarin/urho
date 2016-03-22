@@ -36,6 +36,7 @@ namespace Urho
 			cube.SetData(CubeMapFace.NegativeZ, cache.GetFile(imageNegativeZ, false));
 			material.SetTexture(TextureUnit.Diffuse, cube);
 			material.SetTechnique(0, cache.GetTechnique("Techniques/DiffSkybox.xml"), 0, 0);
+			material.CullMode = CullMode.None;
 			return material;
 		}
 
