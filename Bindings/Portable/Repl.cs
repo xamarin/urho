@@ -20,6 +20,7 @@ namespace Urho.Repl
 				taskSource.TrySetResult(Current as Simple3DScene);
 			};
 
+#if DESKTOP
 			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(Simple3DScene).Assembly.Location);
 
 			if (!File.Exists("CoreData.pak")) {
@@ -28,6 +29,7 @@ namespace Urho.Repl
 					input.CopyTo(output);
 			}
 			Directory.CreateDirectory("Data");
+#endif
 
 			Started += callback;
 

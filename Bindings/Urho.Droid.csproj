@@ -99,6 +99,7 @@
     <Compile Include="Portable\Actions\Intervals\Repeat.cs" />
     <Compile Include="Portable\Actions\Intervals\RepeatForever.cs" />
     <Compile Include="Portable\Actions\Intervals\ReverseTime.cs" />
+    <Compile Include="Portable\Actions\Intervals\RotateArroundBy.cs" />
     <Compile Include="Portable\Actions\Intervals\RotateBy.cs" />
     <Compile Include="Portable\Actions\Intervals\RotateTo.cs" />
     <Compile Include="Portable\Actions\Intervals\ScaleBy.cs" />
@@ -392,6 +393,7 @@
     <Compile Include="Portable\ListBasedUpdateSynchronizationContext.cs" />
     <Compile Include="Portable\Log.cs" />
     <Compile Include="Portable\MarshalHelper.cs" />
+    <Compile Include="Portable\Material.cs" />
     <Compile Include="Portable\Math\EaseMath.cs" />
     <Compile Include="Portable\Math\SplineMath.cs" />
     <Compile Include="Portable\Model.cs" />
@@ -403,6 +405,7 @@
     <Compile Include="Portable\Octree.cs" />
     <Compile Include="Portable\PodVector.cs" />
     <Compile Include="Portable\RefCounted.cs" />
+    <Compile Include="Portable\Repl.cs" />
     <Compile Include="Portable\ResourceCache.cs" />
     <Compile Include="Portable\Runtime\IComponentSerializer.cs" />
     <Compile Include="Portable\Runtime\MonoPInvokeCallbackAttribute.cs" />
