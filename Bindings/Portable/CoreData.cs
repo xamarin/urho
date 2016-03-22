@@ -1,7 +1,7 @@
 ﻿using Urho.Gui;
 using Urho.Resources;
 
-namespace Urho.Portable
+namespace Urho
 {
 	//TODO: generate this class using T4 from CoreData folder
 	public static class CoreAssets
