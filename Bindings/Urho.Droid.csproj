@@ -120,6 +120,7 @@
     <Compile Include="Portable\Connection.cs" />
     <Compile Include="Portable\Consts.cs" />
     <Compile Include="Portable\Controls.cs" />
+    <Compile Include="Portable\CoreData.cs" />
     <Compile Include="Portable\Enums.cs" />
     <Compile Include="Portable\External\IntVector2.cs" />
     <Compile Include="Portable\External\MathHelper.cs" />
