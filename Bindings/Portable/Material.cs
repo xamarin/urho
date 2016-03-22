@@ -16,5 +16,32 @@ namespace Urho
 			material.SetTechnique(0, cache.GetTechnique("Techniques/Diff.xml"), 0, 0);
 			return material;
 		}
+
+		public static Material SkyboxFromImages(
+			string imagePositiveX,
+			string imageNegativeX,
+			string imagePositiveY,
+			string imageNegativeY,
+			string imagePositiveZ,
+			string imageNegativeZ)
+		{
+			var cache = Application.Current.ResourceCache;
+			var material = new Material();
+			TextureCube cube = new TextureCube();
+			cube.SetData(CubeMapFace.PositiveX, cache.GetFile(imagePositiveX, false));
+			cube.SetData(CubeMapFace.NegativeX, cache.GetFile(imageNegativeX, false));
+			cube.SetData(CubeMapFace.PositiveY, cache.GetFile(imagePositiveY, false));
+			cube.SetData(CubeMapFace.NegativeY, cache.GetFile(imageNegativeY, false));
+			cube.SetData(CubeMapFace.PositiveZ, cache.GetFile(imagePositiveZ, false));
+			cube.SetData(CubeMapFace.NegativeZ, cache.GetFile(imageNegativeZ, false));
+			material.SetTexture(TextureUnit.Diffuse, cube);
+			material.SetTechnique(0, cache.GetTechnique("Techniques/DiffSkybox.xml"), 0, 0);
+			return material;
+		}
+
+		public static Material SkyboxFromImage(string image)
+		{
+			return SkyboxFromImages(image, image, image, image, image, image);
+		}
 	}
 }

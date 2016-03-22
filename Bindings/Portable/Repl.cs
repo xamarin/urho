@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Globalization;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 using Urho.Actions;
 using Urho.Gui;
@@ -11,9 +9,7 @@ namespace Urho.Repl
 {
 	public class Simple3DScene : Application
 	{
-		public Simple3DScene(ApplicationOptions options) : base(options)
-		{
-		}
+		public Simple3DScene(ApplicationOptions options) : base(options) {}
 
 		public static Task<Simple3DScene> RunAsync(int width = 600, int height = 500)
 		{
@@ -60,12 +56,13 @@ namespace Urho.Repl
 
 		public Viewport Viewport { get; private set; }
 
-		public bool MoveCamera { get; set; } = true;
+		public bool MoveCamera { get; set; }
 
 		public float Yaw { get; set; }
 
 		public float Pitch { get; set; }
 
+		//NOTE: currently working only in 64bit
 		public unsafe void SetBackgroundColor(Color color)
 		{
 			var rp = Viewport.RenderPath;
@@ -96,11 +93,15 @@ namespace Urho.Repl
 			RootNode = Scene.CreateChild("RootNode");
 			RootNode.Position = new Vector3(x: 0, y: 0, z: 8);
 
-			// Light
-			LightNode = Scene.CreateChild(name: "light");
+			LightNode = Scene.CreateChild("DirectionalLight");
+			LightNode.SetDirection(new Vector3(0.5f, 0.0f, 0.8f));
 			Light = LightNode.CreateComponent<Light>();
-			Light.Range = 20;
-			Light.Brightness = 1.5f;
+			Light.LightType = LightType.Directional;
+			Light.CastShadows = true;
+			Light.ShadowBias = new BiasParameters(0.00025f, 0.5f);
+			Light.ShadowCascade = new CascadeParameters(10.0f, 50.0f, 200.0f, 0.0f, 0.8f);
+			Light.SpecularIntensity = 0.5f;
+			Light.Color = new Color(1.2f, 1.2f, 1.2f);
 
 			// Camera
 			CameraNode = Scene.CreateChild(name: "camera");
@@ -141,36 +142,13 @@ namespace Urho.Repl
 			if (Input.GetKeyDown(Key.A)) CameraNode.Translate(-Vector3.UnitX * moveSpeed * timeStep);
 			if (Input.GetKeyDown(Key.D)) CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep);
 		}
-
-		/*async void CreateSimpleScene()
-		{
-			// Box	
-			Node boxNode = RootNode.CreateChild(name: "Box node");
-			boxNode.SetScale(0f);
-			boxNode.Rotation = new Quaternion(x: 60, y: 0, z: 30);
-
-
-			var box = boxNode.CreateComponent<Box>();
-			box.Color = Color.Red;
-
-			//StaticModel boxModel = boxNode.CreateComponent<StaticModel>();
-			//boxModel.Model = ResourceCache.GetModel("Models/Box.mdl");
-			//boxModel.SetMaterial(ResourceCache.GetMaterial("Materials/BoxMaterial.xml"));
-
-			// Do actions
-			await boxNode.RunActionsAsync(new EaseBounceOut(new ScaleTo(duration: 1f, scale: 4)));
-			await boxNode.RunActionsAsync(new RepeatForever(
-				new RotateBy(duration: 1, deltaAngleX: 90, deltaAngleY: 0, deltaAngleZ: 0)));
-		}*/
 	}
 
 	public class Bar : Component
 	{
 		Node barNode;
 		Node textNode;
-		Text3D text3D;
 		Color color;
-		float lastUpdateValue;
 		string name;
 
 		public float Value
@@ -189,18 +167,16 @@ namespace Urho.Repl
 		public override void OnAttachedToNode(Node node)
 		{
 			barNode = node.CreateChild();
-			barNode.Scale = new Vector3(1, 0, 1); //means zero height
+			barNode.Scale = new Vector3(1, 0, 1);
 			var box = barNode.CreateComponent<Box>();
 			box.Color = color;
 
 			textNode = node.CreateChild();
-			//textNode.Rotate(new Quaternion(0, 180, 0), TransformSpace.World);
 			textNode.Position = new Vector3(0, 3, 0);
-			text3D = textNode.CreateComponent<Text3D>();
+			var text3D = textNode.CreateComponent<Text3D>();
 			text3D.SetFont(Application.ResourceCache.GetFont("Fonts/Anonymous Pro.ttf"), 60);
 			text3D.TextEffect = TextEffect.Stroke;
 			text3D.Text = name;
-			//textNode.LookAt() //Look at camera
 
 			base.OnAttachedToNode(node);
 		}
@@ -211,23 +187,6 @@ namespace Urho.Repl
 			var scale = barNode.Scale;
 			barNode.Position = new Vector3(pos.X, scale.Y / 2f, pos.Z);
 			textNode.Position = new Vector3(-0.5f, scale.Y + 0.5f, 0);
-			var newValue = (float)Math.Round(scale.Y, 1);
-			lastUpdateValue = newValue;
 		}
-
-		public void Deselect()
-		{
-			barNode.RemoveAllActions();//TODO: remove only "selection" action
-			barNode.RunActionsAsync(new EaseBackOut(new TintTo(1f, color.R, color.G, color.B)));
-		}
-
-		public void Select()
-		{
-			Selected?.Invoke(this);
-			// "blinking" animation
-			barNode.RunActionsAsync(new RepeatForever(new TintTo(0.3f, 1f, 1f, 1f), new TintTo(0.3f, color.R, color.G, color.B)));
-		}
-
-		public event Action<Bar> Selected;
 	}
 }

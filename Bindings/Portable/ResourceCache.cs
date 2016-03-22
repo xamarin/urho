@@ -72,6 +72,11 @@ namespace Urho.Resources {
 			return GetResource<Texture3D>(Texture3D.TypeStatic, name, sendEventOnFailure);
 		}
 
+		public Texture GetTextureCube(string name, bool sendEventOnFailure = true)
+		{
+			return GetResource<TextureCube>(TextureCube.TypeStatic, name, sendEventOnFailure);
+		}
+
 		public Image GetImage (string name, bool sendEventOnFailure = true)
 		{
 			return GetResource<Image> (Image.TypeStatic, name, sendEventOnFailure);
