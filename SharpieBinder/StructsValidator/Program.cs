@@ -53,6 +53,8 @@ namespace StructsValidator
 			{
 				var managedFieldName = field.Name;
 				var nativeFieldName = ResolveUrhoTypeField(managedName, managedFieldName);
+				if (string.IsNullOrEmpty(nativeFieldName))
+					continue;
 				var offset = Marshal.OffsetOf(type, managedFieldName);
 				AppendC($"\tstatic_assert(offsetof({nativeName}, {nativeFieldName}) == {offset}, \"{managedName}.{managedFieldName} has wrong offset ({offset})\");");
 			}
@@ -71,6 +73,7 @@ namespace StructsValidator
 			if (typeName == "CompressedLevel" && fieldName == "imageData") return "data_";
 			if (typeName == "CompressedLevel" && fieldName == "rowCount") return "rows_";
 			if (typeName == "Matrix3") return fieldName.Replace("C","").Replace("r", "m") + "_";
+			if (typeName == "RenderPathCommand" && fieldName.StartsWith("textureName")) return string.Empty;
 
 			if (typeName != "CrowdObstacleAvoidanceParams") fieldName += "_";
 			return fieldName;
@@ -93,12 +96,15 @@ namespace StructsValidator
 				"Matrix4",
 				"UrhoString",
 				"TypeInfo",
+				"HashBase",
 				"CascadeParameters",
-				"__StaticArrayInitTypeSize=16",
-				"<Data>e__FixedBuffer",
 			};
 
-			if (name.EndsWith("EventArgs") || ignoredTypes.Contains(name))
+			if (name.EndsWith("EventArgs") || 
+				ignoredTypes.Contains(name) ||
+				//code-generated structs:
+				name.Contains("__StaticArrayInitTypeSize") ||
+				name.Contains("__FixedBuffer"))
 				return null;
 
 			if (name == "UrhoString")

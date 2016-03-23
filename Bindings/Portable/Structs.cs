@@ -464,9 +464,8 @@ namespace Urho {
 		public uint SubObject;
 	}
 
-	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
-	public unsafe struct RenderPathCommand {
+	public struct RenderPathCommand {
 		public UrhoString Tag;
 		public RenderCommandType Type;
 		public RenderCommandSortMode SortMode;
@@ -478,10 +477,23 @@ namespace Urho {
 		public UrhoString VertexShaderDefines;
 		public UrhoString PixelShaderDefines;
 
-		//[MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-		//public fixed UrhoString TextureNames[16];
-
-		fixed byte TextureNames[256];//(sizeof(UrhoString) * 16) == 256 in 64bit or 192 in 32bit
+		//Marshalling  String textureNames_[16]
+		public UrhoString TextureName0;
+		public UrhoString TextureName1;
+		public UrhoString TextureName2;
+		public UrhoString TextureName3;
+		public UrhoString TextureName4;
+		public UrhoString TextureName5;
+		public UrhoString TextureName6;
+		public UrhoString TextureName7;
+		public UrhoString TextureName8;
+		public UrhoString TextureName9;
+		public UrhoString TextureName10;
+		public UrhoString TextureName11;
+		public UrhoString TextureName12;
+		public UrhoString TextureName13;
+		public UrhoString TextureName14;
+		public UrhoString TextureName15;
 
 		public HashBase ShaderParameters;
 		public VectorBase Outputs;

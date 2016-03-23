@@ -77,27 +77,6 @@ void check_bindings_offsets()
 	static_assert(offsetof(BoundingBox, max_) == 16, "BoundingBox.Max has wrong offset (16)");
 	static_assert(offsetof(BoundingBox, dummyMax_) == 28, "BoundingBox.DummyMax has wrong offset (28)");
 
-	// AnimationTriggerPoint:
-	static_assert(sizeof(AnimationTriggerPoint) == 36, "AnimationTriggerPoint has wrong size (36)");
-	static_assert(offsetof(AnimationTriggerPoint, time_) == 0, "AnimationTriggerPoint.Time has wrong offset (0)");
-	static_assert(offsetof(AnimationTriggerPoint, data_) == 4, "AnimationTriggerPoint.Variant has wrong offset (4)");
-
-	// VariantValue:
-	/*static_assert(sizeof(VariantValue) == 28, "VariantValue has wrong size (28)");
-	static_assert(offsetof(VariantValue, int_) == 0, "VariantValue.Int has wrong offset (0)");
-	static_assert(offsetof(VariantValue, bool_) == 0, "VariantValue.Bool has wrong offset (0)");
-	static_assert(offsetof(VariantValue, float_) == 0, "VariantValue.Float has wrong offset (0)");
-	static_assert(offsetof(VariantValue, ptr_) == 0, "VariantValue.Ptr has wrong offset (0)");
-	static_assert(offsetof(VariantValue, int2_) == 8, "VariantValue.Int2 has wrong offset (8)");
-	static_assert(offsetof(VariantValue, float2_) == 8, "VariantValue.Float2 has wrong offset (8)");
-	static_assert(offsetof(VariantValue, ptr2_) == 8, "VariantValue.Ptr2 has wrong offset (8)");
-	static_assert(offsetof(VariantValue, int3_) == 16, "VariantValue.Int3 has wrong offset (16)");
-	static_assert(offsetof(VariantValue, float3_) == 16, "VariantValue.Float3 has wrong offset (16)");
-	static_assert(offsetof(VariantValue, ptr3_) == 16, "VariantValue.Ptr3 has wrong offset (16)");
-	static_assert(offsetof(VariantValue, int4_) == 24, "VariantValue.Int4 has wrong offset (24)");
-	static_assert(offsetof(VariantValue, float4_) == 24, "VariantValue.Float4 has wrong offset (24)");
-	static_assert(offsetof(VariantValue, ptr4_) == 24, "VariantValue.Ptr4 has wrong offset (24)");*/
-
 	// Matrix3x4:
 	static_assert(sizeof(Matrix3x4) == 48, "Matrix3x4 has wrong size (48)");
 	static_assert(offsetof(Matrix3x4, m00_) == 0, "Matrix3x4.m00 has wrong offset (0)");
@@ -172,31 +151,31 @@ void check_bindings_offsets()
 	static_assert(offsetof(RayQueryResult, subObject_) == 44, "RayQueryResult.SubObject has wrong offset (44)");
 
 	// RenderPathCommand:
-	/*static_assert(sizeof(RenderPathCommand) == 488, "RenderPathCommand has wrong size (488)");
+	static_assert(sizeof(RenderPathCommand) == 368, "RenderPathCommand has wrong size (368)");
 	static_assert(offsetof(RenderPathCommand, tag_) == 0, "RenderPathCommand.Tag has wrong offset (0)");
-	static_assert(offsetof(RenderPathCommand, type_) == 16, "RenderPathCommand.Type has wrong offset (16)");
-	static_assert(offsetof(RenderPathCommand, sortMode_) == 20, "RenderPathCommand.SortMode has wrong offset (20)");
-	static_assert(offsetof(RenderPathCommand, pass_) == 24, "RenderPathCommand.Pass has wrong offset (24)");
-	static_assert(offsetof(RenderPathCommand, passIndex_) == 40, "RenderPathCommand.PassIndex has wrong offset (40)");
-	static_assert(offsetof(RenderPathCommand, metadata_) == 48, "RenderPathCommand.Metadata has wrong offset (48)");
-	static_assert(offsetof(RenderPathCommand, vertexShaderName_) == 64, "RenderPathCommand.VertexShaderName has wrong offset (64)");
-	static_assert(offsetof(RenderPathCommand, pixelShaderName_) == 80, "RenderPathCommand.PixelShaderName has wrong offset (80)");
-	static_assert(offsetof(RenderPathCommand, vertexShaderDefines_) == 96, "RenderPathCommand.VertexShaderDefines has wrong offset (96)");
-	static_assert(offsetof(RenderPathCommand, pixelShaderDefines_) == 112, "RenderPathCommand.PixelShaderDefines has wrong offset (112)");
-	static_assert(offsetof(RenderPathCommand, textureNames_) == 128, "RenderPathCommand.TextureNames has wrong offset (128)");
-	static_assert(offsetof(RenderPathCommand, shaderParameters_) == 384, "RenderPathCommand.ShaderParameters has wrong offset (384)");
-	static_assert(offsetof(RenderPathCommand, outputs_) == 416, "RenderPathCommand.Outputs has wrong offset (416)");
-	static_assert(offsetof(RenderPathCommand, depthStencilName_) == 432, "RenderPathCommand.DepthStencilName has wrong offset (432)");
-	static_assert(offsetof(RenderPathCommand, clearFlags_) == 448, "RenderPathCommand.ClearFlags has wrong offset (448)");
-	static_assert(offsetof(RenderPathCommand, clearColor_) == 452, "RenderPathCommand.ClearColor has wrong offset (452)");
-	static_assert(offsetof(RenderPathCommand, clearDepth_) == 468, "RenderPathCommand.ClearDepth has wrong offset (468)");
-	static_assert(offsetof(RenderPathCommand, clearStencil_) == 472, "RenderPathCommand.ClearStencil has wrong offset (472)");
-	static_assert(offsetof(RenderPathCommand, blendMode_) == 476, "RenderPathCommand.BlendMode has wrong offset (476)");
-	static_assert(offsetof(RenderPathCommand, enabled_) == 480, "RenderPathCommand.Enabled has wrong offset (480)");
-	static_assert(offsetof(RenderPathCommand, useFogColor_) == 481, "RenderPathCommand.UseFogColor has wrong offset (481)");
-	static_assert(offsetof(RenderPathCommand, markToStencil_) == 482, "RenderPathCommand.MarkToStencil has wrong offset (482)");
-	static_assert(offsetof(RenderPathCommand, useLitBase_) == 483, "RenderPathCommand.UseLitBase has wrong offset (483)");
-	static_assert(offsetof(RenderPathCommand, vertexLights_) == 484, "RenderPathCommand.VertexLights has wrong offset (484)");*/
+	static_assert(offsetof(RenderPathCommand, type_) == 12, "RenderPathCommand.Type has wrong offset (12)");
+	static_assert(offsetof(RenderPathCommand, sortMode_) == 16, "RenderPathCommand.SortMode has wrong offset (16)");
+	static_assert(offsetof(RenderPathCommand, pass_) == 20, "RenderPathCommand.Pass has wrong offset (20)");
+	static_assert(offsetof(RenderPathCommand, passIndex_) == 32, "RenderPathCommand.PassIndex has wrong offset (32)");
+	static_assert(offsetof(RenderPathCommand, metadata_) == 36, "RenderPathCommand.Metadata has wrong offset (36)");
+	static_assert(offsetof(RenderPathCommand, vertexShaderName_) == 48, "RenderPathCommand.VertexShaderName has wrong offset (48)");
+	static_assert(offsetof(RenderPathCommand, pixelShaderName_) == 60, "RenderPathCommand.PixelShaderName has wrong offset (60)");
+	static_assert(offsetof(RenderPathCommand, vertexShaderDefines_) == 72, "RenderPathCommand.VertexShaderDefines has wrong offset (72)");
+	static_assert(offsetof(RenderPathCommand, pixelShaderDefines_) == 84, "RenderPathCommand.PixelShaderDefines has wrong offset (84)");
+	static_assert(offsetof(RenderPathCommand, textureNames_) == 96, "RenderPathCommand.TextureNames has wrong offset (96)");
+	static_assert(offsetof(RenderPathCommand, shaderParameters_) == 288, "RenderPathCommand.ShaderParameters has wrong offset (288)");
+	static_assert(offsetof(RenderPathCommand, outputs_) == 304, "RenderPathCommand.Outputs has wrong offset (304)");
+	static_assert(offsetof(RenderPathCommand, depthStencilName_) == 316, "RenderPathCommand.DepthStencilName has wrong offset (316)");
+	static_assert(offsetof(RenderPathCommand, clearFlags_) == 328, "RenderPathCommand.ClearFlags has wrong offset (328)");
+	static_assert(offsetof(RenderPathCommand, clearColor_) == 332, "RenderPathCommand.ClearColor has wrong offset (332)");
+	static_assert(offsetof(RenderPathCommand, clearDepth_) == 348, "RenderPathCommand.ClearDepth has wrong offset (348)");
+	static_assert(offsetof(RenderPathCommand, clearStencil_) == 352, "RenderPathCommand.ClearStencil has wrong offset (352)");
+	static_assert(offsetof(RenderPathCommand, blendMode_) == 356, "RenderPathCommand.BlendMode has wrong offset (356)");
+	static_assert(offsetof(RenderPathCommand, enabled_) == 360, "RenderPathCommand.Enabled has wrong offset (360)");
+	static_assert(offsetof(RenderPathCommand, useFogColor_) == 361, "RenderPathCommand.UseFogColor has wrong offset (361)");
+	static_assert(offsetof(RenderPathCommand, markToStencil_) == 362, "RenderPathCommand.MarkToStencil has wrong offset (362)");
+	static_assert(offsetof(RenderPathCommand, useLitBase_) == 363, "RenderPathCommand.UseLitBase has wrong offset (363)");
+	static_assert(offsetof(RenderPathCommand, vertexLights_) == 364, "RenderPathCommand.VertexLights has wrong offset (364)");
 
 	// FontGlyph:
 	static_assert(sizeof(FontGlyph) == 24, "FontGlyph has wrong size (24)");
@@ -289,6 +268,7 @@ void check_bindings_offsets()
 	static_assert(offsetof(PhysicsRaycastResult, distance_) == 24, "PhysicsRaycastResult.Distance has wrong offset (24)");
 	static_assert(offsetof(PhysicsRaycastResult, hitFraction_) == 28, "PhysicsRaycastResult.HitFraction has wrong offset (28)");
 	static_assert(offsetof(PhysicsRaycastResult, body_) == 32, "PhysicsRaycastResult.bodyPtr has wrong offset (32)");
+
 }
 #endif
 

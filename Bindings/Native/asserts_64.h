@@ -183,7 +183,6 @@ void check_bindings_offsets()
 	static_assert(offsetof(RenderPathCommand, pixelShaderName_) == 80, "RenderPathCommand.PixelShaderName has wrong offset (80)");
 	static_assert(offsetof(RenderPathCommand, vertexShaderDefines_) == 96, "RenderPathCommand.VertexShaderDefines has wrong offset (96)");
 	static_assert(offsetof(RenderPathCommand, pixelShaderDefines_) == 112, "RenderPathCommand.PixelShaderDefines has wrong offset (112)");
-	static_assert(offsetof(RenderPathCommand, textureNames_) == 128, "RenderPathCommand.TextureNames has wrong offset (128)");
 	static_assert(offsetof(RenderPathCommand, shaderParameters_) == 384, "RenderPathCommand.ShaderParameters has wrong offset (384)");
 	static_assert(offsetof(RenderPathCommand, outputs_) == 416, "RenderPathCommand.Outputs has wrong offset (416)");
 	static_assert(offsetof(RenderPathCommand, depthStencilName_) == 432, "RenderPathCommand.DepthStencilName has wrong offset (432)");
