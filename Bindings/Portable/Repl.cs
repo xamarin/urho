@@ -69,19 +69,9 @@ namespace Urho.Repl
 
 		public float Pitch { get; set; }
 
-		//NOTE: currently working only in 64bit
-		public unsafe void SetBackgroundColor(Color color)
+		public void SetBackgroundColor(Color color)
 		{
-			var rp = Viewport.RenderPath;
-			for (int i = 0; i < rp.NumCommands; i++)
-			{
-				var cmd = rp.GetCommand((uint) i);
-				if (cmd->Type == RenderCommandType.Clear)
-				{
-					cmd->UseFogColor = 0;
-					cmd->ClearColor = color;
-				}
-			}
+			Viewport.SetClearColor(color);
 		}
 
 		public Node AddShape<T>(Color color) where T : Shape
