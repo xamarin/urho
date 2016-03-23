@@ -13,7 +13,7 @@ namespace Urho
 			var cache = Application.Current.ResourceCache;
 			var material = new Material();
 			material.SetTexture(TextureUnit.Diffuse, cache.GetTexture2D(image));
-			material.SetTechnique(0, cache.GetTechnique("Techniques/Diff.xml"), 0, 0);
+			material.SetTechnique(0, CoreAssets.Techniques.Diff, 0, 0);
 			return material;
 		}
 
@@ -35,7 +35,7 @@ namespace Urho
 			cube.SetData(CubeMapFace.PositiveZ, cache.GetFile(imagePositiveZ, false));
 			cube.SetData(CubeMapFace.NegativeZ, cache.GetFile(imageNegativeZ, false));
 			material.SetTexture(TextureUnit.Diffuse, cube);
-			material.SetTechnique(0, cache.GetTechnique("Techniques/DiffSkybox.xml"), 0, 0);
+			material.SetTechnique(0, CoreAssets.Techniques.DiffSkybox, 0, 0);
 			material.CullMode = CullMode.None;
 			return material;
 		}
