@@ -465,32 +465,44 @@ namespace Urho {
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?
-	[StructLayout (LayoutKind.Explicit)]
-	public struct RenderPathCommand {
-		[FieldOffset(0)] public UrhoString Tag;
-		[FieldOffset(16)] public RenderCommandType Type;
-		[FieldOffset(20)] public RenderCommandSortMode SortMode;
-		[FieldOffset(24)] public UrhoString Pass;
-		[FieldOffset(40)] public uint PassIndex;
-		[FieldOffset(48)] public UrhoString Metadata;
-		[FieldOffset(64)] public UrhoString VertexShaderName;
-		[FieldOffset(80)] public UrhoString PixelShaderName;
-		[FieldOffset(96)] public UrhoString VertexShaderDefines;
-		[FieldOffset(112)] public UrhoString PixelShaderDefines;
-		[FieldOffset(128)] public IntPtr TextureNames;
-		[FieldOffset(384)] public IntPtr ShaderParameters;
-		[FieldOffset(416)] public IntPtr Outputs;
-		[FieldOffset(432)] public UrhoString DepthStencilName;
-		[FieldOffset(448)] public uint ClearFlags;
-		[FieldOffset(452)] public Color ClearColor;
-		[FieldOffset(468)] public float ClearDepth;
-		[FieldOffset(472)] public uint ClearStencil;
-		[FieldOffset(476)] public BlendMode BlendMode;
-		[FieldOffset(480)] public byte Enabled;
-		[FieldOffset(481)] public byte UseFogColor;
-		[FieldOffset(482)] public byte MarkToStencil;
-		[FieldOffset(483)] public byte UseLitBase;
-		[FieldOffset(484)] public byte VertexLights;
+	[StructLayout (LayoutKind.Sequential, Pack = 1)]
+	public unsafe struct RenderPathCommand {
+		public UrhoString Tag;
+		public RenderCommandType Type;
+		public RenderCommandSortMode SortMode;
+		public UrhoString Pass;
+		public uint PassIndex;
+		public UrhoString Metadata;
+		public UrhoString VertexShaderName;
+		public UrhoString PixelShaderName;
+		public UrhoString VertexShaderDefines;
+		public UrhoString PixelShaderDefines;
+
+		//[MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+		//public fixed UrhoString TextureNames[16];
+		fixed byte TextureNames[256];//(sizeof(UrhoString) * 16) = 256 - 192
+
+		public HashBase ShaderParameters;
+		public VectorBase Outputs;
+		public UrhoString DepthStencilName;
+		public uint ClearFlags;
+		public Color ClearColor;
+		public float ClearDepth;
+		public uint ClearStencil;
+		public BlendMode BlendMode;
+		public byte Enabled;
+		public byte UseFogColor;
+		public byte MarkToStencil;
+		public byte UseLitBase;
+		public byte VertexLights;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct HashBase {
+		public IntPtr Head;
+		public IntPtr Tail;
+		public IntPtr Ptrs;
+		public IntPtr Allocator;
 	}
 	
 	// DEBATABLE: maybe we should let the binder handle it?
