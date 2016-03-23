@@ -93,7 +93,7 @@
     <Compile Include="Portable\Actions\Intervals\Repeat.cs" />
     <Compile Include="Portable\Actions\Intervals\RepeatForever.cs" />
     <Compile Include="Portable\Actions\Intervals\ReverseTime.cs" />
-    <Compile Include="Portable\Actions\Intervals\RotateArroundBy.cs" />
+    <Compile Include="Portable\Actions\Intervals\RotateAroundBy.cs" />
     <Compile Include="Portable\Actions\Intervals\RotateBy.cs" />
     <Compile Include="Portable\Actions\Intervals\RotateTo.cs" />
     <Compile Include="Portable\Actions\Intervals\ScaleBy.cs" />

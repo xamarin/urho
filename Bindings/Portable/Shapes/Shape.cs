@@ -10,6 +10,7 @@ namespace Urho.Shapes
 		{
 			Model = Application.ResourceCache.GetModel(ModelResource);
 			Color = color;
+			CastShadows = true;
 		}
 
 		protected abstract string ModelResource { get; }
