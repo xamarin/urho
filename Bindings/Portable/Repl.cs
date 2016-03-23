@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Urho.Actions;
 using Urho.Gui;
@@ -13,13 +15,18 @@ namespace Urho.Repl
 
 		public static Task<Simple3DScene> RunAsync(int width = 600, int height = 500)
 		{
+			return RunAsync(new ApplicationOptions("Data") { Width = width, Height = height, ResizableWindow = true });
+		}
+
+		public static Task<Simple3DScene> RunAsync(ApplicationOptions options)
+		{
 			var taskSource = new TaskCompletionSource<Simple3DScene>();
 			Action callback = null;
 			callback = () => {
 				Started -= callback;
 				taskSource.TrySetResult(Current as Simple3DScene);
 			};
-
+			var dataDir = options.ResourcePaths.FirstOrDefault();
 #if DESKTOP
 			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(Simple3DScene).Assembly.Location);
 
@@ -28,16 +35,14 @@ namespace Urho.Repl
 				using (Stream output = File.Create(Path.Combine("CoreData.pak")))
 					input.CopyTo(output);
 			}
-			Directory.CreateDirectory("Data");
+			if (!string.IsNullOrEmpty(dataDir))
+				Directory.CreateDirectory("Data");
 #endif
-
 			Started += callback;
-
-			Task.Delay(1).ContinueWith(r => new Simple3DScene(
-				new ApplicationOptions(assetsFolder: "Data") {
-					Width = width,
-					Height = height
-				}).Run(), TaskContinuationOptions.ExecuteSynchronously);
+			Task.Factory.StartNew(() => new Simple3DScene(options).Run(), 
+					CancellationToken.None, 
+					TaskCreationOptions.DenyChildAttach,
+					SynchronizationContext.Current == null ? TaskScheduler.Default : TaskScheduler.FromCurrentSynchronizationContext());
 
 			return taskSource.Task;
 		}
@@ -106,7 +111,7 @@ namespace Urho.Repl
 			Light.Color = new Color(1.2f, 1.2f, 1.2f);
 
 			// Camera
-			CameraNode = Scene.CreateChild(name: "camera");
+			CameraNode = Scene.CreateChild(name: "Camera");
 			Camera = CameraNode.CreateComponent<Camera>();
 
 			// Viewport
@@ -176,7 +181,7 @@ namespace Urho.Repl
 			textNode = node.CreateChild();
 			textNode.Position = new Vector3(0, 3, 0);
 			var text3D = textNode.CreateComponent<Text3D>();
-			text3D.SetFont(Application.ResourceCache.GetFont("Fonts/Anonymous Pro.ttf"), 60);
+			text3D.SetFont(CoreAssets.Fonts.AnonymousPro, 60);
 			text3D.TextEffect = TextEffect.Stroke;
 			text3D.Text = name;
 
