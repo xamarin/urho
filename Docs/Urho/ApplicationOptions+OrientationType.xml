@@ -11,7 +11,8 @@
   <Docs>
     <summary>Orientation type for the application</summary>
     <remarks>
-      <para></para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -28,7 +29,8 @@
       <Docs>
         <summary>
           <para>Landscape orientation desired.</para>
-          <para></para>
+          <para>
+          </para>
         </summary>
       </Docs>
     </Member>
@@ -59,7 +61,8 @@
       <Docs>
         <summary>
           <para>Portrati orientation desired.</para>
-          <para></para>
+          <para>
+          </para>
         </summary>
       </Docs>
     </Member>

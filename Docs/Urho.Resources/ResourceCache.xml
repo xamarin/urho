@@ -244,8 +244,8 @@
       </Parameters>
       <Docs>
         <param name="type">To be added.</param>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <param name="caller">To be added.</param>
         <summary>
             Background load a resource. An event will be sent when complete. Return true if successfully stored to the load queue, false if eg. already exists. Can be called from outside the main thread.
@@ -328,8 +328,8 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -350,8 +350,8 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -372,11 +372,11 @@
         <Parameter Name="name" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="type">To be added.</param>
-        <param name="name">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="type">Type signature for the resource type to load.</param>
+        <param name="name">Name of the resource to load</param>
+        <summary>Fetches an already loaded resource of specific type and name.</summary>
+        <returns>Returns ther resoruce, or <see langword="null" /> if not found. </returns>
+        <remarks>Will not load if does not exist.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetFile">
@@ -395,7 +395,7 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>
             Open and return a file from the resource load paths or from inside a package file. If not found, use a fallback search with absolute path. Return null if fails. Can be called from outside the main thread.
             </summary>
@@ -419,8 +419,8 @@
       </Parameters>
       <Docs>
         <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+        <summary>Fetches a font stored as a resource.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -440,11 +440,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+        <summary>Loads an image resource by name. </summary>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetJsonFile">
@@ -462,11 +467,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetMaterial">
@@ -484,11 +494,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetMemoryBudget">
@@ -546,11 +561,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetObjectAnimation">
@@ -568,11 +588,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetParticleEffect">
@@ -590,11 +615,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetParticleEffect2D">
@@ -612,11 +642,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetPListFile">
@@ -634,11 +669,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetPreferredResourceDir">
@@ -679,14 +719,19 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="type">To be added.</param>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="type">Type signature for the resource type to load.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>
             Return a resource by type and name. Load if not loaded yet. Return null if not found or if fails, unless SetReturnFailedResources(true) has been called. Can be called only from the main thread.
             </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetResourceFileName">
@@ -703,12 +748,14 @@
         <Parameter Name="name" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
+        <param name="name">Name of the resource.</param>
         <summary>
             Return full absolute file name of resource if possible.
             </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>The full path name, or an empty string if the resource name does not exist in any of the registered resource directories.</returns>
+        <remarks>
+          <para>To be added.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetResourceRouter">
@@ -748,11 +795,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSound">
@@ -770,11 +822,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSprite2D">
@@ -792,11 +849,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSpriteSheet2D">
@@ -814,11 +876,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTechnique">
@@ -836,11 +903,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTempResource">
@@ -860,12 +932,13 @@
       </Parameters>
       <Docs>
         <param name="type">To be added.</param>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>
             Load a resource without storing it in the resource cache. Return null if not found or if fails. Can be called from outside the main thread if the resource itself is safe to load completely (it does not possess for example GPU data.)
             </summary>
-        <returns>To be added.</returns>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -884,11 +957,70 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+        <summary>Loads a 2D Texture resource by name. </summary>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTexture3D">
+      <MemberSignature Language="C#" Value="public Urho.Texture3D GetTexture3D (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Texture3D GetTexture3D(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture3D</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+        <summary>Loads a 3D Texture resource by name. </summary>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTextureCube">
+      <MemberSignature Language="C#" Value="public Urho.Texture GetTextureCube (string name, bool sendEventOnFailure = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Texture GetTextureCube(string name, bool sendEventOnFailure) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+        <summary>Loads a Texture Cube resource by name. </summary>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTmxFile2D">
@@ -906,11 +1038,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetValueAnimation">
@@ -928,11 +1065,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetXmlFile">
@@ -950,11 +1092,16 @@
         <Parameter Name="sendEventOnFailure" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="name">To be added.</param>
-        <param name="sendEventOnFailure">To be added.</param>
+        <param name="name">Name of the resource to load</param>
+        <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>
+          <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+        <remarks>
+          <para>It loads the resource if it has not been loaded yet.</para>
+          <para></para>
+          <para>Should only be called from the main thread.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LoadFailed">
@@ -1328,7 +1475,7 @@
         <ReturnType>System.Action&lt;Urho.Resources.ResourceNotFoundEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised by any of the Get resource methods if the requested resource is not found.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToResourceNotFound" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1629,7 +1776,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks />
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1645,7 +1792,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks />
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1661,7 +1808,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks />
       </Docs>
     </Member>
     <Member MemberName="UnknownResourceType">

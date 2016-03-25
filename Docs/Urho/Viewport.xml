@@ -10,8 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Viewport definition either for a render surface or the backbuffer.
+    <summary>Viewport definition either for a render surface or the backbuffer.
             </summary>
     <remarks>To be added.</remarks>
   </Docs>
@@ -360,6 +359,25 @@
         <param name="depth">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetClearColor">
+      <MemberSignature Language="C#" Value="public void SetClearColor (Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetClearColor(valuetype Urho.Color color) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="color" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="color">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -98,6 +98,13 @@
       <Type Name="Context" Kind="Class" />
       <Type Name="Controls" Kind="Class" />
       <Type Name="ConvexData" Kind="Structure" />
+      <Type Name="CoreAssets" Kind="Class" />
+      <Type Name="CoreAssets+Fonts" Kind="Class" />
+      <Type Name="CoreAssets+Materials" Kind="Class" />
+      <Type Name="CoreAssets+Models" Kind="Class" />
+      <Type Name="CoreAssets+RenderPaths" Kind="Class" />
+      <Type Name="CoreAssets+Shaders" Kind="Class" />
+      <Type Name="CoreAssets+Techniques" Kind="Class" />
       <Type Name="CreateMode" Kind="Enumeration" />
       <Type Name="CrowdAgentNodeFailureEventArgs" Kind="Structure" />
       <Type Name="CrowdAgentNodeFormationEventArgs" Kind="Structure" />
@@ -141,6 +148,7 @@
       <Type Name="GPUObject" Kind="Structure" />
       <Type Name="Graphics" Kind="Class" />
       <Type Name="GraphicsImpl" Kind="Structure" />
+      <Type Name="HashBase" Kind="Structure" />
       <Type Name="HashIteratorBase" Kind="Structure" />
       <Type Name="HeightfieldData" Kind="Structure" />
       <Type Name="IDeserializer" Kind="Interface" />
@@ -431,6 +439,8 @@
       <Type Name="RepeatState" Kind="Class" />
       <Type Name="ReverseTime" Kind="Class" />
       <Type Name="ReverseTimeState" Kind="Class" />
+      <Type Name="RotateAroundBy" Kind="Class" />
+      <Type Name="RotateAroundByState" Kind="Class" />
       <Type Name="RotateBy" Kind="Class" />
       <Type Name="RotateByState" Kind="Class" />
       <Type Name="RotateTo" Kind="Class" />
@@ -623,6 +633,10 @@
       <Type Name="PhysicsWorld" Kind="Class" />
       <Type Name="RigidBody" Kind="Class" />
       <Type Name="ShapeType" Kind="Enumeration" />
+    </Namespace>
+    <Namespace Name="Urho.Repl">
+      <Type Name="Bar" Kind="Class" />
+      <Type Name="Simple3DScene" Kind="Class" />
     </Namespace>
     <Namespace Name="Urho.Resources">
       <Type Name="AsyncLoadState" Kind="Enumeration" />

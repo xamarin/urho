@@ -15,11 +15,13 @@
             </summary>
     <remarks>
       <para>Before a Urho3D application can enter its main loop, the Engine subsystem object must be created and initialized by calling the <see cref="M:Urho.UrhoEngine.Initialize" /> method. </para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Main Loop Iteration</h2>
       </format>
-      <para></para>
+      <para>
+      </para>
       <para>The main loop iteration (also called a frame) is driven by the Engine. In contrast it is the program's (for example Urho3DPlayer) responsibility to continuously loop this iteration by calling <see cref="M:Urho.Engine.RunFrame()" />. This function calls in turn the <see cref="T:Urho.Time" /> subsystem's <see cref="M:Urho.Engine.BeginFrame()" /> and <see cref="M:Urho.Engine.EndFrame()" /> functions, and sends various update events in between. </para>
       <para>There are a number of events that are raised, these events can be monitored by calling one of the various SubscribeToXxx methods in the UrhoObject base class.</para>
       <para>The event order is:</para>
@@ -70,11 +72,13 @@
         </item>
       </list>
       <para>Variable timestep logic updates are preferable to fixed timestep, because they are only executed once per frame. In contrast, if the rendering framerate is low, several physics simulation steps will be performed on each frame to keep up the apparent passage of time, and if this also causes a lot of logic code to be executed for each step, the program may bog down further if the CPU can not handle the load. Note that the Engine’s minimum FPS, by default 10, sets a hard cap for the timestep to prevent spiraling down to a complete halt; if exceeded, animation and physics will instead appear to slow down.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Main Loop and the Application Activation State</h2>
       </format>
-      <para></para>
+      <para>
+      </para>
       <para>The application window's state (has input focus, minimized or not) can be queried from the <see cref="T:Urho.Input" /> subsystem. It can also effect the main loop in the following ways:</para>
       <list type="bullet">
         <item>
@@ -121,7 +125,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Engine which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -159,7 +164,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Engine linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -684,7 +690,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -700,7 +707,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -716,7 +724,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">
@@ -733,7 +742,8 @@
         <summary>Application-wide logic update event, the first called from the <see cref="M:Urho.Engine.UpdateFrame" /> method.</summary>
         <remarks>
           <para>By default each update-enabled <see cref="T:Urho.Scene" /> reacts to this and triggers the scene update</para>
-          <para></para>
+          <para>
+          </para>
         </remarks>
       </Docs>
     </Member>

@@ -228,6 +228,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FromImage">
+      <MemberSignature Language="C#" Value="public static Urho.Material FromImage (string image);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material FromImage(string image) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="image">Name of an image that can be fetched from the <see cref="T:Urho.Application.ResourceCache" />.</param>
+        <summary>Creates a material from a 2D Texture.</summary>
+        <returns>Material that contains the image and has been configured with the CoreAssets.Techniques.Diff <see cref="T:Urho.Technique" />.</returns>
+        <remarks>This is a shortcut to creating a new mateiral, setting the texture to TextureUnit.Diffuse on the 2D texture loaded from the cache with the name <paramref name="image" />.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetPass">
       <MemberSignature Language="C#" Value="public Urho.Pass GetPass (uint index, string passName);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Pass GetPass(unsigned int32 index, string passName) cil managed" />
@@ -1064,6 +1084,59 @@
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SkyboxFromImage">
+      <MemberSignature Language="C#" Value="public static Urho.Material SkyboxFromImage (string image);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material SkyboxFromImage(string image) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="image">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image to load.</param>
+        <summary>Creates a material Skybox where all six elements of the skybox are set to the specified image.</summary>
+        <returns>A material which uses a <see cref="T:Urho.TextureCube" /> that has all the side of the cube set to the specified image.</returns>
+        <remarks>The techinque on the resulting cube are set to DiffSkybox and the CullMode is set to None.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SkyboxFromImages">
+      <MemberSignature Language="C#" Value="public static Urho.Material SkyboxFromImages (string imagePositiveX, string imageNegativeX, string imagePositiveY, string imageNegativeY, string imagePositiveZ, string imageNegativeZ);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material SkyboxFromImages(string imagePositiveX, string imageNegativeX, string imagePositiveY, string imageNegativeY, string imagePositiveZ, string imageNegativeZ) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="imagePositiveX" Type="System.String" />
+        <Parameter Name="imageNegativeX" Type="System.String" />
+        <Parameter Name="imagePositiveY" Type="System.String" />
+        <Parameter Name="imageNegativeY" Type="System.String" />
+        <Parameter Name="imagePositiveZ" Type="System.String" />
+        <Parameter Name="imageNegativeZ" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="imagePositiveX">
+          <para>Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive X side of the cube.</para>
+          <para></para>
+        </param>
+        <param name="imageNegativeX">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative X side of the cube.</param>
+        <param name="imagePositiveY">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive Y side of the cube.</param>
+        <param name="imageNegativeY">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative Y side of the cube.</param>
+        <param name="imagePositiveZ">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive Z side of the cube.</param>
+        <param name="imageNegativeZ">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative Z side of the cube.</param>
+        <summary>Creates a material Skybox where all six elements of the skybox are specified.</summary>
+        <returns>A material which uses a <see cref="T:Urho.TextureCube" /> that has all the side of the cube set to the specified image.</returns>
+        <remarks>The techinque on the resulting cube are set to DiffSkybox and the CullMode is set to None.</remarks>
       </Docs>
     </Member>
     <Member MemberName="SortTechniques">

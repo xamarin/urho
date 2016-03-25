@@ -568,8 +568,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </Docs>
     </Member>
     <Member MemberName="CreateComponent&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public T CreateComponent&lt;T&gt; (Urho.CreateMode mode = Urho.CreateMode.Replicated, uint id = 0) where T : Urho.Componentnew();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T CreateComponent&lt;.ctor (class Urho.Component) T&gt;(valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
+      <MemberSignature Language="C#" Value="public T CreateComponent&lt;T&gt; (Urho.CreateMode mode = Urho.CreateMode.Replicated, uint id = 0) where T : Urho.Component;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T CreateComponent&lt;(class Urho.Component) T&gt;(valuetype Urho.CreateMode mode, unsigned int32 id) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2075,6 +2075,31 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RunActions">
+      <MemberSignature Language="C#" Value="public void RunActions (Urho.Actions.FiniteTimeAction[] actions);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RunActions(class Urho.Actions.FiniteTimeAction[] actions) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="actions" Type="Urho.Actions.FiniteTimeAction[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="actions">Actions to execute.</param>
+        <summary>Runs the specified actions.</summary>
+        <remarks>The actions are groupped in a Sequence action.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RunActionsAsync">
       <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task&lt;Urho.Actions.ActionState&gt; RunActionsAsync (Urho.Actions.FiniteTimeAction[] actions);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Threading.Tasks.Task`1&lt;class Urho.Actions.ActionState&gt; RunActionsAsync(class Urho.Actions.FiniteTimeAction[] actions) cil managed" />
@@ -2099,7 +2124,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <summary>
             Runs a sequence of Actions so that it can be awaited.
             </summary>
-        <returns>To be added.</returns>
+        <returns>Task representing the actions.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

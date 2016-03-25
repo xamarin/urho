@@ -1571,6 +1571,11 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Application.Handle">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Application.HasCurrent">
             <summary>Determines if the Current property has been set.</summary>
             <value>
@@ -1660,6 +1665,10 @@
         </member>
         <member name="M:Urho.Application.Stop">
             <summary>Method invoked to terminate your application.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Application.StopCurrent">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="E:Urho.Application.Stoped">
@@ -2156,7 +2165,13 @@
         <member name="T:Urho.BillboardSet">
             <summary>Billboard component.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para>After creating a <see cref="T:Urho.BillboardSet" />, you will configure the number of billboards by setting the <see cref="P:Urho.BillboardSet.NumBillboards" />.   </para>
+                <para />
+                <para>Configure individual <see cref="T:Urho.Billboard" /> objects by calling the <see cref="M:Urho.BillboardSet.GetBillboardSafe" /> (or the unsafe version, <see cref="M:Urho.BillboardSet.GetBillboard" />).</para>
+                <para />
+                <para>After making changes to the individual billboard objects, call the <see cref="M:Urho.BillboardSet.Commit" /> method to update the internals of the <see cref="T:Urho.BillboardSet" />.</para>
+            </remarks>
         </member>
         <member name="C:Urho.BillboardSet">
             <summary>
@@ -2214,17 +2229,17 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.BillboardSet.GetBillboard(System.UInt32)">
-            <param name="index"></param>
+            <param name="index">The index of the billboard in the collection to fetch.</param>
             <summary>
             Return billboard by index.
             </summary>
-            <returns></returns>
+            <returns>Pointer to the billboard, or <see langword="null" /> if the index is out of bounds.</returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.BillboardSet.GetBillboardSafe(System.UInt32)">
-            <param name="index"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="index">The index of the billboard in the collection to fetch.</param>
+            <summary>Returns a safe Billboard (<see cref="T:Urho.BillboardWrapper" />) by index, without exposing an unsafe pointer.</summary>
+            <returns>A reference to the <see cref="T:Urho.BillboardWrapper" />, or <see langword="null" /> if the index is out of bounds.</returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BillboardSet.Material">
@@ -2302,47 +2317,47 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.BillboardWrapper">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Safe wrapper for a Billboard</summary>
+            <remarks>This wrapper ensures that values fetched from one of the <see cref="T:Urho.BillboardSet" /> APIs retain the containing Billboard.</remarks>
         </member>
         <member name="C:Urho.BillboardWrapper(System.Object,Urho.Billboard*)">
             <param name="bbHolder"></param>
             <param name="bb"></param>
-            <summary></summary>
+            <summary>Creates the billboard from an actual pointers and the container.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BillboardWrapper.Color">
-            <summary></summary>
+            <summary>Color.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BillboardWrapper.Enabled">
-            <summary></summary>
+            <summary>Enabled flag.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BillboardWrapper.Position">
-            <summary></summary>
+            <summary>Position.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BillboardWrapper.Rotation">
-            <summary></summary>
+            <summary>Rotation.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BillboardWrapper.Size">
-            <summary></summary>
+            <summary>Two-dimensional size.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BillboardWrapper.SortDistance">
-            <summary></summary>
+            <summary>Sort distance.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BillboardWrapper.Uv">
-            <summary></summary>
+            <summary>UV Coordinates.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -3024,18 +3039,18 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.Color">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Represents a Color with transparency in Urho as four 32-bit floating point values.</summary>
+            <remarks>Individual channels should have values from zero to one.</remarks>
         </member>
         <member name="C:Urho.Color(Urho.Color)">
             <param name="source"></param>
-            <summary></summary>
+            <summary>Initializes the color from a color source and copies all elements from it.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Color(Urho.Color,System.Single)">
             <param name="source"></param>
             <param name="alpha"></param>
-            <summary></summary>
+            <summary>Initializes the color by copying the red, green and blue components from the source and using the specified value for the alpha component.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Color(System.Single,System.Single,System.Single,System.Single)">
@@ -3043,63 +3058,63 @@
             <param name="g"></param>
             <param name="b"></param>
             <param name="a"></param>
-            <summary></summary>
+            <summary>Initializes a <see cref="T:Urho.Color" /> instance from the given red, green, blue and transparency values.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.A">
-            <summary></summary>
+            <summary>The transparency (alpha) value.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.B">
-            <summary></summary>
+            <summary>Blue component</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Black">
-            <summary></summary>
+            <summary>Opaque black color (RGB values are set to 0, 0, 0).</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Blue">
-            <summary></summary>
+            <summary>Opaque blue color (RGB values are set to 0, 0, 1).</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Cyan">
-            <summary></summary>
+            <summary>Opaque cyan color (RGB values are set to 0, 1, 1).</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.G">
-            <summary></summary>
+            <summary>Green component</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Gray">
-            <summary></summary>
+            <summary>Opaque grey color (RGB values are set to 0.5, 0.5, 0.5).</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Green">
-            <summary></summary>
+            <summary>Opaque green color (RGB values are set to 0, 1, 0).</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Magenta">
-            <summary></summary>
+            <summary>Opaque magenta color (RGB values are set to 1, 0, 1).</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.R">
-            <summary></summary>
+            <summary>Red component</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Red">
-            <summary></summary>
+            <summary>Opaque red color (RGB values are set to 1, 0, 0).</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Transparent">
-            <summary></summary>
+            <summary>Fully transparent color, has red, green, blue and alpha values set to zero.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.White">
-            <summary></summary>
+            <summary>Opaque white color (RGB values are set to 1, 1, 1).</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Yellow">
-            <summary></summary>
+            <summary>Opaque yellow color (RGB values are set to 1, 1, 0).</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.ColorFrame">
@@ -3761,6 +3776,834 @@
             <param name="model"></param>
             <param name="lodLevel"></param>
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets.Cache">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+Fonts">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Fonts.AnonymousPro">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+Materials">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Materials.DefaultGrey">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+Models">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models.Box">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models.Cone">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models.Cylinder">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models.Plane">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models.Pyramid">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models.Sphere">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models.Torus">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+RenderPaths">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.Deferred">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.DeferredHWDepth">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.Forward">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.ForwardDepth">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.ForwardHWDepth">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.Prepass">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.PrepassHDR">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.PrepassHWDepth">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+Shaders">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.AutoExposure">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Basic">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Bloom">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.BloomHDR">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Blur">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.ColorCorrection">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.CopyFramebuffer">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.DeferredLight">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Depth">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Fog">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.FXAA2">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.FXAA3">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.GammaCorrection">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.GreyScale">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Lighting">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.LitParticle">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.LitSolid">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.PostProcess">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.PrepassLight">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Samplers">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.ScreenPos">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Shadow">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.ShadowBlur">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Skybox">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Skydome">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Stencil">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.TerrainBlend">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Text">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Tonemap">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Transform">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Uniforms">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Unlit">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Urho2D">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Vegetation">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.VegetationDepth">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.VegetationShadow">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Shaders.Water">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+Techniques">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.BasicVColUnlitAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.Diff">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAdd">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAddAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAlphaMaskTranslucent">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAlphaTranslucent">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAO">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAOAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffAOAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffEmissive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffEmissiveAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffEnvCube">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffEnvCubeAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffEnvCubeAO">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffEnvCubeAOAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffLightMap">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffLightMapAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffLitParticleAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffMultiply">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormal">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalAlphaMaskTranslucent">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalAlphaTranslucent">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalAO">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalAOAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalAOAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalEmissive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalEmissiveAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalEnvCube">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalEnvCubeAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPacked">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedAlphaMaskTranslucent">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedAlphaTranslucent">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedAO">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedAOAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedAOAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedEmissive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedEmissiveAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedEnvCube">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedEnvCubeAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedSpec">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedSpecAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedSpecAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedSpecAO">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedSpecAOAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedSpecAOAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedSpecEmissive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalPackedSpecEmissiveAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpec">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecAO">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecAOAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecAOAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecEmissive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecEmissiveAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffOverlay">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffSkybox">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffSkydome">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffSkyplane">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffSpec">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffSpecAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffSpecAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffUnlit">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffUnlitAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffUnlitAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffVCol">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffVColAdd">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffVColAddAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffVColMultiply">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.DiffVColUnlitAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTexture">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureAdd">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureAddAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureAO">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureAOAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureEnvCube">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureEnvCubeAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureEnvCubeAO">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureEnvCubeAOAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureMultiply">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureNormal">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureNormalAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureNormalPacked">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureNormalPackedAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureOverlay">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureUnlit">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureUnlitAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureUnlitVCol">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureVCol">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureVColAdd">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureVColAddAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.NoTextureVColMultiply">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.TerrainBlend">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.VegetationDiff">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.VegetationDiffAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.VegetationDiffUnlit">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.VegetationDiffUnlitAlphaMask">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques.Water">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.CreateMode">
@@ -4885,12 +5728,12 @@
         </member>
         <member name="M:Urho.Drawable.AddLight(Urho.Light)">
             <param name="light"></param>
-            <summary></summary>
+            <summary>Adds the specified light.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Drawable.AddVertexLight(Urho.Light)">
             <param name="light"></param>
-            <summary></summary>
+            <summary>Adds the specified vertex light.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Drawable.BoundingBox">
@@ -5211,23 +6054,23 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.DrawableFlags">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Drawable flags</summary>
+            <remarks>These are bit flags that are set on any subclass of <see cref="T:Urho.Drawable" /> to quickly determine the kind of Drawable it is.   The kind of drawable is used by the <see cref="T:Urho.View" /> class to determine how to render a particular component.</remarks>
         </member>
         <member name="F:Urho.DrawableFlags.Any">
-            <summary></summary>
+            <summary>Mask, used to match any drawable.</summary>
         </member>
         <member name="F:Urho.DrawableFlags.Geometry">
-            <summary></summary>
+            <summary>The drawable is a Geometry (<see cref="T:Urho.StaticModel" />, <see cref="T:Urho.TerrainPatch" />, <see cref="T:Urho.BillboardSet" />, <see cref="T:Urho.CustomGeometry" />, <see cref="T:Urho.DecalSet" />, <see cref="T:Urho.UI.Text3D" />, <see cref="T:Urho.Urho2D.Renderer2D" />)</summary>
         </member>
         <member name="F:Urho.DrawableFlags.Geometry2D">
-            <summary></summary>
+            <summary>The drawable is a 2D Geometry (<see cref="T:Urho.Urho2D.Drawable2D" />)</summary>
         </member>
         <member name="F:Urho.DrawableFlags.Light">
-            <summary></summary>
+            <summary>The drawable is a Light (<see cref="T:Urho.Light)" /></summary>
         </member>
         <member name="F:Urho.DrawableFlags.Zone">
-            <summary></summary>
+            <summary>The drawable is a zone (<see cref="T:Urho.Zone" />)</summary>
         </member>
         <member name="T:Urho.DropFileEventArgs">
             <summary>Event arguments for the Input's DropFile event</summary>
@@ -7387,6 +8230,26 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.GraphicsImpl">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.HashBase">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.HashBase.Allocator">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.HashBase.Head">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.HashBase.Ptrs">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.HashBase.Tail">
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -10469,6 +11332,12 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Material.FromImage(System.String)">
+            <param name="image"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Material.GetPass(System.UInt32,System.String)">
             <param name="index"></param>
             <param name="passName"></param>
@@ -10771,6 +11640,23 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Material.SkyboxFromImage(System.String)">
+            <param name="image"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Material.SkyboxFromImages(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <param name="imagePositiveX"></param>
+            <param name="imageNegativeX"></param>
+            <param name="imagePositiveY"></param>
+            <param name="imageNegativeY"></param>
+            <param name="imagePositiveZ"></param>
+            <param name="imageNegativeZ"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Material.SortTechniques">
             <summary>
             Ensure that material techniques are listed in correct order.
@@ -11015,7 +11901,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.Matrix3">
-            <summary></summary>
+            <summary>Represents a 3x3 Matrix.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Matrix3(System.Single[])">
@@ -11306,7 +12192,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.Matrix3x4">
-            <summary></summary>
+            <summary>Represents a 3x4 Matrix.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Matrix3x4.m00">
@@ -12283,7 +13169,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.MonoPInvokeCallbackAttribute">
-            <summary></summary>
+            <summary>For internal use.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.MonoPInvokeCallbackAttribute(System.Type)">
@@ -13248,6 +14134,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Set rotation in parent space (for Urho2D).
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Node.RunActions(Urho.Actions.FiniteTimeAction[])">
+            <param name="actions"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.RunActionsAsync(Urho.Actions.FiniteTimeAction[])">
@@ -14463,14 +15354,14 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Octant">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>An Octree’s Octant.</summary>
+            <remarks>This is one of the components of the <see cref="T:Urho.Octree" /></remarks>
         </member>
         <member name="T:Urho.Octree">
-            <summary>
-            %Octree component. Should be added only to the root scene node
-            </summary>
-            <remarks></remarks>
+            <summary>Octree component that implements spacial partitioning</summary>
+            <remarks>
+                <para>Implements spatial partitioning and accelerated visibility queries. Without this 3D objects can not be rendered.</para>
+                <para />Should be added only to the root scene node.</remarks>
         </member>
         <member name="C:Urho.Octree">
             <summary>
@@ -14599,8 +15490,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks />
         </member>
         <member name="T:Urho.ParticleEffect">
-            <summary>
-            %Particle effect definition.
+            <summary>Particle effect definition.
             </summary>
             <remarks></remarks>
         </member>
@@ -15375,7 +16265,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary></summary>
         </member>
         <member name="T:Urho.Plane">
-            <summary></summary>
+            <summary>Surface in three dimensional space.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Plane(Urho.Vector4)">
@@ -17406,8 +18296,68 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>Tag name</summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.RenderPathCommand.TextureNames">
-            <summary>Textures (points to strings ontaining the texture names) </summary>
+        <member name="F:Urho.RenderPathCommand.TextureName0">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName1">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName10">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName11">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName12">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName13">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName14">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName15">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName2">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName3">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName4">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName5">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName6">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName7">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName8">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.RenderPathCommand.TextureName9">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.Type">
@@ -25866,6 +26816,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Viewport.SetClearColor(Urho.Color)">
+            <param name="color"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Viewport.SetRenderPath(Urho.Resources.XmlFile)">
             <param name="file"></param>
             <summary></summary>
@@ -29092,6 +30047,91 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Actions.ReverseTimeState.Update(System.Single)">
+            <param name="time"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Actions.RotateAroundBy">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.RotateAroundBy(System.Single,Urho.Vector3,System.Single,System.Single,System.Single,Urho.TransformSpace)">
+            <param name="duration"></param>
+            <param name="point"></param>
+            <param name="deltaX"></param>
+            <param name="deltaY"></param>
+            <param name="deltaZ"></param>
+            <param name="ts"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.RotateAroundBy.DeltaX">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.RotateAroundBy.DeltaY">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.RotateAroundBy.DeltaZ">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.RotateAroundBy.Point">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Actions.RotateAroundBy.Reverse">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Actions.RotateAroundBy.StartAction(Urho.Node)">
+            <param name="target"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.RotateAroundBy.TransformSpace">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Actions.RotateAroundByState">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.RotateAroundByState(Urho.Actions.RotateAroundBy,Urho.Node)">
+            <param name="action"></param>
+            <param name="target"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Actions.RotateAroundByState.DeltaX">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Actions.RotateAroundByState.DeltaY">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Actions.RotateAroundByState.DeltaZ">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Actions.RotateAroundByState.Point">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Actions.RotateAroundByState.TransformSpace">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Actions.RotateAroundByState.Update(System.Single)">
             <param name="time"></param>
             <summary></summary>
             <remarks></remarks>
@@ -43833,6 +44873,135 @@ public class MyInstantState : ActionInstantState
         <member name="F:Urho.Physics.ShapeType.Trianglemesh">
             <summary>Shape defined by a triangle mesh.</summary>
         </member>
+        <member name="T:Urho.Repl.Bar">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Repl.Bar(System.String,Urho.Color)">
+            <param name="name"></param>
+            <param name="color"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Bar.OnAttachedToNode(Urho.Node)">
+            <param name="node"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Bar.OnUpdate(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Bar.Value">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Repl.Simple3DScene">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Repl.Simple3DScene(Urho.ApplicationOptions)">
+            <param name="options"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Simple3DScene.AddShape``1(Urho.Color)">
+            <typeparam name="T"></typeparam>
+            <param name="color"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.Camera">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.CameraNode">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.Light">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.LightNode">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.MoveCamera">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.Octree">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Simple3DScene.OnUpdate(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.Pitch">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.RootNode">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Simple3DScene.RunAsync(Urho.ApplicationOptions)">
+            <param name="options"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Simple3DScene.RunAsync(System.Int32,System.Int32)">
+            <param name="width"></param>
+            <param name="height"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.Scene">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Simple3DScene.SetBackgroundColor(Urho.Color)">
+            <param name="color"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Simple3DScene.SimpleMoveCamera3D(System.Single,System.Single)">
+            <param name="timeStep"></param>
+            <param name="moveSpeed"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Simple3DScene.Start">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.Viewport">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Repl.Simple3DScene.Yaw">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Resources.AsyncLoadState">
             <summary>
             Asynchronous loading state of a resource.
@@ -45133,6 +46302,20 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetTexture2D(System.String,System.Boolean)">
+            <param name="name"></param>
+            <param name="sendEventOnFailure"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.ResourceCache.GetTexture3D(System.String,System.Boolean)">
+            <param name="name"></param>
+            <param name="sendEventOnFailure"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.ResourceCache.GetTextureCube(System.String,System.Boolean)">
             <param name="name"></param>
             <param name="sendEventOnFailure"></param>
             <summary></summary>

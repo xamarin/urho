@@ -1,6 +1,6 @@
 <Type Name="RenderPathCommand" FullName="Urho.RenderPathCommand">
   <TypeSignature Language="C#" Value="public struct RenderPathCommand" />
-  <TypeSignature Language="ILAsm" Value=".class public ansi sealed beforefieldinit RenderPathCommand extends System.ValueType" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit RenderPathCommand extends System.ValueType" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -150,14 +150,14 @@
       </Docs>
     </Member>
     <Member MemberName="Outputs">
-      <MemberSignature Language="C#" Value="public IntPtr Outputs;" />
-      <MemberSignature Language="ILAsm" Value=".field public native int Outputs" />
+      <MemberSignature Language="C#" Value="public Urho.VectorBase Outputs;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.VectorBase Outputs" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
+        <ReturnType>Urho.VectorBase</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Output render targets and faces.</summary>
@@ -225,14 +225,14 @@
       </Docs>
     </Member>
     <Member MemberName="ShaderParameters">
-      <MemberSignature Language="C#" Value="public IntPtr ShaderParameters;" />
-      <MemberSignature Language="ILAsm" Value=".field public native int ShaderParameters" />
+      <MemberSignature Language="C#" Value="public Urho.HashBase ShaderParameters;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HashBase ShaderParameters" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
+        <ReturnType>Urho.HashBase</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Pointers to a vector of paris of stringhashes and variants.</summary>
@@ -269,18 +269,243 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="TextureNames">
-      <MemberSignature Language="C#" Value="public IntPtr TextureNames;" />
-      <MemberSignature Language="ILAsm" Value=".field public native int TextureNames" />
+    <Member MemberName="TextureName0">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName0;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName0" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
+        <ReturnType>Urho.UrhoString</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Textures (points to strings ontaining the texture names) </summary>
+        <summary>Texture 0.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName1">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName1;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName1" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 1.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName10">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName10;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName10" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 10.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName11">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName11;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName11" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 11.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName12">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName12;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName12" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 12.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName13">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName13;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName13" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 13.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName14">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName14;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName14" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 14.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName15">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName15;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName15" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 15.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName2">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName2;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName2" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 2</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName3">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName3;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName3" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 3</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName4">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName4;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName4" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 4.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName5">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName5;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName5" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 5.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName6">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName6;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName6" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 6.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName7">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName7;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName7" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 7.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName8">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName8;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName8" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 8.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextureName9">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString TextureName9;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString TextureName9" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Texture 9.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

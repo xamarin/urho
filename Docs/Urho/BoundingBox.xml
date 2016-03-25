@@ -152,7 +152,8 @@
         <returns>
           <para>
             <see cref="E:Urho.Intersection.Outside" /> if the specified <paramref name="box" /> is outside the current bounding box, or <see cref="E:Urho.Intersection.Inside" /> if the <paramref name="box" /> is fully contained within this bounding box, or <see cref="E:Urho.Intersection.Intersects" /> if the specified <paramref name="box" /> intersects this bounding box.</para>
-          <para></para>
+          <para>
+          </para>
         </returns>
         <remarks>If you are only interested on the Inside/Outside values and do not care about intersect, you can use the <see cref="M:Urho.BoundingBox.IsInsideFast" /> method which performs fewer tests.</remarks>
       </Docs>

@@ -22,9 +22,11 @@
       <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.Gui.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
       <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true”.</para>
       <para>You can associate one or more strings to a UIElement, by using the <see cref="M:Urho.Gui.UIElement.AddTag" /> and the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> methods.</para>
-      <para></para>
+      <para>
+      </para>
       <see cref="" />
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>UI Element Layout</h2>
       </format>
@@ -48,7 +50,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UIElement which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -86,7 +89,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UIElement linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -3941,7 +3945,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -3957,7 +3962,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -3973,7 +3979,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

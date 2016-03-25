@@ -16,9 +16,11 @@
             </summary>
     <remarks>
       <para>This contains the list of options that can be configured at application startup, these settings control how the engine is initialized.</para>
-      <para></para>
+      <para>
+      </para>
       <para>The options set with this selector are passed to the Urho game engine on startup.</para>
-      <para></para>
+      <para>
+      </para>
       <para>You can use the convenience <see cref="T:Urho.ApplicationOptions.Default" /> or <see cref="T:Urho.ApplicationOptions.PortraitDefault" /> static values as options to use as either defaults for landscape or portrait.</para>
     </remarks>
   </Docs>
