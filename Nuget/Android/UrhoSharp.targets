@@ -12,6 +12,9 @@
         <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)\..\..\native\Android\arm64-v8a\libmono-urho.so">
             <Link>Libs\arm64-v8a\libmono-urho.so</Link>
         </AndroidNativeLibrary>
+        <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)\..\..\native\Android\x86_64\libmono-urho.so">
+            <Link>Libs\x86_64\libmono-urho.so</Link>
+        </AndroidNativeLibrary>
     </ItemGroup>
 	<!--Unfortunately it's not possible to use .pak file in Android-->
 	<ItemGroup>

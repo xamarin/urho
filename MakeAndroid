@@ -26,6 +26,18 @@ PLATFORM=x86
 ANDK_GCC=$(ANDK_DIR)/toolchains/x86-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/i686-linux-android-gcc$(WINDOWS_EXT)
 ANDK_GPP=$(ANDK_DIR)/toolchains/x86-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/i686-linux-android-g++$(WINDOWS_EXT)
 ANDK_STRIP=$(ANDK_DIR)/toolchains/x86-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/i686-linux-android-strip$(WINDOWS_EXT)
+else ifeq ($(ABI), x86_64)
+ANDROID_API=android-21
+PLATFORM=x86_64
+ANDK_GCC=$(ANDK_DIR)/toolchains/x86_64-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/x86_64-linux-android-gcc$(WINDOWS_EXT)
+ANDK_GPP=$(ANDK_DIR)/toolchains/x86_64-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/x86_64-linux-android-g++$(WINDOWS_EXT)
+ANDK_STRIP=$(ANDK_DIR)/toolchains/x86_64-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/x86_64-linux-android-strip$(WINDOWS_EXT)
+else ifeq ($(ABI), arm64-v8a)
+ANDROID_API=android-21
+PLATFORM=arm64
+ANDK_GCC=$(ANDK_DIR)/toolchains/aarch64-linux-android-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/aarch64-linux-android-gcc$(WINDOWS_EXT)
+ANDK_GPP=$(ANDK_DIR)/toolchains/aarch64-linux-android-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/aarch64-linux-android-g++$(WINDOWS_EXT)
+ANDK_STRIP=$(ANDK_DIR)/toolchains/aarch64-linux-android-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/aarch64-linux-android-strip$(WINDOWS_EXT)
 else
 PLATFORM=arm
 ANDK_GCC=$(ANDK_DIR)/toolchains/arm-linux-androideabi-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/arm-linux-androideabi-gcc$(WINDOWS_EXT)

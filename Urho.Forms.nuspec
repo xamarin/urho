@@ -42,6 +42,8 @@
      <file src="Bin/Android/Urho.Forms.dll" target="lib/MonoAndroid/Urho.Forms.dll" />
      <file src="docs/Urho.XML" target="lib/MonoAndroid/Urho.Forms.XML" />
 
+     <file src="Bin/Android/x86_64/libmono-urho.so" target="native/Android/x86_64/libmono-urho.so" />
+     <file src="Bin/Android/arm64-v8a/libmono-urho.so" target="native/Android/arm64-v8a/libmono-urho.so" />
      <file src="Bin/Android/x86/libmono-urho.so" target="native/Android/x86/libmono-urho.so" />
      <file src="Bin/Android/armeabi-v7a/libmono-urho.so" target="native/Android/armeabi-v7a/libmono-urho.so" />
      <file src="Bin/Android/armeabi/libmono-urho.so" target="native/Android/armeabi/libmono-urho.so" />
