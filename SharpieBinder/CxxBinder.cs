@@ -698,6 +698,7 @@ namespace SharpieBinder
 			case "const struct Urho3D::BiasParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 			case "const struct Urho3D::TileMapInfo2D &":
+			case "const struct Urho3D::RenderPathCommand &":
 			case "const class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement &":
 			case "struct Urho3D::PhysicsRaycastResult &":
@@ -853,6 +854,7 @@ namespace SharpieBinder
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::IntRect &":
 			case "const struct Urho3D::TileMapInfo2D &":
+			case "const struct Urho3D::RenderPathCommand &":
 			case "const class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement &":
 			case "const class Urho3D::Ray &":
@@ -1053,7 +1055,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			/*if (currentType.Name == "WorkQueue" && decl.Name == "GetFreeItem")
+			/*if (currentType.Name == "RenderPath" && decl.Name == "AddCommand")
 				return false;
 			return true;*/
 
@@ -1272,6 +1274,9 @@ namespace SharpieBinder
 			case "const class Urho3D::String &":
 				creturnType = "const char *";
 				marshalReturn = "strdup(({0}).CString ())";
+				break;
+			case "const struct Urho3D::RenderPathCommand &":
+				creturnType = "Urho3D::RenderPathCommand";
 				break;
 			case "const struct Urho3D::TileMapInfo2D &":
 				creturnType = "Urho3D::TileMapInfo2D";
