@@ -41,6 +41,11 @@ Windows32:
 Windows64:
 	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" RENDERER=OPENGL && make -j1 CoreData.pak -f MakeWindows
 
+UWP32:
+	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
+UWP64:
+	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14 Win64"
+
 Windows: Windows32 Windows64
 
 All-Macos: Android Mac iOS

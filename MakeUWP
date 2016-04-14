@@ -1,0 +1,9 @@
+# 1 for 64bit, 0 for 32bit:
+URHO3D_SRC_DIR=Urho3D/Source
+TARGET=Visual Studio 14 Win64
+
+Urho3D_UWP:
+	rm -rf Urho3D/Urho3D_UWP/CMakeFiles && rm -rf Urho3D/Urho3D_UWP/CMakeCache.txt && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_UWP && cmake -E chdir ../Urho3D_UWP cmake -G "$(TARGET)" ../Urho3D_UWP -DURHO3D_D3D11=1 -DURHO3D_NEON=0 -DURHO3D_WIN32_CONSOLE=0 -DURHO3D_NETWORK=0 -DURHO3D_FILEWATCHER=0 -DURHO3D_PROFILING=0 -DURHO3D_THREADING=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=14 ../../$(URHO3D_SRC_DIR)/
+
+libUrho3D.a: Urho3D_UWP
+	cd Urho3D/Urho3D_UWP && cmake --build . --target Urho3D --config Release && cmake --build . --target Urho3D --config Debug && cmake --build . --target PackageTool --config Release
