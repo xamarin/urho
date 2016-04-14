@@ -1051,6 +1051,20 @@ namespace SharpieBinder
 			}
 		}
 
+		static readonly Dictionary<string, string[]> OglSpecificMethodsMap = new Dictionary<string, string[]> {
+			{ "ConstantBuffer",		new[] { "OnDeviceReset" } },
+			{ "Graphics",			new[] { "CleanupRenderSurface","CleanupShaderPrograms","GetAnisotropySupport","GetDepthTexture","GetForceGL2","GetGL3Support","GetGL3Support","GetOrCreateConstantBuffer","GetShaderProgram","MarkFBODirty","MarkFBODirty","Release","Restore","SetForceGL2","SetTextureForUpdate","SetUBO","SetVBO" } },
+			{ "IndexBuffer",		new[] { "OnDeviceReset" } },
+			{ "RenderSurface",		new[] { "CreateRenderBuffer","GetRenderBuffer","GetTarget","OnDeviceLost","SetTarget" } },
+			{ "ShaderProgram",		new[] { "ClearGlobalParameterSource","ClearGlobalParameterSource","ClearParameterSource","ClearParameterSources","ClearParameterSources","GetLinkerOutput","GetParameter","GetPixelShader","GetVertexShader","HasParameter","HasTextureUnit","Link","NeedParameterUpdate","OnDeviceLost","Release" } },
+			{ "ShaderVariation",	new[] { "OnDeviceLost" } },
+			{ "Texture",			new[] { "GetDataType","GetDataType","GetExternalFormat","GetExternalFormat","GetTarget" } },
+			{ "Texture2D",			new[] { "OnDeviceLost","OnDeviceReset" } },
+			{ "Texture3D",			new[] { "OnDeviceLost","OnDeviceReset" } },
+			{ "TextureCube",		new[] { "OnDeviceLost","OnDeviceReset" } },
+			{ "VertexBuffer",		new[] { "OnDeviceReset" } },
+		};
+
 		// Avoid generating methods that conflict in their signatures after we turn Urho::String into string
 		bool SkipMethod (CXXMethodDecl decl)
 		{
@@ -1058,6 +1072,12 @@ namespace SharpieBinder
 			/*if (currentType.Name == "RenderPath" && decl.Name == "AddCommand")
 				return false;
 			return true;*/
+
+			if (OglSpecificMethodsMap.ContainsKey(currentType.Name))
+			{
+				if (OglSpecificMethodsMap[currentType.Name].Contains(decl.Name))
+					return true;
+			}
 
 			switch (currentType.Name) {
 			case "Graphics":
