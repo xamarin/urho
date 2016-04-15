@@ -37,7 +37,7 @@ extern "C" {
 	const char * urho_map_get_String (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
-		return strdup(map [h].GetString ().CString());
+		return _strdup(map [h].GetString ().CString());
 	}
 	
 	DllExport
@@ -123,14 +123,6 @@ extern "C" {
 	}
 	
 	DllExport
-	int Network_Connect (Network *net, const char *ptr, short port, Scene *scene)
-	{
-		String s(ptr);
-		
-		return net->Connect (s, port, scene) ? 1 : 0;
-	}
-	
-	DllExport
 	void *TouchState_GetTouchedElement (TouchState *state)
 	{
 		return (void *) state->GetTouchedElement ();
@@ -139,7 +131,7 @@ extern "C" {
 	DllExport
 	const char *Urho_GetPlatform ()
 	{
-		return strdup (GetPlatform().CString ());
+		return _strdup (GetPlatform().CString ());
 	}
 
 	DllExport
@@ -159,6 +151,12 @@ extern "C" {
 	unsigned Controls_GetButtons (Controls *controls)
 	{
 		return controls->buttons_;
+	}
+
+	DllExport
+	void* Graphics_GetSdlWindow(Graphics* target)
+	{
+		return target->GetImpl()->GetWindow();
 	}
 
 	DllExport
@@ -209,17 +207,25 @@ extern "C" {
 		return _target->IsDown (button);
 	}
 	
+#if !defined(UWP)
+	DllExport int 
+	Network_Connect(Network *net, const char *ptr, short port, Scene *scene)
+	{
+		String s(ptr);
+		return net->Connect(s, port, scene) ? 1 : 0;
+	}
+
 	DllExport const Controls *
 	Connection_GetControls (Connection *conn)
 	{
 		return &conn->GetControls ();
 	}
-
 	DllExport void
-	Connection_SetControls (Connection *conn, Controls *ctl)
+	Connection_SetControls(Connection *conn, Controls *ctl)
 	{
-		conn->SetControls (*ctl);
+		conn->SetControls(*ctl);
 	}
+#endif
 
 	DllExport Controls *
 	Controls_Create ()
@@ -260,7 +266,7 @@ extern "C" {
 	DllExport const char * 
 	Console_GetConsoleInput()
 	{
-		return strdup(GetConsoleInput().CString());
+		return _strdup(GetConsoleInput().CString());
 	}
 
 	//
