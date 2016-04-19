@@ -1293,7 +1293,7 @@ namespace SharpieBinder
 			case "const Urho3D::String &":
 			case "const class Urho3D::String &":
 				creturnType = "const char *";
-				marshalReturn = "strdup(({0}).CString ())";
+				marshalReturn = "_strdup(({0}).CString ())";
 				break;
 			case "const struct Urho3D::RenderPathCommand &":
 				creturnType = "Urho3D::RenderPathCommand";
