@@ -1606,6 +1606,7 @@ namespace SharpieBinder
 						{"const class Urho3D::Vector4 &", "Vector4"},
 						{"const class Urho3D::IntVector2 &", "IntVector2"},
 						{"const class Urho3D::Quaternion &", "Quaternion"},
+						{"const class Urho3D::Matrix4 &", "Matrix4"},
 						{"int", "int"},
 						{"float", "float"},
 						{"const char *", "string"},
