@@ -1073,6 +1073,10 @@ namespace SharpieBinder
 				return false;
 			return true;*/
 
+			//ignore __declspec(deprecated) [URHO3D_DEPRECATED]
+			if (decl.HasAttr<DeprecatedAttr>())
+				return true;
+
 			if (OglSpecificMethodsMap.ContainsKey(currentType.Name))
 			{
 				if (OglSpecificMethodsMap[currentType.Name].Contains(decl.Name))
