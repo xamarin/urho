@@ -776,6 +776,8 @@ namespace SharpieBinder
 				return true;
 			if (s.Contains ("SDL"))
 				return true;
+			if (s.Contains("BackgroundLoader"))
+				return true;
 			return false;
 		}
 
@@ -1073,10 +1075,6 @@ namespace SharpieBinder
 				return false;
 			return true;*/
 
-			//ignore __declspec(deprecated) [URHO3D_DEPRECATED]
-			if (decl.HasAttr<DeprecatedAttr>())
-				return true;
-
 			if (OglSpecificMethodsMap.ContainsKey(currentType.Name))
 			{
 				if (OglSpecificMethodsMap[currentType.Name].Contains(decl.Name))
@@ -1177,6 +1175,10 @@ namespace SharpieBinder
 			// Do not wrap constructors
 			if (decl is CXXDestructorDecl)
 				return false;
+
+			// Do not wrap deprecated  __declspec(deprecated) [URHO3D_DEPRECATED]
+			if (decl.HasAttr<DeprecatedAttr>())
+				return true;
 
 			// Not supported in C#
 			if (decl.IsCopyAssignmentOperator || decl.IsMoveAssignmentOperator)
@@ -1974,22 +1976,7 @@ namespace SharpieBinder
 			}
 		}
 
-
-
-		void p(string fmt, params object[] args)
-		{
-			if (args.Length == 0)
-				cbindingStream.Write(fmt);
-			else
-				cbindingStream.Write(String.Format(fmt, args));
-		}
-
-		void pn(string fmt, params object[] args)
-		{
-			if (args.Length == 0)
-				cbindingStream.WriteLine(fmt);
-			else
-				cbindingStream.WriteLine(String.Format(fmt, args));
-		}
+		void p(string fmt, params object[] args) => cbindingStream.Write(fmt, args);
+		void pn(string fmt, params object[] args) => cbindingStream.WriteLine(fmt, args);
 	}
 }

@@ -162,14 +162,12 @@
 #include <Urho3D/Navigation/NavigationMesh.h>
 #include <Urho3D/Navigation/Obstacle.h>
 #include <Urho3D/Navigation/OffMeshConnection.h>
-#if !defined(UWP)
 #include <Urho3D/Network/Connection.h>
 #include <Urho3D/Network/HttpRequest.h>
 #include <Urho3D/Network/Network.h>
 #include <Urho3D/Network/NetworkEvents.h>
 #include <Urho3D/Network/NetworkPriority.h>
 #include <Urho3D/Network/Protocol.h>
-#endif
 #include <Urho3D/Physics/CollisionShape.h>
 #include <Urho3D/Physics/Constraint.h>
 #include <Urho3D/Physics/PhysicsEvents.h>
