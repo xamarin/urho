@@ -1924,7 +1924,20 @@ namespace SharpieBinder
 			}
 		}
 
-		void p(string fmt, params object[] args) => cbindingStream.Write(fmt, args);
-		void pn(string fmt, params object[] args) => cbindingStream.WriteLine(fmt, args);
+		void p(string fmt, params object[] args)
+		{
+			if (args.Length == 0)
+				cbindingStream.Write(fmt);
+			else
+				cbindingStream.Write(String.Format(fmt, args));
+		}
+
+		void pn(string fmt, params object[] args)
+		{
+			if (args.Length == 0)
+				cbindingStream.WriteLine(fmt);
+			else
+				cbindingStream.WriteLine(String.Format(fmt, args));
+		}
 	}
 }
