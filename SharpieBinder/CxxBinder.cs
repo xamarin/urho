@@ -1125,7 +1125,7 @@ namespace SharpieBinder
 
 			// Do not wrap deprecated  __declspec(deprecated) [URHO3D_DEPRECATED]
 			if (decl.HasAttr<DeprecatedAttr>())
-				return true;
+				return false;
 
 			// Not supported in C#
 			if (decl.IsCopyAssignmentOperator || decl.IsMoveAssignmentOperator)
