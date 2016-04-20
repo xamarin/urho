@@ -12,7 +12,6 @@
 #include <agile.h>
 #include <concrt.h>
 #include <collection.h>
-#include "DirectXHelper.h"
 #include <windows.ui.xaml.media.dxinterop.h>
 #include <Urho3D/Engine/Engine.h>
 

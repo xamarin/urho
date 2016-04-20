@@ -235,7 +235,6 @@
     <ClInclude Include="..\..\..\Bindings\Native\ApplicationProxy.h" />
     <ClInclude Include="..\..\..\Bindings\Native\glue.h" />
     <ClInclude Include="..\..\..\Bindings\Native\interop.h" />
-    <ClInclude Include="Common\DirectXHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Bindings\Native\ApplicationProxy.cpp" />
@@ -243,7 +242,7 @@
     <ClCompile Include="..\..\..\Bindings\Native\vector.cpp" />
     <ClCompile Include="..\..\..\Bindings\Portable\Generated\binding.cpp" />
     <ClCompile Include="..\..\..\Bindings\Portable\Generated\events.cpp" />
-    <ClCompile Include="Common\DeviceResources.cpp" />
+    <ClCompile Include="SwapChainDevice.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MonoUrho.UWP_TemporaryKey.pfx" />

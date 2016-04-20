@@ -1,22 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Common">
-      <UniqueIdentifier>c97fd9f2-ec10-435c-bbfe-986f414e8acd</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="Common\DirectXHelper.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClCompile Include="Common\DeviceResources.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\..\Bindings\Native\glue.cpp" />
     <ClCompile Include="..\..\..\Bindings\Native\vector.cpp" />
     <ClCompile Include="..\..\..\Bindings\Native\ApplicationProxy.cpp" />
     <ClCompile Include="..\..\..\Bindings\Portable\Generated\events.cpp" />
     <ClCompile Include="..\..\..\Bindings\Portable\Generated\binding.cpp" />
+    <ClCompile Include="SwapChainDevice.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Bindings\Native\glue.h" />
