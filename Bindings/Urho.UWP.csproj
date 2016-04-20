@@ -7,8 +7,8 @@
     <ProjectGuid>{3B881C69-A1AC-410A-A633-EA9FCA4A760C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Urho.UWP</RootNamespace>
-    <AssemblyName>Urho.UWP</AssemblyName>
+    <RootNamespace>Urho</RootNamespace>
+    <AssemblyName>Urho</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
+    <OutputPath>..\Bin\UWP\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
@@ -116,7 +116,9 @@
       <Link>CoreData.pak</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="project.json" />
+    <Content Include="project.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Portable\Actions\ActionManager.cs" />
@@ -516,12 +518,6 @@
     <Compile Include="UWP\UrhoSurface.cs" />
     <Compile Include="UWP\UwpUrhoInitializer.cs" />
     <EmbeddedResource Include="Properties\Urho.UWP.rd.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Bin\UWP\mono-urho.dll">
-      <Link>mono-urho.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
