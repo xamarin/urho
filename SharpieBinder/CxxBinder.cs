@@ -419,19 +419,9 @@ namespace SharpieBinder
 
 			foreach (var constantDecl in decl.Decls<EnumConstantDecl>()) {
 				var valueName = RemapEnumName (typeName, constantDecl.Name);
-
-				switch (valueName) {
-				// LIST HERE ANY Values we want to skip
-				case "foo":
-				case null:
-					continue;
-
-				}
-				var x = new EnumMemberDeclaration();
 				var enumValue = new EnumMemberDeclaration { Name = valueName };
 				if (constantDecl.InitExpr != null) {
 					APSInt v;
-
 					constantDecl.InitExpr.EvaluateAsInt (decl.AstContext, out v);
 					var ul = v.GetLimitedValue ();
 					PrimitiveExpression value;
@@ -447,17 +437,11 @@ namespace SharpieBinder
 
 		public override void VisitCXXRecordDecl(CXXRecordDecl decl, VisitKind visitKind)
 		{
-			//Console.WriteLine($"{decl.QualifiedName} {visitKind} ");
-			if (decl.QualifiedName == ("Urho3D::String")) {
-				//Console.WriteLine($"{decl.QualifiedName} {visitKind} {decl.IsCompleteDefinition}");
-			}
-
 			if (visitKind != VisitKind.Enter || !decl.IsCompleteDefinition || decl.Name == null) {
 				return;
 			}
 			if (visitKind == VisitKind.Leave)
 				currentType = null;
-
 
 			BaseNodeType baseNodeType;
 			if (baseNodeTypes.TryGetValue(decl.QualifiedName, out baseNodeType)) {
@@ -492,10 +476,12 @@ namespace SharpieBinder
 			return false;
 		}
 
+		static readonly string[] TypesToIgnore = { "BackgroundLoader" };
+
 		void Bind(CXXRecordDecl baseDecl, CXXRecordDecl decl)
 		{
-			var name = decl.Name;
-			//Console.WriteLine(name);
+			if (TypesToIgnore.Contains(decl.Name))
+				return;
 
 			bool isStruct = IsStructure (decl);
 
@@ -594,18 +580,6 @@ namespace SharpieBinder
 			}
 
 			return type;
-		}
-
-		AstType GenerateReflectedType(System.Type type)
-		{
-			if (type == typeof(void))
-				return new PrimitiveType("void");
-
-			var name = type.FullName;
-			if (type.IsGenericType)
-				name = name.Substring(0, name.IndexOf('`'));
-
-			return CreateAstType(name, type.GetGenericArguments().Select(GenerateReflectedType));
 		}
 
 		const string ConstStringReference = "const class Urho3D::String &";
