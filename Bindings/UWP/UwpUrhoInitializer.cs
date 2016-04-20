@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using Windows.Storage;
 
 namespace Urho.UWP
 {
@@ -8,6 +9,7 @@ namespace Urho.UWP
 	{
 		internal static void OnInited()
 		{
+			var folder = ApplicationData.Current.LocalFolder.Path;
 		}
 	}
 }

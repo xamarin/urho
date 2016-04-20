@@ -112,6 +112,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="..\Bin\CoreData.pak">
+      <Link>CoreData.pak</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -512,6 +516,12 @@
     <Compile Include="UWP\UrhoSurface.cs" />
     <Compile Include="UWP\UwpUrhoInitializer.cs" />
     <EmbeddedResource Include="Properties\Urho.UWP.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Bin\UWP\mono-urho.dll">
+      <Link>mono-urho.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
