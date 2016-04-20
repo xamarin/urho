@@ -21,6 +21,8 @@ namespace Urho
 			iOS.IosUrhoInitializer.OnInited();
 #elif ANDROID
 			Droid.DroidPlatformInitializer.OnInited();
+#elif WINDOWS_UWP
+			UWP.UwpUrhoInitializer.OnInited();
 #else
 			throw new Exception("Implementation assembly (iOS, Android or Desktop) is not referenced");
 #endif
