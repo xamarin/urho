@@ -70,10 +70,14 @@ namespace Urho
 		/// </summary>
 		public string[] ResourcePackagesPaths { get; set; } = null;
 
+#if WINDOWS_UWP
+		public bool TouchEmulation { get { return true; } set {} }
+#else
 		/// <summary>
 		/// Touch emulation on desktop platform
 		/// </summary>
 		public bool TouchEmulation { get; set; } = false;
+#endif
 
 		/// <summary>
 		/// Add any flag listed here: http://urho3d.github.io/documentation/1.5/_running.html 
@@ -112,7 +116,7 @@ namespace Urho
 			if (Height > 0)
 				builder.AppendFormat(" -y {0}", Height);
 
-#if !IOS //always use -s on iOS
+#if !IOS //always use -s on iOS and UWP
 			if (ResizableWindow)
 #endif
 				builder.Append(" -s");
@@ -123,7 +127,9 @@ namespace Urho
 			if (ResourcePackagesPaths?.Length > 0)
 				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
 
+#if !WINDOWS_UWP
 			if (TouchEmulation)
+#endif
 				builder.Append(" -touch");
 
 			switch (Orientation)
