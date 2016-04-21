@@ -12,15 +12,23 @@ namespace Urho.UWP
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetMainReady();
 
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern int SDL_SendWindowEvent(IntPtr window, Byte windowevent, int data1, int data2);
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern IntPtr Graphics_GetSdlWindow(IntPtr graphics);
+
 		bool paused;
 		bool stop;
-
+		bool inited;
+		
 		public TGame Run<TGame>(string customAssetsPak = null) where TGame : Urho.Application
 		{
 			stop = false;
 			paused = false;
+			inited = false;
 			SDL_SetMainReady();
-			ApplicationOptions options = new ApplicationOptions(assetsFolder: null);
+			ApplicationOptions options = new ApplicationOptions(assetsFolder: "Data");
 			if (!string.IsNullOrEmpty(customAssetsPak))
 			{
 				options.ResourcePackagesPaths = new[] { Path.GetFileName(customAssetsPak) };
@@ -29,14 +37,19 @@ namespace Urho.UWP
 			CopyContentFileToLocalFolder("ms-appx:///Urho/CoreData.pak");
 			var app = (TGame)Activator.CreateInstance(typeof(TGame), options);
 			app.Run();
+			var sdlWnd = Graphics_GetSdlWindow(app.Graphics.Handle);
+			SDL_SendWindowEvent(sdlWnd, 5, (int)this.ActualWidth, (int)this.ActualHeight);
+			inited = true;
 			ThreadPool.RunAsync(_ =>
-			{
-				while (!stop)
 				{
-					if (!paused)
-						app.Engine.RunFrame();
-				}
-			});
+					while (!app.Engine.Exiting)
+					{
+						if (!paused)
+						{
+							app.Engine.RunFrame();
+						}
+					}
+				});
 			return app;
 		}
 
