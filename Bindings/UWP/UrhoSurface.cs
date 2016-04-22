@@ -22,15 +22,19 @@ namespace Urho.UWP
 		bool stop;
 		bool inited;
 		
+		/// <param name="customAssetsPak">all assets must be *.pak files (use PackageTool.exe).</param>
 		public TGame Run<TGame>(string customAssetsPak = null) where TGame : Urho.Application
 		{
 			stop = false;
 			paused = false;
 			inited = false;
 			SDL_SetMainReady();
-			ApplicationOptions options = new ApplicationOptions(assetsFolder: "Data");
+			ApplicationOptions options = new ApplicationOptions(assetsFolder: null);
 			if (!string.IsNullOrEmpty(customAssetsPak))
 			{
+				if (!customAssetsPak.StartsWith("ms-"))
+					customAssetsPak = "ms-appx:///" + customAssetsPak;
+				
 				options.ResourcePackagesPaths = new[] { Path.GetFileName(customAssetsPak) };
 				CopyContentFileToLocalFolder(customAssetsPak);
 			}
@@ -61,11 +65,6 @@ namespace Urho.UWP
 		public void Resume()
 		{
 			paused = false;
-		}
-
-		public void Stop()
-		{
-			stop = true;
 		}
 
 		public static void CopyContentFileToLocalFolder(string msappx)
