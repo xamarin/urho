@@ -116,7 +116,7 @@
       <Link>CoreData.pak</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="project.json">
+    <Content Include="UWP\project.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -219,7 +219,6 @@
     <Compile Include="Portable\Generated\AttributeAccessor.cs" />
     <Compile Include="Portable\Generated\AttributeAnimationInfo.cs" />
     <Compile Include="Portable\Generated\Audio.cs" />
-    <Compile Include="Portable\Generated\BackgroundLoader.cs" />
     <Compile Include="Portable\Generated\BillboardSet.cs" />
     <Compile Include="Portable\Generated\BlendMode.cs" />
     <Compile Include="Portable\Generated\BodyType2D.cs" />
@@ -362,7 +361,6 @@
     <Compile Include="Portable\Generated\PhysicsWorld2D.cs" />
     <Compile Include="Portable\Generated\PListFile.cs" />
     <Compile Include="Portable\Generated\PListValueType.cs" />
-    <Compile Include="Portable\Generated\PodVectors.cs" />
     <Compile Include="Portable\Generated\PrimitiveType.cs" />
     <Compile Include="Portable\Generated\Profiler.cs" />
     <Compile Include="Portable\Generated\PropertySet2D.cs" />
