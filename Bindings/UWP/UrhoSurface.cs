@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using Windows.Storage;
 using Windows.System.Threading;
@@ -38,7 +39,7 @@ namespace Urho.UWP
 				options.ResourcePackagesPaths = new[] { Path.GetFileName(customAssetsPak) };
 				CopyContentFileToLocalFolder(customAssetsPak);
 			}
-			CopyContentFileToLocalFolder("ms-appx:///Urho/CoreData.pak");
+			CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
 			var app = (TGame)Activator.CreateInstance(typeof(TGame), options);
 			app.Run();
 			var sdlWnd = Graphics_GetSdlWindow(app.Graphics.Handle);
@@ -67,21 +68,40 @@ namespace Urho.UWP
 			paused = false;
 		}
 
+		public static void CopyEmbeddedResourceToLocalFolder(string embeddedResource, string destFileName)
+		{
+			if (FileExistsInLocalFolder(destFileName))
+				return;
+
+			var file = ApplicationData.Current.LocalFolder.CreateFileAsync(destFileName).GetAwaiter().GetResult();
+			using (var fileStream = file.OpenStreamForWriteAsync().GetAwaiter().GetResult())
+			using (var embeddedSteam = typeof(UrhoSurface).GetTypeInfo().Assembly.GetManifestResourceStream(embeddedResource))
+			{
+				embeddedSteam.CopyTo(fileStream);
+			}
+		}
+
 		public static void CopyContentFileToLocalFolder(string msappx)
 		{
 			string file = Path.GetFileName(msappx);
-			try
-			{
-				//check if file exists
-				ApplicationData.Current.LocalFolder.GetFileAsync(file).GetAwaiter().GetResult();
+			if (FileExistsInLocalFolder(file))
 				return;
-			}
-			catch
-			{
-			}
 
 			var storageFile = StorageFile.GetFileFromApplicationUriAsync(new Uri(msappx)).GetAwaiter().GetResult();
 			storageFile.CopyAsync(ApplicationData.Current.LocalFolder).GetAwaiter().GetResult();
+		}
+
+		static bool FileExistsInLocalFolder(string file)
+		{
+			try
+			{
+				ApplicationData.Current.LocalFolder.GetFileAsync(file).GetAwaiter().GetResult();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 	}
 }
