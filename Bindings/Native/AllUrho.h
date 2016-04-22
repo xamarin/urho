@@ -267,3 +267,9 @@
 #undef GetObject
 #undef MessageBox
 #undef GetMessage
+
+#if UWP
+#define stringdup _strdup
+#else
+#define stringdup strdup
+#endif

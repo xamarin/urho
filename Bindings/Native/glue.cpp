@@ -37,7 +37,7 @@ extern "C" {
 	const char * urho_map_get_String (VariantMap& map, int hash)
 	{
 		StringHash h (hash);
-		return _strdup(map [h].GetString ().CString());
+		return stringdup(map [h].GetString ().CString());
 	}
 	
 	DllExport
@@ -131,7 +131,7 @@ extern "C" {
 	DllExport
 	const char *Urho_GetPlatform ()
 	{
-		return _strdup (GetPlatform().CString ());
+		return stringdup (GetPlatform().CString ());
 	}
 
 	DllExport
@@ -266,7 +266,7 @@ extern "C" {
 	DllExport const char * 
 	Console_GetConsoleInput()
 	{
-		return _strdup(GetConsoleInput().CString());
+		return stringdup(GetConsoleInput().CString());
 	}
 
 	//
