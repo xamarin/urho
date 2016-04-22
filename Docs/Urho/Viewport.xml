@@ -376,9 +376,9 @@
         <Parameter Name="color" Type="Urho.Color" />
       </Parameters>
       <Docs>
-        <param name="color">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="color">The color to set.</param>
+        <summary>Sets the clear color on all clear render commands in the render path. </summary>
+        <remarks>This walks the list of commands in the <see cref="P:Urho.Viewport.RenderPath" /> and for each command with the value <see cref="T:Urho.RenderCommandType" /> Clear, it sets the UseFogColor property to zero, and the ClearColor value to the specified <paramref name="color" />.</remarks>
       </Docs>
     </Member>
     <Member MemberName="SetRenderPath">
