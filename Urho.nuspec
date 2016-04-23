@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp</id>
-       <version>1.0</version>
+       <version>1.0.454-beta</version>
        <title>UrhoSharp</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
@@ -100,6 +100,12 @@ Among the features of the Urho3D you will find:
      <file src="Bin/Desktop/Win64/mono-urho.dll" target="native/Win64/mono-urho.dll" />
      <file src="Bin/Desktop/Win32/mono-urho.dll" target="native/Win32/mono-urho.dll" />
      <file src="Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
+	 
+	 <!--UWP-->
+     <!--<file src="Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
+     <file src="docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
+     <file src="Bin/UWP/Urho.dll" target="lib/uap10.0/Urho.dll" />
+     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" />-->
    
    </files>
 </package>
