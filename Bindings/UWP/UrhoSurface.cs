@@ -22,9 +22,15 @@ namespace Urho.UWP
 		bool paused;
 		bool stop;
 		bool inited;
-		
+
 		/// <param name="customAssetsPak">all assets must be *.pak files (use PackageTool.exe).</param>
 		public TGame Run<TGame>(string customAssetsPak = null) where TGame : Urho.Application
+		{
+			return (TGame) Run(typeof(TGame), customAssetsPak);
+		}
+
+		/// <param name="customAssetsPak">all assets must be *.pak files (use PackageTool.exe).</param>
+		public Application Run(Type appType, string customAssetsPak = null)
 		{
 			stop = false;
 			paused = false;
@@ -40,7 +46,7 @@ namespace Urho.UWP
 				CopyContentFileToLocalFolder(customAssetsPak);
 			}
 			CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
-			var app = (TGame)Activator.CreateInstance(typeof(TGame), options);
+			var app = (Application)Activator.CreateInstance(appType, options);
 			app.Run();
 			var sdlWnd = Graphics_GetSdlWindow(app.Graphics.Handle);
 			SDL_SendWindowEvent(sdlWnd, 5, (int)this.ActualWidth, (int)this.ActualHeight);
