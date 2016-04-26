@@ -34,7 +34,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.Droid", "binding
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.iOS", "bindings\Urho.Forms.iOS.csproj", "{8F3352BA-BF6A-49F8-81D6-58D54B3EA72B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.UWP", "Bindings\Urho.UWP.csproj", "{3B881C69-A1AC-410A-A633-EA9FCA4A760C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.UWP", "Bindings\UWP\Urho.UWP.csproj", "{3B881C69-A1AC-410A-A633-EA9FCA4A760C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.UWP", "Urho3D\Urho3D_UWP\MonoUrho.UWP\MonoUrho.UWP.vcxproj", "{C97FD9F2-EC10-435C-BBFE-986F414E8ACD}"
 EndProject
