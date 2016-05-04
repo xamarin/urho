@@ -440,6 +440,10 @@
     <ObjcBindingNativeFramework Include="..\Bin\iOS\Urho.framework" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="..\Bin\CoreData.pak">
+      <Link>CoreData.pak</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
     <None Include="..\Bin\iOS\Urho.framework.zip">
       <Link>Urho.framework.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
