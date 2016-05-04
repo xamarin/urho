@@ -20,12 +20,6 @@ namespace Urho.Repl
 
 		public static Task<Simple3DScene> RunAsync(ApplicationOptions options)
 		{
-			var taskSource = new TaskCompletionSource<Simple3DScene>();
-			Action callback = null;
-			callback = () => {
-				Started -= callback;
-				taskSource.TrySetResult(Current as Simple3DScene);
-			};
 			var dataDir = options.ResourcePaths.FirstOrDefault();
 #if DESKTOP
 			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(Simple3DScene).Assembly.Location);
@@ -38,6 +32,13 @@ namespace Urho.Repl
 			if (!string.IsNullOrEmpty(dataDir))
 				Directory.CreateDirectory("Data");
 #endif
+#if !IOS && !UWP
+			var taskSource = new TaskCompletionSource<Simple3DScene>();
+			Action callback = null;
+			callback = () => {
+				Started -= callback;
+				taskSource.TrySetResult(Current as Simple3DScene);
+			};
 			Started += callback;
 			Task.Factory.StartNew(() => new Simple3DScene(options).Run(), 
 					CancellationToken.None, 
@@ -45,6 +46,11 @@ namespace Urho.Repl
 					SynchronizationContext.Current == null ? TaskScheduler.Default : TaskScheduler.FromCurrentSynchronizationContext());
 
 			return taskSource.Task;
+#else
+			var app = new Simple3DScene(options);
+			app.Run(); //for iOS and UWP it's not blocking
+			return app;
+#endif
 		}
 
 		public Node CameraNode { get; private set; }
