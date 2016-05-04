@@ -38,8 +38,10 @@ namespace Urho.Droid
 		/// </summary>
 		public static SDLSurface CreateSurface(Activity activity, Type applicationType, ApplicationOptions options = null)
 		{
+			SDLActivity.FinishActivityOnUrhoExit = false;
 			RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, options).Run());
-			return SDLActivity.CreateSurface(activity);
+			var surface = SDLActivity.CreateSurface(activity);
+			return surface;
 		}
 
 		public static void OnResume()
@@ -85,6 +87,7 @@ namespace Urho.Droid
 		/// </summary>
 		public static void RunInActivity(Type applicationType, ApplicationOptions options = null)
 		{
+			SDLActivity.FinishActivityOnUrhoExit = true;
 			RegisterSdlLauncher(_ => Application.CreateInstance(applicationType, options).Run());
 			var context = Android.App.Application.Context;
 			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));
