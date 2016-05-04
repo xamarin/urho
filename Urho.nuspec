@@ -86,7 +86,6 @@ Among the features of the Urho3D you will find:
      <file src="Bin/Android/armeabi/libmono-urho.so" target="native/Android/armeabi/libmono-urho.so" />
 
      <!--iOS-->
-     <file src="Nuget/iOS/UrhoSharp.targets" target="build/Xamarin.iOS10" />
      <file src="Nuget/iOS/UrhoSharpReadme.txt" target="content/Xamarin.iOS10/UrhoSharpReadme.txt" />
      <file src="Bin/iOS/Urho.dll" target="lib/Xamarin.iOS10/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/Xamarin.iOS10/Urho.XML" />
