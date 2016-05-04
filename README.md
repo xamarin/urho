@@ -1,13 +1,15 @@
 # ![](http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png) UrhoSharp
 
-UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games
-that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a 
-portable class library, allowing your game code to be written once and shared across 
-all platforms. UrhoSharp is powered by [Urho3D](http://urho3d.github.io/), 
-a game engine that has been under development for more than a decade. 
-More information can be found in the [UrhoSharp documentation](http://developer.xamarin.com/guides/cross-platform/urho/introduction/).
-The bindings for Urho3D are licensed under the MIT license, as
-found on the LICENSE file.   
+UrhoSharp is a lightweight Game Engine suitable for using with C# and
+F# to create games that run on Android, iOS, Mac, Windows and
+Unix. The game engine is available as a portable class library,
+allowing your game code to be written once and shared across all
+platforms. UrhoSharp is powered by [Urho3D](http://urho3d.github.io/),
+a game engine that has been under development for more than a decade.
+More information can be found in the [UrhoSharp
+documentation](http://developer.xamarin.com/guides/cross-platform/urho/introduction/).
+The bindings for Urho3D are licensed under the MIT license, as found
+on the LICENSE file.
 
 # Samples
 
@@ -23,10 +25,12 @@ repository has them as a git submodule. Samples use UrhoSharp via nuget.
 
 # Quick start
 
-To help developers get up and running quickly with UrhoSharp we are providing 
-a [solution template](https://visualstudiogallery.msdn.microsoft.com/0851993e-16e9-417e-92f2-6bdb39308ed2) for Visual Studio (you can find it in "Online templates" tab). 
-This template consists of PCL+Android+iOS+Mac/Windows with a simple scene and 
-some assets (Xamarin Studio templates will be available soon):
+To help developers get up and running quickly with UrhoSharp we are
+providing a [solution
+template](https://visualstudiogallery.msdn.microsoft.com/0851993e-16e9-417e-92f2-6bdb39308ed2)
+for Visual Studio (you can find it in "Online templates" tab).  This
+template consists of PCL+Android+iOS+Mac/Windows with a simple scene
+and some assets (Xamarin Studio templates will be available soon):
 
 ![VS](https://habrastorage.org/files/f22/b49/ded/f22b49dedc264396a47015784bd9b35f.gif)
 
@@ -88,7 +92,10 @@ it takes 5-10 minutes.
 ```
 make iOS
 ```
-Note: Make sure you have an iOS 9.0 simulator target or modify [SDKVER](https://github.com/xamarin/urho/blob/master/MakeiOS#L3) to target another simulator.
+
+Note: Make sure you have an iOS 9.0 simulator target or modify
+[SDKVER](https://github.com/xamarin/urho/blob/master/MakeiOS#L3) to
+target another simulator.
 
 **7. Compile UrhoSharp for Android (armeabi, armeabi-v7a, x86)** 
 ```
@@ -98,7 +105,9 @@ make -j3 Android
 
 **8. Compile UrhoSharp for Windows (64 bit)**
 
-Obviously you can't do it on OS X so you have to switch to Windows environment. Make sure you have installed:
+Obviously you can't do it on OS X so you have to switch to Windows
+environment. Make sure you have installed:
+
 - Visual Studio 2015
 - CMake
 - GNU make (e.g. cygwin)
