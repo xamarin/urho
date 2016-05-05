@@ -37,9 +37,9 @@ tvOS:
 	make -j1 fat-libmono-urho.dylib -f MaketvOS
 
 Windows32:
-	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14" RENDERER=OPENGL && make -j1 CoreData.pak -f MakeWindows
+	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14" RENDERER=OPENGL
 Windows64:
-	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" RENDERER=OPENGL && make -j1 CoreData.pak -f MakeWindows
+	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" RENDERER=OPENGL
 
 UWP32:
 	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
@@ -51,6 +51,9 @@ Windows: Windows32 Windows64
 All-Macos: Android Mac iOS
 
 All-Windows: Android Windows
+
+UpdateCoreDataPak:
+	make -j1 CoreData.pak -f MakeWindows
 
 $(LOCAL_CLANG): 
 	if test ! -e clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; then curl -O http://llvm.org/releases/3.7.0/clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; fi
