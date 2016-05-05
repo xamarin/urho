@@ -237,16 +237,31 @@ namespace Urho.Repl
 	public static class Randoms
 	{
 		static readonly Random random = new Random();
-		
+
+		public static float Next()
+		{
+			return (float) random.NextDouble();
+		}
+
 		public static float Next(float min, float max)
 		{
 			return (float)((random.NextDouble() * (max - min)) + min);
 		}
 
-		public static float NextNormal(float min, float max, float normalPoint)
+		public static float NextNormal()
 		{
-			//TODO: optimize to O(1) and without linq;
-			return Enumerable.Range(1, 4).Select(_ => Next(min, max)).OrderBy(i => Math.Abs(i - normalPoint)).First();
+			float result = 0;
+			const int samples = 6;//12?
+			for (int i = 0; i < samples; i++)
+			{
+				result += (float)(random.NextDouble() / samples);
+			}
+			return result;
+		}
+
+		public static float NextNormal(float min, float max)
+		{
+			return NextNormal() * (max - min) + min;
 		}
 	}
 }
