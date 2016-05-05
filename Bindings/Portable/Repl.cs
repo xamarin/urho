@@ -16,15 +16,15 @@ namespace Urho.Repl
 		public static Task<Simple3DScene> RunAsync(int width = 600, int height = 500)
 		{
 #if DESKTOP
-			return RunAsync(new ApplicationOptions(assetsFolder: customAssetsDir) { Width = width, Height = height, ResizableWindow = true });
+			return RunAsync(new ApplicationOptions(assetsFolder: "Data") { Width = width, Height = height, ResizableWindow = true });
 #endif
 			return RunAsync(new ApplicationOptions(assetsFolder: null));
 		}
 
 		public static Task<Simple3DScene> RunAsync(ApplicationOptions options)
 		{
-			var dataDir = options.ResourcePaths.FirstOrDefault();
 #if DESKTOP
+			var dataDir = options.ResourcePaths?.FirstOrDefault();
 			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(Simple3DScene).Assembly.Location);
 
 			if (!File.Exists("CoreData.pak")) {
