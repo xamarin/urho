@@ -53,7 +53,7 @@ namespace Urho.Repl
 #else
 			var app = new Simple3DScene(options);
 			app.Run(); //for iOS and UWP it's not blocking
-			return app;
+			return Task.FromResult(app);
 #endif
 		}
 
