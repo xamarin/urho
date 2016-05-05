@@ -15,11 +15,10 @@ namespace Urho.Repl
 
 		public static Task<Simple3DScene> RunAsync(int width = 600, int height = 500)
 		{
-			string customAssetsDir = null;
 #if DESKTOP
-			customAssetsDir = "Data";
-#endif
 			return RunAsync(new ApplicationOptions(assetsFolder: customAssetsDir) { Width = width, Height = height, ResizableWindow = true });
+#endif
+			return RunAsync(new ApplicationOptions(assetsFolder: null));
 		}
 
 		public static Task<Simple3DScene> RunAsync(ApplicationOptions options)
