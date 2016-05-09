@@ -53,7 +53,8 @@ namespace Urho
 				{
 					try
 					{
-						referenceHolder.Value?.Reference?.Dispose();
+						if (referenceHolder.Value?.IsWeak != true)
+							referenceHolder.Value?.Reference?.Dispose();
 					}
 					catch (Exception exc)
 					{

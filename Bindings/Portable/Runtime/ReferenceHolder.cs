@@ -4,9 +4,6 @@ namespace Urho
 {
 	internal class ReferenceHolder<T> where T : class
 	{
-		public T StrongRef { get; private set; }
-		public WeakReference<T> WeakRef { get; private set; }
-
 		public ReferenceHolder(T obj, bool weak)
 		{
 			if (weak)
@@ -14,6 +11,10 @@ namespace Urho
 			else
 				StrongRef = obj;
 		}
+
+		public T StrongRef { get; private set; }
+		public WeakReference<T> WeakRef { get; private set; }
+		public bool IsWeak => WeakRef != null;
 
 		public T Reference
 		{
