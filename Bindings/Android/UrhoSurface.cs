@@ -40,8 +40,13 @@ namespace Urho.Droid
 		{
 			SDLActivity.FinishActivityOnUrhoExit = false;
 			RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, options).Run());
-			var surface = SDLActivity.CreateSurface(activity);
-			return surface;
+			return SDLActivity.CreateSurface(activity);
+		}
+
+		public static bool FinishActivityOnUrhoExit
+		{
+			get { return SDLActivity.FinishActivityOnUrhoExit; }
+			set { SDLActivity.FinishActivityOnUrhoExit = value; }
 		}
 
 		public static void OnResume()
