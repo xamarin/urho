@@ -7,14 +7,14 @@ namespace Urho
 	partial class Octree
 	{
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Octree_RaycastSingle(IntPtr handle, ref Ray ray, ref RayQueryLevel level, float maxDistance, uint drawableFlags, uint viewMask, out int count);
+		internal static extern IntPtr Octree_Raycast(IntPtr handle, ref Ray ray, ref RayQueryLevel level, float maxDistance, uint drawableFlags, uint viewMask, bool single, out int count);
 
-		public List<RayQueryResult> RaycastSingle(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, uint viewMask = UInt32.MaxValue)
+		List<RayQueryResult> Raycast(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, bool single, uint viewMask = UInt32.MaxValue)
 		{
 			List<RayQueryResult> result = new List<RayQueryResult>();
 
 			int count;
-			var ptr = Octree_RaycastSingle(Handle, ref ray, ref level, maxDistance, (uint)drawableFlags, viewMask, out count);
+			var ptr = Octree_Raycast(Handle, ref ray, ref level, maxDistance, (uint)drawableFlags, viewMask, single, out count);
 
 			if (ptr == IntPtr.Zero)
 				return result;
@@ -28,6 +28,16 @@ namespace Urho
 			}
 
 			return result;
-		} 
+		}
+
+		public List<RayQueryResult> Raycast(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, uint viewMask = UInt32.MaxValue)
+		{
+			return Raycast(ray, level, maxDistance, drawableFlags, false, viewMask);
+		}
+
+		public List<RayQueryResult> RaycastSingle(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, uint viewMask = UInt32.MaxValue)
+		{
+			return Raycast(ray, level, maxDistance, drawableFlags, true, viewMask);
+		}
 	}
 }

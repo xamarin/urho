@@ -240,11 +240,14 @@ extern "C" {
 	}
 
 	DllExport RayQueryResult *
-	Octree_RaycastSingle(Octree *octree, const Urho3D::Ray & ray, const Urho3D::RayQueryLevel & level, float maxDistance, unsigned int flags, unsigned int viewMask, int *count) {
+	Octree_Raycast(Octree *octree, const Urho3D::Ray & ray, const Urho3D::RayQueryLevel & level, float maxDistance, unsigned int flags, unsigned int viewMask, bool single, int *count) {
 		PODVector<RayQueryResult> results;
 		auto size = sizeof(RayQueryResult);
-		RayOctreeQuery query(results, ray, RAY_TRIANGLE, maxDistance, flags, viewMask);
-		octree->RaycastSingle(query);
+		RayOctreeQuery query(results, ray, level, maxDistance, flags, viewMask);
+		if (single)
+			octree->RaycastSingle(query);
+		else
+			octree->Raycast(query);
 
 		if (results.Size() == 0)
 			return NULL;
