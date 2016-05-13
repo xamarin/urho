@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Urho.Resources;
 
@@ -18,6 +19,7 @@ namespace Urho
 	{
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<Type, int> hashDict;
+		internal static bool isClosing;
 		static MonoRefCountedCallback monoRefCountedCallback; //keep references to native callbacks (protect from GC)
 		static MonoComponentCallback monoComponentCallback;
 
@@ -33,11 +35,13 @@ namespace Urho
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RegisterMonoComponentCallback(MonoComponentCallback callback);
 
+
 		/// <summary>
 		/// Runtime initialization. 
 		/// </summary>
 		public static void Initialize()
 		{
+			isClosing = false;
 			RegisterMonoRefCountedCallback(monoRefCountedCallback = OnRefCountedEvent);
 			RegisterMonoComponentCallback(monoComponentCallback = OnComponentEvent);
 		}
@@ -192,18 +196,41 @@ namespace Urho
 			return (StringHash)typeStatic.GetValue(null);
 		}
 
-		static internal IReadOnlyList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject
+		internal static void ValidateRefCounted<T>(T obj, [CallerMemberName] string name = "") where T : RefCounted
+		{
+			if (isClosing)
+				throw new InvalidOperationException($"{typeof(T).Name}.{name} (Handle={obj.Handle}) invoked after Application.Stop");
+			if (obj.Handle == IntPtr.Zero)
+				throw new InvalidOperationException($"Handle is IntPtr.Zero for {obj}. {typeof(T).Name}.{name}");
+			if (obj.IsDeleted)
+				throw new InvalidOperationException($"Underlying native object was deleted for Handle={obj.Handle}. {typeof(T).Name}.{name}");
+		}
+
+		internal static void ValidateObject<T>(T obj, [CallerMemberName] string name = "") where T : class
+		{
+			if (isClosing)
+				throw new InvalidOperationException($"{typeof(T).Name}.{name} invoked after Application.Stop");
+		}
+
+		internal static void Validate(object type, [CallerMemberName] string name = "")
+		{
+			if (isClosing)
+				throw new InvalidOperationException($"{type.GetType().Name}.{name} invoked after Application.Stop");
+		}
+
+		internal static IReadOnlyList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject
 		{
 			return new Vectors.ProxyUrhoObject<T> (handle);
 		}
 
-		static internal IReadOnlyList<T> CreateVectorSharedPtrRefcountedProxy<T>(IntPtr handle) where T : RefCounted
+		internal static IReadOnlyList<T> CreateVectorSharedPtrRefcountedProxy<T>(IntPtr handle) where T : RefCounted
 		{
 			return new Vectors.ProxyRefCounted<T>(handle);
 		}
 
 		internal static void Cleanup()
 		{
+			isClosing = true;
 			RefCountedCache.Clean();
 			GC.Collect();
 			GC.WaitForPendingFinalizers();

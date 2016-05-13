@@ -1293,25 +1293,36 @@ namespace SharpieBinder
 			MethodDeclaration method = null;
 			ConstructorDeclaration constructor = null;
 
+			var remapedName = RemapMemberName(decl.Parent.Name, decl.Name);
+			InvocationExpression validateInvocation;
+			if (decl.IsStatic || currentType.ClassType == ClassType.Struct)
+				validateInvocation = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Runtime"), "Validate"), csParser.ParseExpression($"typeof({currentType.Name})"));
+			else if (currentType.BaseTypes.Any() || currentType.Name == "RefCounted" || currentType.Name == "UrhoObject")
+				validateInvocation = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Runtime"), "ValidateRefCounted"), new ThisReferenceExpression());
+			else
+				validateInvocation = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Runtime"), "ValidateObject"), new ThisReferenceExpression());
+
 			if (isConstructor) {
 				constructor = new ConstructorDeclaration
 				{
-					Name = RemapMemberName(decl.Parent.Name, decl.Name),
+					Name = remapedName,
 
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)  |
 						(decl.Name == "ToString" ? Modifiers.Override : 0)
 				};
 				constructor.Body = new BlockStatement();
+				constructor.Body.Add(validateInvocation);
 			} else {
 				method = new MethodDeclaration
 				{
-					Name = RemapMemberName(decl.Parent.Name, decl.Name),
+					Name = remapedName,
 					ReturnType = methodReturn,
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
 				};
 				method.Body = new BlockStatement();
+				method.Body.Add(validateInvocation);
 			}
 
 			// 
@@ -1466,6 +1477,7 @@ namespace SharpieBinder
 				currentType.Members.Add(ctor);
 			}
 
+
 			if (method != null && methodReturn is Sharpie.Bind.Types.VoidType) {
 				method.Body.Add(invoke);
 				//	pn ($"fprintf (stderr,\"DEBUG {creturnType} {pinvoke_name} (...)\\n\");");
@@ -1552,7 +1564,6 @@ namespace SharpieBinder
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());
 				CXXRecordDecl returnType;
-
 				//Wrap with WeakPtr all RefCounted subclasses constructors
 				if (isConstructor) {
 					if (ScanBaseTypes.nameToDecl.TryGetValue(decl.Parent.QualifiedName, out returnType) && returnType.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted))
