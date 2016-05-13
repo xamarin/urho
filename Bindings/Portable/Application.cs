@@ -163,7 +163,7 @@ namespace Urho {
 			GetApp (h).Stop ();
 			Runtime.Cleanup();
 #if !IOS && !DESKTOP
-			if (context.Refs() > 0)
+			if (!context.IsDeleted && context.Refs() > 0)
 				context.ReleaseRef();
 #endif
 			context.Dispose();

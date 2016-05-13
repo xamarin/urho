@@ -1295,9 +1295,9 @@ namespace SharpieBinder
 
 			var remapedName = RemapMemberName(decl.Parent.Name, decl.Name);
 			InvocationExpression validateInvocation;
-			if (decl.IsStatic || currentType.ClassType == ClassType.Struct)
+			if (decl.IsStatic || currentType.ClassType == ClassType.Struct || isConstructor)
 				validateInvocation = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Runtime"), "Validate"), csParser.ParseExpression($"typeof({currentType.Name})"));
-			else if (currentType.BaseTypes.Any() || currentType.Name == "RefCounted" || currentType.Name == "UrhoObject")
+			else if ((currentType.BaseTypes.Any() || currentType.Name == "UrhoObject") && currentType.Name != "RefCounted")
 				validateInvocation = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Runtime"), "ValidateRefCounted"), new ThisReferenceExpression());
 			else
 				validateInvocation = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Runtime"), "ValidateObject"), new ThisReferenceExpression());
