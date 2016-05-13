@@ -24,6 +24,7 @@ namespace Urho {
 			
 		public Node[] GetChildrenWithComponent<T> (bool recursive = false) where T: Component
 		{
+			Runtime.ValidateRefCounted(this);
 			var stringhash = Runtime.LookupStringHash (typeof (T));
 			int count;
 			var ptr = NodeHelper.urho_node_get_components (handle, stringhash.Code, recursive ? 1 : 0, out count);
@@ -43,18 +44,21 @@ namespace Urho {
 		
 		public T CreateComponent<T> (StringHash type, CreateMode mode = CreateMode.Replicated, uint id = 0) where T:Component
 		{
+			Runtime.ValidateRefCounted(this);
 			var ptr = Node_CreateComponent (handle, type.Code, mode, id);
 			return Runtime.LookupObject<T> (ptr);
 		}
 
 		public void RemoveComponent<T> ()
 		{
+			Runtime.ValidateRefCounted(this);
 			var stringHash = Runtime.LookupStringHash (typeof (T));
 			RemoveComponent (stringHash);
 		}
 
 		public T CreateComponent<T> (CreateMode mode = CreateMode.Replicated, uint id = 0) where T:Component
 		{
+			Runtime.ValidateRefCounted(this);
 			var component = Activator.CreateInstance<T>();
 			AddComponent(component, id, mode);
 			return component;
@@ -65,6 +69,7 @@ namespace Urho {
 		/// </summary>
 		public void AddComponent (Component component, uint id = 0)
 		{
+			Runtime.ValidateRefCounted(this);
 			AddComponent (component, id, CreateMode.Replicated);
 		}
 
@@ -73,6 +78,7 @@ namespace Urho {
 		/// </summary>
 		public Node CreateChild (string name = "", uint id = 0, CreateMode mode = CreateMode.Replicated)
 		{
+			Runtime.ValidateRefCounted(this);
 			return CreateChild (name, mode, id);
 		}
 
@@ -81,6 +87,7 @@ namespace Urho {
 		/// </summary>
 		public void AddChild(Node node)
 		{
+			Runtime.ValidateRefCounted(this);
 			AddChild(node, uint.MaxValue);
 		}
 		
@@ -89,11 +96,13 @@ namespace Urho {
 		/// </summary>
 		public void Translate(Vector3 delta)
 		{
+			Runtime.ValidateRefCounted(this);
 			Translate(delta, TransformSpace.Local);
 		}
 
 		public T GetComponent<T> (bool recursive = false) where T : Component
 		{
+			Runtime.ValidateRefCounted(this);
 			return (T)Components.FirstOrDefault(c => c is T);
 		}
 	}

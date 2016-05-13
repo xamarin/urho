@@ -8,6 +8,7 @@ namespace Urho.Network {
 
 		public bool Connect (string address, short port, Scene scene)
 		{
+			Runtime.ValidateRefCounted(this);
 			if (address == null)
 				throw new ArgumentNullException ("address");
 			return Network_Connect (handle, address, port, scene?.Handle ?? IntPtr.Zero) != 0;

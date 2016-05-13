@@ -18,6 +18,7 @@ namespace Urho {
 
 		public BoneWrapper GetBoneSafe(uint index)
 		{
+			Runtime.ValidateObject(this);
 			unsafe
 			{
 				Bone* result = Skeleton_GetBone(handle, index);
@@ -29,6 +30,7 @@ namespace Urho {
 
 		public BoneWrapper GetBoneSafe(String name)
 		{
+			Runtime.ValidateObject(this);
 			unsafe
 			{
 				Bone* result = Skeleton_GetBone0(handle, new StringHash(name).Code);
@@ -45,7 +47,9 @@ namespace Urho {
 		extern static IntPtr AnimatedModel_GetSkeleton (IntPtr handle);
 		
 		public Skeleton Skeleton {
-			get {
+			get
+			{
+				Runtime.ValidateObject(this);
 				return new Skeleton (AnimatedModel_GetSkeleton (handle), this);
 			}
 		}

@@ -10,6 +10,7 @@ namespace Urho.Navigation
 
 		public Vector3[] FindPath(Vector3 start, Vector3 end)
 		{
+			Runtime.ValidateRefCounted(this);
 			int count;
 			var ptr = urho_navigationmesh_findpath(Handle, start, end, out count);
 			if (ptr == IntPtr.Zero)
@@ -30,6 +31,7 @@ namespace Urho.Navigation
 
 		public unsafe Vector3 FindNearestPoint(Vector3 hitPos, Vector3 vector3)
 		{
+			Runtime.ValidateRefCounted(this);
 			return FindNearestPoint(hitPos, vector3, null, null);
 		}
 	}

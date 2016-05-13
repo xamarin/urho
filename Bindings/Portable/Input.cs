@@ -128,6 +128,7 @@ namespace Urho {
 
 		public unsafe bool TryGetJoystickState(uint idx, out JoystickState state)
 		{
+			Runtime.ValidateRefCounted(this);
 			var x = GetJoystickByIndex(idx);
 			if (x != null)
 			{

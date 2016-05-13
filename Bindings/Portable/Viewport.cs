@@ -10,6 +10,7 @@
 
 		public unsafe void SetClearColor(Color color)
 		{
+			Runtime.ValidateRefCounted(this);
 			var rp = RenderPath;
 			for (int i = 0; i < rp.NumCommands; i++)
 			{

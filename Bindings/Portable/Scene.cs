@@ -12,11 +12,13 @@ namespace Urho
 
 		public bool LoadXmlFromCache(ResourceCache cache, string file)
 		{
+			Runtime.ValidateRefCounted(this);
 			return Scene_LoadXMLFromCache(handle, cache.Handle, file);
 		}
 
 		public bool LoadXml(string path)
 		{
+			Runtime.ValidateRefCounted(this);
 			using (var file = new File(Context, path, FileMode.Read))
 			{
 				return LoadXml(file);
@@ -25,6 +27,7 @@ namespace Urho
 
 		public bool SaveXml(string path, string indentation = "\t")
 		{
+			Runtime.ValidateRefCounted(this);
 			using (var file = new File(Context, path, FileMode.Write))
 			{
 				return SaveXml(file, indentation);

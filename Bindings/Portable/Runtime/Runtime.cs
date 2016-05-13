@@ -199,7 +199,7 @@ namespace Urho
 		internal static void ValidateRefCounted<T>(T obj, [CallerMemberName] string name = "") where T : RefCounted
 		{
 			if (isClosing)
-				throw new InvalidOperationException($"{typeof(T).Name}.{name} (Handle={obj.Handle}) invoked after Application.Stop");
+				throw new InvalidOperationException($"{typeof(T).Name}.{name} (Handle={obj.Handle}) was invoked after Application.Stop");
 			if (obj.Handle == IntPtr.Zero)
 				throw new InvalidOperationException($"Handle is IntPtr.Zero for {obj}. {typeof(T).Name}.{name}");
 			if (obj.IsDeleted)
@@ -209,13 +209,13 @@ namespace Urho
 		internal static void ValidateObject<T>(T obj, [CallerMemberName] string name = "") where T : class
 		{
 			if (isClosing)
-				throw new InvalidOperationException($"{typeof(T).Name}.{name} invoked after Application.Stop");
+				throw new InvalidOperationException($"{typeof(T).Name}.{name} was invoked after Application.Stop");
 		}
 
-		internal static void Validate(object type, [CallerMemberName] string name = "")
+		internal static void Validate(Type type, [CallerMemberName] string name = "")
 		{
 			if (isClosing)
-				throw new InvalidOperationException($"{type.GetType().Name}.{name} invoked after Application.Stop");
+				throw new InvalidOperationException($"{type.Name}.{name} was invoked after Application.Stop");
 		}
 
 		internal static IReadOnlyList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject

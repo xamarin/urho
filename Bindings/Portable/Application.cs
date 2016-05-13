@@ -198,7 +198,9 @@ namespace Urho {
 		static Platforms platform;
 
 		public static Platforms Platform {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (platform == Platforms.Unknown)
 					platform = PlatformsMap.FromString(Marshal.PtrToStringAnsi(GetPlatform()));
 				return platform;
@@ -210,7 +212,9 @@ namespace Urho {
 		//
 		ResourceCache resourceCache;
 		public ResourceCache ResourceCache {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (resourceCache == null)
 					resourceCache = new ResourceCache (UrhoObject_GetSubsystem (handle, ResourceCache.TypeStatic.Code));
 				return resourceCache;
@@ -219,7 +223,9 @@ namespace Urho {
 
 		UrhoConsole console;
 		public UrhoConsole Console {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (console == null)
 					console = new UrhoConsole (UrhoObject_GetSubsystem (handle, UrhoConsole.TypeStatic.Code));
 				return console;
@@ -228,7 +234,9 @@ namespace Urho {
 		
 		Urho.Network.Network network;
 		public Urho.Network.Network Network {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (network == null)
 					network = new Urho.Network.Network (UrhoObject_GetSubsystem (handle, Urho.Network.Network.TypeStatic.Code));
 				return network;
@@ -237,7 +245,9 @@ namespace Urho {
 		
 		Time time;
 		public Time Time {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (time == null)
 					time = new Time (UrhoObject_GetSubsystem (handle, Time.TypeStatic.Code));
 				return time;
@@ -246,7 +256,9 @@ namespace Urho {
 		
 		WorkQueue workQueue;
 		public WorkQueue WorkQueue {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (workQueue == null)
 					workQueue = new WorkQueue (UrhoObject_GetSubsystem (handle, WorkQueue.TypeStatic.Code));
 				return workQueue;
@@ -255,7 +267,9 @@ namespace Urho {
 		
 		Profiler profiler;
 		public Profiler Profiler {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (profiler == null)
 					profiler = new Profiler (UrhoObject_GetSubsystem (handle, Profiler.TypeStatic.Code));
 				return profiler;
@@ -264,7 +278,9 @@ namespace Urho {
 		
 		FileSystem fileSystem;
 		public FileSystem FileSystem {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (fileSystem == null)
 					fileSystem = new FileSystem (UrhoObject_GetSubsystem (handle, FileSystem.TypeStatic.Code));
 				return fileSystem;
@@ -273,7 +289,9 @@ namespace Urho {
 		
 		Log log;
 		public Log Log {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (log == null)
 					log = new Log (UrhoObject_GetSubsystem (handle, Log.TypeStatic.Code));
 				return log;
@@ -282,7 +300,9 @@ namespace Urho {
 		
 		Input input;
 		public Input Input {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (input == null)
 					input = new Input (UrhoObject_GetSubsystem (handle, Input.TypeStatic.Code));
 				return input;
@@ -291,7 +311,9 @@ namespace Urho {
 		
 		Urho.Audio.Audio audio;
 		public Urho.Audio.Audio Audio {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (audio == null)
 					audio = new Audio.Audio (UrhoObject_GetSubsystem (handle, Urho.Audio.Audio.TypeStatic.Code));
 				return audio;
@@ -300,7 +322,9 @@ namespace Urho {
 		
 		UI uI;
 		public UI UI {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (uI == null)
 					uI = new UI (UrhoObject_GetSubsystem (handle, UI.TypeStatic.Code));
 				return uI;
@@ -309,7 +333,9 @@ namespace Urho {
 		
 		Graphics graphics;
 		public Graphics Graphics {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (graphics == null)
 					graphics = new Graphics (UrhoObject_GetSubsystem (handle, Graphics.TypeStatic.Code));
 				return graphics;
@@ -318,7 +344,9 @@ namespace Urho {
 		
 		Renderer renderer;
 		public Renderer Renderer {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (renderer == null)
 					renderer = new Renderer (UrhoObject_GetSubsystem (handle, Renderer.TypeStatic.Code));
 				return renderer;
@@ -330,7 +358,9 @@ namespace Urho {
 		Engine engine;
 
 		public Engine Engine {
-			get {
+			get
+			{
+				Runtime.Validate(typeof(Application));
 				if (engine == null)
 					engine = new Engine (Application_GetEngine (handle));
 				return engine;

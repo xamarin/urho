@@ -8,6 +8,7 @@ namespace Urho
 	{
 		public void SetData (short [] vertexData)
 		{
+			Runtime.ValidateRefCounted(this);
 			unsafe {
 				fixed (short *p = &vertexData [0]){
 					SetData ((void *) p);

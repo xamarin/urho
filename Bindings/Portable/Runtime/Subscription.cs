@@ -9,6 +9,7 @@ namespace Urho
 
 		internal Subscription (Action<IntPtr> proxy)
 		{
+			Runtime.Validate(typeof(Subscription));
 			gch = GCHandle.Alloc (proxy);
 		}
 
@@ -17,6 +18,7 @@ namespace Urho
 		
 		public void Unsubscribe ()
 		{
+			Runtime.Validate(typeof(Subscription));
 			if (UnmanagedProxy == IntPtr.Zero)
 				return;
 			

@@ -21,6 +21,7 @@ namespace Urho
 
 		public T GetComponent<T> () where T : Component
 		{
+			Runtime.ValidateRefCounted(this);
 			return (T)Node.Components.FirstOrDefault(c => c is T);
 		}
 

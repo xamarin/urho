@@ -5,6 +5,7 @@ namespace Urho.Audio {
 	public partial class BufferedSoundStream {
 		public void AddData (byte [] data, int start = 0, int count = -1)
 		{
+			Runtime.ValidateRefCounted(this);
 			if (data == null)
 				throw new ArgumentNullException (nameof(data));
 			if (start < 0)
@@ -20,6 +21,7 @@ namespace Urho.Audio {
 
 		public void AddData (short [] data, int start = 0, int count = -1)
 		{
+			Runtime.ValidateRefCounted(this);
 			if (data == null)
 				throw new ArgumentNullException (nameof(data));
 			if (start < 0)

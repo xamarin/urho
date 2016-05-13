@@ -11,6 +11,7 @@ namespace Urho
 
 		List<RayQueryResult> Raycast(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, bool single, uint viewMask = UInt32.MaxValue)
 		{
+			Runtime.ValidateRefCounted(this);
 			List<RayQueryResult> result = new List<RayQueryResult>();
 
 			int count;
@@ -32,11 +33,13 @@ namespace Urho
 
 		public List<RayQueryResult> Raycast(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, uint viewMask = UInt32.MaxValue)
 		{
+			Runtime.ValidateRefCounted(this);
 			return Raycast(ray, level, maxDistance, drawableFlags, false, viewMask);
 		}
 
 		public List<RayQueryResult> RaycastSingle(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, uint viewMask = UInt32.MaxValue)
 		{
+			Runtime.ValidateRefCounted(this);
 			return Raycast(ray, level, maxDistance, drawableFlags, true, viewMask);
 		}
 	}

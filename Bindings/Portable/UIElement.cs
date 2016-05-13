@@ -17,6 +17,7 @@ namespace Urho.Gui {
 	{
 		public T CreateChild<T> (StringHash code, string name = "", uint index = UInt32.MaxValue) where T:UIElement
 		{
+			Runtime.ValidateRefCounted(this);
 			var ptr = UIElement_CreateChild (handle, code.Code, name, index);
 			return Runtime.LookupObject<T> (ptr);
 		}
@@ -24,6 +25,7 @@ namespace Urho.Gui {
 		//TODO: test
 		internal T CreateChild<T>(string name = "", uint index = UInt32.MaxValue) where T : UIElement
 		{
+			Runtime.ValidateRefCounted(this);
 			var hash = Runtime.LookupStringHash(typeof (T));
 			var ptr = UIElement_CreateChild(handle, hash.Code, name, index);
 			return Runtime.LookupObject<T>(ptr);

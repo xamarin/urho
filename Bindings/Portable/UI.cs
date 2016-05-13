@@ -11,6 +11,7 @@ namespace Urho.Gui
 
 		public void LoadLayoutToElement(UIElement container, ResourceCache cache, string name)
 		{
+			Runtime.ValidateRefCounted(this);
 			UI_LoadLayoutToElement(Handle, container.Handle, cache.Handle, name);
 		}
 	}

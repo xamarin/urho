@@ -8,6 +8,7 @@ namespace Urho {
 		
 		public Model Clone ()
 		{
+			Runtime.ValidateRefCounted(this);
 			return Runtime.LookupObject<Model> (Model_Clone (handle));
 		}
 	}

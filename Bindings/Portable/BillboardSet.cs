@@ -5,6 +5,7 @@ namespace Urho {
 	{
 		public BillboardWrapper GetBillboardSafe (uint index)
 		{
+			Runtime.ValidateRefCounted(this);
 			unsafe {
 				Billboard* result = BillboardSet_GetBillboard (handle, index);
 				if (result == null)

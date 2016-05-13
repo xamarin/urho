@@ -17,6 +17,7 @@ namespace Urho {
 
 		public Controls ()
 		{
+			Runtime.ValidateObject(this);
 			handle = Controls_Create ();
 			connection = null;
 		}
@@ -75,6 +76,7 @@ namespace Urho {
 
 		public bool IsPressed (uint button, ref Controls previousControls)
 		{
+			Runtime.ValidateObject(this);
 			return ((Buttons & button) != 0) && ((previousControls.Buttons & button) != 0);
 		}
 
@@ -83,6 +85,7 @@ namespace Urho {
 
 		public void Reset ()
 		{
+			Runtime.ValidateObject(this);
 			Controls_Reset (handle);
 		}
 
@@ -91,6 +94,7 @@ namespace Urho {
 
 		public void Set (uint buttons, bool down)
 		{
+			Runtime.ValidateObject(this);
 			Controls_Set (handle, buttons, down);
 		}
 
@@ -99,6 +103,7 @@ namespace Urho {
 
 		public bool IsDown (uint button)
 		{
+			Runtime.ValidateObject(this);
 			return Controls_IsDown (handle, button);
 		}
 	}

@@ -13,11 +13,13 @@ namespace Urho
 
 		public static void OpenConsoleWindow()
 		{
+			Runtime.Validate(typeof(UrhoConsole));
 			Console_OpenConsoleWindow();
 		}
 
 		public static string GetConsoleInput()
 		{
+			Runtime.Validate(typeof(UrhoConsole));
 			return Marshal.PtrToStringAnsi(Console_GetConsoleInput());
 		}
 	}
