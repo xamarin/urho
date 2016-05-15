@@ -1,12 +1,16 @@
 using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 using Android.App;
 using Android.Content;
+using Android.Util;
 using Android.Views;
+using Java.Lang;
 using Org.Libsdl.App;
 
 namespace Urho.Droid
 {
+
 	/// <summary>
 	/// A controller that provides a SDLSurface that can be used in any activity.
 	/// Make sure you handle these events in your Activity:
@@ -28,25 +32,26 @@ namespace Urho.Droid
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
-		public static SDLSurface CreateSurface<TApplication>(Activity activity, ApplicationOptions options = null) where TApplication : Application
+		public static SDLSurface CreateSurface<TApplication>(Activity activity, ApplicationOptions options = null, bool finishActivtiyOnExit = false) where TApplication : Application
 		{
-			return CreateSurface(activity, typeof (TApplication), options);
+			return CreateSurface(activity, typeof (TApplication), options, finishActivtiyOnExit);
 		}
 
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
-		public static SDLSurface CreateSurface(Activity activity, Type applicationType, ApplicationOptions options = null)
+		public static SDLSurface CreateSurface(Activity activity, Type appType, ApplicationOptions options = null, bool finishActivtiyOnExit = false)
 		{
-			SDLActivity.FinishActivityOnUrhoExit = false;
-			RegisterSdlLauncher(contextPtr => Application.CreateInstance(applicationType, options).Run());
-			return SDLActivity.CreateSurface(activity);
+			return CreateSurface(activity, () => Application.CreateInstance(appType, options), finishActivtiyOnExit);
 		}
 
-		public static bool FinishActivityOnUrhoExit
+		/// <summary>
+		/// Creates a view (SurfaceView) that can be added anywhere
+		/// </summary>
+		public static SDLSurface CreateSurface(Activity activity, Func<Application> applicationFactory, bool finishActivtiyOnExit = false)
 		{
-			get { return SDLActivity.FinishActivityOnUrhoExit; }
-			set { SDLActivity.FinishActivityOnUrhoExit = value; }
+			SetSdlMain(applicationFactory, finishActivtiyOnExit);
+			return SDLActivity.CreateSurface(activity);
 		}
 
 		public static void OnResume()
@@ -90,14 +95,32 @@ namespace Urho.Droid
 		/// <summary>
 		/// The simpliest way to launch a game. It opens a special full-screen activity
 		/// </summary>
-		public static void RunInActivity(Type applicationType, ApplicationOptions options = null)
+		public static void RunInActivity(Type appType, ApplicationOptions options = null)
 		{
-			SDLActivity.FinishActivityOnUrhoExit = true;
-			RegisterSdlLauncher(_ => Application.CreateInstance(applicationType, options).Run());
+			RunInActivity(() => Application.CreateInstance(appType, options));
+		}
+
+		/// <summary>
+		/// The simpliest way to launch a game. It opens a special full-screen activity
+		/// </summary>
+		public static void RunInActivity(Func<Application> applicationFactory)
+		{
+			SetSdlMain(applicationFactory, true);
 			var context = Android.App.Application.Context;
 			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));
 			intent.AddFlags(ActivityFlags.NewTask);
 			context.StartActivity(intent);
+		}
+
+		static void SetSdlMain(Func<Application> applicationFactory, bool finishActivityOnExit)
+		{
+			RegisterSdlLauncher(_ => 0);//TODO: remove
+			SDLMain.SetUrhoRunnable(new Runnable(() =>
+			{
+				var app = applicationFactory();
+				var code = app.Run();
+				Log.Warn("URHOSHARP", "App exited: " + code);
+			}), finishActivityOnExit);
 		}
 	}
 }

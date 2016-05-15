@@ -19,7 +19,7 @@ namespace Urho
 	{
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<Type, int> hashDict;
-		internal static bool isClosing;
+		static bool isClosing;
 		static MonoRefCountedCallback monoRefCountedCallback; //keep references to native callbacks (protect from GC)
 		static MonoComponentCallback monoComponentCallback;
 
@@ -35,15 +35,15 @@ namespace Urho
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RegisterMonoComponentCallback(MonoComponentCallback callback);
 
-
-		/// <summary>
-		/// Runtime initialization. 
-		/// </summary>
-		public static void Initialize()
+		internal static void Start()
 		{
-			isClosing = false;
 			RegisterMonoRefCountedCallback(monoRefCountedCallback = OnRefCountedEvent);
 			RegisterMonoComponentCallback(monoComponentCallback = OnComponentEvent);
+		}
+
+		internal static void Setup()
+		{
+			isClosing = false;
 		}
 
 		/// <summary>
@@ -200,8 +200,6 @@ namespace Urho
 		{
 			if (isClosing)
 				throw new InvalidOperationException($"{typeof(T).Name}.{name} (Handle={obj.Handle}) was invoked after Application.Stop");
-			if (obj.Handle == IntPtr.Zero)
-				throw new InvalidOperationException($"Handle is IntPtr.Zero for {obj}. {typeof(T).Name}.{name}");
 			if (obj.IsDeleted)
 				throw new InvalidOperationException($"Underlying native object was deleted for Handle={obj.Handle}. {typeof(T).Name}.{name}");
 		}

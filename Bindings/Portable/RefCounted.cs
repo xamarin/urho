@@ -48,15 +48,7 @@ namespace Urho {
 		{
 			if (!IsDeleted)
 			{
-				try
-				{
-					TryDeleteRefCounted(handle);
-				}
-				catch (Exception exc)
-				{
-					//should not happen, JIC.
-					throw new InvalidOperationException("Underlying native object is already deleted", exc);
-				}
+				TryDeleteRefCounted(handle);
 			}
 		}
 
@@ -72,18 +64,7 @@ namespace Urho {
 			}
 			Runtime.UnregisterObject(handle);
 		}
-
-		[Conditional("DEBUG")]
-		protected void CheckAccess()
-		{
-			if (IsDeleted)
-				throw new InvalidOperationException("The underlying native object was deleted");
-			if (handle == IntPtr.Zero)
-				throw new InvalidOperationException("Object has zero handle");
-			
-			//TODO: check thread
-		}
-
+		
 		protected void CheckEngine()
 		{
 			UrhoPlatformInitializer.DefaultInit();

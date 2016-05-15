@@ -47,22 +47,15 @@ namespace Urho
 
 		public void Clean()
 		{
-			lock (knownObjects)
+			var handles = knownObjects.Keys.ToArray();
+			foreach (var handle in handles)
 			{
-				foreach (var referenceHolder in knownObjects.ToArray())
-				{
-					try
-					{
-						if (referenceHolder.Value?.IsWeak != true)
-							referenceHolder.Value?.Reference?.Dispose();
-					}
-					catch (Exception exc)
-					{
-						Debug.WriteLine(exc);
-					}
-				}
-				knownObjects.Clear();
+				ReferenceHolder<RefCounted> refHolder;
+				lock (knownObjects)
+					knownObjects.TryGetValue(handle, out refHolder);
+				refHolder?.Reference?.Dispose();
 			}
+			//knownObjects.Clear();
 		}
 
 		bool StrongRefByDefault(RefCounted refCounted)

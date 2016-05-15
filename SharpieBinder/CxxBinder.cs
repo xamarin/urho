@@ -1312,7 +1312,8 @@ namespace SharpieBinder
 						(decl.Name == "ToString" ? Modifiers.Override : 0)
 				};
 				constructor.Body = new BlockStatement();
-				constructor.Body.Add(validateInvocation);
+				if (remapedName != "Context" && remapedName != "Run" && remapedName != "GetContext")
+					constructor.Body.Add(validateInvocation);
 			} else {
 				method = new MethodDeclaration
 				{

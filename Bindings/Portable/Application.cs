@@ -82,8 +82,6 @@ namespace Urho {
 			Options = options ?? new ApplicationOptions(assetsFolder: null);
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString(), Options.ExternalWindow);
 			Runtime.RegisterObject (this);
-
-			Engine.SubscribeToUpdate(HandleUpdate);
 		}
 
 		public IntPtr Handle => handle;
@@ -142,6 +140,7 @@ namespace Urho {
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxySetup (IntPtr h)
 		{
+			Runtime.Setup();
 			Current = GetApp(h);
 			CurrentContext = Current.Context;
 			Current.Setup ();
@@ -150,8 +149,10 @@ namespace Urho {
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxyStart (IntPtr h)
 		{
-			Runtime.Initialize();
-			GetApp (h).Start ();
+			Runtime.Start();
+			var app = GetApp(h);
+			app.SubscribeToAppEvents();
+			app.Start();
 			Started?.Invoke();
 		}
 
@@ -160,15 +161,26 @@ namespace Urho {
 		{
 			UrhoPlatformInitializer.Initialized = false;
 			var context = Current.Context;
-			GetApp (h).Stop ();
+			var app = GetApp (h);
+			app.UnsubscribeFromAppEvents();
+			app.Stop ();
 			Runtime.Cleanup();
-#if !IOS && !DESKTOP
-			if (!context.IsDeleted && context.Refs() > 0)
+			if (context.Refs() > 0)
 				context.ReleaseRef();
-#endif
 			context.Dispose();
 			Current = null;
 			Stoped?.Invoke();
+		}
+
+		Subscription updateSubscription = null;
+		private void SubscribeToAppEvents()
+		{
+			updateSubscription = Engine.SubscribeToUpdate(HandleUpdate);
+		}
+
+		private void UnsubscribeFromAppEvents()
+		{
+			updateSubscription?.Unsubscribe();
 		}
 
 		public static void StopCurrent()
