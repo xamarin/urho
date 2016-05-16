@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Urho.IO;
 using Urho.Resources;
 
 namespace Urho
@@ -199,21 +200,37 @@ namespace Urho
 		internal static void ValidateRefCounted<T>(T obj, [CallerMemberName] string name = "") where T : RefCounted
 		{
 			if (isClosing)
-				throw new InvalidOperationException($"{typeof(T).Name}.{name} (Handle={obj.Handle}) was invoked after Application.Stop");
+			{
+				var errorText = $"{typeof(T).Name}.{name} (Handle={obj.Handle}) was invoked after Application.Stop";
+				LogSharp.Error(errorText);
+				throw new InvalidOperationException(errorText);
+			}
 			if (obj.IsDeleted)
-				throw new InvalidOperationException($"Underlying native object was deleted for Handle={obj.Handle}. {typeof(T).Name}.{name}");
+			{
+				var errorText = $"Underlying native object was deleted for Handle={obj.Handle}. {typeof(T).Name}.{name}";
+				LogSharp.Error(errorText);
+				throw new InvalidOperationException(errorText);
+			}
 		}
 
 		internal static void ValidateObject<T>(T obj, [CallerMemberName] string name = "") where T : class
 		{
 			if (isClosing)
-				throw new InvalidOperationException($"{typeof(T).Name}.{name} was invoked after Application.Stop");
+			{
+				var errorText = $"{typeof(T).Name}.{name} was invoked after Application.Stop";
+				LogSharp.Error(errorText);
+				throw new InvalidOperationException(errorText);
+			}
 		}
 
 		internal static void Validate(Type type, [CallerMemberName] string name = "")
 		{
 			if (isClosing)
-				throw new InvalidOperationException($"{type.Name}.{name} was invoked after Application.Stop");
+			{
+				var errorText = $"{type.Name}.{name} was invoked after Application.Stop";
+				LogSharp.Error(errorText);
+				throw new InvalidOperationException(errorText);
+			}
 		}
 
 		internal static IReadOnlyList<T> CreateVectorSharedPtrProxy<T> (IntPtr handle) where T : UrhoObject

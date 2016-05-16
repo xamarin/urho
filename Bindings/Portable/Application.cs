@@ -159,17 +159,22 @@ namespace Urho {
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxyStop (IntPtr h)
 		{
+			LogSharp.Debug("ProxyStop");
 			UrhoPlatformInitializer.Initialized = false;
 			var context = Current.Context;
 			var app = GetApp (h);
 			app.UnsubscribeFromAppEvents();
 			app.Stop ();
+			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
+			LogSharp.Debug("ProxyStop: Releasing context");
 			if (context.Refs() > 0)
 				context.ReleaseRef();
+			LogSharp.Debug("ProxyStop: Disposing context");
 			context.Dispose();
 			Current = null;
 			Stoped?.Invoke();
+			LogSharp.Debug("ProxyStop: end");
 		}
 
 		Subscription updateSubscription = null;

@@ -5,6 +5,7 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using Urho.IO;
 
 namespace Urho {
 	public partial class RefCounted : IDisposable {
@@ -48,6 +49,7 @@ namespace Urho {
 		{
 			if (!IsDeleted)
 			{
+				LogSharp.Trace($"{GetType().Name}: DeleteNativeObject");
 				TryDeleteRefCounted(handle);
 			}
 		}

@@ -438,6 +438,7 @@
     <Compile Include="Portable\Input.cs" />
     <Compile Include="Portable\ListBasedUpdateSynchronizationContext.cs" />
     <Compile Include="Portable\Log.cs" />
+    <Compile Include="Portable\LogSharp.cs" />
     <Compile Include="Portable\MarshalHelper.cs" />
     <Compile Include="Portable\Material.cs" />
     <Compile Include="Portable\Math\EaseMath.cs" />
