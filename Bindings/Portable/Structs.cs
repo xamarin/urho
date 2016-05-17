@@ -486,6 +486,8 @@ namespace Urho {
 		public UrhoString TextureName5;
 		public UrhoString TextureName6;
 		public UrhoString TextureName7;
+
+#if DESKTOP || UWP
 		public UrhoString TextureName8;
 		public UrhoString TextureName9;
 		public UrhoString TextureName10;
@@ -494,6 +496,7 @@ namespace Urho {
 		public UrhoString TextureName13;
 		public UrhoString TextureName14;
 		public UrhoString TextureName15;
+#endif
 
 		public HashBase ShaderParameters;
 		public VectorBase Outputs;
