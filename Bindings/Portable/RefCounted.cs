@@ -35,6 +35,7 @@ namespace Urho {
 		/// </summary>
 		internal void HandleNativeDelete()
 		{
+			LogSharp.Trace($"{GetType().Name}: HandleNativeDelete");
 			Dispose(true);
 			GC.SuppressFinalize(this);
 		}
@@ -47,7 +48,7 @@ namespace Urho {
 		/// </summary>
 		void DeleteNativeObject()
 		{
-			if (!IsDeleted)
+			if (!IsDeleted && AllowNativeDelete)
 			{
 				LogSharp.Trace($"{GetType().Name}: DeleteNativeObject");
 				TryDeleteRefCounted(handle);
@@ -78,6 +79,8 @@ namespace Urho {
 		public bool IsDeleted { get; private set; }
 
 		protected virtual void OnDeleted() { }
+
+		protected virtual bool AllowNativeDelete => true;
 
 		public override bool Equals (object other)
 		{
