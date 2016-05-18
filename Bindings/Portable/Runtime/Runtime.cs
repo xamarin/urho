@@ -197,6 +197,7 @@ namespace Urho
 			return (StringHash)typeStatic.GetValue(null);
 		}
 
+		// for RefCounted, UrhoObjects
 		internal static void ValidateRefCounted<T>(T obj, [CallerMemberName] string name = "") where T : RefCounted
 		{
 			if (isClosing)
@@ -205,14 +206,19 @@ namespace Urho
 				LogSharp.Error(errorText);
 				throw new InvalidOperationException(errorText);
 			}
-			if (obj.IsDeleted)
+			if (obj.IsDeleted) //IsDeleted is set to True when we receive a native callback from RefCounted::~RefCounted
 			{
 				var errorText = $"Underlying native object was deleted for Handle={obj.Handle}. {typeof(T).Name}.{name}";
 				LogSharp.Error(errorText);
 				throw new InvalidOperationException(errorText);
 			}
+			//if (obj.Handle == IntPtr.Zero)
+			//{
+			//}
+			//TODO: check current thread?
 		}
 
+		// non-RefCounted classes
 		internal static void ValidateObject<T>(T obj, [CallerMemberName] string name = "") where T : class
 		{
 			if (isClosing)
@@ -223,6 +229,7 @@ namespace Urho
 			}
 		}
 
+		// constructors, static methods, value types
 		internal static void Validate(Type type, [CallerMemberName] string name = "")
 		{
 			if (isClosing)

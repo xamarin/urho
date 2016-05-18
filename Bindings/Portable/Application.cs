@@ -186,6 +186,8 @@ namespace Urho {
 #endif
 		}
 
+		protected override bool AllowNativeDelete => false;
+
 		protected virtual void Setup () {}
 
 		public static event Action Started;

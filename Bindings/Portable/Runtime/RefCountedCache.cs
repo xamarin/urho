@@ -47,7 +47,11 @@ namespace Urho
 
 		public void Clean()
 		{
-			var handles = knownObjects.Keys.ToArray();
+			IntPtr[] handles;
+
+			lock (knownObjects)
+				handles = knownObjects.OrderBy(t => GetDisposePriority(t.Value)).Select(t => t.Key).ToArray();
+
 			foreach (var handle in handles)
 			{
 				ReferenceHolder<RefCounted> refHolder;
@@ -55,7 +59,21 @@ namespace Urho
 					knownObjects.TryGetValue(handle, out refHolder);
 				refHolder?.Reference?.Dispose();
 			}
+			LogSharp.Warn($"RefCountedCache objects alive: {knownObjects.Count}");
+
 			//knownObjects.Clear();
+		}
+
+		int GetDisposePriority(ReferenceHolder<RefCounted> refHolder)
+		{
+			const int defaulPriority = 1000;
+			var obj = refHolder?.Reference;
+			if (obj == null)
+				return defaulPriority;
+			if (obj is Scene)
+				return 1;
+			//TODO:
+			return defaulPriority;
 		}
 
 		bool StrongRefByDefault(RefCounted refCounted)
