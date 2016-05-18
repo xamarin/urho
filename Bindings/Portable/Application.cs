@@ -95,17 +95,7 @@ namespace Urho {
 		/// Frame update event
 		/// </summary>
 		public event Action<UpdateEventArgs> Update;
-
-		/// <summary>
-		/// Waits given _game_ time.
-		/// </summary>
-		public static Task Delay(float durationSec)
-		{
-			var tcs = new TaskCompletionSource<bool>();
-			var state = Current.ActionManager.AddAction(new Sequence(new DelayTime(durationSec), new CallFunc(() => tcs.TrySetResult(true))), null);
-			return tcs.Task;
-		}
-
+		
 		/// <summary>
 		/// Invoke actions in the Main Thread (the next Update call)
 		/// </summary>
