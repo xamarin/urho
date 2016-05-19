@@ -10,15 +10,6 @@ namespace Urho.UWP
 {
 	public class UrhoSurface : SwapChainPanel
 	{
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void SDL_SetMainReady();
-
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern int SDL_SendWindowEvent(IntPtr window, Byte windowevent, int data1, int data2);
-
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern IntPtr Graphics_GetSdlWindow(IntPtr graphics);
-
 		bool paused;
 		bool stop;
 		bool inited;
@@ -35,7 +26,7 @@ namespace Urho.UWP
 			stop = false;
 			paused = false;
 			inited = false;
-			SDL_SetMainReady();
+			Sdl.SetMainReady();
 			ApplicationOptions options = new ApplicationOptions(assetsFolder: null);
 			if (!string.IsNullOrEmpty(customAssetsPak))
 			{
@@ -48,8 +39,7 @@ namespace Urho.UWP
 			CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
 			var app = (Application)Activator.CreateInstance(appType, options);
 			app.Run();
-			var sdlWnd = Graphics_GetSdlWindow(app.Graphics.Handle);
-			SDL_SendWindowEvent(sdlWnd, 5, (int)this.ActualWidth, (int)this.ActualHeight);
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESIZED, (int)this.ActualWidth, (int)this.ActualHeight);
 			inited = true;
 			ThreadPool.RunAsync(_ =>
 				{

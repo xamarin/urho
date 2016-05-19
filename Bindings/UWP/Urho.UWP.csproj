@@ -489,6 +489,8 @@
     <Compile Include="..\Portable\Runtime\UrhoEventAdapter.cs" />
     <Compile Include="..\Portable\Runtime\Vectors.cs" />
     <Compile Include="..\Portable\Scene.cs" />
+		<Compile Include="..\Portable\Graphics.cs" />
+		<Compile Include="..\Portable\Sdl.cs" />
     <Compile Include="..\Portable\Shapes\Box.cs" />
     <Compile Include="..\Portable\Shapes\Cone.cs" />
     <Compile Include="..\Portable\Shapes\Cylinder.cs" />

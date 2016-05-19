@@ -11,6 +11,10 @@ namespace Urho
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern int SDL_SendAppEvent(byte eventType);
 
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void SDL_SetMainReady();
+
+		public static void SetMainReady() => SDL_SetMainReady();
 
 		public static void SendWindowEvent(SdlWindowEvent wndEvent, int data1 = 0, int data2 = 0)
 		{
