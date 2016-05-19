@@ -381,6 +381,7 @@
     <Compile Include="Portable\Generated\XmlElement.cs" />
     <Compile Include="Portable\Generated\XmlFile.cs" />
     <Compile Include="Portable\Generated\Zone.cs" />
+    <Compile Include="Portable\Graphics.cs" />
     <Compile Include="Portable\IndexBuffer.cs" />
     <Compile Include="Portable\Input.cs" />
     <Compile Include="Portable\ListBasedUpdateSynchronizationContext.cs" />
@@ -410,6 +411,7 @@
     <Compile Include="Portable\Runtime\UrhoEventAdapter.cs" />
     <Compile Include="Portable\Runtime\Vectors.cs" />
     <Compile Include="Portable\Scene.cs" />
+    <Compile Include="Portable\SDL.cs" />
     <Compile Include="Portable\Shapes\Box.cs" />
     <Compile Include="Portable\Shapes\Cone.cs" />
     <Compile Include="Portable\Shapes\Cylinder.cs" />

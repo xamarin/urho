@@ -16,17 +16,17 @@ namespace Urho.Forms
 		}
 
 #if IOS
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void SDL_SendAppEvent(Urho.iOS.SdlEvent sdlEvent);
-
 		public static void OnPause()
 		{
-			SDL_SendAppEvent(Urho.iOS.SdlEvent.SDL_APP_DIDENTERBACKGROUND);
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_LOST);
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_MINIMIZED);
 		}
 
 		public static void OnResume()
 		{
-			SDL_SendAppEvent(Urho.iOS.SdlEvent.SDL_APP_DIDENTERFOREGROUND);
+		{
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED);
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESTORED);
 		}
 #elif ANDROID
 		public static void OnPause()

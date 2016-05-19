@@ -28,6 +28,18 @@ namespace Urho.iOS
 			BackgroundColor = UIColor.Black;
 			initTaskSource = new TaskCompletionSource<bool>();
 		}
+
+		public void Pause()
+		{
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_LOST);
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_MINIMIZED);
+		}
+
+		public void Resume()
+		{
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED);
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESTORED);
+		}
 		
 		public override void MovedToWindow()
 		{
