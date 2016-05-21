@@ -58,7 +58,6 @@
     <ObjcBindingApiDefinition Include="iOS\ApiDefinition.cs" />
     <Compile Include="Forms\IosSurfaceRenderer.cs" />
     <Compile Include="Forms\UrhoSurface.cs" />
-    <Compile Include="iOS\SdlEvent.cs" />
     <Compile Include="Portable\Actions\ActionManager.cs" />
     <Compile Include="Portable\Actions\Base\Action.cs" />
     <Compile Include="Portable\Actions\Base\AmplitudeAction.cs" />

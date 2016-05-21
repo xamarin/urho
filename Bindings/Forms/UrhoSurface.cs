@@ -24,7 +24,6 @@ namespace Urho.Forms
 
 		public static void OnResume()
 		{
-		{
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED);
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESTORED);
 		}
