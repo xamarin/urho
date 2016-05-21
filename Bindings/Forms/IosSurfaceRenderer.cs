@@ -31,9 +31,6 @@ namespace Urho.Forms
 		static Urho.iOS.UrhoSurface surface;
 		static Urho.Application app;
 
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		public static extern void SDL_SendAppEvent(Urho.iOS.SdlEvent sdlEvent);
-
 		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
 		{
 			await launcherSemaphore.WaitAsync();
