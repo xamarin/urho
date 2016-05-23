@@ -148,6 +148,7 @@
     <Compile Include="Portable\Generated\AnimatedModel.cs" />
     <Compile Include="Portable\Generated\AnimatedSprite2D.cs" />
     <Compile Include="Portable\Generated\Animation.cs" />
+    <Compile Include="Portable\Generated\AnimationBlendMode.cs" />
     <Compile Include="Portable\Generated\AnimationController.cs" />
     <Compile Include="Portable\Generated\AnimationSet2D.cs" />
     <Compile Include="Portable\Generated\AnimationState.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Portable\Generated\JsonNumberType.cs" />
     <Compile Include="Portable\Generated\JsonValueType.cs" />
     <Compile Include="Portable\Generated\LayoutMode.cs" />
+    <Compile Include="Portable\Generated\LegacyVertexElement.cs" />
     <Compile Include="Portable\Generated\Light.cs" />
     <Compile Include="Portable\Generated\LightPSVariation.cs" />
     <Compile Include="Portable\Generated\LightType.cs" />
@@ -270,6 +272,7 @@
     <Compile Include="Portable\Generated\NavArea.cs" />
     <Compile Include="Portable\Generated\Navigable.cs" />
     <Compile Include="Portable\Generated\NavigationMesh.cs" />
+    <Compile Include="Portable\Generated\NavigationPathPointFlag.cs" />
     <Compile Include="Portable\Generated\NavigationPushiness.cs" />
     <Compile Include="Portable\Generated\NavigationQuality.cs" />
     <Compile Include="Portable\Generated\NavmeshPartitionType.cs" />
@@ -388,6 +391,8 @@
     <Compile Include="Portable\Generated\VariantType.cs" />
     <Compile Include="Portable\Generated\VertexBuffer.cs" />
     <Compile Include="Portable\Generated\VertexElement.cs" />
+    <Compile Include="Portable\Generated\VertexElementSemantic.cs" />
+    <Compile Include="Portable\Generated\VertexElementType.cs" />
     <Compile Include="Portable\Generated\VertexLightVSVariation.cs" />
     <Compile Include="Portable\Generated\VerticalAlignment.cs" />
     <Compile Include="Portable\Generated\View.cs" />
