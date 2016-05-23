@@ -158,8 +158,10 @@ namespace Urho {
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
 			LogSharp.Debug("ProxyStop: Releasing context");
+#if !IOS && !DESKTOP
 			if (context.Refs() > 0)
 				context.ReleaseRef();
+#endif
 			LogSharp.Debug("ProxyStop: Disposing context");
 			context.Dispose();
 			Current = null;
