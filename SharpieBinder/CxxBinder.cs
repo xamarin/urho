@@ -1302,6 +1302,10 @@ namespace SharpieBinder
 			else
 				validateInvocation = new InvocationExpression(new MemberReferenceExpression(new IdentifierExpression("Runtime"), "ValidateObject"), new ThisReferenceExpression());
 
+			// some cases which should not be validated:
+			if (remapedName == "Context" || remapedName == "Run" || remapedName == "GetContext" || currentType.Name == "RefCounted")
+				validateInvocation = null;
+
 			if (isConstructor) {
 				constructor = new ConstructorDeclaration
 				{
@@ -1312,7 +1316,7 @@ namespace SharpieBinder
 						(decl.Name == "ToString" ? Modifiers.Override : 0)
 				};
 				constructor.Body = new BlockStatement();
-				if (remapedName != "Context" && remapedName != "Run" && remapedName != "GetContext")
+				if (validateInvocation != null)
 					constructor.Body.Add(validateInvocation);
 			} else {
 				method = new MethodDeclaration
@@ -1323,7 +1327,8 @@ namespace SharpieBinder
 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
 				};
 				method.Body = new BlockStatement();
-				method.Body.Add(validateInvocation);
+				if (validateInvocation != null)
+					method.Body.Add(validateInvocation);
 			}
 
 			// 
