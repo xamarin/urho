@@ -233,9 +233,10 @@ void check_bindings_offsets()
 	static_assert(offsetof(Billboard, sortDistance_) == 72, "Billboard.SortDistance has wrong offset (72)");
 
 	// BiasParameters:
-	static_assert(sizeof(BiasParameters) == 8, "BiasParameters has wrong size (8)");
+	static_assert(sizeof(BiasParameters) == 12, "BiasParameters has wrong size (12)");
 	static_assert(offsetof(BiasParameters, constantBias_) == 0, "BiasParameters.ConstantBias has wrong offset (0)");
 	static_assert(offsetof(BiasParameters, slopeScaledBias_) == 4, "BiasParameters.SlopeScaleBias has wrong offset (4)");
+	static_assert(offsetof(BiasParameters, normalOffset_) == 8, "BiasParameters.NormalOffset has wrong offset (8)");
 
 	// FocusParameters:
 	static_assert(sizeof(FocusParameters) == 12, "FocusParameters has wrong size (12)");

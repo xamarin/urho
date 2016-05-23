@@ -487,7 +487,7 @@ namespace Urho {
 		public UrhoString TextureName6;
 		public UrhoString TextureName7;
 
-#if DESKTOP || UWP
+#if !IOS && !ANDROID
 		public UrhoString TextureName8;
 		public UrhoString TextureName9;
 		public UrhoString TextureName10;
@@ -633,11 +633,13 @@ namespace Urho {
 	public struct BiasParameters {
 		public float ConstantBias;
 		public float SlopeScaleBias;
+		public float NormalOffset;
 
-		public BiasParameters (float constantBias, float slopeScaleBias)
+		public BiasParameters (float constantBias, float slopeScaleBias, float normalOffset = 0.0f)
 		{
 			ConstantBias = constantBias;
 			SlopeScaleBias = slopeScaleBias;
+			NormalOffset = normalOffset;
 		}
 	}
 
