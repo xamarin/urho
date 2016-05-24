@@ -979,7 +979,7 @@ namespace SharpieBinder
 			{ "Graphics",			new[] { "CleanupRenderSurface","CleanupShaderPrograms","GetAnisotropySupport","GetDepthTexture","GetForceGL2","GetGL3Support","GetGL3Support","GetOrCreateConstantBuffer","GetShaderProgram","MarkFBODirty","MarkFBODirty","Release","Restore","SetForceGL2","SetTextureForUpdate","SetUBO","SetVBO" } },
 			{ "IndexBuffer",		new[] { "OnDeviceReset" } },
 			{ "RenderSurface",		new[] { "CreateRenderBuffer","GetRenderBuffer","GetTarget","OnDeviceLost","SetTarget" } },
-			{ "ShaderProgram",		new[] { "ClearGlobalParameterSource","ClearGlobalParameterSource","ClearParameterSource","ClearParameterSources","ClearParameterSources","GetLinkerOutput","GetParameter","GetPixelShader","GetVertexShader","HasParameter","HasTextureUnit","Link","NeedParameterUpdate","OnDeviceLost","Release" } },
+			{ "ShaderProgram",		new[] { "GetUsedVertexAttributes", "ClearGlobalParameterSource","ClearGlobalParameterSource","ClearParameterSource","ClearParameterSources","ClearParameterSources","GetLinkerOutput","GetParameter","GetPixelShader","GetVertexShader","HasParameter","HasTextureUnit","Link","NeedParameterUpdate","OnDeviceLost","Release" } },
 			{ "ShaderVariation",	new[] { "OnDeviceLost" } },
 			{ "Texture",			new[] { "GetDataType","GetDataType","GetExternalFormat","GetExternalFormat","GetTarget" } },
 			{ "Texture2D",			new[] { "OnDeviceLost","OnDeviceReset" } },
