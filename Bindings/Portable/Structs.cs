@@ -514,6 +514,29 @@ namespace Urho {
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
+	public struct VertexElement
+	{
+		public VertexElementType Type;
+		/// <summary>
+		/// Semantic of element.
+		/// </summary>
+		VertexElementSemantic Semantic;
+		/// <summary>
+		/// Semantic index of element, for example multi-texcoords.
+		/// </summary>
+		public byte Index;
+		/// <summary>
+		/// Per-instance flag.
+		/// </summary>
+		public bool PerInstance;
+		/// <summary>
+		/// Offset of element from vertex start. Filled by VertexBuffer once the vertex declaration is built.
+		/// </summary>
+		public uint Offset;
+	}
+
+
+	[StructLayout(LayoutKind.Sequential)]
 	public struct HashBase {
 		public IntPtr Head;
 		public IntPtr Tail;
