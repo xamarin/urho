@@ -78,25 +78,12 @@ void check_bindings_offsets()
 	static_assert(offsetof(BoundingBox, dummyMax_) == 28, "BoundingBox.DummyMax has wrong offset (28)");
 
 	// AnimationTriggerPoint:
-	static_assert(sizeof(AnimationTriggerPoint) == 36, "AnimationTriggerPoint has wrong size (36)");
+	static_assert(sizeof(AnimationTriggerPoint) == 24, "AnimationTriggerPoint has wrong size (24)");
 	static_assert(offsetof(AnimationTriggerPoint, time_) == 0, "AnimationTriggerPoint.Time has wrong offset (0)");
 	static_assert(offsetof(AnimationTriggerPoint, data_) == 4, "AnimationTriggerPoint.Variant has wrong offset (4)");
 
 	// VariantValue:
-	static_assert(sizeof(VariantValue) == 28, "VariantValue has wrong size (28)");
-	static_assert(offsetof(VariantValue, int_) == 0, "VariantValue.Int has wrong offset (0)");
-	static_assert(offsetof(VariantValue, bool_) == 0, "VariantValue.Bool has wrong offset (0)");
-	static_assert(offsetof(VariantValue, float_) == 0, "VariantValue.Float has wrong offset (0)");
-	static_assert(offsetof(VariantValue, ptr_) == 0, "VariantValue.Ptr has wrong offset (0)");
-	static_assert(offsetof(VariantValue, int2_) == 8, "VariantValue.Int2 has wrong offset (8)");
-	static_assert(offsetof(VariantValue, float2_) == 8, "VariantValue.Float2 has wrong offset (8)");
-	static_assert(offsetof(VariantValue, ptr2_) == 8, "VariantValue.Ptr2 has wrong offset (8)");
-	static_assert(offsetof(VariantValue, int3_) == 16, "VariantValue.Int3 has wrong offset (16)");
-	static_assert(offsetof(VariantValue, float3_) == 16, "VariantValue.Float3 has wrong offset (16)");
-	static_assert(offsetof(VariantValue, ptr3_) == 16, "VariantValue.Ptr3 has wrong offset (16)");
-	static_assert(offsetof(VariantValue, int4_) == 24, "VariantValue.Int4 has wrong offset (24)");
-	static_assert(offsetof(VariantValue, float4_) == 24, "VariantValue.Float4 has wrong offset (24)");
-	static_assert(offsetof(VariantValue, ptr4_) == 24, "VariantValue.Ptr4 has wrong offset (24)");
+	static_assert(sizeof(VariantValue) == 16, "VariantValue has wrong size (16)");
 
 	// Matrix3x4:
 	static_assert(sizeof(Matrix3x4) == 48, "Matrix3x4 has wrong size (48)");
@@ -196,6 +183,14 @@ void check_bindings_offsets()
 	static_assert(offsetof(RenderPathCommand, markToStencil_) == 362, "RenderPathCommand.MarkToStencil has wrong offset (362)");
 	static_assert(offsetof(RenderPathCommand, useLitBase_) == 363, "RenderPathCommand.UseLitBase has wrong offset (363)");
 	static_assert(offsetof(RenderPathCommand, vertexLights_) == 364, "RenderPathCommand.VertexLights has wrong offset (364)");
+
+	// VertexElement:
+	static_assert(sizeof(VertexElement) == 16, "VertexElement has wrong size (16)");
+	static_assert(offsetof(VertexElement, type_) == 0, "VertexElement.Type has wrong offset (0)");
+	static_assert(offsetof(VertexElement, semantic_) == 4, "VertexElement.Semantic has wrong offset (4)");
+	static_assert(offsetof(VertexElement, index_) == 8, "VertexElement.Index has wrong offset (8)");
+	static_assert(offsetof(VertexElement, perInstance_) == 9, "VertexElement.PerInstance has wrong offset (9)");
+	static_assert(offsetof(VertexElement, offset_) == 12, "VertexElement.Offset has wrong offset (12)");
 
 	// FontGlyph:
 	static_assert(sizeof(FontGlyph) == 24, "FontGlyph has wrong size (24)");

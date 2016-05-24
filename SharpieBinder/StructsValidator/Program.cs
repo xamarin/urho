@@ -68,6 +68,7 @@ namespace StructsValidator
 			if (fieldName.EndsWith("Ptr")) fieldName = fieldName.Remove(fieldName.Length - 3);
 			if (fieldName.EndsWith("Id")) fieldName = fieldName.Remove(fieldName.Length - 2) + "ID";
 
+			if (typeName == "VariantValue") return null; //it's complicated, let's just verify it's sizeof
 			if (typeName == "BiasParameters" && fieldName == "slopeScaleBias") return "slopeScaledBias_";
 			if (typeName == "AnimationTriggerPoint" && fieldName == "variant") return "data_";
 			if (typeName == "CompressedLevel" && fieldName == "imageData") return "data_";
@@ -82,6 +83,7 @@ namespace StructsValidator
 		static string ResolveUrhoType(string name)
 		{
 			string[] ignoredTypes = {
+				"VariantValueLine",
 				"BezierConfig",
 				"CollisionData",
 				"StringHashRef",

@@ -229,24 +229,22 @@ namespace Urho {
 		public Variant Variant;
 	}
 
+	[StructLayout(LayoutKind.Sequential)]
+	public struct VariantValue
+	{
+		public VariantValueLine VariantValueLine1;
+		public VariantValueLine VariantValueLine2;
+		public VariantValueLine VariantValueLine3;
+		public VariantValueLine VariantValueLine4;
+	}
+
 	[StructLayout(LayoutKind.Explicit)]
-	public struct VariantValue {
+	public struct VariantValueLine
+	{
 		[FieldOffset(0)] public int Int;
 		[FieldOffset(0)] public byte Bool;
 		[FieldOffset(0)] public float Float;
 		[FieldOffset(0)] public IntPtr Ptr;
-
-		[FieldOffset(8)] public int Int2;
-		[FieldOffset(8)] public float Float2;
-		[FieldOffset(8)] public IntPtr Ptr2;
-
-		[FieldOffset(16)] public int Int3;
-		[FieldOffset(16)] public float Float3;
-		[FieldOffset(16)] public IntPtr Ptr3;
-
-		[FieldOffset(24)] public int Int4;
-		[FieldOffset(24)] public float Float4;
-		[FieldOffset(24)] public IntPtr Ptr4;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -528,7 +526,7 @@ namespace Urho {
 		/// <summary>
 		/// Per-instance flag.
 		/// </summary>
-		public bool PerInstance;
+		public byte PerInstance;
 		/// <summary>
 		/// Offset of element from vertex start. Filled by VertexBuffer once the vertex declaration is built.
 		/// </summary>
