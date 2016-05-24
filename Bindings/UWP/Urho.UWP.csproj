@@ -448,7 +448,6 @@
     <Compile Include="..\Portable\Generated\ValueAnimationInfo.cs" />
     <Compile Include="..\Portable\Generated\VariantType.cs" />
     <Compile Include="..\Portable\Generated\VertexBuffer.cs" />
-    <Compile Include="..\Portable\Generated\VertexElement.cs" />
     <Compile Include="..\Portable\Generated\VertexLightVSVariation.cs" />
     <Compile Include="..\Portable\Generated\VerticalAlignment.cs" />
     <Compile Include="..\Portable\Generated\View.cs" />
