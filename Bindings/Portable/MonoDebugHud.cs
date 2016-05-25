@@ -45,17 +45,13 @@ namespace Urho
 			if (text != null)
 				return;
 
-			var ui = application.UI;
-			var root = ui.Root;
-			var cache = application.ResourceCache;
-
 			text = new Text();
 			text.VerticalAlignment = VerticalAlignment.Top;
 			text.HorizontalAlignment = HorizontalAlignment.Right;
 			text.TextAlignment = HorizontalAlignment.Right;
-			text.SetFont(cache.GetFont("Fonts/Anonymous Pro.ttf"), 18);
+			text.SetFont(CoreAssets.Fonts.AnonymousPro, 18);
 
-			root.AddChild(text);
+			application.UI.Root.AddChild(text);
 			subscription = application.Engine.SubscribeToPostUpdate(OnPostUpdate);
 		}
 
