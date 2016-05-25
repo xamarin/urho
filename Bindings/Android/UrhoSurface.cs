@@ -114,13 +114,12 @@ namespace Urho.Droid
 
 		static void SetSdlMain(Func<Application> applicationFactory, bool finishActivityOnExit)
 		{
-			RegisterSdlLauncher(_ => 0);//TODO: remove
-			SDLMain.SetUrhoRunnable(new Runnable(() =>
-			{
-				var app = applicationFactory();
-				var code = app.Run();
-				Log.Warn("URHOSHARP", "App exited: " + code);
-			}), finishActivityOnExit);
+			RegisterSdlLauncher(_ => {
+					var app = applicationFactory();
+					var code = app.Run();
+					Log.Warn("URHOSHARP", "App exited: " + code);
+					return code;
+				});
 		}
 	}
 }
