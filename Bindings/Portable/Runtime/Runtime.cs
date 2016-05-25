@@ -20,9 +20,6 @@ namespace Urho
 	{
 		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<Type, int> hashDict;
-		static bool isClosing;
-		static MonoRefCountedCallback monoRefCountedCallback; //keep references to native callbacks (protect from GC)
-		static MonoComponentCallback monoComponentCallback;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		delegate void MonoRefCountedCallback(IntPtr ptr, RefCountedEvent rcEvent);
@@ -36,15 +33,20 @@ namespace Urho
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RegisterMonoComponentCallback(MonoComponentCallback callback);
 
+		static MonoRefCountedCallback monoRefCountedCallback; //keep references to native callbacks (protect from GC)
+		static MonoComponentCallback monoComponentCallback;
+
+		internal static bool IsClosing { get; private set; }
+
 		internal static void Start()
 		{
+			IsClosing = false;
 			RegisterMonoRefCountedCallback(monoRefCountedCallback = OnRefCountedEvent);
 			RegisterMonoComponentCallback(monoComponentCallback = OnComponentEvent);
 		}
 
 		internal static void Setup()
 		{
-			isClosing = false;
 		}
 
 		/// <summary>
@@ -200,7 +202,7 @@ namespace Urho
 		// for RefCounted, UrhoObjects
 		internal static void ValidateRefCounted<T>(T obj, [CallerMemberName] string name = "") where T : RefCounted
 		{
-			if (isClosing)
+			if (IsClosing)
 			{
 				var errorText = $"{typeof(T).Name}.{name} (Handle={obj.Handle}) was invoked after Application.Stop";
 				LogSharp.Error(errorText);
@@ -221,7 +223,7 @@ namespace Urho
 		// non-RefCounted classes
 		internal static void ValidateObject<T>(T obj, [CallerMemberName] string name = "") where T : class
 		{
-			if (isClosing)
+			if (IsClosing)
 			{
 				var errorText = $"{typeof(T).Name}.{name} was invoked after Application.Stop";
 				LogSharp.Error(errorText);
@@ -232,7 +234,7 @@ namespace Urho
 		// constructors, static methods, value types
 		internal static void Validate(Type type, [CallerMemberName] string name = "")
 		{
-			if (isClosing)
+			if (IsClosing)
 			{
 				var errorText = $"{type.Name}.{name} was invoked after Application.Stop";
 				LogSharp.Error(errorText);
@@ -252,7 +254,7 @@ namespace Urho
 
 		internal static void Cleanup()
 		{
-			isClosing = true;
+			IsClosing = true;
 			RefCountedCache.Clean();
 			GC.Collect();
 			GC.WaitForPendingFinalizers();

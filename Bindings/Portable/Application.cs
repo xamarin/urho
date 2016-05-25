@@ -158,7 +158,7 @@ namespace Urho {
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
 			LogSharp.Debug("ProxyStop: Releasing context");
-#if !IOS && !DESKTOP
+#if !IOS && !DESKTOP && !WINDOWS_UWP
 			if (context.Refs() > 0)
 				context.ReleaseRef();
 #endif
@@ -182,11 +182,18 @@ namespace Urho {
 
 		public static void StopCurrent()
 		{
+			if (current == null)
+				return;
+#if WINDOWS_UWP
+			UWP.UrhoSurface.StopRendering().Wait();
+#endif
 			Current.Engine.Exit ();
-#if IOS
+#if IOS || WINDOWS_UWP
 			ProxyStop(Current.Handle);
 #endif
 		}
+
+		public bool IsExiting => Runtime.IsClosing || Engine.Exiting;
 
 		protected override bool AllowNativeDelete => false;
 
@@ -371,7 +378,6 @@ namespace Urho {
 		public Engine Engine {
 			get
 			{
-				Runtime.Validate(typeof(Application));
 				if (engine == null)
 					engine = new Engine (Application_GetEngine (handle));
 				return engine;

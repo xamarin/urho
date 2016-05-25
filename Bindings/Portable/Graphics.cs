@@ -5,7 +5,7 @@ namespace Urho
 {
 	public partial class Graphics
 	{
-		[DllImport("@rpath/Urho.framework/Urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern IntPtr Graphics_GetSdlWindow(IntPtr graphics);
 
 		/// <summary>

@@ -483,6 +483,7 @@
     <Compile Include="..\Portable\PodVector.cs" />
     <Compile Include="..\Portable\RefCounted.cs" />
     <Compile Include="..\Portable\Repl.cs" />
+    <Compile Include="..\Portable\LogSharp.cs" />
     <Compile Include="..\Portable\ResourceCache.cs" />
     <Compile Include="..\Portable\Runtime\IComponentSerializer.cs" />
     <Compile Include="..\Portable\Runtime\MonoPInvokeCallbackAttribute.cs" />
