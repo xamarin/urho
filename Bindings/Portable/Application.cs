@@ -158,7 +158,7 @@ namespace Urho {
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
 			LogSharp.Debug("ProxyStop: Releasing context");
-#if !IOS && !DESKTOP && !WINDOWS_UWP
+#if ANDROID
 			if (context.Refs() > 0)
 				context.ReleaseRef();
 #endif
@@ -194,6 +194,8 @@ namespace Urho {
 		}
 
 		public bool IsExiting => Runtime.IsClosing || Engine.Exiting;
+
+		public void Exit() => StopCurrent();
 
 		protected override bool AllowNativeDelete => false;
 

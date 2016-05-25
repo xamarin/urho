@@ -1306,6 +1306,7 @@ namespace SharpieBinder
 			if (remapedName == "Context" || remapedName == "Run" || remapedName == "GetContext" || currentType.Name == "RefCounted")
 				validateInvocation = null;
 
+
 			if (isConstructor) {
 				constructor = new ConstructorDeclaration
 				{
@@ -1324,7 +1325,7 @@ namespace SharpieBinder
 					Name = remapedName,
 					ReturnType = methodReturn,
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
-						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)
+						(propertyInfo != null ? Modifiers.Private : GetMethodModifier(currentType.Name, remapedName))
 				};
 				method.Body = new BlockStatement();
 				if (validateInvocation != null)
@@ -1601,7 +1602,6 @@ namespace SharpieBinder
 						{"int", "int"},
 						{"float", "float"},
 						{"const char *", "string"},
-						//TODO: Matrix, StringHash?
 					};
 				var primitiveTypes = new[] { "int", "float", "string" };
 
@@ -1691,6 +1691,12 @@ namespace SharpieBinder
 				}
 			}
 
+		}
+
+		Modifiers GetMethodModifier(string type, string method)
+		{
+			if (type == "Engine" && method == "Exit") return Modifiers.Internal;
+			return Modifiers.Public;
 		}
 
 		/// <summary>
