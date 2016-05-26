@@ -20,7 +20,7 @@ namespace $safeprojectname$
             CreateScene();
 
             // Subscribe to Esc key:
-            Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Engine.Exit(); });
+            Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Exit(); });
         }
 
         async void CreateScene()
