@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 	<Metadata>
-		<Identity Id="UrhoSharpVsix.Egor Bogatov.f9b38b29-4e1e-434f-984e-9daf9e199273" Version="1.500" Language="en-US" Publisher="Egor Bogatov" />
+		<Identity Id="UrhoSharpVsix.Egor Bogatov.f9b38b29-4e1e-434f-984e-9daf9e199273" Version="1.557" Language="en-US" Publisher="Egor Bogatov" />
 		<DisplayName>UrhoSharp Templates</DisplayName>
 		<Description xml:space="preserve">UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. This will install a collection of UrhoSharp Project Templates that allows for the creation of a simple UrhoSharp minimal skeleton game solution</Description>
 		<MoreInfo>http://developer.xamarin.com/guides/cross-platform/urho/introduction/</MoreInfo>
