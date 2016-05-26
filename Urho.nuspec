@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp</id>
-       <version>1.0</version>
+       <version>1.1</version>
        <title>UrhoSharp</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
@@ -11,48 +11,19 @@
        <iconUrl>http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
-       <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started:
+       <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
+	   <releaseNotes>## Features
 
-https://github.com/xamarin/urho-samples
+[Core] Update Urho3D (~ it was 450 commits behind) - a lot of nice bugfixes
+[Core] All Urho methods will throw an exception (instead of native crash) if called after App.Stop 
+[Forms.Core] Update UrhoSharp XForms dependency from 2.1 to the latest 2.2
+[iOS] Pause/Resume methods for iOS
 
-Among the features of the Urho3D you will find:
-
-
-•	Direct3D9, Direct3D11, OpenGL 2.0 or 3.2 or OpenGL ES 2.0 rendering
-•	HLSL or GLSL shaders + caching of HLSL bytecode
-•	Configurable rendering pipeline. Default implementations for forward, light pre-pass and deferred rendering
-•	Component based scene model
-•	Skeletal (with hardware skinning), vertex morph and node animation
-•	Automatic instancing on SM3 capable hardware
-•	Point, spot and directional lights
-•	Shadow mapping for all light types; cascaded shadow maps for directional lights
-•	Particle rendering
-•	Geomipmapped terrain
-•	Static and skinned decals
-•	Auxiliary view rendering (reflections etc.)
-•	Geometry, material &amp; animation LOD
-•	Software rasterized occlusion culling
-•	Post-processing
-•	HDR renderingv1.31
-•	2D sprites and particles that integrate into the 3D scenev1.31
-•	Task-based multithreading
-•	Hierarchical performance profiler
-•	Scene and object load/save in binary and XML format
-•	Keyframe animation of object attributes
-•	Background loading of resources
-•	Keyboard, mouse, joystick and touch input (if available)
-•	Physics using Bullet
-•	2D physics using Box2D
-•	Networking using kNet + possibility to make HTTP requests
-•	Pathfinding and crowd simulation using Recast/Detour
-•	Image loading using stb_image + DDS / KTX / PVR compressed texture support
-•	2D and “3D” audio playback, Ogg Vorbis support using stb_vorbis + WAV format support
-•	TrueType font rendering using FreeType, AngelCode bitmap fonts are also supported
-•	Unicode string support
-•	Inbuilt UI system
-•	Scene editor and UI-layout editor implemented in script with undo &amp; redo capabilities
-•	Model/scene/animation/material import from formats supported by Open Asset Import Library
-•	Alternative model/animation import from OGRE mesh.xml and skeleton.xml files</description>
+## Bugfixes
+[Core] Octree.RayCast is not surfaced
+[Android] Fixes for Android crahses (thanks to Storyo for help)
+[iOS][Android] RenderPathCommand doesn't work in iOS and Android
+[iOS][Android] Variant type doesn't work in non 64bit environment</releaseNotes>
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
@@ -101,10 +72,10 @@ Among the features of the Urho3D you will find:
      <file src="Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
 	 
 	 <!--UWP-->
-     <!--<file src="Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
+     <!--file src="Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
      <file src="docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
      <file src="Bin/UWP/Urho.dll" target="lib/uap10.0/Urho.dll" />
-     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" />-->
+     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" /-->
    
    </files>
 </package>

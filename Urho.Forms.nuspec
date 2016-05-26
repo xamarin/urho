@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp.Forms</id>
-       <version>1.0</version>
+       <version>1.1</version>
        <title>UrhoSharp for Xamarin.Forms</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
@@ -12,6 +12,18 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
+	   <releaseNotes>## Features
+
+[Core] Update Urho3D (~ it was 450 commits behind) - a lot of nice bugfixes
+[Core] All Urho methods will throw an exception (instead of native crash) if called after App.Stop 
+[Forms.Core] Update UrhoSharp XForms dependency from 2.1 to the latest 2.2
+[iOS] Pause/Resume methods for iOS
+
+## Bugfixes
+[Core] Octree.RayCast is not surfaced
+[Android] Fixes for Android crahses (thanks to Storyo for help)
+[iOS][Android] RenderPathCommand doesn't work in iOS and Android
+[iOS][Android] Variant type doesn't work in non 64bit environment</releaseNotes>
        <tags>Urho Forms Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    
     <dependencies>
@@ -35,7 +47,7 @@
 
      <!--PCL-->
      <file src="Bin/Common/Urho.Forms.dll" target="lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Urho.Forms.dll" />
-     <file src="docs/Urho.XML" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.Forms.XML" />
+     <file src="docs/Urho.XML" target="lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Urho.Forms.XML" />
    
      <!--Android-->
      <file src="Nuget/Android/UrhoSharp.Forms.targets" target="build/MonoAndroid" />

@@ -36,8 +36,7 @@ namespace Urho.Forms
 			await launcherSemaphore.WaitAsync();
 			if (app != null)
 			{
-				app.Engine.Exit();
-				Urho.Application.StopCurrent ();
+				app.Exit();
 			}
 
 			applicationTaskSource = new TaskCompletionSource<Application>();

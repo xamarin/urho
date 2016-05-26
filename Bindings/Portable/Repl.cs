@@ -119,7 +119,7 @@ namespace Urho.Repl
 			SetBackgroundColor(Color.White);
 
 			// Subscribe to Esc key:
-			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Engine.Exit(); });
+			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Exit(); });
 		}
 
 		protected override void OnUpdate(float timeStep)
