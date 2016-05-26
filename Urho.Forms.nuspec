@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp.Forms</id>
-       <version>1.1</version>
+       <version>1.0.557</version>
        <title>UrhoSharp for Xamarin.Forms</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
@@ -27,7 +27,7 @@
        <tags>Urho Forms Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    
     <dependencies>
-      <dependency id="Xamarin.Forms" />
+      <dependency id="Xamarin.Forms" version="2.2.0.31" />
     </dependencies>
    
    </metadata>
