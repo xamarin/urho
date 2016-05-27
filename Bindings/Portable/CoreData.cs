@@ -1,11 +1,17 @@
-﻿using Urho.Gui;
+using Urho.Gui;
 using Urho.Resources;
+using Urho.Urho2D;
 
 namespace Urho
 {
 	public static class CoreAssets
 	{
 		public static ResourceCache Cache => Application.Current.ResourceCache;
+
+		public static class Materials
+		{
+			public static Material DefaultGrey => Cache.GetMaterial("Materials/DefaultGrey.xml");
+		}
 
 		public static class Models
 		{
@@ -16,11 +22,6 @@ namespace Urho
 			public static Model Pyramid => Cache.GetModel("Models/Pyramid.mdl");
 			public static Model Sphere => Cache.GetModel("Models/Sphere.mdl");
 			public static Model Torus => Cache.GetModel("Models/Torus.mdl");
-		}
-
-		public static class Materials
-		{
-			public static Material DefaultGrey => Cache.GetMaterial("Materials/DefaultGrey.xml");
 		}
 
 		public static class Fonts
@@ -35,50 +36,11 @@ namespace Urho
 			public static XmlFile Forward => Cache.GetXmlFile("RenderPaths/Forward.xml");
 			public static XmlFile ForwardDepth => Cache.GetXmlFile("RenderPaths/ForwardDepth.xml");
 			public static XmlFile ForwardHWDepth => Cache.GetXmlFile("RenderPaths/ForwardHWDepth.xml");
+			public static XmlFile PBRDeferred => Cache.GetXmlFile("RenderPaths/PBRDeferred.xml");
+			public static XmlFile PBRDeferredHWDepth => Cache.GetXmlFile("RenderPaths/PBRDeferredHWDepth.xml");
 			public static XmlFile Prepass => Cache.GetXmlFile("RenderPaths/Prepass.xml");
 			public static XmlFile PrepassHDR => Cache.GetXmlFile("RenderPaths/PrepassHDR.xml");
 			public static XmlFile PrepassHWDepth => Cache.GetXmlFile("RenderPaths/PrepassHWDepth.xml");
-		}
-
-		public static class Shaders
-		{
-			public static Shader AutoExposure => Cache.GetShader("Shaders/AutoExposure.glsl");
-			public static Shader Basic => Cache.GetShader("Shaders/Basic.glsl");
-			public static Shader Bloom => Cache.GetShader("Shaders/Bloom.glsl");
-			public static Shader BloomHDR => Cache.GetShader("Shaders/BloomHDR.glsl");
-			public static Shader Blur => Cache.GetShader("Shaders/Blur.glsl");
-			public static Shader ColorCorrection => Cache.GetShader("Shaders/ColorCorrection.glsl");
-			public static Shader CopyFramebuffer => Cache.GetShader("Shaders/CopyFramebuffer.glsl");
-			public static Shader DeferredLight => Cache.GetShader("Shaders/DeferredLight.glsl");
-			public static Shader Depth => Cache.GetShader("Shaders/Depth.glsl");
-			public static Shader Fog => Cache.GetShader("Shaders/Fog.glsl");
-			public static Shader FXAA2 => Cache.GetShader("Shaders/FXAA2.glsl");
-			public static Shader FXAA3 => Cache.GetShader("Shaders/FXAA3.glsl");
-			public static Shader GammaCorrection => Cache.GetShader("Shaders/GammaCorrection.glsl");
-			public static Shader GreyScale => Cache.GetShader("Shaders/GreyScale.glsl");
-			public static Shader Lighting => Cache.GetShader("Shaders/Lighting.glsl");
-			public static Shader LitParticle => Cache.GetShader("Shaders/LitParticle.glsl");
-			public static Shader LitSolid => Cache.GetShader("Shaders/LitSolid.glsl");
-			public static Shader PostProcess => Cache.GetShader("Shaders/PostProcess.glsl");
-			public static Shader PrepassLight => Cache.GetShader("Shaders/PrepassLight.glsl");
-			public static Shader Samplers => Cache.GetShader("Shaders/Samplers.glsl");
-			public static Shader ScreenPos => Cache.GetShader("Shaders/ScreenPos.glsl");
-			public static Shader Shadow => Cache.GetShader("Shaders/Shadow.glsl");
-			public static Shader ShadowBlur => Cache.GetShader("Shaders/ShadowBlur.glsl");
-			public static Shader Skybox => Cache.GetShader("Shaders/Skybox.glsl");
-			public static Shader Skydome => Cache.GetShader("Shaders/Skydome.glsl");
-			public static Shader Stencil => Cache.GetShader("Shaders/Stencil.glsl");
-			public static Shader TerrainBlend => Cache.GetShader("Shaders/TerrainBlend.glsl");
-			public static Shader Text => Cache.GetShader("Shaders/Text.glsl");
-			public static Shader Tonemap => Cache.GetShader("Shaders/Tonemap.glsl");
-			public static Shader Transform => Cache.GetShader("Shaders/Transform.glsl");
-			public static Shader Uniforms => Cache.GetShader("Shaders/Uniforms.glsl");
-			public static Shader Unlit => Cache.GetShader("Shaders/Unlit.glsl");
-			public static Shader Urho2D => Cache.GetShader("Shaders/Urho2D.glsl");
-			public static Shader Vegetation => Cache.GetShader("Shaders/Vegetation.glsl");
-			public static Shader VegetationDepth => Cache.GetShader("Shaders/VegetationDepth.glsl");
-			public static Shader VegetationShadow => Cache.GetShader("Shaders/VegetationShadow.glsl");
-			public static Shader Water => Cache.GetShader("Shaders/Water.glsl");
 		}
 
 		public static class Techniques
@@ -188,6 +150,36 @@ namespace Urho
 			public static Technique VegetationDiffUnlit => Cache.GetTechnique("Techniques/VegetationDiffUnlit.xml");
 			public static Technique VegetationDiffUnlitAlphaMask => Cache.GetTechnique("Techniques/VegetationDiffUnlitAlphaMask.xml");
 			public static Technique Water => Cache.GetTechnique("Techniques/Water.xml");
+
+			public static class PBR
+			{
+				public static Technique DiffNormalSpecEmissive => Cache.GetTechnique("Techniques/PBR/DiffNormalSpecEmissive.xml");
+				public static Technique DiffNormalSpecEmissiveAlpha => Cache.GetTechnique("Techniques/PBR/DiffNormalSpecEmissiveAlpha.xml");
+				public static Technique PBRDiff => Cache.GetTechnique("Techniques/PBR/PBRDiff.xml");
+				public static Technique PBRDiffAlpha => Cache.GetTechnique("Techniques/PBR/PBRDiffAlpha.xml");
+				public static Technique PBRDiffNormal => Cache.GetTechnique("Techniques/PBR/PBRDiffNormal.xml");
+				public static Technique PBRDiffNormalAlpha => Cache.GetTechnique("Techniques/PBR/PBRDiffNormalAlpha.xml");
+				public static Technique PBRDiffNormalEmissive => Cache.GetTechnique("Techniques/PBR/PBRDiffNormalEmissive.xml");
+				public static Technique PBRDiffNormalEmissiveAlpha => Cache.GetTechnique("Techniques/PBR/PBRDiffNormalEmissiveAlpha.xml");
+				public static Technique PBRMetallicRoughDiffNormalSpec => Cache.GetTechnique("Techniques/PBR/PBRMetallicRoughDiffNormalSpec.xml");
+				public static Technique PBRMetallicRoughDiffNormalSpecEmissive => Cache.GetTechnique("Techniques/PBR/PBRMetallicRoughDiffNormalSpecEmissive.xml");
+				public static Technique PBRMetallicRoughDiffNormalSpecEmissiveAlpha => Cache.GetTechnique("Techniques/PBR/PBRMetallicRoughDiffNormalSpecEmissiveAlpha.xml");
+				public static Technique PBRMetallicRoughDiffSpec => Cache.GetTechnique("Techniques/PBR/PBRMetallicRoughDiffSpec.xml");
+				public static Technique PBRMetallicRoughDiffSpecAlpha => Cache.GetTechnique("Techniques/PBR/PBRMetallicRoughDiffSpecAlpha.xml");
+				public static Technique PBRNoTexture => Cache.GetTechnique("Techniques/PBR/PBRNoTexture.xml");
+				public static Technique PBRNoTextureAlpha => Cache.GetTechnique("Techniques/PBR/PBRNoTextureAlpha.xml");
+			}
+		}
+
+		public static class Textures
+		{
+			public static Texture2D LUTIdentity => Cache.GetTexture2D("Textures/LUTIdentity.png");
+			public static Texture2D Ramp => Cache.GetTexture2D("Textures/Ramp.png");
+			public static Texture2D RampExtreme => Cache.GetTexture2D("Textures/RampExtreme.png");
+			public static Texture2D RampWide => Cache.GetTexture2D("Textures/RampWide.png");
+			public static Texture2D Spot => Cache.GetTexture2D("Textures/Spot.png");
+			public static Texture2D SpotWide => Cache.GetTexture2D("Textures/SpotWide.png");
 		}
 	}
+
 }
