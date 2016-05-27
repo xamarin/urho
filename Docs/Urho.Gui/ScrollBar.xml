@@ -1,12 +1,12 @@
 <Type Name="ScrollBar" FullName="Urho.Gui.ScrollBar">
-  <TypeSignature Language="C#" Value="public class ScrollBar : Urho.Gui.UIElement" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ScrollBar extends Urho.Gui.UIElement" />
+  <TypeSignature Language="C#" Value="public class ScrollBar : Urho.Gui.BorderImage" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ScrollBar extends Urho.Gui.BorderImage" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Gui.UIElement</BaseTypeName>
+    <BaseTypeName>Urho.Gui.BorderImage</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

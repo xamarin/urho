@@ -221,6 +221,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IsSoundTypePaused">
+      <MemberSignature Language="C#" Value="public bool IsSoundTypePaused (string type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsSoundTypePaused(string type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Listener">
       <MemberSignature Language="C#" Value="public Urho.Audio.SoundListener Listener { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Audio.SoundListener Listener" />
@@ -284,6 +304,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="PauseSoundType">
+      <MemberSignature Language="C#" Value="public void PauseSoundType (string type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void PauseSoundType(string type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Play">
       <MemberSignature Language="C#" Value="public bool Play ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Play() cil managed" />
@@ -337,6 +376,41 @@
         <summary>
             Remove a sound source. Called by SoundSource.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResumeAll">
+      <MemberSignature Language="C#" Value="public void ResumeAll ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResumeAll() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResumeSoundType">
+      <MemberSignature Language="C#" Value="public void ResumeSoundType (string type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResumeSoundType(string type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

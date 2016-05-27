@@ -15,7 +15,8 @@
             </summary>
     <remarks>
       <para>This is the base class that your application should subclass and provide at implementations for the <see cref="M:Urho.Application.Setup" /> and <see cref="M:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="M:Urho.Application.Start" /> methods.</para>
-      <para></para>
+      <para>
+      </para>
       <para>Access to various subsystems in Urho is available through the various properties in this class:</para>
       <list type="bullet">
         <item>
@@ -31,7 +32,8 @@
         <item>
           <term>
             <see cref="P:Urho.Application.FileSystem" />
-            <para></para>
+            <para>
+            </para>
           </term>
         </item>
         <item>
@@ -82,7 +84,8 @@
       </list>
       <para>An application is tied to a <see cref="T:Urho.Context" /> which should be passed on the initial constructor.</para>
       <para>This shows a minimal application:</para>
-      <para></para>
+      <para>
+      </para>
       <example>
         <code lang="C#"><![CDATA[public class HelloWorld : Application
 {
@@ -178,6 +181,22 @@
           <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
           <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AllowNativeDelete">
+      <MemberSignature Language="C#" Value="protected override bool AllowNativeDelete { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AllowNativeDelete" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Audio">
@@ -297,28 +316,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Delay">
-      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task Delay (float durationSec);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task Delay(float32 durationSec) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="durationMs" Type="System.Single" />
-      </Parameters>
-      <Docs>
-        <param name="durationSec">Duration in millyseconds</param>
-        <summary>
-            Waits given game time.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Engine">
       <MemberSignature Language="C#" Value="public Urho.Engine Engine { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Engine Engine" />
@@ -353,6 +350,22 @@
         <summary>
             Show an error message (last log message if empty), terminate the main loop, and set failure exit code.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Exit">
+      <MemberSignature Language="C#" Value="public void Exit ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Exit() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -457,6 +470,22 @@
         <summary>
             Invoke actions in the Main Thread (the next Update call)
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsExiting">
+      <MemberSignature Language="C#" Value="public bool IsExiting { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsExiting" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -757,7 +786,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -773,7 +803,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -789,7 +820,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UI">

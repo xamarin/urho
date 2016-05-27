@@ -1,0 +1,605 @@
+<Type Name="SdlEventType" FullName="Urho.SdlEventType">
+  <TypeSignature Language="C#" Value="public enum SdlEventType" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed SdlEventType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="SDL_APP_DIDENTERBACKGROUND">
+      <MemberSignature Language="C#" Value="SDL_APP_DIDENTERBACKGROUND" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_APP_DIDENTERBACKGROUND = int32(260)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_APP_DIDENTERFOREGROUND">
+      <MemberSignature Language="C#" Value="SDL_APP_DIDENTERFOREGROUND" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_APP_DIDENTERFOREGROUND = int32(262)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_APP_LOWMEMORY">
+      <MemberSignature Language="C#" Value="SDL_APP_LOWMEMORY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_APP_LOWMEMORY = int32(258)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_APP_TERMINATING">
+      <MemberSignature Language="C#" Value="SDL_APP_TERMINATING" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_APP_TERMINATING = int32(257)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_APP_WILLENTERBACKGROUND">
+      <MemberSignature Language="C#" Value="SDL_APP_WILLENTERBACKGROUND" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_APP_WILLENTERBACKGROUND = int32(259)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_APP_WILLENTERFOREGROUND">
+      <MemberSignature Language="C#" Value="SDL_APP_WILLENTERFOREGROUND" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_APP_WILLENTERFOREGROUND = int32(261)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_CLIPBOARDUPDATE">
+      <MemberSignature Language="C#" Value="SDL_CLIPBOARDUPDATE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_CLIPBOARDUPDATE = int32(2304)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_CONTROLLERAXISMOTION">
+      <MemberSignature Language="C#" Value="SDL_CONTROLLERAXISMOTION" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_CONTROLLERAXISMOTION = int32(1616)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_CONTROLLERBUTTONDOWN">
+      <MemberSignature Language="C#" Value="SDL_CONTROLLERBUTTONDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_CONTROLLERBUTTONDOWN = int32(1617)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_CONTROLLERBUTTONUP">
+      <MemberSignature Language="C#" Value="SDL_CONTROLLERBUTTONUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_CONTROLLERBUTTONUP = int32(1618)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_CONTROLLERDEVICEADDED">
+      <MemberSignature Language="C#" Value="SDL_CONTROLLERDEVICEADDED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_CONTROLLERDEVICEADDED = int32(1619)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_CONTROLLERDEVICEREMAPPED">
+      <MemberSignature Language="C#" Value="SDL_CONTROLLERDEVICEREMAPPED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_CONTROLLERDEVICEREMAPPED = int32(1621)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_CONTROLLERDEVICEREMOVED">
+      <MemberSignature Language="C#" Value="SDL_CONTROLLERDEVICEREMOVED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_CONTROLLERDEVICEREMOVED = int32(1620)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_DOLLARGESTURE">
+      <MemberSignature Language="C#" Value="SDL_DOLLARGESTURE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_DOLLARGESTURE = int32(2048)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_DOLLARRECORD">
+      <MemberSignature Language="C#" Value="SDL_DOLLARRECORD" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_DOLLARRECORD = int32(2049)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_DROPFILE">
+      <MemberSignature Language="C#" Value="SDL_DROPFILE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_DROPFILE = int32(4096)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_FINGERDOWN">
+      <MemberSignature Language="C#" Value="SDL_FINGERDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_FINGERDOWN = int32(1792)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_FINGERMOTION">
+      <MemberSignature Language="C#" Value="SDL_FINGERMOTION" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_FINGERMOTION = int32(1794)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_FINGERUP">
+      <MemberSignature Language="C#" Value="SDL_FINGERUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_FINGERUP = int32(1793)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_FIRSTEVENT">
+      <MemberSignature Language="C#" Value="SDL_FIRSTEVENT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_FIRSTEVENT = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_JOYAXISMOTION">
+      <MemberSignature Language="C#" Value="SDL_JOYAXISMOTION" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_JOYAXISMOTION = int32(1536)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_JOYBALLMOTION">
+      <MemberSignature Language="C#" Value="SDL_JOYBALLMOTION" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_JOYBALLMOTION = int32(1537)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_JOYBUTTONDOWN">
+      <MemberSignature Language="C#" Value="SDL_JOYBUTTONDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_JOYBUTTONDOWN = int32(1539)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_JOYBUTTONUP">
+      <MemberSignature Language="C#" Value="SDL_JOYBUTTONUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_JOYBUTTONUP = int32(1540)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_JOYDEVICEADDED">
+      <MemberSignature Language="C#" Value="SDL_JOYDEVICEADDED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_JOYDEVICEADDED = int32(1541)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_JOYDEVICEREMOVED">
+      <MemberSignature Language="C#" Value="SDL_JOYDEVICEREMOVED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_JOYDEVICEREMOVED = int32(1542)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_JOYHATMOTION">
+      <MemberSignature Language="C#" Value="SDL_JOYHATMOTION" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_JOYHATMOTION = int32(1538)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_KEYDOWN">
+      <MemberSignature Language="C#" Value="SDL_KEYDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_KEYDOWN = int32(768)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_KEYUP">
+      <MemberSignature Language="C#" Value="SDL_KEYUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_KEYUP = int32(769)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_LASTEVENT">
+      <MemberSignature Language="C#" Value="SDL_LASTEVENT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_LASTEVENT = int32(65535)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_MOUSEBUTTONDOWN">
+      <MemberSignature Language="C#" Value="SDL_MOUSEBUTTONDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_MOUSEBUTTONDOWN = int32(1025)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_MOUSEBUTTONUP">
+      <MemberSignature Language="C#" Value="SDL_MOUSEBUTTONUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_MOUSEBUTTONUP = int32(1026)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_MOUSEMOTION">
+      <MemberSignature Language="C#" Value="SDL_MOUSEMOTION" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_MOUSEMOTION = int32(1024)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_MOUSEWHEEL">
+      <MemberSignature Language="C#" Value="SDL_MOUSEWHEEL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_MOUSEWHEEL = int32(1027)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_MULTIGESTURE">
+      <MemberSignature Language="C#" Value="SDL_MULTIGESTURE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_MULTIGESTURE = int32(2050)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_QUIT">
+      <MemberSignature Language="C#" Value="SDL_QUIT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_QUIT = int32(256)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_RENDER_TARGETS_RESET">
+      <MemberSignature Language="C#" Value="SDL_RENDER_TARGETS_RESET" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_RENDER_TARGETS_RESET = int32(8192)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SYSWMEVENT">
+      <MemberSignature Language="C#" Value="SDL_SYSWMEVENT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_SYSWMEVENT = int32(513)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_TEXTEDITING">
+      <MemberSignature Language="C#" Value="SDL_TEXTEDITING" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_TEXTEDITING = int32(770)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_TEXTINPUT">
+      <MemberSignature Language="C#" Value="SDL_TEXTINPUT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_TEXTINPUT = int32(771)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_USEREVENT">
+      <MemberSignature Language="C#" Value="SDL_USEREVENT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_USEREVENT = int32(32768)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlEventType SDL_WINDOWEVENT = int32(512)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlEventType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

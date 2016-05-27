@@ -368,6 +368,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetJoystickByName">
+      <MemberSignature Language="C#" Value="public Urho.JoystickState* GetJoystickByName (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.JoystickState* GetJoystickByName(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.JoystickState*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetKeyDown">
       <MemberSignature Language="C#" Value="public bool GetKeyDown (Urho.Key key);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetKeyDown(valuetype Urho.Key key) cil managed" />
@@ -963,7 +983,7 @@
       </Docs>
     </Member>
     <Member MemberName="MouseGrabbed">
-      <MemberSignature Language="C#" Value="public bool MouseGrabbed { get; set; }" />
+      <MemberSignature Language="C#" Value="public bool MouseGrabbed { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool MouseGrabbed" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -978,8 +998,24 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="MouseLocked">
+      <MemberSignature Language="C#" Value="public bool MouseLocked { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool MouseLocked" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MouseMode">
-      <MemberSignature Language="C#" Value="public Urho.MouseMode MouseMode { get; set; }" />
+      <MemberSignature Language="C#" Value="public Urho.MouseMode MouseMode { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.MouseMode MouseMode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -1329,6 +1365,38 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ResetMouseGrabbed">
+      <MemberSignature Language="C#" Value="public void ResetMouseGrabbed ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetMouseGrabbed() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResetMouseMode">
+      <MemberSignature Language="C#" Value="public void ResetMouseMode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetMouseMode() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ResetMouseVisible">
       <MemberSignature Language="C#" Value="public void ResetMouseVisible ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetMouseVisible() cil managed" />
@@ -1420,6 +1488,48 @@
       <Docs>
         <summary>Return whether on-screen keyboard is being shown;  On platform that support it, setting this property displays the on-screen keyboard.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMouseGrabbed">
+      <MemberSignature Language="C#" Value="public void SetMouseGrabbed (bool grab, bool suppressEvent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMouseGrabbed(bool grab, bool suppressEvent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="grab" Type="System.Boolean" />
+        <Parameter Name="suppressEvent" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="grab">To be added.</param>
+        <param name="suppressEvent">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMouseMode">
+      <MemberSignature Language="C#" Value="public void SetMouseMode (Urho.MouseMode mode, bool suppressEvent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMouseMode(valuetype Urho.MouseMode mode, bool suppressEvent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mode" Type="Urho.MouseMode" />
+        <Parameter Name="suppressEvent" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="mode">To be added.</param>
+        <param name="suppressEvent">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

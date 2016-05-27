@@ -62,22 +62,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Raw">
-      <MemberSignature Language="C#" Value="public uint Raw { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Raw" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Repeat">
       <MemberSignature Language="C#" Value="public bool Repeat { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool Repeat" />

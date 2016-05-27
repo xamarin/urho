@@ -91,6 +91,27 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="AddLayer">
+      <MemberSignature Language="C#" Value="public void AddLayer (uint index, Urho.Urho2D.TmxLayer2D layer);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddLayer(unsigned int32 index, class Urho.Urho2D.TmxLayer2D layer) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="layer" Type="Urho.Urho2D.TmxLayer2D" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="layer">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="BeginLoad">
       <MemberSignature Language="C#" Value="public override bool BeginLoad (Urho.IO.File source);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool BeginLoad(class Urho.IO.File source) cil managed" />
@@ -250,6 +271,34 @@
         <summary>
             Register object factory.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetInfo">
+      <MemberSignature Language="C#" Value="public bool SetInfo (Urho.Urho2D.Orientation2D orientation, int width, int height, float tileWidth, float tileHeight);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetInfo(valuetype Urho.Urho2D.Orientation2D orientation, int32 width, int32 height, float32 tileWidth, float32 tileHeight) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="orientation" Type="Urho.Urho2D.Orientation2D" />
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+        <Parameter Name="tileWidth" Type="System.Single" />
+        <Parameter Name="tileHeight" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="orientation">To be added.</param>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <param name="tileWidth">To be added.</param>
+        <param name="tileHeight">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

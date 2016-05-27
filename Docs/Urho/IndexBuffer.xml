@@ -171,24 +171,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="OnDeviceReset">
-      <MemberSignature Language="C#" Value="public void OnDeviceReset ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OnDeviceReset() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Recreate the GPU resource and restore data if applicable.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Release">
       <MemberSignature Language="C#" Value="public void Release ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Release() cil managed" />

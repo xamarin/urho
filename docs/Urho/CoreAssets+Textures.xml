@@ -1,0 +1,114 @@
+<Type Name="CoreAssets+Textures" FullName="Urho.CoreAssets+Textures">
+  <TypeSignature Language="C#" Value="public static class CoreAssets.Textures" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit CoreAssets/Textures extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="LUTIdentity">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D LUTIdentity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D LUTIdentity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Ramp">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D Ramp { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D Ramp" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RampExtreme">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D RampExtreme { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D RampExtreme" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RampWide">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D RampWide { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D RampWide" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Spot">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D Spot { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D Spot" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SpotWide">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D SpotWide { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D SpotWide" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -31,7 +31,7 @@
     </Member>
     <Member MemberName="MaxLightVsVariations">
       <MemberSignature Language="C#" Value="MaxLightVsVariations" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LightVSVariation MaxLightVsVariations = int32(6)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LightVSVariation MaxLightVsVariations = int32(9)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -71,9 +71,37 @@
         <summary>To be added.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Pointshadownormaloffset">
+      <MemberSignature Language="C#" Value="Pointshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LightVSVariation Pointshadownormaloffset = int32(8)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LightVSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Shadow">
       <MemberSignature Language="C#" Value="Shadow" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LightVSVariation Shadow = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LightVSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Shadownormaloffset">
+      <MemberSignature Language="C#" Value="Shadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LightVSVariation Shadownormaloffset = int32(6)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -102,6 +130,20 @@
     <Member MemberName="Spotshadow">
       <MemberSignature Language="C#" Value="Spotshadow" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LightVSVariation Spotshadow = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LightVSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Spotshadownormaloffset">
+      <MemberSignature Language="C#" Value="Spotshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LightVSVariation Spotshadownormaloffset = int32(7)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

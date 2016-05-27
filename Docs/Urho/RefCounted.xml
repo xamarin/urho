@@ -71,24 +71,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="CheckAccess">
-      <MemberSignature Language="C#" Value="protected void CheckAccess ();" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance void CheckAccess() cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="AllowNativeDelete">
+      <MemberSignature Language="C#" Value="protected virtual bool AllowNativeDelete { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AllowNativeDelete" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Diagnostics.Conditional("DEBUG")</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
         <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

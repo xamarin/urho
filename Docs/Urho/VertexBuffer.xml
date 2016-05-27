@@ -111,31 +111,75 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="GetElementOffset">
-      <MemberSignature Language="C#" Value="public uint GetElementOffset (Urho.VertexElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetElementOffset(valuetype Urho.VertexElement element) cil managed" />
+    <Member MemberName="GetBufferHash">
+      <MemberSignature Language="C#" Value="public ulong GetBufferHash (uint streamIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int64 GetBufferHash(unsigned int32 streamIndex) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
+        <ReturnType>System.UInt64</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="element" Type="Urho.VertexElement" />
+        <Parameter Name="streamIndex" Type="System.UInt32" />
       </Parameters>
       <Docs>
-        <param name="element">To be added.</param>
-        <summary>
-            Return offset of a specified element within a vertex.
-            </summary>
+        <param name="streamIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetElement">
+      <MemberSignature Language="C#" Value="public Urho.VertexElement* GetElement (Urho.VertexElementSemantic semantic, byte index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.VertexElement* GetElement(valuetype Urho.VertexElementSemantic semantic, unsigned int8 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElement*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="semantic" Type="Urho.VertexElementSemantic" />
+        <Parameter Name="index" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="semantic">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetElement">
+      <MemberSignature Language="C#" Value="public Urho.VertexElement* GetElement (Urho.VertexElementType type, Urho.VertexElementSemantic semantic, byte index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.VertexElement* GetElement(valuetype Urho.VertexElementType type, valuetype Urho.VertexElementSemantic semantic, unsigned int8 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElement*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.VertexElementType" />
+        <Parameter Name="semantic" Type="Urho.VertexElementSemantic" />
+        <Parameter Name="index" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="semantic">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetElementOffset">
-      <MemberSignature Language="C#" Value="public static uint GetElementOffset (Urho.ElementMask elementMask, Urho.VertexElement element);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 GetElementOffset(valuetype Urho.ElementMask elementMask, valuetype Urho.VertexElement element) cil managed" />
+      <MemberSignature Language="C#" Value="public uint GetElementOffset (Urho.VertexElementSemantic semantic, byte index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetElementOffset(valuetype Urho.VertexElementSemantic semantic, unsigned int8 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -144,15 +188,37 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="elementMask" Type="Urho.ElementMask" />
-        <Parameter Name="element" Type="Urho.VertexElement" />
+        <Parameter Name="semantic" Type="Urho.VertexElementSemantic" />
+        <Parameter Name="index" Type="System.Byte" />
       </Parameters>
       <Docs>
-        <param name="elementMask">To be added.</param>
-        <param name="element">To be added.</param>
-        <summary>
-            Return element offset from an element mask.
-            </summary>
+        <param name="semantic">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetElementOffset">
+      <MemberSignature Language="C#" Value="public uint GetElementOffset (Urho.VertexElementType type, Urho.VertexElementSemantic semantic, byte index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetElementOffset(valuetype Urho.VertexElementType type, valuetype Urho.VertexElementSemantic semantic, unsigned int8 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.VertexElementType" />
+        <Parameter Name="semantic" Type="Urho.VertexElementSemantic" />
+        <Parameter Name="index" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="semantic">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -175,6 +241,52 @@
         <summary>
             Return vertex size corresponding to a vertex element mask.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasElement">
+      <MemberSignature Language="C#" Value="public bool HasElement (Urho.VertexElementSemantic semantic, byte index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasElement(valuetype Urho.VertexElementSemantic semantic, unsigned int8 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="semantic" Type="Urho.VertexElementSemantic" />
+        <Parameter Name="index" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="semantic">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasElement">
+      <MemberSignature Language="C#" Value="public bool HasElement (Urho.VertexElementType type, Urho.VertexElementSemantic semantic, byte index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasElement(valuetype Urho.VertexElementType type, valuetype Urho.VertexElementSemantic semantic, unsigned int8 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="Urho.VertexElementType" />
+        <Parameter Name="semantic" Type="Urho.VertexElementSemantic" />
+        <Parameter Name="index" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="semantic">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -218,24 +330,6 @@
       <Docs>
         <summary>Return whether is currently locked.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnDeviceReset">
-      <MemberSignature Language="C#" Value="public void OnDeviceReset ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OnDeviceReset() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Recreate the GPU resource and restore data if applicable.
-            </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

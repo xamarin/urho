@@ -1,0 +1,161 @@
+<Type Name="RotateAroundBy" FullName="Urho.Actions.RotateAroundBy">
+  <TypeSignature Language="C#" Value="public class RotateAroundBy : Urho.Actions.FiniteTimeAction" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit RotateAroundBy extends Urho.Actions.FiniteTimeAction" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Actions.FiniteTimeAction</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RotateAroundBy (float duration, Urho.Vector3 point, float deltaX, float deltaY, float deltaZ, Urho.TransformSpace ts = Urho.TransformSpace.World);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration, valuetype Urho.Vector3 point, float32 deltaX, float32 deltaY, float32 deltaZ, valuetype Urho.TransformSpace ts) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="duration" Type="System.Single" />
+        <Parameter Name="point" Type="Urho.Vector3" />
+        <Parameter Name="deltaX" Type="System.Single" />
+        <Parameter Name="deltaY" Type="System.Single" />
+        <Parameter Name="deltaZ" Type="System.Single" />
+        <Parameter Name="ts" Type="Urho.TransformSpace" />
+      </Parameters>
+      <Docs>
+        <param name="duration">To be added.</param>
+        <param name="point">To be added.</param>
+        <param name="deltaX">To be added.</param>
+        <param name="deltaY">To be added.</param>
+        <param name="deltaZ">To be added.</param>
+        <param name="ts">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeltaX">
+      <MemberSignature Language="C#" Value="public float DeltaX { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaX" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeltaY">
+      <MemberSignature Language="C#" Value="public float DeltaY { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaY" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeltaZ">
+      <MemberSignature Language="C#" Value="public float DeltaZ { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaZ" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Point">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Point { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Point" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Reverse">
+      <MemberSignature Language="C#" Value="public override Urho.Actions.FiniteTimeAction Reverse ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance class Urho.Actions.FiniteTimeAction Reverse() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Actions.FiniteTimeAction</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartAction">
+      <MemberSignature Language="C#" Value="protected override Urho.Actions.ActionState StartAction (Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class Urho.Actions.ActionState StartAction(class Urho.Node target) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Actions.ActionState</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="target" Type="Urho.Node" />
+      </Parameters>
+      <Docs>
+        <param name="target">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TransformSpace">
+      <MemberSignature Language="C#" Value="public Urho.TransformSpace TransformSpace { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TransformSpace TransformSpace" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TransformSpace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -17,7 +17,7 @@
   <Members>
     <Member MemberName="MaxDeferredLightPsVariations">
       <MemberSignature Language="C#" Value="MaxDeferredLightPsVariations" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation MaxDeferredLightPsVariations = int32(32)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation MaxDeferredLightPsVariations = int32(48)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -45,7 +45,7 @@
     </Member>
     <Member MemberName="Ortho">
       <MemberSignature Language="C#" Value="Ortho" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Ortho = int32(16)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Ortho = int32(24)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -59,7 +59,7 @@
     </Member>
     <Member MemberName="Orthopoint">
       <MemberSignature Language="C#" Value="Orthopoint" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopoint = int32(18)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopoint = int32(26)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -73,7 +73,7 @@
     </Member>
     <Member MemberName="Orthopointmask">
       <MemberSignature Language="C#" Value="Orthopointmask" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmask = int32(19)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmask = int32(27)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -87,7 +87,21 @@
     </Member>
     <Member MemberName="Orthopointmaskshadow">
       <MemberSignature Language="C#" Value="Orthopointmaskshadow" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmaskshadow = int32(27)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmaskshadow = int32(35)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Orthopointmaskshadownormaloffset">
+      <MemberSignature Language="C#" Value="Orthopointmaskshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmaskshadownormaloffset = int32(43)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -101,7 +115,21 @@
     </Member>
     <Member MemberName="Orthopointmaskshadowspec">
       <MemberSignature Language="C#" Value="Orthopointmaskshadowspec" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmaskshadowspec = int32(31)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmaskshadowspec = int32(39)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Orthopointmaskshadowspecnormaloffset">
+      <MemberSignature Language="C#" Value="Orthopointmaskshadowspecnormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmaskshadowspecnormaloffset = int32(47)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -115,7 +143,7 @@
     </Member>
     <Member MemberName="Orthopointmaskspec">
       <MemberSignature Language="C#" Value="Orthopointmaskspec" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmaskspec = int32(23)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointmaskspec = int32(31)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -129,7 +157,21 @@
     </Member>
     <Member MemberName="Orthopointshadow">
       <MemberSignature Language="C#" Value="Orthopointshadow" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointshadow = int32(26)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointshadow = int32(34)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Orthopointshadownormaloffset">
+      <MemberSignature Language="C#" Value="Orthopointshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointshadownormaloffset = int32(42)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -143,7 +185,21 @@
     </Member>
     <Member MemberName="Orthopointshadowspec">
       <MemberSignature Language="C#" Value="Orthopointshadowspec" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointshadowspec = int32(30)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointshadowspec = int32(38)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Orthopointshadowspecnormaloffset">
+      <MemberSignature Language="C#" Value="Orthopointshadowspecnormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointshadowspecnormaloffset = int32(46)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -157,7 +213,7 @@
     </Member>
     <Member MemberName="Orthopointspec">
       <MemberSignature Language="C#" Value="Orthopointspec" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointspec = int32(22)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthopointspec = int32(30)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -171,7 +227,21 @@
     </Member>
     <Member MemberName="Orthoshadow">
       <MemberSignature Language="C#" Value="Orthoshadow" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthoshadow = int32(24)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthoshadow = int32(32)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Orthoshadownormaloffset">
+      <MemberSignature Language="C#" Value="Orthoshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthoshadownormaloffset = int32(40)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -185,7 +255,21 @@
     </Member>
     <Member MemberName="Orthoshadowspec">
       <MemberSignature Language="C#" Value="Orthoshadowspec" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthoshadowspec = int32(28)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthoshadowspec = int32(36)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Orthoshadowspecnormaloffset">
+      <MemberSignature Language="C#" Value="Orthoshadowspecnormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthoshadowspecnormaloffset = int32(44)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -199,7 +283,7 @@
     </Member>
     <Member MemberName="Orthospec">
       <MemberSignature Language="C#" Value="Orthospec" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospec = int32(20)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospec = int32(28)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -213,7 +297,7 @@
     </Member>
     <Member MemberName="Orthospot">
       <MemberSignature Language="C#" Value="Orthospot" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospot = int32(17)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospot = int32(25)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -227,7 +311,21 @@
     </Member>
     <Member MemberName="Orthospotshadow">
       <MemberSignature Language="C#" Value="Orthospotshadow" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospotshadow = int32(25)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospotshadow = int32(33)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Orthospotshadownormaloffset">
+      <MemberSignature Language="C#" Value="Orthospotshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospotshadownormaloffset = int32(41)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -241,7 +339,21 @@
     </Member>
     <Member MemberName="Orthospotshadowspec">
       <MemberSignature Language="C#" Value="Orthospotshadowspec" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospotshadowspec = int32(29)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospotshadowspec = int32(37)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Orthospotshadowspecnormaloffset">
+      <MemberSignature Language="C#" Value="Orthospotshadowspecnormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospotshadowspecnormaloffset = int32(45)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -255,7 +367,7 @@
     </Member>
     <Member MemberName="Orthospotspec">
       <MemberSignature Language="C#" Value="Orthospotspec" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospotspec = int32(21)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Orthospotspec = int32(29)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -309,9 +421,37 @@
         <summary>To be added.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Pointmaskshadownormaloffset">
+      <MemberSignature Language="C#" Value="Pointmaskshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Pointmaskshadownormaloffset = int32(19)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Pointmaskshadowspec">
       <MemberSignature Language="C#" Value="Pointmaskshadowspec" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Pointmaskshadowspec = int32(15)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Pointmaskshadowspecnormaloffset">
+      <MemberSignature Language="C#" Value="Pointmaskshadowspecnormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Pointmaskshadowspecnormaloffset = int32(23)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -351,9 +491,37 @@
         <summary>To be added.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Pointshadownormaloffset">
+      <MemberSignature Language="C#" Value="Pointshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Pointshadownormaloffset = int32(18)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Pointshadowspec">
       <MemberSignature Language="C#" Value="Pointshadowspec" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Pointshadowspec = int32(14)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Pointshadowspecnormaloffset">
+      <MemberSignature Language="C#" Value="Pointshadowspecnormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Pointshadowspecnormaloffset = int32(22)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -393,9 +561,37 @@
         <summary>To be added.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Shadownormaloffset">
+      <MemberSignature Language="C#" Value="Shadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Shadownormaloffset = int32(16)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Shadowspec">
       <MemberSignature Language="C#" Value="Shadowspec" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Shadowspec = int32(12)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Shadowspecnormaloffset">
+      <MemberSignature Language="C#" Value="Shadowspecnormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Shadowspecnormaloffset = int32(20)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -449,9 +645,37 @@
         <summary>To be added.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Spotshadownormaloffset">
+      <MemberSignature Language="C#" Value="Spotshadownormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Spotshadownormaloffset = int32(17)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Spotshadowspec">
       <MemberSignature Language="C#" Value="Spotshadowspec" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Spotshadowspec = int32(13)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.DeferredLightPSVariation</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Spotshadowspecnormaloffset">
+      <MemberSignature Language="C#" Value="Spotshadowspecnormaloffset" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.DeferredLightPSVariation Spotshadowspecnormaloffset = int32(21)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

@@ -1,6 +1,6 @@
 <Type Name="VariantValue" FullName="Urho.VariantValue">
   <TypeSignature Language="C#" Value="public struct VariantValue" />
-  <TypeSignature Language="ILAsm" Value=".class public ansi sealed beforefieldinit VariantValue extends System.ValueType" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit VariantValue extends System.ValueType" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -14,195 +14,60 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
-    <Member MemberName="Bool">
-      <MemberSignature Language="C#" Value="public byte Bool;" />
-      <MemberSignature Language="ILAsm" Value=".field public unsigned int8 Bool" />
+    <Member MemberName="VariantValueLine1">
+      <MemberSignature Language="C#" Value="public Urho.VariantValueLine VariantValueLine1;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.VariantValueLine VariantValueLine1" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Byte</ReturnType>
+        <ReturnType>Urho.VariantValueLine</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Float">
-      <MemberSignature Language="C#" Value="public float Float;" />
-      <MemberSignature Language="ILAsm" Value=".field public float32 Float" />
+    <Member MemberName="VariantValueLine2">
+      <MemberSignature Language="C#" Value="public Urho.VariantValueLine VariantValueLine2;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.VariantValueLine VariantValueLine2" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Single</ReturnType>
+        <ReturnType>Urho.VariantValueLine</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Float2">
-      <MemberSignature Language="C#" Value="public float Float2;" />
-      <MemberSignature Language="ILAsm" Value=".field public float32 Float2" />
+    <Member MemberName="VariantValueLine3">
+      <MemberSignature Language="C#" Value="public Urho.VariantValueLine VariantValueLine3;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.VariantValueLine VariantValueLine3" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Single</ReturnType>
+        <ReturnType>Urho.VariantValueLine</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Float3">
-      <MemberSignature Language="C#" Value="public float Float3;" />
-      <MemberSignature Language="ILAsm" Value=".field public float32 Float3" />
+    <Member MemberName="VariantValueLine4">
+      <MemberSignature Language="C#" Value="public Urho.VariantValueLine VariantValueLine4;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.VariantValueLine VariantValueLine4" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Single</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Float4">
-      <MemberSignature Language="C#" Value="public float Float4;" />
-      <MemberSignature Language="ILAsm" Value=".field public float32 Float4" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Single</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Int">
-      <MemberSignature Language="C#" Value="public int Int;" />
-      <MemberSignature Language="ILAsm" Value=".field public int32 Int" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Int2">
-      <MemberSignature Language="C#" Value="public int Int2;" />
-      <MemberSignature Language="ILAsm" Value=".field public int32 Int2" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Int3">
-      <MemberSignature Language="C#" Value="public int Int3;" />
-      <MemberSignature Language="ILAsm" Value=".field public int32 Int3" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Int4">
-      <MemberSignature Language="C#" Value="public int Int4;" />
-      <MemberSignature Language="ILAsm" Value=".field public int32 Int4" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Ptr">
-      <MemberSignature Language="C#" Value="public IntPtr Ptr;" />
-      <MemberSignature Language="ILAsm" Value=".field public native int Ptr" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Ptr2">
-      <MemberSignature Language="C#" Value="public IntPtr Ptr2;" />
-      <MemberSignature Language="ILAsm" Value=".field public native int Ptr2" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Ptr3">
-      <MemberSignature Language="C#" Value="public IntPtr Ptr3;" />
-      <MemberSignature Language="ILAsm" Value=".field public native int Ptr3" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Ptr4">
-      <MemberSignature Language="C#" Value="public IntPtr Ptr4;" />
-      <MemberSignature Language="ILAsm" Value=".field public native int Ptr4" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
+        <ReturnType>Urho.VariantValueLine</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

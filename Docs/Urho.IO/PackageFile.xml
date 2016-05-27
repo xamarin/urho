@@ -269,6 +269,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="TotalDataSize">
+      <MemberSignature Language="C#" Value="public uint TotalDataSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TotalDataSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TotalSize">
       <MemberSignature Language="C#" Value="public uint TotalSize { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TotalSize" />

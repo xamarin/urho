@@ -316,6 +316,237 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, int32 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, float value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, float32 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, string value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, Urho.Color value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, valuetype Urho.Color value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, Urho.IntRect value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, valuetype Urho.IntRect value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.IntRect" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, Urho.IntVector2 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, valuetype Urho.IntVector2 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, Urho.Matrix4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, valuetype Urho.Matrix4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, Urho.Quaternion value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, valuetype Urho.Quaternion value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, Urho.Vector2 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, valuetype Urho.Vector2 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Vector2" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, Urho.Vector3 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, valuetype Urho.Vector3 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, Urho.Vector4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, valuetype Urho.Vector4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SubscribeToEvent">
       <MemberSignature Language="C#" Value="public void SubscribeToEvent (Urho.StringHash eventType, IntPtr handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SubscribeToEvent(valuetype Urho.StringHash eventType, native int handler) cil managed" />

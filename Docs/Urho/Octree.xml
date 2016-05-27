@@ -216,6 +216,34 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Raycast">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.List&lt;Urho.RayQueryResult&gt; Raycast (Urho.Ray ray, Urho.RayQueryLevel level, float maxDistance, Urho.DrawableFlags drawableFlags, uint viewMask = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Collections.Generic.List`1&lt;valuetype Urho.RayQueryResult&gt; Raycast(valuetype Urho.Ray ray, valuetype Urho.RayQueryLevel level, float32 maxDistance, valuetype Urho.DrawableFlags drawableFlags, unsigned int32 viewMask) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.List&lt;Urho.RayQueryResult&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ray" Type="Urho.Ray" />
+        <Parameter Name="level" Type="Urho.RayQueryLevel" />
+        <Parameter Name="maxDistance" Type="System.Single" />
+        <Parameter Name="drawableFlags" Type="Urho.DrawableFlags" />
+        <Parameter Name="viewMask" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="ray">To be added.</param>
+        <param name="level">To be added.</param>
+        <param name="maxDistance">To be added.</param>
+        <param name="drawableFlags">To be added.</param>
+        <param name="viewMask">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RaycastSingle">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.List&lt;Urho.RayQueryResult&gt; RaycastSingle (Urho.Ray ray, Urho.RayQueryLevel level, float maxDistance, Urho.DrawableFlags drawableFlags, uint viewMask = 4294967295);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Collections.Generic.List`1&lt;valuetype Urho.RayQueryResult&gt; RaycastSingle(valuetype Urho.Ray ray, valuetype Urho.RayQueryLevel level, float32 maxDistance, valuetype Urho.DrawableFlags drawableFlags, unsigned int32 viewMask) cil managed" />

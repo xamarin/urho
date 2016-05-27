@@ -51,6 +51,7 @@
       <Type Name="Animatable" Kind="Class" />
       <Type Name="AnimatedModel" Kind="Class" />
       <Type Name="Animation" Kind="Class" />
+      <Type Name="AnimationBlendMode" Kind="Enumeration" />
       <Type Name="AnimationController" Kind="Class" />
       <Type Name="AnimationFinishedEventArgs" Kind="Structure" />
       <Type Name="AnimationState" Kind="Class" />
@@ -83,6 +84,8 @@
       <Type Name="BoundingBox" Kind="Structure" />
       <Type Name="Camera" Kind="Class" />
       <Type Name="CascadeParameters" Kind="Structure" />
+      <Type Name="ClickEndEventArgs" Kind="Structure" />
+      <Type Name="ClickEventArgs" Kind="Structure" />
       <Type Name="CollisionGeometryData" Kind="Structure" />
       <Type Name="Color" Kind="Structure" />
       <Type Name="ColorFrame" Kind="Structure" />
@@ -103,8 +106,9 @@
       <Type Name="CoreAssets+Materials" Kind="Class" />
       <Type Name="CoreAssets+Models" Kind="Class" />
       <Type Name="CoreAssets+RenderPaths" Kind="Class" />
-      <Type Name="CoreAssets+Shaders" Kind="Class" />
       <Type Name="CoreAssets+Techniques" Kind="Class" />
+      <Type Name="CoreAssets+Techniques+PBR" Kind="Class" />
+      <Type Name="CoreAssets+Textures" Kind="Class" />
       <Type Name="CreateMode" Kind="Enumeration" />
       <Type Name="CrowdAgentNodeFailureEventArgs" Kind="Structure" />
       <Type Name="CrowdAgentNodeFormationEventArgs" Kind="Structure" />
@@ -122,6 +126,7 @@
       <Type Name="DeferredLightVSVariation" Kind="Enumeration" />
       <Type Name="DeviceLostEventArgs" Kind="Structure" />
       <Type Name="DeviceResetEventArgs" Kind="Structure" />
+      <Type Name="DoubleClickEventArgs" Kind="Structure" />
       <Type Name="Drawable" Kind="Class" />
       <Type Name="DrawableFlags" Kind="Enumeration" />
       <Type Name="DropFileEventArgs" Kind="Structure" />
@@ -173,6 +178,7 @@
       <Type Name="Key" Kind="Enumeration" />
       <Type Name="KeyDownEventArgs" Kind="Structure" />
       <Type Name="KeyUpEventArgs" Kind="Structure" />
+      <Type Name="LegacyVertexElement" Kind="Enumeration" />
       <Type Name="Light" Kind="Class" />
       <Type Name="LightBatchQueue" Kind="Structure" />
       <Type Name="LightPSVariation" Kind="Enumeration" />
@@ -183,6 +189,8 @@
       <Type Name="LockState" Kind="Enumeration" />
       <Type Name="LogicComponent" Kind="Class" />
       <Type Name="LogLevel" Kind="Enumeration" />
+      <Type Name="LogSharp" Kind="Class" />
+      <Type Name="LogSharpLevel" Kind="Enumeration" />
       <Type Name="MarshalHelper" Kind="Class" />
       <Type Name="Material" Kind="Class" />
       <Type Name="MathHelper" Kind="Class" />
@@ -202,6 +210,7 @@
       <Type Name="MouseVisibleChangedEventArgs" Kind="Structure" />
       <Type Name="MouseWheelEventArgs" Kind="Structure" />
       <Type Name="MultiGestureEventArgs" Kind="Structure" />
+      <Type Name="NavigationPathPointFlag" Kind="Enumeration" />
       <Type Name="NetworkState" Kind="Structure" />
       <Type Name="Node" Kind="Class" />
       <Type Name="NodeAddedEventArgs" Kind="Structure" />
@@ -259,6 +268,9 @@
       <Type Name="SceneSubsystemUpdateEventArgs" Kind="Structure" />
       <Type Name="SceneUpdateEventArgs" Kind="Structure" />
       <Type Name="ScreenModeEventArgs" Kind="Structure" />
+      <Type Name="Sdl" Kind="Class" />
+      <Type Name="SdlEventType" Kind="Enumeration" />
+      <Type Name="SdlWindowEvent" Kind="Enumeration" />
       <Type Name="Serializable" Kind="Class" />
       <Type Name="Shader" Kind="Class" />
       <Type Name="ShaderParameter" Kind="Structure" />
@@ -319,12 +331,15 @@
       <Type Name="Variant" Kind="Structure" />
       <Type Name="VariantType" Kind="Enumeration" />
       <Type Name="VariantValue" Kind="Structure" />
+      <Type Name="VariantValueLine" Kind="Structure" />
       <Type Name="Vector2" Kind="Structure" />
       <Type Name="Vector3" Kind="Structure" />
       <Type Name="Vector4" Kind="Structure" />
       <Type Name="VectorBase" Kind="Structure" />
       <Type Name="VertexBuffer" Kind="Class" />
-      <Type Name="VertexElement" Kind="Enumeration" />
+      <Type Name="VertexElement" Kind="Structure" />
+      <Type Name="VertexElementSemantic" Kind="Enumeration" />
+      <Type Name="VertexElementType" Kind="Enumeration" />
       <Type Name="VertexLightVSVariation" Kind="Enumeration" />
       <Type Name="View" Kind="Class" />
       <Type Name="ViewOverrideFlags" Kind="Enumeration" />
@@ -636,11 +651,11 @@
     </Namespace>
     <Namespace Name="Urho.Repl">
       <Type Name="Bar" Kind="Class" />
+      <Type Name="Randoms" Kind="Class" />
       <Type Name="Simple3DScene" Kind="Class" />
     </Namespace>
     <Namespace Name="Urho.Resources">
       <Type Name="AsyncLoadState" Kind="Enumeration" />
-      <Type Name="BackgroundLoader" Kind="Class" />
       <Type Name="ChangeLanguageEventArgs" Kind="Structure" />
       <Type Name="CompressedFormat" Kind="Enumeration" />
       <Type Name="FileChangedEventArgs" Kind="Structure" />

@@ -268,6 +268,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetFullscreenQuadTransform">
+      <MemberSignature Language="C#" Value="public static Urho.Matrix3x4 GetFullscreenQuadTransform (Urho.Camera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix3x4 GetFullscreenQuadTransform(class Urho.Camera camera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3x4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="camera" Type="Urho.Camera" />
+      </Parameters>
+      <Docs>
+        <param name="camera">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetIntensityDivisor">
       <MemberSignature Language="C#" Value="public float GetIntensityDivisor (float attenuation);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetIntensityDivisor(float32 attenuation) cil managed" />

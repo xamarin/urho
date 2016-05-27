@@ -1,0 +1,157 @@
+<Type Name="VertexElementSemantic" FullName="Urho.VertexElementSemantic">
+  <TypeSignature Language="C#" Value="public enum VertexElementSemantic" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed VertexElementSemantic extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Binormal">
+      <MemberSignature Language="C#" Value="Binormal" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Binormal = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Blendindices">
+      <MemberSignature Language="C#" Value="Blendindices" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Blendindices = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Blendweights">
+      <MemberSignature Language="C#" Value="Blendweights" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Blendweights = int32(6)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Color">
+      <MemberSignature Language="C#" Value="Color" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Color = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxVertexElementSemantics">
+      <MemberSignature Language="C#" Value="MaxVertexElementSemantics" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic MaxVertexElementSemantics = int32(9)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Normal">
+      <MemberSignature Language="C#" Value="Normal" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Normal = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Objectindex">
+      <MemberSignature Language="C#" Value="Objectindex" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Objectindex = int32(8)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Position">
+      <MemberSignature Language="C#" Value="Position" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Position = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Tangent">
+      <MemberSignature Language="C#" Value="Tangent" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Tangent = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Texcoord">
+      <MemberSignature Language="C#" Value="Texcoord" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementSemantic Texcoord = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementSemantic</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

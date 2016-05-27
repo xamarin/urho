@@ -242,6 +242,29 @@
       </Docs>
     </Member>
     <Member MemberName="AddTrigger">
+      <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.Matrix4 data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.Matrix4 data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="timeIsNormalized" Type="System.Boolean" />
+        <Parameter Name="data" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="timeIsNormalized">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddTrigger">
       <MemberSignature Language="C#" Value="public void AddTrigger (float time, bool timeIsNormalized, Urho.Quaternion data);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTrigger(float32 time, bool timeIsNormalized, valuetype Urho.Quaternion data) cil managed" />
       <MemberType>Method</MemberType>
@@ -394,6 +417,26 @@
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clone">
+      <MemberSignature Language="C#" Value="public Urho.Animation Clone (string cloneName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Animation Clone(string cloneName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Animation</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="cloneName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="cloneName">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>

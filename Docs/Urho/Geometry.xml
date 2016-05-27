@@ -194,28 +194,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="GetVertexElementMask">
-      <MemberSignature Language="C#" Value="public uint GetVertexElementMask (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetVertexElementMask(unsigned int32 index) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="index" Type="System.UInt32" />
-      </Parameters>
-      <Docs>
-        <param name="index">To be added.</param>
-        <summary>
-            Return vertex element mask by index.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="IndexBuffer">
       <MemberSignature Language="C#" Value="public Urho.IndexBuffer IndexBuffer { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.IndexBuffer IndexBuffer" />
@@ -433,8 +411,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetVertexBuffer">
-      <MemberSignature Language="C#" Value="public bool SetVertexBuffer (uint index, Urho.VertexBuffer buffer, uint elementMask);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetVertexBuffer(unsigned int32 index, class Urho.VertexBuffer buffer, unsigned int32 elementMask) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetVertexBuffer (uint index, Urho.VertexBuffer buffer);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetVertexBuffer(unsigned int32 index, class Urho.VertexBuffer buffer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -445,15 +423,11 @@
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
         <Parameter Name="buffer" Type="Urho.VertexBuffer" />
-        <Parameter Name="elementMask" Type="System.UInt32" />
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
         <param name="buffer">To be added.</param>
-        <param name="elementMask">To be added.</param>
-        <summary>
-            Set a vertex buffer by index.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

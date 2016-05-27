@@ -1,0 +1,76 @@
+<Type Name="Sdl" FullName="Urho.Sdl">
+  <TypeSignature Language="C#" Value="public static class Sdl" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Sdl extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="SendAppEvent">
+      <MemberSignature Language="C#" Value="public static void SendAppEvent (Urho.SdlEventType eventType);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SendAppEvent(valuetype Urho.SdlEventType eventType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventType" Type="Urho.SdlEventType" />
+      </Parameters>
+      <Docs>
+        <param name="eventType">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SendWindowEvent">
+      <MemberSignature Language="C#" Value="public static void SendWindowEvent (Urho.SdlWindowEvent wndEvent, int data1 = 0, int data2 = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SendWindowEvent(valuetype Urho.SdlWindowEvent wndEvent, int32 data1, int32 data2) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="wndEvent" Type="Urho.SdlWindowEvent" />
+        <Parameter Name="data1" Type="System.Int32" />
+        <Parameter Name="data2" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="wndEvent">To be added.</param>
+        <param name="data1">To be added.</param>
+        <param name="data2">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMainReady">
+      <MemberSignature Language="C#" Value="public static void SetMainReady ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetMainReady() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

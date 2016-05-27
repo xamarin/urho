@@ -15,8 +15,8 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BiasParameters (float constantBias, float slopeScaleBias);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 constantBias, float32 slopeScaleBias) cil managed" />
+      <MemberSignature Language="C#" Value="public BiasParameters (float constantBias, float slopeScaleBias, float normalOffset = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 constantBias, float32 slopeScaleBias, float32 normalOffset) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -24,10 +24,12 @@
       <Parameters>
         <Parameter Name="constantBias" Type="System.Single" />
         <Parameter Name="slopeScaleBias" Type="System.Single" />
+        <Parameter Name="normalOffset" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="constantBias">To be added.</param>
         <param name="slopeScaleBias">To be added.</param>
+        <param name="normalOffset">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -35,6 +37,21 @@
     <Member MemberName="ConstantBias">
       <MemberSignature Language="C#" Value="public float ConstantBias;" />
       <MemberSignature Language="ILAsm" Value=".field public float32 ConstantBias" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NormalOffset">
+      <MemberSignature Language="C#" Value="public float NormalOffset;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 NormalOffset" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

@@ -1,0 +1,1698 @@
+<Type Name="CoreAssets+Techniques" FullName="Urho.CoreAssets+Techniques">
+  <TypeSignature Language="C#" Value="public static class CoreAssets.Techniques" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit CoreAssets/Techniques extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="BasicVColUnlitAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique BasicVColUnlitAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique BasicVColUnlitAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Diff">
+      <MemberSignature Language="C#" Value="public static Urho.Technique Diff { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique Diff" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAdd">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAdd { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAdd" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAddAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAddAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAddAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAlphaMaskTranslucent">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAlphaMaskTranslucent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAlphaMaskTranslucent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAlphaTranslucent">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAlphaTranslucent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAlphaTranslucent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAO">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAO { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAO" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAOAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAOAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAOAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffAOAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAOAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAOAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffEmissive">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffEmissive { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffEmissive" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffEmissiveAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffEmissiveAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffEmissiveAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffEnvCube">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffEnvCube { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffEnvCube" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffEnvCubeAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffEnvCubeAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffEnvCubeAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffEnvCubeAO">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffEnvCubeAO { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffEnvCubeAO" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffEnvCubeAOAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffEnvCubeAOAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffEnvCubeAOAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffLightMap">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffLightMap { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffLightMap" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffLightMapAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffLightMapAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffLightMapAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffLitParticleAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffLitParticleAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffLitParticleAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffMultiply">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffMultiply { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffMultiply" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormal">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormal { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormal" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalAlphaMaskTranslucent">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAlphaMaskTranslucent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAlphaMaskTranslucent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalAlphaTranslucent">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAlphaTranslucent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAlphaTranslucent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalAO">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAO { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAO" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalAOAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAOAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAOAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalAOAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAOAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAOAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalEmissive">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalEmissive { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalEmissive" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalEmissiveAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalEmissiveAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalEmissiveAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalEnvCube">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalEnvCube { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalEnvCube" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalEnvCubeAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalEnvCubeAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalEnvCubeAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPacked">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPacked { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPacked" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedAlphaMaskTranslucent">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAlphaMaskTranslucent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAlphaMaskTranslucent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedAlphaTranslucent">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAlphaTranslucent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAlphaTranslucent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedAO">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAO { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAO" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedAOAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAOAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAOAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedAOAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAOAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAOAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedEmissive">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedEmissive { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedEmissive" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedEmissiveAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedEmissiveAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedEmissiveAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedEnvCube">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedEnvCube { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedEnvCube" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedEnvCubeAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedEnvCubeAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedEnvCubeAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedSpec">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpec { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpec" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedSpecAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedSpecAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedSpecAO">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAO { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAO" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedSpecAOAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAOAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAOAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedSpecAOAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAOAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAOAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedSpecEmissive">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecEmissive { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecEmissive" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalPackedSpecEmissiveAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecEmissiveAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecEmissiveAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalSpec">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpec { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpec" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalSpecAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalSpecAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalSpecAO">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecAO { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecAO" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalSpecAOAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecAOAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecAOAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalSpecAOAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecAOAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecAOAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalSpecEmissive">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecEmissive { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecEmissive" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffNormalSpecEmissiveAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecEmissiveAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecEmissiveAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffOverlay">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffOverlay { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffOverlay" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffSkybox">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSkybox { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSkybox" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffSkydome">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSkydome { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSkydome" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffSkyplane">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSkyplane { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSkyplane" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffSpec">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSpec { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSpec" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffSpecAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSpecAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSpecAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffSpecAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSpecAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSpecAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffUnlit">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlit { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlit" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffUnlitAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlitAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlitAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffUnlitAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlitAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlitAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffVCol">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffVCol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffVCol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffVColAdd">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffVColAdd { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffVColAdd" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffVColAddAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffVColAddAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffVColAddAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffVColMultiply">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffVColMultiply { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffVColMultiply" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffVColUnlitAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffVColUnlitAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffVColUnlitAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTexture">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTexture" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureAdd">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureAdd { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureAdd" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureAddAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureAddAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureAddAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureAO">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureAO { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureAO" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureAOAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureAOAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureAOAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureEnvCube">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureEnvCube { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureEnvCube" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureEnvCubeAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureEnvCubeAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureEnvCubeAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureEnvCubeAO">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureEnvCubeAO { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureEnvCubeAO" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureEnvCubeAOAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureEnvCubeAOAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureEnvCubeAOAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureMultiply">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureMultiply { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureMultiply" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureNormal">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureNormal { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureNormal" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureNormalAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureNormalAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureNormalAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureNormalPacked">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureNormalPacked { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureNormalPacked" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureNormalPackedAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureNormalPackedAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureNormalPackedAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureOverlay">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureOverlay { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureOverlay" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureUnlit">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureUnlit { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureUnlit" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureUnlitAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureUnlitAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureUnlitAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureUnlitVCol">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureUnlitVCol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureUnlitVCol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureVCol">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureVCol { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureVCol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureVColAdd">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureVColAdd { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureVColAdd" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureVColAddAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureVColAddAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureVColAddAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NoTextureVColMultiply">
+      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureVColMultiply { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureVColMultiply" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TerrainBlend">
+      <MemberSignature Language="C#" Value="public static Urho.Technique TerrainBlend { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique TerrainBlend" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VegetationDiff">
+      <MemberSignature Language="C#" Value="public static Urho.Technique VegetationDiff { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique VegetationDiff" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VegetationDiffAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique VegetationDiffAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique VegetationDiffAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VegetationDiffUnlit">
+      <MemberSignature Language="C#" Value="public static Urho.Technique VegetationDiffUnlit { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique VegetationDiffUnlit" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VegetationDiffUnlitAlphaMask">
+      <MemberSignature Language="C#" Value="public static Urho.Technique VegetationDiffUnlitAlphaMask { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique VegetationDiffUnlitAlphaMask" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Water">
+      <MemberSignature Language="C#" Value="public static Urho.Technique Water { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique Water" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

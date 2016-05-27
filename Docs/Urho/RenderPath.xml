@@ -101,6 +101,25 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="AddCommand">
+      <MemberSignature Language="C#" Value="public void AddCommand (Urho.RenderPathCommand command);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCommand(valuetype Urho.RenderPathCommand command) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="command" Type="Urho.RenderPathCommand" />
+      </Parameters>
+      <Docs>
+        <param name="command">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Append">
       <MemberSignature Language="C#" Value="public bool Append (Urho.Resources.XmlFile file);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Append(class Urho.Resources.XmlFile file) cil managed" />
@@ -159,6 +178,27 @@
             Return command at index, or null if does not exist.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InsertCommand">
+      <MemberSignature Language="C#" Value="public void InsertCommand (uint index, Urho.RenderPathCommand command);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void InsertCommand(unsigned int32 index, valuetype Urho.RenderPathCommand command) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="command" Type="Urho.RenderPathCommand" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="command">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -323,6 +363,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetCommand">
+      <MemberSignature Language="C#" Value="public void SetCommand (uint index, Urho.RenderPathCommand command);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCommand(unsigned int32 index, valuetype Urho.RenderPathCommand command) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="command" Type="Urho.RenderPathCommand" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="command">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetEnabled">
       <MemberSignature Language="C#" Value="public void SetEnabled (string tag, bool active);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetEnabled(string tag, bool active) cil managed" />
@@ -481,6 +542,27 @@
         <summary>
             Set a shader parameter in all commands that define it.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (string name, Urho.Matrix4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(string name, valuetype Urho.Matrix4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

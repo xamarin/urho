@@ -185,8 +185,8 @@
       </Docs>
     </Member>
     <Member MemberName="DrawFullscreenQuad">
-      <MemberSignature Language="C#" Value="public void DrawFullscreenQuad (bool nearQuad);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DrawFullscreenQuad(bool nearQuad) cil managed" />
+      <MemberSignature Language="C#" Value="public void DrawFullscreenQuad (bool setIdentityProjection);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DrawFullscreenQuad(bool setIdentityProjection) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -198,7 +198,7 @@
         <Parameter Name="nearQuad" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="nearQuad">To be added.</param>
+        <param name="setIdentityProjection">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -363,8 +363,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetCameraShaderParameters">
-      <MemberSignature Language="C#" Value="public void SetCameraShaderParameters (Urho.Camera camera, bool setProjectionMatrix);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCameraShaderParameters(class Urho.Camera camera, bool setProjectionMatrix) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetCameraShaderParameters (Urho.Camera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCameraShaderParameters(class Urho.Camera camera) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -374,14 +374,10 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="camera" Type="Urho.Camera" />
-        <Parameter Name="setProjectionMatrix" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="camera">To be added.</param>
-        <param name="setProjectionMatrix">To be added.</param>
-        <summary>
-            Set camera-specific shader parameters. Called by Batch and internally by View.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

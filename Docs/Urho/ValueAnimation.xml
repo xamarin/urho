@@ -454,6 +454,28 @@
       </Docs>
     </Member>
     <Member MemberName="SetKeyFrame">
+      <MemberSignature Language="C#" Value="public bool SetKeyFrame (float time, Urho.Matrix4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetKeyFrame(float32 time, valuetype Urho.Matrix4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="time" Type="System.Single" />
+        <Parameter Name="value" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="time">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetKeyFrame">
       <MemberSignature Language="C#" Value="public bool SetKeyFrame (float time, Urho.Quaternion value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetKeyFrame(float32 time, valuetype Urho.Quaternion value) cil managed" />
       <MemberType>Method</MemberType>

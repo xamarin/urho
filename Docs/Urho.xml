@@ -570,6 +570,13 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Animation.AddTrigger(System.Single,System.Boolean,Urho.Matrix4)">
+            <param name="time"></param>
+            <param name="timeIsNormalized"></param>
+            <param name="data"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Animation.AddTrigger(System.Single,System.Boolean,Urho.Quaternion)">
             <param name="time"></param>
             <param name="timeIsNormalized"></param>
@@ -624,6 +631,12 @@
         </member>
         <member name="M:Urho.Animation.BeginLoad(Urho.IO.File)">
             <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Animation.Clone(System.String)">
+            <param name="cloneName"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -745,6 +758,16 @@
             <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
             <remarks />
         </member>
+        <member name="T:Urho.AnimationBlendMode">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.AnimationBlendMode.Additive">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.AnimationBlendMode.Lerp">
+            <summary></summary>
+        </member>
         <member name="T:Urho.AnimationController">
             <summary>Component that drives an AnimatedModel's animations.
             </summary>
@@ -822,6 +845,12 @@
             <summary>
             Return animation autofade time.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.AnimationController.GetBlendMode(System.String)">
+            <param name="name"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -986,6 +1015,13 @@
             <summary>
             Set animation autofade at end (non-looped animations only.) Zero time disables. Return true on success.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.AnimationController.SetBlendMode(System.String,Urho.AnimationBlendMode)">
+            <param name="name"></param>
+            <param name="mode"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -1187,6 +1223,11 @@
             <summary>
             Apply the animation at the current time position.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.AnimationState.BlendMode">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.AnimationState.Enabled">
@@ -1504,6 +1545,11 @@
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
+        <member name="P:Urho.Application.AllowNativeDelete">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Application.Audio">
             <summary>Returns the Audio subsystem.</summary>
             <value>
@@ -1541,14 +1587,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Application.Delay(System.Single)">
-            <param name="durationSec">Duration in millyseconds</param>
-            <summary>
-            Waits given game time.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Application.Engine">
             <summary>Returns the application’s engine.</summary>
             <value></value>
@@ -1559,6 +1597,10 @@
             <summary>
             Show an error message (last log message if empty), terminate the main loop, and set failure exit code.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Application.Exit">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.FileSystem">
@@ -1594,6 +1636,11 @@
             <summary>
             Invoke actions in the Main Thread (the next Update call)
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Application.IsExiting">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.Log">
@@ -1668,8 +1715,8 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Application.StopCurrent">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Native pointer to the underlying ApplicationProxy instance.</summary>
+            <remarks>For internal use.</remarks>
         </member>
         <member name="E:Urho.Application.Stoped">
             <summary>Event raised when your application has stopped.</summary>
@@ -1943,6 +1990,12 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.AttributeAccessor.Set(Urho.Serializable,Urho.Matrix4)">
+            <param name="ptr"></param>
+            <param name="src"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.AttributeAccessor.Set(Urho.Serializable,Urho.Quaternion)">
             <param name="ptr"></param>
             <param name="src"></param>
@@ -2111,13 +2164,18 @@
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="C:Urho.BiasParameters(System.Single,System.Single)">
+        <member name="C:Urho.BiasParameters(System.Single,System.Single,System.Single)">
             <param name="constantBias"></param>
             <param name="slopeScaleBias"></param>
+            <param name="normalOffset"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.BiasParameters.ConstantBias">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.BiasParameters.NormalOffset">
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -3032,6 +3090,79 @@
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.ClickEndEventArgs">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEndEventArgs.BeginElement">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEndEventArgs.Button">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEndEventArgs.Buttons">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEndEventArgs.Element">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEndEventArgs.Qualifiers">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEndEventArgs.X">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEndEventArgs.Y">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.ClickEventArgs">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEventArgs.Button">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEventArgs.Buttons">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEventArgs.Element">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEventArgs.Qualifiers">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEventArgs.X">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ClickEventArgs.Y">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.CollisionGeometryData">
             <summary>
             Base class for collision shape geometry data.
@@ -3550,12 +3681,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.ConstantBuffer.OnDeviceReset">
-            <summary>
-            Recreate the GPU resource and restore data if applicable.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.ConstantBuffer.Release">
             <summary>
             Release the buffer.
@@ -3708,6 +3833,72 @@
             <summary>
             Remove a subsystem.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,System.Int32)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,System.Single)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,System.String)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Color)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.IntRect)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.IntVector2)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Matrix4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Quaternion)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Vector2)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Vector3)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Vector4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Controls">
@@ -3873,6 +4064,16 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.PBRDeferred">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+RenderPaths.PBRDeferredHWDepth">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.CoreAssets+RenderPaths.Prepass">
             <summary></summary>
             <value></value>
@@ -3884,195 +4085,6 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+RenderPaths.PrepassHWDepth">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.CoreAssets+Shaders">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.AutoExposure">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Basic">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Bloom">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.BloomHDR">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Blur">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.ColorCorrection">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.CopyFramebuffer">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.DeferredLight">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Depth">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Fog">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.FXAA2">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.FXAA3">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.GammaCorrection">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.GreyScale">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Lighting">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.LitParticle">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.LitSolid">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.PostProcess">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.PrepassLight">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Samplers">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.ScreenPos">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Shadow">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.ShadowBlur">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Skybox">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Skydome">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Stencil">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.TerrainBlend">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Text">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Tonemap">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Transform">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Uniforms">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Unlit">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Urho2D">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Vegetation">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.VegetationDepth">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.VegetationShadow">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.CoreAssets+Shaders.Water">
             <summary></summary>
             <value></value>
             <remarks></remarks>
@@ -4602,6 +4614,119 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.Water">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+Techniques+PBR">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.DiffNormalSpecEmissive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.DiffNormalSpecEmissiveAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRDiff">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRDiffAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRDiffNormal">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRDiffNormalAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRDiffNormalEmissive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRDiffNormalEmissiveAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRMetallicRoughDiffNormalSpec">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRMetallicRoughDiffNormalSpecEmissive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRMetallicRoughDiffNormalSpecEmissiveAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRMetallicRoughDiffSpec">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRMetallicRoughDiffSpecAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRNoTexture">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Techniques+PBR.PBRNoTextureAlpha">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+Textures">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Textures.LUTIdentity">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Textures.Ramp">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Textures.RampExtreme">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Textures.RampWide">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Textures.Spot">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Textures.SpotWide">
             <summary></summary>
             <value></value>
             <remarks></remarks>
@@ -5592,7 +5717,13 @@
         <member name="F:Urho.DeferredLightPSVariation.Orthopointmaskshadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.DeferredLightPSVariation.Orthopointmaskshadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.DeferredLightPSVariation.Orthopointmaskshadowspec">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.DeferredLightPSVariation.Orthopointmaskshadowspecnormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.DeferredLightPSVariation.Orthopointmaskspec">
@@ -5601,7 +5732,13 @@
         <member name="F:Urho.DeferredLightPSVariation.Orthopointshadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.DeferredLightPSVariation.Orthopointshadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.DeferredLightPSVariation.Orthopointshadowspec">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.DeferredLightPSVariation.Orthopointshadowspecnormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.DeferredLightPSVariation.Orthopointspec">
@@ -5610,7 +5747,13 @@
         <member name="F:Urho.DeferredLightPSVariation.Orthoshadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.DeferredLightPSVariation.Orthoshadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.DeferredLightPSVariation.Orthoshadowspec">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.DeferredLightPSVariation.Orthoshadowspecnormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.DeferredLightPSVariation.Orthospec">
@@ -5622,7 +5765,13 @@
         <member name="F:Urho.DeferredLightPSVariation.Orthospotshadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.DeferredLightPSVariation.Orthospotshadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.DeferredLightPSVariation.Orthospotshadowspec">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.DeferredLightPSVariation.Orthospotshadowspecnormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.DeferredLightPSVariation.Orthospotspec">
@@ -5637,7 +5786,13 @@
         <member name="F:Urho.DeferredLightPSVariation.Pointmaskshadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.DeferredLightPSVariation.Pointmaskshadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.DeferredLightPSVariation.Pointmaskshadowspec">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.DeferredLightPSVariation.Pointmaskshadowspecnormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.DeferredLightPSVariation.Pointmaskspec">
@@ -5646,7 +5801,13 @@
         <member name="F:Urho.DeferredLightPSVariation.Pointshadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.DeferredLightPSVariation.Pointshadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.DeferredLightPSVariation.Pointshadowspec">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.DeferredLightPSVariation.Pointshadowspecnormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.DeferredLightPSVariation.Pointspec">
@@ -5655,7 +5816,13 @@
         <member name="F:Urho.DeferredLightPSVariation.Shadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.DeferredLightPSVariation.Shadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.DeferredLightPSVariation.Shadowspec">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.DeferredLightPSVariation.Shadowspecnormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.DeferredLightPSVariation.Spec">
@@ -5667,7 +5834,13 @@
         <member name="F:Urho.DeferredLightPSVariation.Spotshadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.DeferredLightPSVariation.Spotshadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.DeferredLightPSVariation.Spotshadowspec">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.DeferredLightPSVariation.Spotshadowspecnormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.DeferredLightPSVariation.Spotspec">
@@ -5700,6 +5873,40 @@
         </member>
         <member name="T:Urho.DeviceResetEventArgs">
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.DoubleClickEventArgs">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DoubleClickEventArgs.Button">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DoubleClickEventArgs.Buttons">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DoubleClickEventArgs.Element">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DoubleClickEventArgs.Qualifiers">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DoubleClickEventArgs.X">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DoubleClickEventArgs.Y">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Drawable">
@@ -6382,12 +6589,6 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Engine.Exit">
-            <summary>
-            Close the graphics window and set the exit flag. No-op on iOS, as an iOS application can not legally exit.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Engine.Exiting">
             <summary>Return whether exit has been requested.</summary>
             <value></value>
@@ -6787,14 +6988,6 @@
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Geometry.GetVertexElementMask(System.UInt32)">
-            <param name="index"></param>
-            <summary>
-            Return vertex element mask by index.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Geometry.IndexBuffer">
             <summary>
             Return the index buffer.
@@ -6881,13 +7074,10 @@
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Geometry.SetVertexBuffer(System.UInt32,Urho.VertexBuffer,System.UInt32)">
+        <member name="M:Urho.Geometry.SetVertexBuffer(System.UInt32,Urho.VertexBuffer)">
             <param name="index"></param>
             <param name="buffer"></param>
-            <param name="elementMask"></param>
-            <summary>
-            Set a vertex buffer by index.
-            </summary>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -7097,13 +7287,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.Graphics.AnisotropySupport">
-            <summary>
-            Return whether anisotropic texture filtering is supported.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Graphics.ApiName">
             <summary>
             Return graphics API name.
@@ -7141,23 +7324,9 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Graphics.CleanupRenderSurface(Urho.RenderSurface)">
-            <param name="surface"></param>
-            <summary>
-            Clean up a render surface from all FBOs.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Graphics.CleanupScratchBuffers">
             <summary>
             Clean up too large scratch buffers.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Graphics.CleanupShaderPrograms(Urho.ShaderVariation)">
-            <param name="variation"></param>
-            <summary>
-            Clean up shader programs when a shader variation is released or destroyed.
             </summary>
             <remarks></remarks>
         </member>
@@ -7269,13 +7438,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.Graphics.DepthTexture">
-            <summary>
-            Return readable depth-stencil texture. Not created automatically on OpenGL.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Graphics.DepthWrite">
             <summary>
             Return whether depth write is enabled.
@@ -7317,6 +7479,16 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Graphics.Draw(Urho.PrimitiveType,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <param name="type"></param>
+            <param name="indexStart"></param>
+            <param name="indexCount"></param>
+            <param name="baseVertexIndex"></param>
+            <param name="minVertex"></param>
+            <param name="vertexCount"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Graphics.DrawInstanced(Urho.PrimitiveType,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
             <param name="type"></param>
             <param name="indexStart"></param>
@@ -7327,6 +7499,17 @@
             <summary>
             Draw indexed, instanced geometry.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Graphics.DrawInstanced(Urho.PrimitiveType,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <param name="type"></param>
+            <param name="indexStart"></param>
+            <param name="indexCount"></param>
+            <param name="baseVertexIndex"></param>
+            <param name="minVertex"></param>
+            <param name="vertexCount"></param>
+            <param name="instanceCount"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.DummyColorFormat">
@@ -7389,15 +7572,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.Graphics.ForceGL2">
-            <summary>
-            Return whether OpenGL 2 use is forced.
-            Or
-            Set forced use of OpenGL 2 even if OpenGL 3 is available. Must be called before setting the screen mode for the first time. Default false.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Graphics.FreeScratchBuffer(System.IntPtr)">
             <param name="buffer"></param>
             <summary>
@@ -7424,15 +7598,6 @@
             <param name="format"></param>
             <summary>
             Return hardware format for a compressed image format, or 0 if unsupported.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Graphics.GetOrCreateConstantBuffer(System.UInt32,System.UInt32)">
-            <param name="bindingIndex"></param>
-            <param name="size"></param>
-            <summary>
-            Reserve a constant buffer.
             </summary>
             <returns></returns>
             <remarks></remarks>
@@ -7487,13 +7652,6 @@
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.Graphics.GL3Support">
-            <summary>
-            Return whether is using an OpenGL 3 context.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Graphics.HardwareShadowSupport">
             <summary>
             Return whether shadow map depth compare is done in hardware. Always true on OpenGL.
@@ -7521,6 +7679,11 @@
             <summary>
             Return window height.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Graphics.HighDPI">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -7585,12 +7748,6 @@
             Return the API-specific luminance texture format.
             </summary>
             <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Graphics.MarkFBODirty">
-            <summary>
-            Mark the FBO needing an update.
-            </summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.MaxBones">
@@ -7684,14 +7841,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Graphics.Release(System.Boolean,System.Boolean)">
-            <param name="clearGPUObjects"></param>
-            <param name="closeWindow"></param>
-            <summary>
-            Release/clear GPU objects and optionally close the window.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Graphics.RemoveGPUObject(Urho.GPUObject*)">
             <param name="object"></param>
             <summary>
@@ -7747,12 +7896,6 @@
             Resolve multisampled backbuffer to a texture rendertarget. The texture's size should match the viewport size.
             </summary>
             <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Graphics.Restore">
-            <summary>
-            Restore GPU objects and reinitialize state. Requires an open window.
-            </summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.RG16Format">
@@ -7825,6 +7968,11 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Graphics.SdlWindow">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Graphics.SetDepthBias(System.Single,System.Single)">
             <param name="constantBias"></param>
             <param name="slopeScaledBias"></param>
@@ -7849,18 +7997,17 @@
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Graphics.SetMode(System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+        <member name="M:Urho.Graphics.SetMode(System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
             <param name="width"></param>
             <param name="height"></param>
             <param name="fullscreen"></param>
             <param name="borderless"></param>
             <param name="resizable"></param>
+            <param name="highDPI"></param>
             <param name="vsync"></param>
             <param name="tripleBuffer"></param>
             <param name="multiSample"></param>
-            <summary>
-            Set screen mode. Return true if successful.
-            </summary>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -7967,30 +8114,9 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Graphics.SetTextureForUpdate(Urho.Texture)">
-            <param name="texture"></param>
-            <summary>
-            Bind texture unit 0 for update. Called by Texture.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Graphics.SetTextureParametersDirty">
             <summary>
             Dirty texture parameters of all textures (when global settings change.)
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Graphics.SetUBO(System.UInt32)">
-            <param name="object"></param>
-            <summary>
-            Bind a UBO, avoiding redundant operation.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Graphics.SetVBO(System.UInt32)">
-            <param name="object"></param>
-            <summary>
-            Bind a VBO, avoiding redundant operation.
             </summary>
             <remarks></remarks>
         </member>
@@ -8028,13 +8154,6 @@
             <summary>
             Set window position.
             </summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Graphics.ShaderProgram">
-            <summary>
-            Return shader program.
-            </summary>
-            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.ShadowMapFormat">
@@ -8342,12 +8461,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.IndexBuffer.OnDeviceReset">
-            <summary>
-            Recreate the GPU resource and restore data if applicable.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.IndexBuffer.Release">
             <summary>
             Release the buffer.
@@ -8644,6 +8757,12 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Input.GetJoystickByName(System.String)">
+            <param name="name"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Input.GetKeyDown(Urho.Key)">
             <param name="key"></param>
             <summary>
@@ -8861,6 +8980,11 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Input.MouseLocked">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Input.MouseMode">
             <summary>
             Return the mouse mode.
@@ -8995,6 +9119,14 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Input.ResetMouseGrabbed">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Input.ResetMouseMode">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Input.ResetMouseVisible">
             <summary>
             Reset last mouse visibility that was not suppressed in SetMouseVisible.
@@ -9024,6 +9156,18 @@
         <member name="P:Urho.Input.ScreenKeyboardVisible">
             <summary>Return whether on-screen keyboard is being shown;  On platform that support it, setting this property displays the on-screen keyboard.</summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Input.SetMouseGrabbed(System.Boolean,System.Boolean)">
+            <param name="grab"></param>
+            <param name="suppressEvent"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Input.SetMouseMode(Urho.MouseMode,System.Boolean)">
+            <param name="mode"></param>
+            <param name="suppressEvent"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Input.SetMouseVisible(System.Boolean,System.Boolean)">
@@ -9407,6 +9551,9 @@
             <remarks></remarks>
         </member>
         <member name="F:Urho.InterpMethod.Linear">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.InterpMethod.None">
             <summary></summary>
         </member>
         <member name="F:Urho.InterpMethod.Spline">
@@ -10543,11 +10690,6 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.KeyDownEventArgs.Raw">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.KeyDownEventArgs.Repeat">
             <summary></summary>
             <value></value>
@@ -10577,15 +10719,59 @@
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.KeyUpEventArgs.Raw">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.KeyUpEventArgs.Scancode">
             <summary></summary>
             <value></value>
             <remarks></remarks>
+        </member>
+        <member name="T:Urho.LegacyVertexElement">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Blendindices">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Blendweights">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Color">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Cubetexcoord1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Cubetexcoord2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Instancematrix1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Instancematrix2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Instancematrix3">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.MaxLegacyVertexElements">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Normal">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Objectindex">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Position">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Tangent">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Texcoord1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LegacyVertexElement.Texcoord2">
+            <summary></summary>
         </member>
         <member name="T:Urho.Light">
             <summary>
@@ -10696,6 +10882,12 @@
             Return spotlight frustum.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Light.GetFullscreenQuadTransform(Urho.Camera)">
+            <param name="camera"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Light.GetIntensityDivisor(System.Single)">
@@ -10983,13 +11175,22 @@
         <member name="F:Urho.LightVSVariation.Pointshadow">
             <summary></summary>
         </member>
+        <member name="F:Urho.LightVSVariation.Pointshadownormaloffset">
+            <summary></summary>
+        </member>
         <member name="F:Urho.LightVSVariation.Shadow">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LightVSVariation.Shadownormaloffset">
             <summary></summary>
         </member>
         <member name="F:Urho.LightVSVariation.Spot">
             <summary></summary>
         </member>
         <member name="F:Urho.LightVSVariation.Spotshadow">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LightVSVariation.Spotshadownormaloffset">
             <summary></summary>
         </member>
         <member name="T:Urho.ListBasedUpdateSynchronizationContext">
@@ -11200,6 +11401,52 @@
         <member name="F:Urho.LogLevel.Warning">
             <summary></summary>
         </member>
+        <member name="T:Urho.LogSharp">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.LogSharp.Debug(System.String)">
+            <param name="str"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.LogSharp.Error(System.String,System.Exception)">
+            <param name="str"></param>
+            <param name="exc"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.LogSharp.LogLevel">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.LogSharp.Trace(System.String)">
+            <param name="str"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.LogSharp.Warn(System.String)">
+            <param name="str"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.LogSharpLevel">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.LogSharpLevel.Debug">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LogSharpLevel.Error">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LogSharpLevel.Trace">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.LogSharpLevel.Warn">
+            <summary></summary>
+        </member>
         <member name="T:Urho.MarshalHelper">
             <summary></summary>
             <remarks></remarks>
@@ -11333,10 +11580,10 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.FromImage(System.String)">
-            <param name="image"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="image">Name of an image that can be fetched from the <see cref="T:Urho.Application.ResourceCache" />.</param>
+            <summary>Creates a material from a 2D Texture.</summary>
+            <returns>Material that contains the image and has been configured with the CoreAssets.Techniques.Diff <see cref="T:Urho.Technique" />.</returns>
+            <remarks>This is a shortcut to creating a new mateiral, setting the texture to TextureUnit.Diffuse on the 2D texture loaded from the cache with the name <paramref name="image" />.</remarks>
         </member>
         <member name="M:Urho.Material.GetPass(System.UInt32,System.String)">
             <param name="index"></param>
@@ -11530,6 +11777,12 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Material.SetShaderParameter(System.String,Urho.Matrix4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Material.SetShaderParameter(System.String,Urho.Quaternion)">
             <param name="name"></param>
             <param name="value"></param>
@@ -11641,21 +11894,24 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.SkyboxFromImage(System.String)">
-            <param name="image"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="image">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image to load.</param>
+            <summary>Creates a material Skybox where all six elements of the skybox are set to the specified image.</summary>
+            <returns>A material which uses a <see cref="T:Urho.TextureCube" /> that has all the side of the cube set to the specified image.</returns>
+            <remarks>The techinque on the resulting cube are set to DiffSkybox and the CullMode is set to None.</remarks>
         </member>
         <member name="M:Urho.Material.SkyboxFromImages(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <param name="imagePositiveX"></param>
-            <param name="imageNegativeX"></param>
-            <param name="imagePositiveY"></param>
-            <param name="imageNegativeY"></param>
-            <param name="imagePositiveZ"></param>
-            <param name="imageNegativeZ"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="imagePositiveX">
+                <para>Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive X side of the cube.</para>
+                <para />
+            </param>
+            <param name="imageNegativeX">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative X side of the cube.</param>
+            <param name="imagePositiveY">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive Y side of the cube.</param>
+            <param name="imageNegativeY">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative Y side of the cube.</param>
+            <param name="imagePositiveZ">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive Z side of the cube.</param>
+            <param name="imageNegativeZ">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative Z side of the cube.</param>
+            <summary>Creates a material Skybox where all six elements of the skybox are specified.</summary>
+            <returns>A material which uses a <see cref="T:Urho.TextureCube" /> that has all the side of the cube set to the specified image.</returns>
+            <remarks>The techinque on the resulting cube are set to DiffSkybox and the CullMode is set to None.</remarks>
         </member>
         <member name="M:Urho.Material.SortTechniques">
             <summary>
@@ -13252,6 +13508,9 @@
         <member name="F:Urho.MouseMode.Free">
             <summary></summary>
         </member>
+        <member name="F:Urho.MouseMode.Invalid">
+            <summary></summary>
+        </member>
         <member name="F:Urho.MouseMode.Relative">
             <summary>sets the operating system cursor to invisible and confines the cursor to the window. The operating system cursor cannot be set to be visible in this mode via SetMouseVisible(), however changes are tracked and will be restored when another mouse mode is set. When the virtual cursor is also invisible, UI interaction will still function as normal (eg: drag events will trigger). Setting this will call SetMouseGrabbed(true).</summary>
         </member>
@@ -13263,6 +13522,11 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.MouseModeChangedEventArgs.Mode">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.MouseModeChangedEventArgs.MouseLocked">
             <summary></summary>
             <value></value>
             <remarks></remarks>
@@ -13357,6 +13621,22 @@
             <summary></summary>
             <value></value>
             <remarks></remarks>
+        </member>
+        <member name="T:Urho.NavigationPathPointFlag">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.NavigationPathPointFlag.End">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.NavigationPathPointFlag.None">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.NavigationPathPointFlag.OffMesh">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.NavigationPathPointFlag.Start">
+            <summary></summary>
         </member>
         <member name="T:Urho.NetworkState">
             <summary></summary>
@@ -14137,16 +14417,16 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.RunActions(Urho.Actions.FiniteTimeAction[])">
-            <param name="actions"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="actions">Actions to execute.</param>
+            <summary>Runs the specified actions.</summary>
+            <remarks>The actions are groupped in a Sequence action.</remarks>
         </member>
         <member name="M:Urho.Node.RunActionsAsync(Urho.Actions.FiniteTimeAction[])">
             <param name="actions">An array of FiniteTimeAction objects.</param>
             <summary>
             Runs a sequence of Actions so that it can be awaited.
             </summary>
-            <returns></returns>
+            <returns>Task representing the actions.</returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.Save(Urho.IO.File)">
@@ -14408,6 +14688,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Set a user variable.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Node.SetVar(Urho.StringHash,Urho.Matrix4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SetVar(Urho.StringHash,Urho.Quaternion)">
@@ -15437,6 +15723,16 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Octree.Raycast(Urho.Ray,Urho.RayQueryLevel,System.Single,Urho.DrawableFlags,System.UInt32)">
+            <param name="ray"></param>
+            <param name="level"></param>
+            <param name="maxDistance"></param>
+            <param name="drawableFlags"></param>
+            <param name="viewMask"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Octree.RaycastSingle(Urho.Ray,Urho.RayQueryLevel,System.Single,Urho.DrawableFlags,System.UInt32)">
             <param name="ray"></param>
             <param name="level"></param>
@@ -16137,6 +16433,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Or
             Set blend mode.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Pass.CullMode">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -17096,8 +17397,9 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.RefCounted.CheckAccess">
+        <member name="P:Urho.RefCounted.AllowNativeDelete">
             <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.RefCounted.CheckEngine">
@@ -17420,9 +17722,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
-        <member name="M:Urho.Renderer.ApplyShadowMapFilter(Urho.View,Urho.Urho2D.Texture2D)">
+        <member name="M:Urho.Renderer.ApplyShadowMapFilter(Urho.View,Urho.Urho2D.Texture2D,System.Single)">
             <param name="view"></param>
             <param name="shadowMap"></param>
+            <param name="blurScale"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -17459,6 +17762,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Or
             Set default renderpath.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Renderer.DefaultTechnique">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -17674,6 +17982,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Or
             Set minimum number of instances required in a batch group to render as instanced.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Renderer.MobileNormalOffsetMul">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -18053,6 +18366,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
+        <member name="M:Urho.RenderPath.AddCommand(Urho.RenderPathCommand)">
+            <param name="command"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.RenderPath.Append(Urho.Resources.XmlFile)">
             <param name="file"></param>
             <summary></summary>
@@ -18072,6 +18390,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Return command at index, or null if does not exist.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.RenderPath.InsertCommand(System.UInt32,Urho.RenderPathCommand)">
+            <param name="index"></param>
+            <param name="command"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.RenderPath.Load(Urho.Resources.XmlFile)">
@@ -18129,6 +18453,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.RenderPath.SetCommand(System.UInt32,Urho.RenderPathCommand)">
+            <param name="index"></param>
+            <param name="command"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.RenderPath.SetEnabled(System.String,System.Boolean)">
             <param name="tag"></param>
             <param name="active"></param>
@@ -18183,6 +18513,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Set a shader parameter in all commands that define it.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.RenderPath.SetShaderParameter(System.String,Urho.Matrix4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.RenderPath.SetShaderParameter(System.String,Urho.Quaternion)">
@@ -18297,67 +18633,67 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName0">
-            <summary></summary>
+            <summary>Texture 0.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName1">
-            <summary></summary>
+            <summary>Texture 1.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName10">
-            <summary></summary>
+            <summary>Texture 10.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName11">
-            <summary></summary>
+            <summary>Texture 11.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName12">
-            <summary></summary>
+            <summary>Texture 12.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName13">
-            <summary></summary>
+            <summary>Texture 13.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName14">
-            <summary></summary>
+            <summary>Texture 14.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName15">
-            <summary></summary>
+            <summary>Texture 15.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName2">
-            <summary></summary>
+            <summary>Texture 2</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName3">
-            <summary></summary>
+            <summary>Texture 3</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName4">
-            <summary></summary>
+            <summary>Texture 4.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName5">
-            <summary></summary>
+            <summary>Texture 5.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName6">
-            <summary></summary>
+            <summary>Texture 6.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName7">
-            <summary></summary>
+            <summary>Texture 7.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName8">
-            <summary></summary>
+            <summary>Texture 8.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.TextureName9">
-            <summary></summary>
+            <summary>Texture 9.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RenderPathCommand.Type">
@@ -18435,16 +18771,6 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
-        <member name="M:Urho.RenderSurface.CreateRenderBuffer(System.UInt32,System.UInt32,System.UInt32)">
-            <param name="width"></param>
-            <param name="height"></param>
-            <param name="format"></param>
-            <summary>
-            Create a renderbuffer. Return true if successful.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.RenderSurface.GetViewport(System.UInt32)">
             <param name="index"></param>
             <summary>
@@ -18487,12 +18813,6 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.RenderSurface.OnDeviceLost">
-            <summary>
-            Handle device loss.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.RenderSurface.ParentTexture">
             <summary>
             Return parent texture.
@@ -18512,13 +18832,6 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </summary>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.RenderSurface.RenderBuffer">
-            <summary>
-            Return renderbuffer if created.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.RenderSurface.ResetUpdateQueued">
             <summary></summary>
             <remarks></remarks>
@@ -18529,15 +18842,6 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Set viewport.
             </summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.RenderSurface.Target">
-            <summary>
-            Return surface's OpenGL target.
-            Or
-            Set surface's OpenGL target.
-            </summary>
-            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.RenderSurface.UpdateMode">
@@ -19462,6 +19766,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.ScreenModeEventArgs.HighDPI">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ScreenModeEventArgs.Resizable">
             <summary></summary>
             <value></value>
@@ -19471,6 +19780,205 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
             <value></value>
             <remarks></remarks>
+        </member>
+        <member name="T:Urho.Sdl">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Sdl.SendAppEvent(Urho.SdlEventType)">
+            <param name="eventType"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Sdl.SendWindowEvent(Urho.SdlWindowEvent,System.Int32,System.Int32)">
+            <param name="wndEvent"></param>
+            <param name="data1"></param>
+            <param name="data2"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Sdl.SetMainReady">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SdlEventType">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_APP_DIDENTERBACKGROUND">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_APP_DIDENTERFOREGROUND">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_APP_LOWMEMORY">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_APP_TERMINATING">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_APP_WILLENTERBACKGROUND">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_APP_WILLENTERFOREGROUND">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_CLIPBOARDUPDATE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_CONTROLLERAXISMOTION">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_CONTROLLERBUTTONDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_CONTROLLERBUTTONUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_CONTROLLERDEVICEADDED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_CONTROLLERDEVICEREMAPPED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_CONTROLLERDEVICEREMOVED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_DOLLARGESTURE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_DOLLARRECORD">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_DROPFILE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_FINGERDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_FINGERMOTION">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_FINGERUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_FIRSTEVENT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_JOYAXISMOTION">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_JOYBALLMOTION">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_JOYBUTTONDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_JOYBUTTONUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_JOYDEVICEADDED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_JOYDEVICEREMOVED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_JOYHATMOTION">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_KEYDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_KEYUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_LASTEVENT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_MOUSEBUTTONDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_MOUSEBUTTONUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_MOUSEMOTION">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_MOUSEWHEEL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_MULTIGESTURE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_QUIT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_RENDER_TARGETS_RESET">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_SYSWMEVENT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_TEXTEDITING">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_TEXTINPUT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_USEREVENT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlEventType.SDL_WINDOWEVENT">
+            <summary></summary>
+        </member>
+        <member name="T:Urho.SdlWindowEvent">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_CLOSE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_ENTER">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_EXPOSED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_LOST">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_HIDDEN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_LEAVE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_MAXIMIZED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_MINIMIZED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_MOVED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_NONE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_RESIZED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_RESTORED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_SHOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlWindowEvent.SDL_WINDOWEVENT_SIZE_CHANGED">
+            <summary></summary>
         </member>
         <member name="T:Urho.Serializable">
             <summary>
@@ -19705,6 +20213,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Serializable.SetAttribute(System.String,Urho.Matrix4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Serializable.SetAttribute(System.String,Urho.Quaternion)">
             <param name="name"></param>
             <param name="value"></param>
@@ -19792,6 +20307,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Set attribute by index. Return true if successfully set.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Serializable.SetAttribute(System.UInt32,Urho.Matrix4)">
+            <param name="index"></param>
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -20174,99 +20696,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.ShaderProgram.ClearGlobalParameterSource(Urho.ShaderParameterGroup)">
-            <param name="group"></param>
-            <summary>
-            Clear a global parameter source when constant buffers change.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.ClearParameterSource(Urho.ShaderParameterGroup)">
-            <param name="group"></param>
-            <summary>
-            Clear a parameter source. Affects only the current shader program if appropriate.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.ClearParameterSources">
-            <summary>
-            Clear all parameter sources from all shader programs by incrementing the global parameter source framenumber.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.GetParameter(Urho.StringHash)">
-            <param name="param"></param>
-            <summary>
-            Return the info for a shader parameter, or null if does not exist.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.HasParameter(Urho.StringHash)">
-            <param name="param"></param>
-            <summary>
-            Return whether uses a shader parameter.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.HasTextureUnit(Urho.TextureUnit)">
-            <param name="unit"></param>
-            <summary>
-            Return whether uses a texture unit.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.Link">
-            <summary>
-            Link the shaders and examine the uniforms and samplers used. Return true if successful.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.ShaderProgram.LinkerOutput">
-            <summary>
-            Return linker output.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.NeedParameterUpdate(Urho.ShaderParameterGroup,System.Void*)">
-            <param name="group"></param>
-            <param name="source"></param>
-            <summary>
-            Check whether a shader parameter group needs update. Does not actually check whether parameters exist in the shaders.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.OnDeviceLost">
-            <summary>
-            Mark the GPU resource destroyed on context destruction.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.ShaderProgram.PixelShader">
-            <summary>
-            Return the pixel shader.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderProgram.Release">
-            <summary>
-            Release shader program.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.ShaderProgram.VertexShader">
-            <summary>
-            Return the vertex shader.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="T:Urho.ShaderType">
             <summary>
             Shader types.
@@ -20346,12 +20775,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             Set name.
             </summary>
             <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.ShaderVariation.OnDeviceLost">
-            <summary>
-            Mark the GPU resource destroyed on context destruction.
-            </summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.ShaderVariation.Owner">
@@ -22206,22 +22629,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Texture.GetDataType(System.UInt32)">
-            <param name="format"></param>
-            <summary>
-            Return the data type corresponding to an OpenGL internal format.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Texture.GetExternalFormat(System.UInt32)">
-            <param name="format"></param>
-            <summary>
-            Return the non-internal texture format corresponding to an OpenGL internal format.
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Texture.GetLevelDepth(System.UInt32)">
             <param name="level"></param>
             <summary>
@@ -22348,13 +22755,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.Texture.Target">
-            <summary>
-            Return texture's OpenGL target.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Texture.UpdateParameters">
             <summary>
             Update changed parameters to OpenGL. Called by Graphics when binding the texture.
@@ -22434,18 +22834,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Texture3D.OnDeviceLost">
-            <summary>
-            Mark the GPU resource destroyed on context destruction.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Texture3D.OnDeviceReset">
-            <summary>
-            Recreate the GPU resource and restore data if applicable.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Texture3D.RegisterObject(Urho.Context)">
             <param name="context"></param>
             <summary>
@@ -22457,6 +22845,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Release the texture.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Texture3D.SetData(Urho.Resources.Image,System.Boolean)">
+            <param name="image"></param>
+            <param name="useAlpha"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Texture3D.SetData(System.UInt32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Void*)">
@@ -22613,18 +23008,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.TextureCube.OnDeviceLost">
-            <summary>
-            Mark the GPU resource destroyed on context destruction.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.TextureCube.OnDeviceReset">
-            <summary>
-            Recreate the GPU resource and restore data if applicable.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.TextureCube.RegisterObject(Urho.Context)">
             <param name="context"></param>
             <summary>
@@ -22641,6 +23024,14 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <member name="M:Urho.TextureCube.SetData(Urho.CubeMapFace,Urho.IO.File)">
             <param name="face"></param>
             <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.TextureCube.SetData(Urho.CubeMapFace,Urho.Resources.Image,System.Boolean)">
+            <param name="face"></param>
+            <param name="image"></param>
+            <param name="useAlpha"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -23576,6 +23967,72 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,System.Int32)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,System.Single)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,System.String)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.Color)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.IntRect)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.IntVector2)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.Matrix4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.Quaternion)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.Vector2)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.Vector3)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.Vector4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.UrhoObject.SubscribeToEvent(Urho.StringHash,System.IntPtr)">
             <param name="eventType"></param>
             <param name="handler"></param>
@@ -23830,6 +24287,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Set key frame.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ValueAnimation.SetKeyFrame(System.Single,Urho.Matrix4)">
+            <param name="time"></param>
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -24099,55 +24563,39 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Bool">
+        <member name="F:Urho.VariantValue.VariantValueLine1">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Float">
+        <member name="F:Urho.VariantValue.VariantValueLine2">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Float2">
+        <member name="F:Urho.VariantValue.VariantValueLine3">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Float3">
+        <member name="F:Urho.VariantValue.VariantValueLine4">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Float4">
+        <member name="T:Urho.VariantValueLine">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Int">
+        <member name="F:Urho.VariantValueLine.Bool">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Int2">
+        <member name="F:Urho.VariantValueLine.Float">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Int3">
+        <member name="F:Urho.VariantValueLine.Int">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VariantValue.Int4">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.VariantValue.Ptr">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.VariantValue.Ptr2">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.VariantValue.Ptr3">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.VariantValue.Ptr4">
+        <member name="F:Urho.VariantValueLine.Ptr">
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -26239,20 +26687,39 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.VertexBuffer.GetElementOffset(Urho.VertexElement)">
-            <param name="element"></param>
-            <summary>
-            Return offset of a specified element within a vertex.
-            </summary>
+        <member name="M:Urho.VertexBuffer.GetBufferHash(System.UInt32)">
+            <param name="streamIndex"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.VertexBuffer.GetElementOffset(Urho.ElementMask,Urho.VertexElement)">
-            <param name="elementMask"></param>
-            <param name="element"></param>
-            <summary>
-            Return element offset from an element mask.
-            </summary>
+        <member name="M:Urho.VertexBuffer.GetElement(Urho.VertexElementSemantic,System.Byte)">
+            <param name="semantic"></param>
+            <param name="index"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.VertexBuffer.GetElement(Urho.VertexElementType,Urho.VertexElementSemantic,System.Byte)">
+            <param name="type"></param>
+            <param name="semantic"></param>
+            <param name="index"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.VertexBuffer.GetElementOffset(Urho.VertexElementSemantic,System.Byte)">
+            <param name="semantic"></param>
+            <param name="index"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.VertexBuffer.GetElementOffset(Urho.VertexElementType,Urho.VertexElementSemantic,System.Byte)">
+            <param name="type"></param>
+            <param name="semantic"></param>
+            <param name="index"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -26261,6 +26728,21 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Return vertex size corresponding to a vertex element mask.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.VertexBuffer.HasElement(Urho.VertexElementSemantic,System.Byte)">
+            <param name="semantic"></param>
+            <param name="index"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.VertexBuffer.HasElement(Urho.VertexElementType,Urho.VertexElementSemantic,System.Byte)">
+            <param name="type"></param>
+            <param name="semantic"></param>
+            <param name="index"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -26277,12 +26759,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <member name="P:Urho.VertexBuffer.Locked">
             <summary>Return whether is currently locked.</summary>
             <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.VertexBuffer.OnDeviceReset">
-            <summary>
-            Recreate the GPU resource and restore data if applicable.
-            </summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.VertexBuffer.Release">
@@ -26383,49 +26859,82 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             </summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.VertexElement.Blendindices">
+        <member name="F:Urho.VertexElement.Index">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexElement.Offset">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexElement.PerInstance">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexElement.Type">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.VertexElementSemantic">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexElementSemantic.Binormal">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Blendweights">
+        <member name="F:Urho.VertexElementSemantic.Blendindices">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Color">
+        <member name="F:Urho.VertexElementSemantic.Blendweights">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Cubetexcoord1">
+        <member name="F:Urho.VertexElementSemantic.Color">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Cubetexcoord2">
+        <member name="F:Urho.VertexElementSemantic.MaxVertexElementSemantics">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Instancematrix1">
+        <member name="F:Urho.VertexElementSemantic.Normal">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Instancematrix2">
+        <member name="F:Urho.VertexElementSemantic.Objectindex">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Instancematrix3">
+        <member name="F:Urho.VertexElementSemantic.Position">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.MaxVertexElements">
+        <member name="F:Urho.VertexElementSemantic.Tangent">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Normal">
+        <member name="F:Urho.VertexElementSemantic.Texcoord">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Objectindex">
+        <member name="T:Urho.VertexElementType">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexElementType.Float">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Position">
+        <member name="F:Urho.VertexElementType.Int">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Tangent">
+        <member name="F:Urho.VertexElementType.MaxVertexElementTypes">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Texcoord1">
+        <member name="F:Urho.VertexElementType.Ubyte4">
             <summary></summary>
         </member>
-        <member name="F:Urho.VertexElement.Texcoord2">
+        <member name="F:Urho.VertexElementType.Ubyte4Norm">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.VertexElementType.Vector2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.VertexElementType.Vector3">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.VertexElementType.Vector4">
             <summary></summary>
         </member>
         <member name="T:Urho.VertexLightVSVariation">
@@ -26524,7 +27033,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="M:Urho.View.DrawFullscreenQuad(System.Boolean)">
-            <param name="nearQuad"></param>
+            <param name="setIdentityProjection"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -26587,12 +27096,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.View.SetCameraShaderParameters(Urho.Camera,System.Boolean)">
+        <member name="M:Urho.View.SetCameraShaderParameters(Urho.Camera)">
             <param name="camera"></param>
-            <param name="setProjectionMatrix"></param>
-            <summary>
-            Set camera-specific shader parameters. Called by Batch and internally by View.
-            </summary>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.View.SetGBufferShaderParameters(Urho.IntVector2,Urho.IntRect)">
@@ -26671,8 +27177,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
         </member>
         <member name="T:Urho.Viewport">
-            <summary>
-            %Viewport definition either for a render surface or the backbuffer.
+            <summary>Viewport definition either for a render surface or the backbuffer.
             </summary>
             <remarks></remarks>
         </member>
@@ -26817,9 +27322,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Viewport.SetClearColor(Urho.Color)">
-            <param name="color"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="color">The color to set.</param>
+            <summary>Sets the clear color on all clear render commands in the render path. </summary>
+            <remarks>This walks the list of commands in the <see cref="P:Urho.Viewport.RenderPath" /> and for each command with the value <see cref="T:Urho.RenderCommandType" /> Clear, it sets the UseFogColor property to zero, and the ClearColor value to the specified <paramref name="color" />.</remarks>
         </member>
         <member name="M:Urho.Viewport.SetRenderPath(Urho.Resources.XmlFile)">
             <param name="file"></param>
@@ -31028,6 +31533,12 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Audio.Audio.IsSoundTypePaused(System.String)">
+            <param name="type"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Audio.Audio.Listener">
             <summary>
             Return active sound listener.
@@ -31054,6 +31565,11 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Audio.Audio.PauseSoundType(System.String)">
+            <param name="type"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Audio.Audio.Play">
             <summary>
             Restart sound output.
@@ -31071,6 +31587,15 @@ public class MyInstantState : ActionInstantState
             <summary>
             Remove a sound source. Called by SoundSource.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Audio.Audio.ResumeAll">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Audio.Audio.ResumeSoundType(System.String)">
+            <param name="type"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Audio.Audio.SampleSize">
@@ -31585,15 +32110,6 @@ public class MyInstantState : ActionInstantState
             Return attenuation.
             Or
             Set attenuation. 1.0 is unaltered. Used for distance attenuated playback.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Audio.SoundSource.AutoRemove">
-            <summary>
-            Return autoremove mode.
-            Or
-            Set whether sound source will be automatically removed from the scene node when playback stops.
             </summary>
             <value></value>
             <remarks></remarks>
@@ -35790,6 +36306,12 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Gui.Sprite.ElementToScreen(Urho.IntVector2)">
+            <param name="position"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Gui.Sprite.HotSpot">
             <summary>
             Return hotspot.
@@ -35861,6 +36383,12 @@ public class MyInstantState : ActionInstantState
             Update and return screen position.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.Sprite.ScreenToElement(Urho.IntVector2)">
+            <param name="screenPosition"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.Sprite.SetFullImageRect">
@@ -36160,13 +36688,6 @@ public class MyInstantState : ActionInstantState
             <param name="length"></param>
             <summary>
             Set selection. When length is not provided, select until the text ends.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Gui.Text.SetUsedInText3D(System.Boolean)">
-            <param name="usedInText3D"></param>
-            <summary>
-            Set used in Text3D.
             </summary>
             <remarks></remarks>
         </member>
@@ -38431,6 +38952,12 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,Urho.Matrix4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,Urho.Quaternion)">
             <param name="key"></param>
             <param name="value"></param>
@@ -40066,6 +40593,11 @@ public class MyInstantState : ActionInstantState
             Open the package file. Return true if successful.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.IO.PackageFile.TotalDataSize">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.IO.PackageFile.TotalSize">
@@ -44898,6 +45430,34 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.Repl.Randoms">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Randoms.Next">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Randoms.Next(System.Single,System.Single)">
+            <param name="min"></param>
+            <param name="max"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Randoms.NextNormal">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Randoms.NextNormal(System.Single,System.Single)">
+            <param name="min"></param>
+            <param name="max"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Repl.Simple3DScene">
             <summary></summary>
             <remarks></remarks>
@@ -44937,6 +45497,11 @@ public class MyInstantState : ActionInstantState
         <member name="P:Urho.Repl.Simple3DScene.MoveCamera">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Repl.Simple3DScene.MoveCameraByTouches(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Repl.Simple3DScene.Octree">
@@ -44982,9 +45547,8 @@ public class MyInstantState : ActionInstantState
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Repl.Simple3DScene.SimpleMoveCamera3D(System.Single,System.Single)">
+        <member name="M:Urho.Repl.Simple3DScene.SimpleMoveCamera3D(System.Single)">
             <param name="timeStep"></param>
-            <param name="moveSpeed"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -45022,74 +45586,6 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="F:Urho.Resources.AsyncLoadState.Success">
             <summary></summary>
-        </member>
-        <member name="T:Urho.Resources.BackgroundLoader">
-            <summary>
-            Background loader of resources. Owned by the ResourceCache.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.Resources.BackgroundLoader(System.IntPtr)">
-            <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-            <summary>Constructs a new instance of Urho.Resources.BackgroundLoader, given a raw pointer to an unmanaged object</summary>
-            <remarks>
-                <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
-                <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
-                <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
-            </remarks>
-        </member>
-        <member name="C:Urho.Resources.BackgroundLoader(Urho.Resources.ResourceCache)">
-            <param name="owner"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.Resources.BackgroundLoader(Urho.UrhoObjectFlag)">
-            <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
-            <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
-            <remarks>
-                <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
-                <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
-                <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
-            </remarks>
-        </member>
-        <member name="M:Urho.Resources.BackgroundLoader.FinishResources(System.Int32)">
-            <param name="maxMs"></param>
-            <summary>
-            Process resources that are ready to finish.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Resources.BackgroundLoader.NumQueuedResources">
-            <summary>
-            Return amount of resources in the load queue.
-            </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Resources.BackgroundLoader.QueueResource(Urho.StringHash,System.String,System.Boolean,Urho.Resources.Resource)">
-            <param name="type"></param>
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
-            <param name="caller"></param>
-            <summary>
-            Queue loading of a resource. The name must be sanitated to ensure consistent format. Return true if queued (not a duplicate and resource was a known type).
-            </summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Resources.BackgroundLoader.ThreadFunction">
-            <summary>
-            Resource background loading loop.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Resources.BackgroundLoader.WaitForResource(Urho.StringHash,Urho.StringHash)">
-            <param name="type"></param>
-            <param name="nameHash"></param>
-            <summary>
-            Wait and finish possible loading of a resource when being requested from the cache.
-            </summary>
-            <remarks></remarks>
         </member>
         <member name="T:Urho.Resources.ChangeLanguageEventArgs">
             <summary></summary>
@@ -46085,8 +46581,8 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Resources.ResourceCache.BackgroundLoadResource(Urho.StringHash,System.String,System.Boolean,Urho.Resources.Resource)">
             <param name="type"></param>
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <param name="caller"></param>
             <summary>
             Background load a resource. An event will be sent when complete. Return true if successfully stored to the load queue, false if eg. already exists. Can be called from outside the main thread.
@@ -46118,29 +46614,29 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetAnimation(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetAnimationSet2D(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetExistingResource(Urho.StringHash,System.String)">
-            <param name="type"></param>
-            <param name="name"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="type">Type signature for the resource type to load.</param>
+            <param name="name">Name of the resource to load</param>
+            <summary>Fetches an already loaded resource of specific type and name.</summary>
+            <returns>Returns ther resoruce, or <see langword="null" /> if not found. </returns>
+            <remarks>Will not load if does not exist.</remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetFile(System.String,System.Boolean)">
             <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary>
             Open and return a file from the resource load paths or from inside a package file. If not found, use a fallback search with absolute path. Return null if fails. Can be called from outside the main thread.
             </summary>
@@ -46149,31 +46645,46 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetFont(System.String,System.Boolean)">
             <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
-            <summary></summary>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+            <summary>Fetches a font stored as a resource.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetImage(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+            <summary>Loads an image resource by name. </summary>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetJsonFile(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetMaterial(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetMemoryBudget(Urho.StringHash)">
             <param name="type"></param>
@@ -46188,39 +46699,64 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetModel(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetObjectAnimation(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetParticleEffect(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetParticleEffect2D(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetPListFile(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetPreferredResourceDir(System.String)">
             <param name="path"></param>
@@ -46231,22 +46767,29 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetResource(Urho.StringHash,System.String,System.Boolean)">
-            <param name="type"></param>
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="type">Type signature for the resource type to load.</param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary>
             Return a resource by type and name. Load if not loaded yet. Return null if not found or if fails, unless SetReturnFailedResources(true) has been called. Can be called only from the main thread.
             </summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetResourceFileName(System.String)">
-            <param name="name"></param>
+            <param name="name">Name of the resource.</param>
             <summary>
             Return full absolute file name of resource if possible.
             </summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>The full path name, or an empty string if the resource name does not exist in any of the registered resource directories.</returns>
+            <remarks>
+                <para></para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetResourceRouter(System.UInt32)">
             <param name="index"></param>
@@ -46257,91 +46800,147 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetShader(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetSound(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetSprite2D(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetSpriteSheet2D(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetTechnique(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetTempResource(Urho.StringHash,System.String,System.Boolean)">
             <param name="type"></param>
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary>
             Load a resource without storing it in the resource cache. Return null if not found or if fails. Can be called from outside the main thread if the resource itself is safe to load completely (it does not possess for example GPU data.)
             </summary>
-            <returns></returns>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetTexture2D(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+            <summary>Loads a 2D Texture resource by name. </summary>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetTexture3D(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+            <summary>Loads a 3D Texture resource by name. </summary>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetTextureCube(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
+            <summary>Loads a Texture Cube resource by name. </summary>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetTmxFile2D(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetValueAnimation(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="M:Urho.Resources.ResourceCache.GetXmlFile(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="sendEventOnFailure"></param>
+            <param name="name">Name of the resource to load</param>
+            <param name="sendEventOnFailure">If <see langword="true" /> this raises the <see cref="E:Urho.Resources.ResourceCache.ResourceNotFound" /> event.</param>
             <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>
+                <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
+            <remarks>
+                <para>It loads the resource if it has not been loaded yet.</para>
+                <para />
+                <para>Should only be called from the main thread.</para>
+            </remarks>
         </member>
         <member name="E:Urho.Resources.ResourceCache.LoadFailed">
             <summary></summary>
@@ -46470,7 +47069,7 @@ public class MyInstantState : ActionInstantState
             </remarks>
         </member>
         <member name="E:Urho.Resources.ResourceCache.ResourceNotFound">
-            <summary></summary>
+            <summary>Event raised by any of the Get resource methods if the requested resource is not found.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToResourceNotFound" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -47153,6 +47752,12 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlElement.SetVariant(Urho.Matrix4)">
+            <param name="value"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlElement.SetVariant(Urho.Quaternion)">
             <param name="value"></param>
             <summary>
@@ -47230,6 +47835,12 @@ public class MyInstantState : ActionInstantState
             <summary>
             Set a variant attribute excluding the type.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.SetVariantValue(Urho.Matrix4)">
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -47343,6 +47954,13 @@ public class MyInstantState : ActionInstantState
             <summary>
             Set a float, Vector or Matrix attribute stored in a variant.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.SetVectorVariant(System.String,Urho.Matrix4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -51622,6 +52240,11 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Urho2D.Sprite2D.TextureEdgeOffset">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Urho2D.Sprite2D.Type">
             <summary>Urho's type system type.</summary>
             <value>StringHash representing the type for this C# type.</value>
@@ -51976,18 +52599,6 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Urho2D.Texture2D.OnDeviceLost">
-            <summary>
-            Mark the GPU resource destroyed on context destruction.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Urho2D.Texture2D.OnDeviceReset">
-            <summary>
-            Recreate the GPU resource and restore data if applicable.
-            </summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Urho2D.Texture2D.RegisterObject(Urho.Context)">
             <param name="context"></param>
             <summary>
@@ -52006,6 +52617,13 @@ public class MyInstantState : ActionInstantState
             Return render surface.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.Texture2D.SetData(Urho.Resources.Image,System.Boolean)">
+            <param name="image"></param>
+            <param name="useAlpha"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Urho2D.Texture2D.SetData(System.UInt32,System.Int32,System.Int32,System.Int32,System.Int32,System.Void*)">
@@ -52647,6 +53265,12 @@ public class MyInstantState : ActionInstantState
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
+        <member name="M:Urho.Urho2D.TmxFile2D.AddLayer(System.UInt32,Urho.Urho2D.TmxLayer2D)">
+            <param name="index"></param>
+            <param name="layer"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Urho2D.TmxFile2D.BeginLoad(Urho.IO.File)">
             <param name="source"></param>
             <summary></summary>
@@ -52703,6 +53327,16 @@ public class MyInstantState : ActionInstantState
             <summary>
             Register object factory.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.TmxFile2D.SetInfo(Urho.Urho2D.Orientation2D,System.Int32,System.Int32,System.Single,System.Single)">
+            <param name="orientation"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="tileWidth"></param>
+            <param name="tileHeight"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Urho2D.TmxFile2D.Type">

@@ -1,0 +1,129 @@
+<Type Name="VertexElementType" FullName="Urho.VertexElementType">
+  <TypeSignature Language="C#" Value="public enum VertexElementType" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed VertexElementType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Float">
+      <MemberSignature Language="C#" Value="Float" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementType Float = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Int">
+      <MemberSignature Language="C#" Value="Int" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementType Int = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxVertexElementTypes">
+      <MemberSignature Language="C#" Value="MaxVertexElementTypes" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementType MaxVertexElementTypes = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Ubyte4">
+      <MemberSignature Language="C#" Value="Ubyte4" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementType Ubyte4 = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Ubyte4Norm">
+      <MemberSignature Language="C#" Value="Ubyte4Norm" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementType Ubyte4Norm = int32(6)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Vector2">
+      <MemberSignature Language="C#" Value="Vector2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementType Vector2 = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Vector3">
+      <MemberSignature Language="C#" Value="Vector3" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementType Vector3 = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Vector4">
+      <MemberSignature Language="C#" Value="Vector4" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VertexElementType Vector4 = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VertexElementType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

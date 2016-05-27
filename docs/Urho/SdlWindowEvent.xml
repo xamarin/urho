@@ -1,0 +1,227 @@
+<Type Name="SdlWindowEvent" FullName="Urho.SdlWindowEvent">
+  <TypeSignature Language="C#" Value="public enum SdlWindowEvent" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed SdlWindowEvent extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="SDL_WINDOWEVENT_CLOSE">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_CLOSE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_CLOSE = int32(14)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_ENTER">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_ENTER" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_ENTER = int32(10)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_EXPOSED">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_EXPOSED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_EXPOSED = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_FOCUS_GAINED">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_FOCUS_GAINED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_FOCUS_GAINED = int32(12)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_FOCUS_LOST">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_FOCUS_LOST" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_FOCUS_LOST = int32(13)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_HIDDEN">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_HIDDEN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_HIDDEN = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_LEAVE">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_LEAVE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_LEAVE = int32(11)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_MAXIMIZED">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_MAXIMIZED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_MAXIMIZED = int32(8)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_MINIMIZED">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_MINIMIZED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_MINIMIZED = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_MOVED">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_MOVED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_MOVED = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_NONE">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_NONE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_NONE = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_RESIZED">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_RESIZED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_RESIZED = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_RESTORED">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_RESTORED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_RESTORED = int32(9)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_SHOWN">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_SHOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_SHOWN = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_WINDOWEVENT_SIZE_CHANGED">
+      <MemberSignature Language="C#" Value="SDL_WINDOWEVENT_SIZE_CHANGED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlWindowEvent SDL_WINDOWEVENT_SIZE_CHANGED = int32(6)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlWindowEvent</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

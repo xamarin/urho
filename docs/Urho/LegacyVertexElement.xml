@@ -1,0 +1,227 @@
+<Type Name="LegacyVertexElement" FullName="Urho.LegacyVertexElement">
+  <TypeSignature Language="C#" Value="public enum LegacyVertexElement" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed LegacyVertexElement extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Blendindices">
+      <MemberSignature Language="C#" Value="Blendindices" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Blendindices = int32(9)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Blendweights">
+      <MemberSignature Language="C#" Value="Blendweights" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Blendweights = int32(8)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Color">
+      <MemberSignature Language="C#" Value="Color" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Color = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Cubetexcoord1">
+      <MemberSignature Language="C#" Value="Cubetexcoord1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Cubetexcoord1 = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Cubetexcoord2">
+      <MemberSignature Language="C#" Value="Cubetexcoord2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Cubetexcoord2 = int32(6)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Instancematrix1">
+      <MemberSignature Language="C#" Value="Instancematrix1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Instancematrix1 = int32(10)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Instancematrix2">
+      <MemberSignature Language="C#" Value="Instancematrix2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Instancematrix2 = int32(11)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Instancematrix3">
+      <MemberSignature Language="C#" Value="Instancematrix3" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Instancematrix3 = int32(12)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxLegacyVertexElements">
+      <MemberSignature Language="C#" Value="MaxLegacyVertexElements" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement MaxLegacyVertexElements = int32(14)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Normal">
+      <MemberSignature Language="C#" Value="Normal" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Normal = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Objectindex">
+      <MemberSignature Language="C#" Value="Objectindex" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Objectindex = int32(13)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Position">
+      <MemberSignature Language="C#" Value="Position" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Position = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Tangent">
+      <MemberSignature Language="C#" Value="Tangent" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Tangent = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Texcoord1">
+      <MemberSignature Language="C#" Value="Texcoord1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Texcoord1 = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Texcoord2">
+      <MemberSignature Language="C#" Value="Texcoord2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.LegacyVertexElement Texcoord2 = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.LegacyVertexElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

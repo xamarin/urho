@@ -256,8 +256,8 @@
       </Docs>
     </Member>
     <Member MemberName="ApplyShadowMapFilter">
-      <MemberSignature Language="C#" Value="public void ApplyShadowMapFilter (Urho.View view, Urho.Urho2D.Texture2D shadowMap);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyShadowMapFilter(class Urho.View view, class Urho.Urho2D.Texture2D shadowMap) cil managed" />
+      <MemberSignature Language="C#" Value="public void ApplyShadowMapFilter (Urho.View view, Urho.Urho2D.Texture2D shadowMap, float blurScale);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ApplyShadowMapFilter(class Urho.View view, class Urho.Urho2D.Texture2D shadowMap, float32 blurScale) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -268,10 +268,12 @@
       <Parameters>
         <Parameter Name="view" Type="Urho.View" />
         <Parameter Name="shadowMap" Type="Urho.Urho2D.Texture2D" />
+        <Parameter Name="blurScale" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="view">To be added.</param>
         <param name="shadowMap">To be added.</param>
+        <param name="blurScale">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -363,6 +365,22 @@
             Or
             Set default renderpath.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultTechnique">
+      <MemberSignature Language="C#" Value="public Urho.Technique DefaultTechnique { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Technique DefaultTechnique" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -913,6 +931,22 @@
             Or
             Set minimum number of instances required in a batch group to render as instanced.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MobileNormalOffsetMul">
+      <MemberSignature Language="C#" Value="public float MobileNormalOffsetMul { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 MobileNormalOffsetMul" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -169,6 +169,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="BlendMode">
+      <MemberSignature Language="C#" Value="public Urho.AnimationBlendMode BlendMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.AnimationBlendMode BlendMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AnimationBlendMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Enabled">
       <MemberSignature Language="C#" Value="public bool Enabled { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool Enabled" />

@@ -321,24 +321,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Exit">
-      <MemberSignature Language="C#" Value="public void Exit ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Exit() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Close the graphics window and set the exit flag. No-op on iOS, as an iOS application can not legally exit.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Exiting">
       <MemberSignature Language="C#" Value="public bool Exiting { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool Exiting" />

@@ -208,6 +208,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetBlendMode">
+      <MemberSignature Language="C#" Value="public Urho.AnimationBlendMode GetBlendMode (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.AnimationBlendMode GetBlendMode(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AnimationBlendMode</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetFadeTarget">
       <MemberSignature Language="C#" Value="public float GetFadeTarget (string name);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetFadeTarget(string name) cil managed" />
@@ -653,6 +673,28 @@
         <summary>
             Set animation autofade at end (non-looped animations only.) Zero time disables. Return true on success.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetBlendMode">
+      <MemberSignature Language="C#" Value="public bool SetBlendMode (string name, Urho.AnimationBlendMode mode);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetBlendMode(string name, valuetype Urho.AnimationBlendMode mode) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="mode" Type="Urho.AnimationBlendMode" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="mode">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
