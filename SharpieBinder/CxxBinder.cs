@@ -626,6 +626,7 @@ namespace SharpieBinder
 			case "class Urho3D::XMLElement &":
 			case "struct Urho3D::PhysicsRaycastResult &":
 			case "const class Urho3D::Ray &":
+			case "class Urho3D::Image &":
 			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
 			case "class Urho3D::Serializer &":
 			case "class Urho3D::Deserializer &":
@@ -784,6 +785,7 @@ namespace SharpieBinder
 			case "const struct Urho3D::RenderPathCommand &":
 			case "const class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement &":
+			case "class Urho3D::Image &":
 			case "const class Urho3D::Ray &":
 				var simpleType = RemapTypeToNamespace (cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms());
 				highLevel = new SimpleType (simpleType);
