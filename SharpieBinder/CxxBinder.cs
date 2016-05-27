@@ -785,13 +785,17 @@ namespace SharpieBinder
 			case "const struct Urho3D::RenderPathCommand &":
 			case "const class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement &":
-			case "class Urho3D::Image &":
 			case "const class Urho3D::Ray &":
 				var simpleType = RemapTypeToNamespace (cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms());
 				highLevel = new SimpleType (simpleType);
 				lowLevel = new SimpleType (simpleType);
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				wrapKind = WrapKind.RefBlittable;
+				return;
+			case "class Urho3D::Image &":
+				highLevel = new SimpleType ("Image");
+				lowLevel = new SimpleType ("IntPtr");
+				wrapKind = WrapKind.HandleMember;
 				return;
 			case "struct Urho3D::PhysicsRaycastResult &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
@@ -1456,6 +1460,10 @@ namespace SharpieBinder
 				switch (ctype) {
 				case "bool":
 					ctype = "int";
+					break;
+				case "Urho3D::Image &":
+					ctype = "Image *";
+					paramInvoke = $"*{paramInvoke}";
 					break;
 				case "Urho3D::Deserializer &":
 				case "Urho3D::Serializer &":
