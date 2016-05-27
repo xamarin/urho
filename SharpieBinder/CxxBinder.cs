@@ -615,6 +615,8 @@ namespace SharpieBinder
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::Quaternion &":
 			case "const class Urho3D::Plane &":
+			case "const class Urho3D::Matrix4 &":
+			case "const class Urho3D::Matrix3x4 &":
 			case "const class Urho3D::BoundingBox &":
 			case "const struct Urho3D::BiasParameters &":
 			case "const struct Urho3D::CascadeParameters &":
@@ -770,6 +772,8 @@ namespace SharpieBinder
 			case "const class Urho3D::Vector2 &":
 			case "const class Urho3D::Vector3 &":
 			case "const class Urho3D::Vector4 &":
+			case "const class Urho3D::Matrix4 &":
+			case "const class Urho3D::Matrix3x4 &":
 			case "const class Urho3D::Quaternion &":
 			case "const class Urho3D::Plane &":
 			case "const class Urho3D::BoundingBox &":
@@ -1232,6 +1236,8 @@ namespace SharpieBinder
 				creturnType = "Urho3D::CrowdObstacleAvoidanceParams";
 				break;
 			case "const class Urho3D::Vector3 &":
+			case "const class Urho3D::Matrix4 &":
+			case "const class Urho3D::Matrix3x4 &":
 			case "const class Urho3D::Vector2 &":
 			case "const class Urho3D::Vector4 &":
 			case "const class Urho3D::IntVector2 &":
@@ -1241,6 +1247,8 @@ namespace SharpieBinder
 			case "const class Urho3D::Color &":
 				
 			case "Urho3D::Vector3":
+			case "Urho3D::Matrix4":
+			case "Urho3D::Matrix3x4":
 			case "Urho3D::Vector2":
 			case "Urho3D::Vector4":
 			case "Urho3D::IntVector2":
@@ -1599,6 +1607,7 @@ namespace SharpieBinder
 						{"const class Urho3D::IntVector2 &", "IntVector2"},
 						{"const class Urho3D::Quaternion &", "Quaternion"},
 						{"const class Urho3D::Matrix4 &", "Matrix4"},
+						{"const class Urho3D::Matrix3x4 &", "Matrix3x4"},
 						{"int", "int"},
 						{"float", "float"},
 						{"const char *", "string"},
