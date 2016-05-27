@@ -36,6 +36,12 @@
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\RenderPaths\ForwardHWDepth.xml">
       <Link>Assets\CoreData\RenderPaths\ForwardHWDepth.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\RenderPaths\PBRDeferred.xml">
+      <Link>Assets\CoreData\RenderPaths\PBRDeferred.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\RenderPaths\PBRDeferredHWDepth.xml">
+      <Link>Assets\CoreData\RenderPaths\PBRDeferredHWDepth.xml</Link>
+    </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\RenderPaths\Prepass.xml">
       <Link>Assets\CoreData\RenderPaths\Prepass.xml</Link>
     </AndroidAsset>
@@ -60,8 +66,14 @@
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\Blur.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\Blur.glsl</Link>
     </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\BRDF.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\BRDF.glsl</Link>
+    </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\ColorCorrection.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\ColorCorrection.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\Constants.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Constants.glsl</Link>
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\CopyFramebuffer.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\CopyFramebuffer.glsl</Link>
@@ -87,6 +99,9 @@
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\GreyScale.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\GreyScale.glsl</Link>
     </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\IBL.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\IBL.glsl</Link>
+    </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\Lighting.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\Lighting.glsl</Link>
     </AndroidAsset>
@@ -95,6 +110,12 @@
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\LitSolid.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\LitSolid.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\PBRDeferred.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\PBRDeferred.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\PBRLitSolid.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\PBRLitSolid.glsl</Link>
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\PostProcess.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\PostProcess.glsl</Link>
@@ -111,8 +132,14 @@
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\Shadow.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\Shadow.glsl</Link>
     </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\ShadowBlur.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\ShadowBlur.glsl</Link>
+    </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\Skybox.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\Skybox.glsl</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\Skydome.glsl">
+      <Link>Assets\CoreData\Shaders\GLSL\Skydome.glsl</Link>
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\Stencil.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\Stencil.glsl</Link>
@@ -150,114 +177,6 @@
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\GLSL\Water.glsl">
       <Link>Assets\CoreData\Shaders\GLSL\Water.glsl</Link>
     </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\AutoExposure.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\AutoExposure.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Basic.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Basic.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Bloom.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Bloom.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\BloomHDR.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\BloomHDR.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Blur.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Blur.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\ClearFramebuffer.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\ClearFramebuffer.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\ColorCorrection.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\ColorCorrection.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\CopyFramebuffer.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\CopyFramebuffer.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\DeferredLight.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\DeferredLight.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Depth.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Depth.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Fog.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Fog.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\FXAA2.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\FXAA2.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\FXAA3.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\FXAA3.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\GammaCorrection.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\GammaCorrection.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\GreyScale.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\GreyScale.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Lighting.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Lighting.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\LitParticle.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\LitParticle.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\LitSolid.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\LitSolid.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\PostProcess.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\PostProcess.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\PrepassLight.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\PrepassLight.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Samplers.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Samplers.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\ScreenPos.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\ScreenPos.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Shadow.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Shadow.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Skybox.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Skybox.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Stencil.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Stencil.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\TerrainBlend.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\TerrainBlend.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Text.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Text.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Tonemap.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Tonemap.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Transform.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Transform.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Uniforms.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Uniforms.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Unlit.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Unlit.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Urho2D.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Urho2D.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Vegetation.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Vegetation.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\VegetationDepth.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\VegetationDepth.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\VegetationShadow.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\VegetationShadow.hlsl</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Shaders\HLSL\Water.hlsl">
-      <Link>Assets\CoreData\Shaders\HLSL\Water.hlsl</Link>
-    </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\BasicVColUnlitAlpha.xml">
       <Link>Assets\CoreData\Techniques\BasicVColUnlitAlpha.xml</Link>
     </AndroidAsset>
@@ -275,6 +194,12 @@
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffAlphaMask.xml">
       <Link>Assets\CoreData\Techniques\DiffAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffAlphaMaskTranslucent.xml">
+      <Link>Assets\CoreData\Techniques\DiffAlphaMaskTranslucent.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffAlphaTranslucent.xml">
+      <Link>Assets\CoreData\Techniques\DiffAlphaTranslucent.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffAO.xml">
       <Link>Assets\CoreData\Techniques\DiffAO.xml</Link>
@@ -324,6 +249,12 @@
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAlphaMask.xml">
       <Link>Assets\CoreData\Techniques\DiffNormalAlphaMask.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAlphaMaskTranslucent.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalAlphaMaskTranslucent.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAlphaTranslucent.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalAlphaTranslucent.xml</Link>
+    </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffNormalAO.xml">
       <Link>Assets\CoreData\Techniques\DiffNormalAO.xml</Link>
     </AndroidAsset>
@@ -353,6 +284,12 @@
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAlphaMask.xml">
       <Link>Assets\CoreData\Techniques\DiffNormalPackedAlphaMask.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAlphaMaskTranslucent.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedAlphaMaskTranslucent.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAlphaTranslucent.xml">
+      <Link>Assets\CoreData\Techniques\DiffNormalPackedAlphaTranslucent.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffNormalPackedAO.xml">
       <Link>Assets\CoreData\Techniques\DiffNormalPackedAO.xml</Link>
@@ -428,6 +365,9 @@
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffSkybox.xml">
       <Link>Assets\CoreData\Techniques\DiffSkybox.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffSkydome.xml">
+      <Link>Assets\CoreData\Techniques\DiffSkydome.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\DiffSkyplane.xml">
       <Link>Assets\CoreData\Techniques\DiffSkyplane.xml</Link>
@@ -551,6 +491,51 @@
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\Water.xml">
       <Link>Assets\CoreData\Techniques\Water.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\DiffNormalSpecEmissive.xml">
+      <Link>Assets\CoreData\Techniques\PBR\DiffNormalSpecEmissive.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\DiffNormalSpecEmissiveAlpha.xml">
+      <Link>Assets\CoreData\Techniques\PBR\DiffNormalSpecEmissiveAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRDiff.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRDiff.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRDiffAlpha.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRDiffAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRDiffNormal.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRDiffNormal.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRDiffNormalAlpha.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRDiffNormalAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRDiffNormalEmissive.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRDiffNormalEmissive.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRDiffNormalEmissiveAlpha.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRDiffNormalEmissiveAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpec.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpec.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissive.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissive.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissiveAlpha.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissiveAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRMetallicRoughDiffSpec.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRMetallicRoughDiffSpec.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRMetallicRoughDiffSpecAlpha.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRMetallicRoughDiffSpecAlpha.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRNoTexture.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRNoTexture.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Techniques\PBR\PBRNoTextureAlpha.xml">
+      <Link>Assets\CoreData\Techniques\PBR\PBRNoTextureAlpha.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Textures\LUTIdentity.png">
       <Link>Assets\CoreData\Textures\LUTIdentity.png</Link>
