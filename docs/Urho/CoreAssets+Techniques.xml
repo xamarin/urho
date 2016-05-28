@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides access to the techniques that are part of every CoreAssets package in Urho.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

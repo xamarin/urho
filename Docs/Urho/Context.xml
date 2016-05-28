@@ -272,9 +272,9 @@
         <Parameter Name="value" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to an integer value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -293,9 +293,9 @@
         <Parameter Name="value" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to an floating point value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -314,9 +314,9 @@
         <Parameter Name="value" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to a string value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -335,9 +335,9 @@
         <Parameter Name="value" Type="Urho.Color" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to an <see cref="T:Urho.Color" /> value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -356,9 +356,9 @@
         <Parameter Name="value" Type="Urho.IntRect" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to an <see cref="T:Urho.IntRect" /> value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -377,9 +377,9 @@
         <Parameter Name="value" Type="Urho.IntVector2" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to an <see cref="T:Urho.IntVector2" /> value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -398,9 +398,9 @@
         <Parameter Name="value" Type="Urho.Matrix4" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to an <see cref="T:Urho.Matrix4" /> value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -419,9 +419,9 @@
         <Parameter Name="value" Type="Urho.Quaternion" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to a <see cref="T:Urho.Quaternion" /> value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -440,9 +440,9 @@
         <Parameter Name="value" Type="Urho.Vector2" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to a <see cref="T:Urho.Vector2" /> value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -461,9 +461,9 @@
         <Parameter Name="value" Type="Urho.Vector3" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">To be added.aName of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to a <see cref="T:Urho.Vector3" /> value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -482,9 +482,9 @@
         <Parameter Name="value" Type="Urho.Vector4" />
       </Parameters>
       <Docs>
-        <param name="key">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="key">Name of the global variable to assign.</param>
+        <param name="value">The value to assign to the global variable.</param>
+        <summary>Sets an Urho global variable to <see cref="T:Urho.Vector4" /> value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

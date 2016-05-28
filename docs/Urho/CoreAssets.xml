@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Provides access to some of the names Core Asset that ship with every Urho application.</summary>
+    <remarks>This class provides convenient properties to access some of the various assets that ship with every Urho application: fonts, materials, models, techniques, textures and so on.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Cache">
@@ -25,7 +25,7 @@
         <ReturnType>Urho.Resources.ResourceCache</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Convenience method that returns the <see cref="P:Urho.Application.Current.ResourceCache" /></summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
