@@ -114,6 +114,8 @@ namespace Urho.Droid
 
 		static void SetSdlMain(Func<Application> applicationFactory, bool finishActivityOnExit)
 		{
+			SDLActivity.FinishActivityOnNativeExit = finishActivityOnExit;
+			SDLActivity.RemoveSurfaceOnNativeExit = !finishActivityOnExit;
 			RegisterSdlLauncher(_ => {
 					var app = applicationFactory();
 					var code = app.Run();

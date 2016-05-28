@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Urho.Actions;
@@ -78,19 +76,6 @@ namespace Urho.Repl
 
 		public float Pitch { get; set; }
 
-		public void SetBackgroundColor(Color color)
-		{
-			Viewport.SetClearColor(color);
-		}
-
-		public Node AddShape<T>(Color color) where T : Shape
-		{
-			var child = RootNode.CreateChild();
-			var shape = child.CreateComponent<T>();
-			shape.Color = color;
-			return child;
-		}
-
 		protected override void Start()
 		{
 			// 3D scene with Octree
@@ -116,11 +101,13 @@ namespace Urho.Repl
 			// Viewport
 			Viewport = new Viewport(Context, Scene, Camera, null);
 			Renderer.SetViewport(0, Viewport);
-			SetBackgroundColor(Color.White);
+			Viewport.SetClearColor(Color.White);
 
 			// Subscribe to Esc key:
 			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Exit(); });
 		}
+
+		public float MoveSpeed { get; set; } = 10f;
 
 		protected override void OnUpdate(float timeStep)
 		{
@@ -131,12 +118,10 @@ namespace Urho.Repl
 				else
 					MoveCameraByTouches(timeStep);
 
-				float moveSpeed = 10.0f;
-
-				if (Input.GetKeyDown(Key.W)) CameraNode.Translate(Vector3.UnitZ * moveSpeed * timeStep);
-				if (Input.GetKeyDown(Key.S)) CameraNode.Translate(-Vector3.UnitZ * moveSpeed * timeStep);
-				if (Input.GetKeyDown(Key.A)) CameraNode.Translate(-Vector3.UnitX * moveSpeed * timeStep);
-				if (Input.GetKeyDown(Key.D)) CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep);
+				if (Input.GetKeyDown(Key.W)) CameraNode.Translate(Vector3.UnitZ * MoveSpeed * timeStep);
+				if (Input.GetKeyDown(Key.S)) CameraNode.Translate(-Vector3.UnitZ * MoveSpeed * timeStep);
+				if (Input.GetKeyDown(Key.A)) CameraNode.Translate(-Vector3.UnitX * MoveSpeed * timeStep);
+				if (Input.GetKeyDown(Key.D)) CameraNode.Translate(Vector3.UnitX * MoveSpeed * timeStep);
 			}
 			
 			base.OnUpdate(timeStep);
