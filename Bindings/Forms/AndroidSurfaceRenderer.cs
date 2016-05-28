@@ -46,12 +46,10 @@ namespace Urho.Forms
 		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
 		{
 			await launcherSemaphore.WaitAsync();
-			SDLActivity.OnDestroy();
 			surfaceViewPlaceholder.RemoveAllViews();
 			applicationTaskSource = new TaskCompletionSource<Application>();
 			Urho.Application.Started += UrhoApplicationStarted;
 			var surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context, type, options);
-			SDLActivity.OnResume();
 			surfaceViewPlaceholder.AddView(surfaceView);
 			return await applicationTaskSource.Task;
 		}

@@ -1,5 +1,4 @@
 // Modified by Lasse Oorni and Yao Wei Tjong for Urho3D
-// Modified by Egor Bogatov for UrhoSharp
 
 package org.libsdl.app;
 
@@ -231,24 +230,11 @@ public class SDLActivity {
     public static void handleNativeExit() throws Exception {
         SDLActivity.mSDLThread = null;
         Log.d(TAG, "handleNativeExit");
-        if (mSurface != null && RemoveSurfaceOnNativeExit){
-            mSurface.post(new Runnable() {
-                @Override
-                public void run() {
-                    ViewParent vp = mSurface.getParent();
-                    if (vp instanceof ViewGroup) {
-                        ((ViewGroup) vp).removeView(mSurface);
-                        Log.d(TAG, "SDLSurface removed");
-                    }
-                }
-            });
-        }
         if (mSingleton != null && FinishActivityOnNativeExit){
             mSingleton.finish();
         }
     }
 
-    public static boolean RemoveSurfaceOnNativeExit = false;
     public static boolean FinishActivityOnNativeExit = true;
 
     // Messages from the SDLMain thread

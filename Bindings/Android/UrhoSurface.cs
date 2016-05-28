@@ -21,13 +21,27 @@ namespace Urho.Droid
 	/// - DispatchKeyEvent
 	/// - OnWindowFocusChanged
 	/// </summary>
-	public static class UrhoSurface
+	public class UrhoSurface : IUrhoSurface
 	{
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate int SdlCallback(IntPtr context);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void RegisterSdlLauncher(SdlCallback callback);
+
+		public SDLSurface SdlSurface { get; set; }
+
+		UrhoSurface(SDLSurface sdlSurface)
+		{
+			SdlSurface = sdlSurface;
+		}
+
+		public void Remove()
+		{
+			var vg = SdlSurface?.Parent as ViewGroup;
+			vg?.RemoveView(SdlSurface);
+			SdlSurface = null;
+		}
 
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
@@ -50,8 +64,9 @@ namespace Urho.Droid
 		/// </summary>
 		public static SDLSurface CreateSurface(Activity activity, Func<Application> applicationFactory, bool finishActivtiyOnExit = false)
 		{
-			SetSdlMain(applicationFactory, finishActivtiyOnExit);
-			return SDLActivity.CreateSurface(activity);
+			var surface = SDLActivity.CreateSurface(activity);
+			SetSdlMain(applicationFactory, finishActivtiyOnExit, surface);
+			return surface;
 		}
 
 		public static void OnResume()
@@ -105,19 +120,19 @@ namespace Urho.Droid
 		/// </summary>
 		public static void RunInActivity(Func<Application> applicationFactory)
 		{
-			SetSdlMain(applicationFactory, true);
+			SetSdlMain(applicationFactory, true, null);
 			var context = Android.App.Application.Context;
 			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));
 			intent.AddFlags(ActivityFlags.NewTask);
 			context.StartActivity(intent);
 		}
 
-		static void SetSdlMain(Func<Application> applicationFactory, bool finishActivityOnExit)
+		static void SetSdlMain(Func<Application> applicationFactory, bool finishActivityOnExit, SDLSurface surface)
 		{
 			SDLActivity.FinishActivityOnNativeExit = finishActivityOnExit;
-			SDLActivity.RemoveSurfaceOnNativeExit = !finishActivityOnExit;
 			RegisterSdlLauncher(_ => {
 					var app = applicationFactory();
+					app.UrhoSurface = new UrhoSurface(surface);
 					var code = app.Run();
 					Log.Warn("URHOSHARP", "App exited: " + code);
 					return code;

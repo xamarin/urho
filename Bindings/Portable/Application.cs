@@ -25,6 +25,7 @@ namespace Urho {
 		static ActionIntPtr startCallback;
 		static ActionIntPtr stopCallback;
 
+		static int renderThreadId = -1;
 		static readonly List<Action> actionsToDipatch = new List<Action>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -86,6 +87,8 @@ namespace Urho {
 
 		public IntPtr Handle => handle;
 
+		public IUrhoSurface UrhoSurface { get; internal set; }
+
 		/// <summary>
 		/// Application options
 		/// </summary>
@@ -105,6 +108,20 @@ namespace Urho {
 			{
 				actionsToDipatch.Add(action);
 			}
+		}
+
+		/// <summary>
+		/// Invoke actions in the Main Thread (the next Update call)
+		/// </summary>
+		public static Task InvokeOnMainAsync(Action action)
+		{
+			var tcs = new TaskCompletionSource<bool>();
+			InvokeOnMain(() =>
+				{
+					action();
+					tcs.TrySetResult(true);
+				});
+			return tcs.Task;
 		}
 
 		static Application GetApp(IntPtr h) => Runtime.LookupObject<Application>(h);
@@ -144,6 +161,10 @@ namespace Urho {
 			app.SubscribeToAppEvents();
 			app.Start();
 			Started?.Invoke();
+
+#if ANDROID
+			renderThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
+#endif
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
@@ -187,7 +208,24 @@ namespace Urho {
 #if WINDOWS_UWP
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
+#if ANDROID
+			if (System.Threading.Thread.CurrentThread.ManagedThreadId != renderThreadId)
+			{
+				InvokeOnMainAsync(() => Current.Engine.Exit()).Wait();
+				Current.UrhoSurface?.Remove();
+				Current.UrhoSurface = null;
+			}
+			else
+			{
+				Current.Engine.Exit();
+				new Android.OS.Handler(Android.OS.Looper.MainLooper).PostAtFrontOfQueue(() => {
+					Current.UrhoSurface?.Remove();
+					Current.UrhoSurface = null;
+				});
+			}
+#else
 			Current.Engine.Exit ();
+#endif
 #if IOS || WINDOWS_UWP
 			ProxyStop(Current.Handle);
 #endif
@@ -409,5 +447,10 @@ namespace Urho {
 
 			throw new InvalidOperationException($"{applicationType} doesn't have parameterless constructor.");
 		}
+	}
+
+	public interface IUrhoSurface
+	{
+		void Remove();
 	}
 }
