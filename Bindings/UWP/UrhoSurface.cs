@@ -95,8 +95,15 @@ namespace Urho.UWP
 			if (FileExistsInLocalFolder(file))
 				return;
 
-			var storageFile = StorageFile.GetFileFromApplicationUriAsync(new Uri(msappx)).GetAwaiter().GetResult();
-			storageFile.CopyAsync(ApplicationData.Current.LocalFolder).GetAwaiter().GetResult();
+			try
+			{
+				var storageFile = StorageFile.GetFileFromApplicationUriAsync(new Uri(msappx)).GetAwaiter().GetResult();
+				storageFile.CopyAsync(ApplicationData.Current.LocalFolder).GetAwaiter().GetResult();
+			}
+			catch (Exception exc)
+			{
+				throw new Exception($"Assets pak '{msappx}' not found, make sure Build Action set to 'Content'", exc);
+			}
 		}
 
 		static bool FileExistsInLocalFolder(string file)
