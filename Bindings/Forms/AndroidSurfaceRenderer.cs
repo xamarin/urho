@@ -46,6 +46,7 @@ namespace Urho.Forms
 		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
 		{
 			await launcherSemaphore.WaitAsync();
+			await Urho.Application.StopCurrent();
 			surfaceViewPlaceholder.RemoveAllViews();
 			applicationTaskSource = new TaskCompletionSource<Application>();
 			Urho.Application.Started += UrhoApplicationStarted;

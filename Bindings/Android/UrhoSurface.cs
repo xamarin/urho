@@ -39,9 +39,15 @@ namespace Urho.Droid
 		public void Remove()
 		{
 			var vg = SdlSurface?.Parent as ViewGroup;
-			vg?.RemoveView(SdlSurface);
-			SdlSurface = null;
+			if (SdlSurface != null && vg != null)
+			{
+				//vg.RemoveView(SdlSurface);
+				SdlSurface.Enabled = false;
+				SdlSurface.Visibility = ViewStates.Gone;
+			}
 		}
+
+		public bool IsAlive => SDLActivity.MIsSurfaceReady;
 
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere

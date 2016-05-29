@@ -25,6 +25,7 @@ namespace Urho {
 		static ActionIntPtr startCallback;
 		static ActionIntPtr stopCallback;
 
+		static TaskCompletionSource<bool> exitTask;
 		static int renderThreadId = -1;
 		static readonly List<Action> actionsToDipatch = new List<Action>();
 
@@ -84,6 +85,8 @@ namespace Urho {
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString(), Options.ExternalWindow);
 			Runtime.RegisterObject (this);
 		}
+
+		public bool IsClosed { get; private set; }
 
 		public IntPtr Handle => handle;
 
@@ -157,9 +160,9 @@ namespace Urho {
 		static void ProxyStart (IntPtr h)
 		{
 			Runtime.Start();
-			var app = GetApp(h);
-			app.SubscribeToAppEvents();
-			app.Start();
+			Current = GetApp(h);
+			Current.SubscribeToAppEvents();
+			Current.Start();
 			Started?.Invoke();
 
 #if ANDROID
@@ -174,6 +177,7 @@ namespace Urho {
 			UrhoPlatformInitializer.Initialized = false;
 			var context = Current.Context;
 			var app = GetApp (h);
+			app.IsClosed = true;
 			app.UnsubscribeFromAppEvents();
 			app.Stop ();
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
@@ -188,6 +192,7 @@ namespace Urho {
 			Current = null;
 			Stoped?.Invoke();
 			LogSharp.Debug("ProxyStop: end");
+			exitTask?.TrySetResult(true);
 		}
 
 		Subscription updateSubscription = null;
@@ -201,7 +206,7 @@ namespace Urho {
 			updateSubscription?.Unsubscribe();
 		}
 
-		public static void StopCurrent()
+		internal static async Task StopCurrent()
 		{
 			if (current == null)
 				return;
@@ -209,11 +214,17 @@ namespace Urho {
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
 #if ANDROID
-			if (System.Threading.Thread.CurrentThread.ManagedThreadId != renderThreadId)
+			if (Current.UrhoSurface?.IsAlive == false)
 			{
+				Current.Engine.Exit();
+			}
+			else if (System.Threading.Thread.CurrentThread.ManagedThreadId != renderThreadId)
+			{
+				exitTask = new TaskCompletionSource<bool>();
 				InvokeOnMainAsync(() => Current.Engine.Exit()).Wait();
 				Current.UrhoSurface?.Remove();
 				Current.UrhoSurface = null;
+				await exitTask.Task;//.Wait();
 			}
 			else
 			{
@@ -233,7 +244,13 @@ namespace Urho {
 
 		public bool IsExiting => Runtime.IsClosing || Engine.Exiting;
 
-		public void Exit() => StopCurrent();
+		public Task Exit()
+		{
+			if (IsClosed)
+				return Task.FromResult<object>(null);
+			IsClosed = true;
+			return StopCurrent();
+		}
 
 		protected override bool AllowNativeDelete => false;
 
@@ -452,5 +469,6 @@ namespace Urho {
 	public interface IUrhoSurface
 	{
 		void Remove();
+		bool IsAlive { get; }
 	}
 }
