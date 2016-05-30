@@ -27,7 +27,7 @@
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Returns the box model (Models/Box.mdl)</summary>
+        <summary>Returns the box model from the resource cache (Models/Box.mdl)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -43,7 +43,7 @@
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Returns the cone model (Models/Cone.mdl)</summary>
+        <summary>Returns the cone model from the resource cache (Models/Cone.mdl)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -59,7 +59,7 @@
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Returns the cylinder model (Models/Cylinder.mdl)</summary>
+        <summary>Returns the cylinder model from the resource cache (Models/Cylinder.mdl)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -75,7 +75,7 @@
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Returns the plane model (Models/Plane.mdl)</summary>
+        <summary>Returns the plane model from the resource cache (Models/Plane.mdl)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -91,7 +91,7 @@
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Returns the pyramid model (Models/Pyramid.mdl)</summary>
+        <summary>Returns the pyramid model from the resource cache (Models/Pyramid.mdl)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -107,7 +107,7 @@
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Returns the sphere model (Models/Sphere.mdl)</summary>
+        <summary>Returns the sphere model from the resource cache (Models/Sphere.mdl)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -123,7 +123,7 @@
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Returns the torus model (Models/Torus.mdl)</summary>
+        <summary>Returns the torus model from the resource cache (Models/Torus.mdl)</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

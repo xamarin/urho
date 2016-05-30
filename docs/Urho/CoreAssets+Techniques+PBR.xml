@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Provides access to the PBR techniques that are part of every CoreAssets package in Urho.</summary>
+    <summary>Provides access to the Physical Based Rendering techniques that are part of every CoreAssets package in Urho.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
