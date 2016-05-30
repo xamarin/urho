@@ -27,7 +27,7 @@
        <tags>Urho Forms Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    
     <dependencies>
-      <dependency id="Xamarin.Forms" version="2.2.0.31" />
+      <dependency id="Xamarin.Forms" version="2.2.0.43" />
     </dependencies>
    
    </metadata>
