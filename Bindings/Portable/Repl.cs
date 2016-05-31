@@ -3,9 +3,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using Urho.Actions;
 using Urho.Gui;
+using System.IO;
+using System.Linq;
 using Urho.Shapes;
 
-namespace Urho.Repl
+namespace Urho
 {
 	public class Simple3DScene : Application
 	{

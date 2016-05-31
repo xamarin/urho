@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -21,24 +23,33 @@ namespace Urho.UWP
 			return (TGame) Run(typeof(TGame), customAssetsPak);
 		}
 
-		/// <param name="customAssetsPak">all assets must be *.pak files (use PackageTool.exe).</param>
 		public Application Run(Type appType, string customAssetsPak = null)
+		{
+			ApplicationOptions options = new ApplicationOptions(assetsFolder: null);
+			options.ResourcePackagesPaths = new[] { Path.GetFileName(customAssetsPak) };
+			return Run(appType, options);
+		}
+
+		/// <param name="customAssetsPak">all assets must be *.pak files (use PackageTool.exe).</param>
+		public Application Run(Type appType, ApplicationOptions opt)
 		{
 			stop = false;
 			paused = false;
 			inited = false;
 			Sdl.SetMainReady();
-			ApplicationOptions options = new ApplicationOptions(assetsFolder: null);
-			if (!string.IsNullOrEmpty(customAssetsPak))
+
+			var pakFiles = new List<string>();
+			foreach (var resourcePath in opt.ResourcePaths)
 			{
-				if (!customAssetsPak.StartsWith("ms-"))
-					customAssetsPak = "ms-appx:///" + customAssetsPak;
-				
-				options.ResourcePackagesPaths = new[] { Path.GetFileName(customAssetsPak) };
-				CopyContentFileToLocalFolder(customAssetsPak);
+				string url = "";
+				if (!resourcePath.StartsWith("ms-"))
+					url = "ms-appx:///" + resourcePath;
+				CopyContentFileToLocalFolder(url);
+				pakFiles.Add(Path.GetFileName(url));
 			}
+			opt.ResourcePackagesPaths = opt.ResourcePackagesPaths.Concat(pakFiles).ToArray();
 			CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
-			var app = (Application)Activator.CreateInstance(appType, options);
+			var app = (Application)Activator.CreateInstance(appType, opt);
 			app.Run();
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESIZED, (int)this.ActualWidth, (int)this.ActualHeight);
 			inited = true;
