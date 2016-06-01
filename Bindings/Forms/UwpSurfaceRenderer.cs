@@ -9,12 +9,12 @@ using Urho;
 using Urho.UWP;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRendererAttribute(typeof(Urho.Forms.UrhoSurface), typeof(Urho.Forms.UwpSurfaceRenderer2))]
+[assembly: ExportRendererAttribute(typeof(Urho.Forms.UrhoSurface), typeof(Urho.Forms.UwpSurfaceRenderer))]
 
 namespace Urho.Forms
 {
 
-	public class UwpSurfaceRenderer2 : ViewRenderer<Urho.Forms.UrhoSurface, Urho.UWP.UrhoSurface>
+	public class UwpSurfaceRenderer : ViewRenderer<Urho.Forms.UrhoSurface, Urho.UWP.UrhoSurface>
 	{
 		Urho.UWP.UrhoSurface urhoSurface = null;
 
@@ -28,7 +28,7 @@ namespace Urho.Forms
 
 		Task<Application> UrhoLauncher(Type type, ApplicationOptions opts)
 		{
-			var app = urhoSurface.Run(type, null);
+			var app = urhoSurface.Run(type, opts);
 			return Task.FromResult(app);
 		}
 	}

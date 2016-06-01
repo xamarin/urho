@@ -9,11 +9,11 @@ using Urho.Shapes;
 
 namespace Urho
 {
-	public class Simple3DScene : Application
+	public class SimpleApplication : Application
 	{
-		public Simple3DScene(ApplicationOptions options) : base(options) {}
+		public SimpleApplication(ApplicationOptions options) : base(options) {}
 
-		public static Task<Simple3DScene> RunAsync(int width = 600, int height = 500)
+		public static Task<SimpleApplication> RunAsync(int width = 600, int height = 500)
 		{
 #if DESKTOP
 			return RunAsync(new ApplicationOptions(assetsFolder: "Data") { Width = width, Height = height, ResizableWindow = true });
@@ -21,14 +21,14 @@ namespace Urho
 			return RunAsync(new ApplicationOptions(assetsFolder: null));
 		}
 
-		public static Task<Simple3DScene> RunAsync(ApplicationOptions options)
+		public static Task<SimpleApplication> RunAsync(ApplicationOptions options)
 		{
 #if DESKTOP
 			var dataDir = options.ResourcePaths?.FirstOrDefault();
-			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(Simple3DScene).Assembly.Location);
+			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(SimpleApplication).Assembly.Location);
 
 			if (!File.Exists("CoreData.pak")) {
-				using (Stream input = typeof(Simple3DScene).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
+				using (Stream input = typeof(SimpleApplication).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
 				using (Stream output = File.Create(Path.Combine("CoreData.pak")))
 					input.CopyTo(output);
 			}
@@ -36,21 +36,22 @@ namespace Urho
 				Directory.CreateDirectory("Data");
 #endif
 #if !IOS && !UWP
-			var taskSource = new TaskCompletionSource<Simple3DScene>();
+
+			var taskSource = new TaskCompletionSource<SimpleApplication>();
 			Action callback = null;
 			callback = () => {
 				Started -= callback;
-				taskSource.TrySetResult(Current as Simple3DScene);
+				taskSource.TrySetResult(Current as SimpleApplication);
 			};
 			Started += callback;
-			Task.Factory.StartNew(() => new Simple3DScene(options).Run(), 
+			Task.Factory.StartNew(() => new SimpleApplication(options).Run(), 
 					CancellationToken.None, 
 					TaskCreationOptions.DenyChildAttach,
 					SynchronizationContext.Current == null ? TaskScheduler.Default : TaskScheduler.FromCurrentSynchronizationContext());
 
 			return taskSource.Task;
 #else
-			var app = new Simple3DScene(options);
+			var app = new SimpleApplication(options);
 			app.Run(); //for iOS and UWP it's not blocking
 			return Task.FromResult(app);
 #endif
@@ -115,10 +116,10 @@ namespace Urho
 		{
 			if (MoveCamera)
 			{
-				if (!Options.TouchEmulation)
-					SimpleMoveCamera3D(timeStep);
+				if (!Options.TouchEmulation && Platform != Platforms.Android && Platform != Platforms.iOS)
+					MoveCameraMouse(timeStep);
 				else
-					MoveCameraByTouches(timeStep);
+					MoveCameraTouches(timeStep);
 
 				if (Input.GetKeyDown(Key.W)) CameraNode.Translate(Vector3.UnitZ * MoveSpeed * timeStep);
 				if (Input.GetKeyDown(Key.S)) CameraNode.Translate(-Vector3.UnitZ * MoveSpeed * timeStep);
@@ -129,7 +130,7 @@ namespace Urho
 			base.OnUpdate(timeStep);
 		}
 
-		protected void SimpleMoveCamera3D(float timeStep)
+		protected void MoveCameraMouse(float timeStep)
 		{
 			const float mouseSensitivity = .05f;
 
@@ -144,7 +145,7 @@ namespace Urho
 			CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
 		}
 
-		protected void MoveCameraByTouches(float timeStep)
+		protected void MoveCameraTouches(float timeStep)
 		{
 			var input = Input;
 			for (uint i = 0, num = input.NumTouches; i < num; ++i)
@@ -217,37 +218,6 @@ namespace Urho
 			var scale = barNode.Scale;
 			barNode.Position = new Vector3(pos.X, scale.Y / 2f, pos.Z);
 			textNode.Position = new Vector3(-0.5f, scale.Y + 0.5f, 0);
-		}
-	}
-
-	public static class Randoms
-	{
-		static readonly Random random = new Random();
-
-		public static float Next()
-		{
-			return (float) random.NextDouble();
-		}
-
-		public static float Next(float min, float max)
-		{
-			return (float)((random.NextDouble() * (max - min)) + min);
-		}
-
-		public static float NextNormal()
-		{
-			float result = 0;
-			const int samples = 6;//12?
-			for (int i = 0; i < samples; i++)
-			{
-				result += (float)(random.NextDouble() / samples);
-			}
-			return result;
-		}
-
-		public static float NextNormal(float min, float max)
-		{
-			return NextNormal() * (max - min) + min;
 		}
 	}
 }

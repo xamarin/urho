@@ -196,12 +196,12 @@ namespace Urho {
 		}
 
 		Subscription updateSubscription = null;
-		private void SubscribeToAppEvents()
+		void SubscribeToAppEvents()
 		{
 			updateSubscription = Engine.SubscribeToUpdate(HandleUpdate);
 		}
 
-		private void UnsubscribeFromAppEvents()
+		void UnsubscribeFromAppEvents()
 		{
 			updateSubscription?.Unsubscribe();
 		}
