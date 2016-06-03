@@ -42,14 +42,20 @@ namespace Urho
 
 		public void Show()
 		{
+			Show(Color.White);
+		}
+
+		public void Show(Color color, int fontSize = 18)
+		{
 			if (text != null)
 				return;
 
 			text = new Text();
+			text.SetColor(color);
 			text.VerticalAlignment = VerticalAlignment.Top;
 			text.HorizontalAlignment = HorizontalAlignment.Right;
 			text.TextAlignment = HorizontalAlignment.Right;
-			text.SetFont(CoreAssets.Fonts.AnonymousPro, 18);
+			text.SetFont(CoreAssets.Fonts.AnonymousPro, fontSize);
 
 			application.UI.Root.AddChild(text);
 			subscription = application.Engine.SubscribeToPostUpdate(OnPostUpdate);
