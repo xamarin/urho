@@ -937,5 +937,7 @@ namespace Urho
 		}
 
 		#endregion
+
+		public bool IsEmpty => X == 0 && Y == 0;
 	}
 }
