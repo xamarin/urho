@@ -17,6 +17,15 @@ namespace Urho
 			return material;
 		}
 
+		public static Material FromColor(Color color)
+		{
+			var material = new Material();
+			var cache = Application.Current.ResourceCache;
+			material.SetTechnique(0, color.A == 1 ? CoreAssets.Techniques.NoTexture : CoreAssets.Techniques.NoTextureAlpha, 1, 1);
+			material.SetShaderParameter("MatDiffColor", color);
+			return material;
+		}
+
 		public static Material SkyboxFromImages(
 			string imagePositiveX,
 			string imageNegativeX,
