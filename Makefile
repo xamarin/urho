@@ -5,10 +5,16 @@ CUSTOM_CLANG=`pwd`/$(LOCAL_CLANG)
 ifeq (, $(shell which brew))
 # Running on Windows, let's not care.
 else
-BREW_MONO_PREFIX=$(shell brew --prefix mono)
-BREW_MONO=$(BREW_MONO_PREFIX)/bin/mono
-BREW_XBUILD=$(BREW_MONO_PREFIX)/bin/xbuild
-NUGET=$(BREW_MONO) ../Nuget/.nuget/Nuget.exe
+  ifeq (, $(shell which mono64))
+    # Use default mono installation.
+    MONO64=mono64
+    XBUILD=xbuild
+  else
+    MONO64_PREFIX=$(shell brew --prefix mono)
+    MONO64=$(MONO64_PREFIX)/bin/mono
+    XBUILD=$(MONO64_PREFIX)/bin/xbuild
+  endif
+  NUGET=$(MONO64) ../Nuget/.nuget/Nuget.exe
 endif
 
 .PHONY : SharpieBinder
@@ -65,7 +71,7 @@ PchMac: $(LOCAL_CLANG)
 	make -j1 Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -DURHO3D_OPENGL -o Bindings/Urho.pch Bindings/Native/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
 
 SharpieBinder: Bindings/Urho.pch
-	cd SharpieBinder && $(NUGET) restore SharpieBinder.sln && $(BREW_XBUILD) SharpieBinder.csproj && cd bin && $(BREW_MONO) SharpieBinder.exe
+	cd SharpieBinder && $(NUGET) restore SharpieBinder.sln && $(XBUILD) SharpieBinder.csproj && cd bin && $(MONO64) SharpieBinder.exe
 
 ParseEventsMac:
 	@if test ! -d Bindings/Portable/Generated; then echo "Please generate the C# files using SharpieBinder or use 'make SharpieBinder'" && exit 1; fi
