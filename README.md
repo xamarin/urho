@@ -45,9 +45,9 @@ Windows and OS X environment.  Please follow these steps:
 
 - XCode
 - Xamarin Studio
-- CMake (i.e. "brew install cmake")
-- Mono 64 bit (i.e. "brew install mono")
-- Command Line tools ("xcode-select --install")
+- CMake (i.e. `brew install cmake`)
+- Mono 64 bit (i.e. Mono 4.4+ or `brew install mono`)
+- Command Line tools (`xcode-select --install`)
 - Android NDK (and ANDROID_NDK variable)
 
 **2. Clone the repository including submodules**
