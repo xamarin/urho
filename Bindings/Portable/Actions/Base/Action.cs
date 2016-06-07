@@ -56,7 +56,7 @@ namespace Urho.Actions
 		#endregion Properties
 
 
-		public ActionState (BaseAction action, Node target)
+		protected ActionState (BaseAction action, Node target)
 		{
 			this.Action = action;
 			this.Target = target;

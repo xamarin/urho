@@ -8,7 +8,7 @@ namespace Urho.Actions
 
 		#region Constructors
 
-		public AmplitudeAction (float duration, float amplitude = 0) : base (duration)
+		protected AmplitudeAction (float duration, float amplitude = 0) : base (duration)
 		{
 			Amplitude = amplitude;
 		}
@@ -24,7 +24,7 @@ namespace Urho.Actions
 		protected float Amplitude { get; private set; }
 		protected internal float AmplitudeRate { get; set; }
 
-		public AmplitudeActionState (AmplitudeAction action, Node target) : base (action, target)
+		protected AmplitudeActionState (AmplitudeAction action, Node target) : base (action, target)
 		{
 			Amplitude = action.Amplitude;
 			AmplitudeRate = 1.0f;

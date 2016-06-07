@@ -5,23 +5,29 @@ namespace Urho.Actions
 {
 	public class Sequence : FiniteTimeAction
 	{
-		public FiniteTimeAction[] Actions { get; private set; }
+		public FiniteTimeAction[] Actions { get; } = new FiniteTimeAction[2];
 
 
 		#region Constructors
 
 		public Sequence (FiniteTimeAction action1, FiniteTimeAction action2) : base (action1.Duration + action2.Duration)
 		{
-			Actions = new FiniteTimeAction[2];
 			InitSequence (action1, action2);
 		}
 
-		public Sequence (params FiniteTimeAction[] actions) : base ()
+		public Sequence(FiniteTimeAction[] actions, FiniteTimeAction other)
 		{
+			InitFromArray(actions, other);
+		}
 
-			Actions = new FiniteTimeAction[2];
+		public Sequence (FiniteTimeAction[] actions) : base ()
+		{
+			InitFromArray(actions, null);
+		}
 
-			var prev = actions [0];
+		void InitFromArray(FiniteTimeAction[] actions, FiniteTimeAction other)
+		{
+			var prev = actions[0];
 
 			// Can't call base(duration) because we need to calculate duration here
 			float combinedDuration = 0.0f;
@@ -33,20 +39,28 @@ namespace Urho.Actions
 
 			if (actions.Length == 1)
 			{
-				InitSequence (prev, new ExtraAction ());
+				InitSequence(prev, other ?? new ExtraAction());
 			}
 			else
 			{
 				// Basically what we are doing here is creating a whole bunch of 
 				// nested Sequences from the actions.
-				for (int i = 1; i < actions.Length - 1; i++)
+				int count = other != null ? actions.Length - 1 : actions.Length;
+
+				for (int i = 1; i < count; i++)
 				{
-					prev = new Sequence (prev, actions [i]);
+					prev = new Sequence(prev, actions[i]);
 				}
 
-				InitSequence (prev, actions [actions.Length - 1]);
+				if (other != null)
+				{
+					InitSequence(prev, other);
+				}
+				else
+				{
+					InitSequence(prev, actions[actions.Length - 1]);
+				}
 			}
-
 		}
 
 		void InitSequence (FiniteTimeAction actionOne, FiniteTimeAction actionTwo)
