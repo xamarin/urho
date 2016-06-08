@@ -34,9 +34,14 @@ namespace Urho
 
 				frameCount = 0;
 				span = TimeSpan.Zero;
-				text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.KnownObjectsCount} MCW\n" + AdditionalText;
+				if (FpsOnly)
+					text.Value = $"{(int)fps} FPS";
+				else
+					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.KnownObjectsCount} MCW\n" + AdditionalText;
 			}
 		}
+
+		public bool FpsOnly { get; set; }
 
 		public string AdditionalText { get; set; }
 
