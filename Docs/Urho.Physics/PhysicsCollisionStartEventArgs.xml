@@ -11,7 +11,9 @@
   <Interfaces />
   <Docs>
     <summary>Event arguments for the PhysicsWorld's PhysicsCollisionStart event</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="BodyA">
@@ -25,7 +27,7 @@
         <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>First rigid body colliding.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -41,7 +43,7 @@
         <ReturnType>Urho.Physics.RigidBody</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Second rigid body colliding.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -57,7 +59,7 @@
         <ReturnType>Urho.Physics.CollisionData[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Collision information between the bodies, containing the position, normal, distance and impulse for each contact.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -73,7 +75,7 @@
         <ReturnType>Urho.Node</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The node for the first rigid body.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -89,7 +91,7 @@
         <ReturnType>Urho.Node</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The node for the second rigid body.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -105,7 +107,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns true if either one of the rigid bodies is acting as a trigger (that is, the rigid body only raises the collision event, but does not apply collision forces).</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -121,7 +123,7 @@
         <ReturnType>Urho.Physics.PhysicsWorld</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>References the world raising this event.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -31,13 +31,11 @@
             <see cref="T:Urho.Physics.Constraint" />: connects two RigidBodies together, or one <see cref="T:Urho.Physics.RigidBody" /> to a static point in the world. Point, hinge, slider and cone twist constraints are supported.</term>
         </item>
       </list>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>Movement and Collision</h2>
       </format>
-      <para>
-      </para>
+      <para></para>
       <para>Both a <see cref="T:Urho.Physics.RigidBody" /> and at least one <see cref="T:Urho.Physics.CollisionShape" /> component must exist in a scene node for it to behave physically (a collision shape by itself does nothing.) Several collision shapes may exist in the same node to create compound shapes. An offset position and rotation relative to the node's transform can be specified for each. Triangle mesh and convex hull geometries require specifying a <see cref="T:Urho.Model" /> resource and the LOD level to use.</para>
       <para>
         <see cref="T:Urho.Physics.CollisionShape" /> provides two APIs for defining the collision geometry. Either setting individual properties such as the shape type or size, or specifying both the shape type and all its properties at once using <see cref="M:Urho.Physics.CollisionShape.SetBox" />, <see cref="M:Urho.Physics.CollisionShape.SetCapsule" /> or <see cref="M:Urho.Physics.CollisionShape.SetTriangleMesh" /> for example.</para>
@@ -48,39 +46,44 @@
       <para>To prevent tunneling of a fast moving rigid body through obstacles, continuous collision detection can be used. It approximates the object as a swept sphere, but has a performance cost, so it should be used only when necessary. Set the <see cref="T:Urho.Physics.RigidBody.CcdRadius" /> and <see cref="T:Urho.Physics.RigidBody.CcdMotionThreshold" /> with non-zero values to enable. To prevent false collisions, the body's actual collision shape should completely contain the radius. The motion threshold is the required motion per simulation step for CCD to kick in: for example a box with size 1 should have motion threshold 1 as well.</para>
       <para>All physics calculations are performed in world space. Nodes containing a <see cref="T:Urho.Physics.RigidBody" /> component should preferably be parented to the <see cref="T:Urho.Scene" /> (root node) to ensure independent motion. For ragdolls this is not absolute, as retaining proper bone hierarchy is more important, but be aware that the ragdoll bones may drift far from the animated model's root scene node.</para>
       <para>When several collision shapes are present in the same node, edits to them can cause redundant mass/inertia update computation in the <see cref="T:Urho.Physics.RigidBody" />. To optimize performance in these cases, the edits can be enclosed between calls to <see cref="M:Urho.Physics.RigidBody.DisableMassUpdate" /> and <see cref="M:Urho.Physics.RigidBody.EnableMassUpdate" />.</para>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>Constraint parameters</h2>
       </format>
       <para>Constraint position (and rotation if relevant) need to be defined in relation to both connected bodies, see <see cref="M:Urho.Physics.Constraint.SetPosition" /> and <see cref="M:Urho.Physics.Constraint.SetOtherPosition" />. If the constraint connects a body to the static world, then the "other body position" and "other body rotation" mean the static end's transform in world space. There is also a helper function <see cref="M:Urho.Physics.Constraint.SetWorldPosition" /> to assign the constraint to a world-space position; this sets both relative positions.</para>
       <para>Specifying the constraint's motion axis instead of rotation is provided as an alternative as it can be more intuitive, see <see cref="M:Urho.Physics.Constraint.SetAxis" />. However, by explicitly specifying a rotation you can be sure the constraint is oriented precisely as you want.</para>
       <para>Hinge, slider and cone twist constraints support defining limits for the motion. To be generic, these are encoded slightly unintuitively into Vector2’s. For a hinge constraint, the low and high limit X coordinates define the minimum and maximum angle in degrees. For example -45 to 45. For a slider constraint, the X coordinates define the maximum linear motion in world space units, and the Y coordinates define maximum angular motion in degrees. The cone twist constraint uses only the high limit to define the maximum angles (minimum angle is always -maximum) in the following manner: The X coordinate is the limit of the twist (main) axis, while Y is the limit of the swinging motion about the other axes.</para>
-      <para>
-      </para>
-      <para>
-        <see cref="" />Physics events</para>
-      <para>The physics world sends 8 types of events during its update step, which you can subscribe by using one of the SubscribeToXxx methods on UrhoObject:</para>
+      <para></para>
+        <format type="text/html">
+	  <h2>Physics events</h2>
+	</format>
+      <para>The physics world sends 8 types of events during its update step:</para>
       <list type="bullet">
         <item>
-          <term>PhysicsPreStep: before the simulation is stepped.</term>
+          <term>
+            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPreStep" />: before the simulation is stepped.</term>
         </item>
         <item>
-          <term>PhysicsCollisionStart: for each new collision during the simulation step. The participating scene nodes will also send NodeCollisionStart events.</term>
+          <term>
+            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollisionStart"
+            />: for each new collision during the simulation step. The
+            participating scene nodes will also send <see cref="E:Urho.Node.NodeCollisionStart"/> event.</term>
         </item>
         <item>
-          <term>PhysicsCollision for each ongoing collision during the simulation step. The participating scene nodes will also send NodeCollision events.</term>
+          <term>
+            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollision" /> for each ongoing collision during the simulation step. The participating scene nodes will also send <see cref="E:Urho.Node.NodeCollision"/> events.</term>
         </item>
         <item>
-          <term>PhysicsCollisionEnded for each collision which has ceased. The participating scene nodes will also send NodeCollisionEnded events.</term>
+          <term>
+            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollisionEnd" /> for each collision which has ceased. The participating scene nodes will also send <see cref="E:Urho.Node.NodeCollisionEnd"/> event.</term>
         </item>
         <item>
-          <term>PhysicsPostStep after the simulation has been stepped.</term>
+          <term>
+            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPostStep" /> after the simulation has been stepped.</term>
         </item>
       </list>
       <para>Note that if the rendering framerate is high, the physics might not be stepped at all on each frame: in that case those events will not be sent.</para>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>Reading collision events</h2>
       </format>
@@ -500,7 +503,7 @@
         <ReturnType>System.Action&lt;Urho.Physics.PhysicsCollisionEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised for each ongoing collision during the simulation step</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollision" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -517,7 +520,7 @@
         <ReturnType>System.Action&lt;Urho.Physics.PhysicsCollisionEndEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised for each collision which has ceased.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollisionEnd" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -534,7 +537,7 @@
         <ReturnType>System.Action&lt;Urho.Physics.PhysicsCollisionStartEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised or each new collision during the simulation step.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollisionStart" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -551,7 +554,7 @@
         <ReturnType>System.Action&lt;Urho.Physics.PhysicsPostStepEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised when the physics world has stepped.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsPostStep" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -568,7 +571,7 @@
         <ReturnType>System.Action&lt;Urho.Physics.PhysicsPreStepEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Event raised when the physics world is about to be stepped.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsPreStep" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1033,8 +1036,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1050,8 +1052,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1067,8 +1068,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

@@ -14,12 +14,18 @@
             Base class for components. Components can be attached to scene nodes.
             </summary>
     <remarks>
-      <para>Serialization</para>
-      <para>
-      </para>
+      <para>Use the <see cref="T:Urho.Component" /> as the base class for your custom components.   This is similar to what users of the C++ API would achive by creating a subclass of the LogicComponent class.   See the next section for details on how to connect to various events in the life cycle of a component.</para>
+      <format type="text/html">
+        <h2>Events</h2>
+      </format>
+      <para>You can catch the time where the component is attached to a <see cref="T:Urho.Node" /> by overwriting the <see cref="M:Urho.Component.OnAttachedToNode" /> method.   To receive <see cref="T:Urho.Scene" /> update messages, you should first set the <see cref="P:Urho.Component.ReceiveSceneUpdates" /> property to <see langword="true" /> on your constructor, and then override the <see cref="M:Urho.Component.OnUpdate" /> method.</para>
+      <para>If you are interest in updates from the physics engine, you should connect directly to the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPreStep" /> event for your world. </para>
+      <para>If you are interested in receiving the scene post-update, subscribe to the <see cref="E:Urho.Scene.ScenePostUpdate" /> event.</para>
+      <format type="text/html">
+        <h2>Serialization</h2>
+      </format>
       <para>To implement serialization you would override the OnSerialize and OnDeserialize methods and store your component state on the provided serializer and deserializer objects.</para>
-      <para>
-      </para>
+      <para></para>
       <code lang="C#"><![CDATA[class MyComponent : Component {
     // Constructor needed for deserialization
     public MyComponent(IntPtr handle) : base(handle) { }
@@ -46,8 +52,9 @@
         var node = this.Node;
     }
 }]]></code>
-      <para>
-      </para>
+      <para></para>
+      <format type="text/html">
+        <h2>asdf</h2> <div>asdf</div></format>
     </remarks>
   </Docs>
   <Members>
@@ -63,8 +70,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Component which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -102,8 +108,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Component linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -447,7 +452,7 @@
       <Docs>
         <param name="timeStep">To be added.</param>
         <summary>
-            Make sure you set SubscribeToSceneUpdate property to true in order to receive Update events
+            Make sure to set the <see cref="P:Urho.Component.ReceiveSceneUpdates" /> property to true in order to receive update events
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -591,8 +596,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -608,8 +612,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -625,8 +628,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
   </Members>
