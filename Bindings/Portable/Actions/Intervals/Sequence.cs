@@ -45,7 +45,7 @@ namespace Urho.Actions
 			{
 				// Basically what we are doing here is creating a whole bunch of 
 				// nested Sequences from the actions.
-				int count = other != null ? actions.Length - 1 : actions.Length;
+				int count = other != null ? actions.Length : actions.Length - 1;
 
 				for (int i = 1; i < count; i++)
 				{
