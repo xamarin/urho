@@ -27,7 +27,7 @@ namespace Urho
 		/// Runs a sequence of Actions so that it can be awaited.
 		/// </summary>
 		/// <param name="actions">An array of FiniteTimeAction objects.</param>
-		public Task<ActionState> RunActionsAsync(FiniteTimeAction[] actions)
+		public Task<ActionState> RunActionsAsync(params FiniteTimeAction[] actions)
 		{
 			if (actions.Length == 0)
 				return Task.FromResult<ActionState>(null);
