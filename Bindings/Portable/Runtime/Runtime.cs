@@ -25,7 +25,7 @@ namespace Urho
 		delegate void MonoRefCountedCallback(IntPtr ptr, RefCountedEvent rcEvent);
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		delegate void MonoComponentCallback(IntPtr componentPtr, IntPtr xmlElementPtr, MonoComponentCallbackType eventType);
+		delegate void MonoComponentCallback(IntPtr componentPtr, IntPtr xmlElementPtr, IntPtr scenePtr, MonoComponentCallbackType eventType);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RegisterMonoRefCountedCallback(MonoRefCountedCallback callback);
@@ -81,7 +81,7 @@ namespace Urho
 		}
 
 		[MonoPInvokeCallback(typeof(MonoComponentCallback))]
-		static void OnComponentEvent(IntPtr componentPtr, IntPtr xmlElementPtr, MonoComponentCallbackType eventType)
+		static void OnComponentEvent(IntPtr componentPtr, IntPtr xmlElementPtr, IntPtr scenePtr, MonoComponentCallbackType eventType)
 		{
 			const string typeNameKey = "SharpTypeName";
 			var xmlElement = new XmlElement(xmlElementPtr);
@@ -111,7 +111,7 @@ namespace Urho
 					component.OnDeserialize(new XmlComponentSerializer(xmlElement));
 					if (component.Node != null)
 					{
-						component.OnAttachedToNode(component.Node);
+						component.AttachedToNode(component.Node);
 					}
 				}
 			}
@@ -119,6 +119,11 @@ namespace Urho
 			{
 				var component = LookupObject<Component>(componentPtr, false);
 				component?.OnAttachedToNode(component.Node);
+			}
+			else if (eventType == MonoComponentCallbackType.SceneSet)
+			{
+				var component = LookupObject<Component>(componentPtr, false);
+				component?.OnSceneSet(LookupObject<Scene>(scenePtr, false));
 			}
 		}
 

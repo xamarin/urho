@@ -31,14 +31,9 @@ namespace Urho
 
 		public virtual void OnDeserialize(IComponentDeserializer deserializer) { }
 
-		public virtual void OnAttachedToNode(Node node)
-		{
-			if (!subscribedToSceneUpdate && ReceiveSceneUpdates)
-			{
-				subscribedToSceneUpdate = true;
-				Application.Update += HandleUpdate;
-			}
-		}
+		public virtual void OnAttachedToNode(Node node) {}
+
+		public virtual void OnSceneSet(Scene scene) {}
 
 		protected override void OnDeleted()
 		{
@@ -47,6 +42,16 @@ namespace Urho
 				Application.Update -= HandleUpdate;
 			}
 			base.OnDeleted();
+		}
+
+		internal void AttachedToNode(Node node)
+		{
+			if (!subscribedToSceneUpdate && ReceiveSceneUpdates)
+			{
+				subscribedToSceneUpdate = true;
+				Application.Update += HandleUpdate;
+			}
+			OnAttachedToNode(node);
 		}
 
 		/// <summary>

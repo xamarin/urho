@@ -82,7 +82,8 @@ namespace Urho {
 	enum MonoComponentCallbackType{
 		SaveXml,
 		LoadXml,
-		AttachedToNode
+		AttachedToNode,
+		SceneSet
 	}
 
 	enum RefCountedEvent {
