@@ -570,6 +570,13 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Animation.AddTrigger(System.Single,System.Boolean,Urho.Matrix3x4)">
+            <param name="time"></param>
+            <param name="timeIsNormalized"></param>
+            <param name="data"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Animation.AddTrigger(System.Single,System.Boolean,Urho.Matrix4)">
             <param name="time"></param>
             <param name="timeIsNormalized"></param>
@@ -1601,6 +1608,7 @@
         </member>
         <member name="M:Urho.Application.Exit">
             <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.FileSystem">
@@ -1636,6 +1644,17 @@
             <summary>
             Invoke actions in the Main Thread (the next Update call)
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Application.InvokeOnMainAsync(System.Action)">
+            <param name="action"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Application.IsClosed">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.IsExiting">
@@ -1714,10 +1733,6 @@
             <summary>Method invoked to terminate your application.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Application.StopCurrent">
-            <summary>Native pointer to the underlying ApplicationProxy instance.</summary>
-            <remarks>For internal use.</remarks>
-        </member>
         <member name="E:Urho.Application.Stoped">
             <summary>Event raised when your application has stopped.</summary>
             <remarks>This event is invoked after the <see cref="M:Urho.Application.Stop" /> virtual method is invoked on your application.</remarks>
@@ -1755,6 +1770,11 @@
         <member name="E:Urho.Application.Update">
             <summary>Frame update event</summary>
             <remarks>This event is raised when the frame has been updated.</remarks>
+        </member>
+        <member name="P:Urho.Application.UrhoSurface">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.Application.WorkQueue">
             <summary>Returns the WorkQueue subsystem.</summary>
@@ -1990,6 +2010,12 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.AttributeAccessor.Set(Urho.Serializable,Urho.Matrix3x4)">
+            <param name="ptr"></param>
+            <param name="src"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.AttributeAccessor.Set(Urho.Serializable,Urho.Matrix4)">
             <param name="ptr"></param>
             <param name="src"></param>
@@ -2096,6 +2122,31 @@
         </member>
         <member name="T:Urho.AttributeInfo">
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Bar">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Bar(System.String,Urho.Color)">
+            <param name="name"></param>
+            <param name="color"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Bar.OnAttachedToNode(Urho.Node)">
+            <param name="node"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Bar.OnUpdate(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Bar.Value">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.BeginRenderingEventArgs">
@@ -2889,6 +2940,11 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Camera.Projection">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Camera.ProjectionOffset">
             <summary>
             Return projection offset.
@@ -3009,6 +3065,11 @@
             Or
             Set reflection mode.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Camera.View">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -3295,8 +3356,16 @@
             Base class for components. Components can be attached to scene nodes.
             </summary>
             <remarks>
-                <para>Serialization</para>
-                <para />
+                <para>Use the <see cref="T:Urho.Component" /> as the base class for your custom components.   This is similar to what users of the C++ API would achive by creating a subclass of the LogicComponent class.   See the next section for details on how to connect to various events in the life cycle of a component.</para>
+                <format type="text/html">
+                    <h2>Events</h2>
+                </format>
+                <para>You can catch the time where the component is attached to a <see cref="T:Urho.Node" /> by overwriting the <see cref="M:Urho.Component.OnAttachedToNode" /> method.   To receive <see cref="T:Urho.Scene" /> update messages, you should first set the <see cref="P:Urho.Component.ReceiveSceneUpdates" /> property to <see langword="true" /> on your constructor, and then override the <see cref="M:Urho.Component.OnUpdate" /> method.</para>
+                <para>If you are interest in updates from the physics engine, you should connect directly to the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPreStep" /> event for your world. </para>
+                <para>If you are interested in receiving the scene post-update, subscribe to the <see cref="E:Urho.Scene.ScenePostUpdate" /> event.</para>
+                <format type="text/html">
+                    <h2>Serialization</h2>
+                </format>
                 <para>To implement serialization you would override the OnSerialize and OnDeserialize methods and store your component state on the provided serializer and deserializer objects.</para>
                 <para />
                 <code lang="C#"><![CDATA[class MyComponent : Component {
@@ -3326,6 +3395,10 @@
     }
 }]]></code>
                 <para />
+                <format type="text/html">
+                    <h2>asdf</h2>
+                    <div>asdf</div>
+                </format>
             </remarks>
         </member>
         <member name="C:Urho.Component">
@@ -3444,6 +3517,11 @@
             <summary>Overridable method to deserialize the component state</summary>
             <remarks>Implement this method to have the Urho runtime initialize your object state from a previously saved state.</remarks>
         </member>
+        <member name="M:Urho.Component.OnSceneSet(Urho.Scene)">
+            <param name="scene"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Component.OnSerialize(Urho.Resources.IComponentSerializer)">
             <param name="serializer">You serialize the state into this object.</param>
             <summary>Overridable method to serialize the component state</summary>
@@ -3458,7 +3536,7 @@
         <member name="M:Urho.Component.OnUpdate(System.Single)">
             <param name="timeStep"></param>
             <summary>
-            Make sure you set SubscribeToSceneUpdate property to true in order to receive Update events
+            Make sure to set the <see cref="P:Urho.Component.ReceiveSceneUpdates" /> property to true in order to receive update events
             </summary>
             <remarks></remarks>
         </member>
@@ -3836,69 +3914,75 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,System.Int32)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to an integer value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,System.Single)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to an floating point value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,System.String)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to a string value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Color)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to an <see cref="T:Urho.Color" /> value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.IntRect)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to an <see cref="T:Urho.IntRect" /> value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.IntVector2)">
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to an <see cref="T:Urho.IntVector2" /> value.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Matrix3x4)">
             <param name="key"></param>
             <param name="value"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Matrix4)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to an <see cref="T:Urho.Matrix4" /> value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Quaternion)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to a <see cref="T:Urho.Quaternion" /> value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Vector2)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to a <see cref="T:Urho.Vector2" /> value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Vector3)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">aName of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to a <see cref="T:Urho.Vector3" /> value.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Vector4)">
-            <param name="key"></param>
-            <param name="value"></param>
-            <summary></summary>
+            <param name="key">Name of the global variable to assign.</param>
+            <param name="value">The value to assign to the global variable.</param>
+            <summary>Sets an Urho global variable to <see cref="T:Urho.Vector4" /> value.</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Controls">
@@ -3970,73 +4054,79 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Provides access to some of the names Core Asset that ship with every Urho application.</summary>
+            <remarks>This class provides convenient properties to access some of the various assets that ship with every Urho application: fonts, materials, models, techniques, textures and so on.</remarks>
         </member>
         <member name="P:Urho.CoreAssets.Cache">
-            <summary></summary>
+            <summary>Convenience method that returns the <see cref="P:Urho.Application.Current.ResourceCache" /></summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets+Fonts">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Provides access to the fonts that are part of every CoreAssets package in Urho.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Fonts.AnonymousPro">
-            <summary></summary>
+            <summary>Accesses the AnonymousPro font in CoreAssets.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets+Materials">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Provides access to the materials that are part of every CoreAssets package in Urho.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Materials.DefaultGrey">
-            <summary></summary>
+            <summary>Accesses the Default Grey material in CoreAssets.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets+Models">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Provides access to the models that are part of every CoreAssets package in Urho.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Models.Box">
-            <summary></summary>
+            <summary>Returns the box model from the resource cache (Models/Box.mdl)</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Models.Cone">
-            <summary></summary>
+            <summary>Returns the cone model from the resource cache (Models/Cone.mdl)</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Models.Cylinder">
-            <summary></summary>
+            <summary>Returns the cylinder model from the resource cache (Models/Cylinder.mdl)</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Models.Plane">
-            <summary></summary>
+            <summary>Returns the plane model from the resource cache (Models/Plane.mdl)</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Models.Pyramid">
-            <summary></summary>
+            <summary>Returns the pyramid model from the resource cache (Models/Pyramid.mdl)</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Models.Sphere">
-            <summary></summary>
+            <summary>Returns the sphere model from the resource cache (Models/Sphere.mdl)</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Models.Torus">
-            <summary></summary>
+            <summary>Returns the torus model from the resource cache (Models/Torus.mdl)</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets+RenderPaths">
-            <summary></summary>
+            <summary>Provides access to the render paths that are part of every CoreAssets package in Urho.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+RenderPaths.Deferred">
@@ -4090,7 +4180,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets+Techniques">
-            <summary></summary>
+            <summary>Provides access to the techniques that are part of every CoreAssets package in Urho.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.BasicVColUnlitAlpha">
@@ -4619,7 +4709,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets+Techniques+PBR">
-            <summary></summary>
+            <summary>Provides access to the Physical Based Rendering techniques that are part of every CoreAssets package in Urho.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques+PBR.DiffNormalSpecEmissive">
@@ -4698,7 +4788,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets+Textures">
-            <summary></summary>
+            <summary>Provides access to the textures that are part of every CoreAssets package in Urho.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Textures.LUTIdentity">
@@ -5375,6 +5465,14 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.DebugRenderer.AddBoundingBox(Urho.BoundingBox,Urho.Matrix3x4,Urho.Color,System.Boolean)">
+            <param name="box"></param>
+            <param name="transform"></param>
+            <param name="color"></param>
+            <param name="depthTest"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.DebugRenderer.AddCircle(Urho.Vector3,Urho.Vector3,System.Single,Urho.Color,System.Int32,System.Boolean)">
             <param name="center"></param>
             <param name="normal"></param>
@@ -5470,6 +5568,19 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.DebugRenderer.AddTriangleMesh(System.Void*,System.UInt32,System.Void*,System.UInt32,System.UInt32,System.UInt32,Urho.Matrix3x4,Urho.Color,System.Boolean)">
+            <param name="vertexData"></param>
+            <param name="vertexSize"></param>
+            <param name="indexData"></param>
+            <param name="indexSize"></param>
+            <param name="indexStart"></param>
+            <param name="indexCount"></param>
+            <param name="transform"></param>
+            <param name="color"></param>
+            <param name="depthTest"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.DebugRenderer.HasContent">
             <summary>
             Return whether has something to render.
@@ -5483,6 +5594,11 @@
             Check whether a bounding box is inside the view frustum.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DebugRenderer.Projection">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.DebugRenderer.RegisterObject(Urho.Context)">
@@ -5524,6 +5640,11 @@
             <summary>Urho's low-level type, accessible as a static method.</summary>
             <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
             <remarks />
+        </member>
+        <member name="P:Urho.DebugRenderer.View">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
         </member>
         <member name="T:Urho.DecalSet">
             <summary>Decal renderer component.
@@ -7973,6 +8094,14 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Graphics.SetClipPlane(System.Boolean,Urho.Plane,Urho.Matrix3x4,Urho.Matrix4)">
+            <param name="enable"></param>
+            <param name="clipPlane"></param>
+            <param name="view"></param>
+            <param name="projection"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Graphics.SetDepthBias(System.Single,System.Single)">
             <param name="constantBias"></param>
             <param name="slopeScaledBias"></param>
@@ -8049,6 +8178,18 @@
             <summary>
             Set shader color constant.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Matrix3x4)">
+            <param name="param"></param>
+            <param name="matrix"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Matrix4)">
+            <param name="param"></param>
+            <param name="matrix"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Vector2)">
@@ -8240,6 +8381,12 @@
             Return stencil operation to do if depth compare fails.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Graphics.TakeScreenShot(Urho.Resources.Image)">
+            <param name="destImage"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.TextureAnisotropy">
@@ -9834,6 +9981,11 @@
             <returns>A System.Int32 containing the unique hashcode for this instance.</returns>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.IntVector2.IsEmpty">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.IntVector2.Length">
             <summary>
             Gets the length (magnitude) of the vector.
@@ -10180,6 +10332,19 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.Iterator">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.IUrhoSurface">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.IUrhoSurface.IsAlive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.IUrhoSurface.Remove">
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -10898,6 +11063,12 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Light.GetVolumeTransform(Urho.Camera)">
+            <param name="camera"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Light.LightQueue">
             <summary>
             Return light queue. Called by View.
@@ -11284,63 +11455,39 @@
             </summary>
             <remarks />
         </member>
-        <member name="C:Urho.LogicComponent(Urho.UrhoObjectFlag)">
-            <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
-            <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
-            <remarks>
-                <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
-                <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
-                <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
-            </remarks>
-        </member>
-        <member name="M:Urho.LogicComponent.DelayedStart">
-            <summary>
-            Called before the first update. At this point all other components of the node should exist. Will also be called if update events are not wanted; in that case the event is immediately unsubscribed afterward.
-            </summary>
+        <member name="M:Urho.LogicComponent.OnFixedPostUpdate(Urho.Physics.PhysicsPostStepEventArgs)">
+            <param name="e"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.LogicComponent.DelayedStartCalled">
-            <summary>Return whether the DelayedStart() function has been called.</summary>
+        <member name="M:Urho.LogicComponent.OnFixedUpdate(Urho.Physics.PhysicsPreStepEventArgs)">
+            <param name="e"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.LogicComponent.OnPostUpdate(Urho.ScenePostUpdateEventArgs)">
+            <param name="e"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.LogicComponent.OnSceneSet(Urho.Scene)">
+            <param name="scene"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.LogicComponent.ReceiveFixedPostUpdates">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.LogicComponent.FixedPostUpdate(System.Single)">
-            <param name="timeStep"></param>
-            <summary>
-            Called on physics post-update, fixed timestep.
-            </summary>
+        <member name="P:Urho.LogicComponent.ReceiveFixedUpdates">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.LogicComponent.FixedUpdate(System.Single)">
-            <param name="timeStep"></param>
-            <summary>
-            Called on physics update, fixed timestep.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LogicComponent.OnSetEnabled">
-            <summary>
-            Handle enabled/disabled state change. Changes update event subscription.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LogicComponent.PostUpdate(System.Single)">
-            <param name="timeStep"></param>
-            <summary>
-            Called on scene post-update, variable timestep.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LogicComponent.Start">
-            <summary>
-            Called when the component is added to a scene node. Other components may not yet exist.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LogicComponent.Stop">
-            <summary>
-            Called when the component is detached from a scene node, usually on destruction. Note that you will no longer have access to the node and scene at that point.
-            </summary>
+        <member name="P:Urho.LogicComponent.ReceivePostUpdates">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.LogicComponent.Type">
@@ -11362,22 +11509,6 @@
             <summary>Urho's low-level type, accessible as a static method.</summary>
             <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
             <remarks />
-        </member>
-        <member name="M:Urho.LogicComponent.Update(System.Single)">
-            <param name="timeStep"></param>
-            <summary>
-            Called on scene update, variable timestep.
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.LogicComponent.UpdateEventMask">
-            <summary>
-            Return what update events are subscribed to.
-            Or
-            Set what update events should be subscribed to. Use this for optimization: by default all are in use. Note that this is not an attribute and is not saved or network-serialized, therefore it should always be called eg. in the subclass constructor.
-            </summary>
-            <value></value>
-            <remarks></remarks>
         </member>
         <member name="T:Urho.LogLevel">
             <summary></summary>
@@ -11579,6 +11710,12 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Material.FromColor(Urho.Color)">
+            <param name="color"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Material.FromImage(System.String)">
             <param name="image">Name of an image that can be fetched from the <see cref="T:Urho.Application.ResourceCache" />.</param>
             <summary>Creates a material from a 2D Texture.</summary>
@@ -11775,6 +11912,12 @@
             <summary>
             Set shader parameter.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Material.SetShaderParameter(System.String,Urho.Matrix3x4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.SetShaderParameter(System.String,Urho.Matrix4)">
@@ -12451,6 +12594,11 @@
             <summary>Represents a 3x4 Matrix.</summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Matrix3x4.Inverse">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="F:Urho.Matrix3x4.m00">
             <summary></summary>
             <remarks></remarks>
@@ -12497,6 +12645,13 @@
         </member>
         <member name="F:Urho.Matrix3x4.m23">
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Matrix3x4.op_Multiply(Urho.Matrix4,Urho.Matrix3x4)">
+            <param name="left"></param>
+            <param name="rhs"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Matrix4">
@@ -13416,11 +13571,22 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.MonoDebugHud.FpsOnly">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.MonoDebugHud.Hide">
             <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.MonoDebugHud.Show">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.MonoDebugHud.Show(Urho.Color,System.Int32)">
+            <param name="color"></param>
+            <param name="fontSize"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -14421,6 +14587,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>Runs the specified actions.</summary>
             <remarks>The actions are groupped in a Sequence action.</remarks>
         </member>
+        <member name="M:Urho.Node.RunActionsAsync(Urho.Actions.FiniteTimeAction)">
+            <param name="action"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Node.RunActionsAsync(Urho.Actions.FiniteTimeAction[])">
             <param name="actions">An array of FiniteTimeAction objects.</param>
             <summary>
@@ -14688,6 +14860,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Set a user variable.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Node.SetVar(Urho.StringHash,Urho.Matrix3x4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SetVar(Urho.StringHash,Urho.Matrix4)">
@@ -15032,6 +15210,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Convert a world space position or rotation to local space (for Urho2D).
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Node.WorldTransform">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Node.WorldUp">
@@ -15510,6 +15693,28 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
+        <member name="M:Urho.OcclusionBuffer.AddTriangles(Urho.Matrix3x4,System.Void*,System.UInt32,System.UInt32,System.UInt32)">
+            <param name="model"></param>
+            <param name="vertexData"></param>
+            <param name="vertexSize"></param>
+            <param name="vertexStart"></param>
+            <param name="vertexCount"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.OcclusionBuffer.AddTriangles(Urho.Matrix3x4,System.Void*,System.UInt32,System.Void*,System.UInt32,System.UInt32,System.UInt32)">
+            <param name="model"></param>
+            <param name="vertexData"></param>
+            <param name="vertexSize"></param>
+            <param name="indexData"></param>
+            <param name="indexSize"></param>
+            <param name="indexStart"></param>
+            <param name="indexCount"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.OcclusionBuffer.Buffer">
             <summary>
             Return highest level depth values.
@@ -15573,6 +15778,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.OcclusionBuffer.Projection">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.OcclusionBuffer.Reset">
             <summary>
             Reset number of triangles.
@@ -15629,6 +15839,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Return time since last use in milliseconds.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.OcclusionBuffer.View">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -17207,6 +17422,34 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.Randoms">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Randoms.Next">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Randoms.Next(System.Single,System.Single)">
+            <param name="min"></param>
+            <param name="max"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Randoms.NextNormal">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Randoms.NextNormal(System.Single,System.Single)">
+            <param name="min"></param>
+            <param name="max"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Ray">
             <summary>Infinite straight line in a three-dimensional space</summary>
             <remarks>Rays are lines that start at one point in space and point towards a specific direction</remarks>
@@ -18513,6 +18756,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Set a shader parameter in all commands that define it.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.RenderPath.SetShaderParameter(System.String,Urho.Matrix3x4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.RenderPath.SetShaderParameter(System.String,Urho.Matrix4)">
@@ -20213,6 +20462,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Serializable.SetAttribute(System.String,Urho.Matrix3x4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Serializable.SetAttribute(System.String,Urho.Matrix4)">
             <param name="name"></param>
             <param name="value"></param>
@@ -20307,6 +20563,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Set attribute by index. Return true if successfully set.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Serializable.SetAttribute(System.UInt32,Urho.Matrix3x4)">
+            <param name="index"></param>
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -20818,6 +21081,107 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         </member>
         <member name="F:Urho.ShadowQuality.Vsm">
             <summary></summary>
+        </member>
+        <member name="T:Urho.SimpleApplication">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.SimpleApplication(Urho.ApplicationOptions)">
+            <param name="options"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.Camera">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.CameraNode">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.Light">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.LightNode">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.MoveCamera">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SimpleApplication.MoveCameraMouse(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SimpleApplication.MoveCameraTouches(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.MoveSpeed">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.Octree">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SimpleApplication.OnUpdate(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.Pitch">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.RootNode">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SimpleApplication.RunAsync(Urho.ApplicationOptions)">
+            <param name="options"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SimpleApplication.RunAsync(System.Int32,System.Int32)">
+            <param name="width"></param>
+            <param name="height"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.Scene">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SimpleApplication.Start">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.Viewport">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SimpleApplication.Yaw">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
         </member>
         <member name="T:Urho.Skeleton">
             <summary>
@@ -24003,6 +24367,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.Matrix3x4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,Urho.Matrix4)">
             <param name="key"></param>
             <param name="value"></param>
@@ -24287,6 +24657,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Set key frame.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ValueAnimation.SetKeyFrame(System.Single,Urho.Matrix3x4)">
+            <param name="time"></param>
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -27702,6 +28079,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Zone.InverseWorldTransform">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Zone.IsInside(Urho.Vector3)">
             <param name="point"></param>
             <summary>
@@ -30991,6 +31373,12 @@ public class MyInstantState : ActionInstantState
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="C:Urho.Actions.Sequence(Urho.Actions.FiniteTimeAction[],Urho.Actions.FiniteTimeAction)">
+            <param name="actions"></param>
+            <param name="other"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Actions.Sequence.Actions">
             <summary></summary>
             <value></value>
@@ -31455,6 +31843,7 @@ public class MyInstantState : ActionInstantState
                 <para>The output is software mixed for an unlimited amount of simultaneous sounds. Ogg Vorbis sounds are decoded on the fly, and decoding them can be memory- and CPU-intensive, so WAV files are recommended when a large number of short sound effects need to be played.</para>
                 <para>For purposes of volume control, each <see cref="T:Urho.Audio.SoundSource" /> can be classified into a user defined group which is multiplied with a master category and the individual <see cref="T:Urho.Audio.SoundSource" /> gain set using <see cref="P:Urho.Audio.SoundSource.Gain" /> for the final volume level.</para>
                 <para>To control the category volumes, set the <see cref="M:Urho.Audio.Audio.SetMasterGain" />, which defines the category if it didn't already exist.</para>
+                <para>It is possible to control the playback of a class of sounds identified by their type by using the <see cref="M:Urho.Audio.PauseSoundType" />, <see cref="M:Urho.Audio.ResumeSoundType" /> and <see cref="M:Urho.Audio.ResumeAll" /> methods.  You can probe whether a specific sound type is paused by calling the <see cref="M:Urho.Audio.IsSoundTypePaused" />.   The list of possible sound types are the strings “Master”, “Effect”, “Ambient”, “Voice” and “Music”.</para>
                 <para />
                 <para />
             </remarks>
@@ -31534,10 +31923,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Audio.Audio.IsSoundTypePaused(System.String)">
-            <param name="type"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="type">The type of the sound to probe, some possible value  “Master”, “Effect”, “Ambient”, “Voice” and “Music”.</param>
+            <summary>Returns whether the specified sound type is currently paused.</summary>
+            <returns>True if the sound for that sound type is paused, false otherwise.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Audio.Audio.Listener">
             <summary>
@@ -31566,8 +31957,8 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Audio.Audio.PauseSoundType(System.String)">
-            <param name="type"></param>
-            <summary></summary>
+            <param name="type">The list of possible sound types are the strings “Master”, “Effect”, “Ambient”, “Voice” and “Music”.</param>
+            <summary>Pause playing back the sounds of the specific type.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Audio.Audio.Play">
@@ -31590,12 +31981,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Audio.Audio.ResumeAll">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Resumes playback of all sound types.</summary>
+            <remarks>This can be used to resume all sound type playback (some might have been paused by calling <see cref="M:Urho.Audio.PauseSoundType." /></remarks>
         </member>
         <member name="M:Urho.Audio.Audio.ResumeSoundType(System.String)">
-            <param name="type"></param>
-            <summary></summary>
+            <param name="type">The list of possible sound types are the strings “Master”, “Effect”, “Ambient”, “Voice” and “Music”.</param>
+            <summary>Resumes playing back the sounds of the specific type.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Audio.Audio.SampleSize">
@@ -36307,10 +36698,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.Sprite.ElementToScreen(Urho.IntVector2)">
-            <param name="position"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="position">Element coordinates to convert.</param>
+            <summary>Convert element coordinates to screen coordinates.</summary>
+            <returns>Screen coordinates</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Gui.Sprite.HotSpot">
             <summary>
@@ -36386,10 +36779,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.Sprite.ScreenToElement(Urho.IntVector2)">
-            <param name="screenPosition"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="screenPosition">Screen coordinates to convert</param>
+            <summary>Convert screen coordinates to element coordinates.</summary>
+            <returns>The coordinates in the element space.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Gui.Sprite.SetFullImageRect">
             <summary>
@@ -36441,6 +36836,11 @@ public class MyInstantState : ActionInstantState
             <summary>
             Return texture attribute.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.Sprite.Transform">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -37894,132 +38294,136 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Gui.UIElement.CreateBorderImage(System.String,System.UInt32)">
             <param name="name"></param>
-            <param name="index"></param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateButton(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="name">Name to assign to the child</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.Button" />.</summary>
+            <returns>
+                <para />
+            </returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateCheckBox(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.CheckBox" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateChild(Urho.StringHash,System.String,System.UInt32)">
-            <param name="type"></param>
-            <param name="name"></param>
-            <param name="index"></param>
+            <param name="type">StringHash code for the element to create, it must correspond to a <see cref="T:Urho.Gui.UIElement" /> type.</param>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
             <summary>
             Create and add a child element and return it.
             </summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>The created UIElement.    If the provided type is not a <see cref="T:Urho.Gui.UIElement" />, the return value is <paramref name="null" />.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateChild``1(Urho.StringHash,System.String,System.UInt32)">
             <typeparam name="T"></typeparam>
-            <param name="code"></param>
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
-            <returns></returns>
+            <param name="code">StringHash code for the element to create, it must correspond to a <see cref="T:Urho.Gui.UIElement" /> type.</param>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Create and add a child element and return it.</summary>
+            <returns>The created element.    If the provided type is not known, the return value is <paramref name="null" />.</returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateCursor(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.Cursor" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateDropDownList(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.DropDownList" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateLineEdit(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.LineEdit" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateListView(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.ListView" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateMenu(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.Menu" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateScrollBar(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.ScrollBar" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateScrollView(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.ScrollView" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateSlider(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.Slider" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateSprite(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.Sprite" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateText(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.Text" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateToolTip(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateView3D(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.View3D" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.CreateWindow(System.String,System.UInt32)">
-            <param name="name"></param>
-            <param name="index"></param>
-            <summary></summary>
+            <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
+            <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
+            <summary>Creates a <see cref="T:Urho.Gui.Window" />.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -38214,13 +38618,15 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.GetChild(System.String,System.Boolean)">
-            <param name="name"></param>
-            <param name="recursive"></param>
+            <param name="name">This is the name that was used when one of the Create methods was invoked.</param>
+            <param name="recursive">If <paramref name="true" />, this searches on nested elements for the <see cref="T:Urho.Gui.UIElement" /> with the given <paramref name="name" />.</param>
             <summary>
             Return child element by name.
             </summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>The child with the associated <paramref name="name" />, if found, <paramref name="null" /> otherwise.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.GetColor(Urho.Gui.Corner)">
             <param name="corner"></param>
@@ -38950,6 +39356,12 @@ public class MyInstantState : ActionInstantState
             <summary>
             Set a user variable.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,Urho.Matrix3x4)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,Urho.Matrix4)">
@@ -40596,9 +41008,13 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.IO.PackageFile.TotalDataSize">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Return total data size from all the file entries in the package file.</summary>
+            <value>
+                <para />
+            </value>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.IO.PackageFile.TotalSize">
             <summary>
@@ -44167,141 +44583,151 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="T:Urho.Physics.PhysicsCollisionEndEventArgs">
             <summary>Event arguments for the PhysicsWorld's PhysicsCollisionEnd event</summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEndEventArgs.BodyA">
-            <summary></summary>
+            <summary>First rigid body colliding.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEndEventArgs.BodyB">
-            <summary></summary>
+            <summary>Second rigid body colliding.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEndEventArgs.NodeA">
-            <summary></summary>
+            <summary>The node for the first rigid body.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEndEventArgs.NodeB">
-            <summary></summary>
+            <summary>The node for the second rigid body.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEndEventArgs.Trigger">
-            <summary></summary>
+            <summary>Returns true if either one of the rigid bodies is acting as a trigger (that is, the rigid body only raises the collision event, but does not apply collision forces).</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEndEventArgs.World">
-            <summary></summary>
+            <summary>References the world raising this event.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Physics.PhysicsCollisionEventArgs">
             <summary>Event arguments for the PhysicsWorld's PhysicsCollision event</summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEventArgs.BodyA">
-            <summary></summary>
+            <summary>First rigid body colliding.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEventArgs.BodyB">
-            <summary></summary>
+            <summary>Second rigid body colliding.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEventArgs.Contacts">
-            <summary></summary>
+            <summary>Collision information between the bodies, containing the position, normal, distance and impulse for each contact.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEventArgs.NodeA">
-            <summary></summary>
+            <summary>The node for the first rigid body.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEventArgs.NodeB">
-            <summary></summary>
+            <summary>The node for the second rigid body.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEventArgs.Trigger">
-            <summary></summary>
+            <summary>Returns true if either one of the rigid bodies is acting as a trigger (that is, the rigid body only raises the collision event, but does not apply collision forces).</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionEventArgs.World">
-            <summary></summary>
+            <summary>References the world raising this event.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Physics.PhysicsCollisionStartEventArgs">
             <summary>Event arguments for the PhysicsWorld's PhysicsCollisionStart event</summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionStartEventArgs.BodyA">
-            <summary></summary>
+            <summary>First rigid body colliding.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionStartEventArgs.BodyB">
-            <summary></summary>
+            <summary>Second rigid body colliding.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionStartEventArgs.Contacts">
-            <summary></summary>
+            <summary>Collision information between the bodies, containing the position, normal, distance and impulse for each contact.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionStartEventArgs.NodeA">
-            <summary></summary>
+            <summary>The node for the first rigid body.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionStartEventArgs.NodeB">
-            <summary></summary>
+            <summary>The node for the second rigid body.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionStartEventArgs.Trigger">
-            <summary></summary>
+            <summary>Returns true if either one of the rigid bodies is acting as a trigger (that is, the rigid body only raises the collision event, but does not apply collision forces).</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsCollisionStartEventArgs.World">
-            <summary></summary>
+            <summary>References the world raising this event.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Physics.PhysicsPostStepEventArgs">
             <summary>Event arguments for the PhysicsWorld's PhysicsPostStep event</summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsPostStepEventArgs.TimeStep">
-            <summary></summary>
+            <summary>Timestep value for the event.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsPostStepEventArgs.World">
-            <summary></summary>
+            <summary>References the world raising this event.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Physics.PhysicsPreStepEventArgs">
-            <summary>Event arguments for the PhysicsWorld's PhysicsPreStep event</summary>
-            <remarks></remarks>
+            <summary>Event arguments for the PhysicsWorld's PhysicsPreStep event.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsPreStepEventArgs.TimeStep">
-            <summary></summary>
+            <summary>Timestep value for the event.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Physics.PhysicsPreStepEventArgs.World">
-            <summary></summary>
+            <summary>References the world raising this event.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -44375,24 +44801,31 @@ public class MyInstantState : ActionInstantState
                 <para>Specifying the constraint's motion axis instead of rotation is provided as an alternative as it can be more intuitive, see <see cref="M:Urho.Physics.Constraint.SetAxis" />. However, by explicitly specifying a rotation you can be sure the constraint is oriented precisely as you want.</para>
                 <para>Hinge, slider and cone twist constraints support defining limits for the motion. To be generic, these are encoded slightly unintuitively into Vector2’s. For a hinge constraint, the low and high limit X coordinates define the minimum and maximum angle in degrees. For example -45 to 45. For a slider constraint, the X coordinates define the maximum linear motion in world space units, and the Y coordinates define maximum angular motion in degrees. The cone twist constraint uses only the high limit to define the maximum angles (minimum angle is always -maximum) in the following manner: The X coordinate is the limit of the twist (main) axis, while Y is the limit of the swinging motion about the other axes.</para>
                 <para />
-                <para>
-                    <see cref="" />Physics events</para>
-                <para>The physics world sends 8 types of events during its update step, which you can subscribe by using one of the SubscribeToXxx methods on UrhoObject:</para>
+                <format type="text/html">
+                    <h2>Physics events</h2>
+                </format>
+                <para>The physics world sends 8 types of events during its update step:</para>
                 <list type="bullet">
                     <item>
-                        <term>PhysicsPreStep: before the simulation is stepped.</term>
+                        <term>
+                            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPreStep" />: before the simulation is stepped.</term>
                     </item>
                     <item>
-                        <term>PhysicsCollisionStart: for each new collision during the simulation step. The participating scene nodes will also send NodeCollisionStart events.</term>
+                        <term>
+                            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollisionStart" />: for each new collision during the simulation step. The
+            participating scene nodes will also send <see cref="E:Urho.Node.NodeCollisionStart" /> event.</term>
                     </item>
                     <item>
-                        <term>PhysicsCollision for each ongoing collision during the simulation step. The participating scene nodes will also send NodeCollision events.</term>
+                        <term>
+                            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollision" /> for each ongoing collision during the simulation step. The participating scene nodes will also send <see cref="E:Urho.Node.NodeCollision" /> events.</term>
                     </item>
                     <item>
-                        <term>PhysicsCollisionEnded for each collision which has ceased. The participating scene nodes will also send NodeCollisionEnded events.</term>
+                        <term>
+                            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsCollisionEnd" /> for each collision which has ceased. The participating scene nodes will also send <see cref="E:Urho.Node.NodeCollisionEnd" /> event.</term>
                     </item>
                     <item>
-                        <term>PhysicsPostStep after the simulation has been stepped.</term>
+                        <term>
+                            <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPostStep" /> after the simulation has been stepped.</term>
                     </item>
                 </list>
                 <para>Note that if the rendering framerate is high, the physics might not be stepped at all on each frame: in that case those events will not be sent.</para>
@@ -44560,31 +44993,31 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Physics.PhysicsWorld.PhysicsCollision">
-            <summary></summary>
+            <summary>Event raised for each ongoing collision during the simulation step</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollision" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Physics.PhysicsWorld.PhysicsCollisionEnd">
-            <summary></summary>
+            <summary>Event raised for each collision which has ceased.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollisionEnd" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Physics.PhysicsWorld.PhysicsCollisionStart">
-            <summary></summary>
+            <summary>Event raised or each new collision during the simulation step.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsCollisionStart" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Physics.PhysicsWorld.PhysicsPostStep">
-            <summary></summary>
+            <summary>Event raised when the physics world has stepped.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsPostStep" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Physics.PhysicsWorld.PhysicsPreStep">
-            <summary></summary>
+            <summary>Event raised when the physics world is about to be stepped.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPhysicsPreStep" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -45329,7 +45762,11 @@ public class MyInstantState : ActionInstantState
         <member name="P:Urho.Physics.RigidBody.Trigger">
             <summary>Controls the trigger mode (whether collisions are reported, but no forces are applied).</summary>
             <value></value>
-            <remarks>In trigger mode collisions are reported but do not apply forces.</remarks>
+            <remarks>
+                <para>In trigger mode collisions are reported but do not apply forces.</para>
+                <para>This can be used to implement trigger areas.</para>
+                <para>Note that sensors can only be triggered by dynamic bodies and also, 2D physics queries do not report triggers To get notified when a sensor is triggered or cease to be triggered, subscribe to <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsBeginContact2D" /> and <see cref="E:Urho.Urho2D.PhysicsWorld2D.PhysicsEndContact2D" />.</para>
+            </remarks>
         </member>
         <member name="P:Urho.Physics.RigidBody.Type">
             <summary>Urho's type system type.</summary>
@@ -45404,167 +45841,6 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="F:Urho.Physics.ShapeType.Trianglemesh">
             <summary>Shape defined by a triangle mesh.</summary>
-        </member>
-        <member name="T:Urho.Repl.Bar">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.Repl.Bar(System.String,Urho.Color)">
-            <param name="name"></param>
-            <param name="color"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Bar.OnAttachedToNode(Urho.Node)">
-            <param name="node"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Bar.OnUpdate(System.Single)">
-            <param name="timeStep"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Bar.Value">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.Repl.Randoms">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Randoms.Next">
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Randoms.Next(System.Single,System.Single)">
-            <param name="min"></param>
-            <param name="max"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Randoms.NextNormal">
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Randoms.NextNormal(System.Single,System.Single)">
-            <param name="min"></param>
-            <param name="max"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.Repl.Simple3DScene">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.Repl.Simple3DScene(Urho.ApplicationOptions)">
-            <param name="options"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Simple3DScene.AddShape``1(Urho.Color)">
-            <typeparam name="T"></typeparam>
-            <param name="color"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.Camera">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.CameraNode">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.Light">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.LightNode">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.MoveCamera">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Simple3DScene.MoveCameraByTouches(System.Single)">
-            <param name="timeStep"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.Octree">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Simple3DScene.OnUpdate(System.Single)">
-            <param name="timeStep"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.Pitch">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.RootNode">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Simple3DScene.RunAsync(Urho.ApplicationOptions)">
-            <param name="options"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Simple3DScene.RunAsync(System.Int32,System.Int32)">
-            <param name="width"></param>
-            <param name="height"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.Scene">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Simple3DScene.SetBackgroundColor(Urho.Color)">
-            <param name="color"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Simple3DScene.SimpleMoveCamera3D(System.Single)">
-            <param name="timeStep"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Repl.Simple3DScene.Start">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.Viewport">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Repl.Simple3DScene.Yaw">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
         </member>
         <member name="T:Urho.Resources.AsyncLoadState">
             <summary>
@@ -47667,6 +47943,20 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlElement.SetMatrix3x4(System.String,Urho.Matrix3x4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.SetMatrix4(System.String,Urho.Matrix4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlElement.SetQuaternion(System.String,Urho.Quaternion)">
             <param name="name"></param>
             <param name="value"></param>
@@ -47749,6 +48039,12 @@ public class MyInstantState : ActionInstantState
             <summary>
             Set a variant attribute.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.SetVariant(Urho.Matrix3x4)">
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -47835,6 +48131,12 @@ public class MyInstantState : ActionInstantState
             <summary>
             Set a variant attribute excluding the type.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.SetVariantValue(Urho.Matrix3x4)">
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -47954,6 +48256,13 @@ public class MyInstantState : ActionInstantState
             <summary>
             Set a float, Vector or Matrix attribute stored in a variant.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.SetVectorVariant(System.String,Urho.Matrix3x4)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -52241,9 +52550,9 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Urho2D.Sprite2D.TextureEdgeOffset">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Texture edge offset in pixels</summary>
+            <value>Defaults to zero.</value>
+            <remarks>This affects the left/right and top/bottom edges equally to prevent edge sampling artifacts. Default 0</remarks>
         </member>
         <member name="P:Urho.Urho2D.Sprite2D.Type">
             <summary>Urho's type system type.</summary>

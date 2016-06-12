@@ -480,6 +480,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Transform">
+      <MemberSignature Language="C#" Value="public Urho.Matrix3x4 Transform { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Matrix3x4 Transform" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3x4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Rendering transformation, also used to transform child sprites.</summary>
+        <value>
+          <para />
+        </value>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Type">
       <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />

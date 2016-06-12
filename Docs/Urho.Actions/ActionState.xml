@@ -15,8 +15,8 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ActionState (Urho.Actions.BaseAction action, Urho.Node target);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.BaseAction action, class Urho.Node target) cil managed" />
+      <MemberSignature Language="C#" Value="protected ActionState (Urho.Actions.BaseAction action, Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.BaseAction action, class Urho.Node target) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

@@ -1986,6 +1986,31 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetClipPlane">
+      <MemberSignature Language="C#" Value="public void SetClipPlane (bool enable, Urho.Plane clipPlane, Urho.Matrix3x4 view, Urho.Matrix4 projection);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetClipPlane(bool enable, valuetype Urho.Plane clipPlane, valuetype Urho.Matrix3x4 view, valuetype Urho.Matrix4 projection) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="enable" Type="System.Boolean" />
+        <Parameter Name="clipPlane" Type="Urho.Plane" />
+        <Parameter Name="view" Type="Urho.Matrix3x4" />
+        <Parameter Name="projection" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="enable">To be added.</param>
+        <param name="clipPlane">To be added.</param>
+        <param name="view">To be added.</param>
+        <param name="projection">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetDepthBias">
       <MemberSignature Language="C#" Value="public void SetDepthBias (float constantBias, float slopeScaledBias);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDepthBias(float32 constantBias, float32 slopeScaledBias) cil managed" />
@@ -2202,6 +2227,48 @@
         <summary>
             Set shader color constant.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, Urho.Matrix3x4 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, valuetype Urho.Matrix3x4 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="matrix" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="matrix">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, Urho.Matrix4 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, valuetype Urho.Matrix4 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="matrix" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="matrix">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2720,6 +2787,26 @@
             Return stencil operation to do if depth compare fails.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TakeScreenShot">
+      <MemberSignature Language="C#" Value="public bool TakeScreenShot (Urho.Resources.Image destImage);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool TakeScreenShot(class Urho.Resources.Image destImage) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="destImage" Type="Urho.Resources.Image" />
+      </Parameters>
+      <Docs>
+        <param name="destImage">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -14,7 +14,8 @@
             Base class for components. Components can be attached to scene nodes.
             </summary>
     <remarks>
-      <para>Use the <see cref="T:Urho.Component" /> as the base class for your custom components.   This is similar to what users of the C++ API would achive by creating a subclass of the LogicComponent class.   See the next section for details on how to connect to various events in the life cycle of a component.</para>
+      <para>Use the <see cref="T:Urho.Component" /> is the base class for custom components, it is a low-level interface.   A simpler version to use is <see cref="T:Urho.LogicComponent" /> which provides various convenience features.   </para>
+      <para>The next section for details on how to connect to various events in the life cycle of a component.</para>
       <format type="text/html">
         <h2>Events</h2>
       </format>
@@ -52,9 +53,6 @@
         var node = this.Node;
     }
 }]]></code>
-      <para></para>
-      <format type="text/html">
-        <h2>asdf</h2> <div>asdf</div></format>
     </remarks>
   </Docs>
   <Members>
@@ -397,6 +395,25 @@
         <param name="deserializer">Object used to retrieve the stored information</param>
         <summary>Overridable method to deserialize the component state</summary>
         <remarks>Implement this method to have the Urho runtime initialize your object state from a previously saved state.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSceneSet">
+      <MemberSignature Language="C#" Value="public virtual void OnSceneSet (Urho.Scene scene);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSceneSet(class Urho.Scene scene) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="Urho.Scene" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="OnSerialize">

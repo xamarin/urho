@@ -70,6 +70,7 @@
       <Type Name="AttributeAnimationRemovedEventArgs" Kind="Structure" />
       <Type Name="AttributeAnimationUpdateEventArgs" Kind="Structure" />
       <Type Name="AttributeInfo" Kind="Structure" />
+      <Type Name="Bar" Kind="Class" />
       <Type Name="BeginRenderingEventArgs" Kind="Structure" />
       <Type Name="BeginViewRenderEventArgs" Kind="Structure" />
       <Type Name="BeginViewUpdateEventArgs" Kind="Structure" />
@@ -168,6 +169,7 @@
       <Type Name="IntVector2" Kind="Structure" />
       <Type Name="ISerializer" Kind="Interface" />
       <Type Name="Iterator" Kind="Structure" />
+      <Type Name="IUrhoSurface" Kind="Interface" />
       <Type Name="JoystickAxisMoveEventArgs" Kind="Structure" />
       <Type Name="JoystickButtonDownEventArgs" Kind="Structure" />
       <Type Name="JoystickButtonUpEventArgs" Kind="Structure" />
@@ -243,6 +245,7 @@
       <Type Name="ProfilerBlock" Kind="Structure" />
       <Type Name="Quaternion" Kind="Structure" />
       <Type Name="RandomAccessIterator" Kind="Structure" />
+      <Type Name="Randoms" Kind="Class" />
       <Type Name="Ray" Kind="Structure" />
       <Type Name="RayQueryLevel" Kind="Enumeration" />
       <Type Name="RayQueryResult" Kind="Structure" />
@@ -281,6 +284,7 @@
       <Type Name="ShaderType" Kind="Enumeration" />
       <Type Name="ShaderVariation" Kind="Class" />
       <Type Name="ShadowQuality" Kind="Enumeration" />
+      <Type Name="SimpleApplication" Kind="Class" />
       <Type Name="Skeleton" Kind="Class" />
       <Type Name="Skybox" Kind="Class" />
       <Type Name="SmoothedTransform" Kind="Class" />
@@ -650,9 +654,6 @@
       <Type Name="ShapeType" Kind="Enumeration" />
     </Namespace>
     <Namespace Name="Urho.Repl">
-      <Type Name="Bar" Kind="Class" />
-      <Type Name="Randoms" Kind="Class" />
-      <Type Name="Simple3DScene" Kind="Class" />
     </Namespace>
     <Namespace Name="Urho.Resources">
       <Type Name="AsyncLoadState" Kind="Enumeration" />

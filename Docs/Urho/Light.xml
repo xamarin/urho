@@ -310,6 +310,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetVolumeTransform">
+      <MemberSignature Language="C#" Value="public Urho.Matrix3x4 GetVolumeTransform (Urho.Camera camera);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Matrix3x4 GetVolumeTransform(class Urho.Camera camera) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3x4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="camera" Type="Urho.Camera" />
+      </Parameters>
+      <Docs>
+        <param name="camera">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="LightQueue">
       <MemberSignature Language="C#" Value="public Urho.LightBatchQueue* LightQueue { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.LightBatchQueue* LightQueue" />

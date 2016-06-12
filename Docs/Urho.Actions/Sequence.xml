@@ -54,6 +54,24 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Sequence (Urho.Actions.FiniteTimeAction[] actions, Urho.Actions.FiniteTimeAction other);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Actions.FiniteTimeAction[] actions, class Urho.Actions.FiniteTimeAction other) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="actions" Type="Urho.Actions.FiniteTimeAction[]" />
+        <Parameter Name="other" Type="Urho.Actions.FiniteTimeAction" />
+      </Parameters>
+      <Docs>
+        <param name="actions">To be added.</param>
+        <param name="other">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Actions">
       <MemberSignature Language="C#" Value="public Urho.Actions.FiniteTimeAction[] Actions { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Actions.FiniteTimeAction[] Actions" />

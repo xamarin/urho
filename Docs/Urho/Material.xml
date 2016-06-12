@@ -230,6 +230,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FromColor">
+      <MemberSignature Language="C#" Value="public static Urho.Material FromColor (Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material FromColor(valuetype Urho.Color color) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="color" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="color">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FromImage">
       <MemberSignature Language="C#" Value="public static Urho.Material FromImage (string image);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material FromImage(string image) cil managed" />
@@ -782,6 +802,27 @@
         <summary>
             Set shader parameter.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (string name, Urho.Matrix3x4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(string name, valuetype Urho.Matrix3x4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

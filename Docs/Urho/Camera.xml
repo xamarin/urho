@@ -27,8 +27,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -66,8 +65,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -573,6 +571,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Projection">
+      <MemberSignature Language="C#" Value="public Urho.Matrix4 Projection { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Matrix4 Projection" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Returns an API-specific projection matrix</summary>
+        <value>The result value is specific to the host rendering library (D3D vs OpenGL)</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ProjectionOffset">
       <MemberSignature Language="C#" Value="public Urho.Vector2 ProjectionOffset { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 ProjectionOffset" />
@@ -840,8 +854,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -857,8 +870,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -874,8 +886,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipping">
@@ -914,6 +925,22 @@
             Or
             Set reflection mode.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="View">
+      <MemberSignature Language="C#" Value="public Urho.Matrix3x4 View { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Matrix3x4 View" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3x4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

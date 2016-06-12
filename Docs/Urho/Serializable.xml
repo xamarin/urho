@@ -650,6 +650,28 @@
       </Docs>
     </Member>
     <Member MemberName="SetAttribute">
+      <MemberSignature Language="C#" Value="public bool SetAttribute (string name, Urho.Matrix3x4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetAttribute(string name, valuetype Urho.Matrix3x4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAttribute">
       <MemberSignature Language="C#" Value="public bool SetAttribute (string name, Urho.Matrix4 value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetAttribute(string name, valuetype Urho.Matrix4 value) cil managed" />
       <MemberType>Method</MemberType>
@@ -907,6 +929,28 @@
         <summary>
             Set attribute by index. Return true if successfully set.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAttribute">
+      <MemberSignature Language="C#" Value="public bool SetAttribute (uint index, Urho.Matrix3x4 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetAttribute(unsigned int32 index, valuetype Urho.Matrix3x4 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="value" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

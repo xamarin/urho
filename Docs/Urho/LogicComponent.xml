@@ -69,29 +69,9 @@
         <remarks></remarks>
       </Docs>
     </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="protected LogicComponent (Urho.UrhoObjectFlag emptyFlag);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
-      </Parameters>
-      <Docs>
-        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
-        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
-        <remarks>
-          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
-          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
-          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
-        </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DelayedStart">
-      <MemberSignature Language="C#" Value="public void DelayedStart ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DelayedStart() cil managed" />
+    <Member MemberName="OnFixedPostUpdate">
+      <MemberSignature Language="C#" Value="protected virtual void OnFixedPostUpdate (Urho.Physics.PhysicsPostStepEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void OnFixedPostUpdate(valuetype Urho.Physics.PhysicsPostStepEventArgs e) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -99,17 +79,75 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="e" Type="Urho.Physics.PhysicsPostStepEventArgs" />
+      </Parameters>
       <Docs>
-        <summary>
-            Called before the first update. At this point all other components of the node should exist. Will also be called if update events are not wanted; in that case the event is immediately unsubscribed afterward.
-            </summary>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="DelayedStartCalled">
-      <MemberSignature Language="C#" Value="public bool DelayedStartCalled { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool DelayedStartCalled" />
+    <Member MemberName="OnFixedUpdate">
+      <MemberSignature Language="C#" Value="protected virtual void OnFixedUpdate (Urho.Physics.PhysicsPreStepEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void OnFixedUpdate(valuetype Urho.Physics.PhysicsPreStepEventArgs e) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="Urho.Physics.PhysicsPreStepEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnPostUpdate">
+      <MemberSignature Language="C#" Value="protected virtual void OnPostUpdate (Urho.ScenePostUpdateEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void OnPostUpdate(valuetype Urho.ScenePostUpdateEventArgs e) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="Urho.ScenePostUpdateEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSceneSet">
+      <MemberSignature Language="C#" Value="public override void OnSceneSet (Urho.Scene scene);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnSceneSet(class Urho.Scene scene) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="Urho.Scene" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReceiveFixedPostUpdates">
+      <MemberSignature Language="C#" Value="protected bool ReceiveFixedPostUpdates { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ReceiveFixedPostUpdates" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -118,125 +156,40 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Return whether the DelayedStart() function has been called.</summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="FixedPostUpdate">
-      <MemberSignature Language="C#" Value="public void FixedPostUpdate (float timeStep);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void FixedPostUpdate(float32 timeStep) cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="ReceiveFixedUpdates">
+      <MemberSignature Language="C#" Value="protected bool ReceiveFixedUpdates { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ReceiveFixedUpdates" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="timeStep" Type="System.Single" />
-      </Parameters>
       <Docs>
-        <param name="timeStep">To be added.</param>
-        <summary>
-            Called on physics post-update, fixed timestep.
-            </summary>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="FixedUpdate">
-      <MemberSignature Language="C#" Value="public void FixedUpdate (float timeStep);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void FixedUpdate(float32 timeStep) cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="ReceivePostUpdates">
+      <MemberSignature Language="C#" Value="protected bool ReceivePostUpdates { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ReceivePostUpdates" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="timeStep" Type="System.Single" />
-      </Parameters>
       <Docs>
-        <param name="timeStep">To be added.</param>
-        <summary>
-            Called on physics update, fixed timestep.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="OnSetEnabled">
-      <MemberSignature Language="C#" Value="public override void OnSetEnabled ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnSetEnabled() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Handle enabled/disabled state change. Changes update event subscription.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="PostUpdate">
-      <MemberSignature Language="C#" Value="public void PostUpdate (float timeStep);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void PostUpdate(float32 timeStep) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="timeStep" Type="System.Single" />
-      </Parameters>
-      <Docs>
-        <param name="timeStep">To be added.</param>
-        <summary>
-            Called on scene post-update, variable timestep.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Start">
-      <MemberSignature Language="C#" Value="public void Start ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Start() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Called when the component is added to a scene node. Other components may not yet exist.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Stop">
-      <MemberSignature Language="C#" Value="public void Stop ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Stop() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Called when the component is detached from a scene node, usually on destruction. Note that you will no longer have access to the node and scene at that point.
-            </summary>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -302,47 +255,6 @@
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
         <remarks></remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Update">
-      <MemberSignature Language="C#" Value="public void Update (float timeStep);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Update(float32 timeStep) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="timeStep" Type="System.Single" />
-      </Parameters>
-      <Docs>
-        <param name="timeStep">To be added.</param>
-        <summary>
-            Called on scene update, variable timestep.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="UpdateEventMask">
-      <MemberSignature Language="C#" Value="public byte UpdateEventMask { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance unsigned int8 UpdateEventMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Byte</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Return what update events are subscribed to.
-            Or
-            Set what update events should be subscribed to. Use this for optimization: by default all are in use. Note that this is not an attribute and is not saved or network-serialized, therefore it should always be called eg. in the subclass constructor.
-            </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>
