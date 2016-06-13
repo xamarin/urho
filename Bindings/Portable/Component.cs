@@ -33,7 +33,9 @@ namespace Urho
 
 		public virtual void OnAttachedToNode(Node node) {}
 
-		public virtual void OnSceneSet(Scene scene) {}
+		public virtual void OnSceneSet(Scene scene) { }
+
+		public virtual void OnNodeSetEnabled() { }
 
 		protected override void OnDeleted()
 		{

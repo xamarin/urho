@@ -22,27 +22,20 @@ namespace Urho
 		static Dictionary<Type, int> hashDict;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		delegate void MonoRefCountedCallback(IntPtr ptr, RefCountedEvent rcEvent);
-
-		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		delegate void MonoComponentCallback(IntPtr componentPtr, IntPtr xmlElementPtr, IntPtr scenePtr, MonoComponentCallbackType eventType);
+		delegate void NativeCallback(CallbackType type, IntPtr target, IntPtr param1, IntPtr param2, IntPtr param3, IntPtr param4);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void RegisterMonoRefCountedCallback(MonoRefCountedCallback callback);
+		static extern void RegisterMonoNativeCallbacks(NativeCallback callback);
 
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void RegisterMonoComponentCallback(MonoComponentCallback callback);
-
-		static MonoRefCountedCallback monoRefCountedCallback; //keep references to native callbacks (protect from GC)
-		static MonoComponentCallback monoComponentCallback;
+		// ReSharper disable once NotAccessedField.Local
+		static NativeCallback nativeCallback; //keep references to native callbacks (protect from GC)
 
 		internal static bool IsClosing { get; private set; }
 
 		internal static void Start()
 		{
 			IsClosing = false;
-			RegisterMonoRefCountedCallback(monoRefCountedCallback = OnRefCountedEvent);
-			RegisterMonoComponentCallback(monoComponentCallback = OnComponentEvent);
+			RegisterMonoNativeCallbacks(nativeCallback = OnNativeCallback);
 		}
 
 		internal static void Setup()
@@ -52,78 +45,95 @@ namespace Urho
 		/// <summary>
 		/// This method is called by RefCounted::~RefCounted or RefCounted::AddRef
 		/// </summary>
-		[MonoPInvokeCallback(typeof(MonoRefCountedCallback))]
-		static void OnRefCountedEvent(IntPtr ptr, RefCountedEvent rcEvent)
-		{
-			if (rcEvent == RefCountedEvent.Delete)
-			{
-				var referenceHolder = RefCountedCache.Get(ptr);
-				if (referenceHolder == null)
-					return; //we don't have this object in the cache so let's just skip it
-
-				var reference = referenceHolder.Reference;
-				if (reference == null)
-				{
-					// seems like the reference was Weak and GC has removed it - remove item from the dictionary
-					RefCountedCache.Remove(ptr);
-				}
-				else
-				{
-					reference.HandleNativeDelete();
-				}
-			}
-			else if (rcEvent == RefCountedEvent.Addref)
-			{
-				//if we have an object with this handle and it's reference is weak - then change it to strong.
-				var referenceHolder = RefCountedCache.Get(ptr);
-				referenceHolder?.MakeStrong();
-			}
-		}
-
-		[MonoPInvokeCallback(typeof(MonoComponentCallback))]
-		static void OnComponentEvent(IntPtr componentPtr, IntPtr xmlElementPtr, IntPtr scenePtr, MonoComponentCallbackType eventType)
+		[MonoPInvokeCallback(typeof(NativeCallback))]
+		static void OnNativeCallback(CallbackType type, IntPtr target, IntPtr param1, IntPtr param2, IntPtr param3, IntPtr param4)
 		{
 			const string typeNameKey = "SharpTypeName";
-			var xmlElement = new XmlElement(xmlElementPtr);
-			if (eventType == MonoComponentCallbackType.SaveXml)
+
+			switch (type)
 			{
-				var component = LookupObject<Component>(componentPtr, false);
-				if (component != null && component.TypeName != component.GetType().Name)
-				{
-					xmlElement.SetString(typeNameKey, component.GetType().AssemblyQualifiedName);
-					component.OnSerialize(new XmlComponentSerializer(xmlElement));
-				}
-			}
-			else if (eventType == MonoComponentCallbackType.LoadXml)
-			{
-				var name = xmlElement.GetAttribute(typeNameKey);
-				if (!string.IsNullOrEmpty(name))
-				{
-					Component component;
-					try
+				//Component:
+				case CallbackType.Component_OnSceneSet:
 					{
-						component = (Component) Activator.CreateInstance(Type.GetType(name), componentPtr);
+						var component = LookupObject<Component>(target, false);
+						component?.OnSceneSet(LookupObject<Scene>(param1, false));
 					}
-					catch (Exception exc)
+					break;
+				case CallbackType.Component_SaveXml:
 					{
-						throw new InvalidOperationException($"{name} doesn't override constructor Component(IntPtr handle).", exc);
+						var component = LookupObject<Component>(target, false);
+						if (component != null && component.TypeName != component.GetType().Name)
+						{
+							var xmlElement = new XmlElement(param2);
+							xmlElement.SetString(typeNameKey, component.GetType().AssemblyQualifiedName);
+							component.OnSerialize(new XmlComponentSerializer(xmlElement));
+						}
 					}
-					component.OnDeserialize(new XmlComponentSerializer(xmlElement));
-					if (component.Node != null)
+					break;
+				case CallbackType.Component_LoadXml:
 					{
-						component.AttachedToNode(component.Node);
+						var xmlElement = new XmlElement(param2);
+						var name = xmlElement.GetAttribute(typeNameKey);
+						if (!string.IsNullOrEmpty(name))
+						{
+							Component component;
+							try
+							{
+								component = (Component)Activator.CreateInstance(Type.GetType(name), target);
+							}
+							catch (Exception exc)
+							{
+								throw new InvalidOperationException($"{name} doesn't override constructor Component(IntPtr handle).", exc);
+							}
+							component.OnDeserialize(new XmlComponentSerializer(xmlElement));
+							if (component.Node != null)
+							{
+								component.AttachedToNode(component.Node);
+							}
+						}
 					}
-				}
-			}
-			else if (eventType == MonoComponentCallbackType.AttachedToNode)
-			{
-				var component = LookupObject<Component>(componentPtr, false);
-				component?.OnAttachedToNode(component.Node);
-			}
-			else if (eventType == MonoComponentCallbackType.SceneSet)
-			{
-				var component = LookupObject<Component>(componentPtr, false);
-				component?.OnSceneSet(LookupObject<Scene>(scenePtr, false));
+					break;
+				case CallbackType.Component_AttachedToNode:
+					{
+						var component = LookupObject<Component>(target, false);
+						component?.OnAttachedToNode(component.Node);
+					}
+					break;
+				case CallbackType.Component_OnNodeSetEnabled:
+					{
+						var component = LookupObject<Component>(target, false);
+						component?.OnNodeSetEnabled();
+					}
+					break;
+
+
+				//RefCounted:
+
+				case CallbackType.RefCounted_AddRef:
+					{
+						//if we have an object with this handle and it's reference is weak - then change it to strong.
+						var referenceHolder = RefCountedCache.Get(target);
+						referenceHolder?.MakeStrong();
+					}
+					break;
+
+				case CallbackType.RefCounted_Delete:
+					{
+						var referenceHolder = RefCountedCache.Get(target);
+						if (referenceHolder == null)
+							return; //we don't have this object in the cache so let's just skip it
+
+						var reference = referenceHolder.Reference;
+						if (reference == null)
+							// seems like the reference was Weak and GC has removed it - remove item from the dictionary
+							RefCountedCache.Remove(target);
+						else
+							reference.HandleNativeDelete();
+					}
+					break;
+
+				default:
+					throw new NotImplementedException();
 			}
 		}
 

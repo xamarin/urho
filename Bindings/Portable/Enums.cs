@@ -79,15 +79,15 @@ namespace Urho {
 		}
 	}
 
-	enum MonoComponentCallbackType{
-		SaveXml,
-		LoadXml,
-		AttachedToNode,
-		SceneSet
-	}
+	internal enum CallbackType
+	{
+		Component_OnSceneSet,
+		Component_SaveXml,
+		Component_LoadXml,
+		Component_AttachedToNode,
+		Component_OnNodeSetEnabled,
 
-	enum RefCountedEvent {
-		Delete,
-		Addref
-	}
+		RefCounted_AddRef,
+		RefCounted_Delete
+	};
 }
