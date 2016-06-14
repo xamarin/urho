@@ -5,7 +5,7 @@ namespace Urho
 {
 	public static class MarshalHelper
 	{
-		public static unsafe float ReadSingle(this IntPtr ptr, int offset)
+		public static unsafe float ReadSingle(this IntPtr ptr, int offset = 0)
 		{
 			if (sizeof (IntPtr) == sizeof (int))
 			{

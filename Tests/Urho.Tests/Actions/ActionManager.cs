@@ -12,7 +12,7 @@ namespace Urho.Tests
 		public async Task TestRunActionsAsyncWorks ()
 		{
 			var app = await Task.Run(() => SimpleApplication.RunAsync (1, 1));
-			var node = new MockNode ();
+			var node = new Node ();
 
 			bool called = false, called2 = false, called3 = false;
 			await node.RunActionsAsync (new CallFunc (() => called = true));

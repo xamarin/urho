@@ -96,7 +96,7 @@ namespace Urho
 				case CallbackType.Component_AttachedToNode:
 					{
 						var component = LookupObject<Component>(target, false);
-						component?.OnAttachedToNode(component.Node);
+						component?.AttachedToNode(component.Node);
 					}
 					break;
 				case CallbackType.Component_OnNodeSetEnabled:
@@ -131,9 +131,6 @@ namespace Urho
 							reference.HandleNativeDelete();
 					}
 					break;
-
-				default:
-					throw new NotImplementedException();
 			}
 		}
 
