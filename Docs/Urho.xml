@@ -6537,8 +6537,6 @@
             Urho3D engine. Creates the other subsystems.
             </summary>
             <remarks>
-                <para>Before a Urho3D application can enter its main loop, the Engine subsystem object must be created and initialized by calling the <see cref="M:Urho.UrhoEngine.Initialize" /> method. </para>
-                <para />
                 <format type="text/html">
                     <h2>Main Loop Iteration</h2>
                 </format>
