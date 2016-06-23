@@ -11,7 +11,8 @@ documentation](http://developer.xamarin.com/guides/cross-platform/urho/introduct
 The bindings for Urho3D are licensed under the MIT license, as found
 on the LICENSE file.
 
-# Samples
+Samples
+=======
 
 Sample code lives in https://github.com/xamarin/urho-samples and
 repository has them as a git submodule. Samples use UrhoSharp via nuget.
@@ -23,7 +24,9 @@ repository has them as a git submodule. Samples use UrhoSharp via nuget.
 * Available on NuGet: http://www.nuget.org/packages/UrhoSharp
 * Install into your PCL project and Client projects.
 
-# Quick start
+
+Quick start
+===========
 
 To help developers get up and running quickly with UrhoSharp we are
 providing a [solution
@@ -34,7 +37,8 @@ and some assets (Xamarin Studio templates will be available soon):
 
 ![VS](https://habrastorage.org/files/f22/b49/ded/f22b49dedc264396a47015784bd9b35f.gif)
 
-# How to build bindings
+How to build bindings
+=====================
 
 This is currently a little messy, so YMMV.
 
@@ -125,3 +129,17 @@ Then, open Urho.sln and compile MonoUrho.Windows project in Release configuratio
 
 All compiled binaries could be found in the Bin/{platform} folder.
 
+Updating Documentation
+======================
+
+Once you have a build, run the `refresh-docs` target, like this:
+
+```
+make refresh-docs
+```
+
+This will update the documentation based on the API changes.  Then you
+can use a tool like DocWriter [1] on the Mac to edit the contents, or
+just edit the ECMA XML documentation by hand with an XML editor.
+
+[1] http://github.com/xamarin/DocWriter
