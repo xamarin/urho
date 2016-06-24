@@ -90,6 +90,8 @@ namespace Urho
 		/// </summary>
 		public IntPtr ExternalWindow { get; set; }
 
+		public bool DelayedStart { get; set; } = false;
+
 		public enum OrientationType
 		{
 			Landscape,
@@ -109,6 +111,9 @@ namespace Urho
 
 			if (!LimitFps)
 				builder.Append(" -nolimit");
+
+			if (DelayedStart)
+				builder.Append(" -delayedstart");
 
 			if (Width > 0)
 				builder.AppendFormat(" -x {0}", Width);

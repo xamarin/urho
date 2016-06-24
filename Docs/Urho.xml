@@ -1814,8 +1814,15 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.ApplicationOptions.DelayedStart">
+            <summary>With this option Urho will not start the render loop when Run is called.
+			</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ApplicationOptions.ExternalWindow">
-            <summary></summary>
+            <summary>
+			Pointer to an NSView or a win32 handle to use as a surface</summary>
             <value></value>
             <remarks></remarks>
         </member>
