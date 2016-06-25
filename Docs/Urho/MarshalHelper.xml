@@ -15,7 +15,7 @@
   </Docs>
   <Members>
     <Member MemberName="ReadSingle">
-      <MemberSignature Language="C#" Value="public static float ReadSingle (this IntPtr ptr, int offset);" />
+      <MemberSignature Language="C#" Value="public static float ReadSingle (this IntPtr ptr, int offset = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 ReadSingle(native int ptr, int32 offset) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>

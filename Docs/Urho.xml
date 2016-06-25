@@ -574,14 +574,14 @@
             <param name="time"></param>
             <param name="timeIsNormalized"></param>
             <param name="data"></param>
-            <summary></summary>
+            <summary>Add a trigger point.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Animation.AddTrigger(System.Single,System.Boolean,Urho.Matrix4)">
             <param name="time"></param>
             <param name="timeIsNormalized"></param>
             <param name="data"></param>
-            <summary></summary>
+            <summary>Add a trigger point.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Animation.AddTrigger(System.Single,System.Boolean,Urho.Quaternion)">
@@ -1640,20 +1640,20 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Application.InvokeOnMain(System.Action)">
-            <param name="action"></param>
+            <param name="action">Method to be invoked on the main thread.</param>
             <summary>
             Invoke actions in the Main Thread (the next Update call)
             </summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Application.InvokeOnMainAsync(System.Action)">
-            <param name="action"></param>
-            <summary></summary>
+            <param name="action">Method to be invoked on the main thread.</param>
+            <summary>Invoke actions in the Main Thread (the next Update call), async variation.</summary>
             <returns></returns>
-            <remarks></remarks>
+            <remarks>This method is equivalent to <see cref="M:Urho.Application.InvokeOnMain," /> with the difference that the result can be awaited on.</remarks>
         </member>
         <member name="P:Urho.Application.IsClosed">
-            <summary></summary>
+            <summary>Determines if the application has been closed, and we are shutting down.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -1815,16 +1815,30 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.DelayedStart">
-            <summary>With this option Urho will not start the render loop when Run is called.
-			</summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>With this option Urho will not start the render loop when Run is called.</summary>
+            <value>The state of the delayed start</value>
+            <remarks>
+                <para>Use this option if you want to prevent the main loop from running immediately.   In that case, you will want to manually run the loop by calling the <see cref="M:Urho.Engine.RunFrame" /> method on a loop at your convenience.</para>
+                <para />
+                <para />
+                <example>
+                    <code lang="C#"><![CDATA[var app = new MyApp (new ApplicationOptions () { DelayedStart = true });
+while (true){
+   app.Engine.RunFrame ();
+   // Sleep here.
+}
+]]></code>
+                </example>
+            </remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.ExternalWindow">
-            <summary>
-			Pointer to an NSView or a win32 handle to use as a surface</summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Pointer to an NSView or a Win32 handle to use as a surface.</summary>
+            <value>The current handle to the native window</value>
+            <remarks>
+                <para>This is a platform specific pointer to a native handle.   On Windows, this is a handle to a window (HWND), and on Cocoa it is a pointer to an NSView (if you are using the Xamarin.Mac API, this will be the Handle of the <see cref="T:AppKit.NSView" />). </para>
+                <para />
+                <para>This instructs UrhoSharp to use that window or view as its rendering target.   This is used in scenarios where you want to embed the engine into another application.</para>
+            </remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.Height">
             <summary>
@@ -2948,8 +2962,8 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.Camera.Projection">
-            <summary></summary>
-            <value></value>
+            <summary>Returns an API-specific projection matrix</summary>
+            <value>The result value is specific to the host rendering library (D3D vs OpenGL)</value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Camera.ProjectionOffset">
@@ -3363,7 +3377,8 @@
             Base class for components. Components can be attached to scene nodes.
             </summary>
             <remarks>
-                <para>Use the <see cref="T:Urho.Component" /> as the base class for your custom components.   This is similar to what users of the C++ API would achive by creating a subclass of the LogicComponent class.   See the next section for details on how to connect to various events in the life cycle of a component.</para>
+                <para>Use the <see cref="T:Urho.Component" /> is the base class for custom components, it is a low-level interface.   A simpler version to use is <see cref="T:Urho.LogicComponent" /> which provides various convenience features.   </para>
+                <para>The next section for details on how to connect to various events in the life cycle of a component.</para>
                 <format type="text/html">
                     <h2>Events</h2>
                 </format>
@@ -3401,11 +3416,6 @@
         var node = this.Node;
     }
 }]]></code>
-                <para />
-                <format type="text/html">
-                    <h2>asdf</h2>
-                    <div>asdf</div>
-                </format>
             </remarks>
         </member>
         <member name="C:Urho.Component">
@@ -3523,6 +3533,10 @@
             <param name="deserializer">Object used to retrieve the stored information</param>
             <summary>Overridable method to deserialize the component state</summary>
             <remarks>Implement this method to have the Urho runtime initialize your object state from a previously saved state.</remarks>
+        </member>
+        <member name="M:Urho.Component.OnNodeSetEnabled">
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="M:Urho.Component.OnSceneSet(Urho.Scene)">
             <param name="scene"></param>
@@ -6544,6 +6558,8 @@
             Urho3D engine. Creates the other subsystems.
             </summary>
             <remarks>
+                <para>Before a Urho3D application can enter its main loop, the Engine subsystem object must be created and initialized by calling the <see cref="M:Urho.UrhoEngine.Initialize" /> method. </para>
+                <para />
                 <format type="text/html">
                     <h2>Main Loop Iteration</h2>
                 </format>
@@ -9987,8 +10003,8 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.IntVector2.IsEmpty">
-            <summary></summary>
-            <value></value>
+            <summary>Determines if the vector is zero.</summary>
+            <value>True if the X and Y properties are zero, false otherwise.</value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.IntVector2.Length">
@@ -36845,9 +36861,13 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.Sprite.Transform">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Rendering transformation, also used to transform child sprites.</summary>
+            <value>
+                <para />
+            </value>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Gui.Sprite.Type">
             <summary>Urho's type system type.</summary>

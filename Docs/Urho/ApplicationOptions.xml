@@ -73,6 +73,36 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DelayedStart">
+      <MemberSignature Language="C#" Value="public bool DelayedStart { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DelayedStart" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>With this option Urho will not start the render loop when Run is called.</summary>
+        <value>The state of the delayed start</value>
+        <remarks>
+          <para>Use this option if you want to prevent the main loop from running immediately.   In that case, you will want to manually run the loop by calling the <see cref="M:Urho.Engine.RunFrame" /> method on a loop at your convenience.</para>
+          <para>
+          </para>
+          <para>
+          </para>
+          <example>
+            <code lang="C#"><![CDATA[var app = new MyApp (new ApplicationOptions () { DelayedStart = true });
+while (true){
+   app.Engine.RunFrame ();
+   // Sleep here.
+}
+]]></code>
+          </example>
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ExternalWindow">
       <MemberSignature Language="C#" Value="public IntPtr ExternalWindow { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance native int ExternalWindow" />
@@ -84,9 +114,13 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Pointer to an NSView or a Win32 handle to use as a surface.</summary>
+        <value>The current handle to the native window</value>
+        <remarks>
+          <para>This is a platform specific pointer to a native handle.   On Windows, this is a handle to a window (HWND), and on Cocoa it is a pointer to an NSView (if you are using the Xamarin.Mac API, this will be the Handle of the <see cref="T:AppKit.NSView" />). </para>
+          <para />
+          <para>This instructs UrhoSharp to use that window or view as its rendering target.   This is used in scenarios where you want to embed the engine into another application.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Height">
