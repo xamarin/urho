@@ -27,7 +27,7 @@ namespace Urho {
 
 		static TaskCompletionSource<bool> exitTask;
 		static int renderThreadId = -1;
-		static readonly List<Action> actionsToDipatch = new List<Action>();
+		List<Action> actionsToDipatch = new List<Action>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -107,9 +107,10 @@ namespace Urho {
 		/// </summary>
 		public static void InvokeOnMain(Action action)
 		{
-			lock (actionsToDipatch)
+			var actions = Current.actionsToDipatch;
+			lock (actions)
 			{
-				actionsToDipatch.Add(action);
+				actions.Add(action);
 			}
 		}
 
