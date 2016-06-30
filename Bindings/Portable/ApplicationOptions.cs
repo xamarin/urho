@@ -92,6 +92,8 @@ namespace Urho
 
 		public bool DelayedStart { get; set; } = false;
 
+		public bool AutoloadCoreData { get; set; } = true;
+
 		public enum OrientationType
 		{
 			Landscape,
@@ -126,7 +128,9 @@ namespace Urho
 #endif
 				builder.Append(" -s");
 
-			var resourcePathes = new[] {"CoreData"}.Concat(ResourcePaths ?? new string[0]);
+			string[] resourcePathes = new[] { "CoreData" }.Concat(ResourcePaths ?? new string[0]).ToArray();
+			if (!AutoloadCoreData)
+				resourcePathes = ResourcePaths ?? new string[0];
 			builder.AppendFormat(" -p \"{0}\"", string.Join(";", resourcePathes.Distinct()));
 
 			if (ResourcePackagesPaths?.Length > 0)
