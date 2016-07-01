@@ -34,6 +34,23 @@ namespace Urho.Tests
 
 			await app.Exit();
 		}
+
+		[Test]
+		public async Task TestIssue129()
+		{
+
+			var app = await Task.Run(() => SimpleApplication.RunAsync(1, 1));
+
+			var scene = new Scene();
+			var node = scene.CreateChild();
+			await node.RunActionsAsync(new EaseIn(new MoveBy(1f, new Vector3(-10, -2, -10)), 1));
+
+			node.Remove();
+
+			await scene.CreateChild().RunActionsAsync(new EaseOut(new MoveBy(0.5f, new Vector3(0, 3, 0)), 1));
+
+			await app.Exit();
+		}
 	}
 }
 
