@@ -35,7 +35,7 @@ namespace Urho
 			var tcs = new TaskCompletionSource<ActionState>();
 
 			ActionState state = null;
-			FiniteTimeAction completion = new CallFunc(() => tcs.TrySetResult(state));
+			FiniteTimeAction completion = new AsyncCompletionCallFunc(() => tcs.TrySetResult(state));
 
 			var asyncAction = actions.Length > 0 ? new Sequence(actions, completion) : completion;
 
