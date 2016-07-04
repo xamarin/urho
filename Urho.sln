@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "bindings\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
 EndProject
@@ -58,14 +58,14 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Bindings\Urho.Shared.projitems*{048373c2-b60a-4f61-b095-287c57437efb}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{05693742-16e4-45ad-b7dd-b5f3de51bc11}*SharedItemsImports = 13
-		Bindings\Urho.Shared.projitems*{641886db-2c6c-4d33-88da-97bec0ec5f86}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{3afdab77-57ce-4fce-8324-81d57556a4fa}*SharedItemsImports = 4
-		Bindings\Urho.Shared.projitems*{d599c47f-b9e0-4a58-82e8-6286e0442e8f}*SharedItemsImports = 4
-		Bindings\Urho.Shared.projitems*{8bae491b-46f0-4a51-a456-d7a3b332bdc4}*SharedItemsImports = 4
-		Bindings\Urho.Shared.projitems*{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}*SharedItemsImports = 4
-		Bindings\Urho.Shared.projitems*{8f3352ba-bf6a-49f8-81d6-58d54b3ea72b}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{3b881c69-a1ac-410a-a633-ea9fca4a760c}*SharedItemsImports = 4
+		Bindings\Urho.Shared.projitems*{641886db-2c6c-4d33-88da-97bec0ec5f86}*SharedItemsImports = 4
+		Bindings\Urho.Shared.projitems*{8bae491b-46f0-4a51-a456-d7a3b332bdc4}*SharedItemsImports = 4
+		Bindings\Urho.Shared.projitems*{8f3352ba-bf6a-49f8-81d6-58d54b3ea72b}*SharedItemsImports = 4
+		Bindings\Urho.Shared.projitems*{d599c47f-b9e0-4a58-82e8-6286e0442e8f}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{f0359d5e-d6d4-47d3-a9f0-5a97c31dc476}*SharedItemsImports = 4
+		Bindings\Urho.Shared.projitems*{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -344,7 +344,6 @@ Global
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Debug|x86.Build.0 = Debug|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|Any CPU.ActiveCfg = Release|Any CPU
-		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|Any CPU.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|ARM.ActiveCfg = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|ARM.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|iPhone.ActiveCfg = Release|Any CPU
@@ -352,9 +351,7 @@ Global
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|iPhoneSimulator.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|x64.ActiveCfg = Release|Any CPU
-		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|x64.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|x86.ActiveCfg = Release|Any CPU
-		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|x86.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Release|ARM.ActiveCfg = Release|Any CPU
