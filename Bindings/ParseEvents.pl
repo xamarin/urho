@@ -117,6 +117,7 @@ sub mapType {
     my ($pt) = @_;
     ($t,$st) = split (/ /, $pt);
     if ($st eq "pointer"){
+        return "IntPtr" if $t eq "b2Contact";
 	return "$t";
     }
     if ($st eq "ptr"){
