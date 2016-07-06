@@ -94,6 +94,8 @@ namespace Urho
 
 		public bool AutoloadCoreData { get; set; } = true;
 
+		public string[] ResourcePrefixPaths { get; set; }
+
 		public enum OrientationType
 		{
 			Landscape,
@@ -136,10 +138,13 @@ namespace Urho
 			if (ResourcePackagesPaths?.Length > 0)
 				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
 
+			if (ResourcePrefixPaths?.Length > 0)
+				builder.AppendFormat(" -pp \"{0}\"", string.Join(";", ResourcePrefixPaths));
+
 #if !WINDOWS_UWP
 			if (TouchEmulation)
 #endif
-				builder.Append(" -touch");
+			builder.Append(" -touch");
 
 			switch (Orientation)
 			{
