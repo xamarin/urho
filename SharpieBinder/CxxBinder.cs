@@ -630,6 +630,7 @@ namespace SharpieBinder
 			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
 			case "class Urho3D::Serializer &":
 			case "class Urho3D::Deserializer &":
+				case "const class Urho3D::Variant &":
 					return false;
 			}
 
@@ -1002,7 +1003,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			/*if (currentType.Name == "RenderPath" && decl.Name == "AddCommand")
+			/*if (currentType.Name == "Node" && decl.Name == "GetVar")
 				return false;
 			return true;*/
 
@@ -1217,6 +1218,7 @@ namespace SharpieBinder
 			var cinvoke = new StringBuilder();
 			string marshalReturn = "{0}";
 			string creturnType = CleanTypeCplusplus(decl.ReturnQualType);
+			bool creturnIsVariant = creturnType == "const class Urho3D::Variant &";
 
 			switch (creturnType) {
 			case "bool":
@@ -1595,7 +1597,15 @@ namespace SharpieBinder
 						rstr = $"WeakPtr<{decl.Name}>({rstr})";
 				}
 
-				cmethodBuilder.AppendLine(!rstr.Contains("\treturn ") ? $"return {rstr};" : rstr);
+				if (!rstr.Contains("\treturn "))
+				{
+					if (creturnIsVariant)
+						cmethodBuilder.AppendLine($"return %ConvertReturn%({rstr}.%VariantToTypeMethod%);");
+					else
+						cmethodBuilder.AppendLine($"return {rstr};");
+				}
+				else
+					cmethodBuilder.AppendLine(rstr);
 			}
 			cmethodBuilder.AppendLine("}\n");
 
@@ -1628,13 +1638,23 @@ namespace SharpieBinder
 				int index = 0;
 				foreach (var item in variantSupportedTypes)
 				{
+					string cVarReplacedType = item.Key;
+					if (cVarReplacedType.Contains("const class"))
+						cVarReplacedType = "Interop::" + item.Key.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace();
+
+					bool isString = item.Key == "const char *";
 					//C:
 					p(code
-						.Replace(variantArgDef, item.Key)
+					  .Replace(variantArgDef, cVarReplacedType)
 						.Replace(methodNameSuffix, index.ToString())
-						.Replace(variantConverterMask, item.Key == "const char *" ? "Urho3D::String" : string.Empty));
+					    .Replace("%ConvertReturn%", cVarReplacedType.StartsWith("Interop::") ? $"*(({cVarReplacedType} *) &" : (isString ? "stringdup" : ""))
+					    .Replace("%VariantToTypeMethod%", "Get" + item.Value.Capitalize() + "()" + (isString ? ".CString()" : ""))
+						.Replace(variantConverterMask, isString ? "Urho3D::String" : string.Empty));
 					//methodNameSuffix to avoid error:
-					//  error C2733: second C linkage of overloaded function 'function name' not allowed.
+					//error C2733: second C linkage of overloaded function 'function name' not allowed.
+
+					if (creturnIsVariant)
+						continue;
 
 					//C#:
 					var isPrimitive = primitiveTypes.Contains(item.Value);
