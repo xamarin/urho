@@ -1003,7 +1003,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			/*if (currentType.Name == "Node" && decl.Name == "GetVar")
+			/*if (currentType.Name == "AttributeAccessor" && decl.Name == "Set")
 				return false;
 			return true;*/
 
@@ -1639,7 +1639,7 @@ namespace SharpieBinder
 				foreach (var item in variantSupportedTypes)
 				{
 					string cVarReplacedType = item.Key;
-					if (cVarReplacedType.Contains("const class"))
+					if (cVarReplacedType.Contains("const class") && creturnIsVariant)
 						cVarReplacedType = "Interop::" + item.Key.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace();
 
 					bool isString = item.Key == "const char *";
