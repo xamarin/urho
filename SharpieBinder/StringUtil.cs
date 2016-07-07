@@ -115,7 +115,7 @@ namespace SharpieBinder
 			return string.Join ("", w.Split ('_').Select (x => Remap (Capitalize (x))));
 		}
 
-		public static string Capitalize (this string word)
+		public static string Capitalize (this string word, bool restLower = true)
 		{
 			if (string.IsNullOrEmpty(word))
 				return string.Empty;
@@ -140,7 +140,8 @@ namespace SharpieBinder
 				}
 				else
 				{
-					return char.ToUpper(word[0]) + word.Substring(1).ToLower();
+					var r = word.Substring(1);
+					return char.ToUpper(word[0]) + (restLower ? r.ToLower() : r);
 				}
 			}
 			return char.ToUpper (word[0]).ToString ();

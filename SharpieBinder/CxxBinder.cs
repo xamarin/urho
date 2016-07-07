@@ -1003,9 +1003,9 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			/*if (currentType.Name == "AttributeAccessor" && decl.Name == "Set")
+			if (currentType.Name == "Node" && decl.Name == "GetVar")
 				return false;
-			return true;*/
+			return true;
 
 			if (OglSpecificMethodsMap.ContainsKey(currentType.Name))
 			{
@@ -1600,7 +1600,7 @@ namespace SharpieBinder
 				if (!rstr.Contains("\treturn "))
 				{
 					if (creturnIsVariant)
-						cmethodBuilder.AppendLine($"return %ConvertReturn%({rstr}.%VariantToTypeMethod%);");
+						cmethodBuilder.AppendLine($"return %ConvertReturn%({rstr}.%VariantToTypeMethod%));");
 					else
 						cmethodBuilder.AppendLine($"return {rstr};");
 				}
@@ -1635,9 +1635,10 @@ namespace SharpieBinder
 				var primitiveTypes = new[] { "int", "float", "string" };
 
 				pn("// Urho3D::Variant overloads begin:");
-				int index = 0;
+				int index = -1;
 				foreach (var item in variantSupportedTypes)
 				{
+					index++;
 					string cVarReplacedType = item.Key;
 					if (cVarReplacedType.Contains("const class") && creturnIsVariant)
 						cVarReplacedType = "Interop::" + item.Key.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace();
@@ -1648,7 +1649,7 @@ namespace SharpieBinder
 					  .Replace(variantArgDef, cVarReplacedType)
 						.Replace(methodNameSuffix, index.ToString())
 					    .Replace("%ConvertReturn%", cVarReplacedType.StartsWith("Interop::") ? $"*(({cVarReplacedType} *) &" : (isString ? "stringdup" : ""))
-					    .Replace("%VariantToTypeMethod%", "Get" + item.Value.Capitalize() + "()" + (isString ? ".CString()" : ""))
+					    .Replace("%VariantToTypeMethod%", "Get" + item.Value.Capitalize(false) + "()" + (isString ? ".CString()" : ""))
 						.Replace(variantConverterMask, isString ? "Urho3D::String" : string.Empty));
 					//methodNameSuffix to avoid error:
 					//error C2733: second C linkage of overloaded function 'function name' not allowed.
@@ -1705,8 +1706,6 @@ namespace SharpieBinder
 
 					currentType.Members.Add(clonedMethod);
 					InsertSummaryComments(clonedMethod, StringUtil.GetMethodComments(decl));
-
-					index++;
 				}
 				pn("// Urho3D::Variant overloads end.");
 			}
