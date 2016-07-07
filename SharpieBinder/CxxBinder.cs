@@ -1003,9 +1003,9 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			if (currentType.Name == "Node" && decl.Name == "GetVar")
+			/*if (currentType.Name == "Node" && decl.Name == "GetVar")
 				return false;
-			return true;
+			return true;*/
 
 			if (OglSpecificMethodsMap.ContainsKey(currentType.Name))
 			{
