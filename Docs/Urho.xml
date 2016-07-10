@@ -1800,19 +1800,26 @@
             </remarks>
         </member>
         <member name="C:Urho.ApplicationOptions(System.String)">
-            <param name="assetsFolder"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="assetsFolder">This is usually the “Data” directory, but can be null if your application only requires the built-in assets.</param>
+            <summary>Initializes the application options with a directory pointing to the assets folders (Usually the “Data” directory)</summary>
+            <remarks>Constructs a new instance of <see cref="T:Urho.ApplicationOptions" /></remarks>
         </member>
         <member name="C:Urho.ApplicationOptions(System.String[])">
-            <param name="assetsFolders"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="assetsFolders">An array of directory names.   Each directory contains assets that your application can reference at runtime.</param>
+            <summary>Initializes the application options with a set of asset directories.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.AdditionalFlags">
             <summary>Any additional options from the Urho engine that might not be encompassed by one of the strongly typed properties here.</summary>
             <value></value>
             <remarks></remarks>
+        </member>
+        <member name="P:Urho.ApplicationOptions.AutoloadCoreData">
+            <summary>Determines whether the “CoreData” is always part of the resources looked up by Urho.</summary>
+            <value>The default value for this property is <see langword="true" />.</value>
+            <remarks>By default, the <see cref="T:Urho.ApplicationOptions" /> will set Urho’s internal resource paths to the “CoreData”, plus any directories specified in <see cref="P:Urho.ApplicationOptions.ResourcePaths." />   If you set this flag to <see langword="false" />, then “CoreData” directory will not be included.</remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.DelayedStart">
             <summary>With this option Urho will not start the render loop when Run is called.</summary>
@@ -1873,7 +1880,20 @@ while (true){
                 <para>Resource path(s) to use (default: Data, CoreData)</para>
             </summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>The <see cref="P:Urho.ApplicationOptions.AutoloadCoreData" /> property controls whether the CoreData directory is included or not.</para>
+                <para />
+                <para>The paths must be directories, or “.pak” files relative to one of the directories listed in <see cref="P:Urho.ApplicationOptions.ResourcePrefixPaths" />.</para>
+            </remarks>
+        </member>
+        <member name="P:Urho.ApplicationOptions.ResourcePrefixPaths">
+            <summary>Resource prefix path, it defaults to the value of the URHO3D_PREFIX_PATH environment variable, or if not set, the executable path.</summary>
+            <value></value>
+            <remarks>
+                <para>Resource paths are relative to the ResourcePrefixPaths.</para>
+                <para />
+                <para>If using the URHO3D_PREFIX_PATH environment variable, the directories must be separated with a semicolon.</para>
+            </remarks>
         </member>
         <member name="M:Urho.ApplicationOptions.ToString">
             <summary>Returns the command line version suitable to be sent to the Urho engine.</summary>
@@ -1882,8 +1902,10 @@ while (true){
         </member>
         <member name="P:Urho.ApplicationOptions.TouchEmulation">
             <summary>Enable touch-emulation on desktop environments.</summary>
-            <value></value>
-            <remarks></remarks>
+            <value>Defaults to <see langword="false" />.</value>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.Width">
             <summary>Desktop only option.</summary>
@@ -6648,7 +6670,7 @@ while (true){
                 <para>Note that on iOS calling <see cref="M:Urho.Engine.Exit" /> is a no-op as there is no officially sanctioned way to manually exit your program. On Android it will cause the activity to manually exit.</para>
                 <format type="text/html">
                     <h2>Application Framework</h2>
-                    <div>The&amp;amp;amp;amp;amp;amp;amp;amp;amp;nbsp;<a href="">T:Urho.Application</a>&amp;amp;amp;amp;amp;amp;amp;amp;amp;nbsp;class provides a minimal framework to run your game with a main loop and a handful of methods that you can override to prepare and run your game.</div>
+                    <div>The&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;nbsp;<a href="">T:Urho.Application</a>&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;nbsp;class provides a minimal framework to run your game with a main loop and a handful of methods that you can override to prepare and run your game.</div>
                 </format>
             </remarks>
         </member>
