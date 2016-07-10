@@ -2674,7 +2674,7 @@ while (true){
         </member>
         <member name="T:Urho.BoundingBox">
             <summary>3D bounding box</summary>
-            <remarks></remarks>
+            <remarks>A 3D-space bounding box with two 3D-vector properties, one for the minimal value (<see cref="P:Urho.BoundingBox.Min)" />, and one for the maximum value (<see cref="P:Urho.BoundingBox.Max)" />.</remarks>
         </member>
         <member name="C:Urho.BoundingBox(System.Single,System.Single)">
             <param name="min">Minimum value.</param>
@@ -2743,12 +2743,22 @@ while (true){
             <summary>Maximum vector</summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.BoundingBox.Merge(Urho.BoundingBox)">
+            <param name="box">The other bounding box to merge with this one.</param>
+            <summary>Merge another bounding box with this one.</summary>
+            <remarks>The result of merging two bounding boxes is a bounding box that bounds both boxes.</remarks>
+        </member>
+        <member name="M:Urho.BoundingBox.Merge(Urho.Vector3)">
+            <param name="point"></param>
+            <summary></summary>
+            <remarks>The result of merging two bounding boxes is a bounding box that bounds both boxes.</remarks>
+        </member>
         <member name="F:Urho.BoundingBox.Min">
             <summary>Minimum vector.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.BoundingBox.Size">
-            <summary></summary>
+            <summary>The size of the bounding box, the Max minus the Min.</summary>
             <value></value>
             <remarks></remarks>
         </member>

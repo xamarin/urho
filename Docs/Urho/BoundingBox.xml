@@ -11,7 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>3D bounding box</summary>
-    <remarks>To be added.</remarks>
+    <remarks>A 3D-space bounding box with two 3D-vector properties, one for the minimal value (<see cref="P:Urho.BoundingBox.Min)" />, and one for the maximum value (<see cref="P:Urho.BoundingBox.Max)" />.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -215,6 +215,44 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Merge">
+      <MemberSignature Language="C#" Value="public void Merge (Urho.BoundingBox box);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Merge(valuetype Urho.BoundingBox box) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="box" Type="Urho.BoundingBox" />
+      </Parameters>
+      <Docs>
+        <param name="box">The other bounding box to merge with this one.</param>
+        <summary>Merge another bounding box with this one.</summary>
+        <remarks>The result of merging two bounding boxes is a bounding box that bounds both boxes.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Merge">
+      <MemberSignature Language="C#" Value="public void Merge (Urho.Vector3 point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Merge(valuetype Urho.Vector3 point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>The result of merging two bounding boxes is a bounding box that bounds both boxes.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Min">
       <MemberSignature Language="C#" Value="public Urho.Vector3 Min;" />
       <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector3 Min" />
@@ -241,7 +279,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The size of the bounding box, the Max minus the Min.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -7,6 +7,7 @@ using Urho.Physics;
 using Urho.Gui;
 using Urho.Urho2D;
 using Urho.Resources;
+
 namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Ray {
@@ -165,6 +166,38 @@ namespace Urho {
 			DummyMin = 0;
 			Min = min;
 			Max = max;
+		}
+
+		public void Merge (Vector3 point)
+		{
+			if (point.X < Min.X)
+				Min.X = point.X;
+			if (point.Y < Min.Y)
+				Min.Y = point.Y;
+			if (point.Z < Min.Z)
+				Min.Z = point.Z;
+			if (point.X > Max.X)
+				Max.X = point.X;
+			if (point.Y > Max.Y)
+				Max.Y = point.Y;
+			if (point.Z > Max.Z)
+				Max.Z = point.Z;
+		}
+
+		public void Merge (BoundingBox box)
+		{
+			if (box.Min.X < Min.X)
+				Min.X = box.Min.X;
+			if (box.Min.Y < Min.Y)
+				Min.Y = box.Min.Y;
+			if (box.Min.Z < Min.Z)
+				Min.Z = box.Min.Z;
+			if (box.Max.X > Max.X)
+				Max.X = box.Max.X;
+			if (box.Max.Y > Max.Y)
+				Max.Y = box.Max.Y;
+			if (box.Max.Z > Max.Z)
+				Max.Z = box.Max.Z;			
 		}
 
 		public bool Defined ()
