@@ -999,17 +999,29 @@ namespace SharpieBinder
 			{ "VertexBuffer",		new[] { "OnDeviceReset" } },
 		};
 
+		static readonly Dictionary<string, string[]> DxSpecificMethodsMap = new Dictionary<string, string[]> {
+			{ "Texture",     new[] { "GetSRVFormat", "GetDSVFormat" } },
+		};
+
 		// Avoid generating methods that conflict in their signatures after we turn Urho::String into string
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			/*if (currentType.Name == "Node" && decl.Name == "GetVar")
+			/*if (currentType.Name == "Graphics" && decl.Name == "SetShaderParameter")
 				return false;
 			return true;*/
 
+			// skip OpenGL(ES) specific API: TODO wrap with #ifdef
 			if (OglSpecificMethodsMap.ContainsKey(currentType.Name))
 			{
 				if (OglSpecificMethodsMap[currentType.Name].Contains(decl.Name))
+					return true;
+			}
+
+			// skip DirectX specific API: TODO wrap with #ifdef
+			if (DxSpecificMethodsMap.ContainsKey(currentType.Name))
+			{
+				if (DxSpecificMethodsMap[currentType.Name].Contains(decl.Name))
 					return true;
 			}
 
@@ -1018,7 +1030,7 @@ namespace SharpieBinder
 				if (decl.Name == "GetShader")
 					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
 				if (decl.Name == "SetShaderParameter") //strange method. it has overloads for all basic types and an overload with "Variant"... (it shouldn't have Variant or should have ONLY Variant)
-					return decl.Parameters.Any (p => p.QualType.ToString ().Contains ("const class Urho3D::Variant &"));
+					return decl.Parameters.Any(p => p.QualType.ToString().Contains("Variant"));
 				break;
 			case "DebugHud":
 				if (decl.Name == "SetAppStats") //it has overloads with String and Variant (that also can handle String)
@@ -1460,9 +1472,6 @@ namespace SharpieBinder
 				var ctype = CleanTypeCplusplus (param.QualType);
 				string paramInvoke = paramName;
 				switch (ctype) {
-				case "bool":
-					ctype = "int";
-					break;
 				case "Urho3D::Image &":
 					ctype = "Image *";
 					paramInvoke = $"*{paramInvoke}";
@@ -1600,7 +1609,7 @@ namespace SharpieBinder
 				if (!rstr.Contains("\treturn "))
 				{
 					if (creturnIsVariant)
-						cmethodBuilder.AppendLine($"return %ConvertReturn%({rstr}.%VariantToTypeMethod%));");
+						cmethodBuilder.AppendLine($"return %ConvertReturn%({rstr}.%VariantToTypeMethod%);");
 					else
 						cmethodBuilder.AppendLine($"return {rstr};");
 				}
@@ -1632,24 +1641,26 @@ namespace SharpieBinder
 						{"float", "float"},
 						{"const char *", "string"},
 					};
-				var primitiveTypes = new[] { "int", "float", "string" };
 
 				pn("// Urho3D::Variant overloads begin:");
 				int index = -1;
 				foreach (var item in variantSupportedTypes)
 				{
+					break;
 					index++;
 					string cVarReplacedType = item.Key;
 					if (cVarReplacedType.Contains("const class") && creturnIsVariant)
 						cVarReplacedType = "Interop::" + item.Key.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace();
 
 					bool isString = item.Key == "const char *";
+					bool isPrimitive = !item.Key.Contains("class");
+					    
 					//C:
 					p(code
 					  .Replace(variantArgDef, cVarReplacedType)
 						.Replace(methodNameSuffix, index.ToString())
-					    .Replace("%ConvertReturn%", cVarReplacedType.StartsWith("Interop::") ? $"*(({cVarReplacedType} *) &" : (isString ? "stringdup" : ""))
-					    .Replace("%VariantToTypeMethod%", "Get" + item.Value.Capitalize(false) + "()" + (isString ? ".CString()" : ""))
+					    .Replace("%ConvertReturn%", !isPrimitive ? $"*(({cVarReplacedType} *) &" : (isString ? "stringdup" : ""))
+					  	.Replace("%VariantToTypeMethod%", "Get" + item.Value.Capitalize(false) + "()" + (isString ? ".CString()" : "") + (isPrimitive ? "" : ")"))
 						.Replace(variantConverterMask, isString ? "Urho3D::String" : string.Empty));
 					//methodNameSuffix to avoid error:
 					//error C2733: second C linkage of overloaded function 'function name' not allowed.
@@ -1658,7 +1669,6 @@ namespace SharpieBinder
 						continue;
 
 					//C#:
-					var isPrimitive = primitiveTypes.Contains(item.Value);
 
 					AstType argumentType;
 					var argumentModifier = ICSharpCode.NRefactory.CSharp.ParameterModifier.None;
