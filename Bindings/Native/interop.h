@@ -31,6 +31,10 @@ namespace Interop {
 	struct Color {
 		float r, g, b, a;
 	};
+	
+	struct IntRect {
+		int left, top, right, bottom;
+	};
 			
 	struct BoundingBox {
 		Vector3 min, max;

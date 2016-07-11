@@ -159,7 +159,7 @@ void check_bindings_offsets()
 	static_assert(offsetof(RayQueryResult, subObject_) == 56, "RayQueryResult.SubObject has wrong offset (56)");
 
 	// RenderPathCommand:
-	static_assert(sizeof(RenderPathCommand) == 488, "RenderPathCommand has wrong size (488)");
+	static_assert(sizeof(RenderPathCommand) == 504, "RenderPathCommand has wrong size (504)");
 	static_assert(offsetof(RenderPathCommand, tag_) == 0, "RenderPathCommand.Tag has wrong offset (0)");
 	static_assert(offsetof(RenderPathCommand, type_) == 16, "RenderPathCommand.Type has wrong offset (16)");
 	static_assert(offsetof(RenderPathCommand, sortMode_) == 20, "RenderPathCommand.SortMode has wrong offset (20)");
@@ -183,6 +183,7 @@ void check_bindings_offsets()
 	static_assert(offsetof(RenderPathCommand, markToStencil_) == 482, "RenderPathCommand.MarkToStencil has wrong offset (482)");
 	static_assert(offsetof(RenderPathCommand, useLitBase_) == 483, "RenderPathCommand.UseLitBase has wrong offset (483)");
 	static_assert(offsetof(RenderPathCommand, vertexLights_) == 484, "RenderPathCommand.VertexLights has wrong offset (484)");
+	static_assert(offsetof(RenderPathCommand, eventName_) == 488, "RenderPathCommand.EventName has wrong offset (488)");
 
 	// VertexElement:
 	static_assert(sizeof(VertexElement) == 16, "VertexElement has wrong size (16)");
@@ -217,7 +218,7 @@ void check_bindings_offsets()
 	static_assert(offsetof(CompressedLevel, rows_) == 36, "CompressedLevel.RowCount has wrong offset (36)");
 
 	// Billboard:
-	static_assert(sizeof(Billboard) == 76, "Billboard has wrong size (76)");
+	static_assert(sizeof(Billboard) == 80, "Billboard has wrong size (80)");
 	static_assert(offsetof(Billboard, position_) == 0, "Billboard.Position has wrong offset (0)");
 	static_assert(offsetof(Billboard, size_) == 12, "Billboard.Size has wrong offset (12)");
 	static_assert(offsetof(Billboard, uv_) == 20, "Billboard.Uv has wrong offset (20)");
@@ -226,6 +227,7 @@ void check_bindings_offsets()
 	static_assert(offsetof(Billboard, direction_) == 56, "Billboard.Direction has wrong offset (56)");
 	static_assert(offsetof(Billboard, enabled_) == 68, "Billboard.enabled has wrong offset (68)");
 	static_assert(offsetof(Billboard, sortDistance_) == 72, "Billboard.SortDistance has wrong offset (72)");
+	static_assert(offsetof(Billboard, screenScaleFactor_) == 76, "Billboard.ScreenScaleFactor has wrong offset (76)");
 
 	// BiasParameters:
 	static_assert(sizeof(BiasParameters) == 12, "BiasParameters has wrong size (12)");

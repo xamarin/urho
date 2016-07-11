@@ -591,6 +591,7 @@ namespace Urho {
 		public byte MarkToStencil;
 		public byte UseLitBase;
 		public byte VertexLights;
+		public UrhoString EventName;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -676,6 +677,7 @@ namespace Urho {
 		public bool Enabled { get { return enabled != 0; } set { enabled = (byte)(value ? 1 : 0); } }
 
 		public float SortDistance;
+		public float ScreenScaleFactor;
 	}
 	
 	public unsafe class BillboardWrapper
