@@ -1007,7 +1007,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			/*if (currentType.Name == "Graphics" && decl.Name == "SetShaderParameter")
+			/*if (currentType.Name == "Material" && decl.Name == "SetShaderParameter")
 				return false;
 			return true;*/
 
@@ -1646,7 +1646,6 @@ namespace SharpieBinder
 				int index = -1;
 				foreach (var item in variantSupportedTypes)
 				{
-					break;
 					index++;
 					string cVarReplacedType = item.Key;
 					if (cVarReplacedType.Contains("const class") && creturnIsVariant)
