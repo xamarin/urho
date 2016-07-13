@@ -43,6 +43,13 @@ namespace Urho
 			public static XmlFile PrepassHWDepth => Cache.GetXmlFile("RenderPaths/PrepassHWDepth.xml");
 		}
 
+		public static class PostProcess
+		{
+			public static XmlFile FXAA2 => Cache.GetXmlFile("PostProcess/FXAA2.xml");
+			public static XmlFile FXAA3 => Cache.GetXmlFile("PostProcess/FXAA3.xml");
+			public static XmlFile Blur => Cache.GetXmlFile("PostProcess/Blur.xml");
+		}
+
 		public static class Techniques
 		{
 			public static Technique BasicVColUnlitAlpha => Cache.GetTechnique("Techniques/BasicVColUnlitAlpha.xml");
