@@ -64,7 +64,7 @@ namespace Urho
 						var component = LookupObject<Component>(target, false);
 						if (component != null && component.TypeName != component.GetType().Name)
 						{
-							var xmlElement = new XmlElement(param2);
+							var xmlElement = new XmlElement(param1);
 							xmlElement.SetString(typeNameKey, component.GetType().AssemblyQualifiedName);
 							component.OnSerialize(new XmlComponentSerializer(xmlElement));
 						}
@@ -72,7 +72,7 @@ namespace Urho
 					break;
 				case CallbackType.Component_LoadXml:
 					{
-						var xmlElement = new XmlElement(param2);
+						var xmlElement = new XmlElement(param1);
 						var name = xmlElement.GetAttribute(typeNameKey);
 						if (!string.IsNullOrEmpty(name))
 						{
