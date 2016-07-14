@@ -20,7 +20,9 @@ namespace Urho
 				ReferenceHolder<RefCounted> knownObject;
 				if (knownObjects.TryGetValue(refCounted.Handle, out knownObject))
 				{
-					knownObject?.Reference?.Dispose();
+					var existingObj = knownObject?.Reference;
+					if (existingObj != null)
+						throw new InvalidOperationException($"Handle '{refCounted.Handle}' is in use by '{existingObj.GetType().Name}' (IsDeleted={existingObj.IsDeleted}");
 				}
 
 				knownObjects[refCounted.Handle] = new ReferenceHolder<RefCounted>(refCounted, weak: refCounted.Refs() < 1 && !StrongRefByDefault(refCounted));
