@@ -38,8 +38,11 @@ namespace Urho.UWP
 			inited = false;
 			Sdl.SetMainReady();
 
+			if (opt == null)
+				opt = new ApplicationOptions(assetsFolder: null);
+
 			var pakFiles = new List<string>();
-			foreach (var resourcePath in opt.ResourcePaths)
+			foreach (var resourcePath in opt.ResourcePaths ?? new string[0])
 			{
 				string url = "";
 				if (!resourcePath.StartsWith("ms-"))
