@@ -599,5 +599,14 @@
     <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\Fonts\Anonymous Pro.ttf">
       <Link>Assets\CoreData\Fonts\Anonymous Pro.ttf</Link>
     </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\PostProcess\Blur.xml">
+      <Link>Assets\CoreData\PostProcess\Blur.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\PostProcess\FXAA2.xml">
+      <Link>Assets\CoreData\PostProcess\FXAA2.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="$(MSBuildThisFileDirectory)\..\..\native\Urho3D\Source\bin\CoreData\PostProcess\FXAA3.xml">
+      <Link>Assets\CoreData\PostProcess\FXAA3.xml</Link>
+    </AndroidAsset>
   </ItemGroup>
 </Project>
