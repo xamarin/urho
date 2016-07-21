@@ -13,17 +13,17 @@
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
 	   <releaseNotes>## Features
-
-[Core] Update Urho3D (~ it was 450 commits behind) - a lot of nice bugfixes
-[Core] All Urho methods will throw an exception (instead of native crash) if called after App.Stop 
-[Forms.Core] Update UrhoSharp XForms dependency from 2.1 to the latest 2.2
-[iOS] Pause/Resume methods for iOS
+[macOS] UrhoSharp now supports custom NSView as a surface
+[Core] Add Material.FromColor
+[Core] Add LogicComponent with all original events
+[Core] Add ApplicationOptions.DelayedStart
+[Core] Add FXAA2, FXAA3 and Blur post-process effects to CoreData, see CoreAssets.PostProcess class
 
 ## Bugfixes
-[Core] Octree.RayCast is not surfaced
-[Android] Fixes for Android crahses (thanks to Storyo for help)
-[iOS][Android] RenderPathCommand doesn't work in iOS and Android
-[iOS][Android] Variant type doesn't work in non 64bit environment</releaseNotes>
+[iOS] Logging doesn't work
+[Core] Add various missing API including methods accepting Image and Matrix3x4
+[iOS, Android] Engine keeps calling Render() even after UrhoSurface.Pause()
+[All] Various crash fixes and stability improvements</releaseNotes>
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
@@ -31,6 +31,9 @@
      <file src="Bin/CoreData.pak" target="native/CoreData.pak" />
      <file src="Urho3D/Source/bin/CoreData/**" target="native" />
      <!--Additional assets:-->
+     <file src="Urho3D/Source/bin/Data/PostProcess/FXAA2.xml" target="native/Urho3D/Source/bin/CoreData/PostProcess/FXAA2.xml" />
+     <file src="Urho3D/Source/bin/Data/PostProcess/FXAA3.xml" target="native/Urho3D/Source/bin/CoreData/PostProcess/FXAA3.xml" />
+     <file src="Urho3D/Source/bin/Data/PostProcess/Blur.xml" target="native/Urho3D/Source/bin/CoreData/PostProcess/Blur.xml" />
      <file src="Urho3D/Source/bin/Data/Models/Box.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Box.mdl" />
      <file src="Urho3D/Source/bin/Data/Models/Cone.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Cone.mdl" />
      <file src="Urho3D/Source/bin/Data/Models/Cylinder.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Cylinder.mdl" />
