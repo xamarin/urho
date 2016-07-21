@@ -25,13 +25,11 @@ namespace Urho.UWP
 
 		public Application Run(Type appType, string customAssetsPak = null)
 		{
-			ApplicationOptions options = new ApplicationOptions(assetsFolder: null);
-			options.ResourcePackagesPaths = new[] { Path.GetFileName(customAssetsPak) };
-			return Run(appType, options);
+			return Run(appType, new[] { customAssetsPak });
 		}
 
 		/// <param name="customAssetsPak">all assets must be *.pak files (use PackageTool.exe).</param>
-		public Application Run(Type appType, ApplicationOptions opt)
+		public Application Run(Type appType, string[] customAssetsPaks = null, ApplicationOptions opt = null)
 		{
 			stop = false;
 			paused = false;
@@ -42,15 +40,17 @@ namespace Urho.UWP
 				opt = new ApplicationOptions(assetsFolder: null);
 
 			var pakFiles = new List<string>();
-			foreach (var resourcePath in opt.ResourcePaths ?? new string[0])
+			foreach (var resourcePath in customAssetsPaks ?? new string[0])
 			{
 				string url = "";
 				if (!resourcePath.StartsWith("ms-"))
 					url = "ms-appx:///" + resourcePath;
 				CopyContentFileToLocalFolder(url);
-				pakFiles.Add(Path.GetFileName(url));
+				pakFiles.Add(Path.GetFileNameWithoutExtension(url));
 			}
-			opt.ResourcePackagesPaths = opt.ResourcePackagesPaths.Concat(pakFiles).ToArray();
+			opt.ResourcePaths = pakFiles.ToArray();
+			opt.ResourcePrefixPaths = new[] { ApplicationData.Current.LocalFolder.Path  };
+
 			CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
 			var app = (Application)Activator.CreateInstance(appType, opt);
 			app.Run();
