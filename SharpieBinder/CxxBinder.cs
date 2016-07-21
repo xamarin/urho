@@ -619,6 +619,7 @@ namespace SharpieBinder
 			case "const class Urho3D::Matrix3x4 &":
 			case "const class Urho3D::BoundingBox &":
 			case "const struct Urho3D::BiasParameters &":
+			case "const struct Urho3D::FocusParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 			case "const struct Urho3D::TileMapInfo2D &":
 			case "const struct Urho3D::RenderPathCommand &":
@@ -806,21 +807,13 @@ namespace SharpieBinder
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
-				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-				highLevel = new SimpleType ("CrowdObstacleAvoidanceParams");
-				lowLevel = new SimpleType ("CrowdObstacleAvoidanceParams");
-				wrapKind = WrapKind.RefBlittable;
-				return;
 			case "const struct Urho3D::BiasParameters &":
-				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-				highLevel = new SimpleType ("BiasParameters");
-				lowLevel = new SimpleType ("BiasParameters");
-				wrapKind = WrapKind.RefBlittable;
-				return;
+			case "const struct Urho3D::FocusParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-				highLevel = new SimpleType ("CascadeParameters");
-				lowLevel = new SimpleType ("CascadeParameters");
+				var structName = cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace();
+				highLevel = new SimpleType (structName);
+				lowLevel = new SimpleType (structName);
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "class Urho3D::Serializer &":
