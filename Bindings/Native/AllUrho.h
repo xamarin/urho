@@ -95,6 +95,7 @@
 #include <Urho3D/Graphics/RenderSurface.h>
 #include <Urho3D/Graphics/Renderer.h>
 #include <Urho3D/Graphics/Shader.h>
+#include <Urho3D/Graphics/RibbonTrail.h>
 #include <Urho3D/Graphics/ShaderPrecache.h>
 #include <Urho3D/Graphics/ShaderProgram.h>
 #include <Urho3D/Graphics/ShaderVariation.h>
@@ -108,6 +109,7 @@
 #include <Urho3D/Graphics/TerrainPatch.h>
 #include <Urho3D/Graphics/Texture.h>
 #include <Urho3D/Graphics/Texture2D.h>
+#include <Urho3D/Graphics/Texture2DArray.h>
 #include <Urho3D/Graphics/Texture3D.h>
 #include <Urho3D/Graphics/TextureCube.h>
 #include <Urho3D/Graphics/VertexBuffer.h>
@@ -257,10 +259,14 @@
 #include <Urho3D/Urho2D/Renderer2D.h>
 #include <Urho3D/Urho2D/RigidBody2D.h>
 #include <Urho3D/Urho2D/Sprite2D.h>
+#include <Urho3D/Urho2D/SpriterData2D.h>
+#include <Urho3D/Urho2D/SpriterInstance2D.h>
 #include <Urho3D/Urho2D/SpriteSheet2D.h>
 #include <Urho3D/Urho2D/StaticSprite2D.h>
 #include <Urho3D/Urho2D/TileMap2D.h>
 #include <Urho3D/Urho2D/TileMapDefs2D.h>
+#include <Urho3D/Urho2D/TileMapLayer2D.h>
+#include <Urho3D/Urho2D/TmxFile2D.h>
 #include <Urho3D/Urho2D/Urho2D.h>
 
 // Workaround Windows defining these
