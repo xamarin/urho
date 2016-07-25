@@ -59,7 +59,8 @@ namespace Urho {
 		iOS,
 		Windows,
 		MacOSX,
-		Linux
+		Linux, 
+		UWP
 	}
 
 	internal static class PlatformsMap
@@ -75,6 +76,9 @@ namespace Urho {
 				case "Mac OS X": return Platforms.MacOSX;
 				case "Linux": return Platforms.Linux;
 			}
+#if UWP
+			return Platforms.UWP;
+#endif
 			return Platforms.Unknown;
 		}
 	}
