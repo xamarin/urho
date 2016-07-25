@@ -92,6 +92,17 @@ namespace Urho {
 		}
 		
 		/// <summary>
+		/// Changes Parent for the node
+		/// </summary>
+		public void ChangeParent(Node newParent)
+		{
+			AddRef();
+			Remove(); //without AddRef "Delete" will completly delete the node and the next operation will throw AccessViolationException
+			newParent.AddChild(this);
+			ReleaseRef();
+		}
+		
+		/// <summary>
 		/// Move the scene node in the chosen transform space.
 		/// </summary>
 		public void Translate(Vector3 delta)
