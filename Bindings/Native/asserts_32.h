@@ -262,14 +262,6 @@ void check_bindings_offsets()
 	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveRings) == 26, "CrowdObstacleAvoidanceParams.AdaptiveRings has wrong offset (26)");
 	static_assert(offsetof(CrowdObstacleAvoidanceParams, adaptiveDepth) == 27, "CrowdObstacleAvoidanceParams.AdaptiveDepth has wrong offset (27)");
 
-	// TileMapInfo2D:
-	static_assert(sizeof(TileMapInfo2D) == 20, "TileMapInfo2D has wrong size (20)");
-	static_assert(offsetof(TileMapInfo2D, orientation_) == 0, "TileMapInfo2D.Orientation has wrong offset (0)");
-	static_assert(offsetof(TileMapInfo2D, width_) == 4, "TileMapInfo2D.Width has wrong offset (4)");
-	static_assert(offsetof(TileMapInfo2D, height_) == 8, "TileMapInfo2D.Height has wrong offset (8)");
-	static_assert(offsetof(TileMapInfo2D, tileWidth_) == 12, "TileMapInfo2D.TileWidth has wrong offset (12)");
-	static_assert(offsetof(TileMapInfo2D, tileHeight_) == 16, "TileMapInfo2D.TileHeight has wrong offset (16)");
-
 	// ReplicationState:
 	static_assert(sizeof(ReplicationState) == 4, "ReplicationState has wrong size (4)");
 	static_assert(offsetof(ReplicationState, connection_) == 0, "ReplicationState.connection has wrong offset (0)");
@@ -286,6 +278,14 @@ void check_bindings_offsets()
 	static_assert(offsetof(PhysicsRaycastResult, distance_) == 24, "PhysicsRaycastResult.Distance has wrong offset (24)");
 	static_assert(offsetof(PhysicsRaycastResult, hitFraction_) == 28, "PhysicsRaycastResult.HitFraction has wrong offset (28)");
 	static_assert(offsetof(PhysicsRaycastResult, body_) == 32, "PhysicsRaycastResult.bodyPtr has wrong offset (32)");
+
+	// TileMapInfo2D:
+	static_assert(sizeof(TileMapInfo2D) == 20, "TileMapInfo2D has wrong size (20)");
+	static_assert(offsetof(TileMapInfo2D, orientation_) == 0, "TileMapInfo2D.Orientation has wrong offset (0)");
+	static_assert(offsetof(TileMapInfo2D, width_) == 4, "TileMapInfo2D.Width has wrong offset (4)");
+	static_assert(offsetof(TileMapInfo2D, height_) == 8, "TileMapInfo2D.Height has wrong offset (8)");
+	static_assert(offsetof(TileMapInfo2D, tileWidth_) == 12, "TileMapInfo2D.TileWidth has wrong offset (12)");
+	static_assert(offsetof(TileMapInfo2D, tileHeight_) == 16, "TileMapInfo2D.TileHeight has wrong offset (16)");
 }
 #endif
 

@@ -115,6 +115,7 @@ namespace Urho
 			public static Technique DiffNormalSpecEmissiveAlpha => Cache.GetTechnique("Techniques/DiffNormalSpecEmissiveAlpha.xml");
 			public static Technique DiffOverlay => Cache.GetTechnique("Techniques/DiffOverlay.xml");
 			public static Technique DiffSkybox => Cache.GetTechnique("Techniques/DiffSkybox.xml");
+			public static Technique DiffSkyboxHDRScale => Cache.GetTechnique("Techniques/DiffSkyboxHDRScale.xml");
 			public static Technique DiffSkydome => Cache.GetTechnique("Techniques/DiffSkydome.xml");
 			public static Technique DiffSkyplane => Cache.GetTechnique("Techniques/DiffSkyplane.xml");
 			public static Technique DiffSpec => Cache.GetTechnique("Techniques/DiffSpec.xml");
@@ -181,11 +182,17 @@ namespace Urho
 		public static class Textures
 		{
 			public static Texture2D LUTIdentity => Cache.GetTexture2D("Textures/LUTIdentity.png");
+			public static Texture2D LUTIdentityXml => Cache.GetTexture2D("Textures/LUTIdentity.xml");
 			public static Texture2D Ramp => Cache.GetTexture2D("Textures/Ramp.png");
+			public static Texture2D RampXml => Cache.GetTexture2D("Textures/Ramp.xml");
 			public static Texture2D RampExtreme => Cache.GetTexture2D("Textures/RampExtreme.png");
+			public static Texture2D RampExtremeXml => Cache.GetTexture2D("Textures/RampExtreme.xml");
 			public static Texture2D RampWide => Cache.GetTexture2D("Textures/RampWide.png");
+			public static Texture2D RampWideXml => Cache.GetTexture2D("Textures/RampWide.xml");
 			public static Texture2D Spot => Cache.GetTexture2D("Textures/Spot.png");
+			public static Texture2D SpotXml => Cache.GetTexture2D("Textures/Spot.xml");
 			public static Texture2D SpotWide => Cache.GetTexture2D("Textures/SpotWide.png");
+			public static Texture2D SpotWideXml => Cache.GetTexture2D("Textures/SpotWide.xml");
 		}
 	}
 
