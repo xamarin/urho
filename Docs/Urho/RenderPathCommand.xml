@@ -119,6 +119,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="EventName">
+      <MemberSignature Language="C#" Value="public Urho.UrhoString EventName;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.UrhoString EventName" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.UrhoString</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MarkToStencil">
       <MemberSignature Language="C#" Value="public byte MarkToStencil;" />
       <MemberSignature Language="ILAsm" Value=".field public unsigned int8 MarkToStencil" />

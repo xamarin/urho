@@ -310,6 +310,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetViewSpaceFrustum">
+      <MemberSignature Language="C#" Value="public Urho.Frustum GetViewSpaceFrustum (Urho.Matrix3x4 view);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Frustum GetViewSpaceFrustum(valuetype Urho.Matrix3x4 view) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Frustum</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="view">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetVolumeTransform">
       <MemberSignature Language="C#" Value="public Urho.Matrix3x4 GetVolumeTransform (Urho.Camera camera);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Matrix3x4 GetVolumeTransform(class Urho.Camera camera) cil managed" />
@@ -601,6 +621,22 @@
             Or
             Set shadow fade out start distance. Only has effect if shadow distance is also non-zero.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowFocus">
+      <MemberSignature Language="C#" Value="public Urho.FocusParameters ShadowFocus { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FocusParameters ShadowFocus" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FocusParameters</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

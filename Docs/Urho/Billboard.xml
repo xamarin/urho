@@ -90,6 +90,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ScreenScaleFactor">
+      <MemberSignature Language="C#" Value="public float ScreenScaleFactor;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 ScreenScaleFactor" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Size">
       <MemberSignature Language="C#" Value="public Urho.Vector2 Size;" />
       <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Vector2 Size" />

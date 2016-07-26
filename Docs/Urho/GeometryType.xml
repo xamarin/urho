@@ -59,7 +59,7 @@
     </Member>
     <Member MemberName="MaxGeometrytypes">
       <MemberSignature Language="C#" Value="MaxGeometrytypes" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType MaxGeometrytypes = int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType MaxGeometrytypes = int32(7)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -101,7 +101,35 @@
     </Member>
     <Member MemberName="StaticNoinstancing">
       <MemberSignature Language="C#" Value="StaticNoinstancing" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType StaticNoinstancing = int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType StaticNoinstancing = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.GeometryType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="TrailBone">
+      <MemberSignature Language="C#" Value="TrailBone" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType TrailBone = int32(6)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.GeometryType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="TrailFaceCamera">
+      <MemberSignature Language="C#" Value="TrailFaceCamera" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.GeometryType TrailFaceCamera = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

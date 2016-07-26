@@ -333,6 +333,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="OnDeviceLost">
+      <MemberSignature Language="C#" Value="public void OnDeviceLost ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OnDeviceLost() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Release">
       <MemberSignature Language="C#" Value="public void Release ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Release() cil managed" />

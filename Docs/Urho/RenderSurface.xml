@@ -232,6 +232,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ReadOnlyView">
+      <MemberSignature Language="C#" Value="public IntPtr ReadOnlyView { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ReadOnlyView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Release">
       <MemberSignature Language="C#" Value="public void Release ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Release() cil managed" />
@@ -247,6 +263,22 @@
         <summary>
             Release renderbuffer if any.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderTargetView">
+      <MemberSignature Language="C#" Value="public IntPtr RenderTargetView { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int RenderTargetView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -286,6 +318,22 @@
         <summary>
             Set viewport.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Surface">
+      <MemberSignature Language="C#" Value="public IntPtr Surface { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int Surface" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

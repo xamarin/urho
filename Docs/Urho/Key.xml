@@ -17,7 +17,7 @@
   <Members>
     <Member MemberName="A">
       <MemberSignature Language="C#" Value="A" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key A = int32(65)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key A = int32(97)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -59,7 +59,7 @@
     </Member>
     <Member MemberName="B">
       <MemberSignature Language="C#" Value="B" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key B = int32(66)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key B = int32(98)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -87,7 +87,7 @@
     </Member>
     <Member MemberName="C">
       <MemberSignature Language="C#" Value="C" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key C = int32(67)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key C = int32(99)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -129,7 +129,7 @@
     </Member>
     <Member MemberName="D">
       <MemberSignature Language="C#" Value="D" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key D = int32(68)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key D = int32(100)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -171,7 +171,7 @@
     </Member>
     <Member MemberName="E">
       <MemberSignature Language="C#" Value="E" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key E = int32(69)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key E = int32(101)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -213,7 +213,7 @@
     </Member>
     <Member MemberName="F">
       <MemberSignature Language="C#" Value="F" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key F = int32(70)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key F = int32(102)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -563,7 +563,7 @@
     </Member>
     <Member MemberName="G">
       <MemberSignature Language="C#" Value="G" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key G = int32(71)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key G = int32(103)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -591,7 +591,7 @@
     </Member>
     <Member MemberName="H">
       <MemberSignature Language="C#" Value="H" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key H = int32(72)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key H = int32(104)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -619,7 +619,7 @@
     </Member>
     <Member MemberName="I">
       <MemberSignature Language="C#" Value="I" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key I = int32(73)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key I = int32(105)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -647,7 +647,7 @@
     </Member>
     <Member MemberName="J">
       <MemberSignature Language="C#" Value="J" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key J = int32(74)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key J = int32(106)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -661,7 +661,7 @@
     </Member>
     <Member MemberName="K">
       <MemberSignature Language="C#" Value="K" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key K = int32(75)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key K = int32(107)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -899,7 +899,7 @@
     </Member>
     <Member MemberName="L">
       <MemberSignature Language="C#" Value="L" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key L = int32(76)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key L = int32(108)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -983,7 +983,7 @@
     </Member>
     <Member MemberName="M">
       <MemberSignature Language="C#" Value="M" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key M = int32(77)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key M = int32(109)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -997,7 +997,7 @@
     </Member>
     <Member MemberName="N">
       <MemberSignature Language="C#" Value="N" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key N = int32(78)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key N = int32(110)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1165,7 +1165,7 @@
     </Member>
     <Member MemberName="O">
       <MemberSignature Language="C#" Value="O" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key O = int32(79)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key O = int32(111)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1179,7 +1179,7 @@
     </Member>
     <Member MemberName="P">
       <MemberSignature Language="C#" Value="P" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key P = int32(80)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key P = int32(112)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1249,7 +1249,7 @@
     </Member>
     <Member MemberName="Q">
       <MemberSignature Language="C#" Value="Q" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key Q = int32(81)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key Q = int32(113)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1263,7 +1263,7 @@
     </Member>
     <Member MemberName="R">
       <MemberSignature Language="C#" Value="R" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key R = int32(82)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key R = int32(114)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1375,7 +1375,7 @@
     </Member>
     <Member MemberName="S">
       <MemberSignature Language="C#" Value="S" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key S = int32(83)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key S = int32(115)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1445,7 +1445,7 @@
     </Member>
     <Member MemberName="T">
       <MemberSignature Language="C#" Value="T" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key T = int32(84)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key T = int32(116)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1473,7 +1473,7 @@
     </Member>
     <Member MemberName="U">
       <MemberSignature Language="C#" Value="U" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key U = int32(85)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key U = int32(117)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1501,7 +1501,7 @@
     </Member>
     <Member MemberName="V">
       <MemberSignature Language="C#" Value="V" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key V = int32(86)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key V = int32(118)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1515,7 +1515,7 @@
     </Member>
     <Member MemberName="W">
       <MemberSignature Language="C#" Value="W" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key W = int32(87)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key W = int32(119)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1529,7 +1529,7 @@
     </Member>
     <Member MemberName="X">
       <MemberSignature Language="C#" Value="X" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key X = int32(88)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key X = int32(120)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1543,7 +1543,7 @@
     </Member>
     <Member MemberName="Y">
       <MemberSignature Language="C#" Value="Y" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key Y = int32(89)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key Y = int32(121)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1557,7 +1557,7 @@
     </Member>
     <Member MemberName="Z">
       <MemberSignature Language="C#" Value="Z" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key Z = int32(90)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Key Z = int32(122)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

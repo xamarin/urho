@@ -131,6 +131,56 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CheckMaxLevels">
+      <MemberSignature Language="C#" Value="public static uint CheckMaxLevels (int width, int height, uint requestedLevels);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 CheckMaxLevels(int32 width, int32 height, unsigned int32 requestedLevels) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+        <Parameter Name="requestedLevels" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <param name="requestedLevels">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckMaxLevels">
+      <MemberSignature Language="C#" Value="public static uint CheckMaxLevels (int width, int height, int depth, uint requestedLevels);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 CheckMaxLevels(int32 width, int32 height, int32 depth, unsigned int32 requestedLevels) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+        <Parameter Name="depth" Type="System.Int32" />
+        <Parameter Name="requestedLevels" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <param name="depth">To be added.</param>
+        <param name="requestedLevels">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Components">
       <MemberSignature Language="C#" Value="public uint Components { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Components" />
@@ -479,6 +529,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Sampler">
+      <MemberSignature Language="C#" Value="public IntPtr Sampler { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int Sampler" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetAddressMode">
       <MemberSignature Language="C#" Value="public void SetAddressMode (Urho.TextureCoordinate coord, Urho.TextureAddressMode address);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAddressMode(valuetype Urho.TextureCoordinate coord, valuetype Urho.TextureAddressMode address) cil managed" />
@@ -599,6 +665,22 @@
         <summary>
             Dirty the parameters.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShaderResourceView">
+      <MemberSignature Language="C#" Value="public IntPtr ShaderResourceView { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ShaderResourceView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

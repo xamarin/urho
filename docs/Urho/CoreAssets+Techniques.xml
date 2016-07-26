@@ -1022,6 +1022,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DiffSkyboxHDRScale">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSkyboxHDRScale { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSkyboxHDRScale" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DiffSkydome">
       <MemberSignature Language="C#" Value="public static Urho.Technique DiffSkydome { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSkydome" />

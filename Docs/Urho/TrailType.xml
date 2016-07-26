@@ -1,0 +1,45 @@
+<Type Name="TrailType" FullName="Urho.TrailType">
+  <TypeSignature Language="C#" Value="public enum TrailType" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed TrailType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Bone">
+      <MemberSignature Language="C#" Value="Bone" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TrailType Bone = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TrailType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="FaceCamera">
+      <MemberSignature Language="C#" Value="FaceCamera" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TrailType FaceCamera = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TrailType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -334,6 +334,25 @@ model.SetMaterial(material);]]></code>
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="ChangeParent">
+      <MemberSignature Language="C#" Value="public void ChangeParent (Urho.Node newParent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ChangeParent(class Urho.Node newParent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="newParent" Type="Urho.Node" />
+      </Parameters>
+      <Docs>
+        <param name="newParent">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Children">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Urho.Node&gt; Children { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Urho.Node&gt; Children" />

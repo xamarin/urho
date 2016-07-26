@@ -115,5 +115,19 @@
         <summary>Render scene objects whose <see cref="T:Urho.Material" /> contains the specified pass. Will either be front-to-back ordered with state sorting, or back-to-front ordered with no state sorting. For deferred rendering, object lightmasks can be optionally marked to the stencil buffer. Vertex lights can optionally be handled during a pass, if it has the necessary shader combinations. Textures global to the pass can be bound to free texture units; these can either be the viewport, a named rendertarget, or a texture resource identified with its pathname.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Sendevent">
+      <MemberSignature Language="C#" Value="Sendevent" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.RenderCommandType Sendevent = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderCommandType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
   </Members>
 </Type>

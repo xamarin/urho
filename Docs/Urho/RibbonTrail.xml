@@ -1,6 +1,6 @@
-<Type Name="BillboardSet" FullName="Urho.BillboardSet">
-  <TypeSignature Language="C#" Value="public class BillboardSet : Urho.Drawable" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BillboardSet extends Urho.Drawable" />
+<Type Name="RibbonTrail" FullName="Urho.RibbonTrail">
+  <TypeSignature Language="C#" Value="public class RibbonTrail : Urho.Drawable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit RibbonTrail extends Urho.Drawable" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -10,19 +10,12 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Billboard component.
-            </summary>
-    <remarks>
-      <para>After creating a <see cref="T:Urho.BillboardSet" />, you will configure the number of billboards by setting the <see cref="P:Urho.BillboardSet.NumBillboards" />.   </para>
-      <para />
-      <para>Configure individual <see cref="T:Urho.Billboard" /> objects by calling the <see cref="M:Urho.BillboardSet.GetBillboardSafe" /> (or the unsafe version, <see cref="M:Urho.BillboardSet.GetBillboard" />).</para>
-      <para />
-      <para>After making changes to the individual billboard objects, call the <see cref="M:Urho.BillboardSet.Commit" /> method to update the internals of the <see cref="T:Urho.BillboardSet" />.</para>
-    </remarks>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BillboardSet ();" />
+      <MemberSignature Language="C#" Value="public RibbonTrail ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -30,15 +23,12 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>
-          <para>Constructs a new instance of Urho.BillboardSet which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
-        </summary>
-        <remarks>
-        </remarks>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BillboardSet (IntPtr handle);" />
+      <MemberSignature Language="C#" Value="public RibbonTrail (IntPtr handle);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -48,17 +38,13 @@
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
       <Docs>
-        <param name="handle">Pointer to the raw unmanaged Urho object.</param>
-        <summary>Constructs a new instance of Urho.BillboardSet, given a raw pointer to an unmanaged object</summary>
-        <remarks>
-          <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
-          <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
-          <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
-        </remarks>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public BillboardSet (Urho.Context context);" />
+      <MemberSignature Language="C#" Value="public RibbonTrail (Urho.Context context);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -68,16 +54,13 @@
         <Parameter Name="context" Type="Urho.Context" />
       </Parameters>
       <Docs>
-        <param name="context">The context that this object will be attached to.</param>
-        <summary>
-          <para>Constructs a new instance of Urho.BillboardSet linked to a specific <see cref="T:Urho.Context" />.</para>
-        </summary>
-        <remarks>
-        </remarks>
+        <param name="context">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="protected BillboardSet (Urho.UrhoObjectFlag emptyFlag);" />
+      <MemberSignature Language="C#" Value="protected RibbonTrail (Urho.UrhoObjectFlag emptyFlag);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(valuetype Urho.UrhoObjectFlag emptyFlag) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -87,13 +70,9 @@
         <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
       </Parameters>
       <Docs>
-        <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
-        <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
-        <remarks>
-          <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
-          <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
-          <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
-        </remarks>
+        <param name="emptyFlag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="AnimationLodBias">
@@ -107,11 +86,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Return animation LOD bias.
-            Or
-            Set animation LOD bias.
-            </summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -128,35 +103,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>
-            Mark for bounding box and vertex buffer update. Call after modifying the billboards.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="FaceCameraMode">
-      <MemberSignature Language="C#" Value="public Urho.FaceCameraMode FaceCameraMode { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FaceCameraMode FaceCameraMode" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.FaceCameraMode</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Return how the billboards rotate in relation to the camera.
-            Or
-            Set how the billboards should rotate in relation to the camera. Default is to follow camera rotation on all axes (FC_ROTATE_XYZ.)
-            </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="FixedScreenSize">
-      <MemberSignature Language="C#" Value="public bool FixedScreenSize { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool FixedScreenSize" />
+    <Member MemberName="Emitting">
+      <MemberSignature Language="C#" Value="public bool Emitting { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Emitting" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -170,45 +123,51 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="GetBillboard">
-      <MemberSignature Language="C#" Value="public Urho.Billboard* GetBillboard (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Billboard* GetBillboard(unsigned int32 index) cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="EndColor">
+      <MemberSignature Language="C#" Value="public Urho.Color EndColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color EndColor" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Billboard*</ReturnType>
+        <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="index" Type="System.UInt32" />
-      </Parameters>
       <Docs>
-        <param name="index">The index of the billboard in the collection to fetch.</param>
-        <summary>
-            Return billboard by index.
-            </summary>
-        <returns>Pointer to the billboard, or <see langword="null" /> if the index is out of bounds.</returns>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="GetBillboardSafe">
-      <MemberSignature Language="C#" Value="public Urho.BillboardWrapper GetBillboardSafe (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.BillboardWrapper GetBillboardSafe(unsigned int32 index) cil managed" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="EndScale">
+      <MemberSignature Language="C#" Value="public float EndScale { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 EndScale" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.BillboardWrapper</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="index" Type="System.UInt32" />
-      </Parameters>
       <Docs>
-        <param name="index">The index of the billboard in the collection to fetch.</param>
-        <summary>Returns a safe Billboard (<see cref="T:Urho.BillboardWrapper" />) by index, without exposing an unsafe pointer.</summary>
-        <returns>A reference to the <see cref="T:Urho.BillboardWrapper" />, or <see langword="null" /> if the index is out of bounds.</returns>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Lifetime">
+      <MemberSignature Language="C#" Value="public float Lifetime { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Lifetime" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -223,11 +182,7 @@
         <ReturnType>Urho.Material</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Return material.
-            Or
-            Set material.
-            </summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -243,30 +198,24 @@
         <ReturnType>Urho.ResourceRef</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Return material attribute.
-            </summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="NumBillboards">
-      <MemberSignature Language="C#" Value="public uint NumBillboards { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumBillboards" />
-      <MemberType>Property</MemberType>
+    <Member MemberName="OnSetEnabled">
+      <MemberSignature Language="C#" Value="public override void OnSetEnabled ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnSetEnabled() cil managed" />
+      <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
+        <ReturnType>System.Void</ReturnType>
       </ReturnValue>
+      <Parameters />
       <Docs>
-        <summary>
-            Return number of billboards.
-            Or
-            Set number of billboards.
-            </summary>
-        <value>To be added.</value>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -285,41 +234,7 @@
       </Parameters>
       <Docs>
         <param name="context">To be added.</param>
-        <summary>
-            Register object factory.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Relative">
-      <MemberSignature Language="C#" Value="public bool Relative { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool Relative" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Controls whether billboards are relative to the scene node.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Scaled">
-      <MemberSignature Language="C#" Value="public bool Scaled { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool Scaled" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>Controls whether scene node scale affects billboards' size.</summary>
-        <value>To be added.</value>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -334,7 +249,71 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Determines whether billboards are sorted.</summary>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartColor">
+      <MemberSignature Language="C#" Value="public Urho.Color StartColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color StartColor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartScale">
+      <MemberSignature Language="C#" Value="public float StartScale { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 StartScale" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TailColumn">
+      <MemberSignature Language="C#" Value="public uint TailColumn { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TailColumn" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TrailType">
+      <MemberSignature Language="C#" Value="public Urho.TrailType TrailType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TrailType TrailType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TrailType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -350,9 +329,9 @@
         <ReturnType>Urho.StringHash</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Urho's type system type.</summary>
-        <value>StringHash representing the type for this C# type.</value>
-        <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeName">
@@ -366,10 +345,9 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Urho's low-level type name.</summary>
-        <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -383,10 +361,9 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Urho's low-level type name, accessible as a static method.</summary>
-        <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -400,10 +377,9 @@
         <ReturnType>Urho.StringHash</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Urho's low-level type, accessible as a static method.</summary>
-        <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateGeometryType">
@@ -417,9 +393,55 @@
         <ReturnType>Urho.UpdateGeometryType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Return whether a geometry update is necessary, and if it can happen in a worker thread.
-            </summary>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateInvisible">
+      <MemberSignature Language="C#" Value="public bool UpdateInvisible { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UpdateInvisible" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VertexDistance">
+      <MemberSignature Language="C#" Value="public float VertexDistance { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 VertexDistance" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Width">
+      <MemberSignature Language="C#" Value="public float Width { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Width" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -30,6 +30,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="LUTIdentityXml">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D LUTIdentityXml { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D LUTIdentityXml" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Ramp">
       <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D Ramp { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D Ramp" />
@@ -62,9 +78,57 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RampExtremeXml">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D RampExtremeXml { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D RampExtremeXml" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RampWide">
       <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D RampWide { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D RampWide" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RampWideXml">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D RampWideXml { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D RampWideXml" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RampXml">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D RampXml { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D RampXml" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -97,6 +161,38 @@
     <Member MemberName="SpotWide">
       <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D SpotWide { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D SpotWide" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SpotWideXml">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D SpotWideXml { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D SpotWideXml" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SpotXml">
+      <MemberSignature Language="C#" Value="public static Urho.Urho2D.Texture2D SpotXml { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Urho2D.Texture2D SpotXml" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

@@ -93,6 +93,7 @@
       <Type Name="CompareMode" Kind="Enumeration" />
       <Type Name="Component" Kind="Class" />
       <Type Name="ComponentAddedEventArgs" Kind="Structure" />
+      <Type Name="ComponentClonedEventArgs" Kind="Structure" />
       <Type Name="ComponentEnabledChangedEventArgs" Kind="Structure" />
       <Type Name="ComponentRemovedEventArgs" Kind="Structure" />
       <Type Name="ComponentReplicationState" Kind="Structure" />
@@ -106,6 +107,7 @@
       <Type Name="CoreAssets+Fonts" Kind="Class" />
       <Type Name="CoreAssets+Materials" Kind="Class" />
       <Type Name="CoreAssets+Models" Kind="Class" />
+      <Type Name="CoreAssets+PostProcess" Kind="Class" />
       <Type Name="CoreAssets+RenderPaths" Kind="Class" />
       <Type Name="CoreAssets+Techniques" Kind="Class" />
       <Type Name="CoreAssets+Techniques+PBR" Kind="Class" />
@@ -216,6 +218,7 @@
       <Type Name="NetworkState" Kind="Structure" />
       <Type Name="Node" Kind="Class" />
       <Type Name="NodeAddedEventArgs" Kind="Structure" />
+      <Type Name="NodeClonedEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionEndEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionStartEventArgs" Kind="Structure" />
@@ -257,6 +260,7 @@
       <Type Name="Renderer" Kind="Class" />
       <Type Name="RenderPath" Kind="Class" />
       <Type Name="RenderPathCommand" Kind="Structure" />
+      <Type Name="RenderPathEventEventArgs" Kind="Structure" />
       <Type Name="RenderSurface" Kind="Class" />
       <Type Name="RenderSurfaceUpdateEventArgs" Kind="Structure" />
       <Type Name="RenderSurfaceUpdateMode" Kind="Enumeration" />
@@ -265,6 +269,7 @@
       <Type Name="ResourceRef" Kind="Structure" />
       <Type Name="ResourceRefList" Kind="Structure" />
       <Type Name="ResourceRouter" Kind="Class" />
+      <Type Name="RibbonTrail" Kind="Class" />
       <Type Name="Scene" Kind="Class" />
       <Type Name="SceneDrawableUpdateFinishedEventArgs" Kind="Structure" />
       <Type Name="ScenePostUpdateEventArgs" Kind="Structure" />
@@ -306,6 +311,7 @@
       <Type Name="TerrainPatch" Kind="Class" />
       <Type Name="TextInputEventArgs" Kind="Structure" />
       <Type Name="Texture" Kind="Class" />
+      <Type Name="Texture2DArray" Kind="Class" />
       <Type Name="Texture3D" Kind="Class" />
       <Type Name="TextureAddressMode" Kind="Enumeration" />
       <Type Name="TextureCoordinate" Kind="Enumeration" />
@@ -319,6 +325,7 @@
       <Type Name="TouchEndEventArgs" Kind="Structure" />
       <Type Name="TouchMoveEventArgs" Kind="Structure" />
       <Type Name="TouchState" Kind="Structure" />
+      <Type Name="TrailType" Kind="Enumeration" />
       <Type Name="TransformSpace" Kind="Enumeration" />
       <Type Name="TriangleMeshData" Kind="Structure" />
       <Type Name="TypeInfo" Kind="Structure" />
@@ -715,8 +722,10 @@
       <Type Name="ConstraintRope2D" Kind="Class" />
       <Type Name="ConstraintWeld2D" Kind="Class" />
       <Type Name="ConstraintWheel2D" Kind="Class" />
+      <Type Name="CurveType" Kind="Enumeration" />
       <Type Name="Drawable2D" Kind="Class" />
       <Type Name="EmitterType2D" Kind="Enumeration" />
+      <Type Name="LoopMode" Kind="Enumeration" />
       <Type Name="LoopMode2D" Kind="Enumeration" />
       <Type Name="Orientation2D" Kind="Enumeration" />
       <Type Name="ParticleEffect2D" Kind="Class" />
