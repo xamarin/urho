@@ -13,17 +13,11 @@
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
 	   <releaseNotes>## Features
-[macOS] UrhoSharp now supports custom NSView as a surface
-[Core] Add Material.FromColor
-[Core] Add LogicComponent with all original events
-[Core] Add ApplicationOptions.DelayedStart
-[Core] Add FXAA2, FXAA3 and Blur post-process effects to CoreData, see CoreAssets.PostProcess class
+[Core] Urho3D updated to 79c7ded0613c985cc104963ec649088b13cd6d81 (07/25/16)
+[Core] New components: RibbonTail, Texture2DArray
 
 ## Bugfixes
-[iOS] Logging doesn't work
-[Core] Add various missing API including methods accepting Image and Matrix3x4
-[iOS, Android] Engine keeps calling Render() even after UrhoSurface.Pause()
-[All] Various crash fixes and stability improvements</releaseNotes>
+[Core] Key constants are invalid</releaseNotes>
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
@@ -63,9 +57,9 @@
      <file src="Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
 	 
 	 <!--UWP-->
-     <!--file src="Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
+     <file src="Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
      <file src="docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
      <file src="Bin/UWP/Urho.dll" target="lib/uap10.0/Urho.dll" />
-     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" /-->
+     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" />
    </files>
 </package>
