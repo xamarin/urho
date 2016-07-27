@@ -48,7 +48,7 @@ Windows64:
 	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" RENDERER=OPENGL
 
 UWP32:
-	make -j1 Urho3D_UWP -f MakeUWP TARGET="Visual Studio 14"
+	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
 
 Windows: Windows32 Windows64
 
