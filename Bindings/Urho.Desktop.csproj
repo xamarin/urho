@@ -41,7 +41,7 @@
     <Compile Include="Desktop\DesktopUrhoInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\Bin\CoreData.pak">
+    <EmbeddedResource Include="..\Urho3D\CoreData.pak">
       <Link>CoreData.pak</Link>
     </EmbeddedResource>
   </ItemGroup>
