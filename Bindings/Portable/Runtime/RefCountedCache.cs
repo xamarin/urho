@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 
 namespace Urho
 {
@@ -21,7 +22,9 @@ namespace Urho
 				if (knownObjects.TryGetValue(refCounted.Handle, out knownObject))
 				{
 					var existingObj = knownObject?.Reference;
-					if (existingObj != null)
+					if (existingObj != null && 
+						!existingObj.GetType().GetTypeInfo().IsSubclassOf(refCounted.GetType()) &&
+						!refCounted.GetType().GetTypeInfo().IsSubclassOf(existingObj.GetType()))
 						throw new InvalidOperationException($"Handle '{refCounted.Handle}' is in use by '{existingObj.GetType().Name}' (IsDeleted={existingObj.IsDeleted}");
 				}
 
