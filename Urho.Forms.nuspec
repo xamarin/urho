@@ -27,7 +27,7 @@
        <tags>Urho Forms Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    
     <dependencies>
-      <dependency id="Xamarin.Forms" version="2.2.0.43" />
+      <dependency id="Xamarin.Forms" version="2.3.0.107" />
     </dependencies>
    
    </metadata>
@@ -55,5 +55,11 @@
      <!--iOS-->
      <file src="Bin/iOS/Urho.Forms.dll" target="lib/Xamarin.iOS10/Urho.Forms.dll" />
      <file src="docs/Urho.XML" target="lib/Xamarin.iOS10/Urho.Forms.XML" />
+	 
+	 <!--UWP-->
+     <file src="Nuget/UWP/UrhoSharp.Forms.targets" target="build/uap10.0" />
+     <file src="docs/Urho.XML" target="lib/uap10.0/Urho.Forms.XML" />
+     <file src="Bin/UWP/Urho.Forms.dll" target="lib/uap10.0/Urho.Forms.dll" />
+     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" />
    </files>
 </package>
