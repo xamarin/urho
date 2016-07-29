@@ -10,9 +10,8 @@ else
     MONO64=mono64
     XBUILD=xbuild
   else
-    MONO64_PREFIX=$(shell brew --prefix mono)
-    MONO64=$(MONO64_PREFIX)/bin/mono
-    XBUILD=$(MONO64_PREFIX)/bin/xbuild
+    MONO64=mono64
+    XBUILD=xbuild
   endif
   NUGET=$(MONO64) ../Nuget/.nuget/Nuget.exe
 endif
