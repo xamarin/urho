@@ -15,7 +15,7 @@
 	   <releaseNotes>## Features
 [Core] Urho3D updated to 79c7ded0613c985cc104963ec649088b13cd6d81 (07/25/16)
 [Core] Add ChangeParent to Node
-[Core] Add generic GetOrCreateComponent<> to Node
+[Core] Add generic GetOrCreateComponent to Node
 [Core] Rename UI.png to DefaultUI.png
 
 ## Bugfixes
