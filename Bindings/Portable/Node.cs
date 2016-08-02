@@ -116,5 +116,14 @@ namespace Urho {
 			Runtime.ValidateRefCounted(this);
 			return (T)Components.FirstOrDefault(c => c is T);
 		}
+
+		public T GetOrCreateComponent<T>(bool recursive = false) where T : Component
+		{
+			Runtime.ValidateRefCounted(this);
+			var component = (T)Components.FirstOrDefault(c => c is T);
+			if (component == null)
+				return CreateComponent<T>();
+			return component;
+		}
 	}
 }
