@@ -31,12 +31,16 @@ namespace Urho.iOS
 
 		public void Pause()
 		{
+			if (!Urho.Application.HasCurrent) return;
+			Urho.Application.Current.Engine.PauseMinimized = true;
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_LOST);
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_MINIMIZED);
 		}
 
 		public void Resume()
 		{
+			if (!Urho.Application.HasCurrent) return;
+			Urho.Application.Current.Engine.PauseMinimized = false;
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED);
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESTORED);
 		}
