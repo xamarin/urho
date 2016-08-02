@@ -1,6 +1,6 @@
 <elements>
     <element type="BorderImage" >
-        <attribute name="Texture" value="Texture2D;Textures/UI.png" />
+        <attribute name="Texture" value="Texture2D;Textures/DefaultUI.png" />
         <attribute name="Blend Mode" value="alpha" />
     </element>
     <element type="Button" style="BorderImage">
@@ -31,49 +31,49 @@
         <attribute name="Shapes">
             <variant type="VariantVector" >
                 <variant type="String" value="Normal" />
-                <variant type="ResourceRef" value="Image;Textures/UI.png" />
+                <variant type="ResourceRef" value="Image;Textures/DefaultUI.png" />
                 <variant type="IntRect" value="0 0 12 24" />
                 <variant type="IntVector2" value="0 0" />
             </variant>
             <variant type="VariantVector" >
                 <variant type="String" value="ResizeVertical" />
-                <variant type="ResourceRef" value="Image;Textures/UI.png" />
+                <variant type="ResourceRef" value="Image;Textures/DefaultUI.png" />
                 <variant type="IntRect" value="0 64 20 84" />
                 <variant type="IntVector2" value="9 9" />
             </variant>
             <variant type="VariantVector" >
                 <variant type="String" value="ResizeDiagonalTopRight" />
-                <variant type="ResourceRef" value="Image;Textures/UI.png" />
+                <variant type="ResourceRef" value="Image;Textures/DefaultUI.png" />
                 <variant type="IntRect" value="20 64 40 84" />
                 <variant type="IntVector2" value="9 9" />
             </variant>
             <variant type="VariantVector" >
                 <variant type="String" value="ResizeHorizontal" />
-                <variant type="ResourceRef" value="Image;Textures/UI.png" />
+                <variant type="ResourceRef" value="Image;Textures/DefaultUI.png" />
                 <variant type="IntRect" value="40 64 60 84" />
                 <variant type="IntVector2" value="9 9" />
             </variant>
             <variant type="VariantVector" >
                 <variant type="String" value="ResizeDiagonalTopLeft" />
-                <variant type="ResourceRef" value="Image;Textures/UI.png" />
+                <variant type="ResourceRef" value="Image;Textures/DefaultUI.png" />
                 <variant type="IntRect" value="60 64 80 84" />
                 <variant type="IntVector2" value="9 9" />
             </variant>
             <variant type="VariantVector" >
                 <variant type="String" value="RejectDrop" />
-                <variant type="ResourceRef" value="Image;Textures/UI.png" />
+                <variant type="ResourceRef" value="Image;Textures/DefaultUI.png" />
                 <variant type="IntRect" value="80 64 100 84" />
                 <variant type="IntVector2" value="9 9" />
             </variant>
             <variant type="VariantVector" >
                 <variant type="String" value="AcceptDrop" />
-                <variant type="ResourceRef" value="Image;Textures/UI.png" />
+                <variant type="ResourceRef" value="Image;Textures/DefaultUI.png" />
                 <variant type="IntRect" value="100 64 128 90" />
                 <variant type="IntVector2" value="0 0" />
             </variant>
             <variant type="VariantVector" >
                 <variant type="String" value="Busy" />
-                <variant type="ResourceRef" value="Image;Textures/UI.png" />
+                <variant type="ResourceRef" value="Image;Textures/DefaultUI.png" />
                 <variant type="IntRect" value="128 64 148 85" />
                 <variant type="IntVector2" value="9 9" />
             </variant>
