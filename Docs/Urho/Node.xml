@@ -945,6 +945,34 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetOrCreateComponent&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T GetOrCreateComponent&lt;T&gt; (bool recursive = false) where T : Urho.Component;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T GetOrCreateComponent&lt;(class Urho.Component) T&gt;(bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Urho.Component</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="recursive">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetParentComponent">
       <MemberSignature Language="C#" Value="public Urho.Component GetParentComponent (Urho.StringHash type, bool fullTraversal);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Component GetParentComponent(valuetype Urho.StringHash type, bool fullTraversal) cil managed" />

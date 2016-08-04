@@ -9022,6 +9022,11 @@ while (true){
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDropFile" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
+        <member name="P:Urho.Input.Enabled">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="E:Urho.Input.ExitRequested">
             <summary></summary>
             <remarks>
@@ -14335,6 +14340,13 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Create a component to this node if it does not exist already.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Node.GetOrCreateComponent``1(System.Boolean)">
+            <typeparam name="T"></typeparam>
+            <param name="recursive"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
