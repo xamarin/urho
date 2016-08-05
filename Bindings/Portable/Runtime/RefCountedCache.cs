@@ -25,7 +25,7 @@ namespace Urho
 					if (existingObj != null && 
 						!existingObj.GetType().GetTypeInfo().IsSubclassOf(refCounted.GetType()) &&
 						!refCounted.GetType().GetTypeInfo().IsSubclassOf(existingObj.GetType()))
-						throw new InvalidOperationException($"Handle '{refCounted.Handle}' is in use by '{existingObj.GetType().Name}' (IsDeleted={existingObj.IsDeleted}");
+						throw new InvalidOperationException($"Handle '{refCounted.Handle}' is in use by '{existingObj.GetType().Name}' (IsDeleted={existingObj.IsDeleted}). {refCounted.GetType()}");
 				}
 
 				knownObjects[refCounted.Handle] = new ReferenceHolder<RefCounted>(refCounted, weak: refCounted.Refs() < 1 && !StrongRefByDefault(refCounted));
