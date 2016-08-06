@@ -22,9 +22,7 @@ namespace Urho
 				if (knownObjects.TryGetValue(refCounted.Handle, out knownObject))
 				{
 					var existingObj = knownObject?.Reference;
-					if (existingObj != null && 
-						!existingObj.GetType().GetTypeInfo().IsSubclassOf(refCounted.GetType()) &&
-						!refCounted.GetType().GetTypeInfo().IsSubclassOf(existingObj.GetType()))
+					if (existingObj != null && !TypesInRelations(existingObj.GetType(), refCounted.GetType()))
 						throw new InvalidOperationException($"Handle '{refCounted.Handle}' is in use by '{existingObj.GetType().Name}' (IsDeleted={existingObj.IsDeleted}). {refCounted.GetType()}");
 				}
 
@@ -85,6 +83,14 @@ namespace Urho
 		{
 			if (refCounted is Scene)
 				return true;
+			return false;
+		}
+
+		bool TypesInRelations(Type t1, Type t2)
+		{
+			if (t1 == t2) return true;
+			if (t1.GetTypeInfo().IsSubclassOf(t2)) return true;
+			if (t2.GetTypeInfo().IsSubclassOf(t1)) return true;
 			return false;
 		}
 	}
