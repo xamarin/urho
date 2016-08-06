@@ -707,7 +707,13 @@ namespace Urho {
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
-	public struct CustomGeometryVertex {
+	public struct CustomGeometryVertex
+	{
+		public Vector3 Position;
+		public Vector3 Normal;
+		public uint Color;
+		public Vector2 TexCoord;
+		public Vector4 Tangent;
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?
