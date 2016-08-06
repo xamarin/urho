@@ -18,7 +18,6 @@ namespace Urho
 {
 	internal class Runtime
 	{
-		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<Type, int> hashDict;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -30,6 +29,7 @@ namespace Urho
 		// ReSharper disable once NotAccessedField.Local
 		static NativeCallback nativeCallback; //keep references to native callbacks (protect from GC)
 
+		internal static RefCountedCache RefCountedCache { get; private set; } = new RefCountedCache();
 		internal static bool IsClosing { get; private set; }
 
 		internal static void Start()
@@ -272,9 +272,6 @@ namespace Urho
 			GC.WaitForPendingFinalizers();
 			GC.Collect();
 		}
-
-		// for Debug purposes
-		static internal int KnownObjectsCount => RefCountedCache.Count;
 
 		static Dictionary<string, Type> typesByNativeNames;
 		// special cases: (TODO: share this code with SharpieBinder somehow)

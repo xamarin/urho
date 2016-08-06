@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Urho.IO;
 using System.Reflection;
 
 namespace Urho
@@ -13,6 +14,21 @@ namespace Urho
 		Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>>(256); //based on samples (average)
 
 		public int Count => knownObjects.Count;
+
+		public string GetCacheStatus()
+		{
+			lock (knownObjects)
+			{
+				var topMcw = knownObjects
+					.Select(t => t.Value.Reference?.GetType())
+					.Where(t => t != null)
+					.GroupBy(k => k.Name)
+					.OrderByDescending(t => t.Count())
+					.Take(10)
+					.Select(t => $"{t.Key}:  {t.Count()}");
+				return $"Size: {Count}\nTypes: {string.Join("\n", topMcw)}";
+			}
+		}
 
 		public void Add(RefCounted refCounted)
 		{

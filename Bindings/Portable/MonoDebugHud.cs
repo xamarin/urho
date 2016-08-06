@@ -36,11 +36,14 @@ namespace Urho
 				span = TimeSpan.Zero;
 				if (FpsOnly)
 					text.Value = $"{(int)fps} FPS\n{AdditionalText}";
+				else if (!InnerCacheDetails)
+					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.RefCountedCache.Count} MCW\n{AdditionalText}";
 				else
-					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.KnownObjectsCount} MCW\n{AdditionalText}";
+					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.RefCountedCache.GetCacheStatus()}\n{AdditionalText}";
 			}
 		}
 
+		public bool InnerCacheDetails { get; set; }
 		public bool FpsOnly { get; set; }
 
 		public string AdditionalText { get; set; }
