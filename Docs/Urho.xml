@@ -5385,6 +5385,26 @@ while (true){
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="F:Urho.CustomGeometryVertex.Color">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CustomGeometryVertex.Normal">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CustomGeometryVertex.Position">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CustomGeometryVertex.Tangent">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CustomGeometryVertex.TexCoord">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.DebugHud">
             <summary>
             Displays rendering stats and profiling information.
@@ -7044,27 +7064,29 @@ while (true){
             <summary></summary>
         </member>
         <member name="T:Urho.FocusParameters">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Shadow map focusing parameters</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="F:Urho.FocusParameters.AutoSize">
-            <summary></summary>
+            <summary>Auto-size (reduce resolution when far away) flag.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.FocusParameters.Focus">
-            <summary></summary>
+            <summary>Focus flag.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.FocusParameters.MinView">
-            <summary></summary>
+            <summary>Minimum view size.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.FocusParameters.NonUniform">
-            <summary></summary>
+            <summary>Non-uniform focusing flag.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.FocusParameters.Quantize">
-            <summary></summary>
+            <summary>Focus quantization.</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.FONT_TYPE">
@@ -7501,9 +7523,88 @@ while (true){
                 <format type="text/html">
                     <h2>Dealing with GPU Disconnetion</h2>
                     <div>
-                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;nbsp;</p>
+                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;amp;amp;amp;amp;amp;amp;nbsp;</p>
                         <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Additionally, to work around possible GPU driver bugs the desktop OpenGL context will be voluntarily destroyed and recreated when changing screen mode or toggling between fullscreen and windowed. Therefore, on all graphics APIs one must be prepared for losing GPU resources.</p>
-                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
+                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp;amp;amp;amp;amp;amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
+                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);" />
+                        <div class="verbatim">
+                            <h2>Shader Parameters</h2>
+                            <div>You can set parameters for the shaders by calling one of the&amp;amp;amp;nbsp;<a href="">M:Urho.Graphics.SetShaderParameter</a>&amp;amp;amp;nbsp;methods in this class. &amp;amp;amp;nbsp;In addition to controlling the shader parameters for your own shaders, you can use this to set the parameters for the various built-in shaders.</div>
+                            <div>
+                                <br />
+                            </div>
+                            <div>Some of the parameters that you can set for the built-in shaders are:</div>
+                            <div>
+                                <div>
+                                    <br />
+                                </div>
+                                <div>VSP</div>
+                                <div>
+                                    <ul>
+                                        <li />
+                                        <li>AmbientStartColor</li>
+                                        <li>AmbientEndColor</li>
+                                        <li>BillboardRot</li>
+                                        <li>CameraPos</li>
+                                        <li>ClipPlane</li>
+                                        <li>NearClip</li>
+                                        <li>FarClip</li>
+                                        <li>DepthMode</li>
+                                        <li>DeltaTime</li>
+                                        <li>ElapsedTime</li>
+                                        <li>FrustumSize</li>
+                                        <li>GBufferOffsets</li>
+                                        <li>LightDir</li>
+                                        <li>LightPos</li>
+                                        <li>NormalOffsetScale</li>
+                                        <li>Model</li>
+                                        <li>View</li>
+                                        <li>ViewInv</li>
+                                        <li>ViewProj</li>
+                                        <li>UOffset</li>
+                                        <li>VOffset</li>
+                                        <li>Zone</li>
+                                        <li>LightMatrices</li>
+                                        <li>SkinMatrices</li>
+                                        <li>VertexLights</li>
+                                    </ul>
+                                    <div>PSP</div>
+                                </div>
+                                <div>
+                                    <br />
+                                </div>
+                                <div>
+                                    <li>AmbientColor</li>
+                                    <li>CameraPosPS</li>
+                                    <li>DeltaTimePS</li>
+                                    <li>DepthReconstruct</li>
+                                    <li>ElapsedTimePS</li>
+                                    <li>FogColor</li>
+                                    <li>FogParams</li>
+                                    <li>GBufferInvSize</li>
+                                    <li>LightColor</li>
+                                    <li>LightDirPS</li>
+                                    <li>LightPosPS</li>
+                                    <li>NormalOffsetScalePS</li>
+                                    <li>MatDiffColor</li>
+                                    <li>MatEmissiveColor</li>
+                                    <li>MatEnvMapColor</li>
+                                    <li>MatSpecColor</li>
+                                    <li>NearClipPS</li>
+                                    <li>FarClipPS</li>
+                                    <li>ShadowCubeAdjust</li>
+                                    <li>ShadowDepthFade</li>
+                                    <li>ShadowIntensity</li>
+                                    <li>ShadowMapInvSize</li>
+                                    <li>ShadowSplits</li>
+                                    <li>LightMatricesPS</li>
+                                    <li>VSMShadowParams</li>
+                                    <li>Roughness</li>
+                                    <li>Metallic</li>
+                                </div>
+                            </div>
+                        </div>
+                        <p />
                     </div>
                 </format>
             </remarks>
@@ -7722,9 +7823,11 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.Dither">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Controls whether the rendering output is dithered. </summary>
+            <value>Default <see langword="true" /> on OpenGL. No effect on Direct3D.</value>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.Draw(Urho.PrimitiveType,System.UInt32,System.UInt32)">
             <param name="type"></param>
@@ -8067,8 +8170,8 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.OnWindowMoved">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Window was moved through user interaction. </summary>
+            <remarks>Called by Input subsystem.</remarks>
         </member>
         <member name="M:Urho.Graphics.OnWindowResized">
             <summary></summary>
@@ -8319,71 +8422,89 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,System.Boolean)">
-            <param name="param"></param>
-            <param name="value"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="value">Boolean value to set</param>
+            <summary>Set shader boolean constant.</summary>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,System.Single)">
-            <param name="param"></param>
-            <param name="value"></param>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="value">Float value to set</param>
             <summary>
             Set shader float constant.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Color)">
-            <param name="param"></param>
-            <param name="color"></param>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="color">Color value to set.</param>
             <summary>
             Set shader color constant.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Matrix3x4)">
-            <param name="param"></param>
-            <param name="matrix"></param>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="matrix">Matrix value to set.</param>
             <summary></summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Matrix4)">
-            <param name="param"></param>
-            <param name="matrix"></param>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="matrix">Matrix value to set.</param>
             <summary></summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Vector2)">
-            <param name="param"></param>
-            <param name="vector"></param>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="vector">Vector value to set</param>
             <summary>
             Set shader 2D vector constant.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Vector3)">
-            <param name="param"></param>
-            <param name="vector"></param>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="vector">Vector3 value to set.</param>
             <summary>
             Set shader 3D vector constant.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Vector4)">
-            <param name="param"></param>
-            <param name="vector"></param>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="vector">Vector4 value to set.</param>
             <summary>
             Set shader 4D vector constant.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,System.Single*,System.UInt32)">
-            <param name="param"></param>
-            <param name="data"></param>
-            <param name="count"></param>
+            <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+            <param name="data">Pointer to an array of floats to set</param>
+            <param name="count">Number of elements in the array.</param>
             <summary>
             Set shader float constants.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaders(Urho.ShaderVariation,Urho.ShaderVariation)">
             <param name="vs"></param>
@@ -9023,8 +9144,8 @@ while (true){
             </remarks>
         </member>
         <member name="P:Urho.Input.Enabled">
-            <summary></summary>
-            <value></value>
+            <summary>Controls whether input is enabled or disabled.</summary>
+            <value>The current input enabled status, defaults to <see langword="true" />.</value>
             <remarks></remarks>
         </member>
         <member name="E:Urho.Input.ExitRequested">
@@ -11221,10 +11342,12 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Light.GetViewSpaceFrustum(Urho.Matrix3x4)">
-            <param name="view"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="view">View space.</param>
+            <summary>Return spotlight frustum in the specified view space.</summary>
+            <returns>Return spotlight frustum in the specified view space.</returns>
+            <remarks>
+                <para />
+            </remarks>
         </member>
         <member name="M:Urho.Light.GetVolumeTransform(Urho.Camera)">
             <param name="camera"></param>
@@ -11345,7 +11468,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Light.ShadowFocus">
-            <summary></summary>
+            <summary>Controsl the shadow map focusing parameters</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -13748,6 +13871,11 @@ while (true){
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.MonoDebugHud.InnerCacheDetails">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.MonoDebugHud.Show">
             <summary></summary>
             <remarks></remarks>
@@ -14116,9 +14244,9 @@ model.SetMaterial(material);]]></code>
             </remarks>
         </member>
         <member name="M:Urho.Node.ChangeParent(Urho.Node)">
-            <param name="newParent"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="newParent">The new parent for the node.</param>
+            <summary>Changes the parent for the node</summary>
+            <remarks>Moves the node to a new parent.</remarks>
         </member>
         <member name="P:Urho.Node.Children">
             <summary>
@@ -14250,7 +14378,8 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
 planeObject.Model = cache.GetModel ("Models/Plane.mdl");
 planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
 ]]></code>
-                </example>.</remarks>
+                </example>
+            </remarks>
         </member>
         <member name="P:Urho.Node.Direction">
             <summary>
@@ -14310,20 +14439,20 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </remarks>
         </member>
         <member name="M:Urho.Node.GetComponent(Urho.StringHash,System.Boolean)">
-            <param name="type"></param>
-            <param name="recursive"></param>
+            <param name="type">The type of the component to lookup.</param>
+            <param name="recursive">If <see langword="true" />, this performs a recursive search on the child nodes of this node.</param>
             <summary>
             Return component by type. If there are several, returns the first.
             </summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>The component of the specified <paramref name="type" />, if found, otherwise <see langword="null" />.</returns>
+            <remarks>This method searches the current node for a component with an urho component type of <paramref name="type" />.  This will either search only the components attached to this node if recursive is set to <see langword="false" />, or it will search for the component recursive on all the children nodes attached to this node.</remarks>
         </member>
         <member name="M:Urho.Node.GetComponent``1(System.Boolean)">
             <typeparam name="T"></typeparam>
-            <param name="recursive"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="recursive">If <see langword="true" />, this performs a recursive search on the child nodes of this node.</param>
+            <summary>Return the component of the specified T parameters. If there are several, returns the first.</summary>
+            <returns>The component of the specified <paramref name="type" />, if found, otherwise <see langword="null" />.</returns>
+            <remarks>This method searches the current node for a component with an urho component type <paramref name="T" />.  This will either search only the components attached to this node if recursive is set to <see langword="false" />, or it will search for the component recursive on all the children nodes attached to this node.</remarks>
         </member>
         <member name="M:Urho.Node.GetNumChildren(System.Boolean)">
             <param name="recursive"></param>
@@ -14334,21 +14463,21 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.GetOrCreateComponent(Urho.StringHash,Urho.CreateMode,System.UInt32)">
-            <param name="type"></param>
-            <param name="mode"></param>
-            <param name="id"></param>
+            <param name="type">Type name of the component to create.</param>
+            <param name="mode">Component and child node creation mode for networking.</param>
+            <param name="id">The identifier to assign to the component if it must be created.</param>
             <summary>
             Create a component to this node if it does not exist already.
             </summary>
-            <returns></returns>
-            <remarks></remarks>
+            <returns>Returns the component of the specified <paramref name="type" /> that was either located, or that was created.</returns>
+            <remarks>This method calls the <see cref="M:Urho.Node.GetComponent" /> method to perform the search, if the component is not found, then it calls <see cref="M:Urho.Node.CreateComponent" /> method with the specified <paramref name="type" />, <paramref name="mode" /> and <paramref name="id" />.</remarks>
         </member>
         <member name="M:Urho.Node.GetOrCreateComponent``1(System.Boolean)">
             <typeparam name="T"></typeparam>
-            <param name="recursive"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="recursive">If <see langword="true" />, this performs a recursive search on the child nodes of this node.</param>
+            <summary>Create a component to this node if it does not exist already.</summary>
+            <returns>Returns the component of the specified <typeparamref name="T" /> that was either located, or that was created.</returns>
+            <remarks>This method calls the <see cref="M:Urho.Node.GetComponent" /> method to perform the search, if the component is not found, then it calls <see cref="M:Urho.Node.CreateComponent" /> method </remarks>
         </member>
         <member name="M:Urho.Node.GetParentComponent(Urho.StringHash,System.Boolean)">
             <param name="type"></param>
@@ -14581,7 +14710,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>
             Remove from the parent node. If no other shared pointer references exist, causes immediate deletion.
             </summary>
-            <remarks></remarks>
+            <remarks>If you want to move the node to another node, you can use the <see cref="M:Urho.Node.ChangeParent" /> method.</remarks>
         </member>
         <member name="M:Urho.Node.RemoveAction(Urho.Actions.ActionState)">
             <param name="state"></param>
@@ -51696,7 +51825,7 @@ public class MyInstantState : ActionInstantState
             <remarks />
         </member>
         <member name="T:Urho.Urho2D.CurveType">
-            <summary></summary>
+            <summary>Curve type for the </summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Urho2D.CurveType.Cubic">

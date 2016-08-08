@@ -829,9 +829,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="recursive">If true, the search includes nested children, otherwise the search is done only on the immediate children of this node.</param>
         <summary>Returns children nodes that have a specific component attached to it.</summary>
         <returns>Array containing the nodes that have the specified component, or an empty array if there are none.</returns>
-        <remarks>
-          <para></para>
-        </remarks>
+        <remarks>Returns only exact components of T type. Ignores subclasses of T, for example, GetChildrenWithComponent&lt;StaticModel&gt;() won’t return nodes with AnimatedModel components (AnimatedModels is a subclass of StaticModel).</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetComponent">

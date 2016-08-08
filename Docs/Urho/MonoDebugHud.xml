@@ -78,6 +78,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="InnerCacheDetails">
+      <MemberSignature Language="C#" Value="public bool InnerCacheDetails { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool InnerCacheDetails" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Show">
       <MemberSignature Language="C#" Value="public void Show ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Show() cil managed" />
