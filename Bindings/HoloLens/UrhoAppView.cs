@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
+using System.IO;
 using System.Numerics;
+using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -25,9 +25,7 @@ namespace Urho.HoloLens
 		bool assetsLoaded;
 		bool appInited;
 
-		// The holographic space the app will use for rendering.
 		HolographicFrame currentFrame;
-		SpatialSurfaceObserver surfaceObserver;
 		SpeechRecognizer speechRecognizer;
 
 		public HolographicSpace HolographicSpace { get; private set; }
@@ -88,10 +86,23 @@ namespace Urho.HoloLens
 					await file.CopyAsync(folder);
 				}
 			}
-
+			await CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
 			assetsLoaded = true;
 			InteractionManager = SpatialInteractionManager.GetForCurrentView();
 			InteractionManager.SourcePressed += OnSourcePressed;
+		}
+
+		static async Task CopyEmbeddedResourceToLocalFolder(string embeddedResource, string destFileName)
+		{
+			if (await ApplicationData.Current.LocalFolder.TryGetItemAsync(destFileName) != null)
+				return;
+
+			var file = ApplicationData.Current.LocalFolder.CreateFileAsync(destFileName).GetAwaiter().GetResult();
+			using (var fileStream = file.OpenStreamForWriteAsync().GetAwaiter().GetResult())
+			using (var embeddedSteam = typeof(UrhoAppView<>).GetTypeInfo().Assembly.GetManifestResourceStream(embeddedResource))
+			{
+				embeddedSteam.CopyTo(fileStream);
+			}
 		}
 
 		protected async Task RegisterCortanaCommands(string[] commands)

@@ -7,8 +7,8 @@
     <ProjectGuid>{9C3A02C0-6776-438A-AAF7-9F95AF55E243}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HoloLens</RootNamespace>
-    <AssemblyName>HoloLens</AssemblyName>
+    <RootNamespace>Urho</RootNamespace>
+    <AssemblyName>Urho</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -39,7 +39,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
+    <OutputPath>..\..\Bin\HoloLens\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;UWP_HOLO;</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
@@ -105,6 +105,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <EmbeddedResource Include="..\..\Urho3D\CoreData.pak">
+      <Link>CoreData.pak</Link>
+    </EmbeddedResource>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
