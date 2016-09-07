@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Numerics;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -79,7 +80,7 @@ namespace Urho.HoloLens
 			ReferenceFrame = SpatialLocator.GetDefault().CreateStationaryFrameOfReferenceAtCurrentLocation();
 			foreach (var assetName in pakFiles)
 			{
-				if (await ApplicationData.Current.LocalFolder.TryGetItemAsync(assetName) == null)
+				if (!string.IsNullOrEmpty(assetName) && await ApplicationData.Current.LocalFolder.TryGetItemAsync(assetName) == null)
 				{
 					var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///" + assetName));
 					var folder = ApplicationData.Current.LocalFolder;
