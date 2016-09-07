@@ -378,7 +378,9 @@ typedef signed int int32_t;
 typedef unsigned int uint32_t;
 typedef signed long long int64_t;
 typedef unsigned long long uint64_t;
+#if !defined(UWP_HOLO)
 typedef unsigned long uintptr_t;
+#endif
 #  endif /* if (stdint.h isn't available) */
 #else /* __WIN32__ */
 #  if !defined(_STDINT_H_) && !defined(HAVE_STDINT_H) && !defined(_HAVE_STDINT_H)

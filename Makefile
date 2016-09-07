@@ -48,6 +48,9 @@ Windows64:
 
 UWP32:
 	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
+	
+HoloLens:
+	make -j1 libUrho3D.a -f MakeHoloLens TARGET="Visual Studio 14"
 
 Windows: Windows32 Windows64
 

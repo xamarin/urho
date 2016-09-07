@@ -211,7 +211,7 @@ namespace Urho {
 		{
 			if (current == null)
 				return;
-#if WINDOWS_UWP
+#if WINDOWS_UWP && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
 #if ANDROID

@@ -21,6 +21,8 @@ namespace Urho
 			iOS.IosUrhoInitializer.OnInited();
 #elif ANDROID
 			Droid.DroidPlatformInitializer.OnInited();
+#elif UWP_HOLO
+			//Do nothing.
 #elif WINDOWS_UWP
 			UWP.UwpUrhoInitializer.OnInited();
 #else
