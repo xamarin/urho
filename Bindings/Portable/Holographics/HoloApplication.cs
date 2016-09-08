@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using Urho;
 using Urho.Physics;
 
-namespace Urho.HoloLens
+namespace Urho.Holographics
 {
 	public class HoloApplication : Application
 	{
@@ -51,10 +51,10 @@ namespace Urho.HoloLens
 			}
 		}
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Viewport_SetHolo(IntPtr handle);//TODO: will be removed 
 
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Camera_SetProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
 
 		public HoloApplication(string pak) : base(new ApplicationOptions(pak) { Width = 1286, Height = 720 }) {}
@@ -92,7 +92,7 @@ namespace Urho.HoloLens
 			Scene = new Scene();
 			Scene.CreateComponent<Octree>();
 
-			Node lightNode = Scene.CreateChild("DirectionalLight");
+			Node lightNode = Scene.CreateChild();
 			lightNode.SetDirection(new Vector3(1, -1, 1));
 			Light light = lightNode.CreateComponent<Light>();
 			light.LightType = LightType.Directional;
@@ -118,21 +118,20 @@ namespace Urho.HoloLens
 			var leftViewport = new Viewport(Scene, LeftCamera, null);
 			Renderer.SetViewport(0, leftViewport);
 
-
 			Engine.SubscribeToPostRenderUpdate(args =>
-			{
-				if (Emulator)
 				{
-					Scene.GetComponent<PhysicsWorld>()?.DrawDebugGeometry(true);
-					Renderer.DrawDebugGeometry(true);
-				}
-			});
+					if (Emulator)
+					{
+						Scene.GetComponent<PhysicsWorld>()?.DrawDebugGeometry(true);
+						Renderer.DrawDebugGeometry(true);
+					}
+				});
 
 			if (Emulator)
 			{
 				pitch = 30;
 				var defaultLrp = leftViewport.RenderPath.Clone();
-				defaultLrp.Append(ResourceCache.GetXmlFile("PostProcess/FXAA3.xml"));
+				defaultLrp.Append(CoreAssets.PostProcess.FXAA3);
 				leftViewport.RenderPath = defaultLrp;
 
 				LeftCamera.Fov = 30;
@@ -149,10 +148,10 @@ namespace Urho.HoloLens
 			Renderer.SetViewport(1, rightVp);
 
 			Time.SubscribeToFrameStarted(args =>
-			{
-				Camera_SetProjection(LeftCamera.Handle, ref leftView, ref leftProj);
-				Camera_SetProjection(RightCamera.Handle, ref rightView, ref rightProj);
-			});
+				{
+					Camera_SetProjection(LeftCamera.Handle, ref leftView, ref leftProj);
+					Camera_SetProjection(RightCamera.Handle, ref rightView, ref rightProj);
+				});
 		}
 
 		public void UpdateStereoView(Matrix4 leftView, Matrix4 rightView, Matrix4 leftProj, Matrix4 rightProj)
@@ -171,8 +170,11 @@ namespace Urho.HoloLens
 			return material;
 		}
 
-		public virtual void OnCortanaCommand(string command)
+		protected void RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
+#if UWP_HOLO
+			Urho.HoloLens.UrhoAppView.RegisterCortanaCommands(commands);
+#endif
 		}
 
 		public virtual void OnGestureClick(Vector3 forward, Vector3 up, Vector3 position)

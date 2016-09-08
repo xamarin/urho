@@ -1,12 +1,12 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup>
-        <Content Include="$(MSBuildThisFileDirectory)\..\..\native\HoloLens32\mono-urho.dll">
+        <Content Include="$(MSBuildThisFileDirectory)\..\..\native\HoloLens32\mono-holourho.dll">
             <Link>mono-urho.dll</Link>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Content Include="%programfiles(x86)%\Windows Kits\10\bin\x86\ucrt\ucrtbased.dll">
             <Link>ucrtbased.dll</Link>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
 </Project>

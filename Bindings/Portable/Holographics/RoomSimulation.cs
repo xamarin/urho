@@ -1,7 +1,7 @@
 ﻿using Urho;
 using Urho.Physics;
 
-namespace Urho.HoloLens
+namespace Urho.Holographics
 {
 	public class RoomSimulation : Component
 	{

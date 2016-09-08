@@ -113,9 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UrhoAppView.cs" />
-    <Compile Include="DebugGrid.cs" />
-    <Compile Include="HoloApplication.cs" />
-    <Compile Include="RoomSimulation.cs" />
     <EmbeddedResource Include="Properties\HoloLens.rd.xml" />
   </ItemGroup>
   <Import Project="..\Urho.Shared.projitems" Label="Shared" />

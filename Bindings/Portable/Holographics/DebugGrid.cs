@@ -1,7 +1,7 @@
 ﻿using Urho;
 using Urho.Shapes;
 
-namespace Urho.HoloLens
+namespace Urho.Holographics
 {
 	public class DebugGrid : Component
 	{

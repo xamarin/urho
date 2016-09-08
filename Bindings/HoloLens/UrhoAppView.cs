@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -11,15 +12,16 @@ using Windows.ApplicationModel.Core;
 using Windows.Graphics.Holographic;
 using Windows.Media.SpeechRecognition;
 using Windows.Perception.Spatial;
-using Windows.Perception.Spatial.Surfaces;
 using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Input.Spatial;
+using Urho.Holographics;
 
 namespace Urho.HoloLens
 {
-	public class UrhoAppView<T> : IFrameworkView, IDisposable where T : HoloApplication
+	public class UrhoAppView : IFrameworkView, IDisposable 
 	{
+		Type holoAppType;
 		string assetsPakName;
 		bool windowVisible = true;
 		bool windowClosed;
@@ -27,17 +29,24 @@ namespace Urho.HoloLens
 		bool appInited;
 
 		HolographicFrame currentFrame;
-		SpeechRecognizer speechRecognizer;
+		static Dictionary<string, Action> cortanaCommands = null;
+		static SpeechRecognizer speechRecognizer;
 
 		public HolographicSpace HolographicSpace { get; private set; }
 		public HoloApplication Game { get; private set; }
 		public SpatialInteractionManager InteractionManager { get; private set; }
 		public SpatialStationaryFrameOfReference ReferenceFrame { get; private set; }
 
-		public UrhoAppView(string assetsPakName)
+		UrhoAppView(Type holoAppType, string assetsPakName)
 		{
+			this.holoAppType = holoAppType;
 			this.assetsPakName = assetsPakName;
 			windowVisible = true;
+		}
+
+		public static UrhoAppView Create<T>(string assetsPakName) where T : HoloApplication
+		{
+			return new UrhoAppView(typeof(T), assetsPakName);
 		}
 
 		public void Dispose() {}
@@ -100,16 +109,17 @@ namespace Urho.HoloLens
 
 			var file = ApplicationData.Current.LocalFolder.CreateFileAsync(destFileName).GetAwaiter().GetResult();
 			using (var fileStream = file.OpenStreamForWriteAsync().GetAwaiter().GetResult())
-			using (var embeddedSteam = typeof(UrhoAppView<>).GetTypeInfo().Assembly.GetManifestResourceStream(embeddedResource))
+			using (var embeddedSteam = typeof(UrhoAppView).GetTypeInfo().Assembly.GetManifestResourceStream(embeddedResource))
 			{
 				embeddedSteam.CopyTo(fileStream);
 			}
 		}
 
-		protected async Task RegisterCortanaCommands(string[] commands)
+		internal static async Task RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
+			cortanaCommands = commands;
 			speechRecognizer = new SpeechRecognizer();
-			var constraint = new SpeechRecognitionListConstraint(commands);
+			var constraint = new SpeechRecognitionListConstraint(cortanaCommands.Keys);
 			speechRecognizer.Constraints.Clear();
 			speechRecognizer.Constraints.Add(constraint);
 			var result = await speechRecognizer.CompileConstraintsAsync();
@@ -120,7 +130,9 @@ namespace Urho.HoloLens
 				{
 					if (e.Result.RawConfidence > 0.4f)
 					{
-						Application.InvokeOnMain(() => Game.OnCortanaCommand(e.Result.Text));
+						Action handler;
+						if (cortanaCommands.TryGetValue(e.Result.Text, out handler))
+							Application.InvokeOnMain(handler);
 					}
 				};
 			}
@@ -152,7 +164,7 @@ namespace Urho.HoloLens
 				if (assetsLoaded && !appInited)
 				{
 					appInited = true;
-					Game = (T) Activator.CreateInstance(typeof(T), assetsPakName);
+					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsPakName);
 					Game.Run();
 				}
 
@@ -176,9 +188,9 @@ namespace Urho.HoloLens
 							Matrix4x4 leftProjMatrixDx = cameraPose.ProjectionTransform.Left;
 							Matrix4x4 rightProjMatrixDx = cameraPose.ProjectionTransform.Right;
 
-							Matrix4 leftViewMatrixUrho = *(Matrix4*)(void*)&leftViewMatrixDx;
+							Matrix4 leftViewMatrixUrho =  *(Matrix4*)(void*)&leftViewMatrixDx;
 							Matrix4 rightViewMatrixUrho = *(Matrix4*)(void*)&rightViewMatrixDx;
-							Matrix4 leftProjMatrixUrho = *(Matrix4*)(void*)&leftProjMatrixDx;
+							Matrix4 leftProjMatrixUrho =  *(Matrix4*)(void*)&leftProjMatrixDx;
 							Matrix4 rightProjMatrixUrho = *(Matrix4*)(void*)&rightProjMatrixDx;
 							Game.UpdateStereoView(leftViewMatrixUrho, rightViewMatrixUrho, leftProjMatrixUrho, rightProjMatrixUrho);
 						}
@@ -268,7 +280,7 @@ namespace Urho.HoloLens
 
 	static class UrhoAppViewPinvoke// we can't have DllImport in a class with a generic parameter
 	{
-		[DllImport("mono-urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		public static extern void InitializeSpace();
 	}
 }

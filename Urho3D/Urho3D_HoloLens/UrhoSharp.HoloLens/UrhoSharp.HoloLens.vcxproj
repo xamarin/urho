@@ -379,10 +379,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetExt>.dll</TargetExt>
     <OutDir>..\..\..\Bin\HoloLens\</OutDir>
-    <TargetName>mono-urho</TargetName>
+    <TargetName>mono-holourho</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>..\..\..\Bin\HoloLens\</OutDir>
-    <TargetName>mono-urho</TargetName>
+    <TargetName>mono-holourho</TargetName>
   </PropertyGroup>
 </Project>

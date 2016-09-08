@@ -12,14 +12,14 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (This package contains extensions for HoloLens).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
-	   <releaseNotes></releaseNotes>
+       <releaseNotes></releaseNotes>
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
      <file src="Nuget/HoloLens/UrhoSharp.targets" target="build/uap10.0" />
      <file src="docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
      <file src="Bin/HoloLens/Urho.dll" target="lib/uap10.0/Urho.dll" />
-     <file src="Bin/HoloLens/mono-urho.dll" target="native/HoloLens32/mono-urho.dll" />
+     <file src="Bin/HoloLens/mono-holourho.dll" target="native/HoloLens32/mono-holourho.dll" />
      <file src="Urho3D/Urho3D_HoloLens/UrhoSharp.HoloLens/ucrtbased.dll" target="native/HoloLens32/ucrtbased.dll" />
    </files>
 </package>
