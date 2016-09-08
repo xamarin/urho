@@ -97,9 +97,49 @@ namespace Urho.HoloLens
 				}
 			}
 			await CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
+
 			assetsLoaded = true;
 			InteractionManager = SpatialInteractionManager.GetForCurrentView();
-			InteractionManager.SourcePressed += OnSourcePressed;
+			InteractionManager.SourcePressed += InteractionManager_OnSourcePressed;
+			InteractionManager.SourceDetected += InteractionManager_OnSourceDetected;
+			InteractionManager.SourceLost += InteractionManager_OnSourceLost;
+			InteractionManager.SourceReleased += InteractionManager_OnSourceReleased;
+			InteractionManager.SourceUpdated += InteractionManager_OnSourceUpdated;
+		}
+
+		void InteractionManager_OnSourceUpdated(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
+		{
+			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
+			if (point != null)
+				Application.InvokeOnMain(() => Game.OnInputSourceUpdated(GazeInfo.FromHeadPose(point.Head)));
+		}
+
+		void InteractionManager_OnSourceReleased(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
+		{
+			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
+			if (point != null)
+				Application.InvokeOnMain(() => Game.OnInputSourceReleased(GazeInfo.FromHeadPose(point.Head)));
+		}
+
+		void InteractionManager_OnSourceLost(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
+		{
+			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
+			if (point != null)
+				Application.InvokeOnMain(() => Game.OnInputSourceLost(GazeInfo.FromHeadPose(point.Head)));
+		}
+
+		void InteractionManager_OnSourceDetected(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
+		{
+			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
+			if (point != null)
+				Application.InvokeOnMain(() => Game.OnInputSourceDetected(GazeInfo.FromHeadPose(point.Head)));
+		}
+
+		void InteractionManager_OnSourcePressed(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
+		{
+			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
+			if (point != null)
+				Application.InvokeOnMain(() => Game.OnInputSourcePressed(GazeInfo.FromHeadPose(point.Head)));
 		}
 
 		static async Task CopyEmbeddedResourceToLocalFolder(string embeddedResource, string destFileName)
@@ -125,10 +165,10 @@ namespace Urho.HoloLens
 			var result = await speechRecognizer.CompileConstraintsAsync();
 			if (result.Status == SpeechRecognitionResultStatus.Success)
 			{
-				await speechRecognizer.ContinuousRecognitionSession.StartAsync();
+				speechRecognizer.ContinuousRecognitionSession.StartAsync();
 				speechRecognizer.ContinuousRecognitionSession.ResultGenerated += (s, e) =>
 				{
-					if (e.Result.RawConfidence > 0.4f)
+					if (e.Result.RawConfidence >= 0.5f)
 					{
 						Action handler;
 						if (cortanaCommands.TryGetValue(e.Result.Text, out handler))
@@ -138,26 +178,14 @@ namespace Urho.HoloLens
 			}
 		}
 
-		unsafe void OnSourcePressed(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
-		{
-			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
-			if (point != null)
-			{
-				var forwardDx = point.Head.ForwardDirection;
-				var posDx = point.Head.Position;
-				var upDx = point.Head.UpDirection;
-				var forward = *(Vector3*)(void*)&forwardDx;
-				var position = *(Vector3*)(void*)&posDx;
-				var up = *(Vector3*)(void*)&upDx;
-				Application.InvokeOnMain(() => Game.OnGestureClick(forward, up, position));
-			}
-		}
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void InitializeSpace();
 
 		public unsafe void Run()
 		{
-			LoadAssets(new[] { assetsPakName });
+			LoadAssets(new[] { assetsPakName + ".pak" });
 			CoreWindow.GetForCurrentThread().CustomProperties.Add("HolographicSpace", HolographicSpace);
-			UrhoAppViewPinvoke.InitializeSpace();
+			InitializeSpace();
 
 			while (!windowClosed)
 			{
@@ -166,6 +194,7 @@ namespace Urho.HoloLens
 					appInited = true;
 					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsPakName);
 					Game.Run();
+					Game.Engine.PostUpdate += e => currentFrame?.UpdateCurrentPrediction();
 				}
 
 				if (windowVisible && (null != HolographicSpace))
@@ -173,7 +202,6 @@ namespace Urho.HoloLens
 					if (Game != null)
 					{
 						currentFrame = HolographicSpace.CreateNextFrame();
-						currentFrame.UpdateCurrentPrediction();
 
 						var prediction = currentFrame.CurrentPrediction;
 						if (prediction.CameraPoses.Count < 1)
@@ -204,7 +232,7 @@ namespace Urho.HoloLens
 									-Game.FocusWorldPoint.Z)); //LH->RH
 
 						Game.Engine.RunFrame();
-						currentFrame.PresentUsingCurrentPrediction();
+						currentFrame.PresentUsingCurrentPrediction(HolographicFramePresentWaitBehavior.WaitForFrameToFinish);
 					}
 					CoreWindow.GetForCurrentThread().Dispatcher.ProcessEvents(CoreProcessEventsOption.ProcessAllIfPresent);
 				}
@@ -275,12 +303,5 @@ namespace Urho.HoloLens
 		}
 
 		#endregion
-
-	}
-
-	static class UrhoAppViewPinvoke// we can't have DllImport in a class with a generic parameter
-	{
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		public static extern void InitializeSpace();
 	}
 }

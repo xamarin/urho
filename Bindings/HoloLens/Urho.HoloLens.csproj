@@ -112,6 +112,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GazeInfo.cs" />
     <Compile Include="UrhoAppView.cs" />
     <EmbeddedResource Include="Properties\HoloLens.rd.xml" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Urho.HoloLens;
 using Urho.Physics;
 
 namespace Urho.Holographics
@@ -89,6 +90,7 @@ namespace Urho.Holographics
 
 		protected override void Start()
 		{
+			Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.PrepassHWDepth);
 			Scene = new Scene();
 			Scene.CreateComponent<Octree>();
 
@@ -97,7 +99,7 @@ namespace Urho.Holographics
 			Light light = lightNode.CreateComponent<Light>();
 			light.LightType = LightType.Directional;
 			light.CastShadows = true;
-			light.Brightness = 0.7f;
+			light.Brightness = 0.4f;
 			light.ShadowBias = new BiasParameters(0.00025f, 0.5f);
 			light.ShadowCascade = new CascadeParameters(10.0f, 50.0f, 200.0f, 0.0f, 0.8f);
 			light.ShadowIntensity = 0.5f;
@@ -110,7 +112,7 @@ namespace Urho.Holographics
 			var cameraLight = leftCameraNode.CreateComponent<Light>();
 			cameraLight.LightType = LightType.Point;
 			cameraLight.Range = 10.0f;
-			cameraLight.Brightness = 0.8f;
+			cameraLight.Brightness = 0.4f;
 
 			CameraLight = cameraLight;
 			DirectionalLight = light;
@@ -170,6 +172,9 @@ namespace Urho.Holographics
 			return material;
 		}
 
+		/// <summary>
+		/// NOTE: Make sure "Microphone" capability is checked.
+		/// </summary>
 		protected void RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
 #if UWP_HOLO
@@ -177,8 +182,10 @@ namespace Urho.Holographics
 #endif
 		}
 
-		public virtual void OnGestureClick(Vector3 forward, Vector3 up, Vector3 position)
-		{
-		}
+		public virtual void OnInputSourcePressed(GazeInfo gaze) {}
+		public virtual void OnInputSourceDetected(GazeInfo gaze) {}
+		public virtual void OnInputSourceLost(GazeInfo gaze) {}
+		public virtual void OnInputSourceReleased(GazeInfo gaze) {}
+		public virtual void OnInputSourceUpdated(GazeInfo gaze) {}
 	}
 }
