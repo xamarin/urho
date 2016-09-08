@@ -57,7 +57,7 @@ namespace Urho.Holographics
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Camera_SetProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
 
-		public HoloApplication(string pak) : base(new ApplicationOptions(pak) { Width = 1286, Height = 720 }) {}
+		public HoloApplication(string pak) : base(new ApplicationOptions(pak) { Width = 1286, Height = 720, LimitFps = false }) {}
 
 		protected override void OnUpdate(float timeStep)
 		{
