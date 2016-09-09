@@ -4,9 +4,10 @@
             <Link>mono-holourho.dll</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <Content Include="$(MSBuildProgramFiles32)\Windows Kits\10\bin\x86\ucrt\ucrtbased.dll">
+        <!--DEBUG:-->
+        <!--<Content Include="$(MSBuildProgramFiles32)\Windows Kits\10\bin\x86\ucrt\ucrtbased.dll">
             <Link>ucrtbased.dll</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
+        </Content>-->
     </ItemGroup>
 </Project>

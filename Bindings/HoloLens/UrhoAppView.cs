@@ -99,8 +99,6 @@ namespace Urho.HoloLens
 				}
 			}
 			await CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
-			InteractionManager = SpatialInteractionManager.GetForCurrentView();
-			InteractionManager.InteractionDetected += (s, e) => GesturesManager?.HandleInteraction(e.Interaction);
 			assetsLoaded = true;
 		}
 
@@ -145,9 +143,11 @@ namespace Urho.HoloLens
 
 		public unsafe void Run()
 		{
-			LoadAssets(new[] { assetsPakName + ".pak" });
+			LoadAssets(new[] { assetsPakName == null ? null : assetsPakName + ".pak" });
 			CoreWindow.GetForCurrentThread().CustomProperties.Add("HolographicSpace", HolographicSpace);
 			InitializeSpace();
+			InteractionManager = SpatialInteractionManager.GetForCurrentView();
+			InteractionManager.InteractionDetected += (s, e) => GesturesManager?.HandleInteraction(e.Interaction);
 
 			while (!windowClosed)
 			{
