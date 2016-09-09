@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using Urho.HoloLens;
 using Urho.Physics;
 
 namespace Urho.Holographics

@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\RibbonTrail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Texture2DArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\TrailType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Holographics\GazeInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Holographics\DebugGrid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Holographics\HoloApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Holographics\RoomSimulation.cs" />
