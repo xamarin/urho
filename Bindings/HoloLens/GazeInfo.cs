@@ -17,6 +17,9 @@ namespace Urho.HoloLens
 
 		public static GazeInfo FromHeadPose(HeadPose pose)
 		{
+			if (pose == null)
+				return null;
+
 			var forwardDx = pose.ForwardDirection;
 			var posDx = pose.Position;
 			var upDx = pose.UpDirection;

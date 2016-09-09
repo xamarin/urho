@@ -52,6 +52,10 @@ namespace Urho.Holographics
 			}
 		}
 
+		public bool EnableGestureTapped { get; set; }
+		public bool EnableGestureHold { get; set; }
+		public bool EnableGestureManipulation { get; set; }
+
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Viewport_SetHolo(IntPtr handle);//TODO: will be removed 
 
@@ -182,10 +186,14 @@ namespace Urho.Holographics
 #endif
 		}
 
-		public virtual void OnInputSourcePressed(GazeInfo gaze) {}
-		public virtual void OnInputSourceDetected(GazeInfo gaze) {}
-		public virtual void OnInputSourceLost(GazeInfo gaze) {}
-		public virtual void OnInputSourceReleased(GazeInfo gaze) {}
-		public virtual void OnInputSourceUpdated(GazeInfo gaze) {}
+		public virtual void OnGestureTapped(GazeInfo gaze) { }
+		public virtual void OnGestureDoubleTapped(GazeInfo gaze) { }
+		public virtual void OnGestureHoldStarted(GazeInfo gaze) { }
+		public virtual void OnGestureHoldCompleted() { }
+		public virtual void OnGestureHoldCanceled() { }
+		public virtual void OnGestureManipulationStarted() { }
+		public virtual void OnGestureManipulationUpdated(Vector3 relativeHandPosition) { }
+		public virtual void OnGestureManipulationCompleted(Vector3 relativeHandPosition) { }
+		public virtual void OnGestureManipulationCanceled() { }
 	}
 }

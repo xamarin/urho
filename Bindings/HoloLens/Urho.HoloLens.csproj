@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GazeInfo.cs" />
+    <Compile Include="GestureManager.cs" />
     <Compile Include="UrhoAppView.cs" />
     <EmbeddedResource Include="Properties\HoloLens.rd.xml" />
   </ItemGroup>

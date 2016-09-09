@@ -35,7 +35,9 @@ namespace Urho.HoloLens
 		public HolographicSpace HolographicSpace { get; private set; }
 		public HoloApplication Game { get; private set; }
 		public SpatialInteractionManager InteractionManager { get; private set; }
+		public SpatialGestureRecognizer SpatialGerstureRecognizer { get; private set; }
 		public SpatialStationaryFrameOfReference ReferenceFrame { get; private set; }
+		public GesturesManager GesturesManager { get; private set; }
 
 		UrhoAppView(Type holoAppType, string assetsPakName)
 		{
@@ -97,49 +99,9 @@ namespace Urho.HoloLens
 				}
 			}
 			await CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
-
-			assetsLoaded = true;
 			InteractionManager = SpatialInteractionManager.GetForCurrentView();
-			InteractionManager.SourcePressed += InteractionManager_OnSourcePressed;
-			InteractionManager.SourceDetected += InteractionManager_OnSourceDetected;
-			InteractionManager.SourceLost += InteractionManager_OnSourceLost;
-			InteractionManager.SourceReleased += InteractionManager_OnSourceReleased;
-			InteractionManager.SourceUpdated += InteractionManager_OnSourceUpdated;
-		}
-
-		void InteractionManager_OnSourceUpdated(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
-		{
-			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
-			if (point != null)
-				Application.InvokeOnMain(() => Game.OnInputSourceUpdated(GazeInfo.FromHeadPose(point.Head)));
-		}
-
-		void InteractionManager_OnSourceReleased(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
-		{
-			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
-			if (point != null)
-				Application.InvokeOnMain(() => Game.OnInputSourceReleased(GazeInfo.FromHeadPose(point.Head)));
-		}
-
-		void InteractionManager_OnSourceLost(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
-		{
-			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
-			if (point != null)
-				Application.InvokeOnMain(() => Game.OnInputSourceLost(GazeInfo.FromHeadPose(point.Head)));
-		}
-
-		void InteractionManager_OnSourceDetected(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
-		{
-			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
-			if (point != null)
-				Application.InvokeOnMain(() => Game.OnInputSourceDetected(GazeInfo.FromHeadPose(point.Head)));
-		}
-
-		void InteractionManager_OnSourcePressed(SpatialInteractionManager sender, SpatialInteractionSourceEventArgs args)
-		{
-			var point = args.State.TryGetPointerPose(ReferenceFrame.CoordinateSystem);
-			if (point != null)
-				Application.InvokeOnMain(() => Game.OnInputSourcePressed(GazeInfo.FromHeadPose(point.Head)));
+			InteractionManager.InteractionDetected += (s, e) => GesturesManager?.HandleInteraction(e.Interaction);
+			assetsLoaded = true;
 		}
 
 		static async Task CopyEmbeddedResourceToLocalFolder(string embeddedResource, string destFileName)
@@ -195,6 +157,7 @@ namespace Urho.HoloLens
 					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsPakName);
 					Game.Run();
 					Game.Engine.PostUpdate += e => currentFrame?.UpdateCurrentPrediction();
+					GesturesManager = new GesturesManager(Game, ReferenceFrame);
 				}
 
 				if (windowVisible && (null != HolographicSpace))
