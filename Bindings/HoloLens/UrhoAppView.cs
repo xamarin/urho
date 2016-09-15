@@ -26,7 +26,6 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.Input.Spatial;
-using Newtonsoft.Json;
 using Urho.Holographics;
 
 namespace Urho.HoloLens
@@ -171,6 +170,7 @@ namespace Urho.HoloLens
 			{
 				if (assetsLoaded && !appInited)
 				{
+					SpatialMappingManager = new SpatialMappingManager();
 					appInited = true;
 					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsPakName, false);
 					Game.Run();

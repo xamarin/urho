@@ -145,7 +145,6 @@ namespace Urho.Holographics
 			if (Emulator)
 			{
 				//Scene.CreateComponent<RoomSimulation>();
-
 				//pitch = 10;
 				var defaultLrp = leftViewport.RenderPath.Clone();
 				defaultLrp.Append(CoreAssets.PostProcess.FXAA3);
@@ -194,6 +193,8 @@ namespace Urho.Holographics
 		{
 #if UWP_HOLO
 			return Urho.HoloLens.UrhoAppView.RegisterCortanaCommands(commands);
+#else
+			return Task.FromResult<bool>(false);
 #endif
 		}
 
@@ -208,6 +209,8 @@ namespace Urho.Holographics
 				appView.ReferenceFrame.CoordinateSystem, 
 				new System.Numerics.Vector3(extents.X, extents.Y, extents.Z), 
 				trianglesPerCubicMeter);
+#else
+			return Task.FromResult<bool>(false);
 #endif
 		}
 
@@ -234,5 +237,35 @@ namespace Urho.Holographics
 			short[] indexData, 
 			Vector3 boundsCenter, 
 			Quaternion boundsRotation) {}
+
+		protected StaticModel CreateStaticModelFromVertexData(Node node, float[] vertexData, short[] indexData)
+		{
+			var geometryModel = new Model();
+			var vertexBuffer = new VertexBuffer(Context, false);
+			var indexBuffer = new IndexBuffer(Context, false);
+			var geometry = new Geometry();
+
+			vertexBuffer.Shadowed = true;
+			vertexBuffer.SetSize((uint) vertexData.Length / 6, ElementMask.Position | ElementMask.Normal, false);
+			vertexBuffer.SetData(vertexData);
+
+			indexBuffer.Shadowed = true;
+			indexBuffer.SetSize((uint)indexData.Length, false, false);
+			indexBuffer.SetData(indexData);
+
+			geometry.SetVertexBuffer(0, vertexBuffer);
+			geometry.IndexBuffer = indexBuffer;
+			geometry.SetDrawRange(PrimitiveType.TriangleList, 0, (uint)indexData.Length, true);
+
+			geometryModel.NumGeometries = 1;
+			geometryModel.SetGeometry(0, 0, geometry);
+			geometryModel.BoundingBox = new BoundingBox(new Vector3(-1.0f, -1.0f, -1.0f), new Vector3(1.0f, 1.0f, 1.0f));
+
+			var staticModel = node.CreateComponent<StaticModel>();
+			staticModel.Model = geometryModel;
+			staticModel.CastShadows = false;
+
+			return staticModel;
+		}
 	}
 }

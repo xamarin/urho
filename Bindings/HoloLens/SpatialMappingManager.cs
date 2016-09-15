@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Graphics.DirectX;
 using Windows.Perception.Spatial;
@@ -81,12 +82,13 @@ namespace Urho
 			//1. TriangleIndices
 			var trianglesBytes = mesh.TriangleIndices.Data.ToArray();
 			var indeces = new short[mesh.TriangleIndices.ElementCount];
-			int indexIndex = 0;
-			for (int n = 0; n < mesh.TriangleIndices.ElementCount; n += 2)
+			int indexOffset = 0;
+			for (int i = 0; i < mesh.TriangleIndices.ElementCount; i++)
 			{
 				//DirectXPixelFormat.R16UInt
-				var index = BitConverter.ToInt16(trianglesBytes, n);
-				indeces[indexIndex++] = index;
+				var index = BitConverter.ToInt16(trianglesBytes, indexOffset);
+				indexOffset += 2;
+				indeces[i] = index;
 			}
 
 			var vertexCount = mesh.VertexPositions.ElementCount;
@@ -116,11 +118,11 @@ namespace Urho
 				var normalZ = normalsRawData[i * 4 + 2];
 
 				//merge vertex+normals for Urho3D (also, change RH to LH coordinate systems)
-				vertexData[i * 6 + 0] =  xx * vertexScale.X;
-				vertexData[i * 6 + 1] =  yy * vertexScale.Y;
+				vertexData[i * 6 + 0] = xx * vertexScale.X;
+				vertexData[i * 6 + 1] = yy * vertexScale.Y;
 				vertexData[i * 6 + 2] = -zz * vertexScale.Z;
-				vertexData[i * 6 + 3] = normalX == 0 ? 0 :  255 / normalX;
-				vertexData[i * 6 + 4] = normalY == 0 ? 0 :  255 / normalY;
+				vertexData[i * 6 + 3] = normalX == 0 ? 0 : 255 / normalX;
+				vertexData[i * 6 + 4] = normalY == 0 ? 0 : 255 / normalY;
 				vertexData[i * 6 + 5] = normalZ == 0 ? 0 : -255 / normalZ;
 			}
 
