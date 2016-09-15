@@ -1,20 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Numerics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
+using Windows.Graphics.DirectX;
 using Windows.Graphics.Holographic;
 using Windows.Media.SpeechRecognition;
+using Windows.Networking;
+using Windows.Networking.Sockets;
 using Windows.Perception.Spatial;
+using Windows.Perception.Spatial.Surfaces;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.Input.Spatial;
+using Newtonsoft.Json;
 using Urho.Holographics;
 
 namespace Urho.HoloLens
@@ -38,12 +50,16 @@ namespace Urho.HoloLens
 		public SpatialGestureRecognizer SpatialGerstureRecognizer { get; private set; }
 		public SpatialStationaryFrameOfReference ReferenceFrame { get; private set; }
 		public GesturesManager GesturesManager { get; private set; }
+		public SpatialMappingManager SpatialMappingManager { get; private set; }
+
+		public static UrhoAppView Current { get; private set; }
 
 		UrhoAppView(Type holoAppType, string assetsPakName)
 		{
 			this.holoAppType = holoAppType;
 			this.assetsPakName = assetsPakName;
 			windowVisible = true;
+			Current = this;
 		}
 
 		public static UrhoAppView Create<T>(string assetsPakName) where T : HoloApplication
@@ -115,7 +131,7 @@ namespace Urho.HoloLens
 			}
 		}
 
-		internal static async Task RegisterCortanaCommands(Dictionary<string, Action> commands)
+		internal static async Task<bool> RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
 			cortanaCommands = commands;
 			speechRecognizer = new SpeechRecognizer();
@@ -135,7 +151,9 @@ namespace Urho.HoloLens
 							Application.InvokeOnMain(handler);
 					}
 				};
+				return true;
 			}
+			return false;
 		}
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -154,7 +172,7 @@ namespace Urho.HoloLens
 				if (assetsLoaded && !appInited)
 				{
 					appInited = true;
-					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsPakName);
+					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsPakName, false);
 					Game.Run();
 					Game.Engine.PostUpdate += e => currentFrame?.UpdateCurrentPrediction();
 					GesturesManager = new GesturesManager(Game, ReferenceFrame);

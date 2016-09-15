@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using Urho.Actions;
 using Urho.Physics;
 
 namespace Urho.Holographics
@@ -61,7 +64,12 @@ namespace Urho.Holographics
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Camera_SetProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
 
-		public HoloApplication(string pak) : base(new ApplicationOptions(pak) { Width = 1286, Height = 720, LimitFps = false }) {}
+		public HoloApplication(string pak, bool emulation = false) : base(Configure(pak, emulation)) { Emulator = emulation; }
+
+		static ApplicationOptions Configure(string pak, bool emulation)
+		{
+			return new ApplicationOptions(pak) {Width = 1286, Height = 720, LimitFps = emulation };
+		}
 
 		protected override void OnUpdate(float timeStep)
 		{
@@ -91,9 +99,11 @@ namespace Urho.Holographics
 			if (Input.GetKeyDown(Key.D)) cameraNode.Translate( Vector3.UnitX * moveSpeed * timeStep);
 		}
 
-		protected override void Start()
+		protected override async void Start()
 		{
-			Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.PrepassHWDepth);
+			if (!Emulator)
+				Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.PrepassHWDepth);
+
 			Scene = new Scene();
 			Scene.CreateComponent<Octree>();
 
@@ -102,7 +112,7 @@ namespace Urho.Holographics
 			Light light = lightNode.CreateComponent<Light>();
 			light.LightType = LightType.Directional;
 			light.CastShadows = true;
-			light.Brightness = 0.4f;
+			light.Brightness = 0.7f;
 			light.ShadowBias = new BiasParameters(0.00025f, 0.5f);
 			light.ShadowCascade = new CascadeParameters(10.0f, 50.0f, 200.0f, 0.0f, 0.8f);
 			light.ShadowIntensity = 0.5f;
@@ -115,7 +125,7 @@ namespace Urho.Holographics
 			var cameraLight = leftCameraNode.CreateComponent<Light>();
 			cameraLight.LightType = LightType.Point;
 			cameraLight.Range = 10.0f;
-			cameraLight.Brightness = 0.4f;
+			cameraLight.Brightness = 0.7f;
 
 			CameraLight = cameraLight;
 			DirectionalLight = light;
@@ -123,18 +133,20 @@ namespace Urho.Holographics
 			var leftViewport = new Viewport(Scene, LeftCamera, null);
 			Renderer.SetViewport(0, leftViewport);
 
-			Engine.SubscribeToPostRenderUpdate(args =>
+			Engine.PostRenderUpdate += s =>
 				{
 					if (Emulator)
 					{
-						Scene.GetComponent<PhysicsWorld>()?.DrawDebugGeometry(true);
-						Renderer.DrawDebugGeometry(true);
+						//Scene.GetComponent<PhysicsWorld>()?.DrawDebugGeometry(true);
+						//Renderer.DrawDebugGeometry(true);
 					}
-				});
+				};
 
 			if (Emulator)
 			{
-				pitch = 30;
+				//Scene.CreateComponent<RoomSimulation>();
+
+				//pitch = 10;
 				var defaultLrp = leftViewport.RenderPath.Clone();
 				defaultLrp.Append(CoreAssets.PostProcess.FXAA3);
 				leftViewport.RenderPath = defaultLrp;
@@ -176,12 +188,33 @@ namespace Urho.Holographics
 		}
 
 		/// <summary>
-		/// NOTE: Make sure "Microphone" capability is checked.
+		/// NOTE: Make sure "Microphone" capability is declared.
 		/// </summary>
-		protected void RegisterCortanaCommands(Dictionary<string, Action> commands)
+		protected Task<bool> RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
 #if UWP_HOLO
-			Urho.HoloLens.UrhoAppView.RegisterCortanaCommands(commands);
+			return Urho.HoloLens.UrhoAppView.RegisterCortanaCommands(commands);
+#endif
+		}
+
+		/// <summary>
+		/// NOTE: Make sure "spatialMapping" capability is declared.
+		/// </summary>
+		protected Task<bool> StartSpatialMapping(Vector3 extents, int trianglesPerCubicMeter = 1000)
+		{
+#if UWP_HOLO
+			var appView = Urho.HoloLens.UrhoAppView.Current;
+			return appView.SpatialMappingManager.Register(this, 
+				appView.ReferenceFrame.CoordinateSystem, 
+				new System.Numerics.Vector3(extents.X, extents.Y, extents.Z), 
+				trianglesPerCubicMeter);
+#endif
+		}
+
+		protected void StopSpatialMapping()
+		{
+#if UWP_HOLO
+			Urho.HoloLens.UrhoAppView.Current.SpatialMappingManager.Stop();
 #endif
 		}
 
@@ -194,5 +227,12 @@ namespace Urho.Holographics
 		public virtual void OnGestureManipulationUpdated(Vector3 relativeHandPosition) { }
 		public virtual void OnGestureManipulationCompleted(Vector3 relativeHandPosition) { }
 		public virtual void OnGestureManipulationCanceled() { }
+
+		public virtual void OnSurfaceUpdated(Guid surfaceId, 
+			DateTimeOffset lastUpdateTimeUtc, 
+			float[] vertexData, 
+			short[] indexData, 
+			Vector3 boundsCenter, 
+			Quaternion boundsRotation) {}
 	}
 }

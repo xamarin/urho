@@ -50,7 +50,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\x86\Release\</OutputPath>
+    <OutputPath>..\..\Bin\HoloLens\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;UWP_HOLO;</DefineConstants>
     <Optimize>true</Optimize>
     <NoWarn>;2008</NoWarn>
@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="GazeInfo.cs" />
     <Compile Include="GestureManager.cs" />
+    <Compile Include="SpatialMappingManager.cs" />
     <Compile Include="UrhoAppView.cs" />
     <EmbeddedResource Include="Properties\HoloLens.rd.xml" />
   </ItemGroup>
