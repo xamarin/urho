@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,7 +8,6 @@ using Windows.Graphics.DirectX;
 using Windows.Perception.Spatial;
 using Windows.Perception.Spatial.Surfaces;
 using Urho.Holographics;
-using Urho.Physics;
 
 namespace Urho
 {
@@ -54,24 +54,28 @@ namespace Urho
 
 		async void Observer_ObservedSurfacesChanged(SpatialSurfaceObserver sender, object args)
 		{
-			foreach (var surface in sender.GetObservedSurfaces())
+			lock (observer)
 			{
-				lock (updateCache)
+				var surfaces = sender.GetObservedSurfaces();
+				Application.InvokeOnMain(() => currentHoloApp.HandleActiveSurfacesChanged(new HashSet<string>(surfaces.Keys.Select(k => k.ToString()))));
+				foreach (var surface in surfaces.Values)
 				{
 					DateTime updateTime;
-					if (updateCache.TryGetValue(surface.Value.Id, out updateTime) && updateTime >= surface.Value.UpdateTime.UtcDateTime)
+					if (updateCache.TryGetValue(surface.Id, out updateTime) && updateTime >= surface.UpdateTime.UtcDateTime)
 						return;
-					updateCache[surface.Value.Id] = surface.Value.UpdateTime.UtcDateTime;
+					updateCache[surface.Id] = surface.UpdateTime.UtcDateTime;
+					if (observer == null)
+						return;
+					ProcessSurface(surface);
 				}
-				await ProcessSurface(surface.Value);
-				if (observer == null)
-					return;
 			}
 		}
 
 		async Task ProcessSurface(SpatialSurfaceInfo surface)
 		{
 			var mesh = await surface.TryComputeLatestMeshAsync(trianglesPerCubicMeter, options);
+			if (observer == null)
+				return;
 			var transformDxBox = mesh?.CoordinateSystem.TryGetTransformTo(currentCoordinateSystem);
 			if (transformDxBox == null)
 				return;
@@ -130,7 +134,8 @@ namespace Urho
 			var rotAngles = rot.ToEulerAngles();
 			var boundsRotation = new Quaternion(-rotAngles.X, -rotAngles.Y, rotAngles.Z);
 			var boundsCenter = new Vector3(bounds.Value.Center.X, bounds.Value.Center.Y, -bounds.Value.Center.Z);
-			Application.InvokeOnMain(() => currentHoloApp.OnSurfaceUpdated(surface.Id, surface.UpdateTime, vertexData, indeces, boundsCenter, boundsRotation));
+
+			Application.InvokeOnMain(() => currentHoloApp.HandleSurfaceUpdated(surface.Id.ToString(), surface.UpdateTime, vertexData, indeces, boundsCenter, boundsRotation));
 		}
 	}
 }

@@ -230,17 +230,30 @@ namespace Urho.Holographics
 		public virtual void OnGestureManipulationUpdated(Vector3 relativeHandPosition) { }
 		public virtual void OnGestureManipulationCompleted(Vector3 relativeHandPosition) { }
 		public virtual void OnGestureManipulationCanceled() { }
+		public virtual void OnSurfaceAddedOrUpdated(string surfaceId, DateTimeOffset lastUpdateTimeUtc, float[] vertexData, short[] indexData, Vector3 boundsCenter, Quaternion boundsRotation) {}
+		public virtual void OnActiveSurfaceListChanged(HashSet<string> activeSurfaces) { }
 
-		public virtual void OnSurfaceUpdated(Guid surfaceId, 
-			DateTimeOffset lastUpdateTimeUtc, 
-			float[] vertexData, 
-			short[] indexData, 
-			Vector3 boundsCenter, 
-			Quaternion boundsRotation) {}
+		public HashSet<string> ActiveSurfaces { get; private set; }
 
-		protected StaticModel CreateStaticModelFromVertexData(Node node, float[] vertexData, short[] indexData)
+		internal void HandleSurfaceUpdated(string surfaceId,
+			DateTimeOffset lastUpdateTimeUtc,
+			float[] vertexData,
+			short[] indexData,
+			Vector3 boundsCenter,
+			Quaternion boundsRotation)
 		{
-			var geometryModel = new Model();
+			OnSurfaceAddedOrUpdated(surfaceId, lastUpdateTimeUtc, vertexData, indexData, boundsCenter, boundsRotation);
+		}
+
+		internal void HandleActiveSurfacesChanged(HashSet<string> activeSurfaces)
+		{
+			ActiveSurfaces = activeSurfaces;
+			OnActiveSurfaceListChanged(ActiveSurfaces);
+		}
+
+		protected Model CreateModelFromVertexData(float[] vertexData, short[] indexData)
+		{
+			var model = new Model();
 			var vertexBuffer = new VertexBuffer(Context, false);
 			var indexBuffer = new IndexBuffer(Context, false);
 			var geometry = new Geometry();
@@ -257,15 +270,11 @@ namespace Urho.Holographics
 			geometry.IndexBuffer = indexBuffer;
 			geometry.SetDrawRange(PrimitiveType.TriangleList, 0, (uint)indexData.Length, true);
 
-			geometryModel.NumGeometries = 1;
-			geometryModel.SetGeometry(0, 0, geometry);
-			geometryModel.BoundingBox = new BoundingBox(new Vector3(-1.0f, -1.0f, -1.0f), new Vector3(1.0f, 1.0f, 1.0f));
-
-			var staticModel = node.CreateComponent<StaticModel>();
-			staticModel.Model = geometryModel;
-			staticModel.CastShadows = false;
-
-			return staticModel;
+			model.NumGeometries = 1;
+			model.SetGeometry(0, 0, geometry);
+			model.BoundingBox = new BoundingBox(new Vector3(-1.0f, -1.0f, -1.0f), new Vector3(1.0f, 1.0f, 1.0f));
+			
+			return model;
 		}
 	}
 }
