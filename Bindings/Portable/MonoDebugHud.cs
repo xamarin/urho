@@ -8,7 +8,6 @@ namespace Urho
 		const int FrameSampleCount = 50;
 		Application application;
 		Text text;
-		Subscription subscription;
 		int frameCount = 0;
 		DateTime dateTime;
 		TimeSpan span;
@@ -66,7 +65,7 @@ namespace Urho
 			text.SetFont(CoreAssets.Fonts.AnonymousPro, fontSize);
 
 			application.UI.Root.AddChild(text);
-			subscription = application.Engine.SubscribeToPostUpdate(OnPostUpdate);
+			application.Engine.PostUpdate += OnPostUpdate;
 		}
 
 		public void Hide()
@@ -74,11 +73,10 @@ namespace Urho
 			if (text == null)
 				return;
 
-			subscription.Unsubscribe();
+			application.Engine.PostUpdate -= OnPostUpdate;
 			application.UI.Root.RemoveChild(text, 0);
 
 			text = null;
-			subscription = null;
 		}
 	}
 }

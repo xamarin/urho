@@ -64,7 +64,7 @@ namespace Urho.Holographics
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Camera_SetProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
 
-		public HoloApplication(string pak, bool emulation = false) : base(Configure(pak, emulation)) { Emulator = emulation; }
+		public HoloApplication(string pak, bool emulation) : base(Configure(pak, emulation)) { Emulator = emulation; }
 
 		static ApplicationOptions Configure(string pak, bool emulation)
 		{

@@ -125,21 +125,13 @@ extern "C"
 		camera->SetFarClip(farClip);
 
 		Matrix4 viewt = view.Inverse().Transpose();
-		Vector3 angles = viewt.Rotation().EulerAngles();
+		Quaternion rotation = viewt.Rotation();
+		rotation.x_ *= -1; //RH to LH
+		rotation.y_ *= -1;
 
 		auto cameraNode = camera->GetNode();
 		cameraNode->SetWorldPosition(Vector3(viewt.m03_, viewt.m13_, -viewt.m23_));
-		cameraNode->SetWorldRotation(Quaternion(-angles.x_, -angles.y_, angles.z_));
-
-	//	XMSHORTN4* rawVertexData = (XMSHORTN4*)GetDataFromIBuffer(mesh->VertexPositions->Data);
-	//	for (UINT i = 0; i < mesh->VertexPositions->ElementCount; i++)
-	//	{
-	//		XMSHORTN4 currentPos = XMSHORTN4(rawVertexData[i]);
-	//		auto xxx = currentPos.x / 32767.0f * scale.x;
-	//		auto xxy = currentPos.y / 32767.0f * scale.y;
-	//		auto xxz = currentPos.z / 32767.0f * scale.z;
-	//	}
-
+		cameraNode->SetWorldRotation(rotation);
 	}
 
 	ID3D11Texture2D* HoloLens_GetBackbuffer()

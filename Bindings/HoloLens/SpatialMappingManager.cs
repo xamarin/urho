@@ -40,6 +40,11 @@ namespace Urho
 
 			observer = new SpatialSurfaceObserver();
 			observer.SetBoundingVolume(SpatialBoundingVolume.FromBox(coordinateSystem, new SpatialBoundingBox { Extents = extents }));
+			foreach (var surface in observer.GetObservedSurfaces())
+			{
+				updateCache[surface.Key] = surface.Value.UpdateTime.UtcDateTime;
+				ProcessSurface(surface.Value);
+			}
 			observer.ObservedSurfacesChanged += Observer_ObservedSurfacesChanged;
 
 			return true;
@@ -52,22 +57,22 @@ namespace Urho
 			observer = null;
 		}
 
-		async void Observer_ObservedSurfacesChanged(SpatialSurfaceObserver sender, object args)
+		void Observer_ObservedSurfacesChanged(SpatialSurfaceObserver sender, object args)
 		{
-			lock (observer)
+			var surfaces = sender.GetObservedSurfaces();
+			Application.InvokeOnMain(() => currentHoloApp.HandleActiveSurfacesChanged(new HashSet<string>(surfaces.Keys.Select(k => k.ToString()))));
+			foreach (var surface in surfaces.Values)
 			{
-				var surfaces = sender.GetObservedSurfaces();
-				Application.InvokeOnMain(() => currentHoloApp.HandleActiveSurfacesChanged(new HashSet<string>(surfaces.Keys.Select(k => k.ToString()))));
-				foreach (var surface in surfaces.Values)
+				lock (updateCache)
 				{
 					DateTime updateTime;
 					if (updateCache.TryGetValue(surface.Id, out updateTime) && updateTime >= surface.UpdateTime.UtcDateTime)
 						return;
 					updateCache[surface.Id] = surface.UpdateTime.UtcDateTime;
-					if (observer == null)
-						return;
-					ProcessSurface(surface);
 				}
+				if (observer == null)
+					return;
+				ProcessSurface(surface);
 			}
 		}
 
@@ -76,9 +81,7 @@ namespace Urho
 			var mesh = await surface.TryComputeLatestMeshAsync(trianglesPerCubicMeter, options);
 			if (observer == null)
 				return;
-			var transformDxBox = mesh?.CoordinateSystem.TryGetTransformTo(currentCoordinateSystem);
-			if (transformDxBox == null)
-				return;
+
 			var bounds = mesh.SurfaceInfo.TryGetBounds(currentCoordinateSystem);
 			if (bounds == null)
 				return;
@@ -108,18 +111,18 @@ namespace Urho
 				short x = BitConverter.ToInt16(vertexRawData, i * 8 + 0);
 				short y = BitConverter.ToInt16(vertexRawData, i * 8 + 2);
 				short z = BitConverter.ToInt16(vertexRawData, i * 8 + 4);
-				short w = BitConverter.ToInt16(vertexRawData, i * 8 + 6);
+				//omit w
 
 				//short to float:
 				float xx = (x == -32768) ? -1.0f : x * 1.0f / (32767.0f);
 				float yy = (y == -32768) ? -1.0f : y * 1.0f / (32767.0f);
 				float zz = (z == -32768) ? -1.0f : z * 1.0f / (32767.0f);
-				float ww = (w == -32768) ? -1.0f : w * 1.0f / (32767.0f);
 
 				//Normals: DirectXPixelFormat.R8G8B8A8IntNormalized
 				var normalX = normalsRawData[i * 4 + 0];
 				var normalY = normalsRawData[i * 4 + 1];
 				var normalZ = normalsRawData[i * 4 + 2];
+				//omit w
 
 				//merge vertex+normals for Urho3D (also, change RH to LH coordinate systems)
 				vertexData[i * 6 + 0] = xx * vertexScale.X;
@@ -130,9 +133,7 @@ namespace Urho
 				vertexData[i * 6 + 5] = normalZ == 0 ? 0 : -255 / normalZ;
 			}
 
-			var rot = new Quaternion(bounds.Value.Orientation.X, bounds.Value.Orientation.Y, bounds.Value.Orientation.Z, bounds.Value.Orientation.W);
-			var rotAngles = rot.ToEulerAngles();
-			var boundsRotation = new Quaternion(-rotAngles.X, -rotAngles.Y, rotAngles.Z);
+			var boundsRotation = new Quaternion(-bounds.Value.Orientation.X, -bounds.Value.Orientation.Y, bounds.Value.Orientation.Z, bounds.Value.Orientation.W);
 			var boundsCenter = new Vector3(bounds.Value.Center.X, bounds.Value.Center.Y, -bounds.Value.Center.Z);
 
 			Application.InvokeOnMain(() => currentHoloApp.HandleSurfaceUpdated(surface.Id.ToString(), surface.UpdateTime, vertexData, indeces, boundsCenter, boundsRotation));
