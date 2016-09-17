@@ -20,6 +20,7 @@ namespace Urho.Holographics
 
 		public bool Emulator { get; set; }
 		public Scene Scene { get; private set; }
+		public Octree Octree { get; private set; }
 		public Camera LeftCamera { get; set; }
 		public Camera RightCamera { get; set; }
 		public Color HoloTransparentColor { get; } = Color.Transparent;
@@ -104,7 +105,7 @@ namespace Urho.Holographics
 			Renderer.MaterialQuality = 1;
 			
 			Scene = new Scene();
-			Scene.CreateComponent<Octree>();
+			Octree = Scene.CreateComponent<Octree>();
 
 			Node lightNode = Scene.CreateChild();
 			lightNode.SetDirection(new Vector3(1, -1, 1));
