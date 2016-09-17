@@ -19,6 +19,8 @@ namespace Urho
 		HoloApplication currentHoloApp;
 		int trianglesPerCubicMeter;
 
+		public Color DefaultColor { get; set; } = Color.Transparent;
+
 		SpatialSurfaceMeshOptions options = new SpatialSurfaceMeshOptions
 			{
 				//TODO: check if supported?
@@ -103,7 +105,9 @@ namespace Urho
 			var vertexScale = mesh.VertexPositionScale;
 			var normalsRawData = mesh.VertexNormals.Data.ToArray();
 
-			float[] vertexData = new float[vertexCount * 6];
+			var vertexColor = DefaultColor.ToUInt();
+			SpatialVertex[] vertexData = new SpatialVertex[vertexCount];
+
 			//2,3 - VertexPositions and Normals
 			for (int i = 0; i < vertexCount; i++)
 			{
@@ -111,7 +115,6 @@ namespace Urho
 				short x = BitConverter.ToInt16(vertexRawData, i * 8 + 0);
 				short y = BitConverter.ToInt16(vertexRawData, i * 8 + 2);
 				short z = BitConverter.ToInt16(vertexRawData, i * 8 + 4);
-				//omit w
 
 				//short to float:
 				float xx = (x == -32768) ? -1.0f : x * 1.0f / (32767.0f);
@@ -122,15 +125,17 @@ namespace Urho
 				var normalX = normalsRawData[i * 4 + 0];
 				var normalY = normalsRawData[i * 4 + 1];
 				var normalZ = normalsRawData[i * 4 + 2];
-				//omit w
 
 				//merge vertex+normals for Urho3D (also, change RH to LH coordinate systems)
-				vertexData[i * 6 + 0] = xx * vertexScale.X;
-				vertexData[i * 6 + 1] = yy * vertexScale.Y;
-				vertexData[i * 6 + 2] = -zz * vertexScale.Z;
-				vertexData[i * 6 + 3] = normalX == 0 ? 0 : 255 / normalX;
-				vertexData[i * 6 + 4] = normalY == 0 ? 0 : 255 / normalY;
-				vertexData[i * 6 + 5] = normalZ == 0 ? 0 : -255 / normalZ;
+				vertexData[i].PositionX =  xx * vertexScale.X;
+				vertexData[i].PositionY =  yy * vertexScale.Y;
+				vertexData[i].PositionZ = -zz * vertexScale.Z;
+				vertexData[i].NormalX = normalX == 0 ? 0 :  255 / normalX;
+				vertexData[i].NormalY = normalY == 0 ? 0 :  255 / normalY;
+				vertexData[i].NormalZ = normalZ == 0 ? 0 : -255 / normalZ;
+
+				//Vertex color
+				vertexData[i].Color = vertexColor;
 			}
 
 			var boundsRotation = new Quaternion(-bounds.Value.Orientation.X, -bounds.Value.Orientation.Y, bounds.Value.Orientation.Z, bounds.Value.Orientation.W);

@@ -390,6 +390,15 @@ namespace Urho {
 		public static Color Magenta = new Color (1.0f, 0.0f, 1.0f);
 		public static Color Yellow = new Color (1.0f, 1.0f, 0.0f);
 		public static Color Transparent = new Color (0.0f, 0.0f, 0.0f, 0.0f);
+
+		public uint ToUInt()
+		{
+			uint r = (uint)MathHelper.Clamp(((int)(R * 255.0f)), 0, 255);
+			uint g = (uint)MathHelper.Clamp(((int)(G * 255.0f)), 0, 255);
+			uint b = (uint)MathHelper.Clamp(((int)(B * 255.0f)), 0, 255);
+			uint a = (uint)MathHelper.Clamp(((int)(A * 255.0f)), 0, 255);
+			return (a << 24) | (b << 16) | (g << 8) | r;
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]

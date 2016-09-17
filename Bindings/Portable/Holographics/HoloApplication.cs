@@ -102,7 +102,7 @@ namespace Urho.Holographics
 		protected override async void Start()
 		{
 			if (!Emulator)
-				Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.PrepassHWDepth);
+				Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.ForwardHWDepth);
 
 			Scene = new Scene();
 			Scene.CreateComponent<Octree>();
@@ -201,10 +201,11 @@ namespace Urho.Holographics
 		/// <summary>
 		/// NOTE: Make sure "spatialMapping" capability is declared.
 		/// </summary>
-		protected Task<bool> StartSpatialMapping(Vector3 extents, int trianglesPerCubicMeter = 1000)
+		protected Task<bool> StartSpatialMapping(Vector3 extents, int trianglesPerCubicMeter = 1000, Color color = default(Color))
 		{
 #if UWP_HOLO
 			var appView = Urho.HoloLens.UrhoAppView.Current;
+			appView.SpatialMappingManager.DefaultColor = color;
 			return appView.SpatialMappingManager.Register(this, 
 				appView.ReferenceFrame.CoordinateSystem, 
 				new System.Numerics.Vector3(extents.X, extents.Y, extents.Z), 
@@ -230,14 +231,14 @@ namespace Urho.Holographics
 		public virtual void OnGestureManipulationUpdated(Vector3 relativeHandPosition) { }
 		public virtual void OnGestureManipulationCompleted(Vector3 relativeHandPosition) { }
 		public virtual void OnGestureManipulationCanceled() { }
-		public virtual void OnSurfaceAddedOrUpdated(string surfaceId, DateTimeOffset lastUpdateTimeUtc, float[] vertexData, short[] indexData, Vector3 boundsCenter, Quaternion boundsRotation) {}
+		public virtual void OnSurfaceAddedOrUpdated(string surfaceId, DateTimeOffset lastUpdateTimeUtc, SpatialVertex[] vertexData, short[] indexData, Vector3 boundsCenter, Quaternion boundsRotation) {}
 		public virtual void OnActiveSurfaceListChanged(HashSet<string> activeSurfaces) { }
 
 		public HashSet<string> ActiveSurfaces { get; private set; }
 
 		internal void HandleSurfaceUpdated(string surfaceId,
 			DateTimeOffset lastUpdateTimeUtc,
-			float[] vertexData,
+			SpatialVertex[] vertexData,
 			short[] indexData,
 			Vector3 boundsCenter,
 			Quaternion boundsRotation)
@@ -251,7 +252,7 @@ namespace Urho.Holographics
 			OnActiveSurfaceListChanged(ActiveSurfaces);
 		}
 
-		protected Model CreateModelFromVertexData(float[] vertexData, short[] indexData)
+		unsafe protected Model CreateModelFromVertexData(SpatialVertex[] vertexData, short[] indexData)
 		{
 			var model = new Model();
 			var vertexBuffer = new VertexBuffer(Context, false);
@@ -259,8 +260,12 @@ namespace Urho.Holographics
 			var geometry = new Geometry();
 
 			vertexBuffer.Shadowed = true;
-			vertexBuffer.SetSize((uint) vertexData.Length / 6, ElementMask.Position | ElementMask.Normal, false);
-			vertexBuffer.SetData(vertexData);
+			vertexBuffer.SetSize((uint) vertexData.Length, ElementMask.Position | ElementMask.Normal | ElementMask.Color , false);
+
+			fixed (SpatialVertex* p = &vertexData[0])
+			{
+				vertexBuffer.SetData((void*) p);
+			}
 
 			indexBuffer.Shadowed = true;
 			indexBuffer.SetSize((uint)indexData.Length, false, false);
@@ -276,5 +281,16 @@ namespace Urho.Holographics
 			
 			return model;
 		}
+	}
+
+	public struct SpatialVertex
+	{
+		public float PositionX;
+		public float PositionY;
+		public float PositionZ;
+		public float NormalX;
+		public float NormalY;
+		public float NormalZ;
+		public uint Color;
 	}
 }
