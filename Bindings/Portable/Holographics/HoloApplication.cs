@@ -14,7 +14,6 @@ namespace Urho.Holographics
 		Matrix4 leftProj = Matrix4.Identity;
 		Matrix4 rightView = Matrix4.Identity;
 		Matrix4 rightProj = Matrix4.Identity;
-		Material transparentMaterial;
 		float yaw;
 		float pitch;
 		float distanceBetweenEyes;
@@ -24,10 +23,9 @@ namespace Urho.Holographics
 		public Camera LeftCamera { get; set; }
 		public Camera RightCamera { get; set; }
 		public Color HoloTransparentColor { get; } = Color.Transparent;
-		public Material HoloTransparentMaterial => transparentMaterial ?? (transparentMaterial = FromColor(HoloTransparentColor));
 		public Light CameraLight { get; set; }
 		public Light DirectionalLight { get; set; }
-		public Vector3 FocusWorldPoint { get; set; }
+		public virtual Vector3 FocusWorldPoint { get; set; }
 
 		public float DistanceBetweenEyes
 		{
@@ -101,9 +99,10 @@ namespace Urho.Holographics
 
 		protected override async void Start()
 		{
-			if (!Emulator)
-				Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.ForwardHWDepth);
-
+			Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.ForwardHWDepth);
+			Renderer.DrawShadows = false;
+			Renderer.MaterialQuality = 1;
+			
 			Scene = new Scene();
 			Scene.CreateComponent<Octree>();
 
@@ -111,11 +110,8 @@ namespace Urho.Holographics
 			lightNode.SetDirection(new Vector3(1, -1, 1));
 			Light light = lightNode.CreateComponent<Light>();
 			light.LightType = LightType.Directional;
-			light.CastShadows = true;
+			light.CastShadows = false;
 			light.Brightness = 0.7f;
-			light.ShadowBias = new BiasParameters(0.00025f, 0.5f);
-			light.ShadowCascade = new CascadeParameters(10.0f, 50.0f, 200.0f, 0.0f, 0.8f);
-			light.ShadowIntensity = 0.5f;
 
 			var leftCameraNode = Scene.CreateChild();
 			var rightCameraNode = Scene.CreateChild();
@@ -126,6 +122,7 @@ namespace Urho.Holographics
 			cameraLight.LightType = LightType.Point;
 			cameraLight.Range = 10.0f;
 			cameraLight.Brightness = 0.7f;
+			cameraLight.CastShadows = false;
 
 			CameraLight = cameraLight;
 			DirectionalLight = light;
@@ -133,19 +130,8 @@ namespace Urho.Holographics
 			var leftViewport = new Viewport(Scene, LeftCamera, null);
 			Renderer.SetViewport(0, leftViewport);
 
-			Engine.PostRenderUpdate += s =>
-				{
-					if (Emulator)
-					{
-						//Scene.GetComponent<PhysicsWorld>()?.DrawDebugGeometry(true);
-						//Renderer.DrawDebugGeometry(true);
-					}
-				};
-
 			if (Emulator)
 			{
-				//Scene.CreateComponent<RoomSimulation>();
-				//pitch = 10;
 				var defaultLrp = leftViewport.RenderPath.Clone();
 				defaultLrp.Append(CoreAssets.PostProcess.FXAA3);
 				leftViewport.RenderPath = defaultLrp;
@@ -176,14 +162,6 @@ namespace Urho.Holographics
 			this.rightView = rightView;
 			this.leftProj = leftProj;
 			this.rightProj = rightProj;
-		}
-
-		static Material FromColor(Color color)
-		{
-			var material = new Material();
-			material.SetTechnique(0, CoreAssets.Techniques.NoTextureUnlit, 1, 1);
-			material.SetShaderParameter("MatDiffColor", color);
-			return material;
 		}
 
 		/// <summary>
