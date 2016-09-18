@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Holographics\DebugGrid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Holographics\HoloApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Holographics\RoomSimulation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Holographics\SpatialCursor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\LogicComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Randoms.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
