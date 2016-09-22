@@ -58,9 +58,6 @@ namespace Urho.Holographics
 		public bool EnableGestureManipulation { get; set; }
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void Viewport_SetHolo(IntPtr handle);//TODO: will be removed 
-
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Camera_SetHoloProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
 
 		public HoloApplication(string pak, bool emulation) : base(Configure(pak, emulation)) { Emulator = emulation; }
@@ -147,7 +144,7 @@ namespace Urho.Holographics
 			Renderer.NumViewports = 2; //two eyes
 			var rightVp = new Viewport(Scene, RightCamera, null);
 
-			Viewport_SetHolo(rightVp.Handle);
+			rightVp.SetStereoMode(true);
 			Renderer.SetViewport(1, rightVp);
 
 			Time.SubscribeToFrameStarted(args =>
