@@ -109,7 +109,7 @@ extern "C"
 	ComPtr<ID3D11Texture2D> cameraBackBuffer;
 	ComPtr<ID3D11Resource> resource;
 
-	__declspec(dllexport) void Camera_SetProjection(Camera* camera, const class Matrix4& view, const class Matrix4& projection)
+	__declspec(dllexport) void Camera_SetHoloProjection(Camera* camera, const class Matrix4& view, const class Matrix4& projection)
 	{
 		float nearClip = projection.m32_ / projection.m22_; //0.1
 		float farClip = projection.m32_ / (projection.m22_ + 1); //20

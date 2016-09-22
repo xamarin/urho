@@ -61,7 +61,7 @@ namespace Urho.Holographics
 		static extern void Viewport_SetHolo(IntPtr handle);//TODO: will be removed 
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void Camera_SetProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
+		static extern void Camera_SetHoloProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
 
 		public HoloApplication(string pak, bool emulation) : base(Configure(pak, emulation)) { Emulator = emulation; }
 
@@ -152,8 +152,8 @@ namespace Urho.Holographics
 
 			Time.SubscribeToFrameStarted(args =>
 				{
-					Camera_SetProjection(LeftCamera.Handle, ref leftView, ref leftProj);
-					Camera_SetProjection(RightCamera.Handle, ref rightView, ref rightProj);
+					Camera_SetHoloProjection(LeftCamera.Handle, ref leftView, ref leftProj);
+					Camera_SetHoloProjection(RightCamera.Handle, ref rightView, ref rightProj);
 				});
 		}
 
