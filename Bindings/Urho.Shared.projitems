@@ -420,5 +420,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\UrhoPlatformInitializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\ShadowQuality.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\AsyncCompletionCallFunc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\AutoRemoveMode.cs" />
   </ItemGroup>
 </Project>

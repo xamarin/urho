@@ -109,7 +109,7 @@ namespace Urho.Urho2D
 		internal static extern void Constraint2D_CreateJoint (IntPtr handle);
 
 		/// <summary>
-		/// Create Joint.
+		/// Create joint.
 		/// </summary>
 		public void CreateJoint ()
 		{
@@ -121,7 +121,7 @@ namespace Urho.Urho2D
 		internal static extern void Constraint2D_ReleaseJoint (IntPtr handle);
 
 		/// <summary>
-		/// Release Joint.
+		/// Release joint.
 		/// </summary>
 		public void ReleaseJoint ()
 		{

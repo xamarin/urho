@@ -586,30 +586,6 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetDefaultTextureFilterMode (IntPtr handle, TextureFilterMode mode);
-
-		/// <summary>
-		/// Set default texture filtering mode.
-		/// </summary>
-		private void SetDefaultTextureFilterMode (TextureFilterMode mode)
-		{
-			Runtime.ValidateRefCounted (this);
-			Graphics_SetDefaultTextureFilterMode (handle, mode);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetTextureAnisotropy (IntPtr handle, uint level);
-
-		/// <summary>
-		/// Set texture anisotropy.
-		/// </summary>
-		private void SetTextureAnisotropy (uint level)
-		{
-			Runtime.ValidateRefCounted (this);
-			Graphics_SetTextureAnisotropy (handle, level);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Graphics_SetTextureParametersDirty (IntPtr handle);
 
 		/// <summary>
@@ -619,6 +595,30 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			Graphics_SetTextureParametersDirty (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Graphics_SetDefaultTextureFilterMode (IntPtr handle, TextureFilterMode mode);
+
+		/// <summary>
+		/// Set default texture filtering mode. Called by Renderer before rendering.
+		/// </summary>
+		private void SetDefaultTextureFilterMode (TextureFilterMode mode)
+		{
+			Runtime.ValidateRefCounted (this);
+			Graphics_SetDefaultTextureFilterMode (handle, mode);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Graphics_SetDefaultTextureAnisotropy (IntPtr handle, uint level);
+
+		/// <summary>
+		/// Set default texture anisotropy level. Called by Renderer before rendering.
+		/// </summary>
+		private void SetDefaultTextureAnisotropy (uint level)
+		{
+			Runtime.ValidateRefCounted (this);
+			Graphics_SetDefaultTextureAnisotropy (handle, level);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -718,15 +718,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetBlendMode (IntPtr handle, BlendMode mode);
+		internal static extern void Graphics_SetBlendMode (IntPtr handle, BlendMode mode, bool alphaToCoverage);
 
 		/// <summary>
-		/// Set blending mode.
+		/// Set blending and alpha-to-coverage modes. Alpha-to-coverage is not supported on Direct3D9.
 		/// </summary>
-		private void SetBlendMode (BlendMode mode)
+		public void SetBlendMode (BlendMode mode, bool alphaToCoverage)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetBlendMode (handle, mode);
+			Graphics_SetBlendMode (handle, mode, alphaToCoverage);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1402,6 +1402,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Graphics_GetDefaultTextureAnisotropy (IntPtr handle);
+
+		/// <summary>
+		/// Return default texture max. anisotropy level.
+		/// </summary>
+		private uint GetDefaultTextureAnisotropy ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetDefaultTextureAnisotropy (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Graphics_GetRenderTarget (IntPtr handle, uint index);
 
 		/// <summary>
@@ -1438,18 +1450,6 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern uint Graphics_GetTextureAnisotropy (IntPtr handle);
-
-		/// <summary>
-		/// Return texture anisotropy.
-		/// </summary>
-		private uint GetTextureAnisotropy ()
-		{
-			Runtime.ValidateRefCounted (this);
-			return Graphics_GetTextureAnisotropy (handle);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern BlendMode Graphics_GetBlendMode (IntPtr handle);
 
 		/// <summary>
@@ -1459,6 +1459,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Graphics_GetBlendMode (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Graphics_GetAlphaToCoverage (IntPtr handle);
+
+		/// <summary>
+		/// Return whether alpha-to-coverage is enabled.
+		/// </summary>
+		private bool GetAlphaToCoverage ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetAlphaToCoverage (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -2159,7 +2171,7 @@ namespace Urho
 		/// <summary>
 		/// Return default texture filtering mode.
 		/// Or
-		/// Set default texture filtering mode.
+		/// Set default texture filtering mode. Called by Renderer before rendering.
 		/// </summary>
 		public TextureFilterMode DefaultTextureFilterMode {
 			get {
@@ -2171,16 +2183,16 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return texture anisotropy.
+		/// Return default texture max. anisotropy level.
 		/// Or
-		/// Set texture anisotropy.
+		/// Set default texture anisotropy level. Called by Renderer before rendering.
 		/// </summary>
-		public uint TextureAnisotropy {
+		public uint DefaultTextureAnisotropy {
 			get {
-				return GetTextureAnisotropy ();
+				return GetDefaultTextureAnisotropy ();
 			}
 			set {
-				SetTextureAnisotropy (value);
+				SetDefaultTextureAnisotropy (value);
 			}
 		}
 
@@ -2204,20 +2216,6 @@ namespace Urho
 		public IntRect Viewport {
 			get {
 				return GetViewport ();
-			}
-		}
-
-		/// <summary>
-		/// Return blending mode.
-		/// Or
-		/// Set blending mode.
-		/// </summary>
-		public BlendMode BlendMode {
-			get {
-				return GetBlendMode ();
-			}
-			set {
-				SetBlendMode (value);
 			}
 		}
 
@@ -2540,6 +2538,24 @@ namespace Urho
 		public ShaderVariation PixelShader {
 			get {
 				return GetPixelShader ();
+			}
+		}
+
+		/// <summary>
+		/// Return blending mode.
+		/// </summary>
+		public BlendMode BlendMode {
+			get {
+				return GetBlendMode ();
+			}
+		}
+
+		/// <summary>
+		/// Return whether alpha-to-coverage is enabled.
+		/// </summary>
+		public bool AlphaToCoverage {
+			get {
+				return GetAlphaToCoverage ();
 			}
 		}
 

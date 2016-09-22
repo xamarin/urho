@@ -147,7 +147,7 @@ namespace Urho
 		/// <summary>
 		/// Set projection center coordinates
 		/// </summary>
-		private void SetProjectionCenter (Urho.Vector2 center)
+		public void SetProjectionCenter (Urho.Vector2 center)
 		{
 			Runtime.ValidateRefCounted (this);
 			Camera_SetProjectionCenter (handle, ref center);
@@ -358,10 +358,24 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Camera_SetProjection (IntPtr handle, ref Urho.Matrix4 projection);
+
+		/// <summary>
+		/// Set custom projection matrix, which should be specified in D3D convention with depth range 0 - 1. Disables auto aspect ratio.
+		/// Change any of the standard view parameters (FOV, far clip, zoom etc.) to revert to the standard projection.
+		/// Note that the custom projection is not serialized or replicated through the network.
+		/// </summary>
+		public void SetProjection (Urho.Matrix4 projection)
+		{
+			Runtime.ValidateRefCounted (this);
+			Camera_SetProjection (handle, ref projection);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern float Camera_GetFarClip (IntPtr handle);
 
 		/// <summary>
-		/// Return far clip distance.
+		/// Return far clip distance. If a custom projection matrix is in use, is calculated from it instead of the value assigned with SetFarClip().
 		/// </summary>
 		private float GetFarClip ()
 		{
@@ -373,7 +387,7 @@ namespace Urho
 		internal static extern float Camera_GetNearClip (IntPtr handle);
 
 		/// <summary>
-		/// Return near clip distance.
+		/// Return near clip distance. If a custom projection matrix is in use, is calculated from it instead of the value assigned with SetNearClip().
 		/// </summary>
 		private float GetNearClip ()
 		{
@@ -391,18 +405,6 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Camera_GetSkew (handle);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Urho.Vector2 Camera_GetProjectionCenter (IntPtr handle);
-
-		/// <summary>
-		/// Return projection center.
-		/// </summary>
-		private Urho.Vector2 GetProjectionCenter ()
-		{
-			Runtime.ValidateRefCounted (this);
-			return Camera_GetProjectionCenter (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -526,27 +528,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Urho.Matrix4 Camera_GetProjection (IntPtr handle);
+		internal static extern Matrix4 Camera_GetProjection (IntPtr handle);
 
 		/// <summary>
-		/// Return API-specific projection matrix.
+		/// Return projection matrix. It's in D3D convention with depth range 0 - 1.
 		/// </summary>
-		private Urho.Matrix4 GetProjection ()
+		private Matrix4 GetProjection ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return Camera_GetProjection (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Matrix4 Camera_GetProjection1 (IntPtr handle, bool apiSpecific);
+		internal static extern Matrix4 Camera_GetGPUProjection (IntPtr handle);
 
 		/// <summary>
-		/// Return either API-specific or API-independent (D3D convention) projection matrix.
+		/// Return projection matrix converted to API-specific format for use as a shader parameter.
 		/// </summary>
-		public Matrix4 GetProjection (bool apiSpecific)
+		private Matrix4 GetGPUProjection ()
 		{
 			Runtime.ValidateRefCounted (this);
-			return Camera_GetProjection1 (handle, apiSpecific);
+			return Camera_GetGPUProjection (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -613,7 +615,7 @@ namespace Urho
 		internal static extern Ray Camera_GetScreenRay (IntPtr handle, float x, float y);
 
 		/// <summary>
-		/// Return ray corresponding to normalized screen coordinates (0.0 - 1.0), with origin on the near clip plane.
+		/// Return ray corresponding to normalized screen coordinates (0 - 1), with origin on the near clip plane.
 		/// </summary>
 		public Ray GetScreenRay (float x, float y)
 		{
@@ -625,7 +627,7 @@ namespace Urho
 		internal static extern Vector2 Camera_WorldToScreenPoint (IntPtr handle, ref Urho.Vector3 worldPos);
 
 		/// <summary>
-		/// Convert a world space point to normalized screen coordinates (0.0 - 1.0).
+		/// Convert a world space point to normalized screen coordinates (0 - 1).
 		/// </summary>
 		public Vector2 WorldToScreenPoint (Urho.Vector3 worldPos)
 		{
@@ -637,7 +639,8 @@ namespace Urho
 		internal static extern Vector3 Camera_ScreenToWorldPoint (IntPtr handle, ref Urho.Vector3 screenPos);
 
 		/// <summary>
-		/// Convert normalized screen coordinates (0.0 - 1.0) and distance (in Z coordinate) to a world space point. The distance can not be closer than the near clip plane.
+		/// Convert normalized screen coordinates (0 - 1) and distance along view Z axis (in Z coordinate) to a world space point. The distance can not be closer than the near clip plane.
+		/// Note that a HitDistance() from the camera screen ray is not the same as distance along the view Z axis, as under a perspective projection the ray is likely to not be Z-aligned.
 		/// </summary>
 		public Vector3 ScreenToWorldPoint (Urho.Vector3 screenPos)
 		{
@@ -766,15 +769,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Quaternion Camera_GetFaceCameraRotation (IntPtr handle, ref Urho.Vector3 position, ref Urho.Quaternion rotation, FaceCameraMode mode);
+		internal static extern Quaternion Camera_GetFaceCameraRotation (IntPtr handle, ref Urho.Vector3 position, ref Urho.Quaternion rotation, FaceCameraMode mode, float minAngle);
 
 		/// <summary>
 		/// Return a world rotation for facing a camera on certain axes based on the existing world rotation.
 		/// </summary>
-		public Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, FaceCameraMode mode)
+		public Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, FaceCameraMode mode, float minAngle)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Camera_GetFaceCameraRotation (handle, ref position, ref rotation, mode);
+			return Camera_GetFaceCameraRotation (handle, ref position, ref rotation, mode, minAngle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -898,7 +901,7 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return near clip distance.
+		/// Return near clip distance. If a custom projection matrix is in use, is calculated from it instead of the value assigned with SetNearClip().
 		/// Or
 		/// Set near clip distance.
 		/// </summary>
@@ -912,7 +915,7 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return far clip distance.
+		/// Return far clip distance. If a custom projection matrix is in use, is calculated from it instead of the value assigned with SetFarClip().
 		/// Or
 		/// Set far clip distance.
 		/// </summary>
@@ -936,20 +939,6 @@ namespace Urho
 			}
 			set {
 				SetFov (value);
-			}
-		}
-
-		/// <summary>
-		/// Return projection center.
-		/// Or
-		/// Set projection center coordinates
-		/// </summary>
-		public Urho.Vector2 ProjectionCenter {
-			get {
-				return GetProjectionCenter ();
-			}
-			set {
-				SetProjectionCenter (value);
 			}
 		}
 
@@ -1178,11 +1167,20 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return API-specific projection matrix.
+		/// Return projection matrix. It's in D3D convention with depth range 0 - 1.
 		/// </summary>
-		public Urho.Matrix4 Projection {
+		public Matrix4 Projection {
 			get {
 				return GetProjection ();
+			}
+		}
+
+		/// <summary>
+		/// Return projection matrix converted to API-specific format for use as a shader parameter.
+		/// </summary>
+		public Matrix4 GPUProjection {
+			get {
+				return GetGPUProjection ();
 			}
 		}
 

@@ -178,6 +178,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Material_SetVertexShaderDefines (IntPtr handle, string defines);
+
+		/// <summary>
+		/// Set additional vertex shader defines. Separate multiple defines with spaces. Setting defines at the material level causes technique(s) to be cloned as necessary.
+		/// </summary>
+		private void SetVertexShaderDefines (string defines)
+		{
+			Runtime.ValidateRefCounted (this);
+			Material_SetVertexShaderDefines (handle, defines);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Material_SetPixelShaderDefines (IntPtr handle, string defines);
+
+		/// <summary>
+		/// Set additional pixel shader defines. Separate multiple defines with spaces. Setting defines at the material level causes technique(s) to be cloned as necessary.
+		/// </summary>
+		private void SetPixelShaderDefines (string defines)
+		{
+			Runtime.ValidateRefCounted (this);
+			Material_SetPixelShaderDefines (handle, defines);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Material_SetShaderParameter0 (IntPtr handle, string name, ref Vector3 value);
 
 		/// <summary>
@@ -433,12 +457,24 @@ namespace Urho
 		internal static extern void Material_SetDepthBias (IntPtr handle, ref BiasParameters parameters);
 
 		/// <summary>
-		/// Set depth bias.
+		/// Set depth bias parameters for depth write and compare. Note that the normal offset parameter is not used and will not be saved, as it affects only shadow map sampling during light rendering.
 		/// </summary>
 		private void SetDepthBias (BiasParameters parameters)
 		{
 			Runtime.ValidateRefCounted (this);
 			Material_SetDepthBias (handle, ref parameters);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Material_SetAlphaToCoverage (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set alpha-to-coverage mode on all passes.
+		/// </summary>
+		private void SetAlphaToCoverage (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			Material_SetAlphaToCoverage (handle, enable);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -451,6 +487,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			Material_SetRenderOrder (handle, order);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Material_SetOcclusion (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set whether to use in occlusion rendering. Default true.
+		/// </summary>
+		private void SetOcclusion (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			Material_SetOcclusion (handle, enable);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -574,6 +622,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Material_GetVertexShaderDefines (IntPtr handle);
+
+		/// <summary>
+		/// Return additional vertex shader defines.
+		/// </summary>
+		private string GetVertexShaderDefines ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Marshal.PtrToStringAnsi (Material_GetVertexShaderDefines (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Material_GetPixelShaderDefines (IntPtr handle);
+
+		/// <summary>
+		/// Return additional pixel shader defines.
+		/// </summary>
+		private string GetPixelShaderDefines ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Marshal.PtrToStringAnsi (Material_GetPixelShaderDefines (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Material_GetShaderParameterAnimation (IntPtr handle, string name);
 
 		/// <summary>
@@ -655,6 +727,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Material_GetDepthBias (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Material_GetAlphaToCoverage (IntPtr handle);
+
+		/// <summary>
+		/// Return alpha-to-coverage mode.
+		/// </summary>
+		private bool GetAlphaToCoverage ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Material_GetAlphaToCoverage (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -792,6 +876,34 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return additional vertex shader defines.
+		/// Or
+		/// Set additional vertex shader defines. Separate multiple defines with spaces. Setting defines at the material level causes technique(s) to be cloned as necessary.
+		/// </summary>
+		public string VertexShaderDefines {
+			get {
+				return GetVertexShaderDefines ();
+			}
+			set {
+				SetVertexShaderDefines (value);
+			}
+		}
+
+		/// <summary>
+		/// Return additional pixel shader defines.
+		/// Or
+		/// Set additional pixel shader defines. Separate multiple defines with spaces. Setting defines at the material level causes technique(s) to be cloned as necessary.
+		/// </summary>
+		public string PixelShaderDefines {
+			get {
+				return GetPixelShaderDefines ();
+			}
+			set {
+				SetPixelShaderDefines (value);
+			}
+		}
+
+		/// <summary>
 		/// Return normal culling mode.
 		/// Or
 		/// Set culling mode.
@@ -836,7 +948,7 @@ namespace Urho
 		/// <summary>
 		/// Return depth bias.
 		/// Or
-		/// Set depth bias.
+		/// Set depth bias parameters for depth write and compare. Note that the normal offset parameter is not used and will not be saved, as it affects only shadow map sampling during light rendering.
 		/// </summary>
 		public BiasParameters DepthBias {
 			get {
@@ -844,6 +956,20 @@ namespace Urho
 			}
 			set {
 				SetDepthBias (value);
+			}
+		}
+
+		/// <summary>
+		/// Return alpha-to-coverage mode.
+		/// Or
+		/// Set alpha-to-coverage mode on all passes.
+		/// </summary>
+		public bool AlphaToCoverage {
+			get {
+				return GetAlphaToCoverage ();
+			}
+			set {
+				SetAlphaToCoverage (value);
 			}
 		}
 
@@ -858,6 +984,20 @@ namespace Urho
 			}
 			set {
 				SetRenderOrder (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether should render occlusion.
+		/// Or
+		/// Set whether to use in occlusion rendering. Default true.
+		/// </summary>
+		public bool Occlusion {
+			get {
+				return GetOcclusion ();
+			}
+			set {
+				SetOcclusion (value);
 			}
 		}
 
@@ -881,15 +1021,6 @@ namespace Urho
 		public uint AuxViewFrameNumber {
 			get {
 				return GetAuxViewFrameNumber ();
-			}
-		}
-
-		/// <summary>
-		/// Return whether should render occlusion.
-		/// </summary>
-		public bool Occlusion {
-			get {
-				return GetOcclusion ();
 			}
 		}
 

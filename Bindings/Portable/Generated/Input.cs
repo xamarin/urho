@@ -341,6 +341,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Input_SetMousePosition (IntPtr handle, ref Urho.IntVector2 position);
+
+		/// <summary>
+		/// Set the mouse cursor position.
+		/// </summary>
+		public void SetMousePosition (Urho.IntVector2 position)
+		{
+			Runtime.ValidateRefCounted (this);
+			Input_SetMousePosition (handle, ref position);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Input_CenterMousePosition (IntPtr handle);
+
+		/// <summary>
+		/// Center the mouse position.
+		/// </summary>
+		public void CenterMousePosition ()
+		{
+			Runtime.ValidateRefCounted (this);
+			Input_CenterMousePosition (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern int Input_GetKeyFromName (IntPtr handle, string name);
 
 		/// <summary>
@@ -877,20 +901,20 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return the currently held down qualifiers.
-		/// </summary>
-		public int Qualifiers {
-			get {
-				return GetQualifiers ();
-			}
-		}
-
-		/// <summary>
 		/// Return mouse position within window. Should only be used with a visible mouse cursor.
 		/// </summary>
 		public IntVector2 MousePosition {
 			get {
 				return GetMousePosition ();
+			}
+		}
+
+		/// <summary>
+		/// Return the currently held down qualifiers.
+		/// </summary>
+		public int Qualifiers {
+			get {
+				return GetQualifiers ();
 			}
 		}
 

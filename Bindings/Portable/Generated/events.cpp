@@ -178,6 +178,22 @@ DllExport void *urho_subscribe_BeginViewRender (void *_receiver, HandlerFunction
 	return proxy;
 }
 
+DllExport void *urho_subscribe_ViewBuffersReady (void *_receiver, HandlerFunctionPtr callback, void *data)
+{
+	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
+	NotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::E_VIEWBUFFERSREADY);
+	receiver->SubscribeToEvent (receiver, Urho3D::E_VIEWBUFFERSREADY, proxy);
+	return proxy;
+}
+
+DllExport void *urho_subscribe_ViewGlobalShaderParameters (void *_receiver, HandlerFunctionPtr callback, void *data)
+{
+	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
+	NotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::E_VIEWGLOBALSHADERPARAMETERS);
+	receiver->SubscribeToEvent (receiver, Urho3D::E_VIEWGLOBALSHADERPARAMETERS, proxy);
+	return proxy;
+}
+
 DllExport void *urho_subscribe_EndViewRender (void *_receiver, HandlerFunctionPtr callback, void *data)
 {
 	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
@@ -415,6 +431,30 @@ DllExport void *urho_subscribe_ExitRequested (void *_receiver, HandlerFunctionPt
 	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
 	NotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::E_EXITREQUESTED);
 	receiver->SubscribeToEvent (receiver, Urho3D::E_EXITREQUESTED, proxy);
+	return proxy;
+}
+
+DllExport void *urho_subscribe_SDLRawInput (void *_receiver, HandlerFunctionPtr callback, void *data)
+{
+	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
+	NotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::E_SDLRAWINPUT);
+	receiver->SubscribeToEvent (receiver, Urho3D::E_SDLRAWINPUT, proxy);
+	return proxy;
+}
+
+DllExport void *urho_subscribe_InputBegin (void *_receiver, HandlerFunctionPtr callback, void *data)
+{
+	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
+	NotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::E_INPUTBEGIN);
+	receiver->SubscribeToEvent (receiver, Urho3D::E_INPUTBEGIN, proxy);
+	return proxy;
+}
+
+DllExport void *urho_subscribe_InputEnd (void *_receiver, HandlerFunctionPtr callback, void *data)
+{
+	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
+	NotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::E_INPUTEND);
+	receiver->SubscribeToEvent (receiver, Urho3D::E_INPUTEND, proxy);
 	return proxy;
 }
 
@@ -1322,442 +1362,23 @@ DllExport void *urho_subscribe_PhysicsEndContact2D (void *_receiver, HandlerFunc
 	return proxy;
 }
 
+DllExport void *urho_subscribe_NodeBeginContact2D (void *_receiver, HandlerFunctionPtr callback, void *data)
+{
+	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
+	NotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::E_NODEBEGINCONTACT2D);
+	receiver->SubscribeToEvent (receiver, Urho3D::E_NODEBEGINCONTACT2D, proxy);
+	return proxy;
+}
+
+DllExport void *urho_subscribe_NodeEndContact2D (void *_receiver, HandlerFunctionPtr callback, void *data)
+{
+	Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
+	NotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::E_NODEENDCONTACT2D);
+	receiver->SubscribeToEvent (receiver, Urho3D::E_NODEENDCONTACT2D, proxy);
+	return proxy;
+}
+
 // Hash Getters
-DllExport int urho_hash_get_P_DATA ()
-{
-	return Urho3D::NetworkMessage::P_DATA.Value ();
-}
-
-DllExport int urho_hash_get_P_ID ()
-{
-	return Urho3D::ConsoleCommand::P_ID.Value ();
-}
-
-DllExport int urho_hash_get_P_SIZE ()
-{
-	return Urho3D::CrowdAgentNodeFormation::P_SIZE.Value ();
-}
-
-DllExport int urho_hash_get_P_ACCEPT ()
-{
-	return Urho3D::DragDropFinish::P_ACCEPT.Value ();
-}
-
-DllExport int urho_hash_get_P_LOADEDNODES ()
-{
-	return Urho3D::AsyncLoadProgress::P_LOADEDNODES.Value ();
-}
-
-DllExport int urho_hash_get_P_LOOPED ()
-{
-	return Urho3D::AnimationFinished::P_LOOPED.Value ();
-}
-
-DllExport int urho_hash_get_P_MESSAGE ()
-{
-	return Urho3D::LogMessage::P_MESSAGE.Value ();
-}
-
-DllExport int urho_hash_get_P_SCANCODE ()
-{
-	return Urho3D::KeyUp::P_SCANCODE.Value ();
-}
-
-DllExport int urho_hash_get_P_EFFECT ()
-{
-	return Urho3D::ParticleEffectFinished::P_EFFECT.Value ();
-}
-
-DllExport int urho_hash_get_P_BYKEY ()
-{
-	return Urho3D::Focused::P_BYKEY.Value ();
-}
-
-DllExport int urho_hash_get_P_ERROR ()
-{
-	return Urho3D::GestureInput::P_ERROR.Value ();
-}
-
-DllExport int urho_hash_get_P_CROWD_AGENT_STATE ()
-{
-	return Urho3D::CrowdAgentNodeStateChanged::P_CROWD_AGENT_STATE.Value ();
-}
-
-DllExport int urho_hash_get_P_SOUND ()
-{
-	return Urho3D::SoundFinished::P_SOUND.Value ();
-}
-
-DllExport int urho_hash_get_P_SCENE ()
-{
-	return Urho3D::ComponentCloned::P_SCENE.Value ();
-}
-
-DllExport int urho_hash_get_P_ELEMENTX ()
-{
-	return Urho3D::UIDropFile::P_ELEMENTX.Value ();
-}
-
-DllExport int urho_hash_get_P_BOUNDSMIN ()
-{
-	return Urho3D::NavigationAreaRebuilt::P_BOUNDSMIN.Value ();
-}
-
-DllExport int urho_hash_get_P_WIDTH ()
-{
-	return Urho3D::Resized::P_WIDTH.Value ();
-}
-
-DllExport int urho_hash_get_P_BUTTONS ()
-{
-	return Urho3D::DragCancel::P_BUTTONS.Value ();
-}
-
-DllExport int urho_hash_get_P_TEXTURE ()
-{
-	return Urho3D::EndViewRender::P_TEXTURE.Value ();
-}
-
-DllExport int urho_hash_get_P_COMPONENT ()
-{
-	return Urho3D::ComponentCloned::P_COMPONENT.Value ();
-}
-
-DllExport int urho_hash_get_P_VALUE ()
-{
-	return Urho3D::TextFinished::P_VALUE.Value ();
-}
-
-DllExport int urho_hash_get_P_BUTTON ()
-{
-	return Urho3D::ItemDoubleClicked::P_BUTTON.Value ();
-}
-
-DllExport int urho_hash_get_P_BODYB ()
-{
-	return Urho3D::PhysicsEndContact2D::P_BODYB.Value ();
-}
-
-DllExport int urho_hash_get_P_MODAL ()
-{
-	return Urho3D::ModalChanged::P_MODAL.Value ();
-}
-
-DllExport int urho_hash_get_P_Y ()
-{
-	return Urho3D::UIDropFile::P_Y.Value ();
-}
-
-DllExport int urho_hash_get_P_ARRIVED ()
-{
-	return Urho3D::CrowdAgentNodeReposition::P_ARRIVED.Value ();
-}
-
-DllExport int urho_hash_get_P_TAG ()
-{
-	return Urho3D::NodeTagRemoved::P_TAG.Value ();
-}
-
-DllExport int urho_hash_get_P_HEIGHT ()
-{
-	return Urho3D::Resized::P_HEIGHT.Value ();
-}
-
-DllExport int urho_hash_get_P_RESOURCENAME ()
-{
-	return Urho3D::ResourceBackgroundLoaded::P_RESOURCENAME.Value ();
-}
-
-DllExport int urho_hash_get_P_AXIS ()
-{
-	return Urho3D::JoystickAxisMove::P_AXIS.Value ();
-}
-
-DllExport int urho_hash_get_P_SURFACE ()
-{
-	return Urho3D::EndViewRender::P_SURFACE.Value ();
-}
-
-DllExport int urho_hash_get_P_X ()
-{
-	return Urho3D::UIDropFile::P_X.Value ();
-}
-
-DllExport int urho_hash_get_P_FILENAME ()
-{
-	return Urho3D::UIDropFile::P_FILENAME.Value ();
-}
-
-DllExport int urho_hash_get_P_TOTALNODES ()
-{
-	return Urho3D::AsyncLoadProgress::P_TOTALNODES.Value ();
-}
-
-DllExport int urho_hash_get_P_CONNECTION ()
-{
-	return Urho3D::RemoteEventData::P_CONNECTION.Value ();
-}
-
-DllExport int urho_hash_get_P_COMMAND ()
-{
-	return Urho3D::ConsoleCommand::P_COMMAND.Value ();
-}
-
-DllExport int urho_hash_get_P_RESOURCETYPE ()
-{
-	return Urho3D::UnknownResourceType::P_RESOURCETYPE.Value ();
-}
-
-DllExport int urho_hash_get_P_TIME ()
-{
-	return Urho3D::AnimationTrigger::P_TIME.Value ();
-}
-
-DllExport int urho_hash_get_P_OTHERNODE ()
-{
-	return Urho3D::NodeCollisionEnd::P_OTHERNODE.Value ();
-}
-
-DllExport int urho_hash_get_P_HIGHDPI ()
-{
-	return Urho3D::ScreenMode::P_HIGHDPI.Value ();
-}
-
-DllExport int urho_hash_get_P_NODEB ()
-{
-	return Urho3D::PhysicsEndContact2D::P_NODEB.Value ();
-}
-
-DllExport int urho_hash_get_P_NAME ()
-{
-	return Urho3D::InterceptNetworkUpdate::P_NAME.Value ();
-}
-
-DllExport int urho_hash_get_P_ATTRIBUTEANIMATIONNAME ()
-{
-	return Urho3D::AttributeAnimationRemoved::P_ATTRIBUTEANIMATIONNAME.Value ();
-}
-
-DllExport int urho_hash_get_P_DDIST ()
-{
-	return Urho3D::MultiGesture::P_DDIST.Value ();
-}
-
-DllExport int urho_hash_get_P_KEY ()
-{
-	return Urho3D::UnhandledKey::P_KEY.Value ();
-}
-
-DllExport int urho_hash_get_P_QUALIFIERS ()
-{
-	return Urho3D::UnhandledKey::P_QUALIFIERS.Value ();
-}
-
-DllExport int urho_hash_get_P_NUMBUTTONS ()
-{
-	return Urho3D::DragCancel::P_NUMBUTTONS.Value ();
-}
-
-DllExport int urho_hash_get_P_ROOT ()
-{
-	return Urho3D::ElementRemoved::P_ROOT.Value ();
-}
-
-DllExport int urho_hash_get_P_CONTACT ()
-{
-	return Urho3D::PhysicsEndContact2D::P_CONTACT.Value ();
-}
-
-DllExport int urho_hash_get_P_REQUESTID ()
-{
-	return Urho3D::AsyncExecFinished::P_REQUESTID.Value ();
-}
-
-DllExport int urho_hash_get_P_CLONENODE ()
-{
-	return Urho3D::NodeCloned::P_CLONENODE.Value ();
-}
-
-DllExport int urho_hash_get_P_CENTERY ()
-{
-	return Urho3D::MultiGesture::P_CENTERY.Value ();
-}
-
-DllExport int urho_hash_get_P_ELEMENTY ()
-{
-	return Urho3D::UIDropFile::P_ELEMENTY.Value ();
-}
-
-DllExport int urho_hash_get_P_SQUAREDSNAPTHRESHOLD ()
-{
-	return Urho3D::UpdateSmoothing::P_SQUAREDSNAPTHRESHOLD.Value ();
-}
-
-DllExport int urho_hash_get_P_VISIBLE ()
-{
-	return Urho3D::VisibleChanged::P_VISIBLE.Value ();
-}
-
-DllExport int urho_hash_get_P_BORDERLESS ()
-{
-	return Urho3D::ScreenMode::P_BORDERLESS.Value ();
-}
-
-DllExport int urho_hash_get_P_ITEM ()
-{
-	return Urho3D::ItemDoubleClicked::P_ITEM.Value ();
-}
-
-DllExport int urho_hash_get_P_DY ()
-{
-	return Urho3D::DragMove::P_DY.Value ();
-}
-
-DllExport int urho_hash_get_P_STATE ()
-{
-	return Urho3D::Toggled::P_STATE.Value ();
-}
-
-DllExport int urho_hash_get_P_POSITION ()
-{
-	return Urho3D::NavigationObstacleRemoved::P_POSITION.Value ();
-}
-
-DllExport int urho_hash_get_P_TEXT ()
-{
-	return Urho3D::TextFinished::P_TEXT.Value ();
-}
-
-DllExport int urho_hash_get_P_PROGRESS ()
-{
-	return Urho3D::AsyncLoadProgress::P_PROGRESS.Value ();
-}
-
-DllExport int urho_hash_get_P_HAT ()
-{
-	return Urho3D::JoystickHatMove::P_HAT.Value ();
-}
-
-DllExport int urho_hash_get_P_FOCUS ()
-{
-	return Urho3D::InputFocus::P_FOCUS.Value ();
-}
-
-DllExport int urho_hash_get_P_MOUSELOCKED ()
-{
-	return Urho3D::MouseModeChanged::P_MOUSELOCKED.Value ();
-}
-
-DllExport int urho_hash_get_P_LOADEDRESOURCES ()
-{
-	return Urho3D::AsyncLoadProgress::P_LOADEDRESOURCES.Value ();
-}
-
-DllExport int urho_hash_get_P_CONSTANT ()
-{
-	return Urho3D::UpdateSmoothing::P_CONSTANT.Value ();
-}
-
-DllExport int urho_hash_get_P_MESSAGEID ()
-{
-	return Urho3D::NetworkMessage::P_MESSAGEID.Value ();
-}
-
-DllExport int urho_hash_get_P_VELOCITY ()
-{
-	return Urho3D::CrowdAgentNodeStateChanged::P_VELOCITY.Value ();
-}
-
-DllExport int urho_hash_get_P_BOUNDSMAX ()
-{
-	return Urho3D::NavigationAreaRebuilt::P_BOUNDSMAX.Value ();
-}
-
-DllExport int urho_hash_get_P_PRESSURE ()
-{
-	return Urho3D::TouchMove::P_PRESSURE.Value ();
-}
-
-DllExport int urho_hash_get_P_DTHETA ()
-{
-	return Urho3D::MultiGesture::P_DTHETA.Value ();
-}
-
-DllExport int urho_hash_get_P_CROWD_TARGET_STATE ()
-{
-	return Urho3D::CrowdAgentNodeStateChanged::P_CROWD_TARGET_STATE.Value ();
-}
-
-DllExport int urho_hash_get_P_WHEEL ()
-{
-	return Urho3D::MouseWheel::P_WHEEL.Value ();
-}
-
-DllExport int urho_hash_get_P_PRESSED ()
-{
-	return Urho3D::SliderPaged::P_PRESSED.Value ();
-}
-
-DllExport int urho_hash_get_P_FRAMENUMBER ()
-{
-	return Urho3D::BeginFrame::P_FRAMENUMBER.Value ();
-}
-
-DllExport int urho_hash_get_P_NODE ()
-{
-	return Urho3D::NodeCloned::P_NODE.Value ();
-}
-
-DllExport int urho_hash_get_P_TIMESTEP ()
-{
-	return Urho3D::ScenePostUpdate::P_TIMESTEP.Value ();
-}
-
-DllExport int urho_hash_get_P_CROWD_AGENT ()
-{
-	return Urho3D::CrowdAgentNodeStateChanged::P_CROWD_AGENT.Value ();
-}
-
-DllExport int urho_hash_get_P_MINIMIZED ()
-{
-	return Urho3D::InputFocus::P_MINIMIZED.Value ();
-}
-
-DllExport int urho_hash_get_P_OTHERBODY ()
-{
-	return Urho3D::NodeCollisionEnd::P_OTHERBODY.Value ();
-}
-
-DllExport int urho_hash_get_P_REPEAT ()
-{
-	return Urho3D::KeyDown::P_REPEAT.Value ();
-}
-
-DllExport int urho_hash_get_P_GESTUREID ()
-{
-	return Urho3D::GestureInput::P_GESTUREID.Value ();
-}
-
-DllExport int urho_hash_get_P_MESH ()
-{
-	return Urho3D::NavigationAreaRebuilt::P_MESH.Value ();
-}
-
-DllExport int urho_hash_get_P_DX ()
-{
-	return Urho3D::DragMove::P_DX.Value ();
-}
-
-DllExport int urho_hash_get_P_LEVEL ()
-{
-	return Urho3D::LogMessage::P_LEVEL.Value ();
-}
-
-DllExport int urho_hash_get_P_BEGINELEMENT ()
-{
-	return Urho3D::ClickEnd::P_BEGINELEMENT.Value ();
-}
-
 DllExport int urho_hash_get_P_SUCCESS ()
 {
 	return Urho3D::ResourceBackgroundLoaded::P_SUCCESS.Value ();
@@ -1768,94 +1389,24 @@ DllExport int urho_hash_get_P_PARENT ()
 	return Urho3D::ElementRemoved::P_PARENT.Value ();
 }
 
-DllExport int urho_hash_get_P_ALLOW ()
+DllExport int urho_hash_get_P_CONSTANT ()
 {
-	return Urho3D::ClientIdentity::P_ALLOW.Value ();
+	return Urho3D::UpdateSmoothing::P_CONSTANT.Value ();
 }
 
-DllExport int urho_hash_get_P_SELECTION ()
+DllExport int urho_hash_get_P_QUALIFIERS ()
 {
-	return Urho3D::ItemDoubleClicked::P_SELECTION.Value ();
+	return Urho3D::UnhandledKey::P_QUALIFIERS.Value ();
 }
 
-DllExport int urho_hash_get_P_SERIALIZABLE ()
+DllExport int urho_hash_get_P_PROGRESS ()
 {
-	return Urho3D::InterceptNetworkUpdate::P_SERIALIZABLE.Value ();
+	return Urho3D::AsyncLoadProgress::P_PROGRESS.Value ();
 }
 
-DllExport int urho_hash_get_P_CLICKEDELEMENT ()
+DllExport int urho_hash_get_P_SOUND ()
 {
-	return Urho3D::FocusChanged::P_CLICKEDELEMENT.Value ();
-}
-
-DllExport int urho_hash_get_P_INDEX ()
-{
-	return Urho3D::InterceptNetworkUpdate::P_INDEX.Value ();
-}
-
-DllExport int urho_hash_get_P_OBJECTANIMATION ()
-{
-	return Urho3D::AttributeAnimationRemoved::P_OBJECTANIMATION.Value ();
-}
-
-DllExport int urho_hash_get_P_SOUNDSOURCE ()
-{
-	return Urho3D::SoundFinished::P_SOUNDSOURCE.Value ();
-}
-
-DllExport int urho_hash_get_P_CLONECOMPONENT ()
-{
-	return Urho3D::ComponentCloned::P_CLONECOMPONENT.Value ();
-}
-
-DllExport int urho_hash_get_P_RESIZABLE ()
-{
-	return Urho3D::ScreenMode::P_RESIZABLE.Value ();
-}
-
-DllExport int urho_hash_get_P_VIEW ()
-{
-	return Urho3D::EndViewRender::P_VIEW.Value ();
-}
-
-DllExport int urho_hash_get_P_BODYA ()
-{
-	return Urho3D::PhysicsEndContact2D::P_BODYA.Value ();
-}
-
-DllExport int urho_hash_get_P_MODE ()
-{
-	return Urho3D::MouseModeChanged::P_MODE.Value ();
-}
-
-DllExport int urho_hash_get_P_ELEMENT ()
-{
-	return Urho3D::UIDropFile::P_ELEMENT.Value ();
-}
-
-DllExport int urho_hash_get_P_WORLD ()
-{
-	return Urho3D::PhysicsEndContact2D::P_WORLD.Value ();
-}
-
-DllExport int urho_hash_get_P_FILTER ()
-{
-	return Urho3D::FileSelected::P_FILTER.Value ();
-}
-
-DllExport int urho_hash_get_P_OFFSET ()
-{
-	return Urho3D::SliderPaged::P_OFFSET.Value ();
-}
-
-DllExport int urho_hash_get_P_TARGET ()
-{
-	return Urho3D::DragDropFinish::P_TARGET.Value ();
-}
-
-DllExport int urho_hash_get_P_CAMERA ()
-{
-	return Urho3D::EndViewRender::P_CAMERA.Value ();
+	return Urho3D::SoundFinished::P_SOUND.Value ();
 }
 
 DllExport int urho_hash_get_P_SOURCE ()
@@ -1863,19 +1414,54 @@ DllExport int urho_hash_get_P_SOURCE ()
 	return Urho3D::DragDropFinish::P_SOURCE.Value ();
 }
 
-DllExport int urho_hash_get_P_TOTALRESOURCES ()
+DllExport int urho_hash_get_P_OK ()
 {
-	return Urho3D::AsyncLoadProgress::P_TOTALRESOURCES.Value ();
+	return Urho3D::MessageACK::P_OK.Value ();
 }
 
-DllExport int urho_hash_get_P_JOYSTICKID ()
+DllExport int urho_hash_get_P_SCANCODE ()
 {
-	return Urho3D::JoystickHatMove::P_JOYSTICKID.Value ();
+	return Urho3D::KeyUp::P_SCANCODE.Value ();
 }
 
-DllExport int urho_hash_get_P_FULLSCREEN ()
+DllExport int urho_hash_get_P_WORLD ()
 {
-	return Urho3D::ScreenMode::P_FULLSCREEN.Value ();
+	return Urho3D::PhysicsEndContact2D::P_WORLD.Value ();
+}
+
+DllExport int urho_hash_get_P_RESOURCETYPE ()
+{
+	return Urho3D::UnknownResourceType::P_RESOURCETYPE.Value ();
+}
+
+DllExport int urho_hash_get_P_NAME ()
+{
+	return Urho3D::InterceptNetworkUpdate::P_NAME.Value ();
+}
+
+DllExport int urho_hash_get_P_VISIBLE ()
+{
+	return Urho3D::VisibleChanged::P_VISIBLE.Value ();
+}
+
+DllExport int urho_hash_get_P_HIGHDPI ()
+{
+	return Urho3D::ScreenMode::P_HIGHDPI.Value ();
+}
+
+DllExport int urho_hash_get_P_NODE ()
+{
+	return Urho3D::NodeCloned::P_NODE.Value ();
+}
+
+DllExport int urho_hash_get_P_CENTERY ()
+{
+	return Urho3D::MultiGesture::P_CENTERY.Value ();
+}
+
+DllExport int urho_hash_get_P_CROWD_AGENT ()
+{
+	return Urho3D::CrowdAgentNodeStateChanged::P_CROWD_AGENT.Value ();
 }
 
 DllExport int urho_hash_get_P_OBSTACLE ()
@@ -1883,54 +1469,9 @@ DllExport int urho_hash_get_P_OBSTACLE ()
 	return Urho3D::NavigationObstacleRemoved::P_OBSTACLE.Value ();
 }
 
-DllExport int urho_hash_get_P_TOUCHID ()
+DllExport int urho_hash_get_P_AXIS ()
 {
-	return Urho3D::TouchMove::P_TOUCHID.Value ();
-}
-
-DllExport int urho_hash_get_P_EXITCODE ()
-{
-	return Urho3D::AsyncExecFinished::P_EXITCODE.Value ();
-}
-
-DllExport int urho_hash_get_P_NUMFINGERS ()
-{
-	return Urho3D::MultiGesture::P_NUMFINGERS.Value ();
-}
-
-DllExport int urho_hash_get_P_CENTERX ()
-{
-	return Urho3D::MultiGesture::P_CENTERX.Value ();
-}
-
-DllExport int urho_hash_get_P_NODEA ()
-{
-	return Urho3D::PhysicsEndContact2D::P_NODEA.Value ();
-}
-
-DllExport int urho_hash_get_P_OK ()
-{
-	return Urho3D::MessageACK::P_OK.Value ();
-}
-
-DllExport int urho_hash_get_P_BODY ()
-{
-	return Urho3D::NodeCollisionEnd::P_BODY.Value ();
-}
-
-DllExport int urho_hash_get_P_RADIUS ()
-{
-	return Urho3D::NavigationObstacleRemoved::P_RADIUS.Value ();
-}
-
-DllExport int urho_hash_get_P_CONTACTS ()
-{
-	return Urho3D::NodeCollision::P_CONTACTS.Value ();
-}
-
-DllExport int urho_hash_get_P_TRIGGER ()
-{
-	return Urho3D::NodeCollisionEnd::P_TRIGGER.Value ();
+	return Urho3D::JoystickAxisMove::P_AXIS.Value ();
 }
 
 DllExport int urho_hash_get_P_TIMESTAMP ()
@@ -1938,14 +1479,539 @@ DllExport int urho_hash_get_P_TIMESTAMP ()
 	return Urho3D::InterceptNetworkUpdate::P_TIMESTAMP.Value ();
 }
 
+DllExport int urho_hash_get_P_OBJECTANIMATION ()
+{
+	return Urho3D::AttributeAnimationRemoved::P_OBJECTANIMATION.Value ();
+}
+
+DllExport int urho_hash_get_P_CLICKEDELEMENT ()
+{
+	return Urho3D::FocusChanged::P_CLICKEDELEMENT.Value ();
+}
+
+DllExport int urho_hash_get_P_Y ()
+{
+	return Urho3D::UIDropFile::P_Y.Value ();
+}
+
+DllExport int urho_hash_get_P_CENTERX ()
+{
+	return Urho3D::MultiGesture::P_CENTERX.Value ();
+}
+
+DllExport int urho_hash_get_P_OTHERNODE ()
+{
+	return Urho3D::NodeEndContact2D::P_OTHERNODE.Value ();
+}
+
+DllExport int urho_hash_get_P_FILTER ()
+{
+	return Urho3D::FileSelected::P_FILTER.Value ();
+}
+
+DllExport int urho_hash_get_P_CLONENODE ()
+{
+	return Urho3D::NodeCloned::P_CLONENODE.Value ();
+}
+
+DllExport int urho_hash_get_P_MODE ()
+{
+	return Urho3D::MouseModeChanged::P_MODE.Value ();
+}
+
+DllExport int urho_hash_get_P_TRIGGER ()
+{
+	return Urho3D::NodeCollisionEnd::P_TRIGGER.Value ();
+}
+
+DllExport int urho_hash_get_P_EXITCODE ()
+{
+	return Urho3D::AsyncExecFinished::P_EXITCODE.Value ();
+}
+
+DllExport int urho_hash_get_P_BEGINELEMENT ()
+{
+	return Urho3D::ClickEnd::P_BEGINELEMENT.Value ();
+}
+
+DllExport int urho_hash_get_P_SDLEVENT ()
+{
+	return Urho3D::SDLRawInput::P_SDLEVENT.Value ();
+}
+
+DllExport int urho_hash_get_P_ATTRIBUTEANIMATIONNAME ()
+{
+	return Urho3D::AttributeAnimationRemoved::P_ATTRIBUTEANIMATIONNAME.Value ();
+}
+
+DllExport int urho_hash_get_P_CROWD_TARGET_STATE ()
+{
+	return Urho3D::CrowdAgentNodeStateChanged::P_CROWD_TARGET_STATE.Value ();
+}
+
+DllExport int urho_hash_get_P_SOUNDSOURCE ()
+{
+	return Urho3D::SoundFinished::P_SOUNDSOURCE.Value ();
+}
+
+DllExport int urho_hash_get_P_DY ()
+{
+	return Urho3D::DragMove::P_DY.Value ();
+}
+
+DllExport int urho_hash_get_P_TEXTURE ()
+{
+	return Urho3D::EndViewRender::P_TEXTURE.Value ();
+}
+
+DllExport int urho_hash_get_P_ITEM ()
+{
+	return Urho3D::ItemDoubleClicked::P_ITEM.Value ();
+}
+
 DllExport int urho_hash_get_P_ANIMATION ()
 {
 	return Urho3D::AnimationFinished::P_ANIMATION.Value ();
 }
 
+DllExport int urho_hash_get_P_TIMESTEP ()
+{
+	return Urho3D::ScenePostUpdate::P_TIMESTEP.Value ();
+}
+
+DllExport int urho_hash_get_P_TOTALNODES ()
+{
+	return Urho3D::AsyncLoadProgress::P_TOTALNODES.Value ();
+}
+
+DllExport int urho_hash_get_P_NODEA ()
+{
+	return Urho3D::PhysicsEndContact2D::P_NODEA.Value ();
+}
+
+DllExport int urho_hash_get_P_SQUAREDSNAPTHRESHOLD ()
+{
+	return Urho3D::UpdateSmoothing::P_SQUAREDSNAPTHRESHOLD.Value ();
+}
+
+DllExport int urho_hash_get_P_RESOURCENAME ()
+{
+	return Urho3D::ResourceBackgroundLoaded::P_RESOURCENAME.Value ();
+}
+
+DllExport int urho_hash_get_P_NUMFINGERS ()
+{
+	return Urho3D::MultiGesture::P_NUMFINGERS.Value ();
+}
+
+DllExport int urho_hash_get_P_EFFECT ()
+{
+	return Urho3D::ParticleEffectFinished::P_EFFECT.Value ();
+}
+
+DllExport int urho_hash_get_P_ALLOW ()
+{
+	return Urho3D::ClientIdentity::P_ALLOW.Value ();
+}
+
+DllExport int urho_hash_get_P_PRESSURE ()
+{
+	return Urho3D::TouchMove::P_PRESSURE.Value ();
+}
+
+DllExport int urho_hash_get_P_NUMBUTTONS ()
+{
+	return Urho3D::DragCancel::P_NUMBUTTONS.Value ();
+}
+
+DllExport int urho_hash_get_P_SURFACE ()
+{
+	return Urho3D::EndViewRender::P_SURFACE.Value ();
+}
+
+DllExport int urho_hash_get_P_FILENAME ()
+{
+	return Urho3D::UIDropFile::P_FILENAME.Value ();
+}
+
+DllExport int urho_hash_get_P_SCENE ()
+{
+	return Urho3D::ComponentCloned::P_SCENE.Value ();
+}
+
+DllExport int urho_hash_get_P_COMMAND ()
+{
+	return Urho3D::ConsoleCommand::P_COMMAND.Value ();
+}
+
+DllExport int urho_hash_get_P_REPEAT ()
+{
+	return Urho3D::KeyDown::P_REPEAT.Value ();
+}
+
+DllExport int urho_hash_get_P_DATA ()
+{
+	return Urho3D::NetworkMessage::P_DATA.Value ();
+}
+
+DllExport int urho_hash_get_P_TIME ()
+{
+	return Urho3D::AnimationTrigger::P_TIME.Value ();
+}
+
+DllExport int urho_hash_get_P_RESIZABLE ()
+{
+	return Urho3D::ScreenMode::P_RESIZABLE.Value ();
+}
+
+DllExport int urho_hash_get_P_LOADEDRESOURCES ()
+{
+	return Urho3D::AsyncLoadProgress::P_LOADEDRESOURCES.Value ();
+}
+
+DllExport int urho_hash_get_P_TOTALRESOURCES ()
+{
+	return Urho3D::AsyncLoadProgress::P_TOTALRESOURCES.Value ();
+}
+
+DllExport int urho_hash_get_P_DTHETA ()
+{
+	return Urho3D::MultiGesture::P_DTHETA.Value ();
+}
+
+DllExport int urho_hash_get_P_MOUSELOCKED ()
+{
+	return Urho3D::MouseModeChanged::P_MOUSELOCKED.Value ();
+}
+
+DllExport int urho_hash_get_P_BODYA ()
+{
+	return Urho3D::PhysicsEndContact2D::P_BODYA.Value ();
+}
+
+DllExport int urho_hash_get_P_INDEX ()
+{
+	return Urho3D::InterceptNetworkUpdate::P_INDEX.Value ();
+}
+
+DllExport int urho_hash_get_P_NODEB ()
+{
+	return Urho3D::PhysicsEndContact2D::P_NODEB.Value ();
+}
+
+DllExport int urho_hash_get_P_TEXT ()
+{
+	return Urho3D::TextFinished::P_TEXT.Value ();
+}
+
+DllExport int urho_hash_get_P_CONTACTS ()
+{
+	return Urho3D::NodeCollision::P_CONTACTS.Value ();
+}
+
+DllExport int urho_hash_get_P_GESTUREID ()
+{
+	return Urho3D::GestureInput::P_GESTUREID.Value ();
+}
+
+DllExport int urho_hash_get_P_WIDTH ()
+{
+	return Urho3D::Resized::P_WIDTH.Value ();
+}
+
+DllExport int urho_hash_get_P_FULLSCREEN ()
+{
+	return Urho3D::ScreenMode::P_FULLSCREEN.Value ();
+}
+
+DllExport int urho_hash_get_P_BUTTON ()
+{
+	return Urho3D::ItemDoubleClicked::P_BUTTON.Value ();
+}
+
+DllExport int urho_hash_get_P_BOUNDSMIN ()
+{
+	return Urho3D::NavigationAreaRebuilt::P_BOUNDSMIN.Value ();
+}
+
+DllExport int urho_hash_get_P_SERIALIZABLE ()
+{
+	return Urho3D::InterceptNetworkUpdate::P_SERIALIZABLE.Value ();
+}
+
+DllExport int urho_hash_get_P_OTHERBODY ()
+{
+	return Urho3D::NodeEndContact2D::P_OTHERBODY.Value ();
+}
+
+DllExport int urho_hash_get_P_HEIGHT ()
+{
+	return Urho3D::Resized::P_HEIGHT.Value ();
+}
+
+DllExport int urho_hash_get_P_VIEW ()
+{
+	return Urho3D::EndViewRender::P_VIEW.Value ();
+}
+
+DllExport int urho_hash_get_P_ELEMENT ()
+{
+	return Urho3D::UIDropFile::P_ELEMENT.Value ();
+}
+
+DllExport int urho_hash_get_P_MODAL ()
+{
+	return Urho3D::ModalChanged::P_MODAL.Value ();
+}
+
+DllExport int urho_hash_get_P_ERROR ()
+{
+	return Urho3D::GestureInput::P_ERROR.Value ();
+}
+
+DllExport int urho_hash_get_P_ROOT ()
+{
+	return Urho3D::ElementRemoved::P_ROOT.Value ();
+}
+
+DllExport int urho_hash_get_P_BUTTONS ()
+{
+	return Urho3D::DragCancel::P_BUTTONS.Value ();
+}
+
+DllExport int urho_hash_get_P_POSITION ()
+{
+	return Urho3D::NavigationObstacleRemoved::P_POSITION.Value ();
+}
+
+DllExport int urho_hash_get_P_BOUNDSMAX ()
+{
+	return Urho3D::NavigationAreaRebuilt::P_BOUNDSMAX.Value ();
+}
+
+DllExport int urho_hash_get_P_CROWD_AGENT_STATE ()
+{
+	return Urho3D::CrowdAgentNodeStateChanged::P_CROWD_AGENT_STATE.Value ();
+}
+
+DllExport int urho_hash_get_P_RADIUS ()
+{
+	return Urho3D::NavigationObstacleRemoved::P_RADIUS.Value ();
+}
+
+DllExport int urho_hash_get_P_CLONECOMPONENT ()
+{
+	return Urho3D::ComponentCloned::P_CLONECOMPONENT.Value ();
+}
+
+DllExport int urho_hash_get_P_VALUE ()
+{
+	return Urho3D::TextFinished::P_VALUE.Value ();
+}
+
+DllExport int urho_hash_get_P_MESH ()
+{
+	return Urho3D::NavigationAreaRebuilt::P_MESH.Value ();
+}
+
+DllExport int urho_hash_get_P_COMPONENT ()
+{
+	return Urho3D::ComponentCloned::P_COMPONENT.Value ();
+}
+
+DllExport int urho_hash_get_P_BODY ()
+{
+	return Urho3D::NodeEndContact2D::P_BODY.Value ();
+}
+
+DllExport int urho_hash_get_P_DX ()
+{
+	return Urho3D::DragMove::P_DX.Value ();
+}
+
+DllExport int urho_hash_get_P_MESSAGEID ()
+{
+	return Urho3D::NetworkMessage::P_MESSAGEID.Value ();
+}
+
+DllExport int urho_hash_get_P_HAT ()
+{
+	return Urho3D::JoystickHatMove::P_HAT.Value ();
+}
+
+DllExport int urho_hash_get_P_JOYSTICKID ()
+{
+	return Urho3D::JoystickHatMove::P_JOYSTICKID.Value ();
+}
+
+DllExport int urho_hash_get_P_CONSUMED ()
+{
+	return Urho3D::SDLRawInput::P_CONSUMED.Value ();
+}
+
+DllExport int urho_hash_get_P_TOUCHID ()
+{
+	return Urho3D::TouchMove::P_TOUCHID.Value ();
+}
+
+DllExport int urho_hash_get_P_MESSAGE ()
+{
+	return Urho3D::LogMessage::P_MESSAGE.Value ();
+}
+
+DllExport int urho_hash_get_P_CAMERA ()
+{
+	return Urho3D::EndViewRender::P_CAMERA.Value ();
+}
+
+DllExport int urho_hash_get_P_LOADEDNODES ()
+{
+	return Urho3D::AsyncLoadProgress::P_LOADEDNODES.Value ();
+}
+
+DllExport int urho_hash_get_P_SELECTION ()
+{
+	return Urho3D::ItemDoubleClicked::P_SELECTION.Value ();
+}
+
+DllExport int urho_hash_get_P_ARRIVED ()
+{
+	return Urho3D::CrowdAgentNodeReposition::P_ARRIVED.Value ();
+}
+
 DllExport int urho_hash_get_P_RESOURCE ()
 {
 	return Urho3D::ResourceBackgroundLoaded::P_RESOURCE.Value ();
+}
+
+DllExport int urho_hash_get_P_FOCUS ()
+{
+	return Urho3D::InputFocus::P_FOCUS.Value ();
+}
+
+DllExport int urho_hash_get_P_SIZE ()
+{
+	return Urho3D::CrowdAgentNodeFormation::P_SIZE.Value ();
+}
+
+DllExport int urho_hash_get_P_FRAMENUMBER ()
+{
+	return Urho3D::BeginFrame::P_FRAMENUMBER.Value ();
+}
+
+DllExport int urho_hash_get_P_STATE ()
+{
+	return Urho3D::Toggled::P_STATE.Value ();
+}
+
+DllExport int urho_hash_get_P_DDIST ()
+{
+	return Urho3D::MultiGesture::P_DDIST.Value ();
+}
+
+DllExport int urho_hash_get_P_BYKEY ()
+{
+	return Urho3D::Focused::P_BYKEY.Value ();
+}
+
+DllExport int urho_hash_get_P_LEVEL ()
+{
+	return Urho3D::LogMessage::P_LEVEL.Value ();
+}
+
+DllExport int urho_hash_get_P_MINIMIZED ()
+{
+	return Urho3D::InputFocus::P_MINIMIZED.Value ();
+}
+
+DllExport int urho_hash_get_P_TARGET ()
+{
+	return Urho3D::DragDropFinish::P_TARGET.Value ();
+}
+
+DllExport int urho_hash_get_P_ELEMENTX ()
+{
+	return Urho3D::UIDropFile::P_ELEMENTX.Value ();
+}
+
+DllExport int urho_hash_get_P_X ()
+{
+	return Urho3D::UIDropFile::P_X.Value ();
+}
+
+DllExport int urho_hash_get_P_BODYB ()
+{
+	return Urho3D::PhysicsEndContact2D::P_BODYB.Value ();
+}
+
+DllExport int urho_hash_get_P_BORDERLESS ()
+{
+	return Urho3D::ScreenMode::P_BORDERLESS.Value ();
+}
+
+DllExport int urho_hash_get_P_ACCEPT ()
+{
+	return Urho3D::DragDropFinish::P_ACCEPT.Value ();
+}
+
+DllExport int urho_hash_get_P_OFFSET ()
+{
+	return Urho3D::SliderPaged::P_OFFSET.Value ();
+}
+
+DllExport int urho_hash_get_P_TAG ()
+{
+	return Urho3D::NodeTagRemoved::P_TAG.Value ();
+}
+
+DllExport int urho_hash_get_P_CONTACT ()
+{
+	return Urho3D::NodeEndContact2D::P_CONTACT.Value ();
+}
+
+DllExport int urho_hash_get_P_WHEEL ()
+{
+	return Urho3D::MouseWheel::P_WHEEL.Value ();
+}
+
+DllExport int urho_hash_get_P_REQUESTID ()
+{
+	return Urho3D::AsyncExecFinished::P_REQUESTID.Value ();
+}
+
+DllExport int urho_hash_get_P_CONNECTION ()
+{
+	return Urho3D::RemoteEventData::P_CONNECTION.Value ();
+}
+
+DllExport int urho_hash_get_P_KEY ()
+{
+	return Urho3D::UnhandledKey::P_KEY.Value ();
+}
+
+DllExport int urho_hash_get_P_PRESSED ()
+{
+	return Urho3D::SliderPaged::P_PRESSED.Value ();
+}
+
+DllExport int urho_hash_get_P_VELOCITY ()
+{
+	return Urho3D::CrowdAgentNodeStateChanged::P_VELOCITY.Value ();
+}
+
+DllExport int urho_hash_get_P_LOOPED ()
+{
+	return Urho3D::AnimationFinished::P_LOOPED.Value ();
+}
+
+DllExport int urho_hash_get_P_ID ()
+{
+	return Urho3D::ConsoleCommand::P_ID.Value ();
+}
+
+DllExport int urho_hash_get_P_ELEMENTY ()
+{
+	return Urho3D::UIDropFile::P_ELEMENTY.Value ();
 }
 
 }

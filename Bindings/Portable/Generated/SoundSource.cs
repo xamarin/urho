@@ -226,6 +226,18 @@ namespace Urho.Audio
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void SoundSource_SetAutoRemoveMode (IntPtr handle, AutoRemoveMode mode);
+
+		/// <summary>
+		/// / Set to remove either the sound source component or its owner node from the scene automatically on sound playback completion. Disabled by default.
+		/// </summary>
+		private void SetAutoRemoveMode (AutoRemoveMode mode)
+		{
+			Runtime.ValidateRefCounted (this);
+			SoundSource_SetAutoRemoveMode (handle, mode);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void SoundSource_SetPlayPosition (IntPtr handle, sbyte* pos);
 
 		/// <summary>
@@ -331,6 +343,18 @@ namespace Urho.Audio
 		{
 			Runtime.ValidateRefCounted (this);
 			return SoundSource_GetPanning (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern AutoRemoveMode SoundSource_GetAutoRemoveMode (IntPtr handle);
+
+		/// <summary>
+		/// Return automatic removal mode on sound playback completion.
+		/// </summary>
+		private AutoRemoveMode GetAutoRemoveMode ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return SoundSource_GetAutoRemoveMode (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -515,6 +539,20 @@ namespace Urho.Audio
 			}
 			set {
 				SetPanning (value);
+			}
+		}
+
+		/// <summary>
+		/// Return automatic removal mode on sound playback completion.
+		/// Or
+		/// / Set to remove either the sound source component or its owner node from the scene automatically on sound playback completion. Disabled by default.
+		/// </summary>
+		public AutoRemoveMode AutoRemoveMode {
+			get {
+				return GetAutoRemoveMode ();
+			}
+			set {
+				SetAutoRemoveMode (value);
 			}
 		}
 

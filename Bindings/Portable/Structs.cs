@@ -485,6 +485,10 @@ namespace Urho {
 		public IntPtr Buffer;
 	}
 
+	[StructLayout(LayoutKind.Sequential)]
+	public struct SDL_Event {
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct TextureFrame {
 	}

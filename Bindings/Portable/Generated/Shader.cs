@@ -121,7 +121,7 @@ namespace Urho
 		internal static extern IntPtr Shader_GetVariation (IntPtr handle, ShaderType type, string defines);
 
 		/// <summary>
-		/// Return a variation with defines.
+		/// Return a variation with defines. Separate multiple defines with spaces.
 		/// </summary>
 		public ShaderVariation GetVariation (ShaderType type, string defines)
 		{

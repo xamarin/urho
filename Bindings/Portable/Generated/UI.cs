@@ -359,27 +359,51 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UI_SetWidth (IntPtr handle, float size);
+		internal static extern void UI_SetWidth (IntPtr handle, float width);
 
 		/// <summary>
 		/// Scale %UI to the specified width in pixels.
 		/// </summary>
-		public void SetWidth (float size)
+		public void SetWidth (float width)
 		{
 			Runtime.ValidateRefCounted (this);
-			UI_SetWidth (handle, size);
+			UI_SetWidth (handle, width);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UI_SetHeight (IntPtr handle, float size);
+		internal static extern void UI_SetHeight (IntPtr handle, float height);
 
 		/// <summary>
 		/// Scale %UI to the specified height in pixels.
 		/// </summary>
-		public void SetHeight (float size)
+		public void SetHeight (float height)
 		{
 			Runtime.ValidateRefCounted (this);
-			UI_SetHeight (handle, size);
+			UI_SetHeight (handle, height);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UI_SetCustomSize (IntPtr handle, ref Urho.IntVector2 size);
+
+		/// <summary>
+		/// Set custom size of the root element. This disables automatic resizing of the root element according to window size. Set custom size 0,0 to return to automatic resizing.
+		/// </summary>
+		private void SetCustomSize (Urho.IntVector2 size)
+		{
+			Runtime.ValidateRefCounted (this);
+			UI_SetCustomSize (handle, ref size);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UI_SetCustomSize1 (IntPtr handle, int width, int height);
+
+		/// <summary>
+		/// Set custom size of the root element.
+		/// </summary>
+		public void SetCustomSize (int width, int height)
+		{
+			Runtime.ValidateRefCounted (this);
+			UI_SetCustomSize1 (handle, width, height);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -443,7 +467,7 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr UI_GetElementAt1 (IntPtr handle, int x, int y, bool enabledOnly);
+		internal static extern IntPtr UI_GetElementAt2 (IntPtr handle, int x, int y, bool enabledOnly);
 
 		/// <summary>
 		/// Return UI element at screen coordinates. By default returns only input-enabled elements.
@@ -451,7 +475,7 @@ namespace Urho.Gui
 		public UIElement GetElementAt (int x, int y, bool enabledOnly)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<UIElement> (UI_GetElementAt1 (handle, x, y, enabledOnly));
+			return Runtime.LookupObject<UIElement> (UI_GetElementAt2 (handle, x, y, enabledOnly));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -670,6 +694,18 @@ namespace Urho.Gui
 			return UI_GetScale (handle);
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.IntVector2 UI_GetCustomSize (IntPtr handle);
+
+		/// <summary>
+		/// Return root element custom size. Returns 0,0 when custom size is not being used and automatic resizing according to window size is in use instead (default.)
+		/// </summary>
+		private Urho.IntVector2 GetCustomSize ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UI_GetCustomSize (handle);
+		}
+
 		public override StringHash Type {
 			get {
 				return UrhoGetType ();
@@ -873,6 +909,20 @@ namespace Urho.Gui
 			}
 			set {
 				SetScale (value);
+			}
+		}
+
+		/// <summary>
+		/// Return root element custom size. Returns 0,0 when custom size is not being used and automatic resizing according to window size is in use instead (default.)
+		/// Or
+		/// Set custom size of the root element. This disables automatic resizing of the root element according to window size. Set custom size 0,0 to return to automatic resizing.
+		/// </summary>
+		public Urho.IntVector2 CustomSize {
+			get {
+				return GetCustomSize ();
+			}
+			set {
+				SetCustomSize (value);
 			}
 		}
 

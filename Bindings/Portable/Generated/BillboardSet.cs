@@ -190,6 +190,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void BillboardSet_SetMinAngle (IntPtr handle, float angle);
+
+		/// <summary>
+		/// Set minimal angle between billboard normal and look-at direction.
+		/// </summary>
+		private void SetMinAngle (float angle)
+		{
+			Runtime.ValidateRefCounted (this);
+			BillboardSet_SetMinAngle (handle, angle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void BillboardSet_SetAnimationLodBias (IntPtr handle, float bias);
 
 		/// <summary>
@@ -307,6 +319,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return BillboardSet_GetFaceCameraMode (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float BillboardSet_GetMinAngle (IntPtr handle);
+
+		/// <summary>
+		/// Return minimal angle between billboard normal and look-at direction.
+		/// </summary>
+		private float GetMinAngle ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return BillboardSet_GetMinAngle (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -461,6 +485,20 @@ namespace Urho
 			}
 			set {
 				SetFaceCameraMode (value);
+			}
+		}
+
+		/// <summary>
+		/// Return minimal angle between billboard normal and look-at direction.
+		/// Or
+		/// Set minimal angle between billboard normal and look-at direction.
+		/// </summary>
+		public float MinAngle {
+			get {
+				return GetMinAngle ();
+			}
+			set {
+				SetMinAngle (value);
 			}
 		}
 

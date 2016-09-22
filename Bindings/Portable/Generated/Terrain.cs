@@ -202,6 +202,66 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetNorthNeighbor (IntPtr handle, IntPtr north);
+
+		/// <summary>
+		/// Set north (positive Z) neighbor terrain for seamless LOD changes across terrains.
+		/// </summary>
+		private void SetNorthNeighbor (Terrain north)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetNorthNeighbor (handle, (object)north == null ? IntPtr.Zero : north.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetSouthNeighbor (IntPtr handle, IntPtr south);
+
+		/// <summary>
+		/// Set south (negative Z) neighbor terrain for seamless LOD changes across terrains.
+		/// </summary>
+		private void SetSouthNeighbor (Terrain south)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetSouthNeighbor (handle, (object)south == null ? IntPtr.Zero : south.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetWestNeighbor (IntPtr handle, IntPtr west);
+
+		/// <summary>
+		/// Set west (negative X) neighbor terrain for seamless LOD changes across terrains.
+		/// </summary>
+		private void SetWestNeighbor (Terrain west)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetWestNeighbor (handle, (object)west == null ? IntPtr.Zero : west.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetEastNeighbor (IntPtr handle, IntPtr east);
+
+		/// <summary>
+		/// Set east (positive X) neighbor terrain for seamless LOD changes across terrains.
+		/// </summary>
+		private void SetEastNeighbor (Terrain east)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetEastNeighbor (handle, (object)east == null ? IntPtr.Zero : east.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetNeighbors (IntPtr handle, IntPtr north, IntPtr south, IntPtr west, IntPtr east);
+
+		/// <summary>
+		/// Set all neighbor terrains at once.
+		/// </summary>
+		public void SetNeighbors (Terrain north, Terrain south, Terrain west, Terrain east)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetNeighbors (handle, (object)north == null ? IntPtr.Zero : north.Handle, (object)south == null ? IntPtr.Zero : south.Handle, (object)west == null ? IntPtr.Zero : west.Handle, (object)east == null ? IntPtr.Zero : east.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Terrain_SetDrawDistance (IntPtr handle, float distance);
 
 		/// <summary>
@@ -478,6 +538,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Terrain_GetNeighborPatch (IntPtr handle, int x, int z);
+
+		/// <summary>
+		/// Return patch by patch coordinates including neighbor terrains.
+		/// </summary>
+		public TerrainPatch GetNeighborPatch (int x, int z)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<TerrainPatch> (Terrain_GetNeighborPatch (handle, x, z));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern float Terrain_GetHeight (IntPtr handle, ref Urho.Vector3 worldPosition);
 
 		/// <summary>
@@ -511,6 +583,54 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Terrain_WorldToHeightMap (handle, ref worldPosition);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Terrain_GetNorthNeighbor (IntPtr handle);
+
+		/// <summary>
+		/// Return north neighbor terrain.
+		/// </summary>
+		private Terrain GetNorthNeighbor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Terrain> (Terrain_GetNorthNeighbor (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Terrain_GetSouthNeighbor (IntPtr handle);
+
+		/// <summary>
+		/// Return south neighbor terrain.
+		/// </summary>
+		private Terrain GetSouthNeighbor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Terrain> (Terrain_GetSouthNeighbor (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Terrain_GetWestNeighbor (IntPtr handle);
+
+		/// <summary>
+		/// Return west neighbor terrain.
+		/// </summary>
+		private Terrain GetWestNeighbor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Terrain> (Terrain_GetWestNeighbor (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Terrain_GetEastNeighbor (IntPtr handle);
+
+		/// <summary>
+		/// Return east neighbor terrain.
+		/// </summary>
+		private Terrain GetEastNeighbor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Terrain> (Terrain_GetEastNeighbor (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -846,6 +966,62 @@ namespace Urho
 			}
 			set {
 				SetMaterial (value);
+			}
+		}
+
+		/// <summary>
+		/// Return north neighbor terrain.
+		/// Or
+		/// Set north (positive Z) neighbor terrain for seamless LOD changes across terrains.
+		/// </summary>
+		public Terrain NorthNeighbor {
+			get {
+				return GetNorthNeighbor ();
+			}
+			set {
+				SetNorthNeighbor (value);
+			}
+		}
+
+		/// <summary>
+		/// Return south neighbor terrain.
+		/// Or
+		/// Set south (negative Z) neighbor terrain for seamless LOD changes across terrains.
+		/// </summary>
+		public Terrain SouthNeighbor {
+			get {
+				return GetSouthNeighbor ();
+			}
+			set {
+				SetSouthNeighbor (value);
+			}
+		}
+
+		/// <summary>
+		/// Return west neighbor terrain.
+		/// Or
+		/// Set west (negative X) neighbor terrain for seamless LOD changes across terrains.
+		/// </summary>
+		public Terrain WestNeighbor {
+			get {
+				return GetWestNeighbor ();
+			}
+			set {
+				SetWestNeighbor (value);
+			}
+		}
+
+		/// <summary>
+		/// Return east neighbor terrain.
+		/// Or
+		/// Set east (positive X) neighbor terrain for seamless LOD changes across terrains.
+		/// </summary>
+		public Terrain EastNeighbor {
+			get {
+				return GetEastNeighbor ();
+			}
+			set {
+				SetEastNeighbor (value);
 			}
 		}
 

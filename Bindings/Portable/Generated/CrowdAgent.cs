@@ -169,7 +169,7 @@ namespace Urho.Navigation
 		internal static extern void CrowdAgent_ResetTarget (IntPtr handle);
 
 		/// <summary>
-		/// Reset any target request for the specified agent.
+		/// Reset any target request for the specified agent. Note that the agent will continue to move into the current direction; set a zero target velocity to actually stop.
 		/// </summary>
 		public void ResetTarget ()
 		{

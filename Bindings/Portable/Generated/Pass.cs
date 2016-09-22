@@ -102,15 +102,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Pass_SetAlphaMask (IntPtr handle, bool enable);
+		internal static extern void Pass_SetAlphaToCoverage (IntPtr handle, bool enable);
 
 		/// <summary>
-		/// Set alpha masking hint. Completely opaque draw calls will be performed before alpha masked.
+		/// Set alpha-to-coverage on/off.
 		/// </summary>
-		private void SetAlphaMask (bool enable)
+		private void SetAlphaToCoverage (bool enable)
 		{
 			Runtime.ValidateRefCounted (this);
-			Pass_SetAlphaMask (handle, enable);
+			Pass_SetAlphaToCoverage (handle, enable);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -153,7 +153,7 @@ namespace Urho
 		internal static extern void Pass_SetVertexShaderDefines (IntPtr handle, string defines);
 
 		/// <summary>
-		/// Set vertex shader defines.
+		/// Set vertex shader defines. Separate multiple defines with spaces.
 		/// </summary>
 		private void SetVertexShaderDefines (string defines)
 		{
@@ -165,12 +165,36 @@ namespace Urho
 		internal static extern void Pass_SetPixelShaderDefines (IntPtr handle, string defines);
 
 		/// <summary>
-		/// Set pixel shader defines.
+		/// Set pixel shader defines. Separate multiple defines with spaces.
 		/// </summary>
 		private void SetPixelShaderDefines (string defines)
 		{
 			Runtime.ValidateRefCounted (this);
 			Pass_SetPixelShaderDefines (handle, defines);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Pass_SetVertexShaderDefineExcludes (IntPtr handle, string excludes);
+
+		/// <summary>
+		/// Set vertex shader define excludes. Use to mark defines that the shader code will not recognize, to prevent compiling redundant shader variations.
+		/// </summary>
+		private void SetVertexShaderDefineExcludes (string excludes)
+		{
+			Runtime.ValidateRefCounted (this);
+			Pass_SetVertexShaderDefineExcludes (handle, excludes);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Pass_SetPixelShaderDefineExcludes (IntPtr handle, string excludes);
+
+		/// <summary>
+		/// Set pixel shader define excludes. Use to mark defines that the shader code will not recognize, to prevent compiling redundant shader variations.
+		/// </summary>
+		private void SetPixelShaderDefineExcludes (string excludes)
+		{
+			Runtime.ValidateRefCounted (this);
+			Pass_SetPixelShaderDefineExcludes (handle, excludes);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -294,15 +318,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Pass_GetAlphaMask (IntPtr handle);
+		internal static extern bool Pass_GetAlphaToCoverage (IntPtr handle);
 
 		/// <summary>
-		/// Return alpha masking hint.
+		/// Return alpha-to-coverage mode.
 		/// </summary>
-		private bool GetAlphaMask ()
+		private bool GetAlphaToCoverage ()
 		{
 			Runtime.ValidateRefCounted (this);
-			return Pass_GetAlphaMask (handle);
+			return Pass_GetAlphaToCoverage (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -363,6 +387,54 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Marshal.PtrToStringAnsi (Pass_GetPixelShaderDefines (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Pass_GetVertexShaderDefineExcludes (IntPtr handle);
+
+		/// <summary>
+		/// Return vertex shader define excludes.
+		/// </summary>
+		private string GetVertexShaderDefineExcludes ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Marshal.PtrToStringAnsi (Pass_GetVertexShaderDefineExcludes (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Pass_GetPixelShaderDefineExcludes (IntPtr handle);
+
+		/// <summary>
+		/// Return pixel shader define excludes.
+		/// </summary>
+		private string GetPixelShaderDefineExcludes ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Marshal.PtrToStringAnsi (Pass_GetPixelShaderDefineExcludes (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Pass_GetEffectiveVertexShaderDefines (IntPtr handle);
+
+		/// <summary>
+		/// Return the effective vertex shader defines, accounting for excludes. Called internally by Renderer.
+		/// </summary>
+		private string GetEffectiveVertexShaderDefines ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Marshal.PtrToStringAnsi (Pass_GetEffectiveVertexShaderDefines (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Pass_GetEffectivePixelShaderDefines (IntPtr handle);
+
+		/// <summary>
+		/// Return the effective pixel shader defines, accounting for excludes. Called internally by Renderer.
+		/// </summary>
+		private string GetEffectivePixelShaderDefines ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Marshal.PtrToStringAnsi (Pass_GetEffectivePixelShaderDefines (handle));
 		}
 
 		/// <summary>
@@ -436,16 +508,16 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return alpha masking hint.
+		/// Return alpha-to-coverage mode.
 		/// Or
-		/// Set alpha masking hint. Completely opaque draw calls will be performed before alpha masked.
+		/// Set alpha-to-coverage on/off.
 		/// </summary>
-		public bool AlphaMask {
+		public bool AlphaToCoverage {
 			get {
-				return GetAlphaMask ();
+				return GetAlphaToCoverage ();
 			}
 			set {
-				SetAlphaMask (value);
+				SetAlphaToCoverage (value);
 			}
 		}
 
@@ -480,7 +552,7 @@ namespace Urho
 		/// <summary>
 		/// Return vertex shader defines.
 		/// Or
-		/// Set vertex shader defines.
+		/// Set vertex shader defines. Separate multiple defines with spaces.
 		/// </summary>
 		public string VertexShaderDefines {
 			get {
@@ -494,7 +566,7 @@ namespace Urho
 		/// <summary>
 		/// Return pixel shader defines.
 		/// Or
-		/// Set pixel shader defines.
+		/// Set pixel shader defines. Separate multiple defines with spaces.
 		/// </summary>
 		public string PixelShaderDefines {
 			get {
@@ -502,6 +574,34 @@ namespace Urho
 			}
 			set {
 				SetPixelShaderDefines (value);
+			}
+		}
+
+		/// <summary>
+		/// Return vertex shader define excludes.
+		/// Or
+		/// Set vertex shader define excludes. Use to mark defines that the shader code will not recognize, to prevent compiling redundant shader variations.
+		/// </summary>
+		public string VertexShaderDefineExcludes {
+			get {
+				return GetVertexShaderDefineExcludes ();
+			}
+			set {
+				SetVertexShaderDefineExcludes (value);
+			}
+		}
+
+		/// <summary>
+		/// Return pixel shader define excludes.
+		/// Or
+		/// Set pixel shader define excludes. Use to mark defines that the shader code will not recognize, to prevent compiling redundant shader variations.
+		/// </summary>
+		public string PixelShaderDefineExcludes {
+			get {
+				return GetPixelShaderDefineExcludes ();
+			}
+			set {
+				SetPixelShaderDefineExcludes (value);
 			}
 		}
 
@@ -538,6 +638,24 @@ namespace Urho
 		public bool Desktop {
 			get {
 				return IsDesktop ();
+			}
+		}
+
+		/// <summary>
+		/// Return the effective vertex shader defines, accounting for excludes. Called internally by Renderer.
+		/// </summary>
+		public string EffectiveVertexShaderDefines {
+			get {
+				return GetEffectiveVertexShaderDefines ();
+			}
+		}
+
+		/// <summary>
+		/// Return the effective pixel shader defines, accounting for excludes. Called internally by Renderer.
+		/// </summary>
+		public string EffectivePixelShaderDefines {
+			get {
+				return GetEffectivePixelShaderDefines ();
 			}
 		}
 	}

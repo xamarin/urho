@@ -133,7 +133,7 @@ namespace Urho
 		internal static extern IntPtr Profiler_PrintData (IntPtr handle, bool showUnused, bool showTotal, uint maxDepth);
 
 		/// <summary>
-		/// Return profiling data as text output.
+		/// Return profiling data as text output. This method is not thread-safe.
 		/// </summary>
 		public string PrintData (bool showUnused, bool showTotal, uint maxDepth)
 		{

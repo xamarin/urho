@@ -23,7 +23,7 @@ namespace Urho
 	/// </summary>
 	public enum PassLightingMode
 	{
-		Unlit,
+		Unlit = 0,
 		Pervertex,
 		Perpixel
 	}

@@ -117,7 +117,7 @@ sub mapType {
     my ($pt) = @_;
     ($t,$st) = split (/ /, $pt);
     if ($st eq "pointer"){
-        return "IntPtr" if $t eq "b2Contact";
+	return "IntPtr" if $t eq "b2Contact";
 	return "$t";
     }
     if ($st eq "ptr"){
@@ -128,6 +128,7 @@ sub mapType {
     return "bool" if $t eq "Bool";
     return "float" if $t eq "Float";
     return "IntPtr" if $t eq "User-defined";
+    return "IntPtr" if $t eq "SDL_Event";
     return "CollisionData []" if $pt eq "Buffer containing";
     return "byte []" if $t eq "Buffer";
     return $t;

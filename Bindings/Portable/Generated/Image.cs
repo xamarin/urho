@@ -517,7 +517,7 @@ namespace Urho.Resources
 		internal static extern uint Image_GetNumCompressedLevels (IntPtr handle);
 
 		/// <summary>
-		/// Return number of compressed mip levels.
+		/// Return number of compressed mip levels. Returns 0 if the image is has not been loaded from a source file containing multiple mip levels.
 		/// </summary>
 		private uint GetNumCompressedLevels ()
 		{
@@ -529,7 +529,7 @@ namespace Urho.Resources
 		internal static extern IntPtr Image_GetNextLevel (IntPtr handle);
 
 		/// <summary>
-		/// Return next mip level by bilinear filtering.
+		/// Return next mip level by bilinear filtering. Note that if the image is already 1x1x1, will keep returning an image of that size.
 		/// </summary>
 		private Image GetNextLevel ()
 		{
@@ -595,6 +595,18 @@ namespace Urho.Resources
 		{
 			Runtime.ValidateRefCounted (this);
 			Image_PrecalculateLevels (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Image_CleanupLevels (IntPtr handle);
+
+		/// <summary>
+		/// Clean up the mip levels.
+		/// </summary>
+		public void CleanupLevels ()
+		{
+			Runtime.ValidateRefCounted (this);
+			Image_CleanupLevels (handle);
 		}
 
 		public override StringHash Type {
@@ -712,7 +724,7 @@ namespace Urho.Resources
 		}
 
 		/// <summary>
-		/// Return number of compressed mip levels.
+		/// Return number of compressed mip levels. Returns 0 if the image is has not been loaded from a source file containing multiple mip levels.
 		/// </summary>
 		public uint NumCompressedLevels {
 			get {
@@ -721,7 +733,7 @@ namespace Urho.Resources
 		}
 
 		/// <summary>
-		/// Return next mip level by bilinear filtering.
+		/// Return next mip level by bilinear filtering. Note that if the image is already 1x1x1, will keep returning an image of that size.
 		/// </summary>
 		public Image NextLevel {
 			get {

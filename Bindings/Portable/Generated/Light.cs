@@ -142,6 +142,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetTemperature (IntPtr handle, float temperature);
+
+		/// <summary>
+		/// Set temperature of the light in Kelvin. Modulates the light color when "use physical values" is enabled.
+		/// </summary>
+		private void SetTemperature (float temperature)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetTemperature (handle, temperature);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetUsePhysicalValues (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set use physical light values.
+		/// </summary>
+		private void SetUsePhysicalValues (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetUsePhysicalValues (handle, enable);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Light_SetSpecularIntensity (IntPtr handle, float intensity);
 
 		/// <summary>
@@ -157,7 +181,7 @@ namespace Urho
 		internal static extern void Light_SetBrightness (IntPtr handle, float brightness);
 
 		/// <summary>
-		/// Set light brightness multiplier. Both the color and specular intensity are multiplied with this to get final values for rendering.
+		/// Set light brightness multiplier. Both the color and specular intensity are multiplied with this. When "use physical values" is enabled, the value is specified in lumens.
 		/// </summary>
 		private void SetBrightness (float brightness)
 		{
@@ -289,12 +313,24 @@ namespace Urho
 		internal static extern void Light_SetShadowNearFarRatio (IntPtr handle, float nearFarRatio);
 
 		/// <summary>
-		/// Set shadow camera near/far clip distance ratio.
+		/// Set shadow camera near/far clip distance ratio for spot and point lights. Does not affect directional lights, since they are orthographic and have near clip 0.
 		/// </summary>
 		private void SetShadowNearFarRatio (float nearFarRatio)
 		{
 			Runtime.ValidateRefCounted (this);
 			Light_SetShadowNearFarRatio (handle, nearFarRatio);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowMaxExtrusion (IntPtr handle, float extrusion);
+
+		/// <summary>
+		/// Set maximum shadow extrusion for directional lights. The actual extrusion will be the smaller of this and camera far clip. Default 1000.
+		/// </summary>
+		private void SetShadowMaxExtrusion (float extrusion)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowMaxExtrusion (handle, extrusion);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -358,6 +394,42 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetTemperature (IntPtr handle);
+
+		/// <summary>
+		/// Return the temperature of the light in Kelvin.
+		/// </summary>
+		private float GetTemperature ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetTemperature (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Light_GetUsePhysicalValues (IntPtr handle);
+
+		/// <summary>
+		/// Return if light uses temperature and brightness in lumens.
+		/// </summary>
+		private bool GetUsePhysicalValues ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetUsePhysicalValues (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Color Light_GetColorFromTemperature (IntPtr handle);
+
+		/// <summary>
+		/// Return the color value of the temperature in Kelvin.
+		/// </summary>
+		private Color GetColorFromTemperature ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetColorFromTemperature (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern float Light_GetSpecularIntensity (IntPtr handle);
 
 		/// <summary>
@@ -373,7 +445,7 @@ namespace Urho
 		internal static extern float Light_GetBrightness (IntPtr handle);
 
 		/// <summary>
-		/// Return brightness multiplier.
+		/// Return brightness multiplier. Specified in lumens when "use physical values" is enabled.
 		/// </summary>
 		private float GetBrightness ()
 		{
@@ -385,7 +457,7 @@ namespace Urho
 		internal static extern Color Light_GetEffectiveColor (IntPtr handle);
 
 		/// <summary>
-		/// Return effective color, multiplied by brightness. Do not multiply the alpha so that can compare against the default black color to detect a light with no effect.
+		/// Return effective color, multiplied by brightness and affected by temperature when "use physical values" is enabled. Alpha is always 1 so that can compare against the default black color to detect a light with no effect.
 		/// </summary>
 		private Color GetEffectiveColor ()
 		{
@@ -535,6 +607,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Light_GetShadowNearFarRatio (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetShadowMaxExtrusion (IntPtr handle);
+
+		/// <summary>
+		/// Return maximum shadow extrusion distance for directional lights.
+		/// </summary>
+		private float GetShadowMaxExtrusion ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowMaxExtrusion (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -784,6 +868,34 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return the temperature of the light in Kelvin.
+		/// Or
+		/// Set temperature of the light in Kelvin. Modulates the light color when "use physical values" is enabled.
+		/// </summary>
+		public float Temperature {
+			get {
+				return GetTemperature ();
+			}
+			set {
+				SetTemperature (value);
+			}
+		}
+
+		/// <summary>
+		/// Return if light uses temperature and brightness in lumens.
+		/// Or
+		/// Set use physical light values.
+		/// </summary>
+		public bool UsePhysicalValues {
+			get {
+				return GetUsePhysicalValues ();
+			}
+			set {
+				SetUsePhysicalValues (value);
+			}
+		}
+
+		/// <summary>
 		/// Return specular intensity.
 		/// Or
 		/// Set specular intensity. Zero disables specular calculations.
@@ -798,9 +910,9 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return brightness multiplier.
+		/// Return brightness multiplier. Specified in lumens when "use physical values" is enabled.
 		/// Or
-		/// Set light brightness multiplier. Both the color and specular intensity are multiplied with this to get final values for rendering.
+		/// Set light brightness multiplier. Both the color and specular intensity are multiplied with this. When "use physical values" is enabled, the value is specified in lumens.
 		/// </summary>
 		public float Brightness {
 			get {
@@ -954,7 +1066,7 @@ namespace Urho
 		/// <summary>
 		/// Return shadow camera near/far clip distance ratio.
 		/// Or
-		/// Set shadow camera near/far clip distance ratio.
+		/// Set shadow camera near/far clip distance ratio for spot and point lights. Does not affect directional lights, since they are orthographic and have near clip 0.
 		/// </summary>
 		public float ShadowNearFarRatio {
 			get {
@@ -962,6 +1074,20 @@ namespace Urho
 			}
 			set {
 				SetShadowNearFarRatio (value);
+			}
+		}
+
+		/// <summary>
+		/// Return maximum shadow extrusion distance for directional lights.
+		/// Or
+		/// Set maximum shadow extrusion for directional lights. The actual extrusion will be the smaller of this and camera far clip. Default 1000.
+		/// </summary>
+		public float ShadowMaxExtrusion {
+			get {
+				return GetShadowMaxExtrusion ();
+			}
+			set {
+				SetShadowMaxExtrusion (value);
 			}
 		}
 
@@ -994,7 +1120,16 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return effective color, multiplied by brightness. Do not multiply the alpha so that can compare against the default black color to detect a light with no effect.
+		/// Return the color value of the temperature in Kelvin.
+		/// </summary>
+		public Color ColorFromTemperature {
+			get {
+				return GetColorFromTemperature ();
+			}
+		}
+
+		/// <summary>
+		/// Return effective color, multiplied by brightness and affected by temperature when "use physical values" is enabled. Alpha is always 1 so that can compare against the default black color to detect a light with no effect.
 		/// </summary>
 		public Color EffectiveColor {
 			get {

@@ -169,7 +169,7 @@ namespace Urho
 		internal static extern void Renderer_SetTextureAnisotropy (IntPtr handle, int level);
 
 		/// <summary>
-		/// Set texture anisotropy.
+		/// Set default texture max anisotropy level.
 		/// </summary>
 		private void SetTextureAnisotropy (int level)
 		{
@@ -181,7 +181,7 @@ namespace Urho
 		internal static extern void Renderer_SetTextureFilterMode (IntPtr handle, TextureFilterMode mode);
 
 		/// <summary>
-		/// Set texture filtering.
+		/// Set default texture filtering.
 		/// </summary>
 		private void SetTextureFilterMode (TextureFilterMode mode)
 		{
@@ -541,7 +541,7 @@ namespace Urho
 		internal static extern int Renderer_GetTextureAnisotropy (IntPtr handle);
 
 		/// <summary>
-		/// Return texture anisotropy.
+		/// Return default texture max. anisotropy level.
 		/// </summary>
 		private int GetTextureAnisotropy ()
 		{
@@ -553,7 +553,7 @@ namespace Urho
 		internal static extern TextureFilterMode Renderer_GetTextureFilterMode (IntPtr handle);
 
 		/// <summary>
-		/// Return texture filtering.
+		/// Return default texture filtering mode.
 		/// </summary>
 		private TextureFilterMode GetTextureFilterMode ()
 		{
@@ -1304,9 +1304,9 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return texture anisotropy.
+		/// Return default texture max. anisotropy level.
 		/// Or
-		/// Set texture anisotropy.
+		/// Set default texture max anisotropy level.
 		/// </summary>
 		public int TextureAnisotropy {
 			get {
@@ -1318,9 +1318,9 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return texture filtering.
+		/// Return default texture filtering mode.
 		/// Or
-		/// Set texture filtering.
+		/// Set default texture filtering.
 		/// </summary>
 		public TextureFilterMode TextureFilterMode {
 			get {

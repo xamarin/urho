@@ -19,7 +19,7 @@ using Urho.Network;
 namespace Urho
 {
 	/// <summary>
-	/// Shadow type
+	/// Shadow type.
 	/// </summary>
 	public enum ShadowQuality
 	{

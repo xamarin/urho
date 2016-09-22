@@ -3245,6 +3245,13 @@ SoundSource_SetPanning (Urho3D::SoundSource *_target, float panning)
 
 
 DllExport void
+SoundSource_SetAutoRemoveMode (Urho3D::SoundSource *_target, enum Urho3D::AutoRemoveMode mode)
+{
+	_target->SetAutoRemoveMode (mode);
+}
+
+
+DllExport void
 SoundSource_SetPlayPosition (Urho3D::SoundSource *_target, signed char * pos)
 {
 	_target->SetPlayPosition (pos);
@@ -3304,6 +3311,13 @@ DllExport float
 SoundSource_GetPanning (Urho3D::SoundSource *_target)
 {
 	return _target->GetPanning ();
+}
+
+
+DllExport enum Urho3D::AutoRemoveMode
+SoundSource_GetAutoRemoveMode (Urho3D::SoundSource *_target)
+{
+	return _target->GetAutoRemoveMode ();
 }
 
 
@@ -5182,6 +5196,13 @@ DllExport void
 Node_RemoveAllComponents (Urho3D::Node *_target)
 {
 	_target->RemoveAllComponents ();
+}
+
+
+DllExport void
+Node_ReorderComponent (Urho3D::Node *_target, Urho3D::Component * component, unsigned int index)
+{
+	_target->ReorderComponent (component, index);
 }
 
 
@@ -7719,6 +7740,13 @@ Texture_SetAddressMode (Urho3D::Texture *_target, enum Urho3D::TextureCoordinate
 
 
 DllExport void
+Texture_SetAnisotropy (Urho3D::Texture *_target, unsigned int level)
+{
+	_target->SetAnisotropy (level);
+}
+
+
+DllExport void
 Texture_SetShadowCompare (Urho3D::Texture *_target, bool enable)
 {
 	_target->SetShadowCompare (enable);
@@ -7806,6 +7834,13 @@ DllExport enum Urho3D::TextureAddressMode
 Texture_GetAddressMode (Urho3D::Texture *_target, enum Urho3D::TextureCoordinate coord)
 {
 	return _target->GetAddressMode (coord);
+}
+
+
+DllExport unsigned int
+Texture_GetAnisotropy (Urho3D::Texture *_target)
+{
+	return _target->GetAnisotropy ();
 }
 
 
@@ -8041,6 +8076,20 @@ Light_SetColor (Urho3D::Light *_target, const class Urho3D::Color & color)
 
 
 DllExport void
+Light_SetTemperature (Urho3D::Light *_target, float temperature)
+{
+	_target->SetTemperature (temperature);
+}
+
+
+DllExport void
+Light_SetUsePhysicalValues (Urho3D::Light *_target, bool enable)
+{
+	_target->SetUsePhysicalValues (enable);
+}
+
+
+DllExport void
 Light_SetSpecularIntensity (Urho3D::Light *_target, float intensity)
 {
 	_target->SetSpecularIntensity (intensity);
@@ -8132,6 +8181,13 @@ Light_SetShadowNearFarRatio (Urho3D::Light *_target, float nearFarRatio)
 
 
 DllExport void
+Light_SetShadowMaxExtrusion (Urho3D::Light *_target, float extrusion)
+{
+	_target->SetShadowMaxExtrusion (extrusion);
+}
+
+
+DllExport void
 Light_SetRampTexture (Urho3D::Light *_target, Urho3D::Texture * texture)
 {
 	_target->SetRampTexture (texture);
@@ -8163,6 +8219,27 @@ DllExport Interop::Color
 Light_GetColor (Urho3D::Light *_target)
 {
 	return *((Interop::Color  *) &(_target->GetColor ()));
+}
+
+
+DllExport float
+Light_GetTemperature (Urho3D::Light *_target)
+{
+	return _target->GetTemperature ();
+}
+
+
+DllExport int
+Light_GetUsePhysicalValues (Urho3D::Light *_target)
+{
+	return _target->GetUsePhysicalValues ();
+}
+
+
+DllExport Interop::Color 
+Light_GetColorFromTemperature (Urho3D::Light *_target)
+{
+	return *((Interop::Color  *) &(_target->GetColorFromTemperature ()));
 }
 
 
@@ -8268,6 +8345,13 @@ DllExport float
 Light_GetShadowNearFarRatio (Urho3D::Light *_target)
 {
 	return _target->GetShadowNearFarRatio ();
+}
+
+
+DllExport float
+Light_GetShadowMaxExtrusion (Urho3D::Light *_target)
+{
+	return _target->GetShadowMaxExtrusion ();
 }
 
 
@@ -8481,6 +8565,20 @@ Material_SetTechnique (Urho3D::Material *_target, unsigned int index, Urho3D::Te
 }
 
 
+DllExport void
+Material_SetVertexShaderDefines (Urho3D::Material *_target, const char * defines)
+{
+	_target->SetVertexShaderDefines (Urho3D::String(defines));
+}
+
+
+DllExport void
+Material_SetPixelShaderDefines (Urho3D::Material *_target, const char * defines)
+{
+	_target->SetPixelShaderDefines (Urho3D::String(defines));
+}
+
+
 // Urho3D::Variant overloads begin:
 DllExport void
 Material_SetShaderParameter0 (Urho3D::Material *_target, const char * name, const class Urho3D::Vector3 & value)
@@ -8626,9 +8724,23 @@ Material_SetDepthBias (Urho3D::Material *_target, const struct Urho3D::BiasParam
 
 
 DllExport void
+Material_SetAlphaToCoverage (Urho3D::Material *_target, bool enable)
+{
+	_target->SetAlphaToCoverage (enable);
+}
+
+
+DllExport void
 Material_SetRenderOrder (Urho3D::Material *_target, unsigned char order)
 {
 	_target->SetRenderOrder (order);
+}
+
+
+DllExport void
+Material_SetOcclusion (Urho3D::Material *_target, bool enable)
+{
+	_target->SetOcclusion (enable);
 }
 
 
@@ -8703,6 +8815,20 @@ DllExport Urho3D::Texture *
 Material_GetTexture (Urho3D::Material *_target, enum Urho3D::TextureUnit unit)
 {
 	return _target->GetTexture (unit);
+}
+
+
+DllExport const char *
+Material_GetVertexShaderDefines (Urho3D::Material *_target)
+{
+	return stringdup((_target->GetVertexShaderDefines ()).CString ());
+}
+
+
+DllExport const char *
+Material_GetPixelShaderDefines (Urho3D::Material *_target)
+{
+	return stringdup((_target->GetPixelShaderDefines ()).CString ());
 }
 
 
@@ -8826,6 +8952,13 @@ DllExport const struct Urho3D::BiasParameters &
 Material_GetDepthBias (Urho3D::Material *_target)
 {
 	return _target->GetDepthBias ();
+}
+
+
+DllExport int
+Material_GetAlphaToCoverage (Urho3D::Material *_target)
+{
+	return _target->GetAlphaToCoverage ();
 }
 
 
@@ -8984,6 +9117,13 @@ BillboardSet_SetFaceCameraMode (Urho3D::BillboardSet *_target, enum Urho3D::Face
 
 
 DllExport void
+BillboardSet_SetMinAngle (Urho3D::BillboardSet *_target, float angle)
+{
+	_target->SetMinAngle (angle);
+}
+
+
+DllExport void
 BillboardSet_SetAnimationLodBias (Urho3D::BillboardSet *_target, float bias)
 {
 	_target->SetAnimationLodBias (bias);
@@ -9050,6 +9190,13 @@ DllExport enum Urho3D::FaceCameraMode
 BillboardSet_GetFaceCameraMode (Urho3D::BillboardSet *_target)
 {
 	return _target->GetFaceCameraMode ();
+}
+
+
+DllExport float
+BillboardSet_GetMinAngle (Urho3D::BillboardSet *_target)
+{
+	return _target->GetMinAngle ();
 }
 
 
@@ -9263,6 +9410,13 @@ Camera_SetFlipVertical (Urho3D::Camera *_target, bool enable)
 }
 
 
+DllExport void
+Camera_SetProjection (Urho3D::Camera *_target, const class Urho3D::Matrix4 & projection)
+{
+	_target->SetProjection (projection);
+}
+
+
 DllExport float
 Camera_GetFarClip (Urho3D::Camera *_target)
 {
@@ -9281,13 +9435,6 @@ DllExport float
 Camera_GetSkew (Urho3D::Camera *_target)
 {
 	return _target->GetSkew ();
-}
-
-
-DllExport Interop::Vector2 
-Camera_GetProjectionCenter (Urho3D::Camera *_target)
-{
-	return *((Interop::Vector2  *) &(_target->GetProjectionCenter ()));
 }
 
 
@@ -9369,9 +9516,9 @@ Camera_GetProjection (Urho3D::Camera *_target)
 
 
 DllExport Interop::Matrix4 
-Camera_GetProjection1 (Urho3D::Camera *_target, bool apiSpecific)
+Camera_GetGPUProjection (Urho3D::Camera *_target)
 {
-	return *((Interop::Matrix4  *) &(_target->GetProjection (apiSpecific)));
+	return *((Interop::Matrix4  *) &(_target->GetGPUProjection ()));
 }
 
 
@@ -9502,9 +9649,9 @@ Camera_GetLodDistance (Urho3D::Camera *_target, float distance, float scale, flo
 
 
 DllExport Interop::Quaternion 
-Camera_GetFaceCameraRotation (Urho3D::Camera *_target, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::FaceCameraMode mode)
+Camera_GetFaceCameraRotation (Urho3D::Camera *_target, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::FaceCameraMode mode, float minAngle)
 {
-	return *((Interop::Quaternion  *) &(_target->GetFaceCameraRotation (position, rotation, mode)));
+	return *((Interop::Quaternion  *) &(_target->GetFaceCameraRotation (position, rotation, mode, minAngle)));
 }
 
 
@@ -10801,6 +10948,13 @@ Image_PrecalculateLevels (Urho3D::Image *_target)
 }
 
 
+DllExport void
+Image_CleanupLevels (Urho3D::Image *_target)
+{
+	_target->CleanupLevels ();
+}
+
+
 DllExport int
 Graphics_GetType (Urho3D::Graphics *_target)
 {
@@ -11131,6 +11285,13 @@ Graphics_SetTexture (Urho3D::Graphics *_target, unsigned int index, Urho3D::Text
 
 
 DllExport void
+Graphics_SetTextureParametersDirty (Urho3D::Graphics *_target)
+{
+	_target->SetTextureParametersDirty ();
+}
+
+
+DllExport void
 Graphics_SetDefaultTextureFilterMode (Urho3D::Graphics *_target, enum Urho3D::TextureFilterMode mode)
 {
 	_target->SetDefaultTextureFilterMode (mode);
@@ -11138,16 +11299,9 @@ Graphics_SetDefaultTextureFilterMode (Urho3D::Graphics *_target, enum Urho3D::Te
 
 
 DllExport void
-Graphics_SetTextureAnisotropy (Urho3D::Graphics *_target, unsigned int level)
+Graphics_SetDefaultTextureAnisotropy (Urho3D::Graphics *_target, unsigned int level)
 {
-	_target->SetTextureAnisotropy (level);
-}
-
-
-DllExport void
-Graphics_SetTextureParametersDirty (Urho3D::Graphics *_target)
-{
-	_target->SetTextureParametersDirty ();
+	_target->SetDefaultTextureAnisotropy (level);
 }
 
 
@@ -11208,9 +11362,9 @@ Graphics_SetViewport (Urho3D::Graphics *_target, const class Urho3D::IntRect & r
 
 
 DllExport void
-Graphics_SetBlendMode (Urho3D::Graphics *_target, enum Urho3D::BlendMode mode)
+Graphics_SetBlendMode (Urho3D::Graphics *_target, enum Urho3D::BlendMode mode, bool alphaToCoverage)
 {
-	_target->SetBlendMode (mode);
+	_target->SetBlendMode (mode, alphaToCoverage);
 }
 
 
@@ -11606,6 +11760,13 @@ Graphics_GetDefaultTextureFilterMode (Urho3D::Graphics *_target)
 }
 
 
+DllExport unsigned int
+Graphics_GetDefaultTextureAnisotropy (Urho3D::Graphics *_target)
+{
+	return _target->GetDefaultTextureAnisotropy ();
+}
+
+
 DllExport Urho3D::RenderSurface *
 Graphics_GetRenderTarget (Urho3D::Graphics *_target, unsigned int index)
 {
@@ -11627,17 +11788,17 @@ Graphics_GetViewport (Urho3D::Graphics *_target)
 }
 
 
-DllExport unsigned int
-Graphics_GetTextureAnisotropy (Urho3D::Graphics *_target)
-{
-	return _target->GetTextureAnisotropy ();
-}
-
-
 DllExport enum Urho3D::BlendMode
 Graphics_GetBlendMode (Urho3D::Graphics *_target)
 {
 	return _target->GetBlendMode ();
+}
+
+
+DllExport int
+Graphics_GetAlphaToCoverage (Urho3D::Graphics *_target)
+{
+	return _target->GetAlphaToCoverage ();
 }
 
 
@@ -13550,6 +13711,13 @@ ParticleEmitter_SetSerializeParticles (Urho3D::ParticleEmitter *_target, bool en
 
 
 DllExport void
+ParticleEmitter_SetAutoRemoveMode (Urho3D::ParticleEmitter *_target, enum Urho3D::AutoRemoveMode mode)
+{
+	_target->SetAutoRemoveMode (mode);
+}
+
+
+DllExport void
 ParticleEmitter_ResetEmissionTimer (Urho3D::ParticleEmitter *_target)
 {
 	_target->ResetEmissionTimer ();
@@ -13602,6 +13770,13 @@ DllExport int
 ParticleEmitter_GetSerializeParticles (Urho3D::ParticleEmitter *_target)
 {
 	return _target->GetSerializeParticles ();
+}
+
+
+DllExport enum Urho3D::AutoRemoveMode
+ParticleEmitter_GetAutoRemoveMode (Urho3D::ParticleEmitter *_target)
+{
+	return _target->GetAutoRemoveMode ();
 }
 
 
@@ -15898,9 +16073,9 @@ Pass_SetDepthWrite (Urho3D::Pass *_target, bool enable)
 
 
 DllExport void
-Pass_SetAlphaMask (Urho3D::Pass *_target, bool enable)
+Pass_SetAlphaToCoverage (Urho3D::Pass *_target, bool enable)
 {
-	_target->SetAlphaMask (enable);
+	_target->SetAlphaToCoverage (enable);
 }
 
 
@@ -15936,6 +16111,20 @@ DllExport void
 Pass_SetPixelShaderDefines (Urho3D::Pass *_target, const char * defines)
 {
 	_target->SetPixelShaderDefines (Urho3D::String(defines));
+}
+
+
+DllExport void
+Pass_SetVertexShaderDefineExcludes (Urho3D::Pass *_target, const char * excludes)
+{
+	_target->SetVertexShaderDefineExcludes (Urho3D::String(excludes));
+}
+
+
+DllExport void
+Pass_SetPixelShaderDefineExcludes (Urho3D::Pass *_target, const char * excludes)
+{
+	_target->SetPixelShaderDefineExcludes (Urho3D::String(excludes));
 }
 
 
@@ -16010,9 +16199,9 @@ Pass_GetDepthWrite (Urho3D::Pass *_target)
 
 
 DllExport int
-Pass_GetAlphaMask (Urho3D::Pass *_target)
+Pass_GetAlphaToCoverage (Urho3D::Pass *_target)
 {
-	return _target->GetAlphaMask ();
+	return _target->GetAlphaToCoverage ();
 }
 
 
@@ -16048,6 +16237,34 @@ DllExport const char *
 Pass_GetPixelShaderDefines (Urho3D::Pass *_target)
 {
 	return stringdup((_target->GetPixelShaderDefines ()).CString ());
+}
+
+
+DllExport const char *
+Pass_GetVertexShaderDefineExcludes (Urho3D::Pass *_target)
+{
+	return stringdup((_target->GetVertexShaderDefineExcludes ()).CString ());
+}
+
+
+DllExport const char *
+Pass_GetPixelShaderDefineExcludes (Urho3D::Pass *_target)
+{
+	return stringdup((_target->GetPixelShaderDefineExcludes ()).CString ());
+}
+
+
+DllExport const char *
+Pass_GetEffectiveVertexShaderDefines (Urho3D::Pass *_target)
+{
+	return stringdup((_target->GetEffectiveVertexShaderDefines ()).CString ());
+}
+
+
+DllExport const char *
+Pass_GetEffectivePixelShaderDefines (Urho3D::Pass *_target)
+{
+	return stringdup((_target->GetEffectivePixelShaderDefines ()).CString ());
 }
 
 
@@ -16202,6 +16419,17 @@ Technique_GetNumPasses (Urho3D::Technique *_target)
 }
 
 
+DllExport Urho3D::Technique *
+Technique_CloneWithDefines (Urho3D::Technique *_target, const char * vsDefines, const char * psDefines)
+{
+	auto copy = _target->CloneWithDefines (Urho3D::String(vsDefines), Urho3D::String(psDefines));
+	auto plain = copy.Get();
+	copy.Detach();
+	delete copy;
+	return plain;
+}
+
+
 DllExport unsigned int
 Technique_GetPassIndex (const char * passName)
 {
@@ -16311,6 +16539,41 @@ DllExport void
 Terrain_SetMaterial (Urho3D::Terrain *_target, Urho3D::Material * material)
 {
 	_target->SetMaterial (material);
+}
+
+
+DllExport void
+Terrain_SetNorthNeighbor (Urho3D::Terrain *_target, Urho3D::Terrain * north)
+{
+	_target->SetNorthNeighbor (north);
+}
+
+
+DllExport void
+Terrain_SetSouthNeighbor (Urho3D::Terrain *_target, Urho3D::Terrain * south)
+{
+	_target->SetSouthNeighbor (south);
+}
+
+
+DllExport void
+Terrain_SetWestNeighbor (Urho3D::Terrain *_target, Urho3D::Terrain * west)
+{
+	_target->SetWestNeighbor (west);
+}
+
+
+DllExport void
+Terrain_SetEastNeighbor (Urho3D::Terrain *_target, Urho3D::Terrain * east)
+{
+	_target->SetEastNeighbor (east);
+}
+
+
+DllExport void
+Terrain_SetNeighbors (Urho3D::Terrain *_target, Urho3D::Terrain * north, Urho3D::Terrain * south, Urho3D::Terrain * west, Urho3D::Terrain * east)
+{
+	_target->SetNeighbors (north, south, west, east);
 }
 
 
@@ -16475,6 +16738,13 @@ Terrain_GetPatch0 (Urho3D::Terrain *_target, int x, int z)
 }
 
 
+DllExport Urho3D::TerrainPatch *
+Terrain_GetNeighborPatch (Urho3D::Terrain *_target, int x, int z)
+{
+	return _target->GetNeighborPatch (x, z);
+}
+
+
 DllExport float
 Terrain_GetHeight (Urho3D::Terrain *_target, const class Urho3D::Vector3 & worldPosition)
 {
@@ -16493,6 +16763,34 @@ DllExport Interop::IntVector2
 Terrain_WorldToHeightMap (Urho3D::Terrain *_target, const class Urho3D::Vector3 & worldPosition)
 {
 	return *((Interop::IntVector2  *) &(_target->WorldToHeightMap (worldPosition)));
+}
+
+
+DllExport Urho3D::Terrain *
+Terrain_GetNorthNeighbor (Urho3D::Terrain *_target)
+{
+	return _target->GetNorthNeighbor ();
+}
+
+
+DllExport Urho3D::Terrain *
+Terrain_GetSouthNeighbor (Urho3D::Terrain *_target)
+{
+	return _target->GetSouthNeighbor ();
+}
+
+
+DllExport Urho3D::Terrain *
+Terrain_GetWestNeighbor (Urho3D::Terrain *_target)
+{
+	return _target->GetWestNeighbor ();
+}
+
+
+DllExport Urho3D::Terrain *
+Terrain_GetEastNeighbor (Urho3D::Terrain *_target)
+{
+	return _target->GetEastNeighbor ();
 }
 
 
@@ -20123,6 +20421,20 @@ DllExport void
 Input_RemoveAllGestures (Urho3D::Input *_target)
 {
 	_target->RemoveAllGestures ();
+}
+
+
+DllExport void
+Input_SetMousePosition (Urho3D::Input *_target, const class Urho3D::IntVector2 & position)
+{
+	_target->SetMousePosition (position);
+}
+
+
+DllExport void
+Input_CenterMousePosition (Urho3D::Input *_target)
+{
+	_target->CenterMousePosition ();
 }
 
 
@@ -29114,16 +29426,30 @@ UI_SetScale (Urho3D::UI *_target, float scale)
 
 
 DllExport void
-UI_SetWidth (Urho3D::UI *_target, float size)
+UI_SetWidth (Urho3D::UI *_target, float width)
 {
-	_target->SetWidth (size);
+	_target->SetWidth (width);
 }
 
 
 DllExport void
-UI_SetHeight (Urho3D::UI *_target, float size)
+UI_SetHeight (Urho3D::UI *_target, float height)
 {
-	_target->SetHeight (size);
+	_target->SetHeight (height);
+}
+
+
+DllExport void
+UI_SetCustomSize (Urho3D::UI *_target, const class Urho3D::IntVector2 & size)
+{
+	_target->SetCustomSize (size);
+}
+
+
+DllExport void
+UI_SetCustomSize1 (Urho3D::UI *_target, int width, int height)
+{
+	_target->SetCustomSize (width, height);
 }
 
 
@@ -29163,7 +29489,7 @@ UI_GetElementAt (Urho3D::UI *_target, const class Urho3D::IntVector2 & position,
 
 
 DllExport Urho3D::UIElement *
-UI_GetElementAt1 (Urho3D::UI *_target, int x, int y, bool enabledOnly)
+UI_GetElementAt2 (Urho3D::UI *_target, int x, int y, bool enabledOnly)
 {
 	return _target->GetElementAt (x, y, enabledOnly);
 }
@@ -29292,6 +29618,13 @@ DllExport float
 UI_GetScale (Urho3D::UI *_target)
 {
 	return _target->GetScale ();
+}
+
+
+DllExport Interop::IntVector2 
+UI_GetCustomSize (Urho3D::UI *_target)
+{
+	return *((Interop::IntVector2  *) &(_target->GetCustomSize ()));
 }
 
 

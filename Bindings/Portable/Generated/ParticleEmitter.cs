@@ -154,6 +154,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ParticleEmitter_SetAutoRemoveMode (IntPtr handle, AutoRemoveMode mode);
+
+		/// <summary>
+		/// / Set to remove either the emitter component or its owner node from the scene automatically on particle effect completion. Disabled by default.
+		/// </summary>
+		private void SetAutoRemoveMode (AutoRemoveMode mode)
+		{
+			Runtime.ValidateRefCounted (this);
+			ParticleEmitter_SetAutoRemoveMode (handle, mode);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void ParticleEmitter_ResetEmissionTimer (IntPtr handle);
 
 		/// <summary>
@@ -250,6 +262,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern AutoRemoveMode ParticleEmitter_GetAutoRemoveMode (IntPtr handle);
+
+		/// <summary>
+		/// Return automatic removal mode on particle effect completion.
+		/// </summary>
+		private AutoRemoveMode GetAutoRemoveMode ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return ParticleEmitter_GetAutoRemoveMode (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern ResourceRef ParticleEmitter_GetEffectAttr (IntPtr handle);
 
 		/// <summary>
@@ -338,6 +362,20 @@ namespace Urho
 			}
 			set {
 				SetSerializeParticles (value);
+			}
+		}
+
+		/// <summary>
+		/// Return automatic removal mode on particle effect completion.
+		/// Or
+		/// / Set to remove either the emitter component or its owner node from the scene automatically on particle effect completion. Disabled by default.
+		/// </summary>
+		public AutoRemoveMode AutoRemoveMode {
+			get {
+				return GetAutoRemoveMode ();
+			}
+			set {
+				SetAutoRemoveMode (value);
 			}
 		}
 

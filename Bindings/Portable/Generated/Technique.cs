@@ -274,6 +274,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Technique_CloneWithDefines (IntPtr handle, string vsDefines, string psDefines);
+
+		/// <summary>
+		/// Return a clone with added shader compilation defines. Called internally by Material.
+		/// </summary>
+		public Technique CloneWithDefines (string vsDefines, string psDefines)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupRefCounted<Technique> (Technique_CloneWithDefines (handle, vsDefines, psDefines));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint Technique_GetPassIndex (string passName);
 
 		/// <summary>

@@ -913,7 +913,7 @@ namespace Urho.Gui
 		internal static extern bool UIElement_SetStyleAuto (IntPtr handle, IntPtr file);
 
 		/// <summary>
-		/// Set style from an XML file. Find the style element automatically. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.
+		/// Set style from an XML file. Find the style element automatically by using the element's typename. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.
 		/// </summary>
 		public bool SetStyleAuto (Urho.Resources.XmlFile file)
 		{
@@ -937,7 +937,7 @@ namespace Urho.Gui
 		internal static extern void UIElement_SetLayout (IntPtr handle, LayoutMode mode, int spacing, ref Urho.IntRect border);
 
 		/// <summary>
-		/// Set layout.
+		/// Set layout parameters.
 		/// </summary>
 		public void SetLayout (LayoutMode mode, int spacing, Urho.IntRect border)
 		{

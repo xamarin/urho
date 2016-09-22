@@ -82,6 +82,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Texture_SetAnisotropy (IntPtr handle, uint level);
+
+		/// <summary>
+		/// Set texture max. anisotropy level. No effect if not using anisotropic filtering. Value 0 (default) uses the default setting from Renderer.
+		/// </summary>
+		private void SetAnisotropy (uint level)
+		{
+			Runtime.ValidateRefCounted (this);
+			Texture_SetAnisotropy (handle, level);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Texture_SetShadowCompare (IntPtr handle, bool enable);
 
 		/// <summary>
@@ -235,6 +247,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture_GetAddressMode (handle, coord);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Texture_GetAnisotropy (IntPtr handle);
+
+		/// <summary>
+		/// Return texture max. anisotropy level. Value 0 means to use the default value from Renderer.
+		/// </summary>
+		private uint GetAnisotropy ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture_GetAnisotropy (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -524,6 +548,20 @@ namespace Urho
 			}
 			set {
 				SetFilterMode (value);
+			}
+		}
+
+		/// <summary>
+		/// Return texture max. anisotropy level. Value 0 means to use the default value from Renderer.
+		/// Or
+		/// Set texture max. anisotropy level. No effect if not using anisotropic filtering. Value 0 (default) uses the default setting from Renderer.
+		/// </summary>
+		public uint Anisotropy {
+			get {
+				return GetAnisotropy ();
+			}
+			set {
+				SetAnisotropy (value);
 			}
 		}
 

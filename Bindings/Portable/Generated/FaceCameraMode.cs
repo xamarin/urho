@@ -28,6 +28,7 @@ namespace Urho
 		RotateY,
 		LookAtXyz,
 		LookAtY,
+		LookAtMixed,
 		Direction
 	}
 }

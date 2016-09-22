@@ -1042,6 +1042,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Node_ReorderComponent (IntPtr handle, IntPtr component, uint index);
+
+		/// <summary>
+		/// Adjust index order of an existing component in this node.
+		/// </summary>
+		public void ReorderComponent (Component component, uint index)
+		{
+			Runtime.ValidateRefCounted (this);
+			Node_ReorderComponent (handle, (object)component == null ? IntPtr.Zero : component.Handle, index);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Node_Clone (IntPtr handle, CreateMode mode);
 
 		/// <summary>
@@ -1925,7 +1937,7 @@ namespace Urho
 		internal static extern void Node_AddComponent (IntPtr handle, IntPtr component, uint id, CreateMode mode);
 
 		/// <summary>
-		/// Add a pre-created component.
+		/// Add a pre-created component. Using this function from application code is discouraged, as component operation without an owner node may not be well-defined in all cases. Prefer CreateComponent() instead.
 		/// </summary>
 		public void AddComponent (Component component, uint id, CreateMode mode)
 		{
