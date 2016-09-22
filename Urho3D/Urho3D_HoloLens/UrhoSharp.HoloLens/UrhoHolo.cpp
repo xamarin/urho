@@ -118,7 +118,7 @@ extern "C"
 		float aspect = projection.m11_ / projection.m00_; //1.76
 
 		camera->SetSkew(projection.m10_);
-		camera->SetProjectionCenter(Vector2(-projection.m20_, -projection.m21_));
+		camera->SetProjectionOffset(Vector2(-projection.m20_ / 2.0f, -projection.m21_ / 2.0f));
 		camera->SetAspectRatio(aspect);
 		camera->SetFov(fovVertical);
 		camera->SetNearClip(nearClip);

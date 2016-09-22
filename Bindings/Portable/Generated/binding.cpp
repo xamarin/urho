@@ -9283,14 +9283,6 @@ Camera_SetFov (Urho3D::Camera *_target, float fov)
 	_target->SetFov (fov);
 }
 
-
-DllExport void
-Camera_SetProjectionCenter (Urho3D::Camera *_target, const class Urho3D::Vector2 & center)
-{
-	_target->SetProjectionCenter (center);
-}
-
-
 DllExport void
 Camera_SetSkew (Urho3D::Camera *_target, float skew)
 {
