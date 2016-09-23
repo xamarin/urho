@@ -36,7 +36,6 @@ namespace Urho.HoloLens
 		string assetsPakName;
 		bool windowVisible = true;
 		bool windowClosed;
-		bool assetsLoaded;
 		bool appInited;
 
 		HolographicFrame currentFrame;
@@ -101,22 +100,6 @@ namespace Urho.HoloLens
 		{
 		}
 
-		async void LoadAssets(string[] pakFiles)
-		{
-			ReferenceFrame = SpatialLocator.GetDefault().CreateStationaryFrameOfReferenceAtCurrentLocation();
-			foreach (var assetName in pakFiles)
-			{
-				if (!string.IsNullOrEmpty(assetName) && await ApplicationData.Current.LocalFolder.TryGetItemAsync(assetName) == null)
-				{
-					var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///" + assetName));
-					var folder = ApplicationData.Current.LocalFolder;
-					await file.CopyAsync(folder);
-				}
-			}
-			await CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
-			assetsLoaded = true;
-		}
-
 		static async Task CopyEmbeddedResourceToLocalFolder(string embeddedResource, string destFileName)
 		{
 			if (await ApplicationData.Current.LocalFolder.TryGetItemAsync(destFileName) != null)
@@ -160,7 +143,7 @@ namespace Urho.HoloLens
 
 		public unsafe void Run()
 		{
-			LoadAssets(new[] { assetsPakName == null ? null : assetsPakName + ".pak" });
+			ReferenceFrame = SpatialLocator.GetDefault().CreateStationaryFrameOfReferenceAtCurrentLocation();
 			CoreWindow.GetForCurrentThread().CustomProperties.Add("HolographicSpace", HolographicSpace);
 			InitializeSpace();
 			InteractionManager = SpatialInteractionManager.GetForCurrentView();
@@ -168,7 +151,7 @@ namespace Urho.HoloLens
 
 			while (!windowClosed)
 			{
-				if (assetsLoaded && !appInited)
+				if (!appInited)
 				{
 					SpatialMappingManager = new SpatialMappingManager();
 					appInited = true;

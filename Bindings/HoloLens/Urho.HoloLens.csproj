@@ -106,9 +106,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <EmbeddedResource Include="..\..\Urho3D\CoreData.pak">
-      <Link>CoreData.pak</Link>
-    </EmbeddedResource>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>

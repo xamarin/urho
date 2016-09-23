@@ -16,6 +16,11 @@ extern "C"
 
 	const wchar_t* SDL_UWP_GetResourceDir()
 	{
+		return Windows::ApplicationModel::Package::Current->InstalledLocation->Path->Data();
+	}
+
+	const wchar_t* SDL_UWP_GetCacheDir()
+	{
 		return Windows::Storage::ApplicationData::Current->LocalFolder->Path->Data();
 	}
 
