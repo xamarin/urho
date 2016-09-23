@@ -109,7 +109,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GazeInfo.cs" />
     <Compile Include="GestureManager.cs" />
     <Compile Include="SpatialMappingManager.cs" />
     <Compile Include="UrhoAppView.cs" />
