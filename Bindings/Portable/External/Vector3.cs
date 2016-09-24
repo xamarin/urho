@@ -344,6 +344,14 @@ namespace Urho
 		/// </summary>
 		public static readonly Vector3 UnitZ = new Vector3(0, 0, 1);
 
+		//From URHO3D:
+		public static readonly Vector3 Up =   new Vector3(0,  1, 0);
+		public static readonly Vector3 Down = new Vector3(0, -1, 0);
+		public static readonly Vector3 Forward = new Vector3(0, 0,  1);
+		public static readonly Vector3 Back =    new Vector3(0, 0, -1);
+		public static readonly Vector3 Left =  new Vector3(-1, 0, 0);
+		public static readonly Vector3 Right = new Vector3( 1, 0, 0);
+
 		/// <summary>
 		/// Defines a zero-length Vector3.
 		/// </summary>
@@ -353,11 +361,6 @@ namespace Urho
 		/// Defines an instance with all components set to 1.
 		/// </summary>
 		public static readonly Vector3 One = new Vector3(1, 1, 1);
-
-		/// <summary>
-		/// Defines the size of the Vector3 struct in bytes.
-		/// </summary>
-		public static readonly int SizeInBytes = Marshal.SizeOf(new Vector3());
 
 		#endregion
 
