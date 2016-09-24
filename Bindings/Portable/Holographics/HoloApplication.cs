@@ -130,10 +130,6 @@ namespace Urho.Holographics
 
 			if (Emulator)
 			{
-				var defaultLrp = leftViewport.RenderPath.Clone();
-				defaultLrp.Append(CoreAssets.PostProcess.FXAA3);
-				leftViewport.RenderPath = defaultLrp;
-
 				LeftCamera.Fov = 30;
 				LeftCamera.NearClip = 0.1f;
 				LeftCamera.FarClip = 20f;
@@ -228,7 +224,7 @@ namespace Urho.Holographics
 			OnActiveSurfaceListChanged(ActiveSurfaces);
 		}
 
-		unsafe protected Model CreateModelFromVertexData(SpatialVertex[] vertexData, short[] indexData)
+		protected unsafe Model CreateModelFromVertexData(SpatialVertex[] vertexData, short[] indexData, Quaternion rotation = default(Quaternion))
 		{
 			var model = new Model();
 			var vertexBuffer = new VertexBuffer(Context, false);
@@ -238,10 +234,24 @@ namespace Urho.Holographics
 			vertexBuffer.Shadowed = true;
 			vertexBuffer.SetSize((uint) vertexData.Length, ElementMask.Position | ElementMask.Normal | ElementMask.Color , false);
 
-			fixed (SpatialVertex* p = &vertexData[0])
+			BoundingBox boundingBox;
+			if (rotation != default(Quaternion))
 			{
-				vertexBuffer.SetData((void*) p);
+				boundingBox  = new BoundingBox();
+				for (int i = 0; i < vertexData.Length; i++)
+				{
+					var position = rotation * vertexData[i].Position;
+					vertexData[i].Position = position;
+					boundingBox.Merge(boundingBox);
+				}
 			}
+			else
+			{
+				boundingBox = new BoundingBox(-Vector3.One * 1.26f, Vector3.One * 1.26f);
+			}
+
+			fixed (SpatialVertex* p = &vertexData[0])
+				vertexBuffer.SetData((void*) p);
 
 			indexBuffer.Shadowed = true;
 			indexBuffer.SetSize((uint)indexData.Length, false, false);
@@ -253,7 +263,7 @@ namespace Urho.Holographics
 
 			model.NumGeometries = 1;
 			model.SetGeometry(0, 0, geometry);
-			model.BoundingBox = new BoundingBox(new Vector3(-1.0f, -1.0f, -1.0f), new Vector3(1.0f, 1.0f, 1.0f));
+			model.BoundingBox = boundingBox;
 			
 			return model;
 		}
@@ -268,5 +278,27 @@ namespace Urho.Holographics
 		public float NormalY;
 		public float NormalZ;
 		public uint Color;
+
+		public Vector3 Position
+		{
+			get { return new Vector3(PositionX, PositionY, PositionZ); }
+			set
+			{
+				PositionX = value.X;
+				PositionY = value.Y;
+				PositionZ = value.Z;
+			}
+		}
+
+		public Vector3 Normal
+		{
+			get { return new Vector3(NormalX, NormalY, NormalZ); }
+			set
+			{
+				NormalX = value.X;
+				NormalY = value.Y;
+				NormalZ = value.Z;
+			}
+		}
 	}
 }

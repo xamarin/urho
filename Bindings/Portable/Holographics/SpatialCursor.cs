@@ -8,8 +8,14 @@ namespace Urho.Portable.Holographics
 	{
 		HoloApplication holoApp;
 		
-		public SpatialCursor(IntPtr handle) : base(handle) {}
-		public SpatialCursor() {}
+		public SpatialCursor(IntPtr handle) : base(handle)
+		{
+			ReceiveSceneUpdates = true;
+		}
+		public SpatialCursor()
+		{
+			ReceiveSceneUpdates = true;
+		}
 
 		public Node CursorNode { get; private set; }
 		public Node CursorModelNode { get; private set; }
@@ -65,7 +71,7 @@ namespace Urho.Portable.Holographics
 		protected override void OnUpdate(float timeStep)
 		{
 			base.OnUpdate(timeStep);
-			Ray cameraRay = holoApp.RightCamera.GetScreenRay(0.5f, 0.5f);
+			Ray cameraRay = holoApp.LeftCamera.GetScreenRay(0.5f, 0.5f);
 			var result = holoApp.Octree.RaycastSingle(cameraRay, RayQueryLevel.Triangle, 100, DrawableFlags.Geometry, 0x70000000);
 			Raycasted?.Invoke(result);
 			if (!CursorEnabled)
@@ -77,7 +83,7 @@ namespace Urho.Portable.Holographics
 				CursorNode.Rotation = FromLookRotation(new Vector3(0, 1, 0), result.Value.Normal);
 			}
 			else
-				CursorNode.Position = holoApp.RightCamera.Node.Rotation * new Vector3(0, 0, 5f);
+				CursorNode.Position = holoApp.LeftCamera.Node.Rotation * new Vector3(0, 0, 5f);
 		}
 
 		static Quaternion FromLookRotation(Vector3 direction, Vector3 upDirection)
