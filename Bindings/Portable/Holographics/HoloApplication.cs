@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using Urho.Actions;
-using Urho.Physics;
 
 namespace Urho.Holographics
 {
@@ -173,7 +170,7 @@ namespace Urho.Holographics
 		/// <summary>
 		/// NOTE: Make sure "spatialMapping" capability is declared.
 		/// </summary>
-		protected Task<bool> StartSpatialMapping(Vector3 extents, int trianglesPerCubicMeter = 1000, Color color = default(Color))
+		protected Task<bool> StartSpatialMapping(Vector3 extents, int trianglesPerCubicMeter = 1000, Color color = default(Color), bool onlyAdd = false, bool convertToLeftHanded = true)
 		{
 #if UWP_HOLO
 			var appView = Urho.HoloLens.UrhoAppView.Current;
@@ -181,7 +178,7 @@ namespace Urho.Holographics
 			return appView.SpatialMappingManager.Register(this, 
 				appView.ReferenceFrame.CoordinateSystem, 
 				new System.Numerics.Vector3(extents.X, extents.Y, extents.Z), 
-				trianglesPerCubicMeter);
+				trianglesPerCubicMeter, onlyAdd, convertToLeftHanded);
 #else
 			return Task.FromResult<bool>(false);
 #endif
@@ -203,25 +200,20 @@ namespace Urho.Holographics
 		public virtual void OnGestureManipulationUpdated(Vector3 relativeHandPosition) { }
 		public virtual void OnGestureManipulationCompleted(Vector3 relativeHandPosition) { }
 		public virtual void OnGestureManipulationCanceled() { }
-		public virtual void OnSurfaceAddedOrUpdated(string surfaceId, DateTimeOffset lastUpdateTimeUtc, SpatialVertex[] vertexData, short[] indexData, Vector3 boundsCenter, Quaternion boundsRotation) {}
-		public virtual void OnActiveSurfaceListChanged(HashSet<string> activeSurfaces) { }
+		public virtual void OnSurfaceAddedOrUpdated(SpatialMeshInfo surface, Model generatedModel) { }
 
-		public HashSet<string> ActiveSurfaces { get; private set; }
-
-		internal void HandleSurfaceUpdated(string surfaceId,
-			DateTimeOffset lastUpdateTimeUtc,
-			SpatialVertex[] vertexData,
-			short[] indexData,
-			Vector3 boundsCenter,
-			Quaternion boundsRotation)
+		/// <summary>
+		/// NOTE: called from a background thread
+		/// </summary>
+		public virtual Model GenerateModelFromSpatialSurface(SpatialMeshInfo surface)
 		{
-			OnSurfaceAddedOrUpdated(surfaceId, lastUpdateTimeUtc, vertexData, indexData, boundsCenter, boundsRotation);
+			return CreateModelFromVertexData(surface.VertexData, surface.IndexData);
 		}
 
-		internal void HandleActiveSurfacesChanged(HashSet<string> activeSurfaces)
+		internal void HandleSurfaceUpdated(SpatialMeshInfo surface)
 		{
-			ActiveSurfaces = activeSurfaces;
-			OnActiveSurfaceListChanged(ActiveSurfaces);
+			var model = GenerateModelFromSpatialSurface(surface);
+			InvokeOnMain(() => OnSurfaceAddedOrUpdated(surface, model));
 		}
 
 		protected unsafe Model CreateModelFromVertexData(SpatialVertex[] vertexData, short[] indexData, Quaternion rotation = default(Quaternion))
@@ -259,46 +251,13 @@ namespace Urho.Holographics
 
 			geometry.SetVertexBuffer(0, vertexBuffer);
 			geometry.IndexBuffer = indexBuffer;
-			geometry.SetDrawRange(PrimitiveType.TriangleList, 0, (uint)indexData.Length, true);
+			geometry.SetDrawRange(PrimitiveType.TriangleList, 0, (uint)indexData.Length, 0,(uint) vertexData.Length, true);
 
 			model.NumGeometries = 1;
 			model.SetGeometry(0, 0, geometry);
 			model.BoundingBox = boundingBox;
-			
+
 			return model;
-		}
-	}
-
-	public struct SpatialVertex
-	{
-		public float PositionX;
-		public float PositionY;
-		public float PositionZ;
-		public float NormalX;
-		public float NormalY;
-		public float NormalZ;
-		public uint Color;
-
-		public Vector3 Position
-		{
-			get { return new Vector3(PositionX, PositionY, PositionZ); }
-			set
-			{
-				PositionX = value.X;
-				PositionY = value.Y;
-				PositionZ = value.Z;
-			}
-		}
-
-		public Vector3 Normal
-		{
-			get { return new Vector3(NormalX, NormalY, NormalZ); }
-			set
-			{
-				NormalX = value.X;
-				NormalY = value.Y;
-				NormalZ = value.Z;
-			}
 		}
 	}
 }

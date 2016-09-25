@@ -73,6 +73,7 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories); $(VCInstallDir)\lib\store; $(VCInstallDir)\lib</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>mincore.lib;kernel32.lib;ole32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <AdditionalOptions>/nodefaultlib:vccorlib /nodefaultlib:msvcrt vccorlib.lib msvcrt.lib %(AdditionalOptions)</AdditionalOptions>
+      <FullProgramDatabaseFile>true</FullProgramDatabaseFile>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(IntermediateOutputPath);$(ProjectDir)..\include;$(ProjectDir)..\..\Source\Source\ThirdParty\SDL\include;$(ProjectDir)..\include\Urho3D\ThirdParty;$(ProjectDir)..\include\Urho3D\ThirdParty\Bullet;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -87,6 +88,14 @@
     <ClInclude Include="..\..\..\Bindings\Native\ApplicationProxy.h" />
     <ClInclude Include="..\..\..\Bindings\Native\glue.h" />
     <ClInclude Include="..\..\..\Bindings\Native\interop.h" />
+    <ClInclude Include="PlaneFinding\HalfEdgeMesh.h" />
+    <ClInclude Include="PlaneFinding\MathHelpers.h" />
+    <ClInclude Include="PlaneFinding\NBest.h" />
+    <ClInclude Include="PlaneFinding\PCAHelper.h" />
+    <ClInclude Include="PlaneFinding\pch.h" />
+    <ClInclude Include="PlaneFinding\PlaneFinding.h" />
+    <ClInclude Include="PlaneFinding\targetver.h" />
+    <ClInclude Include="PlaneFinding\Util.h" />
     <ClInclude Include="UrhoHolo.h" />
     <ClInclude Include="..\..\Source\Source\ThirdParty\SDL\include\begin_code.h" />
     <ClInclude Include="..\..\Source\Source\ThirdParty\SDL\include\close_code.h" />
@@ -228,6 +237,13 @@
     <ClCompile Include="..\..\..\Bindings\Native\vector.cpp" />
     <ClCompile Include="..\..\..\Bindings\Portable\Generated\binding.cpp" />
     <ClCompile Include="..\..\..\Bindings\Portable\Generated\events.cpp" />
+    <ClCompile Include="PlaneFinding\dllmain.cpp" />
+    <ClCompile Include="PlaneFinding\FindPlanes.cpp" />
+    <ClCompile Include="PlaneFinding\HalfEdgeMesh.cpp" />
+    <ClCompile Include="PlaneFinding\MergePlanes.cpp" />
+    <ClCompile Include="PlaneFinding\PCAHelper.cpp" />
+    <ClCompile Include="PlaneFinding\pch.cpp" />
+    <ClCompile Include="PlaneFinding\Util.cpp" />
     <ClCompile Include="UrhoHolo.cpp">
       <CompileAsWinRT>true</CompileAsWinRT>
     </ClCompile>

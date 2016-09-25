@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
 using System.Threading.Tasks;
 using Windows.Graphics.DirectX;
 using Windows.Perception.Spatial;
 using Windows.Perception.Spatial.Surfaces;
+using Windows.System.Threading;
 using Urho.Holographics;
 
 namespace Urho
@@ -15,11 +16,13 @@ namespace Urho
 	{
 		SpatialSurfaceObserver observer;
 		SpatialCoordinateSystem currentCoordinateSystem;
-		Dictionary<Guid, DateTime> updateCache = new Dictionary<Guid, DateTime>();
+		static Dictionary<Guid, DateTimeOffset> updateCache = new Dictionary<Guid, DateTimeOffset>();
 		HoloApplication currentHoloApp;
 		int trianglesPerCubicMeter;
 
 		public Color DefaultColor { get; set; } = Color.Transparent;
+		public bool ConvertToLeftHanded { get; set; }
+		public bool OnlyAdd { get; set; }
 
 		SpatialSurfaceMeshOptions options = new SpatialSurfaceMeshOptions
 			{
@@ -30,11 +33,13 @@ namespace Urho
 				IncludeVertexNormals = true,
 			};
 
-		public async Task<bool> Register(HoloApplication app, SpatialCoordinateSystem coordinateSystem, System.Numerics.Vector3 extents, int trianglesPerCubicMeter = 1000)
+		public async Task<bool> Register(HoloApplication app, SpatialCoordinateSystem coordinateSystem, System.Numerics.Vector3 extents, int trianglesPerCubicMeter = 1000, bool onlyAdd = false, bool convertToLeftHanded = true)
 		{
 			this.currentHoloApp = app;
 			this.trianglesPerCubicMeter = trianglesPerCubicMeter;
 			this.currentCoordinateSystem = coordinateSystem;
+			ConvertToLeftHanded = convertToLeftHanded;
+			OnlyAdd = onlyAdd;
 
 			var result = await SpatialSurfaceObserver.RequestAccessAsync();
 			if (result != SpatialPerceptionAccessStatus.Allowed)
@@ -42,10 +47,14 @@ namespace Urho
 
 			observer = new SpatialSurfaceObserver();
 			observer.SetBoundingVolume(SpatialBoundingVolume.FromBox(coordinateSystem, new SpatialBoundingBox { Extents = extents }));
-			foreach (var surface in observer.GetObservedSurfaces())
+
+			foreach (var item in observer.GetObservedSurfaces())
 			{
-				updateCache[surface.Key] = surface.Value.UpdateTime.UtcDateTime;
-				ProcessSurface(surface.Value);
+				lock (updateCache)
+				{
+					updateCache[item.Key] = item.Value.UpdateTime.ToUniversalTime();
+				}
+				ProcessSurface(item.Value, ConvertToLeftHanded);
 			}
 			observer.ObservedSurfacesChanged += Observer_ObservedSurfacesChanged;
 
@@ -59,34 +68,58 @@ namespace Urho
 			observer = null;
 		}
 
-		void Observer_ObservedSurfacesChanged(SpatialSurfaceObserver sender, object args)
+		async void Observer_ObservedSurfacesChanged(SpatialSurfaceObserver sender, object args)
 		{
-			var surfaces = sender.GetObservedSurfaces();
-			Application.InvokeOnMain(() => currentHoloApp.HandleActiveSurfacesChanged(new HashSet<string>(surfaces.Keys.Select(k => k.ToString()))));
-			foreach (var surface in surfaces.Values)
+			foreach (var item in sender.GetObservedSurfaces())
 			{
 				lock (updateCache)
 				{
-					DateTime updateTime;
-					if (updateCache.TryGetValue(surface.Id, out updateTime) && updateTime >= surface.UpdateTime.UtcDateTime)
-						return;
-					updateCache[surface.Id] = surface.UpdateTime.UtcDateTime;
+					DateTimeOffset updateTime;
+					var time = item.Value.UpdateTime.ToUniversalTime();
+					if (updateCache.TryGetValue(item.Key, out updateTime) && (updateTime >= time || OnlyAdd))
+						continue;
+
+					updateCache[item.Key] = time;
 				}
+
 				if (observer == null)
 					return;
-				ProcessSurface(surface);
+
+				await ProcessSurface(item.Value, ConvertToLeftHanded).ConfigureAwait(false);
 			}
 		}
 
-		async Task ProcessSurface(SpatialSurfaceInfo surface)
+		void RemoveSurfaceFromCache(Guid surfaceId)
 		{
-			var mesh = await surface.TryComputeLatestMeshAsync(trianglesPerCubicMeter, options);
-			if (observer == null)
+			lock (updateCache)
+				updateCache.Remove(surfaceId);
+		}
+
+		async Task ProcessSurface(SpatialSurfaceInfo surface, bool convertToLH)
+		{
+			var mesh = await surface.TryComputeLatestMeshAsync(trianglesPerCubicMeter, options).AsTask().ConfigureAwait(false);
+			if (observer == null || mesh == null)
+			{
+				RemoveSurfaceFromCache(surface.Id);
 				return;
+			}
 
 			var bounds = mesh.SurfaceInfo.TryGetBounds(currentCoordinateSystem);
 			if (bounds == null)
+			{
+				RemoveSurfaceFromCache(surface.Id);
 				return;
+			}
+
+			var transform = mesh.CoordinateSystem.TryGetTransformTo(currentCoordinateSystem);
+			if (transform == null)
+			{
+				RemoveSurfaceFromCache(surface.Id);
+				return;
+			}
+
+			// convert from RH to LH coordinate system
+			int rhToLh = convertToLH ? -1 : 1;
 
 			//1. TriangleIndices
 			var trianglesBytes = mesh.TriangleIndices.Data.ToArray();
@@ -106,7 +139,7 @@ namespace Urho
 			var normalsRawData = mesh.VertexNormals.Data.ToArray();
 
 			var vertexColor = DefaultColor.ToUInt();
-			SpatialVertex[] vertexData = new SpatialVertex[vertexCount];
+			var vertexData = new SpatialVertex[vertexCount];
 
 			//2,3 - VertexPositions and Normals
 			for (int i = 0; i < vertexCount; i++)
@@ -129,19 +162,35 @@ namespace Urho
 				//merge vertex+normals for Urho3D (also, change RH to LH coordinate systems)
 				vertexData[i].PositionX =  xx * vertexScale.X;
 				vertexData[i].PositionY =  yy * vertexScale.Y;
-				vertexData[i].PositionZ = -zz * vertexScale.Z;
+				vertexData[i].PositionZ = rhToLh * zz * vertexScale.Z;
 				vertexData[i].NormalX = normalX == 0 ? 0 :  255 / normalX;
 				vertexData[i].NormalY = normalY == 0 ? 0 :  255 / normalY;
-				vertexData[i].NormalZ = normalZ == 0 ? 0 : -255 / normalZ;
+				vertexData[i].NormalZ = normalZ == 0 ? 0 : rhToLh * 255 / normalZ;
 
 				//Vertex color
-				vertexData[i].Color = vertexColor;
+				vertexData[i].ColorUint = vertexColor;
 			}
 
-			var boundsRotation = new Quaternion(-bounds.Value.Orientation.X, -bounds.Value.Orientation.Y, bounds.Value.Orientation.Z, bounds.Value.Orientation.W);
-			var boundsCenter = new Vector3(bounds.Value.Center.X, bounds.Value.Center.Y, -bounds.Value.Center.Z);
+			var boundsRotation = new Quaternion(rhToLh * bounds.Value.Orientation.X, rhToLh * bounds.Value.Orientation.Y, bounds.Value.Orientation.Z, bounds.Value.Orientation.W);
+			var boundsCenter = new Vector3(bounds.Value.Center.X, bounds.Value.Center.Y, rhToLh * bounds.Value.Center.Z);
+			var boundsExtents = new Vector3(bounds.Value.Extents.X, bounds.Value.Extents.Y, bounds.Value.Extents.Z);
 
-			Application.InvokeOnMain(() => currentHoloApp.HandleSurfaceUpdated(surface.Id.ToString(), surface.UpdateTime, vertexData, indeces, boundsCenter, boundsRotation));
+			var transformValue = transform.Value;
+			Matrix4 transformUrhoMatrix;
+			unsafe { transformUrhoMatrix = *(Matrix4*)(void*)&transformValue; }
+
+			var surfaceInfo = new Holographics.SpatialMeshInfo
+			{
+					SurfaceId = surface.Id.ToString(),
+					Date = surface.UpdateTime,
+					VertexData = vertexData,
+					IndexData = indeces,
+					BoundsCenter = boundsCenter,
+					BoundsRotation = boundsRotation,
+					Extents = boundsExtents, 
+					Transform = transformUrhoMatrix,
+				};
+			currentHoloApp.HandleSurfaceUpdated(surfaceInfo);
 		}
 	}
 }

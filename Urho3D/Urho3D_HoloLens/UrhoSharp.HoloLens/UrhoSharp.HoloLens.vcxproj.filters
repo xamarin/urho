@@ -113,6 +113,13 @@
     <ClCompile Include="..\..\Source\Source\ThirdParty\SDL\src\core\winrt\SDL_winrtapp_direct3d.cpp" />
     <ClCompile Include="..\..\Source\Source\ThirdParty\SDL\src\core\winrt\SDL_winrtapp_xaml.cpp" />
     <ClCompile Include="UrhoHolo.cpp" />
+    <ClCompile Include="PlaneFinding\FindPlanes.cpp" />
+    <ClCompile Include="PlaneFinding\HalfEdgeMesh.cpp" />
+    <ClCompile Include="PlaneFinding\MergePlanes.cpp" />
+    <ClCompile Include="PlaneFinding\PCAHelper.cpp" />
+    <ClCompile Include="PlaneFinding\pch.cpp" />
+    <ClCompile Include="PlaneFinding\Util.cpp" />
+    <ClCompile Include="PlaneFinding\dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Bindings\Native\ApplicationProxy.h" />
@@ -255,6 +262,14 @@
     <ClInclude Include="..\..\Source\Source\ThirdParty\SDL\src\video\winrt\SDL_winrtopengles.h" />
     <ClInclude Include="..\..\Source\Source\ThirdParty\SDL\src\video\winrt\SDL_winrtvideo_cpp.h" />
     <ClInclude Include="UrhoHolo.h" />
+    <ClInclude Include="PlaneFinding\HalfEdgeMesh.h" />
+    <ClInclude Include="PlaneFinding\MathHelpers.h" />
+    <ClInclude Include="PlaneFinding\NBest.h" />
+    <ClInclude Include="PlaneFinding\PCAHelper.h" />
+    <ClInclude Include="PlaneFinding\pch.h" />
+    <ClInclude Include="PlaneFinding\PlaneFinding.h" />
+    <ClInclude Include="PlaneFinding\targetver.h" />
+    <ClInclude Include="PlaneFinding\Util.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UrhoSharp.HoloLens_TemporaryKey.pfx" />

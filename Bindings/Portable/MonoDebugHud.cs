@@ -5,7 +5,7 @@ namespace Urho
 {
 	public class MonoDebugHud
 	{
-		const int FrameSampleCount = 50;
+		const int FrameSampleCount = 20;
 		Application application;
 		Text text;
 		int frameCount = 0;
