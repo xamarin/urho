@@ -3,6 +3,7 @@
 *.so
 *~
 *.userprefs
+.DS_Store
 
 
 # User-specific files

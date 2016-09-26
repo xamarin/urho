@@ -142,18 +142,6 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Camera_SetProjectionCenter (IntPtr handle, ref Urho.Vector2 center);
-
-		/// <summary>
-		/// Set projection center coordinates
-		/// </summary>
-		public void SetProjectionCenter (Urho.Vector2 center)
-		{
-			Runtime.ValidateRefCounted (this);
-			Camera_SetProjectionCenter (handle, ref center);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Camera_SetSkew (IntPtr handle, float skew);
 
 		/// <summary>
