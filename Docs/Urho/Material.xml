@@ -33,8 +33,8 @@
 	  Several techniques can be defined for different quality
 	  levels and LOD distances. Technique quality levels are specified
 	  from 0 (low) to 2 (high). When rendering, the highest available
-	  technique that does not exceed the Renderer's material quality
-	  setting will be chosen, see SetMaterialQuality(). It is also
+	  technique that does not exceed the <see cref="T:Urho.Renderer" /> material quality
+	  setting will be chosen, see <see cref="P:Urho.Renderer.MaterialQuality" />. It is also
 	  possible for a technique to require Shader Model 3, in this case
 	  it will be skipped on SM2 hardware.
 	</para>
