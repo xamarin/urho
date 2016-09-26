@@ -1,0 +1,17 @@
+<Type Name="SDL_Event" FullName="Urho.SDL_Event">
+  <TypeSignature Language="C#" Value="public struct SDL_Event" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit SDL_Event extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

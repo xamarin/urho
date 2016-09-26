@@ -1,0 +1,605 @@
+<Type Name="HoloApplication" FullName="Urho.HoloLens.HoloApplication">
+  <TypeSignature Language="C#" Value="public class HoloApplication : Urho.Application" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit HoloApplication extends Urho.Application" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Application</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected HoloApplication (string assetsDirectory);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(string assetsDirectory) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="assetsDirectory" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="assetsDirectory">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CameraLight">
+      <MemberSignature Language="C#" Value="public Urho.Light CameraLight { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Light CameraLight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Light</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateModelFromVertexData">
+      <MemberSignature Language="C#" Value="protected Urho.Model CreateModelFromVertexData (Urho.HoloLens.SpatialVertex[] vertexData, short[] indexData, Urho.Quaternion rotation = null);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance class Urho.Model CreateModelFromVertexData(valuetype Urho.HoloLens.SpatialVertex[] vertexData, int16[] indexData, valuetype Urho.Quaternion rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vertexData" Type="Urho.HoloLens.SpatialVertex[]" />
+        <Parameter Name="indexData" Type="System.Int16[]" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="vertexData">To be added.</param>
+        <param name="indexData">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DirectionalLight">
+      <MemberSignature Language="C#" Value="public Urho.Light DirectionalLight { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Light DirectionalLight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Light</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DistanceBetweenEyes">
+      <MemberSignature Language="C#" Value="public float DistanceBetweenEyes { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DistanceBetweenEyes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Emulator">
+      <MemberSignature Language="C#" Value="public bool Emulator { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Emulator" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnableGestureHold">
+      <MemberSignature Language="C#" Value="public bool EnableGestureHold { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool EnableGestureHold" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnableGestureManipulation">
+      <MemberSignature Language="C#" Value="public bool EnableGestureManipulation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool EnableGestureManipulation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnableGestureTapped">
+      <MemberSignature Language="C#" Value="public bool EnableGestureTapped { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool EnableGestureTapped" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FocusWorldPoint">
+      <MemberSignature Language="C#" Value="public virtual Urho.Vector3 FocusWorldPoint { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 FocusWorldPoint" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GenerateModelFromSpatialSurface">
+      <MemberSignature Language="C#" Value="public virtual Urho.Model GenerateModelFromSpatialSurface (Urho.HoloLens.SpatialMeshInfo surface);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Urho.Model GenerateModelFromSpatialSurface(valuetype Urho.HoloLens.SpatialMeshInfo surface) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="surface" Type="Urho.HoloLens.SpatialMeshInfo" />
+      </Parameters>
+      <Docs>
+        <param name="surface">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HeadPosition">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 HeadPosition { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 HeadPosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HoloTransparentColor">
+      <MemberSignature Language="C#" Value="public Urho.Color HoloTransparentColor { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color HoloTransparentColor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LeftCamera">
+      <MemberSignature Language="C#" Value="public Urho.Camera LeftCamera { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Camera LeftCamera" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Camera</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Octree">
+      <MemberSignature Language="C#" Value="public Urho.Octree Octree { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Octree Octree" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Octree</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureDoubleTapped">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureDoubleTapped ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureDoubleTapped() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureHoldCanceled">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureHoldCanceled ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureHoldCanceled() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureHoldCompleted">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureHoldCompleted ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureHoldCompleted() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureHoldStarted">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureHoldStarted ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureHoldStarted() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureManipulationCanceled">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureManipulationCanceled ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureManipulationCanceled() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureManipulationCompleted">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureManipulationCompleted (Urho.Vector3 relativeHandPosition);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureManipulationCompleted(valuetype Urho.Vector3 relativeHandPosition) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="relativeHandPosition" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="relativeHandPosition">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureManipulationStarted">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureManipulationStarted ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureManipulationStarted() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureManipulationUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureManipulationUpdated (Urho.Vector3 relativeHandPosition);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureManipulationUpdated(valuetype Urho.Vector3 relativeHandPosition) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="relativeHandPosition" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="relativeHandPosition">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGestureTapped">
+      <MemberSignature Language="C#" Value="public virtual void OnGestureTapped ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGestureTapped() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSurfaceAddedOrUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnSurfaceAddedOrUpdated (Urho.HoloLens.SpatialMeshInfo surface, Urho.Model generatedModel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSurfaceAddedOrUpdated(valuetype Urho.HoloLens.SpatialMeshInfo surface, class Urho.Model generatedModel) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="surface" Type="Urho.HoloLens.SpatialMeshInfo" />
+        <Parameter Name="generatedModel" Type="Urho.Model" />
+      </Parameters>
+      <Docs>
+        <param name="surface">To be added.</param>
+        <param name="generatedModel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdate">
+      <MemberSignature Language="C#" Value="protected override void OnUpdate (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void OnUpdate(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterCortanaCommands">
+      <MemberSignature Language="C#" Value="protected System.Threading.Tasks.Task&lt;bool&gt; RegisterCortanaCommands (System.Collections.Generic.Dictionary&lt;string,Action&gt; commands);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance class System.Threading.Tasks.Task`1&lt;bool&gt; RegisterCortanaCommands(class System.Collections.Generic.Dictionary`2&lt;string, class System.Action&gt; commands) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.Boolean&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="commands" Type="System.Collections.Generic.Dictionary&lt;System.String,System.Action&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="commands">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RightCamera">
+      <MemberSignature Language="C#" Value="public Urho.Camera RightCamera { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Camera RightCamera" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Camera</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scene">
+      <MemberSignature Language="C#" Value="public Urho.Scene Scene { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Scene Scene" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Scene</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Start">
+      <MemberSignature Language="C#" Value="protected override void Start ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Start() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerStepThrough</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.AsyncStateMachine(typeof(Urho.HoloLens.HoloApplication/&lt;Start&gt;c__async0))</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartSpatialMapping">
+      <MemberSignature Language="C#" Value="protected System.Threading.Tasks.Task&lt;bool&gt; StartSpatialMapping (Urho.Vector3 extents, int trianglesPerCubicMeter = 1000, Urho.Color color = null, bool onlyAdd = false, bool convertToLeftHanded = true);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance class System.Threading.Tasks.Task`1&lt;bool&gt; StartSpatialMapping(valuetype Urho.Vector3 extents, int32 trianglesPerCubicMeter, valuetype Urho.Color color, bool onlyAdd, bool convertToLeftHanded) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.Boolean&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="extents" Type="Urho.Vector3" />
+        <Parameter Name="trianglesPerCubicMeter" Type="System.Int32" />
+        <Parameter Name="color" Type="Urho.Color" />
+        <Parameter Name="onlyAdd" Type="System.Boolean" />
+        <Parameter Name="convertToLeftHanded" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="extents">To be added.</param>
+        <param name="trianglesPerCubicMeter">To be added.</param>
+        <param name="color">To be added.</param>
+        <param name="onlyAdd">To be added.</param>
+        <param name="convertToLeftHanded">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StopSpatialMapping">
+      <MemberSignature Language="C#" Value="protected void StopSpatialMapping ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance void StopSpatialMapping() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateStereoView">
+      <MemberSignature Language="C#" Value="public void UpdateStereoView (Urho.Matrix4 leftView, Urho.Matrix4 rightView, Urho.Matrix4 leftProj, Urho.Matrix4 rightProj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateStereoView(valuetype Urho.Matrix4 leftView, valuetype Urho.Matrix4 rightView, valuetype Urho.Matrix4 leftProj, valuetype Urho.Matrix4 rightProj) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="leftView" Type="Urho.Matrix4" />
+        <Parameter Name="rightView" Type="Urho.Matrix4" />
+        <Parameter Name="leftProj" Type="Urho.Matrix4" />
+        <Parameter Name="rightProj" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="leftView">To be added.</param>
+        <param name="rightView">To be added.</param>
+        <param name="leftProj">To be added.</param>
+        <param name="rightProj">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

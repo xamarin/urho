@@ -253,6 +253,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AlphaToCoverage">
+      <MemberSignature Language="C#" Value="public bool AlphaToCoverage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AlphaToCoverage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ApiName">
       <MemberSignature Language="C#" Value="public string ApiName { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string ApiName" />
@@ -312,7 +328,7 @@
       </Docs>
     </Member>
     <Member MemberName="BlendMode">
-      <MemberSignature Language="C#" Value="public Urho.BlendMode BlendMode { get; set; }" />
+      <MemberSignature Language="C#" Value="public Urho.BlendMode BlendMode { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.BlendMode BlendMode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -505,6 +521,22 @@
             Or
             Set hardware culling mode.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultTextureAnisotropy">
+      <MemberSignature Language="C#" Value="public uint DefaultTextureAnisotropy { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 DefaultTextureAnisotropy" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2116,6 +2148,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetBlendMode">
+      <MemberSignature Language="C#" Value="public void SetBlendMode (Urho.BlendMode mode, bool alphaToCoverage);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBlendMode(valuetype Urho.BlendMode mode, bool alphaToCoverage) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mode" Type="Urho.BlendMode" />
+        <Parameter Name="alphaToCoverage" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="mode">To be added.</param>
+        <param name="alphaToCoverage">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetClipPlane">
       <MemberSignature Language="C#" Value="public void SetClipPlane (bool enable, Urho.Plane clipPlane, Urho.Matrix3x4 view, Urho.Matrix4 projection);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetClipPlane(bool enable, valuetype Urho.Plane clipPlane, valuetype Urho.Matrix3x4 view, valuetype Urho.Matrix4 projection) cil managed" />
@@ -2593,6 +2646,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetStereo">
+      <MemberSignature Language="C#" Value="public void SetStereo (bool stereo);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetStereo(bool stereo) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="stereo" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="stereo">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetTexture">
       <MemberSignature Language="C#" Value="public void SetTexture (uint index, Urho.Texture texture);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTexture(unsigned int32 index, class Urho.Texture texture) cil managed" />
@@ -2976,26 +3048,6 @@
         <param name="destImage">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="TextureAnisotropy">
-      <MemberSignature Language="C#" Value="public uint TextureAnisotropy { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TextureAnisotropy" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Return texture anisotropy.
-            Or
-            Set texture anisotropy.
-            </summary>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

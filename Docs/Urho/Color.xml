@@ -235,6 +235,23 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ToUInt">
+      <MemberSignature Language="C#" Value="public uint ToUInt ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 ToUInt() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Transparent">
       <MemberSignature Language="C#" Value="public static Urho.Color Transparent;" />
       <MemberSignature Language="ILAsm" Value=".field public static valuetype Urho.Color Transparent" />

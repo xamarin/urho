@@ -214,6 +214,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Back">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Vector3 Back;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Vector3 Back" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="BaryCentric">
       <MemberSignature Language="C#" Value="public static Urho.Vector3 BaryCentric (Urho.Vector3 a, Urho.Vector3 b, Urho.Vector3 c, float u, float v);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Vector3 BaryCentric(valuetype Urho.Vector3 a, valuetype Urho.Vector3 b, valuetype Urho.Vector3 c, float32 u, float32 v) cil managed" />
@@ -750,6 +765,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Down">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Vector3 Down;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Vector3 Down" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Equals">
       <MemberSignature Language="C#" Value="public override bool Equals (object obj);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object obj) cil managed" />
@@ -792,6 +822,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Forward">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Vector3 Forward;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Vector3 Forward" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetHashCode">
       <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
@@ -808,6 +853,21 @@
             Returns the hashcode for this instance.
             </summary>
         <returns>A System.Int32 containing the unique hashcode for this instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Left">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Vector3 Left;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Vector3 Left" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1492,6 +1552,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Right">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Vector3 Right;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Vector3 Right" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Scale">
       <MemberSignature Language="C#" Value="public void Scale (Urho.Vector3 scale);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Scale(valuetype Urho.Vector3 scale) cil managed" />
@@ -1569,23 +1644,6 @@
         <param name="sz">The scale of the Z component.</param>
         <summary>
             Scales the current Vector3 by the given amounts.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SizeInBytes">
-      <MemberSignature Language="C#" Value="public static readonly int SizeInBytes;" />
-      <MemberSignature Language="ILAsm" Value=".field public static initonly int32 SizeInBytes" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Defines the size of the Vector3 struct in bytes.
             </summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2102,6 +2160,21 @@
         <summary>
             /// Defines a unit-length Vector3 that points towards the Z-axis.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Up">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Vector3 Up;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Vector3 Up" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

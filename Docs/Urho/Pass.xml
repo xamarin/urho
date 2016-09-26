@@ -71,9 +71,9 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="AlphaMask">
-      <MemberSignature Language="C#" Value="public bool AlphaMask { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool AlphaMask" />
+    <Member MemberName="AlphaToCoverage">
+      <MemberSignature Language="C#" Value="public bool AlphaToCoverage { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AlphaToCoverage" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -82,11 +82,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Return alpha masking hint.
-            Or
-            Set alpha masking hint. Completely opaque draw calls will be performed before alpha masked.
-            </summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -176,6 +172,38 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EffectivePixelShaderDefines">
+      <MemberSignature Language="C#" Value="public string EffectivePixelShaderDefines { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string EffectivePixelShaderDefines" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EffectiveVertexShaderDefines">
+      <MemberSignature Language="C#" Value="public string EffectiveVertexShaderDefines { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string EffectiveVertexShaderDefines" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -280,6 +308,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="PixelShaderDefineExcludes">
+      <MemberSignature Language="C#" Value="public string PixelShaderDefineExcludes { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string PixelShaderDefineExcludes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PixelShaderDefines">
       <MemberSignature Language="C#" Value="public string PixelShaderDefines { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string PixelShaderDefines" />
@@ -373,6 +417,22 @@
             Or
             Set vertex shader name.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VertexShaderDefineExcludes">
+      <MemberSignature Language="C#" Value="public string VertexShaderDefineExcludes { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string VertexShaderDefineExcludes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

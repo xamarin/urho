@@ -88,15 +88,18 @@
           <term>ExitRequested : application exit was requested (eg. with the window close button.)</term>
         </item>
       </list>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Keyboard and Mouse Input</h2>
       </format>
-      <para></para>
+      <para>
+      </para>
       <para>Key events include both the symbolic keycode ("Key") that depends on the keyboard layout, the layout- and operating system-independent SDL scancode ("Scancode"), and the true operating system-specific raw keycode ("Raw").</para>
       <para>The input polling API differentiates between the initiation of a key/mouse button press, and holding the key or button down.  <see cref="M:Urho.Input.GetKeyPress" /> and <see cref="M:Urho.Input.GetMouseButtonPress" /> return true only for one frame (the initiation) while <see cref="M:Urho.Input.GetKeyDown" /> and <see cref="M:Urho.Input.GetMouseButtonDown" /> return true as long as the key or button is held down. To check whether keys are down or pressed by scancode, use <see cref="M:Urho.Input.GetScancodeDown" /> and <see cref="M:Urho.Input.GetScancodePress" />. Functions also exist for converting keycodes to scancodes or vice versa, or getting key names. See for example <see cref="M:Urho.Input.GetKeyName" /> and <see cref="M:Urho.Input.GetKeyFromScancode" />.</para>
       <para>Mouse motion since the last frame can be accessed with <see cref="M:Urho.Input.GetMouseMove" />. The cursor position within the window can be queried with <see cref="M:Urho.Input.GetMousePosition" />.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Mouse modes</h2>
       </format>
@@ -111,7 +114,8 @@
           <term>Relative: sets the operating system cursor to invisible and confines the cursor to the window. The operating system cursor cannot be set to be visible in this mode via SetMouseVisible(), however changes are tracked and will be restored when another mouse mode is set. When the virtual cursor is also invisible, UI interaction will still function as normal (eg: drag events will trigger). Setting this will call SetMouseGrabbed(true).</term>
         </item>
       </list>
-      <para></para>
+      <para>
+      </para>
       <list type="bullet">
         <item>
           <term>Wrap: grabs the mouse from the operating system and confines the operating system cursor to the window, wrapping the cursor when it is near the edges. Setting this will call SetMouseGrabbed(true).</term>
@@ -122,26 +126,31 @@
           <term>Free: does not grab/confine the mouse cursor even when it is hidden. This can be used for cases where the cursor should render using the operating system outside the window, and perform custom rendering (with SetMouseVisible(false)) inside.</term>
         </item>
       </list>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Joystick input</h2>
       </format>
       <para>Plugged in joysticks will begin sending input events automatically. Each joystick will be assigned a joystick ID which will be used in subsequent joystick events, as well as for retrieving the joystick state. Use <see cref="M:Urho.Input.GetJoystick" /> to retrieve the joystick state by ID. In case you do not have the ID, you can also use <see cref="M:Urho.Input.GetJoystickByIndex" /> which uses a zero-based index; see <see cref="P:Urho.Input.NumJoystick" /> for the number of currently connected joysticks. The ID, as well as the joystick name, can be looked up from the joystick state.</para>
       <para>If the joystick model is recognized by SDL as a game controller the buttons and axes mappings utilize known constants such as CONTROLLER_BUTTON_A or CONTROLLER_AXIS_LEFTX without having to guess them. Use <see cref="IsController()" /> to distinguish between a game controller and an unrecognized joystick.</para>
-      <para></para>
+      <para>
+      </para>
       <para>On platforms that support the accelerometer, it will appear as a "virtual" joystick.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Touch input</h2>
       </format>
       <para>On platforms where touch input is available, touch begin/end/move events will be sent, as well as multi-gesture events with pinch/rotation delta values when more than one finger is pressed down. The current finger touches can also be accessed via a polling API: <see cref="P:Urho.Input.NumTouches" /> and <see cref="M:Urho.Input.GetTouch." /></para>
       <para>Touch gestures can be recorded using SDL's inbuilt $1 gesture recognition system. Use <see cref="M:Urho.Input.RecordGesture" /> to start recording. The following finger movements will be recorded until the finger is lifted, at which point the recording ends and the GestureRecorded event is sent with the hash ID of the new gesture. The current in-memory gesture(s) can be saved or loaded as binary data.</para>
-      <para></para>
+      <para>
+      </para>
       <para>Whenever a recognized gesture is entered by the user, the GestureInput event will be sent. In addition to the ID of the best matched gesture, it contains the center position and an error metric (lower = better) to help filter out false gestures.</para>
       <para>Note that all recorded (whether saved or not) and loaded gestures are held in-memory. Two additional functions are available to clear them: <see cref="M:Urho.Input.RemoveGesture" /> to selectively clear a gesture by its ID and <see cref="M:Urho.Input.RemoveAllGestures" /> to clear them all.</para>
       <para>Touch input can also emulate a virtual joystick by displaying on-screen buttons. See the function <see cref="M:Urho.Input.AddScreenJoystick" />.</para>
       <para>Touch emulation can be used to test mobile applications on a desktop machine without a touch screen. See <see cref="P:Urho.Input.TouchEmulation" />. When touch emulation is enabled, actual mouse events are no longer sent and the operating system mouse cursor is forced visible. The left mouse button acts as a moving finger, while the rest of the mouse buttons act as stationary fingers for multi-finger gestures. For example pressing down both left and right mouse buttons, then dragging the mouse with the buttons still pressed would emulate a two-finger pinch zoom-in gesture.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Platform-specific details</h2>
       </format>
@@ -162,7 +171,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Input which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -200,7 +210,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Input linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -242,6 +253,22 @@
         <param name="styleFile">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CenterMousePosition">
+      <MemberSignature Language="C#" Value="public void CenterMousePosition ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CenterMousePosition() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1538,6 +1565,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetMousePosition">
+      <MemberSignature Language="C#" Value="public void SetMousePosition (Urho.IntVector2 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMousePosition(valuetype Urho.IntVector2 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetMouseVisible">
       <MemberSignature Language="C#" Value="public void SetMouseVisible (bool enable, bool suppressEvent);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMouseVisible(bool enable, bool suppressEvent) cil managed" />
@@ -2319,7 +2365,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -2335,7 +2382,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -2351,7 +2399,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

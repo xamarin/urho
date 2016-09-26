@@ -188,6 +188,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="EastNeighbor">
+      <MemberSignature Language="C#" Value="public Urho.Terrain EastNeighbor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Terrain EastNeighbor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Terrain</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetHeight">
       <MemberSignature Language="C#" Value="public float GetHeight (Urho.Vector3 worldPosition);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetHeight(valuetype Urho.Vector3 worldPosition) cil managed" />
@@ -206,6 +222,28 @@
         <summary>
             Return height at world coordinates.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetNeighborPatch">
+      <MemberSignature Language="C#" Value="public Urho.TerrainPatch GetNeighborPatch (int x, int z);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.TerrainPatch GetNeighborPatch(int32 x, int32 z) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TerrainPatch</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Int32" />
+        <Parameter Name="z" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="z">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -432,6 +470,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="NorthNeighbor">
+      <MemberSignature Language="C#" Value="public Urho.Terrain NorthNeighbor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Terrain NorthNeighbor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Terrain</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NumPatches">
       <MemberSignature Language="C#" Value="public Urho.IntVector2 NumPatches { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 NumPatches" />
@@ -622,6 +676,31 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetNeighbors">
+      <MemberSignature Language="C#" Value="public void SetNeighbors (Urho.Terrain north, Urho.Terrain south, Urho.Terrain west, Urho.Terrain east);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetNeighbors(class Urho.Terrain north, class Urho.Terrain south, class Urho.Terrain west, class Urho.Terrain east) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="north" Type="Urho.Terrain" />
+        <Parameter Name="south" Type="Urho.Terrain" />
+        <Parameter Name="west" Type="Urho.Terrain" />
+        <Parameter Name="east" Type="Urho.Terrain" />
+      </Parameters>
+      <Docs>
+        <param name="north">To be added.</param>
+        <param name="south">To be added.</param>
+        <param name="west">To be added.</param>
+        <param name="east">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetOcclusionLodLevelAttr">
       <MemberSignature Language="C#" Value="public void SetOcclusionLodLevelAttr (uint value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetOcclusionLodLevelAttr(unsigned int32 value) cil managed" />
@@ -720,6 +799,22 @@
             Or
             Set smoothing of heightmap.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SouthNeighbor">
+      <MemberSignature Language="C#" Value="public Urho.Terrain SouthNeighbor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Terrain SouthNeighbor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Terrain</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -905,6 +1000,22 @@
       </ReturnValue>
       <Docs>
         <summary>Return visible flag.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WestNeighbor">
+      <MemberSignature Language="C#" Value="public Urho.Terrain WestNeighbor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Terrain WestNeighbor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Terrain</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

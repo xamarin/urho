@@ -1,0 +1,68 @@
+<Type Name="Transform" FullName="Urho.HoloLens.HoloToolkit.Transform">
+  <TypeSignature Language="C#" Value="public struct Transform" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Transform extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="localToWorldMatrix">
+      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Matrix4x4 localToWorldMatrix;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Matrix4x4 localToWorldMatrix" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.Matrix4x4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="rotation">
+      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Quaternion rotation;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Quaternion rotation" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.Quaternion</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TransformPoint">
+      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3 TransformPoint (Urho.HoloLens.HoloToolkit.Vector3 point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.HoloLens.HoloToolkit.Vector3 TransformPoint(valuetype Urho.HoloLens.HoloToolkit.Vector3 point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="Urho.HoloLens.HoloToolkit.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

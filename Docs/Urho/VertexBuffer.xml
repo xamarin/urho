@@ -408,6 +408,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetData">
+      <MemberSignature Language="C#" Value="public void SetData (Urho.CustomGeometryVertex[] vertexData);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(valuetype Urho.CustomGeometryVertex[] vertexData) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vertexData" Type="Urho.CustomGeometryVertex[]" />
+      </Parameters>
+      <Docs>
+        <param name="vertexData">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetDataRange">
       <MemberSignature Language="C#" Value="public bool SetDataRange (void* data, uint start, uint count, bool discard);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetDataRange(void* data, unsigned int32 start, unsigned int32 count, bool discard) cil managed" />

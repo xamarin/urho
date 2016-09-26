@@ -91,6 +91,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="AlphaToCoverage">
+      <MemberSignature Language="C#" Value="public bool AlphaToCoverage { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AlphaToCoverage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AuxViewFrameNumber">
       <MemberSignature Language="C#" Value="public uint AuxViewFrameNumber { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 AuxViewFrameNumber" />
@@ -488,7 +504,7 @@
       </Docs>
     </Member>
     <Member MemberName="Occlusion">
-      <MemberSignature Language="C#" Value="public bool Occlusion { get; }" />
+      <MemberSignature Language="C#" Value="public bool Occlusion { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool Occlusion" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -524,6 +540,22 @@
             Parse a shader parameter value from a string. Retunrs either a bool, a float, or a 2 to 4-component vector.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PixelShaderDefines">
+      <MemberSignature Language="C#" Value="public string PixelShaderDefines { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string PixelShaderDefines" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1305,6 +1337,22 @@
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
         <remarks>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VertexShaderDefines">
+      <MemberSignature Language="C#" Value="public string VertexShaderDefines { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string VertexShaderDefines" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

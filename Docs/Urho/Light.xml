@@ -151,6 +151,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ColorFromTemperature">
+      <MemberSignature Language="C#" Value="public Urho.Color ColorFromTemperature { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color ColorFromTemperature" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DrawDebugGeometry">
       <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer debug, bool depthTest);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer debug, bool depthTest) cil managed" />
@@ -663,6 +679,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ShadowMaxExtrusion">
+      <MemberSignature Language="C#" Value="public float ShadowMaxExtrusion { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ShadowMaxExtrusion" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ShadowNearFarRatio">
       <MemberSignature Language="C#" Value="public float ShadowNearFarRatio { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 ShadowNearFarRatio" />
@@ -761,6 +793,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Temperature">
+      <MemberSignature Language="C#" Value="public float Temperature { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Temperature" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Type">
       <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
@@ -826,6 +874,22 @@
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
         <remarks>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UsePhysicalValues">
+      <MemberSignature Language="C#" Value="public bool UsePhysicalValues { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UsePhysicalValues" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

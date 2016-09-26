@@ -446,6 +446,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetStereoMode">
+      <MemberSignature Language="C#" Value="public void SetStereoMode (bool stereo);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetStereoMode(bool stereo) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="stereo" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="stereo">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SourceView">
       <MemberSignature Language="C#" Value="public Urho.View SourceView { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.View SourceView" />

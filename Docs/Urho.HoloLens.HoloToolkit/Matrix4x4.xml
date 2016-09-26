@@ -1,0 +1,359 @@
+<Type Name="Matrix4x4" FullName="Urho.HoloLens.HoloToolkit.Matrix4x4">
+  <TypeSignature Language="C#" Value="public struct Matrix4x4" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Matrix4x4 extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Matrix4x4 (float m00, float m01, float m02, float m03, float m10, float m11, float m12, float m13, float m20, float m21, float m22, float m23, float m30, float m31, float m32, float m33);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 m00, float32 m01, float32 m02, float32 m03, float32 m10, float32 m11, float32 m12, float32 m13, float32 m20, float32 m21, float32 m22, float32 m23, float32 m30, float32 m31, float32 m32, float32 m33) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="m00" Type="System.Single" />
+        <Parameter Name="m01" Type="System.Single" />
+        <Parameter Name="m02" Type="System.Single" />
+        <Parameter Name="m03" Type="System.Single" />
+        <Parameter Name="m10" Type="System.Single" />
+        <Parameter Name="m11" Type="System.Single" />
+        <Parameter Name="m12" Type="System.Single" />
+        <Parameter Name="m13" Type="System.Single" />
+        <Parameter Name="m20" Type="System.Single" />
+        <Parameter Name="m21" Type="System.Single" />
+        <Parameter Name="m22" Type="System.Single" />
+        <Parameter Name="m23" Type="System.Single" />
+        <Parameter Name="m30" Type="System.Single" />
+        <Parameter Name="m31" Type="System.Single" />
+        <Parameter Name="m32" Type="System.Single" />
+        <Parameter Name="m33" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="m00">To be added.</param>
+        <param name="m01">To be added.</param>
+        <param name="m02">To be added.</param>
+        <param name="m03">To be added.</param>
+        <param name="m10">To be added.</param>
+        <param name="m11">To be added.</param>
+        <param name="m12">To be added.</param>
+        <param name="m13">To be added.</param>
+        <param name="m20">To be added.</param>
+        <param name="m21">To be added.</param>
+        <param name="m22">To be added.</param>
+        <param name="m23">To be added.</param>
+        <param name="m30">To be added.</param>
+        <param name="m31">To be added.</param>
+        <param name="m32">To be added.</param>
+        <param name="m33">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="identity">
+      <MemberSignature Language="C#" Value="public static readonly Urho.HoloLens.HoloToolkit.Matrix4x4 identity;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.HoloLens.HoloToolkit.Matrix4x4 identity" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.Matrix4x4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m00">
+      <MemberSignature Language="C#" Value="public float m00;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m00" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m01">
+      <MemberSignature Language="C#" Value="public float m01;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m01" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m02">
+      <MemberSignature Language="C#" Value="public float m02;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m02" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m03">
+      <MemberSignature Language="C#" Value="public float m03;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m03" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m10">
+      <MemberSignature Language="C#" Value="public float m10;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m10" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m11">
+      <MemberSignature Language="C#" Value="public float m11;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m11" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m12">
+      <MemberSignature Language="C#" Value="public float m12;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m12" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m13">
+      <MemberSignature Language="C#" Value="public float m13;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m13" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m20">
+      <MemberSignature Language="C#" Value="public float m20;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m20" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m21">
+      <MemberSignature Language="C#" Value="public float m21;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m21" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m22">
+      <MemberSignature Language="C#" Value="public float m22;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m22" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m23">
+      <MemberSignature Language="C#" Value="public float m23;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m23" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m30">
+      <MemberSignature Language="C#" Value="public float m30;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m30" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m31">
+      <MemberSignature Language="C#" Value="public float m31;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m31" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m32">
+      <MemberSignature Language="C#" Value="public float m32;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m32" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="m33">
+      <MemberSignature Language="C#" Value="public float m33;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 m33" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TransformDirection">
+      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3 TransformDirection (Urho.HoloLens.HoloToolkit.Vector3 v);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.HoloLens.HoloToolkit.Vector3 TransformDirection(valuetype Urho.HoloLens.HoloToolkit.Vector3 v) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="v" Type="Urho.HoloLens.HoloToolkit.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="v">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TransformPoint">
+      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3 TransformPoint (Urho.HoloLens.HoloToolkit.Vector3 v);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.HoloLens.HoloToolkit.Vector3 TransformPoint(valuetype Urho.HoloLens.HoloToolkit.Vector3 v) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="v" Type="Urho.HoloLens.HoloToolkit.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="v">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

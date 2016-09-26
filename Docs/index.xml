@@ -70,6 +70,7 @@
       <Type Name="AttributeAnimationRemovedEventArgs" Kind="Structure" />
       <Type Name="AttributeAnimationUpdateEventArgs" Kind="Structure" />
       <Type Name="AttributeInfo" Kind="Structure" />
+      <Type Name="AutoRemoveMode" Kind="Enumeration" />
       <Type Name="Bar" Kind="Class" />
       <Type Name="BeginRenderingEventArgs" Kind="Structure" />
       <Type Name="BeginViewRenderEventArgs" Kind="Structure" />
@@ -162,6 +163,8 @@
       <Type Name="IDeserializer" Kind="Interface" />
       <Type Name="IndexBuffer" Kind="Class" />
       <Type Name="Input" Kind="Class" />
+      <Type Name="InputBeginEventArgs" Kind="Structure" />
+      <Type Name="InputEndEventArgs" Kind="Structure" />
       <Type Name="InputFocusEventArgs" Kind="Structure" />
       <Type Name="InterceptNetworkUpdateEventArgs" Kind="Structure" />
       <Type Name="InterpMethod" Kind="Enumeration" />
@@ -218,11 +221,13 @@
       <Type Name="NetworkState" Kind="Structure" />
       <Type Name="Node" Kind="Class" />
       <Type Name="NodeAddedEventArgs" Kind="Structure" />
+      <Type Name="NodeBeginContact2DEventArgs" Kind="Structure" />
       <Type Name="NodeClonedEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionEndEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionStartEventArgs" Kind="Structure" />
       <Type Name="NodeEnabledChangedEventArgs" Kind="Structure" />
+      <Type Name="NodeEndContact2DEventArgs" Kind="Structure" />
       <Type Name="NodeNameChangedEventArgs" Kind="Structure" />
       <Type Name="NodeRemovedEventArgs" Kind="Structure" />
       <Type Name="NodeTagAddedEventArgs" Kind="Structure" />
@@ -277,7 +282,9 @@
       <Type Name="SceneUpdateEventArgs" Kind="Structure" />
       <Type Name="ScreenModeEventArgs" Kind="Structure" />
       <Type Name="Sdl" Kind="Class" />
+      <Type Name="SDL_Event" Kind="Structure" />
       <Type Name="SdlEventType" Kind="Enumeration" />
+      <Type Name="SDLRawInputEventArgs" Kind="Structure" />
       <Type Name="SdlWindowEvent" Kind="Enumeration" />
       <Type Name="Serializable" Kind="Class" />
       <Type Name="Shader" Kind="Class" />
@@ -353,6 +360,8 @@
       <Type Name="VertexElementType" Kind="Enumeration" />
       <Type Name="VertexLightVSVariation" Kind="Enumeration" />
       <Type Name="View" Kind="Class" />
+      <Type Name="ViewBuffersReadyEventArgs" Kind="Structure" />
+      <Type Name="ViewGlobalShaderParametersEventArgs" Kind="Structure" />
       <Type Name="ViewOverrideFlags" Kind="Enumeration" />
       <Type Name="Viewport" Kind="Class" />
       <Type Name="WeakPtr" Kind="Structure" />
@@ -583,6 +592,27 @@
       <Type Name="VisibleChangedEventArgs" Kind="Structure" />
       <Type Name="Window" Kind="Class" />
       <Type Name="WindowDragMode" Kind="Enumeration" />
+    </Namespace>
+    <Namespace Name="Urho.HoloLens">
+      <Type Name="DebugGrid" Kind="Class" />
+      <Type Name="HoloApplication" Kind="Class" />
+      <Type Name="SpatialCursor" Kind="Class" />
+      <Type Name="SpatialMeshInfo" Kind="Structure" />
+      <Type Name="SpatialVertex" Kind="Structure" />
+    </Namespace>
+    <Namespace Name="Urho.HoloLens.HoloToolkit">
+      <Type Name="BoundedPlane" Kind="Structure" />
+      <Type Name="Bounds" Kind="Structure" />
+      <Type Name="Matrix4x4" Kind="Structure" />
+      <Type Name="Mesh" Kind="Structure" />
+      <Type Name="MeshFilter" Kind="Structure" />
+      <Type Name="OrientedBoundingBox" Kind="Structure" />
+      <Type Name="Plane" Kind="Structure" />
+      <Type Name="PlaneFinding" Kind="Class" />
+      <Type Name="PlaneFinding+MeshData" Kind="Structure" />
+      <Type Name="Quaternion" Kind="Structure" />
+      <Type Name="Transform" Kind="Structure" />
+      <Type Name="Vector3" Kind="Structure" />
     </Namespace>
     <Namespace Name="Urho.IO">
       <Type Name="AsyncExecFinishedEventArgs" Kind="Structure" />
