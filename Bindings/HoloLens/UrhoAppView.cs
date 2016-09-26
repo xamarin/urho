@@ -26,7 +26,6 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.Input.Spatial;
-using Urho.Holographics;
 
 namespace Urho.HoloLens
 {

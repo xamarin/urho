@@ -1,7 +1,6 @@
-﻿using Urho;
-using Urho.Shapes;
+﻿using Urho.Shapes;
 
-namespace Urho.Holographics
+namespace Urho.HoloLens
 {
 	public class DebugGrid : Component
 	{
@@ -11,7 +10,7 @@ namespace Urho.Holographics
 			const float scale = 1f;
 			Color color = new Color(0.7f, 0.7f, 0.7f);
 
-			CustomGeometry geom = node.CreateComponent<CustomGeometry>();
+			var geom = node.CreateComponent<CustomGeometry>();
 			geom.BeginGeometry(0, PrimitiveType.LineList);
 			var material = new Material();
 			material.SetTechnique(0, CoreAssets.Techniques.NoTextureUnlitVCol, 1, 1);

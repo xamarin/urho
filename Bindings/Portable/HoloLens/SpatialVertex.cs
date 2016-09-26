@@ -1,6 +1,6 @@
 using System;
 
-namespace Urho.Holographics
+namespace Urho.HoloLens
 {
 	public struct SpatialVertex
 	{

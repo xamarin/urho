@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Graphics.DirectX;
 using Windows.Perception.Spatial;
 using Windows.Perception.Spatial.Surfaces;
-using Windows.System.Threading;
-using Urho.Holographics;
+using Urho.HoloLens;
 
 namespace Urho
 {
@@ -179,7 +176,7 @@ namespace Urho
 			Matrix4 transformUrhoMatrix;
 			unsafe { transformUrhoMatrix = *(Matrix4*)(void*)&transformValue; }
 
-			var surfaceInfo = new Holographics.SpatialMeshInfo
+			var surfaceInfo = new HoloLens.SpatialMeshInfo
 			{
 					SurfaceId = surface.Id.ToString(),
 					Date = surface.UpdateTime,

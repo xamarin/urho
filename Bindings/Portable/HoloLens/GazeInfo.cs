@@ -1,4 +1,4 @@
-﻿namespace Urho.Holographics
+﻿namespace Urho.HoloLens
 {
 	public class GazeInfo
 	{

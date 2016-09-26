@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
-namespace Urho.Holographics
+namespace Urho.HoloLens
 {
 	public class HoloApplication : Application
 	{
@@ -54,14 +54,11 @@ namespace Urho.Holographics
 		public bool EnableGestureHold { get; set; }
 		public bool EnableGestureManipulation { get; set; }
 
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void Camera_SetHoloProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
+		protected HoloApplication(string assetsDirectory) : base(Configure(assetsDirectory)) { }
 
-		public HoloApplication(string pak, bool emulation) : base(Configure(pak, emulation)) { Emulator = emulation; }
-
-		static ApplicationOptions Configure(string pak, bool emulation)
+		static ApplicationOptions Configure(string assetsDirectory)
 		{
-			return new ApplicationOptions(pak) {Width = 1286, Height = 720, LimitFps = emulation };
+			return new ApplicationOptions(assetsDirectory) {Width = 1286, Height = 720, LimitFps = false };
 		}
 
 		protected override void OnUpdate(float timeStep)
@@ -92,11 +89,13 @@ namespace Urho.Holographics
 			if (Input.GetKeyDown(Key.D)) cameraNode.Translate( Vector3.UnitX * moveSpeed * timeStep);
 		}
 
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void Camera_SetHoloProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
+
 		protected override async void Start()
 		{
 			Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.ForwardHWDepth);
 			Renderer.DrawShadows = false;
-			Renderer.MaterialQuality = 1;
 			
 			Scene = new Scene();
 			Octree = Scene.CreateComponent<Octree>();

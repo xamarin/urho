@@ -1,6 +1,5 @@
 ﻿using Windows.Perception.Spatial;
 using Windows.UI.Input.Spatial;
-using Urho.Holographics;
 using Urho.HoloLens;
 
 namespace Urho
@@ -24,7 +23,7 @@ namespace Urho
 			hold.HoldCanceled += Hold_HoldCanceled;
 			hold.HoldCompleted += Hold_HoldCompleted;
 			hold.HoldStarted += Hold_HoldStarted;
-
+			
 			manipulationTranslate.ManipulationCanceled += ManipulationTranslate_ManipulationCanceled;
 			manipulationTranslate.ManipulationCompleted += ManipulationTranslate_ManipulationCompleted;
 			manipulationTranslate.ManipulationStarted += ManipulationTranslate_ManipulationStarted;

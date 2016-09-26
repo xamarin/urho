@@ -1,8 +1,7 @@
 ﻿using System;
 using Urho.Actions;
-using Urho.Holographics;
 
-namespace Urho.Portable.Holographics
+namespace Urho.HoloLens
 {
 	public class SpatialCursor : Component
 	{
