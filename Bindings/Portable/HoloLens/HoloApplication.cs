@@ -190,9 +190,9 @@ namespace Urho.HoloLens
 #endif
 		}
 
-		public virtual void OnGestureTapped(GazeInfo gaze) { }
-		public virtual void OnGestureDoubleTapped(GazeInfo gaze) { }
-		public virtual void OnGestureHoldStarted(GazeInfo gaze) { }
+		public virtual void OnGestureTapped() { }
+		public virtual void OnGestureDoubleTapped() { }
+		public virtual void OnGestureHoldStarted() { }
 		public virtual void OnGestureHoldCompleted() { }
 		public virtual void OnGestureHoldCanceled() { }
 		public virtual void OnGestureManipulationStarted() { }

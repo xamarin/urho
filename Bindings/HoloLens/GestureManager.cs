@@ -72,8 +72,7 @@ namespace Urho
 
 		void Hold_HoldStarted(SpatialGestureRecognizer sender, SpatialHoldStartedEventArgs args)
 		{
-			var gaze = GazeInfo.FromHeadPose(args.TryGetPointerPose(referenceFrame.CoordinateSystem)?.Head);
-			Application.InvokeOnMain(() => app.OnGestureHoldStarted(gaze));
+			Application.InvokeOnMain(() => app.OnGestureHoldStarted());
 		}
 
 		void Hold_HoldCompleted(SpatialGestureRecognizer sender, SpatialHoldCompletedEventArgs args)
@@ -88,11 +87,10 @@ namespace Urho
 
 		void Tap_Tapped(SpatialGestureRecognizer sender, SpatialTappedEventArgs args)
 		{
-			var gaze = GazeInfo.FromHeadPose(args.TryGetPointerPose(referenceFrame.CoordinateSystem)?.Head);
 			if (args.TapCount == 1)
-				Application.InvokeOnMain(() => app.OnGestureTapped(gaze));
+				Application.InvokeOnMain(() => app.OnGestureTapped());
 			if (args.TapCount == 2)
-				Application.InvokeOnMain(() => app.OnGestureDoubleTapped(gaze));
+				Application.InvokeOnMain(() => app.OnGestureDoubleTapped());
 		}
 	}
 }
