@@ -477,6 +477,7 @@ namespace SharpieBinder
 		}
 
 		static readonly string[] TypesToIgnore = { "BackgroundLoader" };
+		static readonly string[] TypesWithoutUnsafeKeyword = { "Application" };
 
 		void Bind(CXXRecordDecl baseDecl, CXXRecordDecl decl)
 		{
@@ -485,11 +486,15 @@ namespace SharpieBinder
 
 			bool isStruct = IsStructure (decl);
 
+			var modifiers = Modifiers.Partial | Modifiers.Public;
+			if (!TypesWithoutUnsafeKeyword.Contains(decl.Name))
+				modifiers |= Modifiers.Unsafe;
+
 			PushType(new TypeDeclaration
 			{
 				Name = RemapTypeName (decl.Name),
 				ClassType = isStruct ? ClassType.Struct : ClassType.Class,
-				Modifiers = Modifiers.Partial | Modifiers.Public | Modifiers.Unsafe
+				Modifiers = modifiers
 			}, StringUtil.GetTypeComments(decl));
 
 			if (baseDecl != null) {

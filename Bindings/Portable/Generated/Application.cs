@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Base class for creating applications which initialize the Urho3D engine and run a main loop until exited.
 	/// </summary>
-	public unsafe partial class Application : UrhoObject
+	public partial class Application : UrhoObject
 	{
 		public Application (IntPtr handle) : base (handle)
 		{
