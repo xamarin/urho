@@ -16,11 +16,9 @@
             </summary>
     <remarks>
       <para>This contains the list of options that can be configured at application startup, these settings control how the engine is initialized.</para>
-      <para>
-      </para>
+      <para></para>
       <para>The options set with this selector are passed to the Urho game engine on startup.</para>
-      <para>
-      </para>
+      <para></para>
       <para>You can use the convenience <see cref="T:Urho.ApplicationOptions.Default" /> or <see cref="T:Urho.ApplicationOptions.PortraitDefault" /> static values as options to use as either defaults for landscape or portrait.</para>
     </remarks>
   </Docs>
@@ -106,10 +104,8 @@
         <value>The state of the delayed start</value>
         <remarks>
           <para>Use this option if you want to prevent the main loop from running immediately.   In that case, you will want to manually run the loop by calling the <see cref="M:Urho.Engine.RunFrame" /> method on a loop at your convenience.</para>
-          <para>
-          </para>
-          <para>
-          </para>
+          <para></para>
+          <para></para>
           <example>
             <code lang="C#"><![CDATA[var app = new MyApp (new ApplicationOptions () { DelayedStart = true });
 while (true){
@@ -136,8 +132,7 @@ while (true){
         <value>The current handle to the native window</value>
         <remarks>
           <para>This is a platform specific pointer to a native handle.   On Windows, this is a handle to a window (HWND), and on Cocoa it is a pointer to an NSView (if you are using the Xamarin.Mac API, this will be the Handle of the <see cref="T:AppKit.NSView" />). </para>
-          <para>
-          </para>
+          <para></para>
           <para>This instructs UrhoSharp to use that window or view as its rendering target.   This is used in scenarios where you want to embed the engine into another application.</para>
         </remarks>
       </Docs>

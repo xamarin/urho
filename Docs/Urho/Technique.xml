@@ -10,10 +10,169 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            Material technique. Consists of several passes.
-            </summary>
-    <remarks>To be added.</remarks>
+    <summary>Material technique. Consists of several passes.</summary>
+    <remarks>
+      <para>A technique definition looks like this:</para>
+      <code lang="XML"><![CDATA[<technique vs="VertexShaderName" ps="PixelShaderName" vsdefines="DEFINE1 DEFINE2" psdefines="DEFINE3 DEFINE4" desktop="false|true" >
+    <pass name="base|litbase|light|alpha|litalpha|postopaque|refract|postalpha|prepass|material|deferred|depth|shadow" desktop="false|true" >
+        vs="VertexShaderName" ps="PixelShaderName" vsdefines="DEFINE1 DEFINE2" psdefines="DEFINE3 DEFINE4"
+        lighting="unlit|pervertex|perpixel"
+        blend="replace|add|multiply|alpha|addalpha|premulalpha|invdestalpha|subtract|subtractalpha"
+        depthtest="always|equal|less|lessequal|greater|greaterequal"
+        depthwrite="true|false" 
+        alphamask="true|false" />
+    <pass ... />
+    <pass ... />
+</technique>
+]]></code>
+      <para>
+
+	  The "desktop" attribute in either technique or pass allows
+	  to specify it requires desktop graphics hardware (exclude
+	  mobile devices.) Omitting it is the same as specifying
+	  false.
+	</para>
+      <para>
+
+	  Shaders are referred to by giving the name of a shader
+	  without path and file extension. For example "Basic" or
+	  "LitSolid". The engine will add the correct path and file
+	  extension (Shaders/HLSL/LitSolid.hlsl for Direct3D, and
+	  Shaders/GLSL/LitSolid.glsl for OpenGL) automatically. The
+	  same shader source file contains both the vertex and pixel
+	  shader. In addition, compilation defines can be specified,
+	  which are passed to the shader compiler. For example the
+	  define "DIFFMAP" typically enables diffuse mapping in the
+	  pixel shader.
+	</para>
+      <para>
+
+	  Shaders and their compilation defines can be specified on
+	  both the technique and pass level. If a pass does not
+	  override the default shaders specified on the technique
+	  level, it still can specify additional compilation defines
+	  to be used. However, if a pass overrides the shaders, then
+	  the technique-level defines are not used.
+
+	</para>
+      <para>
+	  
+	  The technique definition does not need to enumerate shaders
+	  used for different geometry types (non-skinned, skinned,
+	  instanced, billboard) and different per-vertex and per-pixel
+	  light combinations. Instead the engine will add certain
+	  hardcoded compilation defines for these. See <see cref="T:Urho.Shader" /> for
+	  details.
+
+	</para>
+      <para>
+	  The purposes of the different passes are:
+	</para>
+      <list type="bullet">
+        <item>
+          <term>
+	      base: Renders ambient light, per-vertex lights and fog for an opaque object.
+	    </term>
+        </item>
+        <item>
+          <term>litbase: Renders the first per-pixel light, ambient light and fog for an opaque object. This is an optional pass for optimization.
+	    </term>
+        </item>
+        <item>
+          <term>light: Renders one per-pixel light's contribution additively for an opaque object.
+
+	    </term>
+        </item>
+        <item>
+          <term>alpha: Renders ambient light, per-vertex lights and fog for a transparent object.
+
+	    </term>
+        </item>
+        <item>
+          <term>litalpha: Renders one per-pixel light's contribution additively for a transparent object
+
+	    </term>
+        </item>
+        <item>
+          <term>postopaque: Custom rendering pass after opaque geometry. Can be used to render the skybox.
+
+	    </term>
+        </item>
+        <item>
+          <term>refract: Custom rendering pass after postopaque pass. Can sample the viewport texture from the environment texture unit to render refractive objects.
+
+	    </term>
+        </item>
+        <item>
+          <term>postalpha: Custom rendering pass after transparent geometry.
+
+	    </term>
+        </item>
+        <item>
+          <term>prepass: Light pre-pass only - renders normals, specular power and depth to the G-buffer.
+
+	    </term>
+        </item>
+        <item>
+          <term>material: Light pre-pass only - renders opaque geometry final color by combining ambient light, per-vertex lights and per-pixel light accumulation.
+
+	    </term>
+        </item>
+        <item>
+          <term>deferred: Deferred rendering only - renders ambient light and per-vertex lights to the output rendertarget, and diffuse albedo, normals, specular intensity + power and depth to the G-buffer.
+
+	    </term>
+        </item>
+        <item>
+          <term>depth: Renders linear depth to a rendertarget for post-processing effects.
+
+	    </term>
+        </item>
+        <item>
+          <term>shadow: Renders to a hardware shadow map (depth only) for shadow map generation.
+
+	    </term>
+        </item>
+      </list>
+      <para>
+
+	  More custom passes can be defined and referred to in the
+	  render path definition. For the built-in passes listed
+	  above, the lighting shader permutations to load (unlit,
+	  per-vertex or per-pixel) are recognized automatically, but
+	  for custom passes they need to be explicitly specified. The
+	  default is unlit.
+	</para>
+      <para>
+
+	  The optional "litbase" pass reduces draw call count by
+	  combining ambient lighting with the first per-pixel light
+	  affecting an object. However, it has intentional limitations
+	  to not require too many shader permutations: there must be
+	  no vertex lights affecting the object, and the ambient
+	  lighting can not have a gradient. In case of excessive
+	  overdraw, it is possibly better not to define it, but
+	  instead allow the base pass (which is computationally very
+	  lightweight) to run first, initializing the Z buffer for
+	  later passes.
+	</para>
+      <para>
+
+	  "Alphamask" is not an actual rendering state, but a hint
+	  which tells that the pixel shader will use discard based on
+	  alpha. Because this may interfere with the early-Z culling,
+	  materials without the alpha masking hint will be drawn
+	  first.
+	</para>
+      <para>
+
+	  The refract pass requires pingponging the scene rendertarget
+	  to a texture, but this will not be performed if there is no
+	  refractive geometry to render, so there is no unnecessary
+	  cost to it.
+
+	</para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -28,8 +187,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Technique which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -67,8 +225,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Technique linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -489,8 +646,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -506,8 +662,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -523,8 +678,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
   </Members>
