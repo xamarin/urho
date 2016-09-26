@@ -32,7 +32,7 @@ namespace Urho.HoloLens
 	public class UrhoAppView : IFrameworkView, IDisposable 
 	{
 		Type holoAppType;
-		string assetsPakName;
+		string assetsDirectory;
 		bool windowVisible = true;
 		bool windowClosed;
 		bool appInited;
@@ -51,10 +51,10 @@ namespace Urho.HoloLens
 
 		public static UrhoAppView Current { get; private set; }
 
-		UrhoAppView(Type holoAppType, string assetsPakName)
+		UrhoAppView(Type holoAppType, string assetsDirectory)
 		{
 			this.holoAppType = holoAppType;
-			this.assetsPakName = assetsPakName;
+			this.assetsDirectory = assetsDirectory;
 			windowVisible = true;
 			Current = this;
 		}
@@ -99,19 +99,6 @@ namespace Urho.HoloLens
 		{
 		}
 
-		static async Task CopyEmbeddedResourceToLocalFolder(string embeddedResource, string destFileName)
-		{
-			if (await ApplicationData.Current.LocalFolder.TryGetItemAsync(destFileName) != null)
-				return;
-
-			var file = ApplicationData.Current.LocalFolder.CreateFileAsync(destFileName).GetAwaiter().GetResult();
-			using (var fileStream = file.OpenStreamForWriteAsync().GetAwaiter().GetResult())
-			using (var embeddedSteam = typeof(UrhoAppView).GetTypeInfo().Assembly.GetManifestResourceStream(embeddedResource))
-			{
-				embeddedSteam.CopyTo(fileStream);
-			}
-		}
-
 		internal static async Task<bool> RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
 			cortanaCommands = commands;
@@ -154,7 +141,7 @@ namespace Urho.HoloLens
 				{
 					SpatialMappingManager = new SpatialMappingManager();
 					appInited = true;
-					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsPakName, false);
+					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsDirectory);
 					Game.Run();
 					Game.Engine.PostUpdate += e => currentFrame?.UpdateCurrentPrediction();
 					GesturesManager = new GesturesManager(Game, ReferenceFrame);
