@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a vertex from a spatial mesh. Consists of a position, normal and a color.</summary>
+    <remarks>This structure can be used directly in VertexBuffer in SetData in case if ElementMask is set to 'Position | Normal  | Color'.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Color">
@@ -25,7 +25,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -56,7 +56,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex Normal.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -117,7 +117,7 @@
         <ReturnType>Urho.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex position.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

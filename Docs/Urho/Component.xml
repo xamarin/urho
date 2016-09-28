@@ -10,50 +10,20 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            Base class for components. Components can be attached to scene nodes.
-            </summary>
+    <summary>Base class for components. Components can be attached to scene nodes. </summary>
     <remarks>
       <para>Use the <see cref="T:Urho.Component" /> is the base class for custom components, it is a low-level interface.   A simpler version to use is <see cref="T:Urho.LogicComponent" /> which provides various convenience features.   </para>
-      <para>The next section for details on how to connect to various events in the life cycle of a component.</para>
-      <format type="text/html">
-        <h2>Events</h2>
-      </format>
-      <para>You can catch the time where the component is attached to a <see cref="T:Urho.Node" /> by overwriting the <see cref="M:Urho.Component.OnAttachedToNode" /> method.   To receive <see cref="T:Urho.Scene" /> update messages, you should first set the <see cref="P:Urho.Component.ReceiveSceneUpdates" /> property to <see langword="true" /> on your constructor, and then override the <see cref="M:Urho.Component.OnUpdate" /> method.</para>
-      <para>If you are interest in updates from the physics engine, you should connect directly to the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPreStep" /> event for your world. </para>
-      <para>If you are interested in receiving the scene post-update, subscribe to the <see cref="E:Urho.Scene.ScenePostUpdate" /> event.</para>
-      <format type="text/html">
-        <h2>Serialization</h2>
-      </format>
-      <para>To implement serialization you would override the OnSerialize and OnDeserialize methods and store your component state on the provided serializer and deserializer objects.</para>
-      <para></para>
-      <code lang="C#"><![CDATA[class MyComponent : Component {
-    // Constructor needed for deserialization
-    public MyComponent(IntPtr handle) : base(handle) { }
-    public MyComponent() { }
-    // user defined properties (managed state):
-    public Quaternion MyRotation { get; set; }
-    public string MyName { get; set; }
-        
-    public override void OnSerialize(IComponentSerializer ser)
-    {
-        // register our properties with their names as keys using nameof()
-        ser.Serialize(nameof(MyRotation), MyRotation);
-        ser.Serialize(nameof(MyName), MyName);
-    }
-        
-    public override void OnDeserialize(IComponentDeserializer des)
-    {
-        MyRotation = des.Deserialize<Quaternion>(nameof(MyRotation));
-        MyName = des.Deserialize<string>(nameof(MyName));
-    }
-    // called when the component is attached to some node
-    public override void OnAttachedToNode()
-    {
-        var node = this.Node;
-    }
-}]]></code>
-    </remarks>
+<para>The next section for details on how to connect to various events in the life cycle of a component.</para>
+<format type="text/html">
+<h2>Events</h2></format>
+<para>You can catch the time where the component is attached to a <see cref="T:Urho.Node" /> by overwriting the <see cref="M:Urho.Component.OnAttachedToNode" /> method.   To receive <see cref="T:Urho.Scene" /> update messages, you should first set the <see cref="P:Urho.Component.ReceiveSceneUpdates" /> property to <see langword="true" /> on your constructor, and then override the <see cref="M:Urho.Component.OnUpdate" /> method.</para>
+<para>If you are interest in updates from the physics engine, you should connect directly to the <see cref="E:Urho.Physics.PhysicsWorld.PhysicsPreStep" /> event for your world. </para>
+<para>If you are interested in receiving the scene post-update, subscribe to the <see cref="E:Urho.Scene.ScenePostUpdate" /> event.</para>
+<format type="text/html">
+<h2>Serialization</h2></format>
+<para>To implement serialization you would override the OnSerialize and OnDeserialize methods and store your component state on the provided serializer and deserializer objects.</para>
+<para></para>
+<code lang="C#"><![CDATA[class MyComponent : Component { // Constructor needed for deserialization public MyComponent(IntPtr handle) : base(handle) { } public MyComponent() { } // user defined properties (managed state): public Quaternion MyRotation { get; set; } public string MyName { get; set; } public override void OnSerialize(IComponentSerializer ser) { // register our properties with their names as keys using nameof() ser.Serialize(nameof(MyRotation), MyRotation); ser.Serialize(nameof(MyName), MyName); } public override void OnDeserialize(IComponentDeserializer des) { MyRotation = des.Deserialize<Quaternion>(nameof(MyRotation)); MyName = des.Deserialize<string>(nameof(MyName)); } // called when the component is attached to some node public override void OnAttachedToNode() { var node = this.Node; } }]]></code></remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

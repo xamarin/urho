@@ -9,10 +9,8 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>
-            Culling mode.
-            </summary>
-    <remarks>To be added.</remarks>
+    <summary>Culling mode. </summary>
+    <remarks>Triangles can be discarded based on their apparent facing, a process known as Culling.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Ccw">
@@ -26,7 +24,7 @@
         <ReturnType>Urho.CullMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Counterclockwise-facing culling.</summary>
       </Docs>
     </Member>
     <Member MemberName="Cw">
@@ -40,7 +38,7 @@
         <ReturnType>Urho.CullMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Clockwise-facing culling.</summary>
       </Docs>
     </Member>
     <Member MemberName="MaxCullmodes">
@@ -54,7 +52,7 @@
         <ReturnType>Urho.CullMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Max culling mode.</summary>
       </Docs>
     </Member>
     <Member MemberName="None">
@@ -68,7 +66,7 @@
         <ReturnType>Urho.CullMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>No culling.</summary>
       </Docs>
     </Member>
   </Members>

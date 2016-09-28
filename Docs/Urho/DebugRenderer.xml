@@ -10,9 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            Debug geometry rendering component. Should be added only to the root scene node.
-            </summary>
+    <summary>Debug geometry rendering component. Should be added only to the root scene node. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

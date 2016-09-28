@@ -10,9 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Color or depth-stencil surface that can be rendered into.
-            </summary>
+    <summary>Color or depth-stencil surface that can be rendered into. </summary>
     <remarks>
       <format type="text/html">
         <h2>Auxiliary Views</h2>

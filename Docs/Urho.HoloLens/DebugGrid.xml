@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Component that creates a 3D grid.</summary>
+    <summary>Component that creates a 3D grid for debug purposes.</summary>
     <remarks>The DebugGrid creates a 3D geometry using <see cref="T:Urho.CustomGeometry" /> with a fixed step. It helps to align urho objects in a real world.</remarks>
   </Docs>
   <Members>

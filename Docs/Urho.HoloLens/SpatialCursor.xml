@@ -11,7 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>Spatial cursor component.</summary>
-    <remarks>Displays a small static model (<see cref="T:Urho.Shapes.Torus" /> by default) and updates its position each frame according to user's gaze</remarks>
+    <remarks>Displays a small static model (<see cref="T:Urho.Shapes.Torus" /> by default) and updates its position each frame according to user's gaze. It sends a raycast each frame update and raises Raycasted event that can be used if you also need to send a raycast in order to avoid doing it twice. The model will be rotated according to a Normal of a geometry touched by the raycast.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -63,7 +63,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Runs a quick click animation using SetShaderAnimation method.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -78,7 +78,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Enables or disables cursor.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -94,7 +94,7 @@
         <ReturnType>Urho.Node</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Node containing cursor's StaticModel.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -110,7 +110,7 @@
         <ReturnType>Urho.Node</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Cursor's root node.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -164,7 +164,7 @@
         <ReturnType>System.Action&lt;System.Nullable&lt;Urho.RayQueryResult&gt;&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary />
+        <summary>Fired after each recast made by the cursor.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -180,7 +180,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Runs a default 'Idle' animation.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

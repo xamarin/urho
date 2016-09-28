@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a vertex. </summary>
+    <remarks>This structure can be used in <see cref="M:Urho.VertexBuffer.SetData" />.</remarks>
   </Docs>
   <Members>
     <Member MemberName="Color">
