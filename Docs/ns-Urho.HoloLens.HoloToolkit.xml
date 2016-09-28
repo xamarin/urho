@@ -1,6 +1,6 @@
 <Namespace Name="Urho.HoloLens.HoloToolkit">
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains various helpers ported from Microsoft HoloTookit for Unity.</summary>
     <remarks>To be added.</remarks>
   </Docs>
 </Namespace>
