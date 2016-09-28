@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Spatial cursor component.</summary>
+    <remarks>Displays a small static model (<see cref="T:Urho.Shapes.Torus" /> by default) and updates its position each frame according to user's gaze</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -164,7 +164,7 @@
         <ReturnType>System.Action&lt;System.Nullable&lt;Urho.RayQueryResult&gt;&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary />
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
