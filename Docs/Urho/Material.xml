@@ -387,11 +387,7 @@
         <ReturnType>Urho.FillMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Return polygon fill mode.
-            Or
-            Set polygon fill mode. Interacts with the camera's fill mode setting so that the "least filled" mode will be used.
-            </summary>
+        <summary>Return polygon fill mode. Or Set polygon fill mode. Interacts with the camera's fill mode setting so that the "least filled" mode will be used. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -410,10 +406,10 @@
         <Parameter Name="color" Type="Urho.Color" />
       </Parameters>
       <Docs>
-        <param name="color">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="color">Color to be used as a MatDiffColor</param>
+        <summary>Creates a material using NoTexture or NoTextureAlpha <see cref="T:Urho.Technique" /> with the specified color as a shader parameter "MatDiffColor".</summary>
+        <returns>Material that contains the image and has been configured with the CoreAssets.Techniques.Diff <see cref="T:Urho.Technique" />.</returns>
+        <remarks>This is a shortcut to creating a new mateiral from specified color (lit). If the color has Alpha less than 1.0f, the NoTextureAlpha <see cref="T:Urho.Technique" /> will be used, otherwise - NoTexture.</remarks>
       </Docs>
     </Member>
     <Member MemberName="FromImage">
