@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Base class for creating holographics applications for HoloLens.</summary>
+    <remarks>This is the bas class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -25,9 +25,9 @@
         <Parameter Name="assetsDirectory" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="assetsDirectory">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="assetsDirectory">Relative path to a directory with assets.</param>
+        <summary>Default constructor for HoloLens based applications.</summary>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="CameraLight">
@@ -41,7 +41,7 @@
         <ReturnType>Urho.Light</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary><see cref="T:Urho.Light" /> component attached to user's <see cref="T:Urho.Camera" /></summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,9 +65,9 @@
         <param name="vertexData">To be added.</param>
         <param name="indexData">To be added.</param>
         <param name="rotation">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Creates <see cref="T:Urho.Model" /> from spatial geometry</summary>
+        <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
+        <remarks>This method can be called in a background thread.</remarks>
       </Docs>
     </Member>
     <Member MemberName="DirectionalLight">
@@ -81,7 +81,7 @@
         <ReturnType>Urho.Light</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Default directional <see cref="T:Urho.Light" /> in the basic scene.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -97,9 +97,9 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Distance between eyes.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>HoloApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.<.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Emulator">
@@ -113,7 +113,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Emulator mode</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -129,9 +129,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Enables or disables Hold gesture</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>See https://developer.microsoft.com/en-us/windows/holographic/gestures for details</remarks>
       </Docs>
     </Member>
     <Member MemberName="EnableGestureManipulation">
