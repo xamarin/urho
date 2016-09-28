@@ -26,14 +26,14 @@ _ReSharper*/
 [Bb]in/
 [Oo]bj/
 /packages
-/Samples/Build
-/Samples/Android/Urho.Samples.Android/Assets
 /Urho3D/Urho3D_Windows
 /Urho3D/Urho3D_Android
 /Urho3D/Urho3D_Mac
 /Urho3D/Urho3D_IOS
+/Urho3D/Urho3D_HoloLens
 /Urho3D/Urho3D_UWP
 clang+llvm-3.7.0-x86_64-apple-darwin*
 /UpgradeLog.htm
-/Urho.VC.opendb
 /docsync.log
+*.VC.opendb
+*.VC.db
