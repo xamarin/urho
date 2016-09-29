@@ -146,7 +146,7 @@ namespace Urho.HoloLens
 				});
 		}
 
-		public void UpdateStereoView(Matrix4 leftView, Matrix4 rightView, Matrix4 leftProj, Matrix4 rightProj)
+		internal void UpdateStereoView(Matrix4 leftView, Matrix4 rightView, Matrix4 leftProj, Matrix4 rightProj)
 		{
 			this.leftView = leftView;
 			this.rightView = rightView;
