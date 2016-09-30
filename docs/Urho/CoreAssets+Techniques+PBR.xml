@@ -11,7 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>Provides access to the Physical Based Rendering techniques that are part of every CoreAssets package in Urho.</summary>
-    <remarks>To be added.</remarks>
+    <remarks><img href="pbr_techniques.png" /></remarks>
   </Docs>
   <Members>
     <Member MemberName="DiffNormalSpecEmissive">
