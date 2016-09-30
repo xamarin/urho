@@ -11,7 +11,14 @@
   <Interfaces />
   <Docs>
     <summary>Provides access to the techniques that are part of every CoreAssets package in Urho.</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Usually, <see cref="T:Urho.Technique" /> name consists of a combination of features it uses.</para>
+<para>You can access built-in techniques via CoreAssets.Techniques:</para>
+<code lang="C#"><![CDATA[Technique diff = CoreAssets.Techniques.Diff;]]></code>
+<para>It allows to create different materials in code, for example the following snippet creates a material from a texture and a normal map using <see cref="P:Urho.CoreAssets+Techniques.DiffNormal" />:</para>
+<code lang="C#"><![CDATA[var material = new Material(); material.SetTechnique(index: 0, tech: CoreAssets.Techniques.DiffNormal, qualityLevel: 1, lodDistance: 1); material.SetTexture(TextureUnit.Diffuse, ResourceCache.GetTexture2D("Earth.jpg")); material.SetTexture(TextureUnit.Normal, ResourceCache.GetTexture2D("Earth_normal.jpg"));]]></code>
+<para>Some of the basic techniques are explained in the following image</para>
+<para><img href="techniques.png" /></para></remarks>
   </Docs>
   <Members>
     <Member MemberName="BasicVColUnlitAlpha">
@@ -25,7 +32,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color, no lights, alpha channel.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -41,9 +48,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Basic diffuse technique.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_Diff.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAdd">
@@ -57,9 +68,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with blend mode 'add'.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffAdd.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAddAlpha">
@@ -73,9 +88,12 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with alpha and blend mode 'add'.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffAdd.png" />
+          </para></remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAlpha">
@@ -89,7 +107,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with alpha.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -297,9 +315,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with blend mode 'multiply'</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffMultiply.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormal">
@@ -313,9 +335,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffNormal.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormalAlpha">
@@ -329,9 +355,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps with alpha.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffNormal.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormalAlphaTranslucent">
@@ -457,9 +487,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and specular maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffNormalSpec.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormalSpecAlpha">
@@ -473,9 +507,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and specular maps with alpha.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffNormalSpec.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormalSpecAO">
@@ -555,7 +593,11 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffSkybox">
@@ -633,9 +675,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and specular maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffSpec.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffSpecAlpha">
@@ -649,9 +695,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and specular maps with alpha.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffSpec.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffUnlit">
@@ -665,9 +715,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, not affected by any lighting (unlit).</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffUnlitAlpha">
@@ -681,9 +735,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, not affected by any lighting (unlit) with alpha.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffVCol">
@@ -777,9 +835,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTexture.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureAdd">
@@ -793,7 +855,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with blend mode 'add'.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -809,7 +871,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with blend mode 'add' and alpha.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -825,9 +887,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with alpha.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTexture.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureAO">
@@ -937,7 +1003,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with blend mode 'multiply'.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -953,9 +1019,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with normal mapping.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureNormal.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureNormalAlpha">
@@ -969,9 +1039,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with alpha and normal mapping.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureNormal.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureOverlay">
@@ -985,9 +1059,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color overlay.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureUnlit">
@@ -1001,9 +1079,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color, not affected by any lighting.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureUnlitAlpha">
@@ -1017,9 +1099,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with alpha, not affected by any lighting</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureUnlitVCol">
