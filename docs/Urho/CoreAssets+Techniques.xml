@@ -12,13 +12,28 @@
   <Docs>
     <summary>Provides access to the techniques that are part of every CoreAssets package in Urho.</summary>
     <remarks>
-      <para>Usually, <see cref="T:Urho.Technique" /> name consists of a combination of features it uses.</para>
+      <para>Usually, <see cref="T:Urho.Technique" /> name consists of a combination of features it uses:</para>
+<para>Basic - uses Basic shader, good for debug purposes</para>
+<para>Diff - displays a texture. It defines DIFFMAP and expects the texture in 'diffuse' texture unit (sDiffMap sampler).</para>
+<para>Normal - expects a normal map in 'normal' texture unit (sNormalMap sampler)</para>
+<para>Spec - expects a specular map in 'specular' texture unit.</para>
+<para>NoTexture - used by materials without textures.</para>
+<para>EnvCube - expects an environment map (cubic texture) in 'environment' texture unit.</para>
+<para>Unlit - materials with this technique won't be affected by any lights (self-illuminated).</para>
+<para>Emissive - similiar to Unlit, but it expects an emissive map in 'emissive' texture unit and will be affected by scene lights</para>
+<para>LightMap - expects a light map in 'emissive' texture unit.</para>
+<para>AO - expects an Ambient Occlusion map in 'emissive' texture unit.</para>
+<para>Translucent - materials with this technique will be affected by lights located behind the materials.</para>
+<para>VColor - will take Vertex Color (for example, defined via DefineColor) into account.</para>
+<para>Additive blending simply sums the values in the two layers. Blending with white gives white. Blending with black does not change the image. </para>
+<para>Multiply blend mode multiplies the numbers for each pixel of the top layer with the corresponding pixel for the bottom layer. The result is a darker picture.</para>
+<para></para>
 <para>You can access built-in techniques via CoreAssets.Techniques:</para>
 <code lang="C#"><![CDATA[Technique diff = CoreAssets.Techniques.Diff;]]></code>
 <para>It allows to create different materials in code, for example the following snippet creates a material from a texture and a normal map using <see cref="P:Urho.CoreAssets+Techniques.DiffNormal" />:</para>
 <code lang="C#"><![CDATA[var material = new Material(); material.SetTechnique(index: 0, tech: CoreAssets.Techniques.DiffNormal, qualityLevel: 1, lodDistance: 1); material.SetTexture(TextureUnit.Diffuse, ResourceCache.GetTexture2D("Earth.jpg")); material.SetTexture(TextureUnit.Normal, ResourceCache.GetTexture2D("Earth_normal.jpg"));]]></code>
 <para>Some of the basic techniques are explained in the following image</para>
-<para><img href="techniques.png" /></para></remarks>
+<para><img href="C:\Projects\urho\Docs\Urho\_images\techniques.png" /></para></remarks>
   </Docs>
   <Members>
     <Member MemberName="BasicVColUnlitAlpha">
@@ -32,7 +47,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Vertex color, no lights, alpha channel.</summary>
+        <summary>Vertex color, no lights, alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -48,7 +63,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Basic diffuse technique.</summary>
+        <summary>Basic diffuse technique, defines DIFFMAP and expects a texture in 'diffuse' texture unit..</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -68,7 +83,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Diffuse map with blend mode 'add'.</summary>
+        <summary>Same as Diffuse but with alpha blending.</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -88,12 +103,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Diffuse map with alpha and blend mode 'add'.</summary>
+        <summary>Diffuse map with alpha and additive blending.</summary>
         <value>To be added.</value>
         <remarks>
           <para>
             <img href="t_DiffAdd.png" />
-          </para></remarks>
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAlpha">
@@ -107,9 +123,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Diffuse map with alpha.</summary>
+        <summary>Diffuse map with alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_Diff.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAlphaTranslucent">
@@ -123,9 +143,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with alpha blending. Can be translucent.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_Diff.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAO">
@@ -139,7 +163,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with ambient occlusion. AO should be passed to 'emissive' texture unit.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -155,7 +179,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with ambient occlusion and Alpha blending. AO should be passed to 'emissive' texture unit.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -171,9 +195,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and emissive maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffEmissive.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffEmissiveAlpha">
@@ -187,9 +215,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and emissive maps with Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffEmissive.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffEnvCube">
@@ -203,9 +235,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and environment maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffEnvCube.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffEnvCubeAlpha">
@@ -219,9 +255,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and environment maps with Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffEnvCube.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffEnvCubeAO">
@@ -235,7 +275,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and environment maps with Ambient Occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -251,7 +291,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and environment maps with Alpha blending and Ambient Occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -267,7 +307,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and light maps.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -283,7 +323,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and light maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -355,7 +395,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Diffuse and normal maps with alpha.</summary>
+        <summary>Diffuse and normal maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -375,7 +415,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps with Alpha blending. Can be translucent.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -391,7 +431,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps with Ambient occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -407,7 +447,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps with Ambient occlusion and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -423,7 +463,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and emissive maps.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -439,7 +479,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and emissive maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -455,7 +495,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and environment maps.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -471,7 +511,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and environment maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -527,7 +567,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and specular maps with Ambient occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -543,7 +583,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and specular maps with Ambient occlusion and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -559,7 +599,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal, specular and emissive maps.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -575,7 +615,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal, specular and emissive maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -591,7 +631,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map..</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -611,7 +651,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map for Skybox.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -643,7 +683,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map for Skydome.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -659,7 +699,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map for Skyplane.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -695,7 +735,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Diffuse and specular maps with alpha.</summary>
+        <summary>Diffuse and specular maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -735,7 +775,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Diffuse map, not affected by any lighting (unlit) with alpha.</summary>
+        <summary>Diffuse map, not affected by any lighting (unlit) with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -755,7 +795,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -771,7 +811,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -787,7 +827,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors and Alpha and Additive blendings.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -803,7 +843,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors and Alpha and 'multiply' blendings.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -819,7 +859,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors, Alpha blending and is not affected by any lights.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -855,7 +895,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Solid color with blend mode 'add'.</summary>
+        <summary>Solid color with Additive blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -871,7 +911,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Solid color with blend mode 'add' and alpha.</summary>
+        <summary>Solid color with Additive and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -887,7 +927,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Solid color with alpha.</summary>
+        <summary>Solid color with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -907,7 +947,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Ambient Occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -923,7 +963,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Ambient Occlusion and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -939,9 +979,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Environment map.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureEnvCube.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureEnvCubeAlpha">
@@ -955,9 +999,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Environment map and Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureEnvCube.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureEnvCubeAO">
@@ -971,7 +1019,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Environment map and Ambient Occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -987,7 +1035,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Environment map, Ambient Occlusion and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1019,7 +1067,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Solid color with normal mapping.</summary>
+        <summary>Solid color with Normal map.</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -1039,7 +1087,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Solid color with alpha and normal mapping.</summary>
+        <summary>Solid color with Normal map and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -1059,7 +1107,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Solid color overlay.</summary>
+        <summary>Solid color (overlay).</summary>
         <value>To be added.</value>
         <remarks>
           <para>
@@ -1119,7 +1167,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color not affected by any lights.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1135,7 +1183,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1151,7 +1199,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color with Additive blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1167,7 +1215,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color with Additive and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1183,7 +1231,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color with 'multiply' blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
