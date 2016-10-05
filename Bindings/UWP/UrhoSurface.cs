@@ -51,7 +51,13 @@ namespace Urho.UWP
 			opt.ResourcePaths = pakFiles.ToArray();
 			opt.ResourcePrefixPaths = new[] { ApplicationData.Current.LocalFolder.Path  };
 
-			CopyEmbeddedResourceToLocalFolder("Urho.CoreData.pak", "CoreData.pak");
+#if XFORMS
+			const string coreDataEmbeddedResource = "Urho.Forms.CoreData.pak";
+#else
+			const string coreDataEmbeddedResource = "Urho.CoreData.pak";
+#endif
+
+			CopyEmbeddedResourceToLocalFolder(coreDataEmbeddedResource, "CoreData.pak");
 			var app = (Application)Activator.CreateInstance(appType, opt);
 			app.Run();
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESIZED, (int)this.ActualWidth, (int)this.ActualHeight);
