@@ -27,7 +27,8 @@ namespace Urho {
 
 		static TaskCompletionSource<bool> exitTask;
 		static int renderThreadId = -1;
-		List<Action> actionsToDipatch = new List<Action>();
+		List<Action> actionsToDispatch = new List<Action>();
+		static List<Action> staticActionsToDispatch;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -107,7 +108,18 @@ namespace Urho {
 		/// </summary>
 		public static void InvokeOnMain(Action action)
 		{
-			var actions = Current.actionsToDipatch;
+			if (!HasCurrent)
+			{
+				Urho.IO.Log.Write(LogLevel.Warning, "InvokeOnMain was invoked before an Application was initialized.");
+				if (staticActionsToDispatch == null)
+					staticActionsToDispatch = new List<Action>();
+				lock (staticActionsToDispatch)
+					staticActionsToDispatch.Add(action);
+
+				return;
+			} 
+
+			var actions = Current.actionsToDispatch;
 			lock (actions)
 			{
 				actions.Add(action);
@@ -137,13 +149,21 @@ namespace Urho {
 			ActionManager.Update(timeStep);
 			OnUpdate(timeStep);
 
-			if (actionsToDipatch.Count > 0)
+			if (staticActionsToDispatch != null)
 			{
-				lock (actionsToDipatch)
-				{
-					foreach (var action in actionsToDipatch)
+				lock (staticActionsToDispatch)
+					foreach (var action in staticActionsToDispatch)
 						action();
-					actionsToDipatch.Clear();
+				staticActionsToDispatch = null;
+			}
+
+			if (actionsToDispatch.Count > 0)
+			{
+				lock (actionsToDispatch)
+				{
+					foreach (var action in actionsToDispatch)
+						action();
+					actionsToDispatch.Clear();
 				}
 			}
 		}
