@@ -80,6 +80,11 @@ namespace Urho
 #endif
 
 		/// <summary>
+		/// Enable high DPI, only supported by Apple platforms (OSX, iOS, and tvOS)
+		/// </summary>
+		public bool HighDpi { get; set; } = true;
+
+		/// <summary>
 		/// Add any flag listed here: http://urho3d.github.io/documentation/1.5/_running.html 
 		/// </summary>
 		public string AdditionalFlags { get; set; } = string.Empty;
@@ -145,6 +150,9 @@ namespace Urho
 			if (TouchEmulation)
 #endif
 			builder.Append(" -touch");
+
+			if (HighDpi)
+				builder.Append(" -hd");
 
 			switch (Orientation)
 			{
