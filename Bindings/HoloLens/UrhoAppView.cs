@@ -38,8 +38,6 @@ namespace Urho.HoloLens
 		bool appInited;
 
 		HolographicFrame currentFrame;
-		static Dictionary<string, Action> cortanaCommands = null;
-		static SpeechRecognizer speechRecognizer;
 
 		public HolographicSpace HolographicSpace { get; private set; }
 		public HoloApplication Game { get; private set; }
@@ -48,6 +46,7 @@ namespace Urho.HoloLens
 		public SpatialStationaryFrameOfReference ReferenceFrame { get; private set; }
 		public GesturesManager GesturesManager { get; private set; }
 		public SpatialMappingManager SpatialMappingManager { get; private set; }
+		public VoiceManager VoiceManager { get; private set; }
 
 		public static UrhoAppView Current { get; private set; }
 
@@ -95,34 +94,7 @@ namespace Urho.HoloLens
 		/// The Load method can be used to initialize scene resources or to load a
 		/// previously saved app state.
 		/// </summary>
-		public void Load(string entryPoint)
-		{
-		}
-
-		internal static async Task<bool> RegisterCortanaCommands(Dictionary<string, Action> commands)
-		{
-			cortanaCommands = commands;
-			speechRecognizer = new SpeechRecognizer();
-			var constraint = new SpeechRecognitionListConstraint(cortanaCommands.Keys);
-			speechRecognizer.Constraints.Clear();
-			speechRecognizer.Constraints.Add(constraint);
-			var result = await speechRecognizer.CompileConstraintsAsync();
-			if (result.Status == SpeechRecognitionResultStatus.Success)
-			{
-				speechRecognizer.ContinuousRecognitionSession.StartAsync();
-				speechRecognizer.ContinuousRecognitionSession.ResultGenerated += (s, e) =>
-				{
-					if (e.Result.RawConfidence >= 0.5f)
-					{
-						Action handler;
-						if (cortanaCommands.TryGetValue(e.Result.Text, out handler))
-							Application.InvokeOnMain(handler);
-					}
-				};
-				return true;
-			}
-			return false;
-		}
+		public void Load(string entryPoint) { }
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void InitializeSpace();
@@ -140,6 +112,7 @@ namespace Urho.HoloLens
 				if (!appInited)
 				{
 					SpatialMappingManager = new SpatialMappingManager();
+					VoiceManager = new VoiceManager();
 					appInited = true;
 					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsDirectory);
 					Game.Run();

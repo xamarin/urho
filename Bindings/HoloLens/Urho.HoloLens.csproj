@@ -26,6 +26,7 @@
     <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;UWP_HOLO;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -114,6 +115,7 @@
     <Compile Include="GestureManager.cs" />
     <Compile Include="SpatialMappingManager.cs" />
     <Compile Include="UrhoAppView.cs" />
+    <Compile Include="VoiceManager.cs" />
     <EmbeddedResource Include="Properties\HoloLens.rd.xml" />
   </ItemGroup>
   <Import Project="..\Urho.Shared.projitems" Label="Shared" />

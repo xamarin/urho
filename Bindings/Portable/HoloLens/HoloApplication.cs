@@ -160,7 +160,16 @@ namespace Urho.HoloLens
 		protected Task<bool> RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
 #if UWP_HOLO
-			return Urho.HoloLens.UrhoAppView.RegisterCortanaCommands(commands);
+			return Urho.HoloLens.UrhoAppView.Current.VoiceManager.RegisterCortanaCommands(commands);
+#else
+			return Task.FromResult<bool>(false);
+#endif
+		}
+
+		public Task TextToSpeech(string text)
+		{
+#if UWP_HOLO
+			return Urho.HoloLens.UrhoAppView.Current.VoiceManager.TextToSpeech(text);
 #else
 			return Task.FromResult<bool>(false);
 #endif
