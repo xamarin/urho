@@ -27,6 +27,10 @@ namespace Urho.Forms
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED);
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESTORED);
 		}
+
+		public static void OnDestroy()
+		{
+		}
 #elif ANDROID
 		public static void OnPause()
 		{
@@ -37,6 +41,11 @@ namespace Urho.Forms
 		{
 			Urho.Droid.UrhoSurface.OnResume();
 		}
+
+		public static void OnDestroy()
+		{
+			Urho.Droid.UrhoSurface.OnDestroy();
+		}
 #else
 		public static void OnPause()
 		{
@@ -44,6 +53,11 @@ namespace Urho.Forms
 		}
 
 		public static void OnResume()
+		{
+			throw new InvalidOperationException("Platform implementation is not referenced");
+		}
+
+		public static void OnDestroy()
 		{
 			throw new InvalidOperationException("Platform implementation is not referenced");
 		}
