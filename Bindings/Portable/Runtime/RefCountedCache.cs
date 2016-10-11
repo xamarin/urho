@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using Urho.IO;
 using System.Reflection;
 
 namespace Urho
@@ -38,7 +36,7 @@ namespace Urho
 				if (knownObjects.TryGetValue(refCounted.Handle, out knownObject))
 				{
 					var existingObj = knownObject?.Reference;
-					if (existingObj != null && !IsInHeirarchy(existingObj.GetType(), refCounted.GetType()))
+					if (existingObj != null && !IsInHierarchy(existingObj.GetType(), refCounted.GetType()))
 						throw new InvalidOperationException($"Handle '{refCounted.Handle}' is in use by '{existingObj.GetType().Name}' (IsDeleted={existingObj.IsDeleted}). {refCounted.GetType()}");
 				}
 
@@ -102,7 +100,7 @@ namespace Urho
 			return false;
 		}
 
-		bool IsInHeirarchy(Type t1, Type t2)
+		bool IsInHierarchy(Type t1, Type t2)
 		{
 			if (t1 == t2) return true;
 			if (t1.GetTypeInfo().IsSubclassOf(t2)) return true;
