@@ -21,9 +21,7 @@ namespace Urho.Forms
 
 		Task<Application> UrhoLauncher(Type type, ApplicationOptions opts)
 		{
-			var paks = opts.ResourcePackagesPaths;
-			opts.ResourcePackagesPaths = null;
-			var app = urhoSurface.Run(type, paks, opts);
+			var app = urhoSurface.Run(type, opts);
 			return Task.FromResult(app);
 		}
 	}

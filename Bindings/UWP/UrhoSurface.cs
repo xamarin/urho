@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using Windows.Storage;
 using Windows.System.Threading;
 using Windows.UI.Xaml.Controls;
 
@@ -17,48 +11,19 @@ namespace Urho.UWP
 		bool stop;
 		bool inited;
 
-		/// <param name="customAssetsPak">all assets must be *.pak files (use PackageTool.exe).</param>
-		public TGame Run<TGame>(string customAssetsPak = null) where TGame : Urho.Application
+		public TGame Run<TGame>(ApplicationOptions options = null) where TGame : Urho.Application
 		{
-			return (TGame) Run(typeof(TGame), customAssetsPak);
+			return (TGame) Run(typeof(TGame), options);
 		}
-
-		public Application Run(Type appType, string customAssetsPak = null)
-		{
-			return Run(appType, new[] { customAssetsPak });
-		}
-
-		/// <param name="customAssetsPak">all assets must be *.pak files (use PackageTool.exe).</param>
-		public Application Run(Type appType, string[] customAssetsPaks = null, ApplicationOptions opt = null)
+		
+		public Application Run(Type appType, ApplicationOptions options = null)
 		{
 			stop = false;
 			paused = false;
 			inited = false;
 			Sdl.SetMainReady();
-
-			if (opt == null)
-				opt = new ApplicationOptions(assetsFolder: null);
-
-			var pakFiles = new List<string>();
-			foreach (var resourcePath in customAssetsPaks ?? new string[0])
-			{
-				string url = "";
-				if (!resourcePath.StartsWith("ms-"))
-					url = "ms-appx:///" + resourcePath;
-				CopyContentFileToLocalFolder(url);
-				pakFiles.Add(Path.GetFileNameWithoutExtension(url));
-			}
-			opt.ResourcePaths = pakFiles.ToArray();
-			opt.ResourcePrefixPaths = new[] { ApplicationData.Current.LocalFolder.Path  };
-
-#if XFORMS
-			const string coreDataEmbeddedResource = "Urho.Forms.CoreData.pak";
-#else
-			const string coreDataEmbeddedResource = "Urho.CoreData.pak";
-#endif
-
-			CopyEmbeddedResourceToLocalFolder(coreDataEmbeddedResource, "CoreData.pak");
-			var app = (Application)Activator.CreateInstance(appType, opt);
+			
+			var app = (Application)Activator.CreateInstance(appType, options);
 			app.Run();
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESIZED, (int)this.ActualWidth, (int)this.ActualHeight);
 			inited = true;
@@ -94,49 +59,6 @@ namespace Urho.UWP
 		public void Resume()
 		{
 			paused = false;
-		}
-
-		public static void CopyEmbeddedResourceToLocalFolder(string embeddedResource, string destFileName)
-		{
-			if (FileExistsInLocalFolder(destFileName))
-				return;
-
-			var file = ApplicationData.Current.LocalFolder.CreateFileAsync(destFileName).GetAwaiter().GetResult();
-			using (var fileStream = file.OpenStreamForWriteAsync().GetAwaiter().GetResult())
-			using (var embeddedSteam = typeof(UrhoSurface).GetTypeInfo().Assembly.GetManifestResourceStream(embeddedResource))
-			{
-				embeddedSteam.CopyTo(fileStream);
-			}
-		}
-
-		public static void CopyContentFileToLocalFolder(string msappx)
-		{
-			string file = Path.GetFileName(msappx);
-			if (FileExistsInLocalFolder(file))
-				return;
-
-			try
-			{
-				var storageFile = StorageFile.GetFileFromApplicationUriAsync(new Uri(msappx)).GetAwaiter().GetResult();
-				storageFile.CopyAsync(ApplicationData.Current.LocalFolder).GetAwaiter().GetResult();
-			}
-			catch (Exception exc)
-			{
-				throw new Exception($"Assets pak '{msappx}' not found, make sure Build Action set to 'Content'", exc);
-			}
-		}
-
-		static bool FileExistsInLocalFolder(string file)
-		{
-			try
-			{
-				ApplicationData.Current.LocalFolder.GetFileAsync(file).GetAwaiter().GetResult();
-				return true;
-			}
-			catch
-			{
-				return false;
-			}
 		}
 	}
 }

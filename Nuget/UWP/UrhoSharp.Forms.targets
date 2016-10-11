@@ -5,4 +5,10 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
+	<ItemGroup>
+		<Content Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">
+			<Link>CoreData.pak</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+    </ItemGroup>
 </Project>
