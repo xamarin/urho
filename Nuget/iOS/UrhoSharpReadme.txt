@@ -17,7 +17,4 @@ if you have some custom assets:
 1) Add "Data" folder containing your assets to "Resources" project folder and make sure all files have "BundleResource" build action.
 2) Pass new ApplicationOptions("Data") to your application like this:
     new Demo(new ApplicationOptions("Data")).Run();
-
-	
-	
-CoreData assets and native libs for arm64, armv7 and i386 are added via .targets file by the nuget package.
+NOTE: pass null if you don't have any assets.

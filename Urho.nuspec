@@ -50,7 +50,6 @@
 
      <!--Windows+Mac-->
      <file src="Nuget/Desktop/UrhoSharp.targets" target="build/net45" />
-     <file src="Nuget/Desktop/UrhoSharpReadme.txt" target="content/net45/UrhoSharpReadme.txt" />
      <file src="Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/net45/Urho.XML" />
      <file src="Bin/Desktop/Win64/mono-urho.dll" target="native/Win64/mono-urho.dll" />
