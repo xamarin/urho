@@ -139,10 +139,14 @@ extern "C" void SDL_UWP_StartRenderLoop(Urho3D::Engine* engine)
 {
 }
 
-extern "C" const wchar_t* SDL_UWP_GetResourceDir()
+const wchar_t* SDL_UWP_GetResourceDir()
 {
-	auto path = Windows::Storage::ApplicationData::Current->LocalFolder->Path->Data();
-	return path;
+	return Windows::ApplicationModel::Package::Current->InstalledLocation->Path->Data();
+}
+
+const wchar_t* SDL_UWP_GetCacheDir()
+{
+	return Windows::Storage::ApplicationData::Current->LocalFolder->Path->Data();
 }
 
 extern "C" int SDL_UWP_MoveFile(const wchar_t* src, const wchar_t* dst)
