@@ -135,26 +135,23 @@ void SetSwapChainPanel(int width, int height, ID3D11Device** d3d_device, IDXGISw
     }
 }
 
-extern "C" void SDL_UWP_StartRenderLoop(Urho3D::Engine* engine)
-{
-}
 
-const wchar_t* SDL_UWP_GetResourceDir()
+EXTERN_C const wchar_t* SDL_UWP_GetResourceDir()
 {
 	return Windows::ApplicationModel::Package::Current->InstalledLocation->Path->Data();
 }
 
-const wchar_t* SDL_UWP_GetCacheDir()
+EXTERN_C const wchar_t* SDL_UWP_GetCacheDir()
 {
 	return Windows::Storage::ApplicationData::Current->LocalFolder->Path->Data();
 }
 
-extern "C" int SDL_UWP_MoveFile(const wchar_t* src, const wchar_t* dst)
+EXTERN_C int SDL_UWP_MoveFile(const wchar_t* src, const wchar_t* dst)
 {
 	return -1;
 }
 
-extern "C" HRESULT SDL_UWP_CreateWinrtSwapChain(int width, int height, int multiSample, ID3D11Device** device, IDXGISwapChain** sc, ID3D11DeviceContext** dc)
+EXTERN_C HRESULT SDL_UWP_CreateWinrtSwapChain(int width, int height, int multiSample, ID3D11Device** device, IDXGISwapChain** sc, ID3D11DeviceContext** dc)
 {
 	SetSwapChainPanel(width, height, device, sc, dc);
 	return S_OK;

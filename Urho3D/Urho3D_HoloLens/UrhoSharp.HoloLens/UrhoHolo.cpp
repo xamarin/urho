@@ -12,8 +12,6 @@ extern "C"
 		holographicSpace = safe_cast<HolographicSpace^>(obj);
 	}
 
-	void SDL_UWP_StartRenderLoop(Urho3D::Engine* engine) {}
-
 	const wchar_t* SDL_UWP_GetResourceDir()
 	{
 		return Windows::ApplicationModel::Package::Current->InstalledLocation->Path->Data();
