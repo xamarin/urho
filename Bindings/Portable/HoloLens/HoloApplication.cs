@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Urho.Resources;
 
 namespace Urho.HoloLens
 {
@@ -89,12 +90,14 @@ namespace Urho.HoloLens
 			if (Input.GetKeyDown(Key.D)) cameraNode.Translate( Vector3.UnitX * moveSpeed * timeStep);
 		}
 
+		protected virtual XmlFile DefaultRenderPath => Emulator ? CoreAssets.RenderPaths.Forward : CoreAssets.RenderPaths.ForwardHWDepth;
+
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Camera_SetHoloProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
 
 		protected override async void Start()
 		{
-			Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.ForwardHWDepth);
+			Renderer.SetDefaultRenderPath(DefaultRenderPath);
 			Renderer.DrawShadows = false;
 			
 			Scene = new Scene();
