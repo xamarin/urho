@@ -46,6 +46,13 @@ namespace Urho.Desktop
 			}
 		}
 
+		public static void CopyEmbeddedCoreDataTo(string destinationFolder)
+		{
+			using (Stream input = typeof(SimpleApplication).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
+			using (Stream output = File.Create(Path.Combine(destinationFolder, "CoreData.pak")))
+				input.CopyTo(output);
+		}
+
 		static bool Is64Bit(string dllPath)
 		{
 			using (var fs = new FileStream(dllPath, FileMode.Open, FileAccess.Read))
