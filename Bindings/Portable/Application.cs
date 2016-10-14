@@ -74,9 +74,6 @@ namespace Urho {
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
 
-			if (context.Refs() < 1)
-				context.AddRef();
-
 			//keep references to callbacks (supposed to be passed to native code) as long as the App is alive
 			setupCallback = ProxySetup;
 			startCallback = ProxyStart;
@@ -192,7 +189,7 @@ namespace Urho {
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
-		static void ProxyStop (IntPtr h)
+		static async void ProxyStop (IntPtr h)
 		{
 			LogSharp.Debug("ProxyStop");
 			UrhoPlatformInitializer.Initialized = false;
@@ -203,11 +200,6 @@ namespace Urho {
 			app.Stop ();
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
-			LogSharp.Debug("ProxyStop: Releasing context");
-#if ANDROID
-			if (context.Refs() > 0)
-				context.ReleaseRef();
-#endif
 			LogSharp.Debug("ProxyStop: Disposing context");
 			context.Dispose();
 			Current = null;

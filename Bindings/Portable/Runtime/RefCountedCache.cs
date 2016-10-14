@@ -89,6 +89,8 @@ namespace Urho
 				return defaulPriority;
 			if (obj is Scene)
 				return 1;
+			if (obj is Context)
+				return int.MaxValue;
 			//TODO:
 			return defaulPriority;
 		}
