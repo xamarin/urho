@@ -79,6 +79,11 @@ namespace Urho {
 			startCallback = ProxyStart;
 			stopCallback = ProxyStop;
 
+#if !ANDROID
+			if (context.Refs() < 1)
+				context.AddRef();
+#endif
+
 			Options = options ?? new ApplicationOptions(assetsFolder: null);
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString(), Options.ExternalWindow);
 			Runtime.RegisterObject (this);
