@@ -94,6 +94,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void DebugRenderer_SetLineAntiAlias (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set line antialiasing on/off. Default false.
+		/// </summary>
+		private void SetLineAntiAlias (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			DebugRenderer_SetLineAntiAlias (handle, enable);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void DebugRenderer_SetView (IntPtr handle, IntPtr camera);
 
 		/// <summary>
@@ -262,6 +274,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool DebugRenderer_GetLineAntiAlias (IntPtr handle);
+
+		/// <summary>
+		/// Return whether line antialiasing is enabled.
+		/// </summary>
+		private bool GetLineAntiAlias ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return DebugRenderer_GetLineAntiAlias (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern Urho.Matrix3x4 DebugRenderer_GetView (IntPtr handle);
 
 		/// <summary>
@@ -330,6 +354,20 @@ namespace Urho
 		public new static string TypeNameStatic {
 			get {
 				return GetTypeNameStatic ();
+			}
+		}
+
+		/// <summary>
+		/// Return whether line antialiasing is enabled.
+		/// Or
+		/// Set line antialiasing on/off. Default false.
+		/// </summary>
+		public bool LineAntiAlias {
+			get {
+				return GetLineAntiAlias ();
+			}
+			set {
+				SetLineAntiAlias (value);
 			}
 		}
 

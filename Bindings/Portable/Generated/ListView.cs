@@ -106,15 +106,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ListView_OnResize (IntPtr handle);
+		internal static extern void ListView_OnResize (IntPtr handle, ref Urho.IntVector2 newSize, ref Urho.IntVector2 delta);
 
 		/// <summary>
 		/// React to resize.
 		/// </summary>
-		public override void OnResize ()
+		public override void OnResize (Urho.IntVector2 newSize, Urho.IntVector2 delta)
 		{
 			Runtime.ValidateRefCounted (this);
-			ListView_OnResize (handle);
+			ListView_OnResize (handle, ref newSize, ref delta);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

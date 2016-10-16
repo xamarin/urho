@@ -286,6 +286,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void View_SetCommandShaderParameters (IntPtr handle, ref Urho.RenderPathCommand command);
+
+		/// <summary>
+		/// Set command's shader parameters if any. Called internally by View.
+		/// </summary>
+		public void SetCommandShaderParameters (Urho.RenderPathCommand command)
+		{
+			Runtime.ValidateRefCounted (this);
+			View_SetCommandShaderParameters (handle, ref command);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void View_SetGBufferShaderParameters (IntPtr handle, ref Urho.IntVector2 texSize, ref Urho.IntRect viewRect);
 
 		/// <summary>

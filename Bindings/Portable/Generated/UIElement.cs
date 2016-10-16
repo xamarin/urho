@@ -130,15 +130,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_LoadChildXML (IntPtr handle, ref Urho.Resources.XmlElement childElem, IntPtr styleFile, bool setInstanceDefault);
+		internal static extern IntPtr UIElement_LoadChildXML (IntPtr handle, ref Urho.Resources.XmlElement childElem, IntPtr styleFile, bool setInstanceDefault);
 
 		/// <summary>
-		/// Create a child by loading from XML data with style. Return true if successful.
+		/// Create a child by loading from XML data with style. Returns the child element if successful, null if otherwise.
 		/// </summary>
-		public bool LoadChildXml (Urho.Resources.XmlElement childElem, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
+		public UIElement LoadChildXml (Urho.Resources.XmlElement childElem, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_LoadChildXML (handle, ref childElem, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault);
+			return Runtime.LookupObject<UIElement> (UIElement_LoadChildXML (handle, ref childElem, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -274,27 +274,27 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_OnResize (IntPtr handle);
+		internal static extern void UIElement_OnResize (IntPtr handle, ref Urho.IntVector2 newSize, ref Urho.IntVector2 delta);
 
 		/// <summary>
 		/// React to resize.
 		/// </summary>
-		public virtual void OnResize ()
+		public virtual void OnResize (Urho.IntVector2 newSize, Urho.IntVector2 delta)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_OnResize (handle);
+			UIElement_OnResize (handle, ref newSize, ref delta);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_OnPositionSet (IntPtr handle);
+		internal static extern void UIElement_OnPositionSet (IntPtr handle, ref Urho.IntVector2 newPosition);
 
 		/// <summary>
 		/// React to position change.
 		/// </summary>
-		public virtual void OnPositionSet ()
+		public virtual void OnPositionSet (Urho.IntVector2 newPosition)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_OnPositionSet (handle);
+			UIElement_OnPositionSet (handle, ref newPosition);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -646,6 +646,120 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetEnableAnchor (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Enable automatic positioning
+		/// &
+		/// sizing of the element relative to its parent using min/max anchor and min/max offset. Default false.
+		/// </summary>
+		private void SetEnableAnchor (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetEnableAnchor (handle, enable);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetMinAnchor (IntPtr handle, ref Urho.Vector2 anchor);
+
+		/// <summary>
+		/// Set minimum (top left) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.
+		/// </summary>
+		private void SetMinAnchor (Urho.Vector2 anchor)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetMinAnchor (handle, ref anchor);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetMinAnchor8 (IntPtr handle, float x, float y);
+
+		/// <summary>
+		/// Set minimum anchor.
+		/// </summary>
+		public void SetMinAnchor (float x, float y)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetMinAnchor8 (handle, x, y);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetMaxAnchor (IntPtr handle, ref Urho.Vector2 anchor);
+
+		/// <summary>
+		/// Set maximum (bottom right) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.
+		/// </summary>
+		private void SetMaxAnchor (Urho.Vector2 anchor)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetMaxAnchor (handle, ref anchor);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetMaxAnchor9 (IntPtr handle, float x, float y);
+
+		/// <summary>
+		/// Set maximum anchor.
+		/// </summary>
+		public void SetMaxAnchor (float x, float y)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetMaxAnchor9 (handle, x, y);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetMinOffset (IntPtr handle, ref Urho.IntVector2 offset);
+
+		/// <summary>
+		/// Set offset of element's top left from the minimum anchor in pixels. No effect when anchor is not enabled.
+		/// </summary>
+		private void SetMinOffset (Urho.IntVector2 offset)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetMinOffset (handle, ref offset);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetMaxOffset (IntPtr handle, ref Urho.IntVector2 offset);
+
+		/// <summary>
+		/// Set offset of element's bottom right from the maximum anchor in pixels. No effect when anchor is not enabled.
+		/// </summary>
+		private void SetMaxOffset (Urho.IntVector2 offset)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetMaxOffset (handle, ref offset);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetPivot (IntPtr handle, ref Urho.Vector2 pivot);
+
+		/// <summary>
+		/// Set pivot relative to element's size (from 0 to 1, where 0.5 is center.) Overrides horizontal
+		/// &
+		/// vertical alignment.
+		/// </summary>
+		private void SetPivot (Urho.Vector2 pivot)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetPivot (handle, ref pivot);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UIElement_SetPivot10 (IntPtr handle, float x, float y);
+
+		/// <summary>
+		/// Set pivot relative to element's size (from 0 to 1, where 0.5 is center.) Overrides horizontal
+		/// &
+		/// vertical alignment.
+		/// </summary>
+		public void SetPivot (float x, float y)
+		{
+			Runtime.ValidateRefCounted (this);
+			UIElement_SetPivot10 (handle, x, y);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void UIElement_SetClipBorder (IntPtr handle, ref Urho.IntRect rect);
 
 		/// <summary>
@@ -670,7 +784,7 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetColor8 (IntPtr handle, Corner corner, ref Urho.Color color);
+		internal static extern void UIElement_SetColor11 (IntPtr handle, Corner corner, ref Urho.Color color);
 
 		/// <summary>
 		/// Set color on one corner.
@@ -678,7 +792,7 @@ namespace Urho.Gui
 		public void SetColor (Corner corner, Urho.Color color)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetColor8 (handle, corner, ref color);
+			UIElement_SetColor11 (handle, corner, ref color);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -898,7 +1012,7 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_SetStyle9 (IntPtr handle, ref Urho.Resources.XmlElement element);
+		internal static extern bool UIElement_SetStyle12 (IntPtr handle, ref Urho.Resources.XmlElement element);
 
 		/// <summary>
 		/// Set style from an XML element. Return true if the style is applied successfully.
@@ -906,7 +1020,7 @@ namespace Urho.Gui
 		public bool SetStyle (Urho.Resources.XmlElement element)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_SetStyle9 (handle, ref element);
+			return UIElement_SetStyle12 (handle, ref element);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1573,7 +1687,7 @@ namespace Urho.Gui
 		internal static extern HorizontalAlignment UIElement_GetHorizontalAlignment (IntPtr handle);
 
 		/// <summary>
-		/// Return horizontal alignment.
+		/// Return horizontal alignment. If pivot has been adjusted to a custom horizontal setting, returns HA_CUSTOM.
 		/// </summary>
 		private HorizontalAlignment GetHorizontalAlignment ()
 		{
@@ -1585,12 +1699,80 @@ namespace Urho.Gui
 		internal static extern VerticalAlignment UIElement_GetVerticalAlignment (IntPtr handle);
 
 		/// <summary>
-		/// Return vertical alignment.
+		/// Return vertical alignment. If pivot has been adjusted to a custom vertical setting, returns VA_CUSTOM.
 		/// </summary>
 		private VerticalAlignment GetVerticalAlignment ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_GetVerticalAlignment (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool UIElement_GetEnableAnchor (IntPtr handle);
+
+		/// <summary>
+		/// Return whether anchor positioning
+		/// &
+		/// sizing is enabled.
+		/// </summary>
+		private bool GetEnableAnchor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_GetEnableAnchor (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.Vector2 UIElement_GetMinAnchor (IntPtr handle);
+
+		/// <summary>
+		/// Return minimum anchor.
+		/// </summary>
+		private Urho.Vector2 GetMinAnchor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_GetMinAnchor (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.Vector2 UIElement_GetMaxAnchor (IntPtr handle);
+
+		/// <summary>
+		/// Return maximum anchor.
+		/// </summary>
+		private Urho.Vector2 GetMaxAnchor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_GetMaxAnchor (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.IntVector2 UIElement_GetMinOffset (IntPtr handle);
+
+		private Urho.IntVector2 GetMinOffset ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_GetMinOffset (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.IntVector2 UIElement_GetMaxOffset (IntPtr handle);
+
+		private Urho.IntVector2 GetMaxOffset ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_GetMaxOffset (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.Vector2 UIElement_GetPivot (IntPtr handle);
+
+		/// <summary>
+		/// Return pivot.
+		/// </summary>
+		private Urho.Vector2 GetPivot ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_GetPivot (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1954,7 +2136,7 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr UIElement_GetChild10 (IntPtr handle, string name, bool recursive);
+		internal static extern IntPtr UIElement_GetChild13 (IntPtr handle, string name, bool recursive);
 
 		/// <summary>
 		/// Return child element by name.
@@ -1962,7 +2144,7 @@ namespace Urho.Gui
 		public UIElement GetChild (string name, bool recursive)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<UIElement> (UIElement_GetChild10 (handle, name, recursive));
+			return Runtime.LookupObject<UIElement> (UIElement_GetChild13 (handle, name, recursive));
 		}
 
 		private IReadOnlyList<UIElement> _GetChildren_cache;
@@ -2446,7 +2628,7 @@ namespace Urho.Gui
 		}
 
 		/// <summary>
-		/// Return horizontal alignment.
+		/// Return horizontal alignment. If pivot has been adjusted to a custom horizontal setting, returns HA_CUSTOM.
 		/// Or
 		/// Set horizontal alignment.
 		/// </summary>
@@ -2460,7 +2642,7 @@ namespace Urho.Gui
 		}
 
 		/// <summary>
-		/// Return vertical alignment.
+		/// Return vertical alignment. If pivot has been adjusted to a custom vertical setting, returns VA_CUSTOM.
 		/// Or
 		/// Set vertical alignment.
 		/// </summary>
@@ -2470,6 +2652,94 @@ namespace Urho.Gui
 			}
 			set {
 				SetVerticalAlignment (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether anchor positioning
+		/// &
+		/// sizing is enabled.
+		/// Or
+		/// Enable automatic positioning
+		/// &
+		/// sizing of the element relative to its parent using min/max anchor and min/max offset. Default false.
+		/// </summary>
+		public bool EnableAnchor {
+			get {
+				return GetEnableAnchor ();
+			}
+			set {
+				SetEnableAnchor (value);
+			}
+		}
+
+		/// <summary>
+		/// Return minimum anchor.
+		/// Or
+		/// Set minimum (top left) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.
+		/// </summary>
+		public Urho.Vector2 MinAnchor {
+			get {
+				return GetMinAnchor ();
+			}
+			set {
+				SetMinAnchor (value);
+			}
+		}
+
+		/// <summary>
+		/// Return maximum anchor.
+		/// Or
+		/// Set maximum (bottom right) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.
+		/// </summary>
+		public Urho.Vector2 MaxAnchor {
+			get {
+				return GetMaxAnchor ();
+			}
+			set {
+				SetMaxAnchor (value);
+			}
+		}
+
+		/// <summary>
+		/// Or
+		/// Set offset of element's top left from the minimum anchor in pixels. No effect when anchor is not enabled.
+		/// </summary>
+		public Urho.IntVector2 MinOffset {
+			get {
+				return GetMinOffset ();
+			}
+			set {
+				SetMinOffset (value);
+			}
+		}
+
+		/// <summary>
+		/// Or
+		/// Set offset of element's bottom right from the maximum anchor in pixels. No effect when anchor is not enabled.
+		/// </summary>
+		public Urho.IntVector2 MaxOffset {
+			get {
+				return GetMaxOffset ();
+			}
+			set {
+				SetMaxOffset (value);
+			}
+		}
+
+		/// <summary>
+		/// Return pivot.
+		/// Or
+		/// Set pivot relative to element's size (from 0 to 1, where 0.5 is center.) Overrides horizontal
+		/// &
+		/// vertical alignment.
+		/// </summary>
+		public Urho.Vector2 Pivot {
+			get {
+				return GetPivot ();
+			}
+			set {
+				SetPivot (value);
 			}
 		}
 

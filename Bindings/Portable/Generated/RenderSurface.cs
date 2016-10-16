@@ -162,6 +162,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int RenderSurface_GetMultiSample (IntPtr handle);
+
+		/// <summary>
+		/// Return multisampling level.
+		/// </summary>
+		private int GetMultiSample ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return RenderSurface_GetMultiSample (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool RenderSurface_GetAutoResolve (IntPtr handle);
+
+		/// <summary>
+		/// Return multisampling autoresolve mode.
+		/// </summary>
+		private bool GetAutoResolve ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return RenderSurface_GetAutoResolve (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint RenderSurface_GetNumViewports (IntPtr handle);
 
 		/// <summary>
@@ -293,6 +317,30 @@ namespace Urho
 			return RenderSurface_GetReadOnlyView (handle);
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool RenderSurface_IsResolveDirty (IntPtr handle);
+
+		/// <summary>
+		/// Return whether multisampled rendertarget needs resolve.
+		/// </summary>
+		private bool IsResolveDirty ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return RenderSurface_IsResolveDirty (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RenderSurface_SetResolveDirty (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set or clear the need resolve flag. Called internally by Graphics.
+		/// </summary>
+		private void SetResolveDirty (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			RenderSurface_SetResolveDirty (handle, enable);
+		}
+
 		/// <summary>
 		/// Return number of viewports.
 		/// Or
@@ -377,6 +425,24 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return multisampling level.
+		/// </summary>
+		public int MultiSample {
+			get {
+				return GetMultiSample ();
+			}
+		}
+
+		/// <summary>
+		/// Return multisampling autoresolve mode.
+		/// </summary>
+		public bool AutoResolve {
+			get {
+				return GetAutoResolve ();
+			}
+		}
+
+		/// <summary>
 		/// Return whether manual update queued. Called internally.
 		/// </summary>
 		public bool UpdateQueued {
@@ -418,6 +484,20 @@ namespace Urho
 		public IntPtr ReadOnlyView {
 			get {
 				return GetReadOnlyView ();
+			}
+		}
+
+		/// <summary>
+		/// Return whether multisampled rendertarget needs resolve.
+		/// Or
+		/// Set or clear the need resolve flag. Called internally by Graphics.
+		/// </summary>
+		public bool ResolveDirty {
+			get {
+				return IsResolveDirty ();
+			}
+			set {
+				SetResolveDirty (value);
 			}
 		}
 	}

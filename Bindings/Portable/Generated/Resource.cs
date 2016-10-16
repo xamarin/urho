@@ -132,6 +132,30 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Resource_Load0 (IntPtr handle, string fileName);
+
+		/// <summary>
+		/// Load resource from file.
+		/// </summary>
+		public bool Load (string fileName)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Resource_Load0 (handle, fileName);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Resource_Save1 (IntPtr handle, string fileName);
+
+		/// <summary>
+		/// Save resource to file.
+		/// </summary>
+		public virtual bool Save (string fileName)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Resource_Save1 (handle, fileName);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Resource_SetName (IntPtr handle, string name);
 
 		/// <summary>

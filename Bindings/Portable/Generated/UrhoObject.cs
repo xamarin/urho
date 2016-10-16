@@ -80,30 +80,6 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UrhoObject_IsTypeOf (int type);
-
-		/// <summary>
-		/// Check current type is type of specified type.
-		/// </summary>
-		public static bool IsTypeOf (StringHash type)
-		{
-			Runtime.Validate (typeof(UrhoObject));
-			return UrhoObject_IsTypeOf (type.Code);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UrhoObject_IsTypeOf0 (TypeInfo* typeInfo);
-
-		/// <summary>
-		/// Check current type is type of specified type.
-		/// </summary>
-		public static bool IsTypeOf (TypeInfo* typeInfo)
-		{
-			Runtime.Validate (typeof(UrhoObject));
-			return UrhoObject_IsTypeOf0 (typeInfo);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool UrhoObject_IsInstanceOf (IntPtr handle, int type);
 
 		/// <summary>
@@ -116,7 +92,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UrhoObject_IsInstanceOf1 (IntPtr handle, TypeInfo* typeInfo);
+		internal static extern bool UrhoObject_IsInstanceOf0 (IntPtr handle, TypeInfo* typeInfo);
 
 		/// <summary>
 		/// Check current instance is type of specified type.
@@ -124,7 +100,7 @@ namespace Urho
 		public bool IsInstanceOf (TypeInfo* typeInfo)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UrhoObject_IsInstanceOf1 (handle, typeInfo);
+			return UrhoObject_IsInstanceOf0 (handle, typeInfo);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -140,7 +116,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UrhoObject_SubscribeToEvent2 (IntPtr handle, IntPtr sender, int eventType, IntPtr handler);
+		internal static extern void UrhoObject_SubscribeToEvent1 (IntPtr handle, IntPtr sender, int eventType, IntPtr handler);
 
 		/// <summary>
 		/// Subscribe to a specific sender's event.
@@ -148,7 +124,7 @@ namespace Urho
 		public void SubscribeToEvent (Urho.UrhoObject sender, StringHash eventType, IntPtr handler)
 		{
 			Runtime.ValidateRefCounted (this);
-			UrhoObject_SubscribeToEvent2 (handle, (object)sender == null ? IntPtr.Zero : sender.Handle, eventType.Code, handler);
+			UrhoObject_SubscribeToEvent1 (handle, (object)sender == null ? IntPtr.Zero : sender.Handle, eventType.Code, handler);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -164,7 +140,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UrhoObject_UnsubscribeFromEvent3 (IntPtr handle, IntPtr sender, int eventType);
+		internal static extern void UrhoObject_UnsubscribeFromEvent2 (IntPtr handle, IntPtr sender, int eventType);
 
 		/// <summary>
 		/// Unsubscribe from a specific sender's event.
@@ -172,7 +148,7 @@ namespace Urho
 		public void UnsubscribeFromEvent (Urho.UrhoObject sender, StringHash eventType)
 		{
 			Runtime.ValidateRefCounted (this);
-			UrhoObject_UnsubscribeFromEvent3 (handle, (object)sender == null ? IntPtr.Zero : sender.Handle, eventType.Code);
+			UrhoObject_UnsubscribeFromEvent2 (handle, (object)sender == null ? IntPtr.Zero : sender.Handle, eventType.Code);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -415,7 +391,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UrhoObject_HasSubscribedToEvent4 (IntPtr handle, IntPtr sender, int eventType);
+		internal static extern bool UrhoObject_HasSubscribedToEvent3 (IntPtr handle, IntPtr sender, int eventType);
 
 		/// <summary>
 		/// Return whether has subscribed to a specific sender's event.
@@ -423,7 +399,7 @@ namespace Urho
 		public bool HasSubscribedToEvent (Urho.UrhoObject sender, StringHash eventType)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UrhoObject_HasSubscribedToEvent4 (handle, (object)sender == null ? IntPtr.Zero : sender.Handle, eventType.Code);
+			return UrhoObject_HasSubscribedToEvent3 (handle, (object)sender == null ? IntPtr.Zero : sender.Handle, eventType.Code);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

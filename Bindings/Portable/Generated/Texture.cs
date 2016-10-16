@@ -298,6 +298,42 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int Texture_GetMultiSample (IntPtr handle);
+
+		/// <summary>
+		/// Return texture multisampling level (1 = no multisampling).
+		/// </summary>
+		private int GetMultiSample ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture_GetMultiSample (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Texture_GetAutoResolve (IntPtr handle);
+
+		/// <summary>
+		/// Return texture multisampling autoresolve mode. When true, the texture is resolved before being sampled on SetTexture(). When false, the texture will not be resolved and must be read as individual samples in the shader.
+		/// </summary>
+		private bool GetAutoResolve ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture_GetAutoResolve (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Texture_IsResolveDirty (IntPtr handle);
+
+		/// <summary>
+		/// Return whether multisampled texture needs resolve.
+		/// </summary>
+		private bool IsResolveDirty ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture_IsResolveDirty (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Texture_GetBackupTexture (IntPtr handle);
 
 		/// <summary>
@@ -502,6 +538,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Texture_GetResolveTexture (IntPtr handle);
+
+		/// <summary>
+		/// Return resolve texture. Only used on Direct3D11.
+		/// </summary>
+		private IntPtr GetResolveTexture ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture_GetResolveTexture (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint Texture_GetSRGBFormat (IntPtr handle, uint format);
 
 		/// <summary>
@@ -511,6 +559,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture_GetSRGBFormat (handle, format);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Texture_SetResolveDirty (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set or clear the need resolve flag. Called internally by Graphics.
+		/// </summary>
+		private void SetResolveDirty (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			Texture_SetResolveDirty (handle, enable);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -676,6 +736,38 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return texture multisampling level (1 = no multisampling).
+		/// </summary>
+		public int MultiSample {
+			get {
+				return GetMultiSample ();
+			}
+		}
+
+		/// <summary>
+		/// Return texture multisampling autoresolve mode. When true, the texture is resolved before being sampled on SetTexture(). When false, the texture will not be resolved and must be read as individual samples in the shader.
+		/// </summary>
+		public bool AutoResolve {
+			get {
+				return GetAutoResolve ();
+			}
+		}
+
+		/// <summary>
+		/// Return whether multisampled texture needs resolve.
+		/// Or
+		/// Set or clear the need resolve flag. Called internally by Graphics.
+		/// </summary>
+		public bool ResolveDirty {
+			get {
+				return IsResolveDirty ();
+			}
+			set {
+				SetResolveDirty (value);
+			}
+		}
+
+		/// <summary>
 		/// Return texture usage type.
 		/// </summary>
 		public TextureUsage Usage {
@@ -717,6 +809,15 @@ namespace Urho
 		public IntPtr Sampler {
 			get {
 				return GetSampler ();
+			}
+		}
+
+		/// <summary>
+		/// Return resolve texture. Only used on Direct3D11.
+		/// </summary>
+		public IntPtr ResolveTexture {
+			get {
+				return GetResolveTexture ();
 			}
 		}
 	}

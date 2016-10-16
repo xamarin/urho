@@ -130,15 +130,17 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Texture2D_SetSize (IntPtr handle, int width, int height, uint format, TextureUsage usage);
+		internal static extern bool Texture2D_SetSize (IntPtr handle, int width, int height, uint format, TextureUsage usage, int multiSample, bool autoResolve);
 
 		/// <summary>
-		/// Set size, format and usage. Zero size will follow application window size. Return true if successful.
+		/// Set size, format, usage and multisampling parameters for rendertargets. Zero size will follow application window size. Return true if successful.
+		/// Autoresolve true means the multisampled texture will be automatically resolved to 1-sample after being rendered to and before being sampled as a texture.
+		/// Autoresolve false means the multisampled texture will be read as individual samples in the shader and is not supported on Direct3D9.
 		/// </summary>
-		public bool SetSize (int width, int height, uint format, TextureUsage usage)
+		public bool SetSize (int width, int height, uint format, TextureUsage usage, int multiSample, bool autoResolve)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Texture2D_SetSize (handle, width, height, format, usage);
+			return Texture2D_SetSize (handle, width, height, format, usage, multiSample, autoResolve);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -178,6 +180,18 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Texture2D_GetImage (IntPtr handle);
+
+		/// <summary>
+		/// Get image data from zero mip level. Only RGB and RGBA textures are supported.
+		/// </summary>
+		private Image GetImage ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupRefCounted<Image> (Texture2D_GetImage (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Texture2D_GetRenderSurface (IntPtr handle);
 
 		/// <summary>
@@ -210,6 +224,15 @@ namespace Urho.Urho2D
 		public new static string TypeNameStatic {
 			get {
 				return GetTypeNameStatic ();
+			}
+		}
+
+		/// <summary>
+		/// Get image data from zero mip level. Only RGB and RGBA textures are supported.
+		/// </summary>
+		public Image Image {
+			get {
+				return GetImage ();
 			}
 		}
 

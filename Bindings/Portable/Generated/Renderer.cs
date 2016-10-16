@@ -274,6 +274,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Renderer_SetVSMMultiSample (IntPtr handle, int multiSample);
+
+		/// <summary>
+		/// Set VSM shadow map multisampling level. Default 1 (no multisampling.)
+		/// </summary>
+		private void SetVSMMultiSample (int multiSample)
+		{
+			Runtime.ValidateRefCounted (this);
+			Renderer_SetVSMMultiSample (handle, multiSample);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Renderer_SetReuseShadowMaps (IntPtr handle, bool enable);
 
 		/// <summary>
@@ -625,12 +637,24 @@ namespace Urho
 		internal static extern Vector2 Renderer_GetVSMShadowParameters (IntPtr handle);
 
 		/// <summary>
-		/// Return VSM shadow parameters
+		/// Return VSM shadow parameters.
 		/// </summary>
 		private Vector2 GetVSMShadowParameters ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return Renderer_GetVSMShadowParameters (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int Renderer_GetVSMMultiSample (IntPtr handle);
+
+		/// <summary>
+		/// Return VSM shadow multisample level.
+		/// </summary>
+		private int GetVSMMultiSample ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Renderer_GetVSMMultiSample (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1054,27 +1078,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Renderer_GetScreenBuffer (IntPtr handle, int width, int height, uint format, bool cubemap, bool filtered, bool srgb, uint persistentKey);
+		internal static extern IntPtr Renderer_GetScreenBuffer (IntPtr handle, int width, int height, uint format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, uint persistentKey);
 
 		/// <summary>
 		/// Allocate a rendertarget or depth-stencil texture for deferred rendering or postprocessing. Should only be called during actual rendering, not before.
 		/// </summary>
-		public Texture GetScreenBuffer (int width, int height, uint format, bool cubemap, bool filtered, bool srgb, uint persistentKey)
+		public Texture GetScreenBuffer (int width, int height, uint format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, uint persistentKey)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Texture> (Renderer_GetScreenBuffer (handle, width, height, format, cubemap, filtered, srgb, persistentKey));
+			return Runtime.LookupObject<Texture> (Renderer_GetScreenBuffer (handle, width, height, format, multiSample, autoResolve, cubemap, filtered, srgb, persistentKey));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Renderer_GetDepthStencil (IntPtr handle, int width, int height);
+		internal static extern IntPtr Renderer_GetDepthStencil (IntPtr handle, int width, int height, int multiSample, bool autoResolve);
 
 		/// <summary>
 		/// Allocate a depth-stencil surface that does not need to be readable. Should only be called during actual rendering, not before.
 		/// </summary>
-		public RenderSurface GetDepthStencil (int width, int height)
+		public RenderSurface GetDepthStencil (int width, int height, int multiSample, bool autoResolve)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupRefCounted<RenderSurface> (Renderer_GetDepthStencil (handle, width, height));
+			return Runtime.LookupRefCounted<RenderSurface> (Renderer_GetDepthStencil (handle, width, height, multiSample, autoResolve));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1416,6 +1440,20 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return VSM shadow multisample level.
+		/// Or
+		/// Set VSM shadow map multisampling level. Default 1 (no multisampling.)
+		/// </summary>
+		public int VSMMultiSample {
+			get {
+				return GetVSMMultiSample ();
+			}
+			set {
+				SetVSMMultiSample (value);
+			}
+		}
+
+		/// <summary>
 		/// Return whether shadow maps are reused.
 		/// Or
 		/// Set reuse of shadow maps. Default is true. If disabled, also transparent geometry can be shadowed.
@@ -1598,7 +1636,7 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return VSM shadow parameters
+		/// Return VSM shadow parameters.
 		/// </summary>
 		public Vector2 VSMShadowParameters {
 			get {

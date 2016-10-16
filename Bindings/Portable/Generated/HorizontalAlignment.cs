@@ -25,6 +25,7 @@ namespace Urho.Gui
 	{
 		Left = 0,
 		Center,
-		Right
+		Right,
+		Custom
 	}
 }

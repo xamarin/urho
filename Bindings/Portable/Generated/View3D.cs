@@ -94,15 +94,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void View3D_OnResize (IntPtr handle);
+		internal static extern void View3D_OnResize (IntPtr handle, ref Urho.IntVector2 newSize, ref Urho.IntVector2 delta);
 
 		/// <summary>
 		/// React to resize.
 		/// </summary>
-		public override void OnResize ()
+		public override void OnResize (Urho.IntVector2 newSize, Urho.IntVector2 delta)
 		{
 			Runtime.ValidateRefCounted (this);
-			View3D_OnResize (handle);
+			View3D_OnResize (handle, ref newSize, ref delta);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

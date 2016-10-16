@@ -25,6 +25,7 @@ namespace Urho.Gui
 	{
 		Top = 0,
 		Center,
-		Bottom
+		Bottom,
+		Custom
 	}
 }

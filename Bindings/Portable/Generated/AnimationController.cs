@@ -322,6 +322,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool AnimationController_IsPlaying0 (IntPtr handle, byte layer);
+
+		/// <summary>
+		/// Return whether any animation is active on a specific layer.
+		/// </summary>
+		public bool IsPlaying (byte layer)
+		{
+			Runtime.ValidateRefCounted (this);
+			return AnimationController_IsPlaying0 (handle, layer);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool AnimationController_IsFadingIn (IntPtr handle, string name);
 
 		/// <summary>
@@ -526,15 +538,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr AnimationController_GetAnimationState0 (IntPtr handle, int nameHash);
+		internal static extern IntPtr AnimationController_GetAnimationState1 (IntPtr handle, int nameHash);
 
 		/// <summary>
-		/// Find an animation state by animation name hash
+		/// Find an animation state by animation name hash.
 		/// </summary>
 		public AnimationState GetAnimationState (StringHash nameHash)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupRefCounted<AnimationState> (AnimationController_GetAnimationState0 (handle, nameHash.Code));
+			return Runtime.LookupRefCounted<AnimationState> (AnimationController_GetAnimationState1 (handle, nameHash.Code));
 		}
 
 		public override StringHash Type {

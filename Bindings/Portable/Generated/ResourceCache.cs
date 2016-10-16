@@ -473,7 +473,7 @@ namespace Urho.Resources
 		internal static extern IntPtr ResourceCache_GetResourceFileName (IntPtr handle, string name);
 
 		/// <summary>
-		/// Return full absolute file name of resource if possible.
+		/// Return full absolute file name of resource if possible, or empty if not found.
 		/// </summary>
 		public string GetResourceFileName (string name)
 		{

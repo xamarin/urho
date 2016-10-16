@@ -298,6 +298,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Graphics_ResolveToTexture2 (IntPtr handle, IntPtr texture);
+
+		/// <summary>
+		/// Resolve a multisampled texture on itself.
+		/// </summary>
+		public bool ResolveToTexture (Texture2D texture)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_ResolveToTexture2 (handle, (object)texture == null ? IntPtr.Zero : texture.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Graphics_ResolveToTexture3 (IntPtr handle, IntPtr texture);
+
+		/// <summary>
+		/// Resolve a multisampled cube texture on itself.
+		/// </summary>
+		public bool ResolveToTexture (TextureCube texture)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_ResolveToTexture3 (handle, (object)texture == null ? IntPtr.Zero : texture.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Graphics_Draw (IntPtr handle, PrimitiveType type, uint vertexStart, uint vertexCount);
 
 		/// <summary>
@@ -310,7 +334,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_Draw2 (IntPtr handle, PrimitiveType type, uint indexStart, uint indexCount, uint minVertex, uint vertexCount);
+		internal static extern void Graphics_Draw4 (IntPtr handle, PrimitiveType type, uint indexStart, uint indexCount, uint minVertex, uint vertexCount);
 
 		/// <summary>
 		/// Draw indexed geometry.
@@ -318,11 +342,11 @@ namespace Urho
 		public void Draw (PrimitiveType type, uint indexStart, uint indexCount, uint minVertex, uint vertexCount)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_Draw2 (handle, type, indexStart, indexCount, minVertex, vertexCount);
+			Graphics_Draw4 (handle, type, indexStart, indexCount, minVertex, vertexCount);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_Draw3 (IntPtr handle, PrimitiveType type, uint indexStart, uint indexCount, uint baseVertexIndex, uint minVertex, uint vertexCount);
+		internal static extern void Graphics_Draw5 (IntPtr handle, PrimitiveType type, uint indexStart, uint indexCount, uint baseVertexIndex, uint minVertex, uint vertexCount);
 
 		/// <summary>
 		/// Draw indexed geometry with vertex index offset.
@@ -330,7 +354,7 @@ namespace Urho
 		public void Draw (PrimitiveType type, uint indexStart, uint indexCount, uint baseVertexIndex, uint minVertex, uint vertexCount)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_Draw3 (handle, type, indexStart, indexCount, baseVertexIndex, minVertex, vertexCount);
+			Graphics_Draw5 (handle, type, indexStart, indexCount, baseVertexIndex, minVertex, vertexCount);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -346,7 +370,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_DrawInstanced4 (IntPtr handle, PrimitiveType type, uint indexStart, uint indexCount, uint baseVertexIndex, uint minVertex, uint vertexCount, uint instanceCount);
+		internal static extern void Graphics_DrawInstanced6 (IntPtr handle, PrimitiveType type, uint indexStart, uint indexCount, uint baseVertexIndex, uint minVertex, uint vertexCount, uint instanceCount);
 
 		/// <summary>
 		/// Draw indexed, instanced geometry with vertex index offset.
@@ -354,7 +378,7 @@ namespace Urho
 		public void DrawInstanced (PrimitiveType type, uint indexStart, uint indexCount, uint baseVertexIndex, uint minVertex, uint vertexCount, uint instanceCount)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_DrawInstanced4 (handle, type, indexStart, indexCount, baseVertexIndex, minVertex, vertexCount, instanceCount);
+			Graphics_DrawInstanced6 (handle, type, indexStart, indexCount, baseVertexIndex, minVertex, vertexCount, instanceCount);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -406,7 +430,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetShaderParameter5 (IntPtr handle, int param, float value);
+		internal static extern void Graphics_SetShaderParameter7 (IntPtr handle, int param, float value);
 
 		/// <summary>
 		/// Set shader float constant.
@@ -414,11 +438,23 @@ namespace Urho
 		public void SetShaderParameter (StringHash param, float value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetShaderParameter5 (handle, param.Code, value);
+			Graphics_SetShaderParameter7 (handle, param.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetShaderParameter6 (IntPtr handle, int param, bool value);
+		internal static extern void Graphics_SetShaderParameter8 (IntPtr handle, int param, int value);
+
+		/// <summary>
+		/// Set shader integer constant.
+		/// </summary>
+		public void SetShaderParameter (StringHash param, int value)
+		{
+			Runtime.ValidateRefCounted (this);
+			Graphics_SetShaderParameter8 (handle, param.Code, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Graphics_SetShaderParameter9 (IntPtr handle, int param, bool value);
 
 		/// <summary>
 		/// Set shader boolean constant.
@@ -426,11 +462,11 @@ namespace Urho
 		public void SetShaderParameter (StringHash param, bool value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetShaderParameter6 (handle, param.Code, value);
+			Graphics_SetShaderParameter9 (handle, param.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetShaderParameter7 (IntPtr handle, int param, ref Urho.Color color);
+		internal static extern void Graphics_SetShaderParameter10 (IntPtr handle, int param, ref Urho.Color color);
 
 		/// <summary>
 		/// Set shader color constant.
@@ -438,11 +474,11 @@ namespace Urho
 		public void SetShaderParameter (StringHash param, Urho.Color color)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetShaderParameter7 (handle, param.Code, ref color);
+			Graphics_SetShaderParameter10 (handle, param.Code, ref color);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetShaderParameter8 (IntPtr handle, int param, ref Urho.Vector2 vector);
+		internal static extern void Graphics_SetShaderParameter11 (IntPtr handle, int param, ref Urho.Vector2 vector);
 
 		/// <summary>
 		/// Set shader 2D vector constant.
@@ -450,11 +486,11 @@ namespace Urho
 		public void SetShaderParameter (StringHash param, Urho.Vector2 vector)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetShaderParameter8 (handle, param.Code, ref vector);
+			Graphics_SetShaderParameter11 (handle, param.Code, ref vector);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetShaderParameter9 (IntPtr handle, int param, ref Urho.Vector3 vector);
+		internal static extern void Graphics_SetShaderParameter12 (IntPtr handle, int param, ref Urho.Vector3 vector);
 
 		/// <summary>
 		/// Set shader 3D vector constant.
@@ -462,11 +498,11 @@ namespace Urho
 		public void SetShaderParameter (StringHash param, Urho.Vector3 vector)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetShaderParameter9 (handle, param.Code, ref vector);
+			Graphics_SetShaderParameter12 (handle, param.Code, ref vector);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetShaderParameter10 (IntPtr handle, int param, ref Urho.Matrix4 matrix);
+		internal static extern void Graphics_SetShaderParameter13 (IntPtr handle, int param, ref Urho.Matrix4 matrix);
 
 		/// <summary>
 		/// Set shader 4x4 matrix constant.
@@ -474,11 +510,11 @@ namespace Urho
 		public void SetShaderParameter (StringHash param, Urho.Matrix4 matrix)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetShaderParameter10 (handle, param.Code, ref matrix);
+			Graphics_SetShaderParameter13 (handle, param.Code, ref matrix);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetShaderParameter11 (IntPtr handle, int param, ref Urho.Vector4 vector);
+		internal static extern void Graphics_SetShaderParameter14 (IntPtr handle, int param, ref Urho.Vector4 vector);
 
 		/// <summary>
 		/// Set shader 4D vector constant.
@@ -486,11 +522,11 @@ namespace Urho
 		public void SetShaderParameter (StringHash param, Urho.Vector4 vector)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetShaderParameter11 (handle, param.Code, ref vector);
+			Graphics_SetShaderParameter14 (handle, param.Code, ref vector);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetShaderParameter12 (IntPtr handle, int param, ref Urho.Matrix3x4 matrix);
+		internal static extern void Graphics_SetShaderParameter15 (IntPtr handle, int param, ref Urho.Matrix3x4 matrix);
 
 		/// <summary>
 		/// Set shader 3x4 matrix constant.
@@ -498,7 +534,7 @@ namespace Urho
 		public void SetShaderParameter (StringHash param, Urho.Matrix3x4 matrix)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetShaderParameter12 (handle, param.Code, ref matrix);
+			Graphics_SetShaderParameter15 (handle, param.Code, ref matrix);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -670,7 +706,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetRenderTarget13 (IntPtr handle, uint index, IntPtr texture);
+		internal static extern void Graphics_SetRenderTarget16 (IntPtr handle, uint index, IntPtr texture);
 
 		/// <summary>
 		/// Set rendertarget.
@@ -678,7 +714,7 @@ namespace Urho
 		public void SetRenderTarget (uint index, Texture2D texture)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetRenderTarget13 (handle, index, (object)texture == null ? IntPtr.Zero : texture.Handle);
+			Graphics_SetRenderTarget16 (handle, index, (object)texture == null ? IntPtr.Zero : texture.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -694,7 +730,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_SetDepthStencil14 (IntPtr handle, IntPtr texture);
+		internal static extern void Graphics_SetDepthStencil17 (IntPtr handle, IntPtr texture);
 
 		/// <summary>
 		/// Set depth-stencil surface.
@@ -702,7 +738,7 @@ namespace Urho
 		public void SetDepthStencil (Texture2D texture)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_SetDepthStencil14 (handle, (object)texture == null ? IntPtr.Zero : texture.Handle);
+			Graphics_SetDepthStencil17 (handle, (object)texture == null ? IntPtr.Zero : texture.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -814,6 +850,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Graphics_SetLineAntiAlias (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set line antialiasing on/off.
+		/// </summary>
+		private void SetLineAntiAlias (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			Graphics_SetLineAntiAlias (handle, enable);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Graphics_SetScissorTest (IntPtr handle, bool enable, ref Urho.IntRect rect);
 
 		/// <summary>
@@ -883,6 +931,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			Graphics_PrecacheShaders (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Graphics_SetShaderCacheDir (IntPtr handle, string path);
+
+		/// <summary>
+		/// Set shader cache directory, Direct3D only. This can either be an absolute path or a path within the resource system.
+		/// </summary>
+		private void SetShaderCacheDir (string path)
+		{
+			Runtime.ValidateRefCounted (this);
+			Graphics_SetShaderCacheDir (handle, path);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1558,6 +1618,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Graphics_GetLineAntiAlias (IntPtr handle);
+
+		/// <summary>
+		/// Return whether line antialiasing is enabled.
+		/// </summary>
+		private bool GetLineAntiAlias ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetLineAntiAlias (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool Graphics_GetStencilTest (IntPtr handle);
 
 		/// <summary>
@@ -1687,6 +1759,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Graphics_GetUseClipPlane (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Graphics_GetShaderCacheDir (IntPtr handle);
+
+		/// <summary>
+		/// Return shader cache directory, Direct3D only.
+		/// </summary>
+		private string GetShaderCacheDir ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Marshal.PtrToStringAnsi (Graphics_GetShaderCacheDir (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -2002,7 +2086,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern uint Graphics_GetFormat15 (string formatName);
+		internal static extern uint Graphics_GetFormat18 (string formatName);
 
 		/// <summary>
 		/// Return the API-specific texture format from a textual description, for example "rgb".
@@ -2010,7 +2094,7 @@ namespace Urho
 		public static uint GetFormat (string formatName)
 		{
 			Runtime.Validate (typeof(Graphics));
-			return Graphics_GetFormat15 (formatName);
+			return Graphics_GetFormat18 (formatName);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -2286,6 +2370,34 @@ namespace Urho
 			}
 			set {
 				SetFillMode (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether line antialiasing is enabled.
+		/// Or
+		/// Set line antialiasing on/off.
+		/// </summary>
+		public bool LineAntiAlias {
+			get {
+				return GetLineAntiAlias ();
+			}
+			set {
+				SetLineAntiAlias (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shader cache directory, Direct3D only.
+		/// Or
+		/// Set shader cache directory, Direct3D only. This can either be an absolute path or a path within the resource system.
+		/// </summary>
+		public string ShaderCacheDir {
+			get {
+				return GetShaderCacheDir ();
+			}
+			set {
+				SetShaderCacheDir (value);
 			}
 		}
 

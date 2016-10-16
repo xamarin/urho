@@ -118,15 +118,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Sprite_OnPositionSet (IntPtr handle);
+		internal static extern void Sprite_OnPositionSet (IntPtr handle, ref Urho.IntVector2 newPosition);
 
 		/// <summary>
 		/// React to position change.
 		/// </summary>
-		public override void OnPositionSet ()
+		public override void OnPositionSet (Urho.IntVector2 newPosition)
 		{
 			Runtime.ValidateRefCounted (this);
-			Sprite_OnPositionSet (handle);
+			Sprite_OnPositionSet (handle, ref newPosition);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

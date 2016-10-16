@@ -130,15 +130,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool TextureCube_SetSize (IntPtr handle, int size, uint format, TextureUsage usage);
+		internal static extern bool TextureCube_SetSize (IntPtr handle, int size, uint format, TextureUsage usage, int multiSample);
 
 		/// <summary>
-		/// Set size, format and usage. Return true if successful.
+		/// Set size, format, usage and multisampling parameter for rendertargets. Note that cube textures always use autoresolve when multisampled due to lacking support (on all APIs) to multisample them in a shader. Return true if successful.
 		/// </summary>
-		public bool SetSize (int size, uint format, TextureUsage usage)
+		public bool SetSize (int size, uint format, TextureUsage usage, int multiSample)
 		{
 			Runtime.ValidateRefCounted (this);
-			return TextureCube_SetSize (handle, size, format, usage);
+			return TextureCube_SetSize (handle, size, format, usage, multiSample);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -187,6 +187,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return TextureCube_GetData (handle, face, level, dest);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr TextureCube_GetImage (IntPtr handle, CubeMapFace face);
+
+		/// <summary>
+		/// Get image data from a face's zero mip level. Only RGB and RGBA textures are supported.
+		/// </summary>
+		public Image GetImage (CubeMapFace face)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupRefCounted<Image> (TextureCube_GetImage (handle, face));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

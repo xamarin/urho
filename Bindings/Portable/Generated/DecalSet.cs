@@ -166,6 +166,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void DecalSet_SetOptimizeBufferSize (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set whether to optimize GPU buffer sizes according to current amount of decals. Default false, which will size the buffers according to the maximum vertices/indices. When true, buffers will be reallocated whenever decals are added/removed, which can be worse for performance.
+		/// </summary>
+		private void SetOptimizeBufferSize (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			DecalSet_SetOptimizeBufferSize (handle, enable);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool DecalSet_AddDecal (IntPtr handle, IntPtr target, ref Urho.Vector3 worldPosition, ref Urho.Quaternion worldRotation, float size, float aspectRatio, float depth, ref Urho.Vector2 topLeftUV, ref Urho.Vector2 bottomRightUV, float timeToLive, float normalCutoff, uint subGeometry);
 
 		/// <summary>
@@ -274,6 +286,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool DecalSet_GetOptimizeBufferSize (IntPtr handle);
+
+		/// <summary>
+		/// Return whether is optimizing GPU buffer sizes according to current amount of decals.
+		/// </summary>
+		private bool GetOptimizeBufferSize ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return DecalSet_GetOptimizeBufferSize (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern ResourceRef DecalSet_GetMaterialAttr (IntPtr handle);
 
 		/// <summary>
@@ -357,6 +381,20 @@ namespace Urho
 			}
 			set {
 				SetMaxIndices (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether is optimizing GPU buffer sizes according to current amount of decals.
+		/// Or
+		/// Set whether to optimize GPU buffer sizes according to current amount of decals. Default false, which will size the buffers according to the maximum vertices/indices. When true, buffers will be reallocated whenever decals are added/removed, which can be worse for performance.
+		/// </summary>
+		public bool OptimizeBufferSize {
+			get {
+				return GetOptimizeBufferSize ();
+			}
+			set {
+				SetOptimizeBufferSize (value);
 			}
 		}
 

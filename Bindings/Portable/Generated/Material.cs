@@ -478,6 +478,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Material_SetLineAntiAlias (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set line antialiasing on/off. Has effect only on models that consist of line lists.
+		/// </summary>
+		private void SetLineAntiAlias (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			Material_SetLineAntiAlias (handle, enable);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Material_SetRenderOrder (IntPtr handle, byte order);
 
 		/// <summary>
@@ -742,6 +754,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Material_GetLineAntiAlias (IntPtr handle);
+
+		/// <summary>
+		/// Return whether line antialiasing is enabled.
+		/// </summary>
+		private bool GetLineAntiAlias ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Material_GetLineAntiAlias (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern byte Material_GetRenderOrder (IntPtr handle);
 
 		/// <summary>
@@ -970,6 +994,20 @@ namespace Urho
 			}
 			set {
 				SetAlphaToCoverage (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether line antialiasing is enabled.
+		/// Or
+		/// Set line antialiasing on/off. Has effect only on models that consist of line lists.
+		/// </summary>
+		public bool LineAntiAlias {
+			get {
+				return GetLineAntiAlias ();
+			}
+			set {
+				SetLineAntiAlias (value);
 			}
 		}
 

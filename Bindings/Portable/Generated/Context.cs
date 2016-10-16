@@ -293,6 +293,30 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Context_GetTypeName (handle, objectType.Code));
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Context_GetEventReceivers (IntPtr handle, IntPtr sender, int eventType);
+
+		/// <summary>
+		/// Return event receivers for a sender and event type, or null if they do not exist.
+		/// </summary>
+		public EventReceiverGroup GetEventReceivers (Urho.UrhoObject sender, StringHash eventType)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupRefCounted<EventReceiverGroup> (Context_GetEventReceivers (handle, (object)sender == null ? IntPtr.Zero : sender.Handle, eventType.Code));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Context_GetEventReceivers0 (IntPtr handle, int eventType);
+
+		/// <summary>
+		/// Return event receivers for an event type, or null if they do not exist.
+		/// </summary>
+		public EventReceiverGroup GetEventReceivers (StringHash eventType)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupRefCounted<EventReceiverGroup> (Context_GetEventReceivers0 (handle, eventType.Code));
+		}
+
 		/// <summary>
 		/// Return active event sender. Null outside event handling.
 		/// </summary>
