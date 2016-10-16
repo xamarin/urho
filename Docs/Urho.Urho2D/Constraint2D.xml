@@ -15,11 +15,14 @@
             </summary>
     <remarks>
       <para>Base class for the various 2D physics constraints. </para>
-      <para></para>
+      <para>
+      </para>
       <para>Constraints ('joints' in Box2D terminology) are used to constrain bodies to an anchor point or between themselves. Apply a constraint to a node, called the <see cref="P:Urho.Urho2D.Constraint2D.OwnerBody" /> and use <see cref="P:Urho.Urho2D.Constraint2D.OtherBody" /> to set the other node's body to be constrained to the owner body.</para>
-      <para></para>
+      <para>
+      </para>
       <para>See 32_Urho2DConstraints sample for detailed examples and to help selecting the appropriate constraint. </para>
-      <para></para>
+      <para>
+      </para>
       <para>Following are the available constraints classes, with the
       indication of the corresponding 'joint' in Box2D manual (see
       Chapter 8 Joints):</para>
@@ -95,7 +98,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Urho2D.Constraint2D which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -133,7 +137,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Urho2D.Constraint2D linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -338,7 +343,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -354,7 +360,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -370,7 +377,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

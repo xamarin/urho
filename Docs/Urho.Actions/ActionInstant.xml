@@ -33,7 +33,8 @@ public class MyInstantState : ActionInstantState
     public MyInstantState (MyInstant action, Node target)
         : base (action, target) {}
     public override void Update (float time)]]></code>
-      <para></para>
+      <para>
+      </para>
       <para>In this imaginary action, you there would be an inverse operation called “MyInstantReverse”, which is used to implement the Reverse method in this case.</para>
       <para>The “PerformOp” call is the one that does the change, and it will be invoked only once.</para>
     </remarks>

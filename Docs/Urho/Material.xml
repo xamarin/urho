@@ -164,7 +164,8 @@
       <para>
 	  For the layout definitions, see http://www.cgtextures.com/content.php?action=tutorial&amp;name=cubemaps and http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Build_a_skybox
 	</para>
-      <para></para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -180,7 +181,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Material which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -218,7 +220,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Material linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -412,6 +415,28 @@
         <remarks>This is a shortcut to creating a new mateiral from specified color (lit). If the color has Alpha less than 1.0f, the NoTextureAlpha <see cref="T:Urho.Technique" /> will be used, otherwise - NoTexture.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FromColor">
+      <MemberSignature Language="C#" Value="public static Urho.Material FromColor (Urho.Color color, bool unlit);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material FromColor(valuetype Urho.Color color, bool unlit) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="color" Type="Urho.Color" />
+        <Parameter Name="unlit" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="color">To be added.</param>
+        <param name="unlit">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FromImage">
       <MemberSignature Language="C#" Value="public static Urho.Material FromImage (string image);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material FromImage(string image) cil managed" />
@@ -430,6 +455,28 @@
         <summary>Creates a material from a 2D Texture.</summary>
         <returns>Material that contains the image and has been configured with the CoreAssets.Techniques.Diff <see cref="T:Urho.Technique" />.</returns>
         <remarks>This is a shortcut to creating a new mateiral, setting the texture to TextureUnit.Diffuse on the 2D texture loaded from the cache with the name <paramref name="image" />.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromImage">
+      <MemberSignature Language="C#" Value="public static Urho.Material FromImage (string image, string normals);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material FromImage(string image, string normals) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="System.String" />
+        <Parameter Name="normals" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="image">To be added.</param>
+        <param name="normals">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetPass">
@@ -585,6 +632,22 @@
             Return name for texture unit.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LineAntiAlias">
+      <MemberSignature Language="C#" Value="public bool LineAntiAlias { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool LineAntiAlias" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1369,7 +1432,8 @@
       <Docs>
         <param name="imagePositiveX">
           <para>Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive X side of the cube.</para>
-          <para></para>
+          <para>
+          </para>
         </param>
         <param name="imageNegativeX">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative X side of the cube.</param>
         <param name="imagePositiveY">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive Y side of the cube.</param>
@@ -1446,7 +1510,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1462,7 +1527,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1478,7 +1544,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="VertexShaderDefines">

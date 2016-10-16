@@ -480,9 +480,7 @@
             <remarks></remarks>
         </member>
         <member name="T:Urho.Animation">
-            <summary>
-            Skeletal animation resource.
-            </summary>
+            <summary>Skeletal animation resource. </summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Animation">
@@ -766,14 +764,14 @@
             <remarks />
         </member>
         <member name="T:Urho.AnimationBlendMode">
-            <summary></summary>
+            <summary>Animation blending mode</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.AnimationBlendMode.Additive">
-            <summary></summary>
+            <summary>Additive blending based on difference from bind pose</summary>
         </member>
         <member name="F:Urho.AnimationBlendMode.Lerp">
-            <summary></summary>
+            <summary>Lerp blending (default)</summary>
         </member>
         <member name="T:Urho.AnimationController">
             <summary>Component that drives an AnimatedModel's animations.
@@ -970,6 +968,12 @@
             <summary>
             Return animation looping.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.AnimationController.IsPlaying(System.Byte)">
+            <param name="layer"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -1850,6 +1854,11 @@ while (true){
         <member name="P:Urho.ApplicationOptions.Height">
             <summary>
             Desktop only option.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ApplicationOptions.HighDpi">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -3104,11 +3113,6 @@ while (true){
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Camera.SetProjectionCenter(Urho.Vector2)">
-            <param name="center"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
         <member name="M:Urho.Camera.SetReflectionPlaneAttr(Urho.Vector4)">
             <param name="value"></param>
             <summary>
@@ -3448,9 +3452,7 @@ while (true){
             <summary></summary>
         </member>
         <member name="T:Urho.Component">
-            <summary>
-            Base class for components. Components can be attached to scene nodes.
-            </summary>
+            <summary>Base class for components. Components can be attached to scene nodes. </summary>
             <remarks>
                 <para>Use the <see cref="T:Urho.Component" /> is the base class for custom components, it is a low-level interface.   A simpler version to use is <see cref="T:Urho.LogicComponent" /> which provides various convenience features.   </para>
                 <para>The next section for details on how to connect to various events in the life cycle of a component.</para>
@@ -3465,32 +3467,7 @@ while (true){
                 </format>
                 <para>To implement serialization you would override the OnSerialize and OnDeserialize methods and store your component state on the provided serializer and deserializer objects.</para>
                 <para />
-                <code lang="C#"><![CDATA[class MyComponent : Component {
-    // Constructor needed for deserialization
-    public MyComponent(IntPtr handle) : base(handle) { }
-    public MyComponent() { }
-    // user defined properties (managed state):
-    public Quaternion MyRotation { get; set; }
-    public string MyName { get; set; }
-        
-    public override void OnSerialize(IComponentSerializer ser)
-    {
-        // register our properties with their names as keys using nameof()
-        ser.Serialize(nameof(MyRotation), MyRotation);
-        ser.Serialize(nameof(MyName), MyName);
-    }
-        
-    public override void OnDeserialize(IComponentDeserializer des)
-    {
-        MyRotation = des.Deserialize<Quaternion>(nameof(MyRotation));
-        MyName = des.Deserialize<string>(nameof(MyName));
-    }
-    // called when the component is attached to some node
-    public override void OnAttachedToNode()
-    {
-        var node = this.Node;
-    }
-}]]></code>
+                <code lang="C#"><![CDATA[class MyComponent : Component { // Constructor needed for deserialization public MyComponent(IntPtr handle) : base(handle) { } public MyComponent() { } // user defined properties (managed state): public Quaternion MyRotation { get; set; } public string MyName { get; set; } public override void OnSerialize(IComponentSerializer ser) { // register our properties with their names as keys using nameof() ser.Serialize(nameof(MyRotation), MyRotation); ser.Serialize(nameof(MyName), MyName); } public override void OnDeserialize(IComponentDeserializer des) { MyRotation = des.Deserialize<Quaternion>(nameof(MyRotation)); MyName = des.Deserialize<string>(nameof(MyName)); } // called when the component is attached to some node public override void OnAttachedToNode() { var node = this.Node; } }]]></code>
             </remarks>
         </member>
         <member name="C:Urho.Component">
@@ -3991,6 +3968,19 @@ while (true){
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Context.GetEventReceivers(Urho.StringHash)">
+            <param name="eventType"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.GetEventReceivers(Urho.UrhoObject,Urho.StringHash)">
+            <param name="sender"></param>
+            <param name="eventType"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Context.GetSubsystem(Urho.StringHash)">
             <param name="type"></param>
             <summary>
@@ -4179,9 +4169,7 @@ while (true){
         </member>
         <member name="T:Urho.CoreAssets+Fonts">
             <summary>Provides access to the fonts that are part of every CoreAssets package in Urho.</summary>
-            <remarks>
-                <para />
-            </remarks>
+            <remarks>Fonts can be defined as a TTF or SDF.</remarks>
         </member>
         <member name="P:Urho.CoreAssets+Fonts.AnonymousPro">
             <summary>Accesses the AnonymousPro font in CoreAssets.</summary>
@@ -4191,7 +4179,7 @@ while (true){
         <member name="T:Urho.CoreAssets+Materials">
             <summary>Provides access to the materials that are part of every CoreAssets package in Urho.</summary>
             <remarks>
-                <para />
+                <para>You might want to take a look at Material.FromColor and Material.FromImage in order to construct a simple material.</para>
             </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Materials.DefaultGrey">
@@ -4221,7 +4209,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Models.Dome">
-            <summary></summary>
+            <summary>Returns the dome model from the resource cache (Models/Dome.mdl)</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -4320,85 +4308,146 @@ while (true){
         </member>
         <member name="T:Urho.CoreAssets+Techniques">
             <summary>Provides access to the techniques that are part of every CoreAssets package in Urho.</summary>
-            <remarks></remarks>
+            <remarks>
+                <para>Usually, <see cref="T:Urho.Technique" /> name consists of a combination of features it uses:</para>
+                <para>Basic - uses Basic shader, good for debug purposes</para>
+                <para>Diff - displays a texture. It defines DIFFMAP and expects the texture in 'diffuse' texture unit (sDiffMap sampler).</para>
+                <para>Normal - expects a normal map in 'normal' texture unit (sNormalMap sampler)</para>
+                <para>Spec - expects a specular map in 'specular' texture unit.</para>
+                <para>NoTexture - used by materials without textures.</para>
+                <para>EnvCube - expects an environment map (cubic texture) in 'environment' texture unit.</para>
+                <para>Unlit - materials with this technique won't be affected by any lights (self-illuminated).</para>
+                <para>Emissive - similiar to Unlit, but it expects an emissive map in 'emissive' texture unit and will be affected by scene lights</para>
+                <para>LightMap - expects a light map in 'emissive' texture unit.</para>
+                <para>AO - expects an Ambient Occlusion map in 'emissive' texture unit.</para>
+                <para>Translucent - materials with this technique will be affected by lights located behind the materials.</para>
+                <para>VColor - will take Vertex Color (for example, defined via DefineColor) into account.</para>
+                <para>Additive blending simply sums the values in the two layers. Blending with white gives white. Blending with black does not change the image. </para>
+                <para>Multiply blend mode multiplies the numbers for each pixel of the top layer with the corresponding pixel for the bottom layer. The result is a darker picture.</para>
+                <para />
+                <para>You can access built-in techniques via CoreAssets.Techniques:</para>
+                <code lang="C#"><![CDATA[Technique diff = CoreAssets.Techniques.Diff;]]></code>
+                <para>It allows to create different materials in code, for example the following snippet creates a material from a texture and a normal map using <see cref="P:Urho.CoreAssets+Techniques.DiffNormal" />:</para>
+                <code lang="C#"><![CDATA[var material = new Material(); material.SetTechnique(index: 0, tech: CoreAssets.Techniques.DiffNormal, qualityLevel: 1, lodDistance: 1); material.SetTexture(TextureUnit.Diffuse, ResourceCache.GetTexture2D("Earth.jpg")); material.SetTexture(TextureUnit.Normal, ResourceCache.GetTexture2D("Earth_normal.jpg"));]]></code>
+                <para>Some of the basic techniques are explained in the following image</para>
+                <para>
+                    <img href="C:\Projects\urho\Docs\Urho\_images\techniques.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.BasicVColUnlitAlpha">
-            <summary></summary>
+            <summary>Vertex color, no lights, alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.Diff">
-            <summary></summary>
+            <summary>Basic diffuse technique, defines DIFFMAP and expects a texture in 'diffuse' texture unit..</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_Diff.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffAdd">
-            <summary></summary>
+            <summary>Same as Diffuse but with alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffAdd.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffAddAlpha">
-            <summary></summary>
+            <summary>Diffuse map with alpha and additive blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffAdd.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffAlpha">
-            <summary></summary>
+            <summary>Diffuse map with alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_Diff.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffAlphaTranslucent">
-            <summary></summary>
+            <summary>Diffuse map with alpha blending. Can be translucent.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_Diff.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffAO">
-            <summary></summary>
+            <summary>Diffuse map with ambient occlusion. AO should be passed to 'emissive' texture unit.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffAOAlpha">
-            <summary></summary>
+            <summary>Diffuse map with ambient occlusion and Alpha blending. AO should be passed to 'emissive' texture unit.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffEmissive">
-            <summary></summary>
+            <summary>Diffuse and emissive maps.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffEmissive.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffEmissiveAlpha">
-            <summary></summary>
+            <summary>Diffuse and emissive maps with Alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffEmissive.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffEnvCube">
-            <summary></summary>
+            <summary>Diffuse and environment maps.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffEnvCube.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffEnvCubeAlpha">
-            <summary></summary>
+            <summary>Diffuse and environment maps with Alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffEnvCube.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffEnvCubeAO">
-            <summary></summary>
+            <summary>Diffuse and environment maps with Ambient Occlusion.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffEnvCubeAOAlpha">
-            <summary></summary>
+            <summary>Diffuse and environment maps with Alpha blending and Ambient Occlusion.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffLightMap">
-            <summary></summary>
+            <summary>Diffuse and light maps.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffLightMapAlpha">
-            <summary></summary>
+            <summary>Diffuse and light maps with Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -4408,92 +4457,116 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffMultiply">
-            <summary></summary>
+            <summary>Diffuse map with blend mode 'multiply'</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffMultiply.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormal">
-            <summary></summary>
+            <summary>Diffuse and normal maps.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffNormal.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalAlpha">
-            <summary></summary>
+            <summary>Diffuse and normal maps with Alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffNormal.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalAlphaTranslucent">
-            <summary></summary>
+            <summary>Diffuse and normal maps with Alpha blending. Can be translucent.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalAO">
-            <summary></summary>
+            <summary>Diffuse and normal maps with Ambient occlusion.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalAOAlpha">
-            <summary></summary>
+            <summary>Diffuse and normal maps with Ambient occlusion and Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalEmissive">
-            <summary></summary>
+            <summary>Diffuse, normal and emissive maps.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalEmissiveAlpha">
-            <summary></summary>
+            <summary>Diffuse, normal and emissive maps with Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalEnvCube">
-            <summary></summary>
+            <summary>Diffuse, normal and environment maps.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalEnvCubeAlpha">
-            <summary></summary>
+            <summary>Diffuse, normal and environment maps with Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpec">
-            <summary></summary>
+            <summary>Diffuse, normal and specular maps.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffNormalSpec.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecAlpha">
-            <summary></summary>
+            <summary>Diffuse, normal and specular maps with alpha.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffNormalSpec.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecAO">
-            <summary></summary>
+            <summary>Diffuse, normal and specular maps with Ambient occlusion.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecAOAlpha">
-            <summary></summary>
+            <summary>Diffuse, normal and specular maps with Ambient occlusion and Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecEmissive">
-            <summary></summary>
+            <summary>Diffuse, normal, specular and emissive maps.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffNormalSpecEmissiveAlpha">
-            <summary></summary>
+            <summary>Diffuse, normal, specular and emissive maps with Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffOverlay">
-            <summary></summary>
+            <summary>Diffuse map..</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffUnlit.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffSkybox">
-            <summary></summary>
+            <summary>Diffuse map for Skybox.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -4503,162 +4576,214 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffSkydome">
-            <summary></summary>
+            <summary>Diffuse map for Skydome.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffSkyplane">
-            <summary></summary>
+            <summary>Diffuse map for Skyplane.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffSpec">
-            <summary></summary>
+            <summary>Diffuse and specular maps.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffSpec.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffSpecAlpha">
-            <summary></summary>
+            <summary>Diffuse and specular maps with Alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffSpec.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffUnlit">
-            <summary></summary>
+            <summary>Diffuse map, not affected by any lighting (unlit).</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffUnlit.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffUnlitAlpha">
-            <summary></summary>
+            <summary>Diffuse map, not affected by any lighting (unlit) with Alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_DiffUnlit.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffVCol">
-            <summary></summary>
+            <summary>Diffuse map, uses Vertex Colors.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffVColAdd">
-            <summary></summary>
+            <summary>Diffuse map, uses Vertex Colors and Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffVColAddAlpha">
-            <summary></summary>
+            <summary>Diffuse map, uses Vertex Colors and Alpha and Additive blendings.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffVColMultiply">
-            <summary></summary>
+            <summary>Diffuse map, uses Vertex Colors and Alpha and 'multiply' blendings.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.DiffVColUnlitAlpha">
-            <summary></summary>
+            <summary>Diffuse map, uses Vertex Colors, Alpha blending and is not affected by any lights.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTexture">
-            <summary></summary>
+            <summary>Solid color.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTexture.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureAdd">
-            <summary></summary>
+            <summary>Solid color with Additive blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureAddAlpha">
-            <summary></summary>
+            <summary>Solid color with Additive and Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureAlpha">
-            <summary></summary>
+            <summary>Solid color with Alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTexture.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureAO">
-            <summary></summary>
+            <summary>Solid color with Ambient Occlusion.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureAOAlpha">
-            <summary></summary>
+            <summary>Solid color with Ambient Occlusion and Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureEnvCube">
-            <summary></summary>
+            <summary>Solid color with Environment map.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTextureEnvCube.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureEnvCubeAlpha">
-            <summary></summary>
+            <summary>Solid color with Environment map and Alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTextureEnvCube.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureEnvCubeAO">
-            <summary></summary>
+            <summary>Solid color with Environment map and Ambient Occlusion.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureEnvCubeAOAlpha">
-            <summary></summary>
+            <summary>Solid color with Environment map, Ambient Occlusion and Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureMultiply">
-            <summary></summary>
+            <summary>Solid color with blend mode 'multiply'.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureNormal">
-            <summary></summary>
+            <summary>Solid color with Normal map.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTextureNormal.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureNormalAlpha">
-            <summary></summary>
+            <summary>Solid color with Normal map and Alpha blending.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTextureNormal.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureOverlay">
-            <summary></summary>
+            <summary>Solid color (overlay).</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTextureUnlit.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureUnlit">
-            <summary></summary>
+            <summary>Solid color, not affected by any lighting.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTextureUnlit.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureUnlitAlpha">
-            <summary></summary>
+            <summary>Solid color with alpha, not affected by any lighting</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>
+                <para>
+                    <img href="t_NoTextureUnlit.png" />
+                </para>
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureUnlitVCol">
-            <summary></summary>
+            <summary>Vertex color not affected by any lights.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureVCol">
-            <summary></summary>
+            <summary>Vertex color.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureVColAdd">
-            <summary></summary>
+            <summary>Vertex color with Additive blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureVColAddAlpha">
-            <summary></summary>
+            <summary>Vertex color with Additive and Alpha blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques.NoTextureVColMultiply">
-            <summary></summary>
+            <summary>Vertex color with 'multiply' blending.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -4684,7 +4809,9 @@ while (true){
         </member>
         <member name="T:Urho.CoreAssets+Techniques+PBR">
             <summary>Provides access to the Physical Based Rendering techniques that are part of every CoreAssets package in Urho.</summary>
-            <remarks></remarks>
+            <remarks>
+                <img href="pbr_techniques.png" />
+            </remarks>
         </member>
         <member name="P:Urho.CoreAssets+Techniques+PBR.DiffNormalSpecEmissive">
             <summary></summary>
@@ -5022,27 +5149,23 @@ while (true){
             <summary></summary>
         </member>
         <member name="T:Urho.CullMode">
-            <summary>
-            Culling mode.
-            </summary>
-            <remarks></remarks>
+            <summary>Culling mode. </summary>
+            <remarks>Triangles can be discarded based on their apparent facing, a process known as Culling.</remarks>
         </member>
         <member name="F:Urho.CullMode.Ccw">
-            <summary></summary>
+            <summary>Counterclockwise-facing culling.</summary>
         </member>
         <member name="F:Urho.CullMode.Cw">
-            <summary></summary>
+            <summary>Clockwise-facing culling.</summary>
         </member>
         <member name="F:Urho.CullMode.MaxCullmodes">
-            <summary></summary>
+            <summary>Max culling mode.</summary>
         </member>
         <member name="F:Urho.CullMode.None">
-            <summary></summary>
+            <summary>No culling.</summary>
         </member>
         <member name="T:Urho.CustomGeometry">
-            <summary>
-            Custom geometry component.
-            </summary>
+            <summary>Custom geometry component. </summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.CustomGeometry">
@@ -5251,8 +5374,8 @@ while (true){
             <remarks />
         </member>
         <member name="T:Urho.CustomGeometryVertex">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Represents a vertex. </summary>
+            <remarks>This structure can be used in <see cref="M:Urho.VertexBuffer.SetData" />.</remarks>
         </member>
         <member name="F:Urho.CustomGeometryVertex.Color">
             <summary></summary>
@@ -5275,9 +5398,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.DebugHud">
-            <summary>
-            Displays rendering stats and profiling information.
-            </summary>
+            <summary>Displays rendering stats and profiling information. </summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.DebugHud">
@@ -5444,9 +5565,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.DebugRenderer">
-            <summary>
-            Debug geometry rendering component. Should be added only to the root scene node.
-            </summary>
+            <summary>Debug geometry rendering component. Should be added only to the root scene node. </summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.DebugRenderer">
@@ -5620,6 +5739,11 @@ while (true){
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.DebugRenderer.LineAntiAlias">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.DebugRenderer.Projection">
             <summary></summary>
             <value></value>
@@ -5789,6 +5913,11 @@ while (true){
             <summary>
             Handle enabled/disabled state change.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DecalSet.OptimizeBufferSize">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.DecalSet.RegisterObject(Urho.Context)">
@@ -6889,6 +7018,42 @@ while (true){
             <summary>Sends the frame update events.</summary>
             <remarks>This method is usually invoked from the <see cref="M:Urho.Engine.RunFrame" /> method and it rasises the <see cref="E:Urho.Engine.Update" />, <see cref="E:Urho.Engine.PostUpdate" />, <see cref="E:Urho.Engine.RenderUpdate" /> and <see cref="E:Urho.Engine.PostRenderUpdate" /> events in that order.</remarks>
         </member>
+        <member name="T:Urho.EventReceiverGroup">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.EventReceiverGroup">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.EventReceiverGroup(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.EventReceiverGroup(Urho.UrhoObjectFlag)">
+            <param name="emptyFlag"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.EventReceiverGroup.Add(Urho.UrhoObject)">
+            <param name="object"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.EventReceiverGroup.BeginSendEvent">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.EventReceiverGroup.EndSendEvent">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.EventReceiverGroup.Remove(Urho.UrhoObject)">
+            <param name="object"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.ExitRequestedEventArgs">
             <summary>Event arguments for the Input's ExitRequested event</summary>
             <remarks></remarks>
@@ -7981,6 +8146,11 @@ while (true){
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Graphics.LineAntiAlias">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Graphics.LinearDepthFormat">
             <summary>
             Return the API-specific linear depth texture format.
@@ -8147,6 +8317,18 @@ while (true){
             Return whether window is resizable.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Graphics.ResolveToTexture(Urho.TextureCube)">
+            <param name="texture"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Graphics.ResolveToTexture(Urho.Urho2D.Texture2D)">
+            <param name="texture"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.ResolveToTexture(Urho.Urho2D.Texture2D,Urho.IntRect)">
@@ -8317,6 +8499,12 @@ while (true){
                 <para />
             </remarks>
         </member>
+        <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,System.Int32)">
+            <param name="param"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,System.Single)">
             <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
             <param name="value">Float value to set</param>
@@ -8469,6 +8657,11 @@ while (true){
             <summary>
             Set window position.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Graphics.ShaderCacheDir">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.ShadowMapFormat">
@@ -11834,7 +12027,159 @@ while (true){
             <summary>
             Describes how to render 3D geometries.
             </summary>
-            <remarks></remarks>
+            <remarks>
+                <para>On the disk, they are XML data. Default and example materials exist in the bin/CoreData/Materials &amp; bin/Data/Materials subdirectories, and techniques exist in the bin/CoreData/Techniques subdirectory.</para>
+                <para>A material defines the textures, shader parameters, the culling, fill mode to use, and refers to one or several techniques. A technique defines the actual rendering passes, the shaders to use in each, and all other rendering states such as depth test, depth write, and blending.</para>
+                <para>A material definition looks like this</para>
+                <code lang="XML"><![CDATA[<material>
+    <technique name="TechniqueName" quality="q" loddistance="d" />
+    <texture unit="diffuse|normal|specular|emissive|environment" name="TextureName" />
+    <texture ... />
+    <parameter name="name" value="x y z w" />
+    <parameter ... />
+    <cull value="cw|ccw|none" />
+    <shadowcull value="cw|ccw|none" />
+    <fill value="solid|wireframe|point" />
+    <depthbias constant="x" slopescaled="y" />
+</material>
+]]></code>
+                <para>
+	  Several techniques can be defined for different quality
+	  levels and LOD distances. Technique quality levels are specified
+	  from 0 (low) to 2 (high). When rendering, the highest available
+	  technique that does not exceed the <see cref="T:Urho.Renderer" /> material quality
+	  setting will be chosen, see <see cref="P:Urho.Renderer.MaterialQuality" />. It is also
+	  possible for a technique to require Shader Model 3, in this case
+	  it will be skipped on SM2 hardware.
+	</para>
+                <para>
+	  The techniques for different LOD levels and quality settings must appear in a specific order:
+	</para>
+                <para>
+	  Material shader parameters can be floats or vectors up to 4 components, or matrices.
+	</para>
+                <para>
+	  Default culling mode is counterclockwise. The shadowcull
+	  element specifies the culling mode to use in the shadow
+	  pass. Note that material's depth bias settings do not apply
+	  in the shadow pass; during shadow rendering the light's
+	  depth bias is used instead.
+	</para>
+                <format type="text/html">
+                    <h2>Material Textures</h2>
+                </format>
+                <para>
+	  Diffuse maps specify the surface color in the RGB
+	  channels. Optionally they can use the alpha channel for
+	  blending and alpha testing. They should preferably be
+	  compressed to DXT1 (no alpha or 1-bit alpha) or DXT5 (smooth
+	  alpha) format.
+	</para>
+                <para>
+	  Normal maps encode the tangent-space surface normal for
+	  normal mapping. There are two options for storing normals,
+	  which require choosing the correct material technique, as
+	  the pixel shader is different in each case:
+	</para>
+                <list type="bullet">
+                    <item>
+                        <term>
+	      Store as RGB. In this case use the DiffNormal
+	      techniques. This is the default used by AssetImporter, to
+	      ensure no conversion of normal textures needs to happen.
+	    </term>
+                    </item>
+                    <item>
+                        <term>
+	      Store as xGxR, ie. Y-component in the green channel, and
+	      X-component in the alpha. In this case use the
+	      DiffNormalPacked techniques: Z will be reconstructed in
+	      the pixel shader. This encoding lends itself well to
+	      DXT5 compression. To convert normal maps to this format,
+	      you can use AMD's The Compressonator utility, see
+	      http://developer.amd.com/Resources/archive/ArchivedTools/gpu/compressonator/Pages/default.aspx
+	    </term>
+                    </item>
+                </list>
+                <para>
+
+	  Make sure the normal map is oriented correctly: an even
+	  surface should have the color value R 0.5 G 0.5 B 1.0.
+	</para>
+                <para>
+
+	  Models using a normal-mapped material need to have tangent
+	  vectors in their vertex data; the easiest way to ensure this
+	  is to use the switch -t (generate tangents) when using
+	  either AssetImporter or OgreImporter to import models to
+	  Urho3D format. If there are no tangents, the light
+	  attenuation on the normal-mapped material will behave in a
+	  completely erratic fashion.
+	</para>
+                <para>
+
+	  Specular maps encode the specular surface color as RGB. Note that
+	  deferred rendering is only able to use monochromatic specular
+	  intensity from the G channel, while forward and light pre-pass
+	  rendering use fully colored specular. DXT1 format should suit these
+	  textures well.
+	</para>
+                <para>
+	  
+	  Textures can have an accompanying XML file which specifies
+	  load-time parameters, such as addressing, mipmapping, and
+	  number of mip levels to skip on each quality level:
+	</para>
+                <code lang="XML"><![CDATA[<texture>
+    <address coord="u|v|w" mode="wrap|mirror|clamp|border" />
+    <border color="r g b a" />
+    <filter mode="nearest|bilinear|trilinear|anisotropic|default" />
+    <mipmap enable="false|true" />
+    <quality low="x" medium="y" high="z" />
+    <srgb enable="false|true" />
+</texture>]]></code>
+                <para>
+
+	  The sRGB flag controls both whether the texture should be
+	  sampled with sRGB to linear conversion, and if used as a
+	  rendertarget, pixels should be converted back to sRGB when
+	  writing to it. To control whether the backbuffer should use
+	  sRGB conversion on write, use the <see cref="P:Urho.Graphics.SRGB" /> property.
+	</para>
+                <format type="text/html">
+                    <h2>Material Textures</h2>
+                </format>
+                <para>
+
+	  Using cube map textures requires an XML file to define the cube map
+	  face textures or layout. In this case the XML file is the texture
+	  resource name in material scripts or in LoadResource() calls.
+
+	</para>
+                <para>
+
+	  Individual face textures are defined in the XML like this: (see bin/Data/Textures/Skybox.xml for an example)
+
+	</para>
+                <code lang="XML"><![CDATA[<cubemap>
+    <face name="PositiveX_TextureName" />
+    <face name="NegativeX_TextureName" />
+    <face name="PositiveY_TextureName" />
+    <face name="NegativeY_TextureName" />
+    <face name="PositiveZ_TextureName" />
+    <face name="NegativeZ_TextureName" />
+</cubemap>]]></code>
+                <para>
+	  Using a single image texture and a layout is used like this:
+	</para>
+                <code lang="XML"><![CDATA[<cubemap>
+    <image name="TextureName" layout="horizontal|horizontalnvidia|horizontalcross|verticalcross|blender" />
+    </cubemap>]]></code>
+                <para>
+	  For the layout definitions, see http://www.cgtextures.com/content.php?action=tutorial&amp;name=cubemaps and http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Build_a_skybox
+	</para>
+                <para />
+            </remarks>
         </member>
         <member name="C:Urho.Material">
             <summary>
@@ -11919,16 +12264,19 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Material.FillMode">
-            <summary>
-            Return polygon fill mode.
-            Or
-            Set polygon fill mode. Interacts with the camera's fill mode setting so that the "least filled" mode will be used.
-            </summary>
+            <summary>Return polygon fill mode. Or Set polygon fill mode. Interacts with the camera's fill mode setting so that the "least filled" mode will be used. </summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.FromColor(Urho.Color)">
+            <param name="color">Color to be used as a MatDiffColor</param>
+            <summary>Creates a material using NoTexture or NoTextureAlpha <see cref="T:Urho.Technique" /> with the specified color as a shader parameter "MatDiffColor".</summary>
+            <returns>Material that contains the image and has been configured with the CoreAssets.Techniques.Diff <see cref="T:Urho.Technique" />.</returns>
+            <remarks>This is a shortcut to creating a new mateiral from specified color (lit). If the color has Alpha less than 1.0f, the NoTextureAlpha <see cref="T:Urho.Technique" /> will be used, otherwise - NoTexture.</remarks>
+        </member>
+        <member name="M:Urho.Material.FromColor(Urho.Color,System.Boolean)">
             <param name="color"></param>
+            <param name="unlit"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -11938,6 +12286,13 @@ while (true){
             <summary>Creates a material from a 2D Texture.</summary>
             <returns>Material that contains the image and has been configured with the CoreAssets.Techniques.Diff <see cref="T:Urho.Technique" />.</returns>
             <remarks>This is a shortcut to creating a new mateiral, setting the texture to TextureUnit.Diffuse on the 2D texture loaded from the cache with the name <paramref name="image" />.</remarks>
+        </member>
+        <member name="M:Urho.Material.FromImage(System.String,System.String)">
+            <param name="image"></param>
+            <param name="normals"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
         </member>
         <member name="M:Urho.Material.GetPass(System.UInt32,System.String)">
             <param name="index"></param>
@@ -11994,6 +12349,11 @@ while (true){
             Return name for texture unit.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Material.LineAntiAlias">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.Load(Urho.Resources.XmlElement)">
@@ -13808,7 +14168,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.MonoDebugHud">
-            <summary></summary>
+            <summary>UrhoSharp-specific version of DebugHud.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.MonoDebugHud(Urho.Application)">
@@ -15027,6 +15387,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary>Sets the scale but does not flag the node as dirty, nor as requiring a network update.</summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Node.SetTransform(Urho.Matrix3x4)">
+            <param name="matrix"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Node.SetTransform(Urho.Vector3,Urho.Quaternion)">
             <param name="position"></param>
             <param name="rotation"></param>
@@ -15939,7 +16304,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <param name="data"></param>
             <param name="stringhash"></param>
             <param name="variantMap"></param>
-            <summary></summary>
+            <summary>For internal use only.</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.ObjectFactory">
@@ -17373,6 +17738,20 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.ProgressBarChangedEventArgs">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ProgressBarChangedEventArgs.Element">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ProgressBarChangedEventArgs.Value">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Quaternion">
             <summary>
             Represents a Quaternion.
@@ -17467,7 +17846,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.Quaternion.FromAxisAngle(Urho.Vector3,System.Single)">
             <param name="axis">The axis to rotate about</param>
-            <param name="angle">The rotation angle in radians</param>
+            <param name="angle">The rotation angle in degrees</param>
             <summary>
             Build a quaternion from the given axis and angle
             </summary>
@@ -17797,7 +18176,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Randoms">
-            <summary></summary>
+            <summary>Set of usefull Random helper methods.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Randoms.Next">
@@ -17926,7 +18305,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary></summary>
         </member>
         <member name="T:Urho.RayQueryResult">
-            <summary></summary>
+            <summary>Raycast result.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.RayQueryResult.Distance">
@@ -17960,7 +18339,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Rect">
-            <summary></summary>
+            <summary>Represents a rectangle.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Rect(Urho.Vector2,Urho.Vector2)">
@@ -18441,12 +18820,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Renderer.GetDepthStencil(System.Int32,System.Int32)">
+        <member name="M:Urho.Renderer.GetDepthStencil(System.Int32,System.Int32,System.Int32,System.Boolean)">
             <param name="width"></param>
             <param name="height"></param>
-            <summary>
-            Allocate a depth-stencil surface that does not need to be readable. Should only be called during actual rendering, not before.
-            </summary>
+            <param name="multiSample"></param>
+            <param name="autoResolve"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -18504,17 +18883,17 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Renderer.GetScreenBuffer(System.Int32,System.Int32,System.UInt32,System.Boolean,System.Boolean,System.Boolean,System.UInt32)">
+        <member name="M:Urho.Renderer.GetScreenBuffer(System.Int32,System.Int32,System.UInt32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.UInt32)">
             <param name="width"></param>
             <param name="height"></param>
             <param name="format"></param>
+            <param name="multiSample"></param>
+            <param name="autoResolve"></param>
             <param name="cubemap"></param>
             <param name="filtered"></param>
             <param name="srgb"></param>
             <param name="persistentKey"></param>
-            <summary>
-            Allocate a rendertarget or depth-stencil texture for deferred rendering or postprocessing. Should only be called during actual rendering, not before.
-            </summary>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -18927,6 +19306,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Renderer.VSMMultiSample">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Renderer.VSMShadowParameters">
             <summary></summary>
             <value></value>
@@ -18967,6 +19351,212 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                 </list>
                 <para>A render path can be loaded from a main XML file by calling <see cref="M:Urho.RenderPath.Load" />, after which other XML files (for example one for each post-processing effect) can be appended to it by calling <see cref="M:Urho.RenderPath.Append" />. Rendertargets and commands can be enabled or disabled by calling <see cref="M:Urho.RenderPath.SetEnabled" /> to switch eg. a post-processing effect on or off. To aid in this, both can be identified by tag names, for example the bloom effect uses the tag "Bloom" for all of its rendertargets and commands.</para>
                 <para>It is legal to both write to the destination viewport and sample from it during the same command: pingpong copies of its contents will be made automatically. If the viewport has hardware multisampling on, the multisampled backbuffer will be resolved to a texture before sampling it.</para>
+                <para>
+	The render path XML definition looks like this:
+      </para>
+                <code lang="XML"><![CDATA[<renderpath>
+    <rendertarget name="RTName" tag="TagName" enabled="true|false" cubemap="true|false" size="x y"|sizedivisor="x y"|sizemultiplier="x y"
+        format="rgb|rgba|r32f|rgba16|rgba16f|rgba32f|rg16|rg16f|rg32f|lineardepth|readabledepth" filter="true|false" srgb="true|false" persistent="true|false" />
+    <command type="clear" tag="TagName" enabled="true|false" clearcolor="r g b a|fog" cleardepth="x" clearstencil="y" output="viewport|RTName" face="0|1|2|3|4|5" depthstencil="DSName" />
+    <command type="scenepass" pass="PassName" sort="fronttoback|backtofront" marktostencil="true|false" vertexlights="true|false" metadata="base|alpha|gbuffer" depthstencil="DSName">
+        <output index="0" name="RTName1" face="0|1|2|3|4|5" />
+        <output index="1" name="RTName2" />
+        <output index="2" name="RTName3" />
+        <texture unit="unit" name="viewport|RTName|TextureName" />
+    </command>
+    <command type="quad" vs="VertexShaderName" ps="PixelShaderName" vsdefines="DEFINE1 DEFINE2" psdefines="DEFINE3 DEFINE4" output="viewport|RTName" depthstencil="DSName" />
+        <texture unit="unit" name="viewport|RTName|TextureName" />
+        <parameter name="ParameterName" value="x y z w" />
+    </command>
+    <command type="forwardlights" pass="PassName" uselitbase="true|false" output="viewport|RTName" depthstencil="DSName" />
+    <command type="lightvolumes"  vs="VertexShaderName" ps="PixelShaderName" output="viewport|RTName" depthstencil="DSName" />
+        <texture unit="unit" name="viewport|RTName|TextureName" />
+    </command>
+    <command type="renderui" output="viewport|RTName" depthstencil="DSName" />
+</renderpath>
+]]></code>
+                <para>
+	  For examples of renderpath definitions, see the default
+	  forward, deferred and light pre-pass renderpaths in the
+	  bin/CoreData/RenderPaths directory, and the postprocess
+	  renderpath definitions in the bin/Data/PostProcess
+	  directory.
+	</para>
+                <format type="text/html">
+                    <h2>Depth-stencil handling and reading scene depth</h2>
+                </format>
+                <para>
+
+	  Normally needed depth-stencil surfaces are automatically
+	  allocated when the render path is executed.
+	</para>
+                <para>
+
+	  The special "lineardepth" (synonym "depth") format is
+	  intended for storing scene depth in deferred rendering. It
+	  is not an actual hardware depth-stencil texture, but a
+	  32-bit single channel (R) float rendertarget. (On OpenGL2
+	  it's RGBA instead, due to the limitation of all color
+	  buffers having to be the same format. The shader include
+	  file Samplers.glsl in bin/CoreData/Shaders/GLSL provides
+	  functions to encode and decode linear depth to RGB.)
+	</para>
+                <para>
+
+	  Writing depth manually to a rendertarget, while using a
+	  non-readable depth-stencil surface ensures best
+	  compatibility and prevents any conflicts from using both
+	  depth test and manual depth sampling at the same time.
+	</para>
+                <para>
+
+	  There is also a possibility to define a readable hardware
+	  depth texture, and instruct the render path to use it
+	  instead. Availability for this must first be checked with
+	  the function GetReadableDepthSupport(). On Direct3D9 this
+	  will use the INTZ "hack" format. To define a readable
+	  depth-stencil texture, use the format "readabledepth"
+	  (synonym "hwdepth") and set it as the depth-stencil by using
+	  the "depthstencil" attribute in render path commands. Note
+	  that you must set it in every command where you want to use
+	  it, otherwise an automatically allocated depth-stencil will
+	  be used. Note also that the existence of a stencil channel
+	  is not guaranteed, so stencil masking optimizations for
+	  lights normally used by the Renderer and View classes will be
+	  disabled.
+	</para>
+                <para>
+
+	  In the special case of a depth-only rendering pass you can
+	  set the readable depth texture directly as the "output" and
+	  don't need to specify the "depthstencil" attribute at all.
+	</para>
+                <para>
+
+	  After the readable depth texture has been filled, it can be
+	  bound to a texture unit in any subsequent commands. Pixel
+	  shaders should use the ReconstructDepth() helper function to
+	  reconstruct a linear depth value between 0-1 from the
+	  nonlinear hardware depth value. When the readable depth
+	  texture is bound for sampling, depth write is automatically
+	  disabled, as both modifying and sampling the depth would be
+	  undefined.
+	</para>
+                <para>
+
+	  An example render path for readable hardware depth exists in
+	  bin/CoreData/RenderPaths/ForwardHWDepth.xml:
+	</para>
+                <code lang="XML"><![CDATA[
+	<renderpath>
+    <rendertarget name="depth" sizedivisor="1 1" format="readabledepth" />
+    <command type="clear" depth="1.0" output="depth" />
+    <command type="scenepass" pass="shadow" output="depth" />
+    <command type="clear" color="fog" depthstencil="depth" />
+    <command type="scenepass" pass="base" vertexlights="true" metadata="base" depthstencil="depth" />
+    <command type="forwardlights" pass="light" depthstencil="depth" />
+    <command type="scenepass" pass="postopaque" depthstencil="depth" />
+    <command type="scenepass" pass="refract" depthstencil="depth">
+        <texture unit="environment" name="viewport" />
+    </command>
+    <command type="scenepass" pass="alpha" vertexlights="true" sort="backtofront" metadata="alpha" depthstencil="depth"  />
+    <command type="scenepass" pass="postalpha" sort="backtofront" depthstencil="depth" />
+</renderpath>
+]]></code>
+                <para>
+
+	The render path starts by allocating a readable depth-stencil
+	texture the same size as the destination viewport, clearing
+	its depth, then rendering a depth-only pass to it. Next the
+	destination color rendertarget is cleared normally, while the
+	readable depth texture is used as the depth-stencil for that
+	and all subsequent commands. Any command after the depth
+	render pass could now bind the depth texture to an unit for
+	sampling, for example for smooth particle or SSAO effects.
+
+      </para>
+                <para>
+
+	The ForwardDepth.xml render path does the same, but using a
+	linear depth rendertarget instead of a hardware depth
+	texture. The advantage is better compatibility (guaranteed to
+	work without checking <see cref="P:Urho.Graphics.ReadableDepthSupport" />) but it has
+	worse performance as it will fill the hardware depth-stencil
+	twice.
+      </para>
+                <format type="text/html">
+                    <h2>Special Considerations for Forward Lighting</h2>
+                </format>
+                <para>
+
+	  Otherwise fully customized scene render passes can be
+	  specified, but there are a few things to remember related to
+	  forward lighting:
+	</para>
+                <para>
+
+	  The opaque base pass must be tagged with metadata
+	"base". When forward lighting logic does the lit base pass
+	optimization, it will search for a pass with the word "lit"
+	prepended, ie. if your custom opaque base pass is called
+	"custombase", the corresponding lit base pass would be
+	"litcustombase".
+      </para>
+                <para>
+
+	The transparent base pass must be tagged with metadata
+	"alpha". For lit transparent objects, the forward lighting
+	logic will look for a pass with the word "lit" prepended,
+	ie. if the custom alpha base pass is called "customalpha", the
+	corresponding lit pass is "litcustomalpha". The lit drawcalls
+	will be interleaved with the transparent base pass, and the
+	scenepass command should have back-to-front sorting enabled.
+      </para>
+                <para>
+
+	If forward and deferred lighting are mixed, the G-buffer
+	writing pass must be tagged with metadata "gbuffer" to prevent
+	geometry being double-lit also with forward lights.
+      </para>
+                <para>
+
+	Remember to mark the lighting mode (per-vertex / per-pixel)
+	into the techniques which define custom passes, as the lighting
+	mode can be guessed automatically only for the known default
+	passes.
+      </para>
+                <para>
+	The forwardlights command can optionally disable the
+	lit base pass optimization without having to touch the material
+	tech iques, if a separate opaque ambient-only base pass is needed. B  default the optimization is enabled.
+      </para>
+                <format type="text/html">
+                    <h2>Special Considerations for Post-Processing Effects </h2>
+                </format>
+                <para>
+
+	Post-processing effects are usually implemented by using the
+	quad command. When using intermediate rendertargets that are
+	of different size than the viewport rendertarget, it is
+	necessary in shaders to reference their (inverse) size and the
+	half-pixel offset for Direct3D9. These shader uniforms are
+	automatically generated for named rendertargets. For an
+	example look at the bloom postprocess shaders: the
+	rendertarget called HBlur will define the shader uniforms
+	cHBlurInvSize and cHBlurOffsets (both Vector2.)
+      </para>
+                <para>
+
+	In OpenGL post-processing shaders it is important to
+	distinguish between sampling a rendertarget texture and a
+	regular texture resource, because intermediate rendertargets
+	(such as the G-buffer) may be vertically inverted. Use the
+	GetScreenPos() or GetQuadTexCoord() functions to get
+	rendertarget UV coordinates from the clip coordinates; this
+	takes flipping into account automatically. For sampling a
+	regular texture, use GetQuadTexCoordNoFlip() function, which
+	requires world coordinates instead of clip coordinates.
+      </para>
             </remarks>
         </member>
         <member name="C:Urho.RenderPath">
@@ -19365,9 +19955,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.RenderSurface">
-            <summary>
-            %Color or depth-stencil surface that can be rendered into.
-            </summary>
+            <summary>Color or depth-stencil surface that can be rendered into. </summary>
             <remarks>
                 <format type="text/html">
                     <h2>Auxiliary Views</h2>
@@ -19415,6 +20003,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
+        <member name="P:Urho.RenderSurface.AutoResolve">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.RenderSurface.GetViewport(System.UInt32)">
             <param name="index"></param>
             <summary>
@@ -19445,6 +20038,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             Or
             Set linked color rendertarget.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.RenderSurface.MultiSample">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -19488,6 +20086,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.RenderSurface.ResetUpdateQueued">
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.RenderSurface.ResolveDirty">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.RenderSurface.SetViewport(System.UInt32,Urho.Viewport)">
@@ -19619,8 +20222,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="C:Urho.RibbonTrail">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>
+                <para>Constructs a new instance of Urho.RibbonTrail which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
+            </summary>
+            <remarks />
         </member>
         <member name="C:Urho.RibbonTrail(System.IntPtr)">
             <param name="handle"></param>
@@ -19629,8 +20234,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="C:Urho.RibbonTrail(Urho.Context)">
             <param name="context"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <summary>
+                <para>Constructs a new instance of Urho.RibbonTrail linked to a specific <see cref="T:Urho.Context" />.</para>
+            </summary>
+            <remarks />
         </member>
         <member name="C:Urho.RibbonTrail(Urho.UrhoObjectFlag)">
             <param name="emptyFlag"></param>
@@ -19711,24 +20318,24 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.RibbonTrail.Type">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Urho's type system type.</summary>
+            <value>StringHash representing the type for this C# type.</value>
+            <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
         </member>
         <member name="P:Urho.RibbonTrail.TypeName">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Urho's low-level type name.</summary>
+            <value>Stringified low-level type name.</value>
+            <remarks />
         </member>
         <member name="P:Urho.RibbonTrail.TypeNameStatic">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Urho's low-level type name, accessible as a static method.</summary>
+            <value>Stringified low-level type name.</value>
+            <remarks />
         </member>
         <member name="P:Urho.RibbonTrail.TypeStatic">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Urho's low-level type, accessible as a static method.</summary>
+            <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
+            <remarks />
         </member>
         <member name="P:Urho.RibbonTrail.UpdateGeometryType">
             <summary></summary>
@@ -20577,7 +21184,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Sdl">
-            <summary></summary>
+            <summary>Contains SDL exported methods for internal use.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Sdl.SendAppEvent(Urho.SdlEventType)">
@@ -21252,10 +21859,290 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Shader">
-            <summary>
-            %Shader resource consisting of several shader variations.
-            </summary>
-            <remarks></remarks>
+            <summary>Shader resource consisting of several shader variations.</summary>
+            <remarks>
+                <para>
+
+	Urho3D uses an ubershader-like approach: permutations of each
+	shader will be built with different compilation defines, to
+	produce eg. static or skinned, deferred or forward or
+	shadowed/unshadowed rendering.
+
+      </para>
+                <para>
+
+	The building of these permutations happens on demand:
+	technique and renderpath definition files both refer to
+	shaders and the compilation defines to use with them. In
+	addition the engine will add inbuilt defines related to
+	geometry type and lighting. It is not generally possible to
+	enumerate beforehand all the possible permutations that can be
+	built out of a single shader.
+      </para>
+                <para>
+
+	On Direct3D compiled shader bytecode is saved to disk in a
+	"Cache" subdirectory next to the shader source code, so that
+	the possibly time-consuming compile can be skipped on the next
+	time the shader permutation is needed. On OpenGL such
+	mechanism is not available.
+      </para>
+                <format type="text/html">
+                    <h2>Built-in Compilation Defines</h2>
+                </format>
+                <para>
+	When rendering scene objects, the engine expects certain
+	shader permutations to exist for different geometry types and
+	lighting conditions. These correspond to the following
+	compilation defines:
+      </para>
+                <format type="text/html">
+                    <h2>Built-in Shader Uniforms</h2>
+                </format>
+                <para>
+	When objects or quad passes are being rendered, various engine
+	inbuilt uniforms are set to assist with the rendering. Below
+	is a partial list of the uniforms listed as HLSL data
+	types. Look at the file Uniforms.glsl for the corresponding
+	GLSL uniforms.
+      </para>
+                <format type="text/html">
+                    <h2>Writing Shaders</h2>
+                </format>
+                <para>
+
+	Shaders must be written separately for HLSL (Direct3D) and
+	GLSL (OpenGL). The built-in shaders try to implement the same
+	functionality on both shader languages as closely as possible.
+      </para>
+                <para>
+
+	To get started with writing your own shaders, start with
+	studying the most basic examples possible: the Basic, Shadow and
+	Unlit shaders. Note the shader include files which bring
+	common functionality, for example Uniforms.hlsl, Samplers.hlsl
+	and Transform.hlsl for HLSL shaders.
+      </para>
+                <para>
+
+	Transforming the vertex (which hides the actual skinning,
+	instancing or billboarding process) is a slight hack which
+	uses a combination of macros and functions: it is safest to
+	copy the following piece of code verbatim:
+      </para>
+                <para>
+
+	For HLSL:
+      </para>
+                <para>
+
+	Shaders must be written separately for HLSL (Direct3D) and
+	GLSL (OpenGL). The built-in shaders try to implement the same
+	functionality on both shader languages as closely as possible.
+      </para>
+                <para>
+
+	To get started with writing your own shaders, start with
+	studying the most basic examples possible: the Basic, Shadow and
+	Unlit shaders. Note the shader include files which bring
+	common functionality, for example Uniforms.hlsl, Samplers.hlsl
+	and Transform.hlsl for HLSL shaders.
+      </para>
+                <para>
+
+	Transforming the vertex (which hides the actual skinning,
+	instancing or billboarding process) is a slight hack which
+	uses a combination of macros and functions: it is safest to
+	copy the following piece of code verbatim:
+      </para>
+                <para>
+
+	For HLSL:
+      </para>
+                <para>
+
+	On both Direct3D and OpenGL the vertex and pixel shaders are
+	written into the same file, and the entrypoint functions must
+	be called VS() and PS(). In OpenGL mode one of these is
+	transformed to the main() function required by GLSL behind the
+	scenes. When compiling a vertex shader, the compilation define
+	"COMPILEVS" is always present, and likewise "COMPILEPS" when
+	compiling a pixel shader. These are heavily used in the shader
+	include files to prevent constructs that are illegal for the
+	"wrong" type of shader, and to reduce compilation time.
+      </para>
+                <para>
+
+	The uniforms must be prefixed in a certain way so that the
+	engine understands them:
+      </para>
+                <list type="bullet">
+                    <item>
+                        <term>
+	      c for uniform constants, for example cMatDiffColor. The c is stripped when referred to inside the engine, so it would be called "MatDiffColor" in eg. <see cref="M:Urho.Material.SetShaderParameter" /></term>
+                    </item>
+                    <item>
+                        <term>
+	      s for texture samplers, for example sDiffMap.
+	    </term>
+                    </item>
+                </list>
+                <para>
+	  In GLSL shaders it is important that the samplers are assigned to
+	  the correct texture units. If you are using sampler names that are
+	  not predefined in the engine like sDiffMap, just make sure there is
+	  a number somewhere in the sampler's name and it will be interpreted
+	  as the texture unit. For example the terrain shader uses texture
+	  units 0-3 in the following way:
+	</para>
+                <code lang="C#"><![CDATA[
+uniform sampler2D sWeightMap0;
+uniform sampler2D sDetailMap1;
+uniform sampler2D sDetailMap2;
+uniform sampler2D sDetailMap3;]]></code>
+                <para>
+	  The maximum number of bones supported for hardware skinning depends
+	  on the graphics API and is relayed to the shader code in the
+	  MAXBONES compilation define. Typically the maximum is 64, but is
+	  reduced to 32 on the Raspberry PI, and increased to 128 on Direct3D
+	  11 and OpenGL 3. See also <see cref="P:Urho.Graphics.MaxBones" />.
+	</para>
+                <format type="text/html">
+                    <h2>API Differences</h2>
+                </format>
+                <para>
+
+	Direct3D9 and Direct3D11 share the same HLSL shader code, and
+	likewise OpenGL 2, OpenGL 3, OpenGL ES 2 and WebGL share the
+	same GLSL code. Macros and some conditional code are used to
+	hide the API differences where possible.
+      </para>
+                <para>
+
+	When HLSL shaders are compiled for Direct3D11, the define
+	D3D11 is present, and the following details need to be
+	observed:
+      </para>
+                <list type="bullet">
+                    <item>
+                        <term>
+
+	    Uniforms are organized into constant buffers. See the file
+	    Uniforms.hlsl for the built-in uniforms. See
+	    TerrainBlend.hlsl for an example of defining your own
+	    uniforms into the "custom" constant buffer slot.
+	  </term>
+                    </item>
+                    <item>
+                        <term>
+
+	    Both textures and samplers are defined for each texture
+	    unit. The macros in Samplers.hlsl (Sample2D, SampleCube
+	    etc.) can be used to write code that works on both
+	    APIs. These take the texture unit name without the 's'
+	    prefix.
+	  </term>
+                    </item>
+                    <item>
+                        <term>
+
+	    Vertex shader output position and pixel shader output
+	    color need to use the SV_POSITION and SV_TARGET
+	    semantics. The macros OUTPOSITION and OUTCOLOR0-3 can be
+	    used to select the correct semantic on both APIs. In the
+	    vertex shader, the output position should be specified
+	    last, as otherwise other interpolator outputs may not
+	    function correctly.
+	  </term>
+                    </item>
+                    <item>
+                        <term>
+
+	    On Direct3D11 the clip plane coordinate must be calculated
+	    manually. This is indicated by the CLIPPLANE compilation
+	    define, which is added automatically by the <see cref="T:Urho.Graphics" />
+	    class. See for example the LitSolid.hlsl shader.
+	  </term>
+                    </item>
+                    <item>
+                        <term>
+
+	    Direct3D11 does not support luminance and luminance-alpha
+	    texture formats, but rather uses the R and RG
+	    channels. Therefore be prepared to perform swizzling in
+	    the texture reads as appropriate.
+	  </term>
+                    </item>
+                    <item>
+                        <term>
+
+	    Direct3D11 will fail to render if the vertex shader refers
+	    to vertex elements that don't exist in the vertex buffers.
+	  </term>
+                    </item>
+                </list>
+                <para>
+
+	For OpenGL, the define GL3 is present when GLSL shaders are
+	being compiled for OpenGL 3+, the define GL_ES is present for
+	OpenGL ES 2, WEBGL define is present for WebGL and RPI define
+	is present for the Raspberry Pi. Observe the following
+	differences:
+      </para>
+                <list type="bullet">
+                    <item>
+                        <term>
+
+	    On OpenGL 3 GLSL version 150 will be used if the shader
+	    source code does not define the version. The texture
+	    sampling functions are different but are worked around
+	    with defines in the file Samplers.glsl. Likewise the file
+	    Transform.glsl contains macros to hide the differences in
+	    declaring vertex attributes, interpolators and fragment
+	    outputs.
+	  </term>
+                    </item>
+                    <item>
+                        <term>
+
+	    On OpenGL 3 luminance, alpha and luminance-alpha texture
+	    formats are deprecated, and are replaced with R and RG
+	    formats. Therefore be prepared to perform swizzling in the
+	    texture reads as appropriate.
+	  </term>
+                    </item>
+                    <item>
+                        <term>
+
+	    On OpenGL ES 2 precision qualifiers need to be used.
+	  </term>
+                    </item>
+                </list>
+                <format type="text/html">
+                    <h2>Shader Precaching</h2>
+                </format>
+                <para>
+
+	The shader variations that are potentially used by a material
+	technique in different lighting conditions and rendering
+	passes are enumerated at material load time, but because of
+	their large amount, they are not actually compiled or loaded
+	from bytecode before being used in rendering. Especially on
+	OpenGL the compiling of shaders just before rendering can
+	cause hitches in the framerate. To avoid this, used shader
+	combinations can be dumped out to an XML file, then
+	preloaded. See <see cref="T:Urho.Graphics.BeginDumpShaders" />, <see cref="T:Urho.Graphics.EndDumpShaders" /> and
+	<see cref="T:Urho.Graphics.PrecacheShaders" /> in the <see cref="T:Urho.Graphics" /> subsystem. The command line
+	parameters -ds FILE can be used to instruct the <see cref="T:Urho.Engine" /> to
+	begin dumping shaders automatically on startup.
+      </para>
+                <para>
+
+	Note that the used shader variations will vary with graphics
+	settings, for example shadow quality high/low or instancing
+	on/off.
+      </para>
+            </remarks>
         </member>
         <member name="C:Urho.Shader">
             <summary>
@@ -22677,10 +23564,169 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Technique">
-            <summary>
-            Material technique. Consists of several passes.
-            </summary>
-            <remarks></remarks>
+            <summary>Material technique. Consists of several passes.</summary>
+            <remarks>
+                <para>A technique definition looks like this:</para>
+                <code lang="XML"><![CDATA[<technique vs="VertexShaderName" ps="PixelShaderName" vsdefines="DEFINE1 DEFINE2" psdefines="DEFINE3 DEFINE4" desktop="false|true" >
+    <pass name="base|litbase|light|alpha|litalpha|postopaque|refract|postalpha|prepass|material|deferred|depth|shadow" desktop="false|true" >
+        vs="VertexShaderName" ps="PixelShaderName" vsdefines="DEFINE1 DEFINE2" psdefines="DEFINE3 DEFINE4"
+        lighting="unlit|pervertex|perpixel"
+        blend="replace|add|multiply|alpha|addalpha|premulalpha|invdestalpha|subtract|subtractalpha"
+        depthtest="always|equal|less|lessequal|greater|greaterequal"
+        depthwrite="true|false" 
+        alphamask="true|false" />
+    <pass ... />
+    <pass ... />
+</technique>
+]]></code>
+                <para>
+
+	  The "desktop" attribute in either technique or pass allows
+	  to specify it requires desktop graphics hardware (exclude
+	  mobile devices.) Omitting it is the same as specifying
+	  false.
+	</para>
+                <para>
+
+	  Shaders are referred to by giving the name of a shader
+	  without path and file extension. For example "Basic" or
+	  "LitSolid". The engine will add the correct path and file
+	  extension (Shaders/HLSL/LitSolid.hlsl for Direct3D, and
+	  Shaders/GLSL/LitSolid.glsl for OpenGL) automatically. The
+	  same shader source file contains both the vertex and pixel
+	  shader. In addition, compilation defines can be specified,
+	  which are passed to the shader compiler. For example the
+	  define "DIFFMAP" typically enables diffuse mapping in the
+	  pixel shader.
+	</para>
+                <para>
+
+	  Shaders and their compilation defines can be specified on
+	  both the technique and pass level. If a pass does not
+	  override the default shaders specified on the technique
+	  level, it still can specify additional compilation defines
+	  to be used. However, if a pass overrides the shaders, then
+	  the technique-level defines are not used.
+
+	</para>
+                <para>
+	  
+	  The technique definition does not need to enumerate shaders
+	  used for different geometry types (non-skinned, skinned,
+	  instanced, billboard) and different per-vertex and per-pixel
+	  light combinations. Instead the engine will add certain
+	  hardcoded compilation defines for these. See <see cref="T:Urho.Shader" /> for
+	  details.
+
+	</para>
+                <para>
+	  The purposes of the different passes are:
+	</para>
+                <list type="bullet">
+                    <item>
+                        <term>
+	      base: Renders ambient light, per-vertex lights and fog for an opaque object.
+	    </term>
+                    </item>
+                    <item>
+                        <term>litbase: Renders the first per-pixel light, ambient light and fog for an opaque object. This is an optional pass for optimization.
+	    </term>
+                    </item>
+                    <item>
+                        <term>light: Renders one per-pixel light's contribution additively for an opaque object.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>alpha: Renders ambient light, per-vertex lights and fog for a transparent object.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>litalpha: Renders one per-pixel light's contribution additively for a transparent object
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>postopaque: Custom rendering pass after opaque geometry. Can be used to render the skybox.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>refract: Custom rendering pass after postopaque pass. Can sample the viewport texture from the environment texture unit to render refractive objects.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>postalpha: Custom rendering pass after transparent geometry.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>prepass: Light pre-pass only - renders normals, specular power and depth to the G-buffer.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>material: Light pre-pass only - renders opaque geometry final color by combining ambient light, per-vertex lights and per-pixel light accumulation.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>deferred: Deferred rendering only - renders ambient light and per-vertex lights to the output rendertarget, and diffuse albedo, normals, specular intensity + power and depth to the G-buffer.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>depth: Renders linear depth to a rendertarget for post-processing effects.
+
+	    </term>
+                    </item>
+                    <item>
+                        <term>shadow: Renders to a hardware shadow map (depth only) for shadow map generation.
+
+	    </term>
+                    </item>
+                </list>
+                <para>
+
+	  More custom passes can be defined and referred to in the
+	  render path definition. For the built-in passes listed
+	  above, the lighting shader permutations to load (unlit,
+	  per-vertex or per-pixel) are recognized automatically, but
+	  for custom passes they need to be explicitly specified. The
+	  default is unlit.
+	</para>
+                <para>
+
+	  The optional "litbase" pass reduces draw call count by
+	  combining ambient lighting with the first per-pixel light
+	  affecting an object. However, it has intentional limitations
+	  to not require too many shader permutations: there must be
+	  no vertex lights affecting the object, and the ambient
+	  lighting can not have a gradient. In case of excessive
+	  overdraw, it is possibly better not to define it, but
+	  instead allow the base pass (which is computationally very
+	  lightweight) to run first, initializing the Z buffer for
+	  later passes.
+	</para>
+                <para>
+
+	  "Alphamask" is not an actual rendering state, but a hint
+	  which tells that the pixel shader will use discard based on
+	  alpha. Because this may interfere with the early-Z culling,
+	  materials without the alpha masking hint will be drawn
+	  first.
+	</para>
+                <para>
+
+	  The refract pass requires pingponging the scene rendertarget
+	  to a texture, but this will not be performed if there is no
+	  refractive geometry to render, so there is no unnecessary
+	  cost to it.
+
+	</para>
+            </remarks>
         </member>
         <member name="C:Urho.Technique">
             <summary>
@@ -23555,6 +24601,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Texture.AutoResolve">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Texture.BackupTexture">
             <summary>
             Return backup texture.
@@ -23714,10 +24765,25 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Texture.MultiSample">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Texture.ParametersDirty">
             <summary>
             Return whether parameters are dirty.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Texture.ResolveDirty">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Texture.ResolveTexture">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -23813,8 +24879,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="C:Urho.Texture2DArray">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>
+                <para>Constructs a new instance of Urho.Texture2DArray which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
+            </summary>
+            <remarks />
         </member>
         <member name="C:Urho.Texture2DArray(System.IntPtr)">
             <param name="handle"></param>
@@ -23823,8 +24891,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         </member>
         <member name="C:Urho.Texture2DArray(Urho.Context)">
             <param name="context"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <summary>
+                <para>Constructs a new instance of Urho.Texture2DArray linked to a specific <see cref="T:Urho.Context" />.</para>
+            </summary>
+            <remarks />
         </member>
         <member name="C:Urho.Texture2DArray(Urho.UrhoObjectFlag)">
             <param name="emptyFlag"></param>
@@ -23915,24 +24985,24 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture2DArray.Type">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Urho's type system type.</summary>
+            <value>StringHash representing the type for this C# type.</value>
+            <remarks>This returns the Urho's type and is surfaced for low-level Urho code.</remarks>
         </member>
         <member name="P:Urho.Texture2DArray.TypeName">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Urho's low-level type name.</summary>
+            <value>Stringified low-level type name.</value>
+            <remarks />
         </member>
         <member name="P:Urho.Texture2DArray.TypeNameStatic">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Urho's low-level type name, accessible as a static method.</summary>
+            <value>Stringified low-level type name.</value>
+            <remarks />
         </member>
         <member name="P:Urho.Texture2DArray.TypeStatic">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
+            <summary>Urho's low-level type, accessible as a static method.</summary>
+            <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
+            <remarks />
         </member>
         <member name="T:Urho.Texture3D">
             <summary>
@@ -24159,6 +25229,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.TextureCube.GetImage(Urho.CubeMapFace)">
+            <param name="face"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.TextureCube.GetRenderSurface(Urho.CubeMapFace)">
             <param name="face"></param>
             <summary>
@@ -24209,13 +25285,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.TextureCube.SetSize(System.Int32,System.UInt32,Urho.TextureUsage)">
+        <member name="M:Urho.TextureCube.SetSize(System.Int32,System.UInt32,Urho.TextureUsage,System.Int32)">
             <param name="size"></param>
             <param name="format"></param>
             <param name="usage"></param>
-            <summary>
-            Set size, format and usage. Return true if successful.
-            </summary>
+            <param name="multiSample"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -25112,18 +26187,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="M:Urho.UrhoObject.IsInstanceOf(Urho.TypeInfo*)">
-            <param name="typeInfo"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.UrhoObject.IsTypeOf(Urho.StringHash)">
-            <param name="type"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.UrhoObject.IsTypeOf(Urho.TypeInfo*)">
             <param name="typeInfo"></param>
             <summary></summary>
             <returns></returns>
@@ -28315,6 +29378,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         </member>
         <member name="M:Urho.View.SetCameraShaderParameters(Urho.Camera)">
             <param name="camera"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.View.SetCommandShaderParameters(Urho.RenderPathCommand)">
+            <param name="command"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -31896,10 +32964,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Actions.RotateAroundBy.StartAction(Urho.Node)">
-            <param name="target"></param>
-            <summary></summary>
+            <param name="target">
+                <para>The new <see cref="T:Urho.Actions.ActionState" /> that encapsulates the state and provides the implementation to perform your action.</para>
+            </param>
+            <summary>Creates the action state for this action, called on demand from the framework to start executing the recipe.</summary>
             <returns></returns>
-            <remarks></remarks>
+            <remarks>New action that will perform the inverse of this action</remarks>
         </member>
         <member name="P:Urho.Actions.RotateAroundBy.TransformSpace">
             <summary></summary>
@@ -31907,8 +32977,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="T:Urho.Actions.RotateAroundByState">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>
+                <para>Encapsulates the running state for the <see cref="T:Urho.Actions.RotateAroundByState" /> action.</para>
+            </summary>
+            <remarks>
+                <para>This object is created on demand when the action starts executing on a node, and it tracks the state of the action as it executes.</para>
+            </remarks>
         </member>
         <member name="C:Urho.Actions.RotateAroundByState(Urho.Actions.RotateAroundBy,Urho.Node)">
             <param name="action"></param>
@@ -33873,6 +34947,11 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Desktop.DesktopUrhoInitializer.CopyEmbeddedCoreDataTo(System.String)">
+            <param name="destinationFolder"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Gui.BorderImage">
             <summary>Image UI element with optional border.
             </summary>
@@ -35678,6 +36757,9 @@ public class MyInstantState : ActionInstantState
         <member name="F:Urho.Gui.HorizontalAlignment.Center">
             <summary></summary>
         </member>
+        <member name="F:Urho.Gui.HorizontalAlignment.Custom">
+            <summary></summary>
+        </member>
         <member name="F:Urho.Gui.HorizontalAlignment.Left">
             <summary></summary>
         </member>
@@ -36321,10 +37403,10 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.ListView.OnResize">
-            <summary>
-            React to resize.
-            </summary>
+        <member name="M:Urho.Gui.ListView.OnResize(Urho.IntVector2,Urho.IntVector2)">
+            <param name="newSize"></param>
+            <param name="delta"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.ListView.RegisterObject(Urho.Context)">
@@ -36875,6 +37957,16 @@ public class MyInstantState : ActionInstantState
             <summary>Event arguments for the UIElement's Resized event</summary>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Gui.ResizedEventArgs.DX">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.ResizedEventArgs.DY">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Gui.ResizedEventArgs.Element">
             <summary></summary>
             <value></value>
@@ -36961,10 +38053,10 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.ScrollBar.OnResize">
-            <summary>
-            React to resize.
-            </summary>
+        <member name="M:Urho.Gui.ScrollBar.OnResize(Urho.IntVector2,Urho.IntVector2)">
+            <param name="newSize"></param>
+            <param name="delta"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.ScrollBar.OnSetEditable">
@@ -37180,10 +38272,10 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.ScrollView.OnResize">
-            <summary>
-            React to resize.
-            </summary>
+        <member name="M:Urho.Gui.ScrollView.OnResize(Urho.IntVector2,Urho.IntVector2)">
+            <param name="newSize"></param>
+            <param name="delta"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.ScrollView.OnWheel(System.Int32,System.Int32,System.Int32)">
@@ -37431,10 +38523,10 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.Slider.OnResize">
-            <summary>
-            React to resize.
-            </summary>
+        <member name="M:Urho.Gui.Slider.OnResize(Urho.IntVector2,Urho.IntVector2)">
+            <param name="newSize"></param>
+            <param name="delta"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.Slider.Orientation">
@@ -37654,10 +38746,9 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.Sprite.OnPositionSet">
-            <summary>
-            React to position change.
-            </summary>
+        <member name="M:Urho.Gui.Sprite.OnPositionSet(Urho.IntVector2)">
+            <param name="newPosition"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.Sprite.PositionFloat">
@@ -37955,10 +39046,10 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.Text.OnResize">
-            <summary>
-            React to resize.
-            </summary>
+        <member name="M:Urho.Gui.Text.OnResize(Urho.IntVector2,Urho.IntVector2)">
+            <param name="newSize"></param>
+            <param name="delta"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.Text.RegisterObject(Urho.Context)">
@@ -39554,6 +40645,11 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Gui.UIElement.EnableAnchor">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Gui.UIElement.Enabled">
             <summary>Controls whether the element reacts to input.</summary>
             <value></value>
@@ -39857,12 +40953,22 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Gui.UIElement.MaxAnchor">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Gui.UIElement.MaxHeight">
             <summary>
             Return minimum height.
             Or
             Set maximum height.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.UIElement.MaxOffset">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -39884,12 +40990,22 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Gui.UIElement.MinAnchor">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Gui.UIElement.MinHeight">
             <summary>
             Return minimum height.
             Or
             Set minimum height.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.UIElement.MinOffset">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -39989,16 +41105,15 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.UIElement.OnPositionSet">
-            <summary>
-            React to position change.
-            </summary>
+        <member name="M:Urho.Gui.UIElement.OnPositionSet(Urho.IntVector2)">
+            <param name="newPosition"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.UIElement.OnResize">
-            <summary>
-            React to resize.
-            </summary>
+        <member name="M:Urho.Gui.UIElement.OnResize(Urho.IntVector2,Urho.IntVector2)">
+            <param name="newSize"></param>
+            <param name="delta"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.OnSetEditable">
@@ -40038,6 +41153,11 @@ public class MyInstantState : ActionInstantState
             <summary>
             Return parent element.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.UIElement.Pivot">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -40256,12 +41376,24 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Gui.UIElement.SetMaxAnchor(System.Single,System.Single)">
+            <param name="x"></param>
+            <param name="y"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Gui.UIElement.SetMaxSize(System.Int32,System.Int32)">
             <param name="width"></param>
             <param name="height"></param>
             <summary>
             Set maximum size.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.UIElement.SetMinAnchor(System.Single,System.Single)">
+            <param name="x"></param>
+            <param name="y"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetMinSize(System.Int32,System.Int32)">
@@ -40278,6 +41410,12 @@ public class MyInstantState : ActionInstantState
             <summary>
             Set parent element. Same as parent-&gt;InsertChild(index, this).
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.UIElement.SetPivot(System.Single,System.Single)">
+            <param name="x"></param>
+            <param name="y"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetPosition(System.Int32,System.Int32)">
@@ -40828,6 +41966,9 @@ public class MyInstantState : ActionInstantState
         <member name="F:Urho.Gui.VerticalAlignment.Center">
             <summary></summary>
         </member>
+        <member name="F:Urho.Gui.VerticalAlignment.Custom">
+            <summary></summary>
+        </member>
         <member name="F:Urho.Gui.VerticalAlignment.Top">
             <summary></summary>
         </member>
@@ -40899,10 +42040,10 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.View3D.OnResize">
-            <summary>
-            React to resize.
-            </summary>
+        <member name="M:Urho.Gui.View3D.OnResize(Urho.IntVector2,Urho.IntVector2)">
+            <param name="newSize"></param>
+            <param name="delta"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.View3D.QueueUpdate">
@@ -41205,8 +42346,8 @@ public class MyInstantState : ActionInstantState
             <summary></summary>
         </member>
         <member name="T:Urho.HoloLens.DebugGrid">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Component that creates a 3D grid for debug purposes.</summary>
+            <remarks>The DebugGrid creates a 3D geometry using <see cref="T:Urho.CustomGeometry" /> with a fixed step. It helps to align urho objects in a real world.</remarks>
         </member>
         <member name="C:Urho.HoloLens.DebugGrid">
             <summary></summary>
@@ -41218,16 +42359,37 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="T:Urho.HoloLens.HoloApplication">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Base class for creating holographics applications for HoloLens.</summary>
+            <remarks>This is the bas class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
+	  <example><code lang="C#"><![CDATA[using System;
+using Urho;
+using Urho.HoloLens;
+
+public class MyApplication : HoloApplication
+{
+    public MyApplication(string assets) : base(assets) { }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        var boxNode = Scene.CreateChild();
+        boxNode.Position = new Vector3(0, 0, 1);
+        boxNode.SetScale(0.2f);
+
+        boxNode.CreateComponent<Urho.Shapes.Box>();
+    }
+}
+]]></code></example></remarks>
         </member>
         <member name="C:Urho.HoloLens.HoloApplication(System.String)">
-            <param name="assetsDirectory"></param>
-            <summary></summary>
-            <remarks></remarks>
+            <param name="assetsDirectory">Relative path to a directory with assets.</param>
+            <summary>Default constructor for HoloLens based applications.</summary>
+            <remarks />
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.CameraLight">
-            <summary></summary>
+            <summary>
+                <see cref="T:Urho.Light" /> component attached to user's <see cref="T:Urho.Camera" /></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41235,103 +42397,109 @@ public class MyInstantState : ActionInstantState
             <param name="vertexData"></param>
             <param name="indexData"></param>
             <param name="rotation"></param>
+            <summary>Creates <see cref="T:Urho.Model" /> from spatial geometry using <see cref="T:Urho.Geometry" /> with <see cref="T:Urho.IndexBuffer" /> and <see cref="T:Urho.VertexBuffer" />.</summary>
+            <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.HoloLens.HoloApplication.DefaultRenderPath">
             <summary></summary>
-            <returns></returns>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.DirectionalLight">
-            <summary></summary>
+            <summary>Default directional <see cref="T:Urho.Light" /> in the basic scene.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.DistanceBetweenEyes">
-            <summary></summary>
+            <summary>Distance between eyes.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>HoloApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.Emulator">
-            <summary></summary>
+            <summary>Emulator mode</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.EnableGestureHold">
-            <summary></summary>
+            <summary>Enables or disables Hold gesture.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>See https://developer.microsoft.com/en-us/windows/holographic/gestures for details</remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.EnableGestureManipulation">
-            <summary></summary>
+            <summary>Enables or disables Manipulation gesture.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.EnableGestureTapped">
-            <summary></summary>
+            <summary>Enables or disables Tapped and Double Tapped gestures.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.FocusWorldPoint">
-            <summary></summary>
+            <summary>Focus point in World coordinates.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>Informs the system about a specific point in your scene to prioritize for image stabilization. You should set the focus point near the content that the user is looking at.</remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.GenerateModelFromSpatialSurface(Urho.HoloLens.SpatialMeshInfo)">
-            <param name="surface"></param>
+            <param name="surface">Creates Model from spatial surfaces.</param>
             <summary></summary>
             <returns></returns>
-            <remarks></remarks>
+            <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.HoloApplication.CreateModelFromVertexData" />.</remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.HeadPosition">
-            <summary></summary>
+            <summary>User's current position.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>The exact position will be between the cameras representing user's eyes.</remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.HoloTransparentColor">
-            <summary></summary>
+            <summary>This color can be used as a occluder for game objects, but in a real world it is fully transparent.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.LeftCamera">
-            <summary></summary>
+            <summary>
+                <see cref="T:Urho.Camera" /> component that represents user's left eye.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.Octree">
-            <summary></summary>
+            <summary>Fast access to <see cref="T:Urho.Octree" /> added to the basic scene.</summary>
             <value></value>
-            <remarks></remarks>
+            <remarks>Can be used for ray casting.</remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureDoubleTapped">
-            <summary></summary>
+            <summary>Invokes when user uses double tap gesture. Requires enabled EnableGestureTapped property.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureHoldCanceled">
-            <summary></summary>
+            <summary>Invokes when user cancels Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureHoldCompleted">
-            <summary></summary>
+            <summary>Invokes when user completes Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureHoldStarted">
-            <summary></summary>
+            <summary>Invokes when user starts Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureManipulationCanceled">
-            <summary></summary>
+            <summary>Invokes when user cancels Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureManipulationCompleted(Urho.Vector3)">
             <param name="relativeHandPosition"></param>
-            <summary></summary>
+            <summary>Invokes when user completes Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureManipulationStarted">
-            <summary></summary>
+            <summary>Invokes when user starts Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureManipulationUpdated(Urho.Vector3)">
             <param name="relativeHandPosition"></param>
-            <summary></summary>
+            <summary>Invokes when user uses Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnGestureTapped">
@@ -41340,8 +42508,8 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnSurfaceAddedOrUpdated(Urho.HoloLens.SpatialMeshInfo,Urho.Model)">
             <param name="surface"></param>
-            <param name="generatedModel"></param>
-            <summary></summary>
+            <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.HoloApplication.GenerateModelFromSpatialSurface" />.</param>
+            <summary>Invokes when HoloLens recognizes a new spatial surface or updates any existing..</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.OnUpdate(System.Single)">
@@ -41350,18 +42518,19 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.RegisterCortanaCommands(System.Collections.Generic.Dictionary{System.String,System.Action})">
-            <param name="commands"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
+            <param name="commands">Set of voice commands.</param>
+            <summary>Registers set of voice commands with handlers.</summary>
+            <returns>Returns false if 'Microphone' device capability was not enabled in the AppManifest.</returns>
+            <remarks>You should enable 'Microphone' device capability in the AppManifest.</remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.RightCamera">
-            <summary></summary>
+            <summary>
+                <see cref="T:Urho.Camera" /> component that represents user's right eye.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.Scene">
-            <summary></summary>
+            <summary>Root node of the simple scene created in Start metod.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41370,30 +42539,28 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.HoloApplication.StartSpatialMapping(Urho.Vector3,System.Int32,Urho.Color,System.Boolean,System.Boolean)">
-            <param name="extents"></param>
-            <param name="trianglesPerCubicMeter"></param>
+            <param name="extents">Bounding volume to observe. Vector3(20, 10, 5) means a box that is 20x10x5 meters.</param>
+            <param name="trianglesPerCubicMeter">Desired accuracy.</param>
             <param name="color"></param>
             <param name="onlyAdd"></param>
             <param name="convertToLeftHanded"></param>
+            <summary>Starts spatial mapping procedure. </summary>
+            <returns>Returns 'false' if spatialMapping device capability is not defined in the app's manifest. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> for more details.</returns>
+            <remarks>Make sure 'spatialMapping' device capability is enabled. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> and <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
+        </member>
+        <member name="M:Urho.HoloLens.HoloApplication.StopSpatialMapping">
+            <summary>Stops spatial mapping process. You will stop receiving OnSurfaceAddedOrUpdated events.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.HoloLens.HoloApplication.TextToSpeech(System.String)">
+            <param name="text"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.StopSpatialMapping">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.HoloLens.HoloApplication.UpdateStereoView(Urho.Matrix4,Urho.Matrix4,Urho.Matrix4,Urho.Matrix4)">
-            <param name="leftView"></param>
-            <param name="rightView"></param>
-            <param name="leftProj"></param>
-            <param name="rightProj"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
         <member name="T:Urho.HoloLens.SpatialCursor">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Spatial cursor component.</summary>
+            <remarks>Displays a small static model (<see cref="T:Urho.Shapes.Torus" /> by default) and updates its position each frame according to user's gaze. It sends a raycast each frame update and raises Raycasted event that can be used if you also need to send a raycast in order to avoid doing it twice. The model will be rotated according to a Normal of a geometry touched by the raycast.</remarks>
         </member>
         <member name="C:Urho.HoloLens.SpatialCursor">
             <summary></summary>
@@ -41405,21 +42572,21 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.SpatialCursor.ClickAnimation">
-            <summary></summary>
+            <summary>Runs a quick click animation using SetShaderAnimation method.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialCursor.CursorEnabled">
-            <summary></summary>
+            <summary>Enables or disables cursor.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialCursor.CursorModelNode">
-            <summary></summary>
+            <summary>Node containing cursor's StaticModel.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialCursor.CursorNode">
-            <summary></summary>
+            <summary>Cursor's root node.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41434,16 +42601,16 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.HoloLens.SpatialCursor.Raycasted">
-            <summary></summary>
+            <summary>Fired after each recast made by the cursor.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.HoloLens.SpatialCursor.RunIdleAnimation">
-            <summary></summary>
+            <summary>Runs a default 'Idle' animation.</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.HoloLens.SpatialMeshInfo">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Contains spatial mesh data.</summary>
+            <remarks>This structure contains all information that can be extracted from HoloLens Spatial Mapping API. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialMeshInfo.BoundsCenter">
             <summary></summary>
@@ -41456,7 +42623,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialMeshInfo.Date">
-            <summary></summary>
+            <summary>Spatial surface timestamp.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41466,31 +42633,31 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialMeshInfo.IndexData">
-            <summary></summary>
+            <summary>Array of indices (see IndexBuffer).</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialMeshInfo.SurfaceId">
-            <summary></summary>
+            <summary>Spatial surface unique id (Guid).</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialMeshInfo.Transform">
-            <summary></summary>
+            <summary>Transform that can be applied to convert to world coordinates.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialMeshInfo.VertexData">
-            <summary></summary>
+            <summary>Array of SpatialVertex (see VertexBuffer).</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.HoloLens.SpatialVertex">
-            <summary></summary>
-            <remarks></remarks>
+            <summary>Represents a vertex from a spatial mesh. Consists of a position, normal and a color.</summary>
+            <remarks>This structure can be used directly in VertexBuffer in SetData in case if ElementMask is set to 'Position | Normal  | Color'.</remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialVertex.Color">
-            <summary></summary>
+            <summary>Vertex color.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41499,7 +42666,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialVertex.Normal">
-            <summary></summary>
+            <summary>Vertex Normal.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41516,7 +42683,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.SpatialVertex.Position">
-            <summary></summary>
+            <summary>Vertex position.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -47887,6 +49054,12 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.Image.Save(System.String)">
+            <param name="fileName"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.Image.Save(Urho.IO.File)">
             <param name="dest"></param>
             <summary></summary>
@@ -47898,6 +49071,12 @@ public class MyInstantState : ActionInstantState
             <summary>
             Save in BMP format. Return true if successful.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Image.SaveDDS(System.String)">
+            <param name="fileName"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -48332,6 +49511,12 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.Resource.Load(System.String)">
+            <param name="fileName"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.Resource.Load(Urho.IO.File)">
             <param name="source"></param>
             <summary></summary>
@@ -48385,6 +49570,12 @@ public class MyInstantState : ActionInstantState
             <summary>
             Reset last used timer.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Resource.Save(System.String)">
+            <param name="fileName"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.Resource.Save(Urho.IO.File)">
@@ -54659,6 +55850,11 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Urho2D.Texture2D.Image">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Urho2D.Texture2D.RegisterObject(Urho.Context)">
             <param name="context"></param>
             <summary>
@@ -54699,14 +55895,14 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Urho2D.Texture2D.SetSize(System.Int32,System.Int32,System.UInt32,Urho.TextureUsage)">
+        <member name="M:Urho.Urho2D.Texture2D.SetSize(System.Int32,System.Int32,System.UInt32,Urho.TextureUsage,System.Int32,System.Boolean)">
             <param name="width"></param>
             <param name="height"></param>
             <param name="format"></param>
             <param name="usage"></param>
-            <summary>
-            Set size, format and usage. Zero size will follow application window size. Return true if successful.
-            </summary>
+            <param name="multiSample"></param>
+            <param name="autoResolve"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>

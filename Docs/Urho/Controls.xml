@@ -25,7 +25,8 @@
       <Docs>
         <summary>
           <para>Initializes the instance with Pitch, Yaw and Buttons state set to zero.</para>
-          <para></para>
+          <para>
+          </para>
         </summary>
         <remarks>To be added.</remarks>
       </Docs>

@@ -140,6 +140,7 @@
       <Type Name="EndViewRenderEventArgs" Kind="Structure" />
       <Type Name="EndViewUpdateEventArgs" Kind="Structure" />
       <Type Name="Engine" Kind="Class" />
+      <Type Name="EventReceiverGroup" Kind="Class" />
       <Type Name="ExitRequestedEventArgs" Kind="Structure" />
       <Type Name="FaceCameraMode" Kind="Enumeration" />
       <Type Name="FillMode" Kind="Enumeration" />
@@ -251,6 +252,7 @@
       <Type Name="PrimitiveType" Kind="Enumeration" />
       <Type Name="Profiler" Kind="Class" />
       <Type Name="ProfilerBlock" Kind="Structure" />
+      <Type Name="ProgressBarChangedEventArgs" Kind="Structure" />
       <Type Name="Quaternion" Kind="Structure" />
       <Type Name="RandomAccessIterator" Kind="Structure" />
       <Type Name="Randoms" Kind="Class" />

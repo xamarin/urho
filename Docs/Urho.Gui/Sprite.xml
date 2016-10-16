@@ -30,7 +30,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Sprite which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -68,7 +69,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Sprite linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -196,8 +198,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnPositionSet">
-      <MemberSignature Language="C#" Value="public override void OnPositionSet ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnPositionSet() cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnPositionSet (Urho.IntVector2 newPosition);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnPositionSet(valuetype Urho.IntVector2 newPosition) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -205,11 +207,12 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="newPosition" Type="Urho.IntVector2" />
+      </Parameters>
       <Docs>
-        <summary>
-            React to position change.
-            </summary>
+        <param name="newPosition">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -529,7 +532,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -545,7 +549,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -561,7 +566,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

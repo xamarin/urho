@@ -13,27 +13,31 @@
     <summary>Provides access to the techniques that are part of every CoreAssets package in Urho.</summary>
     <remarks>
       <para>Usually, <see cref="T:Urho.Technique" /> name consists of a combination of features it uses:</para>
-<para>Basic - uses Basic shader, good for debug purposes</para>
-<para>Diff - displays a texture. It defines DIFFMAP and expects the texture in 'diffuse' texture unit (sDiffMap sampler).</para>
-<para>Normal - expects a normal map in 'normal' texture unit (sNormalMap sampler)</para>
-<para>Spec - expects a specular map in 'specular' texture unit.</para>
-<para>NoTexture - used by materials without textures.</para>
-<para>EnvCube - expects an environment map (cubic texture) in 'environment' texture unit.</para>
-<para>Unlit - materials with this technique won't be affected by any lights (self-illuminated).</para>
-<para>Emissive - similiar to Unlit, but it expects an emissive map in 'emissive' texture unit and will be affected by scene lights</para>
-<para>LightMap - expects a light map in 'emissive' texture unit.</para>
-<para>AO - expects an Ambient Occlusion map in 'emissive' texture unit.</para>
-<para>Translucent - materials with this technique will be affected by lights located behind the materials.</para>
-<para>VColor - will take Vertex Color (for example, defined via DefineColor) into account.</para>
-<para>Additive blending simply sums the values in the two layers. Blending with white gives white. Blending with black does not change the image. </para>
-<para>Multiply blend mode multiplies the numbers for each pixel of the top layer with the corresponding pixel for the bottom layer. The result is a darker picture.</para>
-<para></para>
-<para>You can access built-in techniques via CoreAssets.Techniques:</para>
-<code lang="C#"><![CDATA[Technique diff = CoreAssets.Techniques.Diff;]]></code>
-<para>It allows to create different materials in code, for example the following snippet creates a material from a texture and a normal map using <see cref="P:Urho.CoreAssets+Techniques.DiffNormal" />:</para>
-<code lang="C#"><![CDATA[var material = new Material(); material.SetTechnique(index: 0, tech: CoreAssets.Techniques.DiffNormal, qualityLevel: 1, lodDistance: 1); material.SetTexture(TextureUnit.Diffuse, ResourceCache.GetTexture2D("Earth.jpg")); material.SetTexture(TextureUnit.Normal, ResourceCache.GetTexture2D("Earth_normal.jpg"));]]></code>
-<para>Some of the basic techniques are explained in the following image</para>
-<para><img href="C:\Projects\urho\Docs\Urho\_images\techniques.png" /></para></remarks>
+      <para>Basic - uses Basic shader, good for debug purposes</para>
+      <para>Diff - displays a texture. It defines DIFFMAP and expects the texture in 'diffuse' texture unit (sDiffMap sampler).</para>
+      <para>Normal - expects a normal map in 'normal' texture unit (sNormalMap sampler)</para>
+      <para>Spec - expects a specular map in 'specular' texture unit.</para>
+      <para>NoTexture - used by materials without textures.</para>
+      <para>EnvCube - expects an environment map (cubic texture) in 'environment' texture unit.</para>
+      <para>Unlit - materials with this technique won't be affected by any lights (self-illuminated).</para>
+      <para>Emissive - similiar to Unlit, but it expects an emissive map in 'emissive' texture unit and will be affected by scene lights</para>
+      <para>LightMap - expects a light map in 'emissive' texture unit.</para>
+      <para>AO - expects an Ambient Occlusion map in 'emissive' texture unit.</para>
+      <para>Translucent - materials with this technique will be affected by lights located behind the materials.</para>
+      <para>VColor - will take Vertex Color (for example, defined via DefineColor) into account.</para>
+      <para>Additive blending simply sums the values in the two layers. Blending with white gives white. Blending with black does not change the image. </para>
+      <para>Multiply blend mode multiplies the numbers for each pixel of the top layer with the corresponding pixel for the bottom layer. The result is a darker picture.</para>
+      <para>
+      </para>
+      <para>You can access built-in techniques via CoreAssets.Techniques:</para>
+      <code lang="C#"><![CDATA[Technique diff = CoreAssets.Techniques.Diff;]]></code>
+      <para>It allows to create different materials in code, for example the following snippet creates a material from a texture and a normal map using <see cref="P:Urho.CoreAssets+Techniques.DiffNormal" />:</para>
+      <code lang="C#"><![CDATA[var material = new Material(); material.SetTechnique(index: 0, tech: CoreAssets.Techniques.DiffNormal, qualityLevel: 1, lodDistance: 1); material.SetTexture(TextureUnit.Diffuse, ResourceCache.GetTexture2D("Earth.jpg")); material.SetTexture(TextureUnit.Normal, ResourceCache.GetTexture2D("Earth_normal.jpg"));]]></code>
+      <para>Some of the basic techniques are explained in the following image</para>
+      <para>
+        <img href="C:\Projects\urho\Docs\Urho\_images\techniques.png" />
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="BasicVColUnlitAlpha">

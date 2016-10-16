@@ -22,16 +22,19 @@
       <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.Gui.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
       <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true”.</para>
       <para>You can associate one or more strings to a UIElement, by using the <see cref="M:Urho.Gui.UIElement.AddTag" /> and the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> methods.</para>
-      <para></para>
+      <para>
+      </para>
       <see cref="" />
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>UI Element Layout</h2>
       </format>
       <para>By default UI elements operate in a "free" layout mode, where child elements' positions can be specified relative to any of the parent element corners, but they are not automatically positioned or resized.</para>
       <para>To create automatically adjusting layouts, the layout mode can be switched to either "horizontal" or "vertical". Now the child elements will be positioned left to right or top to bottom, based on the order in which they were added. They will be preferably resized to fit the parent element, taking into account their minimum and maximum sizes, but failing to do that, the parent element will be resized.</para>
       <para>Left, top, right and bottom border widths and spacing between elements can also be specified for the layout. A grid layout is not directly supported, but it can be manually created with a horizontal layout inside a vertical layout, or vice versa.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html" />
     </remarks>
   </Docs>
@@ -48,7 +51,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UIElement which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -86,7 +90,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UIElement linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -449,7 +454,8 @@
             </summary>
         <returns>The created UIElement.    If the provided type is not a <see cref="T:Urho.Gui.UIElement" />, the return value is <paramref name="null" />.</returns>
         <remarks>
-          <para></para>
+          <para>
+          </para>
         </remarks>
       </Docs>
     </Member>
@@ -1103,6 +1109,22 @@
             Convert element coordinates to screen coordinates.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnableAnchor">
+      <MemberSignature Language="C#" Value="public bool EnableAnchor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool EnableAnchor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1843,14 +1865,14 @@
       </Docs>
     </Member>
     <Member MemberName="LoadChildXml">
-      <MemberSignature Language="C#" Value="public bool LoadChildXml (Urho.Resources.XmlElement childElem, Urho.Resources.XmlFile styleFile, bool setInstanceDefault);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadChildXml(class Urho.Resources.XmlElement childElem, class Urho.Resources.XmlFile styleFile, bool setInstanceDefault) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadChildXml (Urho.Resources.XmlElement childElem, Urho.Resources.XmlFile styleFile, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement LoadChildXml(class Urho.Resources.XmlElement childElem, class Urho.Resources.XmlFile styleFile, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="childElem" Type="Urho.Resources.XmlElement" />
@@ -1932,6 +1954,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="MaxAnchor">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 MaxAnchor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 MaxAnchor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MaxHeight">
       <MemberSignature Language="C#" Value="public int MaxHeight { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 MaxHeight" />
@@ -1948,6 +1986,22 @@
             Or
             Set maximum height.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxOffset">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 MaxOffset { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 MaxOffset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1992,6 +2046,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="MinAnchor">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 MinAnchor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 MinAnchor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MinHeight">
       <MemberSignature Language="C#" Value="public int MinHeight { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 MinHeight" />
@@ -2008,6 +2078,22 @@
             Or
             Set minimum height.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MinOffset">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 MinOffset { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 MinOffset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2257,8 +2343,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnPositionSet">
-      <MemberSignature Language="C#" Value="public virtual void OnPositionSet ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnPositionSet() cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnPositionSet (Urho.IntVector2 newPosition);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnPositionSet(valuetype Urho.IntVector2 newPosition) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2266,17 +2352,18 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="newPosition" Type="Urho.IntVector2" />
+      </Parameters>
       <Docs>
-        <summary>
-            React to position change.
-            </summary>
+        <param name="newPosition">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="OnResize">
-      <MemberSignature Language="C#" Value="public virtual void OnResize ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnResize() cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnResize (Urho.IntVector2 newSize, Urho.IntVector2 delta);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnResize(valuetype Urho.IntVector2 newSize, valuetype Urho.IntVector2 delta) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2284,11 +2371,14 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="newSize" Type="Urho.IntVector2" />
+        <Parameter Name="delta" Type="Urho.IntVector2" />
+      </Parameters>
       <Docs>
-        <summary>
-            React to resize.
-            </summary>
+        <param name="newSize">To be added.</param>
+        <param name="delta">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2394,6 +2484,22 @@
         <summary>
             Return parent element.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Pivot">
+      <MemberSignature Language="C#" Value="public Urho.Vector2 Pivot { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector2 Pivot" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3025,6 +3131,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetMaxAnchor">
+      <MemberSignature Language="C#" Value="public void SetMaxAnchor (float x, float y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMaxAnchor(float32 x, float32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetMaxSize">
       <MemberSignature Language="C#" Value="public void SetMaxSize (int width, int height);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMaxSize(int32 width, int32 height) cil managed" />
@@ -3045,6 +3172,27 @@
         <summary>
             Set maximum size.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMinAnchor">
+      <MemberSignature Language="C#" Value="public void SetMinAnchor (float x, float y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMinAnchor(float32 x, float32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3091,6 +3239,27 @@
         <summary>
             Set parent element. Same as parent-&gt;InsertChild(index, this).
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPivot">
+      <MemberSignature Language="C#" Value="public void SetPivot (float x, float y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetPivot(float32 x, float32 y) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Single" />
+        <Parameter Name="y" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3989,7 +4158,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -4005,7 +4175,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -4021,7 +4192,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

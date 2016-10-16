@@ -41,7 +41,7 @@
       </Docs>
     </Member>
     <Member MemberName="DeltaX">
-      <MemberSignature Language="C#" Value="public float DeltaX { get; }" />
+      <MemberSignature Language="C#" Value="public float DeltaX { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaX" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -57,7 +57,7 @@
       </Docs>
     </Member>
     <Member MemberName="DeltaY">
-      <MemberSignature Language="C#" Value="public float DeltaY { get; }" />
+      <MemberSignature Language="C#" Value="public float DeltaY { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaY" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -73,7 +73,7 @@
       </Docs>
     </Member>
     <Member MemberName="DeltaZ">
-      <MemberSignature Language="C#" Value="public float DeltaZ { get; }" />
+      <MemberSignature Language="C#" Value="public float DeltaZ { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaZ" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -89,7 +89,7 @@
       </Docs>
     </Member>
     <Member MemberName="Point">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 Point { get; }" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Point { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Vector3 Point" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -144,7 +144,7 @@
       </Docs>
     </Member>
     <Member MemberName="TransformSpace">
-      <MemberSignature Language="C#" Value="public Urho.TransformSpace TransformSpace { get; }" />
+      <MemberSignature Language="C#" Value="public Urho.TransformSpace TransformSpace { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TransformSpace TransformSpace" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>

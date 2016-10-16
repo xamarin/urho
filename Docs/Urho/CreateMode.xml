@@ -15,8 +15,10 @@
     <remarks>
       <para>Determines whether a <see cref="T:Urho.Node" /> or <see cref="T:Urho.Component" /> is local, that is, it only exists in the current process, or replicated, that is, that it gets replicated to other processes when using the <see cref="N:Urho.Network" /> subsystem.</para>
       <para>The CreateMode translates into two different node and component ID ranges - replicated ID's range from 0x1 to 0xffffff, while local ID's range from 0x1000000 to 0xffffffff. This means there is a maximum of 16777215 replicated nodes or components in a scene.</para>
-      <para></para>
-      <para></para>
+      <para>
+      </para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>

@@ -27,7 +27,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Text which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -65,7 +66,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Text linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -427,8 +429,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnResize">
-      <MemberSignature Language="C#" Value="public override void OnResize ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnResize() cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnResize (Urho.IntVector2 newSize, Urho.IntVector2 delta);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnResize(valuetype Urho.IntVector2 newSize, valuetype Urho.IntVector2 delta) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -436,11 +438,14 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="newSize" Type="Urho.IntVector2" />
+        <Parameter Name="delta" Type="Urho.IntVector2" />
+      </Parameters>
       <Docs>
-        <summary>
-            React to resize.
-            </summary>
+        <param name="newSize">To be added.</param>
+        <param name="delta">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -754,7 +759,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -770,7 +776,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -786,7 +793,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Value">

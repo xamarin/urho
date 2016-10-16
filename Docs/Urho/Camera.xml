@@ -27,7 +27,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -65,7 +66,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -817,25 +819,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetProjectionCenter">
-      <MemberSignature Language="C#" Value="public void SetProjectionCenter (Urho.Vector2 center);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetProjectionCenter(valuetype Urho.Vector2 center) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="center" Type="Urho.Vector2" />
-      </Parameters>
-      <Docs>
-        <param name="center">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SetReflectionPlaneAttr">
       <MemberSignature Language="C#" Value="public void SetReflectionPlaneAttr (Urho.Vector4 value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetReflectionPlaneAttr(valuetype Urho.Vector4 value) cil managed" />
@@ -902,7 +885,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -918,7 +902,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -934,7 +919,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipping">

@@ -11,7 +11,8 @@
   <Docs>
     <summary>Enumeration describing the executing platform, the value is obtained getting the <see cref="P:Urho.Application.Platform" /> property.</summary>
     <remarks>
-      <para></para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>

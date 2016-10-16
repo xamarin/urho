@@ -12,8 +12,7 @@
   <Docs>
     <summary>Base class for creating holographics applications for HoloLens.</summary>
     <remarks>This is the bas class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
-	  <example>
-        <code lang="C#"><![CDATA[using System;
+	  <example><code lang="C#"><![CDATA[using System;
 using Urho;
 using Urho.HoloLens;
 
@@ -32,9 +31,7 @@ public class MyApplication : HoloApplication
         boxNode.CreateComponent<Urho.Shapes.Box>();
     }
 }
-]]></code>
-      </example>
-	  </remarks>
+]]></code></example></remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -50,7 +47,8 @@ public class MyApplication : HoloApplication
       <Docs>
         <param name="assetsDirectory">Relative path to a directory with assets.</param>
         <summary>Default constructor for HoloLens based applications.</summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CameraLight">
@@ -91,6 +89,22 @@ public class MyApplication : HoloApplication
         <param name="rotation">To be added.</param>
         <summary>Creates <see cref="T:Urho.Model" /> from spatial geometry using <see cref="T:Urho.Geometry" /> with <see cref="T:Urho.IndexBuffer" /> and <see cref="T:Urho.VertexBuffer" />.</summary>
         <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultRenderPath">
+      <MemberSignature Language="C#" Value="protected virtual Urho.Resources.XmlFile DefaultRenderPath { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.XmlFile DefaultRenderPath" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -223,7 +237,7 @@ public class MyApplication : HoloApplication
         <param name="surface">Creates Model from spatial surfaces.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.HoloApplication.CreateModelFromVertexData"/>.</remarks>
+        <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.HoloApplication.CreateModelFromVertexData" />.</remarks>
       </Docs>
     </Member>
     <Member MemberName="HeadPosition">
@@ -269,7 +283,8 @@ public class MyApplication : HoloApplication
         <ReturnType>Urho.Camera</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary><see cref="T:Urho.Camera" /> component that represents user's left eye.</summary>
+        <summary>
+          <see cref="T:Urho.Camera" /> component that represents user's left eye.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -456,7 +471,7 @@ public class MyApplication : HoloApplication
       </Parameters>
       <Docs>
         <param name="surface">To be added.</param>
-        <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.HoloApplication.GenerateModelFromSpatialSurface"/>.</param>
+        <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.HoloApplication.GenerateModelFromSpatialSurface" />.</param>
         <summary>Invokes when HoloLens recognizes a new spatial surface or updates any existing..</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -511,7 +526,8 @@ public class MyApplication : HoloApplication
         <ReturnType>Urho.Camera</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary><see cref="T:Urho.Camera" /> component that represents user's right eye.</summary>
+        <summary>
+          <see cref="T:Urho.Camera" /> component that represents user's right eye.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -600,28 +616,23 @@ public class MyApplication : HoloApplication
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="UpdateStereoView">
-      <MemberSignature Language="C#" Value="public void UpdateStereoView (Urho.Matrix4 leftView, Urho.Matrix4 rightView, Urho.Matrix4 leftProj, Urho.Matrix4 rightProj);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateStereoView(valuetype Urho.Matrix4 leftView, valuetype Urho.Matrix4 rightView, valuetype Urho.Matrix4 leftProj, valuetype Urho.Matrix4 rightProj) cil managed" />
+    <Member MemberName="TextToSpeech">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task TextToSpeech (string text);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Threading.Tasks.Task TextToSpeech(string text) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="leftView" Type="Urho.Matrix4" />
-        <Parameter Name="rightView" Type="Urho.Matrix4" />
-        <Parameter Name="leftProj" Type="Urho.Matrix4" />
-        <Parameter Name="rightProj" Type="Urho.Matrix4" />
+        <Parameter Name="text" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="leftView">To be added.</param>
-        <param name="rightView">To be added.</param>
-        <param name="leftProj">To be added.</param>
-        <param name="rightProj">To be added.</param>
-        <summary>For internal use.</summary>
+        <param name="text">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -150,6 +150,48 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetEventReceivers">
+      <MemberSignature Language="C#" Value="public Urho.EventReceiverGroup GetEventReceivers (Urho.StringHash eventType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.EventReceiverGroup GetEventReceivers(valuetype Urho.StringHash eventType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EventReceiverGroup</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="eventType">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEventReceivers">
+      <MemberSignature Language="C#" Value="public Urho.EventReceiverGroup GetEventReceivers (Urho.UrhoObject sender, Urho.StringHash eventType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.EventReceiverGroup GetEventReceivers(class Urho.UrhoObject sender, valuetype Urho.StringHash eventType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EventReceiverGroup</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sender" Type="Urho.UrhoObject" />
+        <Parameter Name="eventType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="sender">To be added.</param>
+        <param name="eventType">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetSubsystem">
       <MemberSignature Language="C#" Value="public Urho.UrhoObject GetSubsystem (Urho.StringHash type);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.UrhoObject GetSubsystem(valuetype Urho.StringHash type) cil managed" />
