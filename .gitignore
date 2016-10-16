@@ -4,22 +4,15 @@
 *~
 *.userprefs
 .DS_Store
-
-
-# User-specific files
 *.suo
 *.user
 *.sln.docstates
 *.userprefs
 *.sdf
 *.opensdf
-
-
-# ReSharper is a .NET coding add-in
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
-
+*.csproj.bak
+*.pri
+*.nupkg
 .vs*/
 
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
