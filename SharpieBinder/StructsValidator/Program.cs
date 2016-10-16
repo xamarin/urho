@@ -41,6 +41,9 @@ namespace StructsValidator
 
 		static void AddTest(Type type)
 		{
+			if (type.FullName.StartsWith("Urho.Holo"))
+				return;
+
 			var managedName = type.Name;
 			var nativeName = ResolveUrhoType(managedName);
 			if (nativeName == null)
@@ -83,6 +86,7 @@ namespace StructsValidator
 		static string ResolveUrhoType(string name)
 		{
 			string[] ignoredTypes = {
+				"CustomGeometryVertex",
 				"VariantValueLine",
 				"BezierConfig",
 				"CollisionData",
