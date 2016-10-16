@@ -74,7 +74,7 @@ namespace Urho
 		public void Add (Urho.UrhoObject @object)
 		{
 			Runtime.ValidateRefCounted (this);
-			EventReceiverGroup_Add (handle, (object)@object == null ? IntPtr.Zero : object.Handle);
+			EventReceiverGroup_Add (handle, (object)@object == null ? IntPtr.Zero : @object.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -86,7 +86,7 @@ namespace Urho
 		public void Remove (Urho.UrhoObject @object)
 		{
 			Runtime.ValidateRefCounted (this);
-			EventReceiverGroup_Remove (handle, (object)@object == null ? IntPtr.Zero : object.Handle);
+			EventReceiverGroup_Remove (handle, (object)@object == null ? IntPtr.Zero : @object.Handle);
 		}
 	}
 }

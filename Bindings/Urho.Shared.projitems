@@ -422,5 +422,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\ShadowQuality.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\AsyncCompletionCallFunc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\AutoRemoveMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\EventReceiverGroup.cs" />
   </ItemGroup>
 </Project>

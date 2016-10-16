@@ -15,6 +15,15 @@ namespace SharpieBinder
 			return w.Substring(j + 1);
 		}
 
+		public static string SafeParamName(string paramName)
+		{
+			//some C#'s keywords which can be potentially used as arguments
+			string[] csharpKeywords = { "object", "event", "string", "operator", "fixed", "ref", "case", "default", "lock", "unchecked" };
+			if (csharpKeywords.Contains(paramName))
+				return "@" + paramName;
+			return paramName;
+		}
+
 		/// <summary>
 		/// Removes the "const" and "&" from a typename string definition 
 		/// </summary>

@@ -1450,15 +1450,17 @@ namespace SharpieBinder
 					break;
 				case WrapKind.HandleMember:
 				case WrapKind.UrhoObject:
-					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
-					csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".Handle"));
+					var cond = new ConditionalExpression (new BinaryOperatorExpression (
+							new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, 
+							new PrimitiveExpression (null)), csParser.ParseExpression ("IntPtr.Zero"), 
+						                                  csParser.ParseExpression (StringUtil.SafeParamName(paramName) + ".Handle"));
 					invoke.Arguments.Add (cond);
 					break;
 				case WrapKind.EventHandler:
 					invoke.Arguments.Add(parameterReference);
 					break;
 				case WrapKind.StringHash:
-					invoke.Arguments.Add (csParser.ParseExpression (paramName + ".Code"));
+					invoke.Arguments.Add (csParser.ParseExpression (StringUtil.SafeParamName(paramName) + ".Code"));
 					break;
 				case WrapKind.RefBlittable:
 					invoke.Arguments.Add (new DirectionExpression (FieldDirection.Ref, parameterReference));
