@@ -21,8 +21,8 @@ namespace Urho.HoloLens
 		public Octree Octree { get; private set; }
 		public Camera LeftCamera { get; set; }
 		public Camera RightCamera { get; set; }
+		public Camera CullingCamera { get; set; }
 		public Color HoloTransparentColor { get; } = Color.Transparent;
-		public Light CameraLight { get; set; }
 		public Light DirectionalLight { get; set; }
 		public virtual Vector3 FocusWorldPoint { get; set; }
 
@@ -113,19 +113,19 @@ namespace Urho.HoloLens
 			var leftCameraNode = Scene.CreateChild();
 			var rightCameraNode = Scene.CreateChild();
 			LeftCamera = leftCameraNode.CreateComponent<Camera>();
+			CullingCamera = leftCameraNode.CreateComponent<Camera>();
 			RightCamera = rightCameraNode.CreateComponent<Camera>();
 
-			var cameraLight = leftCameraNode.CreateComponent<Light>();
-			cameraLight.LightType = LightType.Point;
-			cameraLight.Range = 10.0f;
-			cameraLight.Brightness = 0.7f;
-			cameraLight.CastShadows = false;
-
-			CameraLight = cameraLight;
+			//TODO: calculate in Camera_SetHoloProjection
+			CullingCamera.Fov = 33;
+			CullingCamera.NearClip = 0.1f;
+			CullingCamera.FarClip = 22f;
+			CullingCamera.AspectRatio = 1.76f;			
 			DirectionalLight = light;
 
 			var leftViewport = new Viewport(Scene, LeftCamera, null);
 			Renderer.SetViewport(0, leftViewport);
+			leftViewport.CullCamera = CullingCamera;
 
 			if (Emulator)
 			{
@@ -138,6 +138,7 @@ namespace Urho.HoloLens
 
 			Renderer.NumViewports = 2; //two eyes
 			var rightVp = new Viewport(Scene, RightCamera, null);
+			rightVp.CullCamera = CullingCamera;
 
 			rightVp.SetStereoMode(true);
 			Renderer.SetViewport(1, rightVp);
@@ -146,6 +147,7 @@ namespace Urho.HoloLens
 				{
 					Camera_SetHoloProjection(LeftCamera.Handle, ref leftView, ref leftProj);
 					Camera_SetHoloProjection(RightCamera.Handle, ref rightView, ref rightProj);
+					Camera_SetHoloProjection(CullingCamera.Handle, ref rightView, ref rightProj);
 				});
 		}
 
