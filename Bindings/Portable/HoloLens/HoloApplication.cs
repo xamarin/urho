@@ -93,7 +93,10 @@ namespace Urho.HoloLens
 		protected virtual XmlFile DefaultRenderPath => Emulator ? CoreAssets.RenderPaths.Forward : CoreAssets.RenderPaths.ForwardHWDepth;
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void Camera_SetHoloProjection(IntPtr handle, ref Matrix4 view, ref Matrix4 projection);
+		static extern void Camera_SetHoloProjections(
+			IntPtr leftEyeCamera, IntPtr rightEyeCamera, IntPtr cullingCamera, 
+			ref Matrix4 leftView, ref Matrix4 leftProjection,
+			ref Matrix4 rightView, ref Matrix4 rightProjection);
 
 		protected override async void Start()
 		{
@@ -116,11 +119,6 @@ namespace Urho.HoloLens
 			CullingCamera = leftCameraNode.CreateComponent<Camera>();
 			RightCamera = rightCameraNode.CreateComponent<Camera>();
 
-			//TODO: calculate in Camera_SetHoloProjection
-			CullingCamera.Fov = 33;
-			CullingCamera.NearClip = 0.1f;
-			CullingCamera.FarClip = 22f;
-			CullingCamera.AspectRatio = 1.76f;			
 			DirectionalLight = light;
 
 			var leftViewport = new Viewport(Scene, LeftCamera, null);
@@ -143,12 +141,11 @@ namespace Urho.HoloLens
 			rightVp.SetStereoMode(true);
 			Renderer.SetViewport(1, rightVp);
 
-			Time.SubscribeToFrameStarted(args =>
-				{
-					Camera_SetHoloProjection(LeftCamera.Handle, ref leftView, ref leftProj);
-					Camera_SetHoloProjection(RightCamera.Handle, ref rightView, ref rightProj);
-					Camera_SetHoloProjection(CullingCamera.Handle, ref rightView, ref rightProj);
-				});
+			Time.SubscribeToFrameStarted(args => 
+				Camera_SetHoloProjections(
+					LeftCamera.Handle, RightCamera.Handle, CullingCamera.Handle, 
+					ref leftView, ref leftProj, 
+					ref rightView, ref rightProj));
 		}
 
 		internal void UpdateStereoView(Matrix4 leftView, Matrix4 rightView, Matrix4 leftProj, Matrix4 rightProj)

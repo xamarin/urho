@@ -30,3 +30,4 @@ clang+llvm-3.7.0-x86_64-apple-darwin*
 /docsync.log
 *.VC.opendb
 *.VC.db
+project.lock.json

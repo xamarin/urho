@@ -112,7 +112,7 @@ extern "C"
 	ComPtr<ID3D11Texture2D> cameraBackBuffer;
 	ComPtr<ID3D11Resource> resource;
 
-	__declspec(dllexport) void Camera_SetHoloProjection(Camera* camera, const class Matrix4& view, const class Matrix4& projection)
+	void Camera_SetHoloProjection(Camera* camera, const class Matrix4& view, const class Matrix4& projection)
 	{
 		float nearClip = projection.m32_ / projection.m22_; //0.1
 		float farClip = projection.m32_ / (projection.m22_ + 1); //20
@@ -135,6 +135,17 @@ extern "C"
 		auto cameraNode = camera->GetNode();
 		cameraNode->SetWorldPosition(Vector3(viewt.m03_, viewt.m13_, -viewt.m23_));
 		cameraNode->SetWorldRotation(rotation);
+	}
+	
+	__declspec(dllexport) void Camera_SetHoloProjections(
+		Camera* leftEyeCamera, Camera* rightEyeCamera, Camera* cullingCamera, 
+		const class Matrix4& leftView, const class Matrix4& leftProjection, 
+		const class Matrix4& rightView, const class Matrix4& rightProjection)
+	{
+		Camera_SetHoloProjection(leftEyeCamera, leftView, leftProjection);
+		Camera_SetHoloProjection(rightEyeCamera, rightView, rightProjection);
+		//TODO: calculate extended Culling area:
+		Camera_SetHoloProjection(cullingCamera, leftView, leftProjection);
 	}
 
 	ID3D11Texture2D* HoloLens_GetBackbuffer()
