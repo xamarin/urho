@@ -12,12 +12,9 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
-	   <releaseNotes>[Core] Update Urho3D to 5aa0b0 (22/09/2016) – Urho3D 1.6 release.
-[Core] HoloLens PCL support 
-[Core] RaycastSingle returns a single item instead of a List
-[iOS, macOS] Fixed High DPI issues 
-[UWP] Apps are no longer required to store assets in Pak files.
-[XForms] Stability improvements for UrhoSharp.XamarinForms
+	   <releaseNotes>[Core] Update Urho3D to e035fa (16/10/2016)
+[Core] Fix Joystick x64 issues
+[Core] Add CullingCamera to HoloApplication
 </releaseNotes>
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
