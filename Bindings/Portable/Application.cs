@@ -62,13 +62,8 @@ namespace Urho {
 			private set { currentContext = value; }
 		}
 
-		public Application() : this(new Context(), null) {}
-
 		public Application(ApplicationOptions options) : this(new Context(), options) {}
 
-		/// <summary>
-		/// Supports the simple style with callbacks
-		/// </summary>
 		Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
@@ -466,21 +461,14 @@ namespace Urho {
 
 		public static Application CreateInstance(Type applicationType, ApplicationOptions options = null)
 		{
-			var ctors = applicationType.GetTypeInfo().DeclaredConstructors.ToArray();
-
-			var ctorWithOptions = ctors.FirstOrDefault(c => c.GetParameters().Length == 1 && c.GetParameters()[0].ParameterType == typeof (ApplicationOptions));
-			if (ctorWithOptions != null)
+			try
 			{
-				return (Application) Activator.CreateInstance(applicationType, options);
+				return (Application)Activator.CreateInstance(applicationType, options);
 			}
-
-			var ctorDefault = ctors.FirstOrDefault(c => c.GetParameters().Length == 0);
-			if (ctorDefault != null)
+			catch (Exception exc)
 			{
-				return (Application) Activator.CreateInstance(applicationType);
+				throw new InvalidOperationException($"Constructor {applicationType}(ApplicationOptions) was not found.", exc);
 			}
-
-			throw new InvalidOperationException($"{applicationType} doesn't have parameterless constructor.");
 		}
 	}
 
