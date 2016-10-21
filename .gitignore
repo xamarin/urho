@@ -31,3 +31,5 @@ clang+llvm-3.7.0-x86_64-apple-darwin*
 *.VC.opendb
 *.VC.db
 project.lock.json
+/ProjectTemplates/HoloLensVsix/ProjectTemplates
+/ProjectTemplates/VSIX/ProjectTemplates
