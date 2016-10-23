@@ -19,6 +19,7 @@ namespace Urho.HoloLens
 		public bool Emulator { get; set; }
 		public Scene Scene { get; private set; }
 		public Octree Octree { get; private set; }
+		public Zone Zone { get; private set; }
 		public Camera LeftCamera { get; set; }
 		public Camera RightCamera { get; set; }
 		public Camera CullingCamera { get; set; }
@@ -105,21 +106,21 @@ namespace Urho.HoloLens
 			
 			Scene = new Scene();
 			Octree = Scene.CreateComponent<Octree>();
+			Zone = Scene.CreateComponent<Zone>();
+			Zone.AmbientColor = new Color(0.5f, 0.5f, 0.5f);
 
 			Node lightNode = Scene.CreateChild();
 			lightNode.SetDirection(new Vector3(1, -1, 1));
-			Light light = lightNode.CreateComponent<Light>();
-			light.LightType = LightType.Directional;
-			light.CastShadows = false;
-			light.Brightness = 0.7f;
+			DirectionalLight = lightNode.CreateComponent<Light>();
+			DirectionalLight.LightType = LightType.Directional;
+			DirectionalLight.CastShadows = false;
+			DirectionalLight.Brightness = 0.7f;
 
 			var leftCameraNode = Scene.CreateChild();
 			var rightCameraNode = Scene.CreateChild();
 			LeftCamera = leftCameraNode.CreateComponent<Camera>();
 			CullingCamera = leftCameraNode.CreateComponent<Camera>();
 			RightCamera = rightCameraNode.CreateComponent<Camera>();
-
-			DirectionalLight = light;
 
 			var leftViewport = new Viewport(Scene, LeftCamera, null);
 			Renderer.SetViewport(0, leftViewport);

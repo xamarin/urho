@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Graphics.DirectX;
 using Windows.Perception.Spatial;
@@ -13,7 +16,8 @@ namespace Urho
 	{
 		SpatialSurfaceObserver observer;
 		SpatialCoordinateSystem currentCoordinateSystem;
-		static Dictionary<Guid, DateTimeOffset> updateCache = new Dictionary<Guid, DateTimeOffset>();
+		readonly SemaphoreSlim spatialObserverSemaphore = new SemaphoreSlim(1);
+		static readonly Dictionary<Guid, DateTimeOffset> UpdateCache = new Dictionary<Guid, DateTimeOffset>();
 		HoloApplication currentHoloApp;
 		int trianglesPerCubicMeter;
 
@@ -24,8 +28,8 @@ namespace Urho
 		SpatialSurfaceMeshOptions options = new SpatialSurfaceMeshOptions
 			{
 				//TODO: check if supported?
-				VertexPositionFormat = DirectXPixelFormat.R16G16B16A16IntNormalized,
-				VertexNormalFormat = DirectXPixelFormat.R8G8B8A8IntNormalized,
+				VertexPositionFormat = DirectXPixelFormat.R32G32B32A32Float,
+				VertexNormalFormat = DirectXPixelFormat.R32G32B32A32Float,
 				TriangleIndexFormat = DirectXPixelFormat.R16UInt,
 				IncludeVertexNormals = true,
 			};
@@ -47,11 +51,11 @@ namespace Urho
 
 			foreach (var item in observer.GetObservedSurfaces())
 			{
-				lock (updateCache)
+				lock (UpdateCache)
 				{
-					updateCache[item.Key] = item.Value.UpdateTime.ToUniversalTime();
+					UpdateCache[item.Key] = item.Value.UpdateTime.ToUniversalTime();
 				}
-				ProcessSurface(item.Value, ConvertToLeftHanded);
+				ProcessSurface(item.Value);
 			}
 			observer.ObservedSurfacesChanged += Observer_ObservedSurfacesChanged;
 
@@ -69,30 +73,30 @@ namespace Urho
 		{
 			foreach (var item in sender.GetObservedSurfaces())
 			{
-				lock (updateCache)
+				lock (UpdateCache)
 				{
 					DateTimeOffset updateTime;
 					var time = item.Value.UpdateTime.ToUniversalTime();
-					if (updateCache.TryGetValue(item.Key, out updateTime) && (updateTime >= time || OnlyAdd))
+					if (UpdateCache.TryGetValue(item.Key, out updateTime) && (updateTime >= time || OnlyAdd))
 						continue;
 
-					updateCache[item.Key] = time;
+					UpdateCache[item.Key] = time;
 				}
 
 				if (observer == null)
 					return;
 
-				await ProcessSurface(item.Value, ConvertToLeftHanded).ConfigureAwait(false);
+				await ProcessSurface(item.Value).ConfigureAwait(false);
 			}
 		}
 
 		void RemoveSurfaceFromCache(Guid surfaceId)
 		{
-			lock (updateCache)
-				updateCache.Remove(surfaceId);
+			lock (UpdateCache)
+				UpdateCache.Remove(surfaceId);
 		}
 
-		async Task ProcessSurface(SpatialSurfaceInfo surface, bool convertToLH)
+		async Task ProcessSurface(SpatialSurfaceInfo surface)
 		{
 			var mesh = await surface.TryComputeLatestMeshAsync(trianglesPerCubicMeter, options).AsTask().ConfigureAwait(false);
 			if (observer == null || mesh == null)
@@ -115,9 +119,6 @@ namespace Urho
 				return;
 			}
 
-			// convert from RH to LH coordinate system
-			int rhToLh = convertToLH ? -1 : 1;
-
 			//1. TriangleIndices
 			var trianglesBytes = mesh.TriangleIndices.Data.ToArray();
 			var indeces = new short[mesh.TriangleIndices.ElementCount];
@@ -138,43 +139,40 @@ namespace Urho
 			var vertexColor = DefaultColor.ToUInt();
 			var vertexData = new SpatialVertex[vertexCount];
 
-			//2,3 - VertexPositions and Normals
-			for (int i = 0; i < vertexCount; i++)
-			{
-				//VertexPositions: DirectXPixelFormat.R16G16B16A16IntNormalized
-				short x = BitConverter.ToInt16(vertexRawData, i * 8 + 0);
-				short y = BitConverter.ToInt16(vertexRawData, i * 8 + 2);
-				short z = BitConverter.ToInt16(vertexRawData, i * 8 + 4);
-
-				//short to float:
-				float xx = (x == -32768) ? -1.0f : x * 1.0f / (32767.0f);
-				float yy = (y == -32768) ? -1.0f : y * 1.0f / (32767.0f);
-				float zz = (z == -32768) ? -1.0f : z * 1.0f / (32767.0f);
-
-				//Normals: DirectXPixelFormat.R8G8B8A8IntNormalized
-				var normalX = normalsRawData[i * 4 + 0];
-				var normalY = normalsRawData[i * 4 + 1];
-				var normalZ = normalsRawData[i * 4 + 2];
-
-				//merge vertex+normals for Urho3D (also, change RH to LH coordinate systems)
-				vertexData[i].PositionX =  xx * vertexScale.X;
-				vertexData[i].PositionY =  yy * vertexScale.Y;
-				vertexData[i].PositionZ = rhToLh * zz * vertexScale.Z;
-				vertexData[i].NormalX = normalX == 0 ? 0 :  255 / normalX;
-				vertexData[i].NormalY = normalY == 0 ? 0 :  255 / normalY;
-				vertexData[i].NormalZ = normalZ == 0 ? 0 : rhToLh * 255 / normalZ;
-
-				//Vertex color
-				vertexData[i].ColorUint = vertexColor;
-			}
-
-			var boundsRotation = new Quaternion(rhToLh * bounds.Value.Orientation.X, rhToLh * bounds.Value.Orientation.Y, bounds.Value.Orientation.Z, bounds.Value.Orientation.W);
-			var boundsCenter = new Vector3(bounds.Value.Center.X, bounds.Value.Center.Y, rhToLh * bounds.Value.Center.Z);
+			var boundsRotation = new Quaternion(-bounds.Value.Orientation.X, -bounds.Value.Orientation.Y, bounds.Value.Orientation.Z, bounds.Value.Orientation.W);
+			var boundsCenter = new Vector3(bounds.Value.Center.X, bounds.Value.Center.Y, -bounds.Value.Center.Z);
 			var boundsExtents = new Vector3(bounds.Value.Extents.X, bounds.Value.Extents.Y, bounds.Value.Extents.Z);
 
 			var transformValue = transform.Value;
 			Matrix4 transformUrhoMatrix;
 			unsafe { transformUrhoMatrix = *(Matrix4*)(void*)&transformValue; }
+
+			//these values won't change, let's declare them as consts
+			const int vertexStride = 16; // (int) mesh.VertexPositions.Stride;
+			const int normalStride = 16; // (int) mesh.VertexNormals.Stride;
+
+			//2,3 - VertexPositions and Normals
+			for (int i = 0; i < vertexCount; i++)
+			{
+				var positionX = BitConverter.ToSingle(vertexRawData, i * vertexStride + 0); 
+				var positionY = BitConverter.ToSingle(vertexRawData, i * vertexStride + 4); //4 per X,Y,Z,W (stride is 16)
+				var positionZ = BitConverter.ToSingle(vertexRawData, i * vertexStride + 8); //also, we don't need the W component.
+
+				var normalX = BitConverter.ToSingle(normalsRawData, i * normalStride + 0);
+				var normalY = BitConverter.ToSingle(normalsRawData, i * normalStride + 4);
+				var normalZ = BitConverter.ToSingle(normalsRawData, i * normalStride + 8);
+
+				//merge vertex+normals for Urho3D (also, change RH to LH coordinate systems)
+				vertexData[i].PositionX = positionX * vertexScale.X;
+				vertexData[i].PositionY = positionY * vertexScale.Y;
+				vertexData[i].PositionZ = - positionZ * vertexScale.Z;
+				vertexData[i].NormalX = normalX;
+				vertexData[i].NormalY = normalY;
+				vertexData[i].NormalZ = - normalZ;
+
+				//Vertex color (for VCol techniques)
+				vertexData[i].ColorUint = vertexColor;
+			}
 
 			var surfaceInfo = new HoloLens.SpatialMeshInfo
 			{
