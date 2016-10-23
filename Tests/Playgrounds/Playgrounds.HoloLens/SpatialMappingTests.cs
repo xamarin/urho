@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Urho;
 using Urho.Actions;
 using Urho.HoloLens;
@@ -33,9 +30,8 @@ namespace Playgrounds.HoloLens
 			EnableGestureTapped = true;
 
 			spatMaterial = new Material();
-			spatMaterial.CullMode = CullMode.MaxCullmodes;
-			spatMaterial.ShadowCullMode = CullMode.MaxCullmodes;
-			spatMaterial.SetTechnique(0, CoreAssets.Techniques.NoTextureUnlitVCol, 1, 1);
+			spatMaterial.SetTechnique(0, CoreAssets.Techniques.NoTexture, 1, 1);
+			spatMaterial.SetShaderParameter("MatDiffColor", Color.Cyan);
 
 			// make sure 'spatialMapping' capabilaty is enabled in the app manifest.
 			var cortanaAllowed = await RegisterCortanaCommands(new Dictionary<string, Action> {
@@ -47,21 +43,9 @@ namespace Playgrounds.HoloLens
 
 		async void ShowResults()
 		{
-			var text1 = debugHud.MemoryText.Value;
-			var text2 = debugHud.ModeText.Value;
-			var text3 = debugHud.ProfilerText.Value;
-			var text4 = debugHud.StatsText.Value;
-
 			EnableGestureManipulation = true;
 			mappingEnded = true;
 			StopSpatialMapping();
-
-			var material = new Material();
-			material.CullMode = CullMode.Ccw;
-			material.SetTechnique(0, CoreAssets.Techniques.NoTextureUnlitVCol, 1, 1);
-
-			foreach (var node in environmentNode.Children)
-				node.GetComponent<StaticModel>().SetMaterial(material);
 
 			var previewPosition = LeftCamera.Node.Position + (LeftCamera.Node.Direction * 0.5f);
 			environmentNode.Position = previewPosition;
@@ -84,14 +68,6 @@ namespace Playgrounds.HoloLens
 
 		public override Model GenerateModelFromSpatialSurface(SpatialMeshInfo surface)
 		{
-			// modify VertexColor for the VCol technique
-			for (int i = 0; i < surface.VertexData.Length; i++)
-			{
-				var vtx = surface.VertexData[i];
-				var worldPosition = surface.BoundsRotation * vtx.Position + surface.BoundsCenter;
-				surface.VertexData[i].Color = new Color((worldPosition.Y + 2f) / 3f, 0.5f, 0);
-			}
-
 			return CreateModelFromVertexData(surface.VertexData, surface.IndexData);
 		}
 
@@ -119,27 +95,10 @@ namespace Playgrounds.HoloLens
 			node.Rotation = surface.BoundsRotation;
 			staticModel.Model = generatedModel;
 
-			Material mat;
-			Color startColor;
-			Color endColor = new Color(0.8f, 0.8f, 0.8f);
-
 			if (isNew)
 			{
-				//startColor = Color.Blue;
-				//mat = Material.FromColor(endColor);
 				staticModel.SetMaterial(spatMaterial);
 			}
-			else
-			{
-				startColor = Color.Red;
-				mat = staticModel.GetMaterial(0);
-			}
-
-			//mat.FillMode = wireframe ? FillMode.Wireframe : FillMode.Solid;
-			//var specColorAnimation = new ValueAnimation();
-			//specColorAnimation.SetKeyFrame(0.0f, startColor);
-			//specColorAnimation.SetKeyFrame(1.5f, endColor);
-			//mat.SetShaderParameterAnimation("MatDiffColor", specColorAnimation, WrapMode.Once, 1.0f);
 		}
 
 		public override void OnGestureManipulationStarted()

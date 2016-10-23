@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Urho;
+﻿using Urho;
 using Urho.Shapes;
 
 namespace Playgrounds.Console
@@ -44,19 +39,14 @@ namespace Playgrounds.Console
 			var leftVp = new Viewport(Context, scene, leftEye, leftEyeRect, null);
 			var rightVp = new Viewport(Context, scene, rightEye, rightEyeRect, null);
 
-			//var cullCamera = scene.CreateComponent<Camera>();
-			//leftVp.CullCamera = cullCamera;
-			//rightVp.CullCamera = cullCamera;
-
-
-
+			var cullCamera = scene.CreateComponent<Camera>();
+			leftVp.CullCamera = cullCamera;
+			rightVp.CullCamera = cullCamera;
 
 			var hud = Engine.CreateDebugHud();
 			var xml = ResourceCache.GetXmlFile("UI/DefaultStyle.xml");
 			hud.DefaultStyle = xml;
 			hud.ToggleAll();
-
-
 
 			Renderer.SetViewport(0, leftVp);
 			Renderer.SetViewport(1, rightVp);
@@ -75,8 +65,6 @@ namespace Playgrounds.Console
 					}
 				}
 			}
-
-
 		}
 	}
 }
