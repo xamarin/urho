@@ -145,7 +145,8 @@ extern "C"
 		Camera_SetHoloProjection(leftEyeCamera, leftView, leftProjection);
 		Camera_SetHoloProjection(rightEyeCamera, rightView, rightProjection);
 		//TODO: calculate extended Culling area:
-		Camera_SetHoloProjection(cullingCamera, leftView, leftProjection);
+		if (cullingCamera)
+			Camera_SetHoloProjection(cullingCamera, leftView, leftProjection);
 	}
 
 	ID3D11Texture2D* HoloLens_GetBackbuffer()
