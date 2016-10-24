@@ -23,7 +23,6 @@ namespace Urho.HoloLens
 		public Camera LeftCamera { get; set; }
 		public Camera RightCamera { get; set; }
 		public Camera CullingCamera { get; set; }
-		public Color HoloTransparentColor { get; } = Color.Transparent;
 		public Light DirectionalLight { get; set; }
 		public virtual Vector3 FocusWorldPoint { get; set; }
 
@@ -86,7 +85,7 @@ namespace Urho.HoloLens
 			if (Input.GetKeyDown(Key.D)) cameraNode.Translate( Vector3.UnitX * moveSpeed * timeStep);
 		}
 
-		protected virtual XmlFile DefaultRenderPath => Emulator ? CoreAssets.RenderPaths.Forward : CoreAssets.RenderPaths.ForwardHWDepth;
+		protected virtual XmlFile DefaultRenderPath => CoreAssets.RenderPaths.Forward;
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Camera_SetHoloProjections(
@@ -94,7 +93,7 @@ namespace Urho.HoloLens
 			ref Matrix4 leftView, ref Matrix4 leftProjection,
 			ref Matrix4 rightView, ref Matrix4 rightProjection);
 
-		protected override async void Start()
+		protected override void Start()
 		{
 			Renderer.SetDefaultRenderPath(DefaultRenderPath);
 			Renderer.DrawShadows = false;
@@ -105,11 +104,14 @@ namespace Urho.HoloLens
 			Zone.AmbientColor = new Color(0.5f, 0.5f, 0.5f);
 
 			Node lightNode = Scene.CreateChild();
-			lightNode.SetDirection(new Vector3(1, -1, 1));
+			lightNode.SetDirection(new Vector3(0.5f, -1, 1));
 			DirectionalLight = lightNode.CreateComponent<Light>();
 			DirectionalLight.LightType = LightType.Directional;
 			DirectionalLight.CastShadows = false;
 			DirectionalLight.Brightness = 0.7f;
+
+			Renderer.TextureAnisotropy = 0;
+			Renderer.TextureFilterMode = TextureFilterMode.Bilinear;
 
 			var leftCameraNode = Scene.CreateChild();
 			var rightCameraNode = Scene.CreateChild();
