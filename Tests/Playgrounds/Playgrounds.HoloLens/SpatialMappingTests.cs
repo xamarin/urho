@@ -15,7 +15,7 @@ namespace Playgrounds.HoloLens
 		DebugHud debugHud;
 		Material spatMaterial;
 
-		public SpatialMappingTests(string assets) : base(assets) { }
+		public SpatialMappingTests(ApplicationOptions opts) : base(opts) { }
 
 		protected override async void Start()
 		{

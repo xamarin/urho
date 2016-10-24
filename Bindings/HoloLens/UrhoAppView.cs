@@ -85,7 +85,10 @@ namespace Urho.HoloLens
 		public unsafe void Run()
 		{
 			ReferenceFrame = SpatialLocator.GetDefault().CreateStationaryFrameOfReferenceAtCurrentLocation();
-			CoreWindow.GetForCurrentThread().CustomProperties.Add("HolographicSpace", HolographicSpace);
+
+			var coreWindow = CoreWindow.GetForCurrentThread();
+			coreWindow.CustomProperties.Add("HolographicSpace", HolographicSpace);
+
 			InitializeSpace();
 			InteractionManager = SpatialInteractionManager.GetForCurrentView();
 			InteractionManager.InteractionDetected += (s, e) => GesturesManager?.HandleInteraction(e.Interaction);
@@ -97,9 +100,15 @@ namespace Urho.HoloLens
 					SpatialMappingManager = new SpatialMappingManager();
 					VoiceManager = new VoiceManager();
 					appInited = true;
-					Game = (HoloApplication) Activator.CreateInstance(holoAppType, assetsDirectory);
+
+					var options = new ApplicationOptions(assetsDirectory) 
+						{
+							Width = 1268,
+							Height = 720,
+							LimitFps = false
+						};
+					Game = (HoloApplication) Activator.CreateInstance(holoAppType, options);
 					Game.Run();
-					Game.Engine.PostUpdate += e => currentFrame?.UpdateCurrentPrediction();
 					GesturesManager = new GesturesManager(Game, ReferenceFrame);
 				}
 
@@ -108,7 +117,7 @@ namespace Urho.HoloLens
 					if (Game != null)
 					{
 						currentFrame = HolographicSpace.CreateNextFrame();
-
+						currentFrame.UpdateCurrentPrediction();
 						var prediction = currentFrame.CurrentPrediction;
 						if (prediction.CameraPoses.Count < 1)
 							continue;

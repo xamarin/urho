@@ -22,8 +22,8 @@ namespace Urho.UWP
 			paused = false;
 			inited = false;
 			Sdl.SetMainReady();
-			
-			var app = (Application)Activator.CreateInstance(appType, options);
+
+			var app = Application.CreateInstance(appType, options);
 			app.Run();
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESIZED, (int)this.ActualWidth, (int)this.ActualHeight);
 			inited = true;

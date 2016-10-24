@@ -56,13 +56,8 @@ namespace Urho.HoloLens
 		public bool EnableGestureHold { get; set; }
 		public bool EnableGestureManipulation { get; set; }
 
-		protected HoloApplication(string assetsDirectory) : base(Configure(assetsDirectory)) { }
-
-		static ApplicationOptions Configure(string assetsDirectory)
-		{
-			return new ApplicationOptions(assetsDirectory) {Width = 1286, Height = 720, LimitFps = false };
-		}
-
+		protected HoloApplication(ApplicationOptions opts) : base(opts) { }
+		
 		protected override void OnUpdate(float timeStep)
 		{
 			if (Emulator)

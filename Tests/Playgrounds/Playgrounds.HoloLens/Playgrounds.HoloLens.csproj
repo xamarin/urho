@@ -48,6 +48,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PerformanceTests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpatialMappingTests.cs" />
@@ -63,6 +64,10 @@
     </Content>
     <Content Include="..\..\..\Bin\HoloLens\mono-holourho.pdb">
       <Link>mono-holourho.pdb</Link>
+    </Content>
+    <Content Include="$(MSBuildProgramFiles32)\Windows Kits\10\bin\x86\ucrt\ucrtbased.dll">
+      <Link>ucrtbased.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
