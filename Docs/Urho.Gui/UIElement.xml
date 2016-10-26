@@ -20,21 +20,18 @@
       <para>You can also use the Editor application to create UI layouts. The serialization format is similar to scene XML serialization, with three important differences:</para>
       <para>1) The element type to instantiate, and the style to use for it can be set separately. For example the following element definition tells to instantiate a <see cref="T:Urho.Gui.Button" /> element, and that it should use the style "CloseButton" defined in the style XML file.</para>
       <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.Gui.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
-      <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true”.</para>
+      <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="trueвЂќ.</para>
       <para>You can associate one or more strings to a UIElement, by using the <see cref="M:Urho.Gui.UIElement.AddTag" /> and the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> methods.</para>
-      <para>
-      </para>
+      <para></para>
       <see cref="" />
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>UI Element Layout</h2>
       </format>
       <para>By default UI elements operate in a "free" layout mode, where child elements' positions can be specified relative to any of the parent element corners, but they are not automatically positioned or resized.</para>
       <para>To create automatically adjusting layouts, the layout mode can be switched to either "horizontal" or "vertical". Now the child elements will be positioned left to right or top to bottom, based on the order in which they were added. They will be preferably resized to fit the parent element, taking into account their minimum and maximum sizes, but failing to do that, the parent element will be resized.</para>
       <para>Left, top, right and bottom border widths and spacing between elements can also be specified for the layout. A grid layout is not directly supported, but it can be manually created with a horizontal layout inside a vertical layout, or vice versa.</para>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html" />
     </remarks>
   </Docs>
@@ -51,8 +48,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UIElement which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -90,8 +86,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UIElement linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -454,8 +449,7 @@
             </summary>
         <returns>The created UIElement.    If the provided type is not a <see cref="T:Urho.Gui.UIElement" />, the return value is <paramref name="null" />.</returns>
         <remarks>
-          <para>
-          </para>
+          <para></para>
         </remarks>
       </Docs>
     </Member>
@@ -728,7 +722,9 @@
       <Docs>
         <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
         <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
-        <summary>To be added.</summary>
+        <summary>
+          <para />
+        </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -788,7 +784,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.DefocusedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Handle being defocused.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDefocused" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -859,7 +855,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.DragBeginEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to mouse drag begin.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragBegin" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -912,7 +908,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.DragCancelEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to a mouse drag cancel event (ie, when an extra button is pressed).</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragCancel" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -929,7 +925,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.DragDropFinishEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to drag and drop finish. Return true to signal that the drop was accepted.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragDropFinish" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -966,7 +962,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.DragDropTestEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to drag and drop test. Return true to signal that the drop is acceptable.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragDropTest" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -983,7 +979,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.DragEndEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to mouse drag end.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragEnd" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1000,7 +996,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.DragMoveEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to mouse drag motion.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragMove" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1033,7 +1029,7 @@
         <ReturnType>Urho.IntVector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return effective color, multiplied by brightness and affected by temperature when "use physical values" is enabled. Alpha is always 1 so that can compare against the default black color to detect a light with no effect.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1049,7 +1045,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.ElementAddedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A child element has been added to an element. Sent by the UI root element, or element-event-sender if set.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToElementAdded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1084,7 +1080,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.ElementRemovedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A child element is about to be removed from an element. Sent by the UI root element, or element-event-sender if set.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToElementRemoved" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1123,7 +1119,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Enable automatic positioning &amp; sizing of the element relative to its parent using min/max anchor and min/max offset. Default false.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1193,7 +1189,7 @@
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Filter attributes in serialization process.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1279,7 +1275,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.FocusedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Handle being focused.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToFocused" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1390,7 +1386,7 @@
       </Parameters>
       <Docs>
         <param name="recursiveUp">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Return default style.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1526,7 +1522,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.HoverBeginEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Hovering on an UI element has started</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToHoverBegin" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1543,7 +1539,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.HoverEndEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Hovering on an UI element has ended</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToHoverEnd" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1782,7 +1778,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return maximum layout element size in the layout direction. Only valid after layout has been calculated. Used internally by UI for optimizations.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1858,7 +1854,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.LayoutUpdatedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>UI element layout updated.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToLayoutUpdated" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -1883,7 +1879,7 @@
         <param name="childElem">To be added.</param>
         <param name="styleFile">To be added.</param>
         <param name="setInstanceDefault">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Create a child by loading from XML data with style. Returns the child element if successful, null if otherwise.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1903,7 +1899,7 @@
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Load from XML data. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1925,7 +1921,7 @@
       <Docs>
         <param name="source">To be added.</param>
         <param name="setInstanceDefault">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Load from XML data. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1949,7 +1945,7 @@
         <param name="source">To be added.</param>
         <param name="styleFile">To be added.</param>
         <param name="setInstanceDefault">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Create a child by loading from XML data with style. Returns the child element if successful, null if otherwise.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1965,7 +1961,7 @@
         <ReturnType>Urho.Vector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Set maximum (bottom right) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2001,7 +1997,7 @@
         <ReturnType>Urho.IntVector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return maximum offset. Or Set offset of element's bottom right from the maximum anchor in pixels. No effect when anchor is not enabled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2057,7 +2053,7 @@
         <ReturnType>Urho.Vector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return minimum anchor. Or Set minimum (top left) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2093,7 +2089,7 @@
         <ReturnType>Urho.IntVector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return minimum offset. Or Set offset of element's top left from the minimum anchor in pixels. No effect when anchor is not enabled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2169,7 +2165,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.NameChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>UI element name changed.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNameChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -2357,7 +2353,7 @@
       </Parameters>
       <Docs>
         <param name="newPosition">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>React to position change.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2378,7 +2374,7 @@
       <Docs>
         <param name="newSize">To be added.</param>
         <param name="delta">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>React to resze.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2499,7 +2495,7 @@
         <ReturnType>Urho.Vector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return pivot. Or Set pivot relative to element's size (from 0 to 1, where 0.5 is center.) Overrides horizontal &amp; vertical alignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2535,7 +2531,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.PositionedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to position change.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPositioned" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -2630,7 +2626,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Remove all tags.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2728,7 +2724,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.ResizedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to resize.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToResized" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -2767,7 +2763,7 @@
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Save as XML data. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2789,7 +2785,7 @@
       <Docs>
         <param name="dest">To be added.</param>
         <param name="indentation">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Save as XML data. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2953,7 +2949,7 @@
       </Parameters>
       <Docs>
         <param name="style">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set default style file for later use by children elements.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3148,7 +3144,7 @@
       <Docs>
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set maximum (bottom right) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3192,7 +3188,7 @@
       <Docs>
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set minimum (top left) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3259,7 +3255,7 @@
       <Docs>
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set pivot relative to element's size (from 0 to 1, where 0.5 is center.) Overrides horizontal &amp; vertical alignment.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3324,7 +3320,7 @@
       </Parameters>
       <Docs>
         <param name="element">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set style from an XML element. Return true if the style is applied successfully.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3346,7 +3342,7 @@
       <Docs>
         <param name="styleName">To be added.</param>
         <param name="file">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set style from an XML file. Find the style element by name. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3366,7 +3362,7 @@
       </Parameters>
       <Docs>
         <param name="file">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set style from an XML file. Find the style element automatically by using the element's typename. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3526,7 +3522,7 @@
       <Docs>
         <param name="key">To be added.</param>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set a user variable.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3547,7 +3543,7 @@
       <Docs>
         <param name="key">To be added.</param>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set a user variable.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4158,8 +4154,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -4175,8 +4170,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -4192,8 +4186,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">
@@ -4302,7 +4295,7 @@
         <ReturnType>System.Action&lt;Urho.Gui.VisibleChangedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to visibility change.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToVisibleChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>

@@ -45,7 +45,7 @@
       </Parameters>
       <Docs>
         <param name="destinationFolder">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Urho for desktop platforms comes with embedded CoreData.pak. This method extracts and copies it to the specified directory. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

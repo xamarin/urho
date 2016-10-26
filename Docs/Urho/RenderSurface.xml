@@ -15,11 +15,9 @@
       <format type="text/html">
         <h2>Auxiliary Views</h2>
       </format>
-      <para>
-      </para>
+      <para></para>
       <para>Auxiliary views are viewports assigned to a <see cref="T:Urho.RenderSurface" /> by calling its <see cref="T:Urho.RenderSurfacc.SetViewport" /> method. By default these will be rendered on each frame that the texture containing the surface is visible, and can be typically used to implement for example camera displays or reflections. The texture in question must have been created in rendertarget mode, see <see cref="T:Urho.Texture.SetSize" /> method.</para>
-      <para>
-      </para>
+      <para></para>
       <para>The viewport is not assigned directly to the texture because of cube map support: a renderable cube map has 6 render surfaces, and done this way, a different camera could be assigned to each.</para>
       <para>A "backup texture" can be assigned to the rendertarget texture: because it is illegal to sample a texture that is also being simultaneously rendered to (in cases where the texture becomes "recursively" visible in the auxiliary view), the backup texture can be used to specify which texture should be used in place instead.</para>
       <para>Rendering detailed auxiliary views can easily have a large performance impact. Some things you can do for optimization with the auxiliary view camera:</para>
@@ -31,7 +29,7 @@
           <term>Use viewmasks on the camera and the scene objects to only render some of the objects in the auxiliary view.</term>
         </item>
         <item>
-          <term>Use the camera’s <see cref="T:Urho.Camera.ViewOverrideFlags" /> property to disable shadows, to disable occlusion, or force the lowest material quality.</term>
+          <term>Use the cameraвЂ™s <see cref="T:Urho.Camera.ViewOverrideFlags" /> property to disable shadows, to disable occlusion, or force the lowest material quality.</term>
         </item>
       </list>
       <para>The surface can also be configured to always update its viewports, or to only update when manually requested. See <see cref="P:Urho.RenderSurface.UpdatedMode" />. For example an editor widget showing a rendered texture might use either of those modes. Call <see cref="M:Urho.RenderSurface.QueueUpdate" /> to request a manual update of the surface on the current frame.</para>
@@ -105,7 +103,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return multisampling autoresolve mode.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -201,7 +199,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return multisampling level.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -273,7 +271,7 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>eturn Direct3D11 read-only depth-stencil view. May be null if not applicable. Not valid on OpenGL.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -307,7 +305,7 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return Direct3D11 rendertarget or depth-stencil view. Not valid on OpenGL.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -324,7 +322,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reset update queued flag. Called internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -339,7 +337,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Get or Set or clear the need resolve flag. Called internally by Graphics.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -378,7 +376,7 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return Direct3D9 surface.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -414,7 +412,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return viewport update mode.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

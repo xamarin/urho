@@ -59,7 +59,7 @@
         <param name="value">To be added.</param>
         <param name="min">To be added.</param>
         <param name="max">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Clamp an integer to a range. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -145,7 +145,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Degrees to radians const.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

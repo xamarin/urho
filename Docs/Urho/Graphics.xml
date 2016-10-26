@@ -55,93 +55,90 @@
       </list>
       <para>The actual rendering of 3D views is driven by the <see cref="T:Urho.Renderer" /> class.</para>
       <format type="text/html">
-        <h2>Dealing with GPU Disconnetion</h2>
-        <div>
-          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;amp;amp;amp;amp;amp;amp;nbsp;</p>
-          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Additionally, to work around possible GPU driver bugs the desktop OpenGL context will be voluntarily destroyed and recreated when changing screen mode or toggling between fullscreen and windowed. Therefore, on all graphics APIs one must be prepared for losing GPU resources.</p>
-          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp;amp;amp;amp;amp;amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
-          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);" />
-          <div class="verbatim">
-            <h2>Shader Parameters</h2>
-            <div>You can set parameters for the shaders by calling one of the&amp;amp;amp;nbsp;<a href="">M:Urho.Graphics.SetShaderParameter</a>&amp;amp;amp;nbsp;methods in this class. &amp;amp;amp;nbsp;In addition to controlling the shader parameters for your own shaders, you can use this to set the parameters for the various built-in shaders.</div>
-            <div>
-              <br />
-            </div>
-            <div>Some of the parameters that you can set for the built-in shaders are:</div>
-            <div>
-              <div>
-                <br />
-              </div>
-              <div>VSP</div>
-              <div>
-                <ul>
-                  <li />
-                  <li>AmbientStartColor</li>
-                  <li>AmbientEndColor</li>
-                  <li>BillboardRot</li>
-                  <li>CameraPos</li>
-                  <li>ClipPlane</li>
-                  <li>NearClip</li>
-                  <li>FarClip</li>
-                  <li>DepthMode</li>
-                  <li>DeltaTime</li>
-                  <li>ElapsedTime</li>
-                  <li>FrustumSize</li>
-                  <li>GBufferOffsets</li>
-                  <li>LightDir</li>
-                  <li>LightPos</li>
-                  <li>NormalOffsetScale</li>
-                  <li>Model</li>
-                  <li>View</li>
-                  <li>ViewInv</li>
-                  <li>ViewProj</li>
-                  <li>UOffset</li>
-                  <li>VOffset</li>
-                  <li>Zone</li>
-                  <li>LightMatrices</li>
-                  <li>SkinMatrices</li>
-                  <li>VertexLights</li>
-                </ul>
-                <div>PSP</div>
-              </div>
-              <div>
-                <br />
-              </div>
-              <div>
-                <li>AmbientColor</li>
-                <li>CameraPosPS</li>
-                <li>DeltaTimePS</li>
-                <li>DepthReconstruct</li>
-                <li>ElapsedTimePS</li>
-                <li>FogColor</li>
-                <li>FogParams</li>
-                <li>GBufferInvSize</li>
-                <li>LightColor</li>
-                <li>LightDirPS</li>
-                <li>LightPosPS</li>
-                <li>NormalOffsetScalePS</li>
-                <li>MatDiffColor</li>
-                <li>MatEmissiveColor</li>
-                <li>MatEnvMapColor</li>
-                <li>MatSpecColor</li>
-                <li>NearClipPS</li>
-                <li>FarClipPS</li>
-                <li>ShadowCubeAdjust</li>
-                <li>ShadowDepthFade</li>
-                <li>ShadowIntensity</li>
-                <li>ShadowMapInvSize</li>
-                <li>ShadowSplits</li>
-                <li>LightMatricesPS</li>
-                <li>VSMShadowParams</li>
-                <li>Roughness</li>
-                <li>Metallic</li>
-              </div>
-            </div>
-          </div>
-          <p>
-          </p>
-        </div>
-      </format>
+        <h2>Dealing with GPU Disconnetion</h2> <div>
+  <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;amp;amp;amp;amp;amp;amp;amp;nbsp;</p>
+  <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">Additionally, to work around possible GPU driver bugs the desktop OpenGL context will be voluntarily destroyed and recreated when changing screen mode or toggling between fullscreen and windowed. Therefore, on all graphics APIs one must be prepared for losing GPU resources.</p>
+  <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp;amp;amp;amp;amp;amp;amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
+  <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);" />
+  <div class="verbatim">
+    <h2>Shader Parameters</h2>
+    <div>You can set parameters for the shaders by calling one of the&amp;amp;amp;amp;nbsp;<a href="">M:Urho.Graphics.SetShaderParameter</a>&amp;amp;amp;amp;nbsp;methods in this class. &amp;amp;amp;amp;nbsp;In addition to controlling the shader parameters for your own shaders, you can use this to set the parameters for the various built-in shaders.</div>
+    <div>
+      <br />
+    </div>
+    <div>Some of the parameters that you can set for the built-in shaders are:</div>
+    <div>
+      <div>
+        <br />
+      </div>
+      <div>VSP</div>
+      <div>
+        <ul>
+          <li>
+          <li>AmbientStartColor</li>
+          <li>AmbientEndColor</li>
+          <li>BillboardRot</li>
+          <li>CameraPos</li>
+          <li>ClipPlane</li>
+          <li>NearClip</li>
+          <li>FarClip</li>
+          <li>DepthMode</li>
+          <li>DeltaTime</li>
+          <li>ElapsedTime</li>
+          <li>FrustumSize</li>
+          <li>GBufferOffsets</li>
+          <li>LightDir</li>
+          <li>LightPos</li>
+          <li>NormalOffsetScale</li>
+          <li>Model</li>
+          <li>View</li>
+          <li>ViewInv</li>
+          <li>ViewProj</li>
+          <li>UOffset</li>
+          <li>VOffset</li>
+          <li>Zone</li>
+          <li>LightMatrices</li>
+          <li>SkinMatrices</li>
+          <li>VertexLights</li>
+        </li></ul>
+        <div>PSP</div>
+      </div>
+      <div>
+        <br />
+      </div>
+      <div>
+        <li>AmbientColor</li>
+        <li>CameraPosPS</li>
+        <li>DeltaTimePS</li>
+        <li>DepthReconstruct</li>
+        <li>ElapsedTimePS</li>
+        <li>FogColor</li>
+        <li>FogParams</li>
+        <li>GBufferInvSize</li>
+        <li>LightColor</li>
+        <li>LightDirPS</li>
+        <li>LightPosPS</li>
+        <li>NormalOffsetScalePS</li>
+        <li>MatDiffColor</li>
+        <li>MatEmissiveColor</li>
+        <li>MatEnvMapColor</li>
+        <li>MatSpecColor</li>
+        <li>NearClipPS</li>
+        <li>FarClipPS</li>
+        <li>ShadowCubeAdjust</li>
+        <li>ShadowDepthFade</li>
+        <li>ShadowIntensity</li>
+        <li>ShadowMapInvSize</li>
+        <li>ShadowSplits</li>
+        <li>LightMatricesPS</li>
+        <li>VSMShadowParams</li>
+        <li>Roughness</li>
+        <li>Metallic</li>
+      </div>
+    </div>
+  </div>
+  <p />
+</div></format>
     </remarks>
   </Docs>
   <Members>
@@ -264,7 +261,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether alpha-to-coverage is enabled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -536,7 +533,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return or Set default texture anisotropy level. Called by Renderer before rendering.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -824,7 +821,7 @@
         <param name="baseVertexIndex">To be added.</param>
         <param name="minVertex">To be added.</param>
         <param name="vertexCount">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Draw indexed geometry with vertex index offset.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -886,7 +883,7 @@
         <param name="minVertex">To be added.</param>
         <param name="vertexCount">To be added.</param>
         <param name="instanceCount">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Draw indexed, instanced geometry with vertex index offset.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1350,7 +1347,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether window is high DPI.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1474,7 +1471,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Get or Set line antialiasing on/off.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1693,7 +1690,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>React to window resize.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1768,7 +1765,7 @@
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Precache shader variations from an XML file generated with BeginDumpShaders().</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1959,7 +1956,7 @@
       </Parameters>
       <Docs>
         <param name="texture">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Resolve a multisampled cube texture on itself.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1979,7 +1976,7 @@
       </Parameters>
       <Docs>
         <param name="texture">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Resolve a multisampled texture on itself.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2199,7 +2196,7 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return pointer to SDL window.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2221,7 +2218,7 @@
       <Docs>
         <param name="mode">To be added.</param>
         <param name="alphaToCoverage">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set blending and alpha-to-coverage modes. Alpha-to-coverage is not supported on Direct3D9.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2246,7 +2243,7 @@
         <param name="clipPlane">To be added.</param>
         <param name="view">To be added.</param>
         <param name="projection">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set a custom clipping plane. The plane is specified in world space, but is dependent on the view and projection matrices.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2349,7 +2346,7 @@
         <param name="vsync">To be added.</param>
         <param name="tripleBuffer">To be added.</param>
         <param name="multiSample">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set screen mode. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2463,7 +2460,7 @@
       <Docs>
         <param name="param">To be added.</param>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set shader integer constant.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2534,7 +2531,7 @@
       <Docs>
         <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
         <param name="matrix">Matrix value to set.</param>
-        <summary>To be added.</summary>
+        <summary>Set shader matrix constant.</summary>
         <remarks>
           <para />
         </remarks>
@@ -2557,7 +2554,7 @@
       <Docs>
         <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
         <param name="matrix">Matrix value to set.</param>
-        <summary>To be added.</summary>
+        <summary>Set shader matrix constant.</summary>
         <remarks>
           <para />
         </remarks>
@@ -2738,7 +2735,7 @@
       </Parameters>
       <Docs>
         <param name="stereo">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2901,7 +2898,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return or Set shader cache directory, Direct3D only. This can either be an absolute path or a path within the resource system.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3139,7 +3136,7 @@
       </Parameters>
       <Docs>
         <param name="destImage">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Take a screenshot. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3210,8 +3207,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -3227,8 +3223,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -3244,8 +3239,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipPlane">

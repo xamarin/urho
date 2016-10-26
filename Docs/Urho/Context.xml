@@ -25,7 +25,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Construct.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -165,7 +165,7 @@
       </Parameters>
       <Docs>
         <param name="eventType">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Return event receivers for a sender and event type, or null if they do not exist.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -187,7 +187,7 @@
       <Docs>
         <param name="sender">To be added.</param>
         <param name="eventType">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Return event receivers for an event type, or null if they do not exist.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -442,7 +442,7 @@
       <Docs>
         <param name="key">To be added.</param>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set global variable with the respective key and value</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
