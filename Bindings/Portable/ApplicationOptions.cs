@@ -19,10 +19,7 @@ namespace Urho
 			}
 		}
 
-		public ApplicationOptions(string[] assetsFolders)
-		{
-			ResourcePaths = assetsFolders;
-		}
+		public ApplicationOptions() {}
 
 		/// <summary>
 		/// Desktop only
