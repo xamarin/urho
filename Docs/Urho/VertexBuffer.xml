@@ -333,6 +333,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="OnDeviceLost">
+      <MemberSignature Language="C#" Value="public void OnDeviceLost ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OnDeviceLost() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Release">
       <MemberSignature Language="C#" Value="public void Release ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Release() cil managed" />
@@ -389,6 +405,25 @@
             Set all data in the buffer.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetData">
+      <MemberSignature Language="C#" Value="public void SetData (Urho.CustomGeometryVertex[] vertexData);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(valuetype Urho.CustomGeometryVertex[] vertexData) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vertexData" Type="Urho.CustomGeometryVertex[]" />
+      </Parameters>
+      <Docs>
+        <param name="vertexData">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -186,6 +186,54 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="EffectRoundStroke">
+      <MemberSignature Language="C#" Value="public bool EffectRoundStroke { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool EffectRoundStroke" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EffectShadowOffset">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 EffectShadowOffset { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 EffectShadowOffset" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EffectStrokeThickness">
+      <MemberSignature Language="C#" Value="public int EffectStrokeThickness { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 EffectStrokeThickness" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Font">
       <MemberSignature Language="C#" Value="public Urho.Gui.Font Font { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.Font Font" />
@@ -381,8 +429,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnResize">
-      <MemberSignature Language="C#" Value="public override void OnResize ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnResize() cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnResize (Urho.IntVector2 newSize, Urho.IntVector2 delta);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnResize(valuetype Urho.IntVector2 newSize, valuetype Urho.IntVector2 delta) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -390,11 +438,14 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="newSize" Type="Urho.IntVector2" />
+        <Parameter Name="delta" Type="Urho.IntVector2" />
+      </Parameters>
       <Docs>
-        <summary>
-            React to resize.
-            </summary>
+        <param name="newSize">To be added.</param>
+        <param name="delta">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -561,6 +612,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetFontSize">
+      <MemberSignature Language="C#" Value="public bool SetFontSize (int size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFontSize(int32 size) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="size" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="size">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetSelection">
       <MemberSignature Language="C#" Value="public void SetSelection (uint start, uint length);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetSelection(unsigned int32 start, unsigned int32 length) cil managed" />
@@ -584,6 +655,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetTextAttr">
+      <MemberSignature Language="C#" Value="public void SetTextAttr (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTextAttr(string value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="TextAlignment">
       <MemberSignature Language="C#" Value="public Urho.Gui.HorizontalAlignment TextAlignment { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Gui.HorizontalAlignment TextAlignment" />
@@ -600,6 +690,22 @@
             Or
             Set row alignment.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextAttr">
+      <MemberSignature Language="C#" Value="public string TextAttr { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TextAttr" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

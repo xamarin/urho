@@ -10,10 +10,290 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Shader resource consisting of several shader variations.
-            </summary>
-    <remarks>To be added.</remarks>
+    <summary>Shader resource consisting of several shader variations.</summary>
+    <remarks>
+      <para>
+
+	Urho3D uses an ubershader-like approach: permutations of each
+	shader will be built with different compilation defines, to
+	produce eg. static or skinned, deferred or forward or
+	shadowed/unshadowed rendering.
+
+      </para>
+      <para>
+
+	The building of these permutations happens on demand:
+	technique and renderpath definition files both refer to
+	shaders and the compilation defines to use with them. In
+	addition the engine will add inbuilt defines related to
+	geometry type and lighting. It is not generally possible to
+	enumerate beforehand all the possible permutations that can be
+	built out of a single shader.
+      </para>
+      <para>
+
+	On Direct3D compiled shader bytecode is saved to disk in a
+	"Cache" subdirectory next to the shader source code, so that
+	the possibly time-consuming compile can be skipped on the next
+	time the shader permutation is needed. On OpenGL such
+	mechanism is not available.
+      </para>
+      <format type="text/html">
+        <h2>Built-in Compilation Defines</h2>
+      </format>
+      <para>
+	When rendering scene objects, the engine expects certain
+	shader permutations to exist for different geometry types and
+	lighting conditions. These correspond to the following
+	compilation defines:
+      </para>
+      <format type="text/html">
+        <h2>Built-in Shader Uniforms</h2>
+      </format>
+      <para>
+	When objects or quad passes are being rendered, various engine
+	inbuilt uniforms are set to assist with the rendering. Below
+	is a partial list of the uniforms listed as HLSL data
+	types. Look at the file Uniforms.glsl for the corresponding
+	GLSL uniforms.
+      </para>
+      <format type="text/html">
+        <h2>Writing Shaders</h2>
+      </format>
+      <para>
+
+	Shaders must be written separately for HLSL (Direct3D) and
+	GLSL (OpenGL). The built-in shaders try to implement the same
+	functionality on both shader languages as closely as possible.
+      </para>
+      <para>
+
+	To get started with writing your own shaders, start with
+	studying the most basic examples possible: the Basic, Shadow and
+	Unlit shaders. Note the shader include files which bring
+	common functionality, for example Uniforms.hlsl, Samplers.hlsl
+	and Transform.hlsl for HLSL shaders.
+      </para>
+      <para>
+
+	Transforming the vertex (which hides the actual skinning,
+	instancing or billboarding process) is a slight hack which
+	uses a combination of macros and functions: it is safest to
+	copy the following piece of code verbatim:
+      </para>
+      <para>
+
+	For HLSL:
+      </para>
+      <para>
+
+	Shaders must be written separately for HLSL (Direct3D) and
+	GLSL (OpenGL). The built-in shaders try to implement the same
+	functionality on both shader languages as closely as possible.
+      </para>
+      <para>
+
+	To get started with writing your own shaders, start with
+	studying the most basic examples possible: the Basic, Shadow and
+	Unlit shaders. Note the shader include files which bring
+	common functionality, for example Uniforms.hlsl, Samplers.hlsl
+	and Transform.hlsl for HLSL shaders.
+      </para>
+      <para>
+
+	Transforming the vertex (which hides the actual skinning,
+	instancing or billboarding process) is a slight hack which
+	uses a combination of macros and functions: it is safest to
+	copy the following piece of code verbatim:
+      </para>
+      <para>
+
+	For HLSL:
+      </para>
+      <para>
+
+	On both Direct3D and OpenGL the vertex and pixel shaders are
+	written into the same file, and the entrypoint functions must
+	be called VS() and PS(). In OpenGL mode one of these is
+	transformed to the main() function required by GLSL behind the
+	scenes. When compiling a vertex shader, the compilation define
+	"COMPILEVS" is always present, and likewise "COMPILEPS" when
+	compiling a pixel shader. These are heavily used in the shader
+	include files to prevent constructs that are illegal for the
+	"wrong" type of shader, and to reduce compilation time.
+      </para>
+      <para>
+
+	The uniforms must be prefixed in a certain way so that the
+	engine understands them:
+      </para>
+      <list type="bullet">
+        <item>
+          <term>
+	      c for uniform constants, for example cMatDiffColor. The c is stripped when referred to inside the engine, so it would be called "MatDiffColor" in eg. <see cref="M:Urho.Material.SetShaderParameter" /></term>
+        </item>
+        <item>
+          <term>
+	      s for texture samplers, for example sDiffMap.
+	    </term>
+        </item>
+      </list>
+      <para>
+	  In GLSL shaders it is important that the samplers are assigned to
+	  the correct texture units. If you are using sampler names that are
+	  not predefined in the engine like sDiffMap, just make sure there is
+	  a number somewhere in the sampler's name and it will be interpreted
+	  as the texture unit. For example the terrain shader uses texture
+	  units 0-3 in the following way:
+	</para>
+      <code lang="C#"><![CDATA[
+uniform sampler2D sWeightMap0;
+uniform sampler2D sDetailMap1;
+uniform sampler2D sDetailMap2;
+uniform sampler2D sDetailMap3;]]></code>
+      <para>
+	  The maximum number of bones supported for hardware skinning depends
+	  on the graphics API and is relayed to the shader code in the
+	  MAXBONES compilation define. Typically the maximum is 64, but is
+	  reduced to 32 on the Raspberry PI, and increased to 128 on Direct3D
+	  11 and OpenGL 3. See also <see cref="P:Urho.Graphics.MaxBones" />.
+	</para>
+      <format type="text/html">
+        <h2>API Differences</h2>
+      </format>
+      <para>
+
+	Direct3D9 and Direct3D11 share the same HLSL shader code, and
+	likewise OpenGL 2, OpenGL 3, OpenGL ES 2 and WebGL share the
+	same GLSL code. Macros and some conditional code are used to
+	hide the API differences where possible.
+      </para>
+      <para>
+
+	When HLSL shaders are compiled for Direct3D11, the define
+	D3D11 is present, and the following details need to be
+	observed:
+      </para>
+      <list type="bullet">
+        <item>
+          <term>
+
+	    Uniforms are organized into constant buffers. See the file
+	    Uniforms.hlsl for the built-in uniforms. See
+	    TerrainBlend.hlsl for an example of defining your own
+	    uniforms into the "custom" constant buffer slot.
+	  </term>
+        </item>
+        <item>
+          <term>
+
+	    Both textures and samplers are defined for each texture
+	    unit. The macros in Samplers.hlsl (Sample2D, SampleCube
+	    etc.) can be used to write code that works on both
+	    APIs. These take the texture unit name without the 's'
+	    prefix.
+	  </term>
+        </item>
+        <item>
+          <term>
+
+	    Vertex shader output position and pixel shader output
+	    color need to use the SV_POSITION and SV_TARGET
+	    semantics. The macros OUTPOSITION and OUTCOLOR0-3 can be
+	    used to select the correct semantic on both APIs. In the
+	    vertex shader, the output position should be specified
+	    last, as otherwise other interpolator outputs may not
+	    function correctly.
+	  </term>
+        </item>
+        <item>
+          <term>
+
+	    On Direct3D11 the clip plane coordinate must be calculated
+	    manually. This is indicated by the CLIPPLANE compilation
+	    define, which is added automatically by the <see cref="T:Urho.Graphics" />
+	    class. See for example the LitSolid.hlsl shader.
+	  </term>
+        </item>
+        <item>
+          <term>
+
+	    Direct3D11 does not support luminance and luminance-alpha
+	    texture formats, but rather uses the R and RG
+	    channels. Therefore be prepared to perform swizzling in
+	    the texture reads as appropriate.
+	  </term>
+        </item>
+        <item>
+          <term>
+
+	    Direct3D11 will fail to render if the vertex shader refers
+	    to vertex elements that don't exist in the vertex buffers.
+	  </term>
+        </item>
+      </list>
+      <para>
+
+	For OpenGL, the define GL3 is present when GLSL shaders are
+	being compiled for OpenGL 3+, the define GL_ES is present for
+	OpenGL ES 2, WEBGL define is present for WebGL and RPI define
+	is present for the Raspberry Pi. Observe the following
+	differences:
+      </para>
+      <list type="bullet">
+        <item>
+          <term>
+
+	    On OpenGL 3 GLSL version 150 will be used if the shader
+	    source code does not define the version. The texture
+	    sampling functions are different but are worked around
+	    with defines in the file Samplers.glsl. Likewise the file
+	    Transform.glsl contains macros to hide the differences in
+	    declaring vertex attributes, interpolators and fragment
+	    outputs.
+	  </term>
+        </item>
+        <item>
+          <term>
+
+	    On OpenGL 3 luminance, alpha and luminance-alpha texture
+	    formats are deprecated, and are replaced with R and RG
+	    formats. Therefore be prepared to perform swizzling in the
+	    texture reads as appropriate.
+	  </term>
+        </item>
+        <item>
+          <term>
+
+	    On OpenGL ES 2 precision qualifiers need to be used.
+	  </term>
+        </item>
+      </list>
+      <format type="text/html">
+        <h2>Shader Precaching</h2>
+      </format>
+      <para>
+
+	The shader variations that are potentially used by a material
+	technique in different lighting conditions and rendering
+	passes are enumerated at material load time, but because of
+	their large amount, they are not actually compiled or loaded
+	from bytecode before being used in rendering. Especially on
+	OpenGL the compiling of shaders just before rendering can
+	cause hitches in the framerate. To avoid this, used shader
+	combinations can be dumped out to an XML file, then
+	preloaded. See <see cref="T:Urho.Graphics.BeginDumpShaders" />, <see cref="T:Urho.Graphics.EndDumpShaders" /> and
+	<see cref="T:Urho.Graphics.PrecacheShaders" /> in the <see cref="T:Urho.Graphics" /> subsystem. The command line
+	parameters -ds FILE can be used to instruct the <see cref="T:Urho.Engine" /> to
+	begin dumping shaders automatically on startup.
+      </para>
+      <para>
+
+	Note that the used shader variations will vary with graphics
+	settings, for example shadow quality high/low or instancing
+	on/off.
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

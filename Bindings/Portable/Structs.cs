@@ -7,6 +7,7 @@ using Urho.Physics;
 using Urho.Gui;
 using Urho.Urho2D;
 using Urho.Resources;
+
 namespace Urho {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct Ray {
@@ -165,6 +166,38 @@ namespace Urho {
 			DummyMin = 0;
 			Min = min;
 			Max = max;
+		}
+
+		public void Merge (Vector3 point)
+		{
+			if (point.X < Min.X)
+				Min.X = point.X;
+			if (point.Y < Min.Y)
+				Min.Y = point.Y;
+			if (point.Z < Min.Z)
+				Min.Z = point.Z;
+			if (point.X > Max.X)
+				Max.X = point.X;
+			if (point.Y > Max.Y)
+				Max.Y = point.Y;
+			if (point.Z > Max.Z)
+				Max.Z = point.Z;
+		}
+
+		public void Merge (BoundingBox box)
+		{
+			if (box.Min.X < Min.X)
+				Min.X = box.Min.X;
+			if (box.Min.Y < Min.Y)
+				Min.Y = box.Min.Y;
+			if (box.Min.Z < Min.Z)
+				Min.Z = box.Min.Z;
+			if (box.Max.X > Max.X)
+				Max.X = box.Max.X;
+			if (box.Max.Y > Max.Y)
+				Max.Y = box.Max.Y;
+			if (box.Max.Z > Max.Z)
+				Max.Z = box.Max.Z;			
 		}
 
 		public bool Defined ()
@@ -357,6 +390,15 @@ namespace Urho {
 		public static Color Magenta = new Color (1.0f, 0.0f, 1.0f);
 		public static Color Yellow = new Color (1.0f, 1.0f, 0.0f);
 		public static Color Transparent = new Color (0.0f, 0.0f, 0.0f, 0.0f);
+
+		public uint ToUInt()
+		{
+			uint r = (uint)MathHelper.Clamp(((int)(R * 255.0f)), 0, 255);
+			uint g = (uint)MathHelper.Clamp(((int)(G * 255.0f)), 0, 255);
+			uint b = (uint)MathHelper.Clamp(((int)(B * 255.0f)), 0, 255);
+			uint a = (uint)MathHelper.Clamp(((int)(A * 255.0f)), 0, 255);
+			return (a << 24) | (b << 16) | (g << 8) | r;
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -441,6 +483,10 @@ namespace Urho {
 		public uint Size;
 		public uint Capacity;
 		public IntPtr Buffer;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct SDL_Event {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
@@ -558,6 +604,7 @@ namespace Urho {
 		public byte MarkToStencil;
 		public byte UseLitBase;
 		public byte VertexLights;
+		public UrhoString EventName;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -643,6 +690,7 @@ namespace Urho {
 		public bool Enabled { get { return enabled != 0; } set { enabled = (byte)(value ? 1 : 0); } }
 
 		public float SortDistance;
+		public float ScreenScaleFactor;
 	}
 	
 	public unsafe class BillboardWrapper
@@ -672,7 +720,13 @@ namespace Urho {
 
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
-	public struct CustomGeometryVertex {
+	public struct CustomGeometryVertex
+	{
+		public Vector3 Position;
+		public Vector3 Normal;
+		public uint Color;
+		public Vector2 TexCoord;
+		public Vector4 Tangent;
 	}
 
 	// DEBATABLE: maybe we should let the binder handle it?

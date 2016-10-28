@@ -156,6 +156,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetImage">
+      <MemberSignature Language="C#" Value="public Urho.Resources.Image GetImage (Urho.CubeMapFace face);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.Image GetImage(valuetype Urho.CubeMapFace face) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.Image</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="face" Type="Urho.CubeMapFace" />
+      </Parameters>
+      <Docs>
+        <param name="face">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetRenderSurface">
       <MemberSignature Language="C#" Value="public Urho.RenderSurface GetRenderSurface (Urho.CubeMapFace face);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.RenderSurface GetRenderSurface(valuetype Urho.CubeMapFace face) cil managed" />
@@ -298,8 +318,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetSize">
-      <MemberSignature Language="C#" Value="public bool SetSize (int size, uint format, Urho.TextureUsage usage);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetSize(int32 size, unsigned int32 format, valuetype Urho.TextureUsage usage) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetSize (int size, uint format, Urho.TextureUsage usage, int multiSample);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetSize(int32 size, unsigned int32 format, valuetype Urho.TextureUsage usage, int32 multiSample) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -311,14 +331,14 @@
         <Parameter Name="size" Type="System.Int32" />
         <Parameter Name="format" Type="System.UInt32" />
         <Parameter Name="usage" Type="Urho.TextureUsage" />
+        <Parameter Name="multiSample" Type="System.Int32" />
       </Parameters>
       <Docs>
         <param name="size">To be added.</param>
         <param name="format">To be added.</param>
         <param name="usage">To be added.</param>
-        <summary>
-            Set size, format and usage. Return true if successful.
-            </summary>
+        <param name="multiSample">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

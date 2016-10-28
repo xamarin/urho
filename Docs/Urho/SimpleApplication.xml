@@ -1,0 +1,341 @@
+<Type Name="SimpleApplication" FullName="Urho.SimpleApplication">
+  <TypeSignature Language="C#" Value="public class SimpleApplication : Urho.Application" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SimpleApplication extends Urho.Application" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Application</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SimpleApplication (Urho.ApplicationOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.ApplicationOptions options) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="options" Type="Urho.ApplicationOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Camera">
+      <MemberSignature Language="C#" Value="public Urho.Camera Camera { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Camera Camera" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Camera</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CameraNode">
+      <MemberSignature Language="C#" Value="public Urho.Node CameraNode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node CameraNode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Light">
+      <MemberSignature Language="C#" Value="public Urho.Light Light { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Light Light" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Light</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LightNode">
+      <MemberSignature Language="C#" Value="public Urho.Node LightNode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node LightNode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveCamera">
+      <MemberSignature Language="C#" Value="public bool MoveCamera { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool MoveCamera" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveCameraMouse">
+      <MemberSignature Language="C#" Value="protected void MoveCameraMouse (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance void MoveCameraMouse(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveCameraTouches">
+      <MemberSignature Language="C#" Value="protected void MoveCameraTouches (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance void MoveCameraTouches(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveSpeed">
+      <MemberSignature Language="C#" Value="public float MoveSpeed { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 MoveSpeed" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Octree">
+      <MemberSignature Language="C#" Value="public Urho.Octree Octree { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Octree Octree" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Octree</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdate">
+      <MemberSignature Language="C#" Value="protected override void OnUpdate (float timeStep);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void OnUpdate(float32 timeStep) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeStep" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="timeStep">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Pitch">
+      <MemberSignature Language="C#" Value="public float Pitch { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Pitch" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RootNode">
+      <MemberSignature Language="C#" Value="public Urho.Node RootNode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Node RootNode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RunAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Urho.SimpleApplication&gt; RunAsync (Urho.ApplicationOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Urho.SimpleApplication&gt; RunAsync(class Urho.ApplicationOptions options) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Urho.SimpleApplication&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="options" Type="Urho.ApplicationOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RunAsync">
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;Urho.SimpleApplication&gt; RunAsync (int width = 600, int height = 500);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;class Urho.SimpleApplication&gt; RunAsync(int32 width, int32 height) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task&lt;Urho.SimpleApplication&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scene">
+      <MemberSignature Language="C#" Value="public Urho.Scene Scene { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Scene Scene" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Scene</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Start">
+      <MemberSignature Language="C#" Value="protected override void Start ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Start() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Viewport">
+      <MemberSignature Language="C#" Value="public Urho.Viewport Viewport { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Viewport Viewport" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Viewport</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Yaw">
+      <MemberSignature Language="C#" Value="public float Yaw { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Yaw" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

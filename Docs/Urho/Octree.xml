@@ -245,14 +245,14 @@
       </Docs>
     </Member>
     <Member MemberName="RaycastSingle">
-      <MemberSignature Language="C#" Value="public System.Collections.Generic.List&lt;Urho.RayQueryResult&gt; RaycastSingle (Urho.Ray ray, Urho.RayQueryLevel level, float maxDistance, Urho.DrawableFlags drawableFlags, uint viewMask = 4294967295);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Collections.Generic.List`1&lt;valuetype Urho.RayQueryResult&gt; RaycastSingle(valuetype Urho.Ray ray, valuetype Urho.RayQueryLevel level, float32 maxDistance, valuetype Urho.DrawableFlags drawableFlags, unsigned int32 viewMask) cil managed" />
+      <MemberSignature Language="C#" Value="public Nullable&lt;Urho.RayQueryResult&gt; RaycastSingle (Urho.Ray ray, Urho.RayQueryLevel level, float maxDistance, Urho.DrawableFlags drawableFlags, uint viewMask = 4294967295);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype System.Nullable`1&lt;valuetype Urho.RayQueryResult&gt; RaycastSingle(valuetype Urho.Ray ray, valuetype Urho.RayQueryLevel level, float32 maxDistance, valuetype Urho.DrawableFlags drawableFlags, unsigned int32 viewMask) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.List&lt;Urho.RayQueryResult&gt;</ReturnType>
+        <ReturnType>System.Nullable&lt;Urho.RayQueryResult&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="ray" Type="Urho.Ray" />

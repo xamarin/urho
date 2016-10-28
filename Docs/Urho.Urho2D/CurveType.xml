@@ -1,0 +1,73 @@
+<Type Name="CurveType" FullName="Urho.Urho2D.CurveType">
+  <TypeSignature Language="C#" Value="public enum CurveType" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed CurveType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>Curve type for the </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Cubic">
+      <MemberSignature Language="C#" Value="Cubic" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.CurveType Cubic = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.CurveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Instant">
+      <MemberSignature Language="C#" Value="Instant" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.CurveType Instant = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.CurveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Linear">
+      <MemberSignature Language="C#" Value="Linear" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.CurveType Linear = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.CurveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Quadratic">
+      <MemberSignature Language="C#" Value="Quadratic" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.CurveType Quadratic = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.CurveType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

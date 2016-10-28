@@ -1,0 +1,101 @@
+<Type Name="PlaneFinding" FullName="Urho.HoloLens.HoloToolkit.PlaneFinding">
+  <TypeSignature Language="C#" Value="public class PlaneFinding" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PlaneFinding extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PlaneFinding ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FindPlanes">
+      <MemberSignature Language="C#" Value="public static Urho.HoloLens.HoloToolkit.BoundedPlane[] FindPlanes (System.Collections.Generic.List&lt;Urho.HoloLens.HoloToolkit.PlaneFinding.MeshData&gt; meshes, float snapToGravityThreshold = 0, float minArea = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.HoloLens.HoloToolkit.BoundedPlane[] FindPlanes(class System.Collections.Generic.List`1&lt;valuetype Urho.HoloLens.HoloToolkit.PlaneFinding/MeshData&gt; meshes, float32 snapToGravityThreshold, float32 minArea) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.BoundedPlane[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="meshes" Type="System.Collections.Generic.List&lt;Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData&gt;" />
+        <Parameter Name="snapToGravityThreshold" Type="System.Single" />
+        <Parameter Name="minArea" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="meshes">To be added.</param>
+        <param name="snapToGravityThreshold">To be added.</param>
+        <param name="minArea">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FindSubPlanes">
+      <MemberSignature Language="C#" Value="public static Urho.HoloLens.HoloToolkit.BoundedPlane[] FindSubPlanes (System.Collections.Generic.List&lt;Urho.HoloLens.HoloToolkit.PlaneFinding.MeshData&gt; meshes, float snapToGravityThreshold = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.HoloLens.HoloToolkit.BoundedPlane[] FindSubPlanes(class System.Collections.Generic.List`1&lt;valuetype Urho.HoloLens.HoloToolkit.PlaneFinding/MeshData&gt; meshes, float32 snapToGravityThreshold) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.BoundedPlane[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="meshes" Type="System.Collections.Generic.List&lt;Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData&gt;" />
+        <Parameter Name="snapToGravityThreshold" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="meshes">To be added.</param>
+        <param name="snapToGravityThreshold">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MergeSubPlanes">
+      <MemberSignature Language="C#" Value="public static Urho.HoloLens.HoloToolkit.BoundedPlane[] MergeSubPlanes (Urho.HoloLens.HoloToolkit.BoundedPlane[] subPlanes, float snapToGravityThreshold = 0, float minArea = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.HoloLens.HoloToolkit.BoundedPlane[] MergeSubPlanes(valuetype Urho.HoloLens.HoloToolkit.BoundedPlane[] subPlanes, float32 snapToGravityThreshold, float32 minArea) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.BoundedPlane[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subPlanes" Type="Urho.HoloLens.HoloToolkit.BoundedPlane[]" />
+        <Parameter Name="snapToGravityThreshold" Type="System.Single" />
+        <Parameter Name="minArea" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="subPlanes">To be added.</param>
+        <param name="snapToGravityThreshold">To be added.</param>
+        <param name="minArea">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

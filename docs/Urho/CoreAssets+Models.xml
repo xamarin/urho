@@ -65,6 +65,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Dome">
+      <MemberSignature Language="C#" Value="public static Urho.Model Dome { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model Dome" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Returns the dome model from the resource cache (Models/Dome.mdl)</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Plane">
       <MemberSignature Language="C#" Value="public static Urho.Model Plane { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Model Plane" />

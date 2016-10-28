@@ -536,7 +536,7 @@ namespace Urho
 		/// Build a quaternion from the given axis and angle
 		/// </summary>
 		/// <param name="axis">The axis to rotate about</param>
-		/// <param name="angle">The rotation angle in radians</param>
+		/// <param name="angle">The rotation angle in degrees</param>
 		/// <returns></returns>
 		public static Quaternion FromAxisAngle(Vector3 axis, float angle)
 		{

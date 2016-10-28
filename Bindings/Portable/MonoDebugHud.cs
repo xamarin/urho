@@ -5,10 +5,9 @@ namespace Urho
 {
 	public class MonoDebugHud
 	{
-		const int FrameSampleCount = 50;
+		const int FrameSampleCount = 20;
 		Application application;
 		Text text;
-		Subscription subscription;
 		int frameCount = 0;
 		DateTime dateTime;
 		TimeSpan span;
@@ -36,11 +35,14 @@ namespace Urho
 				span = TimeSpan.Zero;
 				if (FpsOnly)
 					text.Value = $"{(int)fps} FPS\n{AdditionalText}";
+				else if (!InnerCacheDetails)
+					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.RefCountedCache.Count} MCW\n{AdditionalText}";
 				else
-					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.KnownObjectsCount} MCW\n{AdditionalText}";
+					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.RefCountedCache.GetCacheStatus()}\n{AdditionalText}";
 			}
 		}
 
+		public bool InnerCacheDetails { get; set; }
 		public bool FpsOnly { get; set; }
 
 		public string AdditionalText { get; set; }
@@ -63,7 +65,7 @@ namespace Urho
 			text.SetFont(CoreAssets.Fonts.AnonymousPro, fontSize);
 
 			application.UI.Root.AddChild(text);
-			subscription = application.Engine.SubscribeToPostUpdate(OnPostUpdate);
+			application.Engine.PostUpdate += OnPostUpdate;
 		}
 
 		public void Hide()
@@ -71,11 +73,10 @@ namespace Urho
 			if (text == null)
 				return;
 
-			subscription.Unsubscribe();
+			application.Engine.PostUpdate -= OnPostUpdate;
 			application.UI.Root.RemoveChild(text, 0);
 
 			text = null;
-			subscription = null;
 		}
 	}
 }

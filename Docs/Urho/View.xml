@@ -28,8 +28,7 @@
         <summary>
           <para>Constructs a new instance of Urho.View which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -67,8 +66,7 @@
         <summary>
           <para>Constructs a new instance of Urho.View linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -199,7 +197,7 @@
       </Parameters>
       <Docs>
         <param name="setIdentityProjection">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Draw a fullscreen quad. Shaders and renderstates must have been set beforehand. Quad will be drawn to the middle of depth range, similarly to deferred directional lights.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -218,6 +216,30 @@
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToEndViewUpdate" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FindNamedTexture">
+      <MemberSignature Language="C#" Value="public Urho.Texture FindNamedTexture (string name, bool isRenderTarget, bool isVolumeMap);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Texture FindNamedTexture(string name, bool isRenderTarget, bool isVolumeMap) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Texture</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="isRenderTarget" Type="System.Boolean" />
+        <Parameter Name="isVolumeMap" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="isRenderTarget">To be added.</param>
+        <param name="isVolumeMap">To be added.</param>
+        <summary>Get a named texture from the rendertarget list or from the resource cache, to be either used as a rendertarget or texture binding.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Graphics">
@@ -249,7 +271,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return number of occluders that were actually rendered. Occluders may be rejected if running out of triangles or if behind other occluders.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -377,7 +399,26 @@
       </Parameters>
       <Docs>
         <param name="camera">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set camera-specific shader parameters. Called by Batch and internally by View.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetCommandShaderParameters">
+      <MemberSignature Language="C#" Value="public void SetCommandShaderParameters (Urho.RenderPathCommand command);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCommandShaderParameters(valuetype Urho.RenderPathCommand command) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="command" Type="Urho.RenderPathCommand" />
+      </Parameters>
+      <Docs>
+        <param name="command">To be added.</param>
+        <summary>Set command's shader parameters if any. Called internally by View.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -422,6 +463,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetStereoMode">
+      <MemberSignature Language="C#" Value="public void SetStereoMode (bool stereo);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetStereoMode(bool stereo) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="stereo" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="stereo">To be added.</param>
+        <summary>Internal use.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SourceView">
       <MemberSignature Language="C#" Value="public Urho.View SourceView { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.View SourceView" />
@@ -433,7 +493,7 @@
         <ReturnType>Urho.View</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the source view that was already prepared. Used when viewports specify the same culling camera.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -515,8 +575,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -532,8 +591,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -549,8 +607,39 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewRect">
+      <MemberSignature Language="C#" Value="public Urho.IntRect ViewRect { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntRect ViewRect" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntRect</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return view rectangle.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewSize">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 ViewSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 ViewSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return view dimensions.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

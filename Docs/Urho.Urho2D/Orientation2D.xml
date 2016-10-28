@@ -15,6 +15,20 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="Hexagonal">
+      <MemberSignature Language="C#" Value="Hexagonal" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.Orientation2D Hexagonal = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Orientation2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Isometric">
       <MemberSignature Language="C#" Value="Isometric" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Urho2D.Orientation2D Isometric = int32(1)" />

@@ -12,8 +12,7 @@
   <Docs>
     <summary>Provides access to the materials that are part of every CoreAssets package in Urho.</summary>
     <remarks>
-      <para>
-      </para>
+      <para>You might want to take a look at Material.FromColor and Material.FromImage in order to construct a simple material.</para>
     </remarks>
   </Docs>
   <Members>

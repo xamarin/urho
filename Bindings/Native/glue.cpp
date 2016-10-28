@@ -156,7 +156,7 @@ extern "C" {
 	DllExport
 	void* Graphics_GetSdlWindow(Graphics* target)
 	{
-		return target->GetImpl()->GetWindow();
+		return target->GetWindow();
 	}
 
 	DllExport

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+	<Metadata>
+		<Identity Id="HoloLensVsix.Egor Bogatov.10e04010-21a6-4b1a-9db7-042d7b6f7d46" Version="1.1.214" Language="en-US" Publisher="Egor Bogatov" />
+		<DisplayName>UrhoSharp for HoloLens</DisplayName>
+		<Description xml:space="preserve">UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and HoloLens. </Description>
+		<MoreInfo>http://developer.xamarin.com/guides/cross-platform/urho/introduction/</MoreInfo>
+		<GettingStartedGuide>http://developer.xamarin.com/guides/cross-platform/urho/introduction/</GettingStartedGuide>
+		<Icon>UrhoSharpIco.ico</Icon>
+		<PreviewImage>UrhoSharp.png</PreviewImage>
+		<Tags>HoloLens, UrhoSharp, Urho, Xamarin, Game, 3D</Tags>
+	</Metadata>
+	<Installation>
+		<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0)" />
+		<InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Pro" />
+		<InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Enterprise" />
+	</Installation>
+	<Dependencies>
+		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+	</Dependencies>
+	<Assets>
+		<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\HoloUrhoSharp.zip" />
+	</Assets>
+</PackageManifest>

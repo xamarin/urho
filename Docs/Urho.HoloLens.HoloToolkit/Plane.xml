@@ -1,0 +1,48 @@
+<Type Name="Plane" FullName="Urho.HoloLens.HoloToolkit.Plane">
+  <TypeSignature Language="C#" Value="public struct Plane" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Plane extends System.ValueType" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="distance">
+      <MemberSignature Language="C#" Value="public float distance;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 distance" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="normal">
+      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3 normal;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Vector3 normal" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

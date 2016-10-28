@@ -28,8 +28,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Texture which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -67,8 +66,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Texture linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -89,6 +87,38 @@
           <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
           <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Anisotropy">
+      <MemberSignature Language="C#" Value="public uint Anisotropy { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Anisotropy" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return texture max. anisotropy level. Value 0 means to use the default value from Renderer. Or Set texture max. anisotropy level. No effect if not using anisotropic filtering. Value 0 (default) uses the default setting from Renderer.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoResolve">
+      <MemberSignature Language="C#" Value="public bool AutoResolve { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AutoResolve" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return texture multisampling autoresolve mode. When true, the texture is resolved before being sampled on SetTexture(). When false, the texture will not be resolved and must be read as individual samples in the shader.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="BackupTexture">
@@ -128,6 +158,56 @@
             Set border color for border addressing mode.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckMaxLevels">
+      <MemberSignature Language="C#" Value="public static uint CheckMaxLevels (int width, int height, uint requestedLevels);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 CheckMaxLevels(int32 width, int32 height, unsigned int32 requestedLevels) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+        <Parameter Name="requestedLevels" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <param name="requestedLevels">To be added.</param>
+        <summary>Check maximum allowed mip levels for a specific texture size.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckMaxLevels">
+      <MemberSignature Language="C#" Value="public static uint CheckMaxLevels (int width, int height, int depth, uint requestedLevels);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 CheckMaxLevels(int32 width, int32 height, int32 depth, unsigned int32 requestedLevels) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Int32" />
+        <Parameter Name="height" Type="System.Int32" />
+        <Parameter Name="depth" Type="System.Int32" />
+        <Parameter Name="requestedLevels" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="width">To be added.</param>
+        <param name="height">To be added.</param>
+        <param name="depth">To be added.</param>
+        <param name="requestedLevels">To be added.</param>
+        <summary>Check maximum allowed mip levels for a specific 3D texture size.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -461,6 +541,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="MultiSample">
+      <MemberSignature Language="C#" Value="public int MultiSample { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MultiSample" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return texture multisampling level (1 = no multisampling).</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ParametersDirty">
       <MemberSignature Language="C#" Value="public bool ParametersDirty { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool ParametersDirty" />
@@ -475,6 +571,54 @@
         <summary>
             Return whether parameters are dirty.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResolveDirty">
+      <MemberSignature Language="C#" Value="public bool ResolveDirty { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ResolveDirty" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Set or clear the need resolve flag. Called internally by Graphics.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResolveTexture">
+      <MemberSignature Language="C#" Value="public IntPtr ResolveTexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ResolveTexture" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return resolve texture. Only used on Direct3D11.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Sampler">
+      <MemberSignature Language="C#" Value="public IntPtr Sampler { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int Sampler" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return sampler state object. Only used on Direct3D11.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -561,7 +705,7 @@
       </Parameters>
       <Docs>
         <param name="element">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set additional parameters from an XML element.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -580,7 +724,7 @@
       </Parameters>
       <Docs>
         <param name="xml">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set additional parameters from an XML file.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -599,6 +743,22 @@
         <summary>
             Dirty the parameters.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShaderResourceView">
+      <MemberSignature Language="C#" Value="public IntPtr ShaderResourceView { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ShaderResourceView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return shader resource view. Only used on Direct3D11.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

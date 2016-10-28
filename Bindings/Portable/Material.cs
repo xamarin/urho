@@ -1,13 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Urho
+﻿namespace Urho
 {
 	partial class Material
 	{
+		public static Material FromImage(string image, string normals)
+		{
+			if (string.IsNullOrEmpty(normals))
+				return FromImage(image);
+
+			var cache = Application.Current.ResourceCache;
+			var material = new Material();
+			material.SetTexture(TextureUnit.Diffuse, cache.GetTexture2D(image));
+			material.SetTexture(TextureUnit.Normal, cache.GetTexture2D(normals));
+			material.SetTechnique(0, CoreAssets.Techniques.DiffNormal, 0, 0);
+			return material;
+		}
+
 		public static Material FromImage(string image)
 		{
 			var cache = Application.Current.ResourceCache;
@@ -19,9 +26,17 @@ namespace Urho
 
 		public static Material FromColor(Color color)
 		{
+			return FromColor(color, false);
+		}
+
+		public static Material FromColor(Color color, bool unlit)
+		{
 			var material = new Material();
 			var cache = Application.Current.ResourceCache;
-			material.SetTechnique(0, color.A == 1 ? CoreAssets.Techniques.NoTexture : CoreAssets.Techniques.NoTextureAlpha, 1, 1);
+			if (unlit)
+				material.SetTechnique(0, color.A == 1 ? CoreAssets.Techniques.NoTextureUnlit : CoreAssets.Techniques.NoTextureUnlitAlpha, 1, 1);
+			else
+				material.SetTechnique(0, color.A == 1 ? CoreAssets.Techniques.NoTexture : CoreAssets.Techniques.NoTextureAlpha, 1, 1);
 			material.SetShaderParameter("MatDiffColor", color);
 			return material;
 		}

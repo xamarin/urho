@@ -10,9 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            Displays rendering stats and profiling information.
-            </summary>
+    <summary>Displays rendering stats and profiling information. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

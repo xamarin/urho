@@ -92,6 +92,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ConstantBufferSizes">
+      <MemberSignature Language="C#" Value="public uint* ConstantBufferSizes { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32* ConstantBufferSizes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32*</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Create">
       <MemberSignature Language="C#" Value="public bool Create ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Create() cil managed" />
@@ -131,6 +147,38 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DefinesClipPlane">
+      <MemberSignature Language="C#" Value="public string DefinesClipPlane { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string DefinesClipPlane" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ElementHash">
+      <MemberSignature Language="C#" Value="public ulong ElementHash { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int64 ElementHash" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt64</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FullName">
       <MemberSignature Language="C#" Value="public string FullName { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string FullName" />
@@ -146,6 +194,46 @@
             Return full shader name.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasParameter">
+      <MemberSignature Language="C#" Value="public bool HasParameter (Urho.StringHash param);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasParameter(valuetype Urho.StringHash param) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasTextureUnit">
+      <MemberSignature Language="C#" Value="public bool HasTextureUnit (Urho.TextureUnit unit);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasTextureUnit(valuetype Urho.TextureUnit unit) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="unit" Type="Urho.TextureUnit" />
+      </Parameters>
+      <Docs>
+        <param name="unit">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

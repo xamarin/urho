@@ -334,6 +334,25 @@ model.SetMaterial(material);]]></code>
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="ChangeParent">
+      <MemberSignature Language="C#" Value="public void ChangeParent (Urho.Node newParent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ChangeParent(class Urho.Node newParent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="newParent" Type="Urho.Node" />
+      </Parameters>
+      <Docs>
+        <param name="newParent">The new parent for the node.</param>
+        <summary>Changes the parent for the node</summary>
+        <remarks>Moves the node to a new parent.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Children">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.IReadOnlyList&lt;Urho.Node&gt; Children { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IReadOnlyList`1&lt;class Urho.Node&gt; Children" />
@@ -651,13 +670,15 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <summary>Creates a component with the Node’s context and attaches it to the node using an UrhoType description.</summary>
         <returns>Returns the created component.  The result will already be attached to the node.</returns>
         <remarks>
-          <para />
+          <para>
+          </para>
           <example>
             <code lang="C#"><![CDATA[var planeObject = planeNode.CreateComponent<StaticModel> (StaticModel.TypeStatic);
 planeObject.Model = cache.GetModel ("Models/Plane.mdl");
 planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
 ]]></code>
-          </example>.</remarks>
+          </example>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Direction">
@@ -821,9 +842,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <param name="recursive">If true, the search includes nested children, otherwise the search is done only on the immediate children of this node.</param>
         <summary>Returns children nodes that have a specific component attached to it.</summary>
         <returns>Array containing the nodes that have the specified component, or an empty array if there are none.</returns>
-        <remarks>
-          <para />
-        </remarks>
+        <remarks>Returns only exact components of T type. Ignores subclasses of T, for example, GetChildrenWithComponent&lt;StaticModel&gt;() won’t return nodes with AnimatedModel components (AnimatedModels is a subclass of StaticModel).</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetComponent">
@@ -841,13 +860,13 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <Parameter Name="recursive" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="type">To be added.</param>
-        <param name="recursive">To be added.</param>
+        <param name="type">The type of the component to lookup.</param>
+        <param name="recursive">If <see langword="true" />, this performs a recursive search on the child nodes of this node.</param>
         <summary>
             Return component by type. If there are several, returns the first.
             </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>The component of the specified <paramref name="type" />, if found, otherwise <see langword="null" />.</returns>
+        <remarks>This method searches the current node for a component with an urho component type of <paramref name="type" />.  This will either search only the components attached to this node if recursive is set to <see langword="false" />, or it will search for the component recursive on all the children nodes attached to this node.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetComponent&lt;T&gt;">
@@ -872,10 +891,10 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </Parameters>
       <Docs>
         <typeparam name="T">To be added.</typeparam>
-        <param name="recursive">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="recursive">If <see langword="true" />, this performs a recursive search on the child nodes of this node.</param>
+        <summary>Return the component of the specified T parameters. If there are several, returns the first.</summary>
+        <returns>The component of the specified <paramref name="type" />, if found, otherwise <see langword="null" />.</returns>
+        <remarks>This method searches the current node for a component with an urho component type <paramref name="T" />.  This will either search only the components attached to this node if recursive is set to <see langword="false" />, or it will search for the component recursive on all the children nodes attached to this node.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetNumChildren">
@@ -916,14 +935,42 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <Parameter Name="id" Type="System.UInt32" />
       </Parameters>
       <Docs>
-        <param name="type">To be added.</param>
-        <param name="mode">To be added.</param>
-        <param name="id">To be added.</param>
+        <param name="type">Type name of the component to create.</param>
+        <param name="mode">Component and child node creation mode for networking.</param>
+        <param name="id">The identifier to assign to the component if it must be created.</param>
         <summary>
             Create a component to this node if it does not exist already.
             </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <returns>Returns the component of the specified <paramref name="type" /> that was either located, or that was created.</returns>
+        <remarks>This method calls the <see cref="M:Urho.Node.GetComponent" /> method to perform the search, if the component is not found, then it calls <see cref="M:Urho.Node.CreateComponent" /> method with the specified <paramref name="type" />, <paramref name="mode" /> and <paramref name="id" />.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOrCreateComponent&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public T GetOrCreateComponent&lt;T&gt; (bool recursive = false) where T : Urho.Component;" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !!T GetOrCreateComponent&lt;(class Urho.Component) T&gt;(bool recursive) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <BaseTypeName>Urho.Component</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="recursive" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="recursive">If <see langword="true" />, this performs a recursive search on the child nodes of this node.</param>
+        <summary>Create a component to this node if it does not exist already.</summary>
+        <returns>Returns the component of the specified <typeparamref name="T" /> that was either located, or that was created.</returns>
+        <remarks>This method calls the <see cref="M:Urho.Node.GetComponent" /> method to perform the search, if the component is not found, then it calls <see cref="M:Urho.Node.CreateComponent" /> method </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetParentComponent">
@@ -1553,7 +1600,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <summary>
             Remove from the parent node. If no other shared pointer references exist, causes immediate deletion.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>If you want to move the node to another node, you can use the <see cref="M:Urho.Node.ChangeParent" /> method.</remarks>
       </Docs>
     </Member>
     <Member MemberName="RemoveAction">
@@ -1856,6 +1903,27 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <returns>
           <see langword="true" /> if the tag exited on the node, <see langword="false" /> otherwise.</returns>
         <remarks>Use the <see cref="M:Urho.Node.AddTag" /> to add a tag to the node and <see cref="M:Urho.Node.HasTag" /> to probe if it is attached.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReorderComponent">
+      <MemberSignature Language="C#" Value="public void ReorderComponent (Urho.Component component, uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReorderComponent(class Urho.Component component, unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.Component" />
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ResetDeepEnabled">
@@ -2612,6 +2680,25 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       <Docs>
         <param name="scale">To be added.</param>
         <summary>Sets the scale but does not flag the node as dirty, nor as requiring a network update.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTransform">
+      <MemberSignature Language="C#" Value="public void SetTransform (Urho.Matrix3x4 matrix);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTransform(valuetype Urho.Matrix3x4 matrix) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="matrix" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="matrix">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

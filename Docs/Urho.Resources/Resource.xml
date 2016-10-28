@@ -28,8 +28,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Resources.Resource which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -67,8 +66,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Resources.Resource linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -126,7 +124,7 @@
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Load resource from stream. May be called from a worker thread. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -151,6 +149,26 @@
       </Docs>
     </Member>
     <Member MemberName="Load">
+      <MemberSignature Language="C#" Value="public bool Load (string fileName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(string fileName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fileName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fileName">To be added.</param>
+        <summary>Load resource from file.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Load">
       <MemberSignature Language="C#" Value="public bool Load (Urho.IO.File source);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.IO.File source) cil managed" />
       <MemberType>Method</MemberType>
@@ -165,7 +183,7 @@
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Load resource synchronously. Call both BeginLoad() &amp; EndLoad() and return true if both succeeded.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -239,7 +257,7 @@
         <ReturnType>System.Action&lt;Urho.Resources.ReloadFailedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Resource reloading failed.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToReloadFailed" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -256,7 +274,7 @@
         <ReturnType>System.Action&lt;Urho.Resources.ReloadFinishedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Resource reloading finished.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToReloadFinished" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -273,7 +291,7 @@
         <ReturnType>System.Action&lt;Urho.Resources.ReloadStartedEventArgs&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Resource reloading started.</summary>
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToReloadStarted" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
@@ -298,6 +316,26 @@
       </Docs>
     </Member>
     <Member MemberName="Save">
+      <MemberSignature Language="C#" Value="public virtual bool Save (string fileName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Save(string fileName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fileName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fileName">To be added.</param>
+        <summary>Save resource to file.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Save">
       <MemberSignature Language="C#" Value="public virtual bool Save (Urho.IO.File dest);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Save(class Urho.IO.File dest) cil managed" />
       <MemberType>Method</MemberType>
@@ -312,7 +350,7 @@
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Save resource to file.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -418,8 +456,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -435,8 +472,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -452,8 +488,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UseTimer">

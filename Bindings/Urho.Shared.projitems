@@ -9,6 +9,17 @@
     <Import_RootNamespace>Urho</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\CurveType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\LoopMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\RibbonTrail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Texture2DArray.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\TrailType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\DebugGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\HoloApplication.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\PlaneFinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\SpatialCursor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\SpatialMeshInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\SpatialVertex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\LogicComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Randoms.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
@@ -409,5 +420,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\XmlElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\UrhoPlatformInitializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\ShadowQuality.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\AsyncCompletionCallFunc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\AutoRemoveMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\EventReceiverGroup.cs" />
   </ItemGroup>
 </Project>

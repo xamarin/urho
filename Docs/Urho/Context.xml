@@ -25,7 +25,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Construct.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -147,6 +147,48 @@
             Return active event sender. Null outside event handling.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEventReceivers">
+      <MemberSignature Language="C#" Value="public Urho.EventReceiverGroup GetEventReceivers (Urho.StringHash eventType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.EventReceiverGroup GetEventReceivers(valuetype Urho.StringHash eventType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EventReceiverGroup</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="eventType">To be added.</param>
+        <summary>Return event receivers for a sender and event type, or null if they do not exist.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEventReceivers">
+      <MemberSignature Language="C#" Value="public Urho.EventReceiverGroup GetEventReceivers (Urho.UrhoObject sender, Urho.StringHash eventType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.EventReceiverGroup GetEventReceivers(class Urho.UrhoObject sender, valuetype Urho.StringHash eventType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EventReceiverGroup</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sender" Type="Urho.UrhoObject" />
+        <Parameter Name="eventType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="sender">To be added.</param>
+        <param name="eventType">To be added.</param>
+        <summary>Return event receivers for an event type, or null if they do not exist.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -400,7 +442,7 @@
       <Docs>
         <param name="key">To be added.</param>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set global variable with the respective key and value</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

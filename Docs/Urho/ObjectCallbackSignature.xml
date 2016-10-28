@@ -25,7 +25,7 @@
     <param name="data">To be added.</param>
     <param name="stringhash">To be added.</param>
     <param name="variantMap">To be added.</param>
-    <summary>To be added.</summary>
+    <summary>For internal use only.</summary>
     <remarks>To be added.</remarks>
   </Docs>
 </Type>

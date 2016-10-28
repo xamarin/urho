@@ -17,7 +17,7 @@
   <Members>
     <Member MemberName="Direction">
       <MemberSignature Language="C#" Value="Direction" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FaceCameraMode Direction = int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FaceCameraMode Direction = int32(6)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -27,6 +27,20 @@
       </ReturnValue>
       <Docs>
         <summary>If this mode is used, the billboard will rotate facing camera with direction as axis, so it will create pseudo 3D effect.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="LookAtMixed">
+      <MemberSignature Language="C#" Value="LookAtMixed" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FaceCameraMode LookAtMixed = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FaceCameraMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookAtXyz">

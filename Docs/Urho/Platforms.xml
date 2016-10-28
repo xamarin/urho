@@ -86,6 +86,20 @@
         <summary>Running on an unknown platform.</summary>
       </Docs>
     </Member>
+    <Member MemberName="UWP">
+      <MemberSignature Language="C#" Value="UWP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Platforms UWP = int32(6)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Platforms</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Windows">
       <MemberSignature Language="C#" Value="Windows" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Platforms Windows = int32(3)" />

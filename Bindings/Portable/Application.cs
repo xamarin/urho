@@ -27,7 +27,8 @@ namespace Urho {
 
 		static TaskCompletionSource<bool> exitTask;
 		static int renderThreadId = -1;
-		static readonly List<Action> actionsToDipatch = new List<Action>();
+		List<Action> actionsToDispatch = new List<Action>();
+		static List<Action> staticActionsToDispatch;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -61,25 +62,22 @@ namespace Urho {
 			private set { currentContext = value; }
 		}
 
-		public Application() : this(new Context(), null) {}
-
 		public Application(ApplicationOptions options) : this(new Context(), options) {}
 
-		/// <summary>
-		/// Supports the simple style with callbacks
-		/// </summary>
 		Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
 		{
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
 
-			if (context.Refs() < 1)
-				context.AddRef();
-
 			//keep references to callbacks (supposed to be passed to native code) as long as the App is alive
 			setupCallback = ProxySetup;
 			startCallback = ProxyStart;
 			stopCallback = ProxyStop;
+
+#if !ANDROID
+			if (context.Refs() < 1)
+				context.AddRef();
+#endif
 
 			Options = options ?? new ApplicationOptions(assetsFolder: null);
 			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString(), Options.ExternalWindow);
@@ -107,9 +105,21 @@ namespace Urho {
 		/// </summary>
 		public static void InvokeOnMain(Action action)
 		{
-			lock (actionsToDipatch)
+			if (!HasCurrent)
 			{
-				actionsToDipatch.Add(action);
+				Urho.IO.Log.Write(LogLevel.Warning, "InvokeOnMain was invoked before an Application was initialized.");
+				if (staticActionsToDispatch == null)
+					staticActionsToDispatch = new List<Action>();
+				lock (staticActionsToDispatch)
+					staticActionsToDispatch.Add(action);
+
+				return;
+			} 
+
+			var actions = Current.actionsToDispatch;
+			lock (actions)
+			{
+				actions.Add(action);
 			}
 		}
 
@@ -136,13 +146,21 @@ namespace Urho {
 			ActionManager.Update(timeStep);
 			OnUpdate(timeStep);
 
-			if (actionsToDipatch.Count > 0)
+			if (staticActionsToDispatch != null)
 			{
-				lock (actionsToDipatch)
-				{
-					foreach (var action in actionsToDipatch)
+				lock (staticActionsToDispatch)
+					foreach (var action in staticActionsToDispatch)
 						action();
-					actionsToDipatch.Clear();
+				staticActionsToDispatch = null;
+			}
+
+			if (actionsToDispatch.Count > 0)
+			{
+				lock (actionsToDispatch)
+				{
+					foreach (var action in actionsToDispatch)
+						action();
+					actionsToDispatch.Clear();
 				}
 			}
 		}
@@ -171,7 +189,7 @@ namespace Urho {
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
-		static void ProxyStop (IntPtr h)
+		static async void ProxyStop (IntPtr h)
 		{
 			LogSharp.Debug("ProxyStop");
 			UrhoPlatformInitializer.Initialized = false;
@@ -182,11 +200,6 @@ namespace Urho {
 			app.Stop ();
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
-			LogSharp.Debug("ProxyStop: Releasing context");
-#if ANDROID
-			if (context.Refs() > 0)
-				context.ReleaseRef();
-#endif
 			LogSharp.Debug("ProxyStop: Disposing context");
 			context.Dispose();
 			Current = null;
@@ -210,7 +223,7 @@ namespace Urho {
 		{
 			if (current == null)
 				return;
-#if WINDOWS_UWP
+#if WINDOWS_UWP && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
 #if ANDROID
@@ -448,21 +461,14 @@ namespace Urho {
 
 		public static Application CreateInstance(Type applicationType, ApplicationOptions options = null)
 		{
-			var ctors = applicationType.GetTypeInfo().DeclaredConstructors.ToArray();
-
-			var ctorWithOptions = ctors.FirstOrDefault(c => c.GetParameters().Length == 1 && c.GetParameters()[0].ParameterType == typeof (ApplicationOptions));
-			if (ctorWithOptions != null)
+			try
 			{
-				return (Application) Activator.CreateInstance(applicationType, options);
+				return (Application)Activator.CreateInstance(applicationType, options);
 			}
-
-			var ctorDefault = ctors.FirstOrDefault(c => c.GetParameters().Length == 0);
-			if (ctorDefault != null)
+			catch (Exception exc)
 			{
-				return (Application) Activator.CreateInstance(applicationType);
+				throw new InvalidOperationException($"Constructor {applicationType}(ApplicationOptions) was not found.", exc);
 			}
-
-			throw new InvalidOperationException($"{applicationType} doesn't have parameterless constructor.");
 		}
 	}
 

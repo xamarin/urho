@@ -28,8 +28,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Urho2D.Texture2D which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -67,8 +66,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Urho2D.Texture2D linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -106,7 +104,7 @@
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Load resource from stream. May be called from a worker thread. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -151,6 +149,22 @@
             Get data from a mip level. The destination buffer must be big enough. Return true if successful.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Image">
+      <MemberSignature Language="C#" Value="public Urho.Resources.Image Image { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.Image Image" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.Image</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Get image data from zero mip level. Only RGB and RGBA textures are supported.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -228,7 +242,7 @@
       <Docs>
         <param name="image">To be added.</param>
         <param name="useAlpha">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set data from an image. Return true if successful. Optionally make a single channel image alpha-only.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -266,8 +280,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetSize">
-      <MemberSignature Language="C#" Value="public bool SetSize (int width, int height, uint format, Urho.TextureUsage usage);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetSize(int32 width, int32 height, unsigned int32 format, valuetype Urho.TextureUsage usage) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetSize (int width, int height, uint format, Urho.TextureUsage usage, int multiSample, bool autoResolve);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetSize(int32 width, int32 height, unsigned int32 format, valuetype Urho.TextureUsage usage, int32 multiSample, bool autoResolve) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -280,15 +294,19 @@
         <Parameter Name="height" Type="System.Int32" />
         <Parameter Name="format" Type="System.UInt32" />
         <Parameter Name="usage" Type="Urho.TextureUsage" />
+        <Parameter Name="multiSample" Type="System.Int32" />
+        <Parameter Name="autoResolve" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="width">To be added.</param>
         <param name="height">To be added.</param>
         <param name="format">To be added.</param>
         <param name="usage">To be added.</param>
+        <param name="multiSample">To be added.</param>
+        <param name="autoResolve">To be added.</param>
         <summary>
-            Set size, format and usage. Zero size will follow application window size. Return true if successful.
-            </summary>
+          <para>Set size, format, usage and multisampling parameters for rendertargets. Zero size will follow application window size. Return true if successful.</para>
+          <para />Autoresolve true means the multisampled texture will be automatically resolved to 1-sample after being rendered to and before being sampled as a texture.<para />Autoresolve false means the multisampled texture will be read as individual samples in the shader and is not supported on Direct3D9.<para /></summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -322,8 +340,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -339,8 +356,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -356,8 +372,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
   </Members>

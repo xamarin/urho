@@ -131,7 +131,11 @@ namespace Urho {
 
 		~RefCounted ()
 		{
-			DeleteNativeObject();
+			if (!Runtime.IsClosing && !IsDeleted)
+			{
+				var ptr = Handle;
+				Application.InvokeOnMain(() => TryDeleteRefCounted(ptr));
+			}
 			Dispose (false);
 		}
 	}

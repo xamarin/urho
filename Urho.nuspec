@@ -12,33 +12,16 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
-	   <releaseNotes>## Features
-
-[Core] Update Urho3D (~ it was 450 commits behind) - a lot of nice bugfixes
-[Core] All Urho methods will throw an exception (instead of native crash) if called after App.Stop 
-[Forms.Core] Update UrhoSharp XForms dependency from 2.1 to the latest 2.2
-[iOS] Pause/Resume methods for iOS
-
-## Bugfixes
-[Core] Octree.RayCast is not surfaced
-[Android] Fixes for Android crahses (thanks to Storyo for help)
-[iOS][Android] RenderPathCommand doesn't work in iOS and Android
-[iOS][Android] Variant type doesn't work in non 64bit environment</releaseNotes>
+	   <releaseNotes>[Core] Update Urho3D to e035fa (16/10/2016)
+[Core] Fix Joystick x64 issues
+[Core] Add CullingCamera to HoloApplication
+</releaseNotes>
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
-   
-     <file src="Bin/CoreData.pak" target="native/CoreData.pak" />
-     <file src="Urho3D/Source/bin/CoreData/**" target="native" />
-     <!--Additional assets:-->
-     <file src="Urho3D/Source/bin/Data/Models/Box.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Box.mdl" />
-     <file src="Urho3D/Source/bin/Data/Models/Cone.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Cone.mdl" />
-     <file src="Urho3D/Source/bin/Data/Models/Cylinder.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Cylinder.mdl" />
-     <file src="Urho3D/Source/bin/Data/Models/Plane.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Plane.mdl" />
-     <file src="Urho3D/Source/bin/Data/Models/Pyramid.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Pyramid.mdl" />
-     <file src="Urho3D/Source/bin/Data/Models/Sphere.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Sphere.mdl" />
-     <file src="Urho3D/Source/bin/Data/Models/Torus.mdl" target="native/Urho3D/Source/bin/CoreData/Models/Torus.mdl" />
-     <file src="Urho3D/Source/bin/Data/Fonts/Anonymous Pro.ttf" target="native/Urho3D/Source/bin/CoreData/Fonts/Anonymous Pro.ttf" />
+     <!--CoreData-->
+     <file src="Urho3D/CoreData.pak" target="native/CoreData.pak" />
+     <file src="Urho3D/CoreData/**" target="native" />
 
      <!--PCL-->
      <file src="Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
@@ -62,10 +45,8 @@
      <file src="Bin/iOS/Urho.dll" target="lib/Xamarin.iOS10/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/Xamarin.iOS10/Urho.XML" />
 
-
      <!--Windows+Mac-->
      <file src="Nuget/Desktop/UrhoSharp.targets" target="build/net45" />
-     <file src="Nuget/Desktop/UrhoSharpReadme.txt" target="content/net45/UrhoSharpReadme.txt" />
      <file src="Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />
      <file src="docs/Urho.XML" target="lib/net45/Urho.XML" />
      <file src="Bin/Desktop/Win64/mono-urho.dll" target="native/Win64/mono-urho.dll" />
@@ -73,10 +54,9 @@
      <file src="Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
 	 
 	 <!--UWP-->
-     <!--file src="Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
+     <file src="Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
      <file src="docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
      <file src="Bin/UWP/Urho.dll" target="lib/uap10.0/Urho.dll" />
-     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" /-->
-   
+     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" />
    </files>
 </package>

@@ -11,10 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>Provides access to the fonts that are part of every CoreAssets package in Urho.</summary>
-    <remarks>
-      <para>
-      </para>
-    </remarks>
+    <remarks>Fonts can be defined as a TTF or SDF.</remarks>
   </Docs>
   <Members>
     <Member MemberName="AnonymousPro">

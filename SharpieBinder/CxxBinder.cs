@@ -477,6 +477,7 @@ namespace SharpieBinder
 		}
 
 		static readonly string[] TypesToIgnore = { "BackgroundLoader" };
+		static readonly string[] TypesWithoutUnsafeKeyword = { "Application" };
 
 		void Bind(CXXRecordDecl baseDecl, CXXRecordDecl decl)
 		{
@@ -485,11 +486,15 @@ namespace SharpieBinder
 
 			bool isStruct = IsStructure (decl);
 
+			var modifiers = Modifiers.Partial | Modifiers.Public;
+			if (!TypesWithoutUnsafeKeyword.Contains(decl.Name))
+				modifiers |= Modifiers.Unsafe;
+
 			PushType(new TypeDeclaration
 			{
 				Name = RemapTypeName (decl.Name),
 				ClassType = isStruct ? ClassType.Struct : ClassType.Class,
-				Modifiers = Modifiers.Partial | Modifiers.Public | Modifiers.Unsafe
+				Modifiers = modifiers
 			}, StringUtil.GetTypeComments(decl));
 
 			if (baseDecl != null) {
@@ -619,6 +624,7 @@ namespace SharpieBinder
 			case "const class Urho3D::Matrix3x4 &":
 			case "const class Urho3D::BoundingBox &":
 			case "const struct Urho3D::BiasParameters &":
+			case "const struct Urho3D::FocusParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 			case "const struct Urho3D::TileMapInfo2D &":
 			case "const struct Urho3D::RenderPathCommand &":
@@ -630,6 +636,7 @@ namespace SharpieBinder
 			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
 			case "class Urho3D::Serializer &":
 			case "class Urho3D::Deserializer &":
+				case "const class Urho3D::Variant &":
 					return false;
 			}
 
@@ -805,21 +812,13 @@ namespace SharpieBinder
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
-				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-				highLevel = new SimpleType ("CrowdObstacleAvoidanceParams");
-				lowLevel = new SimpleType ("CrowdObstacleAvoidanceParams");
-				wrapKind = WrapKind.RefBlittable;
-				return;
 			case "const struct Urho3D::BiasParameters &":
-				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-				highLevel = new SimpleType ("BiasParameters");
-				lowLevel = new SimpleType ("BiasParameters");
-				wrapKind = WrapKind.RefBlittable;
-				return;
+			case "const struct Urho3D::FocusParameters &":
 			case "const struct Urho3D::CascadeParameters &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
-				highLevel = new SimpleType ("CascadeParameters");
-				lowLevel = new SimpleType ("CascadeParameters");
+				var structName = cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace();
+				highLevel = new SimpleType (structName);
+				lowLevel = new SimpleType (structName);
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "class Urho3D::Serializer &":
@@ -998,17 +997,29 @@ namespace SharpieBinder
 			{ "VertexBuffer",		new[] { "OnDeviceReset" } },
 		};
 
+		static readonly Dictionary<string, string[]> DxSpecificMethodsMap = new Dictionary<string, string[]> {
+			{ "Texture",     new[] { "GetSRVFormat", "GetDSVFormat" } },
+		};
+
 		// Avoid generating methods that conflict in their signatures after we turn Urho::String into string
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			/*if (currentType.Name == "RenderPath" && decl.Name == "AddCommand")
+			/*if (currentType.Name == "Material" && decl.Name == "SetShaderParameter")
 				return false;
 			return true;*/
 
+			// skip OpenGL(ES) specific API: TODO wrap with #ifdef
 			if (OglSpecificMethodsMap.ContainsKey(currentType.Name))
 			{
 				if (OglSpecificMethodsMap[currentType.Name].Contains(decl.Name))
+					return true;
+			}
+
+			// skip DirectX specific API: TODO wrap with #ifdef
+			if (DxSpecificMethodsMap.ContainsKey(currentType.Name))
+			{
+				if (DxSpecificMethodsMap[currentType.Name].Contains(decl.Name))
 					return true;
 			}
 
@@ -1017,7 +1028,7 @@ namespace SharpieBinder
 				if (decl.Name == "GetShader")
 					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
 				if (decl.Name == "SetShaderParameter") //strange method. it has overloads for all basic types and an overload with "Variant"... (it shouldn't have Variant or should have ONLY Variant)
-					return decl.Parameters.Any (p => p.QualType.ToString ().Contains ("const class Urho3D::Variant &"));
+					return decl.Parameters.Any(p => p.QualType.ToString().Contains("Variant"));
 				break;
 			case "DebugHud":
 				if (decl.Name == "SetAppStats") //it has overloads with String and Variant (that also can handle String)
@@ -1217,6 +1228,7 @@ namespace SharpieBinder
 			var cinvoke = new StringBuilder();
 			string marshalReturn = "{0}";
 			string creturnType = CleanTypeCplusplus(decl.ReturnQualType);
+			bool creturnIsVariant = creturnType == "const class Urho3D::Variant &";
 
 			switch (creturnType) {
 			case "bool":
@@ -1438,15 +1450,17 @@ namespace SharpieBinder
 					break;
 				case WrapKind.HandleMember:
 				case WrapKind.UrhoObject:
-					var cond = new ConditionalExpression (new BinaryOperatorExpression (new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, new PrimitiveExpression (null)),
-					csParser.ParseExpression ("IntPtr.Zero"), csParser.ParseExpression (paramName + ".Handle"));
+					var cond = new ConditionalExpression (new BinaryOperatorExpression (
+							new CastExpression (new PrimitiveType ("object"), parameterReference), BinaryOperatorType.Equality, 
+							new PrimitiveExpression (null)), csParser.ParseExpression ("IntPtr.Zero"), 
+						                                  csParser.ParseExpression (StringUtil.SafeParamName(paramName) + ".Handle"));
 					invoke.Arguments.Add (cond);
 					break;
 				case WrapKind.EventHandler:
 					invoke.Arguments.Add(parameterReference);
 					break;
 				case WrapKind.StringHash:
-					invoke.Arguments.Add (csParser.ParseExpression (paramName + ".Code"));
+					invoke.Arguments.Add (csParser.ParseExpression (StringUtil.SafeParamName(paramName) + ".Code"));
 					break;
 				case WrapKind.RefBlittable:
 					invoke.Arguments.Add (new DirectionExpression (FieldDirection.Ref, parameterReference));
@@ -1458,9 +1472,6 @@ namespace SharpieBinder
 				var ctype = CleanTypeCplusplus (param.QualType);
 				string paramInvoke = paramName;
 				switch (ctype) {
-				case "bool":
-					ctype = "int";
-					break;
 				case "Urho3D::Image &":
 					ctype = "Image *";
 					paramInvoke = $"*{paramInvoke}";
@@ -1595,7 +1606,15 @@ namespace SharpieBinder
 						rstr = $"WeakPtr<{decl.Name}>({rstr})";
 				}
 
-				cmethodBuilder.AppendLine(!rstr.Contains("\treturn ") ? $"return {rstr};" : rstr);
+				if (!rstr.Contains("\treturn "))
+				{
+					if (creturnIsVariant)
+						cmethodBuilder.AppendLine($"return %ConvertReturn%({rstr}.%VariantToTypeMethod%);");
+					else
+						cmethodBuilder.AppendLine($"return {rstr};");
+				}
+				else
+					cmethodBuilder.AppendLine(rstr);
 			}
 			cmethodBuilder.AppendLine("}\n");
 
@@ -1622,22 +1641,33 @@ namespace SharpieBinder
 						{"float", "float"},
 						{"const char *", "string"},
 					};
-				var primitiveTypes = new[] { "int", "float", "string" };
 
 				pn("// Urho3D::Variant overloads begin:");
-				int index = 0;
+				int index = -1;
 				foreach (var item in variantSupportedTypes)
 				{
+					index++;
+					string cVarReplacedType = item.Key;
+					if (cVarReplacedType.Contains("const class") && creturnIsVariant)
+						cVarReplacedType = "Interop::" + item.Key.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace();
+
+					bool isString = item.Key == "const char *";
+					bool isPrimitive = !item.Key.Contains("class");
+					    
 					//C:
 					p(code
-						.Replace(variantArgDef, item.Key)
+					  .Replace(variantArgDef, cVarReplacedType)
 						.Replace(methodNameSuffix, index.ToString())
-						.Replace(variantConverterMask, item.Key == "const char *" ? "Urho3D::String" : string.Empty));
+					    .Replace("%ConvertReturn%", !isPrimitive ? $"*(({cVarReplacedType} *) &" : (isString ? "stringdup" : ""))
+					  	.Replace("%VariantToTypeMethod%", "Get" + item.Value.Capitalize(false) + "()" + (isString ? ".CString()" : "") + (isPrimitive ? "" : ")"))
+						.Replace(variantConverterMask, isString ? "Urho3D::String" : string.Empty));
 					//methodNameSuffix to avoid error:
-					//  error C2733: second C linkage of overloaded function 'function name' not allowed.
+					//error C2733: second C linkage of overloaded function 'function name' not allowed.
+
+					if (creturnIsVariant)
+						continue;
 
 					//C#:
-					var isPrimitive = primitiveTypes.Contains(item.Value);
 
 					AstType argumentType;
 					var argumentModifier = ICSharpCode.NRefactory.CSharp.ParameterModifier.None;
@@ -1685,8 +1715,6 @@ namespace SharpieBinder
 
 					currentType.Members.Add(clonedMethod);
 					InsertSummaryComments(clonedMethod, StringUtil.GetMethodComments(decl));
-
-					index++;
 				}
 				pn("// Urho3D::Variant overloads end.");
 			}

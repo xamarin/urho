@@ -16,11 +16,9 @@
             </summary>
     <remarks>
       <para>This contains the list of options that can be configured at application startup, these settings control how the engine is initialized.</para>
-      <para>
-      </para>
+      <para></para>
       <para>The options set with this selector are passed to the Urho game engine on startup.</para>
-      <para>
-      </para>
+      <para></para>
       <para>You can use the convenience <see cref="T:Urho.ApplicationOptions.Default" /> or <see cref="T:Urho.ApplicationOptions.PortraitDefault" /> static values as options to use as either defaults for landscape or portrait.</para>
     </remarks>
   </Docs>
@@ -36,9 +34,9 @@
         <Parameter Name="assetsFolder" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="assetsFolder">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="assetsFolder">This is usually the “Data” directory, but can be null if your application only requires the built-in assets.</param>
+        <summary>Initializes the application options with a directory pointing to the assets folders (Usually the “Data” directory)</summary>
+        <remarks>Constructs a new instance of <see cref="T:Urho.ApplicationOptions" /></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -52,9 +50,11 @@
         <Parameter Name="assetsFolders" Type="System.String[]" />
       </Parameters>
       <Docs>
-        <param name="assetsFolders">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="assetsFolders">An array of directory names.   Each directory contains assets that your application can reference at runtime.</param>
+        <summary>Initializes the application options with a set of asset directories.</summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AdditionalFlags">
@@ -73,6 +73,50 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AutoloadCoreData">
+      <MemberSignature Language="C#" Value="public bool AutoloadCoreData { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AutoloadCoreData" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Determines whether the “CoreData” is always part of the resources looked up by Urho.</summary>
+        <value>The default value for this property is <see langword="true" />.</value>
+        <remarks>By default, the <see cref="T:Urho.ApplicationOptions" /> will set Urho’s internal resource paths to the “CoreData”, plus any directories specified in <see cref="P:Urho.ApplicationOptions.ResourcePaths." />   If you set this flag to <see langword="false" />, then “CoreData” directory will not be included.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DelayedStart">
+      <MemberSignature Language="C#" Value="public bool DelayedStart { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DelayedStart" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>With this option Urho will not start the render loop when Run is called.</summary>
+        <value>The state of the delayed start</value>
+        <remarks>
+          <para>Use this option if you want to prevent the main loop from running immediately.   In that case, you will want to manually run the loop by calling the <see cref="M:Urho.Engine.RunFrame" /> method on a loop at your convenience.</para>
+          <para></para>
+          <para></para>
+          <example>
+            <code lang="C#"><![CDATA[var app = new MyApp (new ApplicationOptions () { DelayedStart = true });
+while (true){
+   app.Engine.RunFrame ();
+   // Sleep here.
+}
+]]></code>
+          </example>
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ExternalWindow">
       <MemberSignature Language="C#" Value="public IntPtr ExternalWindow { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance native int ExternalWindow" />
@@ -84,9 +128,13 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Pointer to an NSView or a Win32 handle to use as a surface.</summary>
+        <value>The current handle to the native window</value>
+        <remarks>
+          <para>This is a platform specific pointer to a native handle.   On Windows, this is a handle to a window (HWND), and on Cocoa it is a pointer to an NSView (if you are using the Xamarin.Mac API, this will be the Handle of the <see cref="T:AppKit.NSView" />). </para>
+          <para></para>
+          <para>This instructs UrhoSharp to use that window or view as its rendering target.   This is used in scenarios where you want to embed the engine into another application.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Height">
@@ -102,6 +150,22 @@
       <Docs>
         <summary>
             Desktop only option.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HighDpi">
+      <MemberSignature Language="C#" Value="public bool HighDpi { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HighDpi" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Enable HighDPI mode (iOS or macOS only). Default value is True.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -187,7 +251,31 @@
           <para>Resource path(s) to use (default: Data, CoreData)</para>
         </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="P:Urho.ApplicationOptions.AutoloadCoreData" /> property controls whether the CoreData directory is included or not.</para>
+          <para />
+          <para>The paths must be directories, or “.pak” files relative to one of the directories listed in <see cref="P:Urho.ApplicationOptions.ResourcePrefixPaths" />.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResourcePrefixPaths">
+      <MemberSignature Language="C#" Value="public string[] ResourcePrefixPaths { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string[] ResourcePrefixPaths" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Resource prefix path, it defaults to the value of the URHO3D_PREFIX_PATH environment variable, or if not set, the executable path.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Resource paths are relative to the ResourcePrefixPaths.</para>
+          <para />
+          <para>If using the URHO3D_PREFIX_PATH environment variable, the directories must be separated with a semicolon.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ToString">
@@ -219,8 +307,10 @@
       </ReturnValue>
       <Docs>
         <summary>Enable touch-emulation on desktop environments.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <value>Defaults to <see langword="false" />.</value>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Width">

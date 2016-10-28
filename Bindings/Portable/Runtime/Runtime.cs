@@ -18,7 +18,6 @@ namespace Urho
 {
 	internal class Runtime
 	{
-		static readonly RefCountedCache RefCountedCache = new RefCountedCache();
 		static Dictionary<Type, int> hashDict;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -30,6 +29,7 @@ namespace Urho
 		// ReSharper disable once NotAccessedField.Local
 		static NativeCallback nativeCallback; //keep references to native callbacks (protect from GC)
 
+		internal static RefCountedCache RefCountedCache { get; private set; } = new RefCountedCache();
 		internal static bool IsClosing { get; private set; }
 
 		internal static void Start()
@@ -64,7 +64,7 @@ namespace Urho
 						var component = LookupObject<Component>(target, false);
 						if (component != null && component.TypeName != component.GetType().Name)
 						{
-							var xmlElement = new XmlElement(param2);
+							var xmlElement = new XmlElement(param1);
 							xmlElement.SetString(typeNameKey, component.GetType().AssemblyQualifiedName);
 							component.OnSerialize(new XmlComponentSerializer(xmlElement));
 						}
@@ -72,7 +72,7 @@ namespace Urho
 					break;
 				case CallbackType.Component_LoadXml:
 					{
-						var xmlElement = new XmlElement(param2);
+						var xmlElement = new XmlElement(param1);
 						var name = xmlElement.GetAttribute(typeNameKey);
 						if (!string.IsNullOrEmpty(name))
 						{
@@ -96,7 +96,7 @@ namespace Urho
 				case CallbackType.Component_AttachedToNode:
 					{
 						var component = LookupObject<Component>(target, false);
-						component?.OnAttachedToNode(component.Node);
+						component?.AttachedToNode(component.Node);
 					}
 					break;
 				case CallbackType.Component_OnNodeSetEnabled:
@@ -131,9 +131,6 @@ namespace Urho
 							reference.HandleNativeDelete();
 					}
 					break;
-
-				default:
-					throw new NotImplementedException();
 			}
 		}
 
@@ -275,9 +272,6 @@ namespace Urho
 			GC.WaitForPendingFinalizers();
 			GC.Collect();
 		}
-
-		// for Debug purposes
-		static internal int KnownObjectsCount => RefCountedCache.Count;
 
 		static Dictionary<string, Type> typesByNativeNames;
 		// special cases: (TODO: share this code with SharpieBinder somehow)

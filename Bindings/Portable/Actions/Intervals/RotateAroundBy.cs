@@ -8,6 +8,12 @@ namespace Urho.Actions
 {
 	public class RotateAroundBy : FiniteTimeAction
 	{
+		public Vector3 Point { get; set; }
+		public float DeltaX { get; set; }
+		public float DeltaY { get; set; }
+		public float DeltaZ { get; set; }
+		public TransformSpace TransformSpace { get; set; }
+
 		#region Constructors
 
 		public RotateAroundBy(float duration, Vector3 point, float deltaX, float deltaY, float deltaZ, TransformSpace ts = TransformSpace.World) : base(duration)
@@ -20,12 +26,6 @@ namespace Urho.Actions
 		}
 
 		#endregion Constructors
-
-		public Vector3 Point { get; }
-		public float DeltaX { get; }
-		public float DeltaY { get; }
-		public float DeltaZ { get; }
-		public TransformSpace TransformSpace { get; }
 
 		protected internal override ActionState StartAction(Node target)
 		{

@@ -10,9 +10,8 @@ else
     MONO64=mono64
     XBUILD=xbuild
   else
-    MONO64_PREFIX=$(shell brew --prefix mono)
-    MONO64=$(MONO64_PREFIX)/bin/mono
-    XBUILD=$(MONO64_PREFIX)/bin/xbuild
+    MONO64=mono64
+    XBUILD=xbuild
   endif
   NUGET=$(MONO64) ../Nuget/.nuget/Nuget.exe
 endif
@@ -47,10 +46,16 @@ Windows32:
 Windows64:
 	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" RENDERER=OPENGL
 
+Windows32_D3D11:
+	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14" RENDERER=D3D11
+Windows64_D3D11:
+	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" RENDERER=D3D11
+	
 UWP32:
 	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
-UWP64:
-	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14 Win64"
+	
+HoloLens:
+	make -j1 libUrho3D.a -f MakeHoloLens TARGET="Visual Studio 14"
 
 Windows: Windows32 Windows64
 

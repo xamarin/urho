@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Urho
 {
-	public class Subscription {
+	public class Subscription : IDisposable {
 		internal GCHandle gch;
 		internal IntPtr   UnmanagedProxy;
 
@@ -15,6 +15,11 @@ namespace Urho
 
 		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		extern static void urho_unsubscribe (IntPtr notificationProxy);
+		
+		public void Dispose()
+		{
+			Unsubscribe ();
+		}
 		
 		public void Unsubscribe ()
 		{

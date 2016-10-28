@@ -45,6 +45,212 @@
       </list>
       <para>A render path can be loaded from a main XML file by calling <see cref="M:Urho.RenderPath.Load" />, after which other XML files (for example one for each post-processing effect) can be appended to it by calling <see cref="M:Urho.RenderPath.Append" />. Rendertargets and commands can be enabled or disabled by calling <see cref="M:Urho.RenderPath.SetEnabled" /> to switch eg. a post-processing effect on or off. To aid in this, both can be identified by tag names, for example the bloom effect uses the tag "Bloom" for all of its rendertargets and commands.</para>
       <para>It is legal to both write to the destination viewport and sample from it during the same command: pingpong copies of its contents will be made automatically. If the viewport has hardware multisampling on, the multisampled backbuffer will be resolved to a texture before sampling it.</para>
+      <para>
+	The render path XML definition looks like this:
+      </para>
+      <code lang="XML"><![CDATA[<renderpath>
+    <rendertarget name="RTName" tag="TagName" enabled="true|false" cubemap="true|false" size="x y"|sizedivisor="x y"|sizemultiplier="x y"
+        format="rgb|rgba|r32f|rgba16|rgba16f|rgba32f|rg16|rg16f|rg32f|lineardepth|readabledepth" filter="true|false" srgb="true|false" persistent="true|false" />
+    <command type="clear" tag="TagName" enabled="true|false" clearcolor="r g b a|fog" cleardepth="x" clearstencil="y" output="viewport|RTName" face="0|1|2|3|4|5" depthstencil="DSName" />
+    <command type="scenepass" pass="PassName" sort="fronttoback|backtofront" marktostencil="true|false" vertexlights="true|false" metadata="base|alpha|gbuffer" depthstencil="DSName">
+        <output index="0" name="RTName1" face="0|1|2|3|4|5" />
+        <output index="1" name="RTName2" />
+        <output index="2" name="RTName3" />
+        <texture unit="unit" name="viewport|RTName|TextureName" />
+    </command>
+    <command type="quad" vs="VertexShaderName" ps="PixelShaderName" vsdefines="DEFINE1 DEFINE2" psdefines="DEFINE3 DEFINE4" output="viewport|RTName" depthstencil="DSName" />
+        <texture unit="unit" name="viewport|RTName|TextureName" />
+        <parameter name="ParameterName" value="x y z w" />
+    </command>
+    <command type="forwardlights" pass="PassName" uselitbase="true|false" output="viewport|RTName" depthstencil="DSName" />
+    <command type="lightvolumes"  vs="VertexShaderName" ps="PixelShaderName" output="viewport|RTName" depthstencil="DSName" />
+        <texture unit="unit" name="viewport|RTName|TextureName" />
+    </command>
+    <command type="renderui" output="viewport|RTName" depthstencil="DSName" />
+</renderpath>
+]]></code>
+      <para>
+	  For examples of renderpath definitions, see the default
+	  forward, deferred and light pre-pass renderpaths in the
+	  bin/CoreData/RenderPaths directory, and the postprocess
+	  renderpath definitions in the bin/Data/PostProcess
+	  directory.
+	</para>
+      <format type="text/html">
+        <h2>Depth-stencil handling and reading scene depth</h2>
+      </format>
+      <para>
+
+	  Normally needed depth-stencil surfaces are automatically
+	  allocated when the render path is executed.
+	</para>
+      <para>
+
+	  The special "lineardepth" (synonym "depth") format is
+	  intended for storing scene depth in deferred rendering. It
+	  is not an actual hardware depth-stencil texture, but a
+	  32-bit single channel (R) float rendertarget. (On OpenGL2
+	  it's RGBA instead, due to the limitation of all color
+	  buffers having to be the same format. The shader include
+	  file Samplers.glsl in bin/CoreData/Shaders/GLSL provides
+	  functions to encode and decode linear depth to RGB.)
+	</para>
+      <para>
+
+	  Writing depth manually to a rendertarget, while using a
+	  non-readable depth-stencil surface ensures best
+	  compatibility and prevents any conflicts from using both
+	  depth test and manual depth sampling at the same time.
+	</para>
+      <para>
+
+	  There is also a possibility to define a readable hardware
+	  depth texture, and instruct the render path to use it
+	  instead. Availability for this must first be checked with
+	  the function GetReadableDepthSupport(). On Direct3D9 this
+	  will use the INTZ "hack" format. To define a readable
+	  depth-stencil texture, use the format "readabledepth"
+	  (synonym "hwdepth") and set it as the depth-stencil by using
+	  the "depthstencil" attribute in render path commands. Note
+	  that you must set it in every command where you want to use
+	  it, otherwise an automatically allocated depth-stencil will
+	  be used. Note also that the existence of a stencil channel
+	  is not guaranteed, so stencil masking optimizations for
+	  lights normally used by the Renderer and View classes will be
+	  disabled.
+	</para>
+      <para>
+
+	  In the special case of a depth-only rendering pass you can
+	  set the readable depth texture directly as the "output" and
+	  don't need to specify the "depthstencil" attribute at all.
+	</para>
+      <para>
+
+	  After the readable depth texture has been filled, it can be
+	  bound to a texture unit in any subsequent commands. Pixel
+	  shaders should use the ReconstructDepth() helper function to
+	  reconstruct a linear depth value between 0-1 from the
+	  nonlinear hardware depth value. When the readable depth
+	  texture is bound for sampling, depth write is automatically
+	  disabled, as both modifying and sampling the depth would be
+	  undefined.
+	</para>
+      <para>
+
+	  An example render path for readable hardware depth exists in
+	  bin/CoreData/RenderPaths/ForwardHWDepth.xml:
+	</para>
+      <code lang="XML"><![CDATA[
+	<renderpath>
+    <rendertarget name="depth" sizedivisor="1 1" format="readabledepth" />
+    <command type="clear" depth="1.0" output="depth" />
+    <command type="scenepass" pass="shadow" output="depth" />
+    <command type="clear" color="fog" depthstencil="depth" />
+    <command type="scenepass" pass="base" vertexlights="true" metadata="base" depthstencil="depth" />
+    <command type="forwardlights" pass="light" depthstencil="depth" />
+    <command type="scenepass" pass="postopaque" depthstencil="depth" />
+    <command type="scenepass" pass="refract" depthstencil="depth">
+        <texture unit="environment" name="viewport" />
+    </command>
+    <command type="scenepass" pass="alpha" vertexlights="true" sort="backtofront" metadata="alpha" depthstencil="depth"  />
+    <command type="scenepass" pass="postalpha" sort="backtofront" depthstencil="depth" />
+</renderpath>
+]]></code>
+      <para>
+
+	The render path starts by allocating a readable depth-stencil
+	texture the same size as the destination viewport, clearing
+	its depth, then rendering a depth-only pass to it. Next the
+	destination color rendertarget is cleared normally, while the
+	readable depth texture is used as the depth-stencil for that
+	and all subsequent commands. Any command after the depth
+	render pass could now bind the depth texture to an unit for
+	sampling, for example for smooth particle or SSAO effects.
+
+      </para>
+      <para>
+
+	The ForwardDepth.xml render path does the same, but using a
+	linear depth rendertarget instead of a hardware depth
+	texture. The advantage is better compatibility (guaranteed to
+	work without checking <see cref="P:Urho.Graphics.ReadableDepthSupport" />) but it has
+	worse performance as it will fill the hardware depth-stencil
+	twice.
+      </para>
+      <format type="text/html">
+        <h2>Special Considerations for Forward Lighting</h2>
+      </format>
+      <para>
+
+	  Otherwise fully customized scene render passes can be
+	  specified, but there are a few things to remember related to
+	  forward lighting:
+	</para>
+      <para>
+
+	  The opaque base pass must be tagged with metadata
+	"base". When forward lighting logic does the lit base pass
+	optimization, it will search for a pass with the word "lit"
+	prepended, ie. if your custom opaque base pass is called
+	"custombase", the corresponding lit base pass would be
+	"litcustombase".
+      </para>
+      <para>
+
+	The transparent base pass must be tagged with metadata
+	"alpha". For lit transparent objects, the forward lighting
+	logic will look for a pass with the word "lit" prepended,
+	ie. if the custom alpha base pass is called "customalpha", the
+	corresponding lit pass is "litcustomalpha". The lit drawcalls
+	will be interleaved with the transparent base pass, and the
+	scenepass command should have back-to-front sorting enabled.
+      </para>
+      <para>
+
+	If forward and deferred lighting are mixed, the G-buffer
+	writing pass must be tagged with metadata "gbuffer" to prevent
+	geometry being double-lit also with forward lights.
+      </para>
+      <para>
+
+	Remember to mark the lighting mode (per-vertex / per-pixel)
+	into the techniques which define custom passes, as the lighting
+	mode can be guessed automatically only for the known default
+	passes.
+      </para>
+      <para>
+	The forwardlights command can optionally disable the
+	lit base pass optimization without having to touch the material
+	tech iques, if a separate opaque ambient-only base pass is needed. B  default the optimization is enabled.
+      </para>
+      <format type="text/html">
+        <h2>Special Considerations for Post-Processing Effects </h2>
+      </format>
+      <para>
+
+	Post-processing effects are usually implemented by using the
+	quad command. When using intermediate rendertargets that are
+	of different size than the viewport rendertarget, it is
+	necessary in shaders to reference their (inverse) size and the
+	half-pixel offset for Direct3D9. These shader uniforms are
+	automatically generated for named rendertargets. For an
+	example look at the bloom postprocess shaders: the
+	rendertarget called HBlur will define the shader uniforms
+	cHBlurInvSize and cHBlurOffsets (both Vector2.)
+      </para>
+      <para>
+
+	In OpenGL post-processing shaders it is important to
+	distinguish between sampling a rendertarget texture and a
+	regular texture resource, because intermediate rendertargets
+	(such as the G-buffer) may be vertically inverted. Use the
+	GetScreenPos() or GetQuadTexCoord() functions to get
+	rendertarget UV coordinates from the clip coordinates; this
+	takes flipping into account automatically. For sampling a
+	regular texture, use GetQuadTexCoordNoFlip() function, which
+	requires world coordinates instead of clip coordinates.
+      </para>
     </remarks>
   </Docs>
   <Members>

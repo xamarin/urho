@@ -151,6 +151,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ColorFromTemperature">
+      <MemberSignature Language="C#" Value="public Urho.Color ColorFromTemperature { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color ColorFromTemperature" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DrawDebugGeometry">
       <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer debug, bool depthTest);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer debug, bool depthTest) cil managed" />
@@ -308,6 +324,28 @@
             </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetViewSpaceFrustum">
+      <MemberSignature Language="C#" Value="public Urho.Frustum GetViewSpaceFrustum (Urho.Matrix3x4 view);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Frustum GetViewSpaceFrustum(valuetype Urho.Matrix3x4 view) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Frustum</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="view" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="view">View space.</param>
+        <summary>Return spotlight frustum in the specified view space.</summary>
+        <returns>Return spotlight frustum in the specified view space.</returns>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetVolumeTransform">
@@ -605,6 +643,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ShadowFocus">
+      <MemberSignature Language="C#" Value="public Urho.FocusParameters ShadowFocus { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FocusParameters ShadowFocus" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FocusParameters</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controsl the shadow map focusing parameters</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ShadowIntensity">
       <MemberSignature Language="C#" Value="public float ShadowIntensity { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 ShadowIntensity" />
@@ -621,6 +675,22 @@
             Or
             Set shadow intensity between 0.0 - 1.0. 0.0 (the default) gives fully dark shadows.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShadowMaxExtrusion">
+      <MemberSignature Language="C#" Value="public float ShadowMaxExtrusion { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ShadowMaxExtrusion" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -723,6 +793,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Temperature">
+      <MemberSignature Language="C#" Value="public float Temperature { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Temperature" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Type">
       <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
@@ -788,6 +874,22 @@
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
         <remarks>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UsePhysicalValues">
+      <MemberSignature Language="C#" Value="public bool UsePhysicalValues { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool UsePhysicalValues" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

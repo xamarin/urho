@@ -11,7 +11,33 @@
   <Interfaces />
   <Docs>
     <summary>Provides access to the techniques that are part of every CoreAssets package in Urho.</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Usually, <see cref="T:Urho.Technique" /> name consists of a combination of features it uses:</para>
+      <para>Basic - uses Basic shader, good for debug purposes</para>
+      <para>Diff - displays a texture. It defines DIFFMAP and expects the texture in 'diffuse' texture unit (sDiffMap sampler).</para>
+      <para>Normal - expects a normal map in 'normal' texture unit (sNormalMap sampler)</para>
+      <para>Spec - expects a specular map in 'specular' texture unit.</para>
+      <para>NoTexture - used by materials without textures.</para>
+      <para>EnvCube - expects an environment map (cubic texture) in 'environment' texture unit.</para>
+      <para>Unlit - materials with this technique won't be affected by any lights (self-illuminated).</para>
+      <para>Emissive - similiar to Unlit, but it expects an emissive map in 'emissive' texture unit and will be affected by scene lights</para>
+      <para>LightMap - expects a light map in 'emissive' texture unit.</para>
+      <para>AO - expects an Ambient Occlusion map in 'emissive' texture unit.</para>
+      <para>Translucent - materials with this technique will be affected by lights located behind the materials.</para>
+      <para>VColor - will take Vertex Color (for example, defined via DefineColor) into account.</para>
+      <para>Additive blending simply sums the values in the two layers. Blending with white gives white. Blending with black does not change the image. </para>
+      <para>Multiply blend mode multiplies the numbers for each pixel of the top layer with the corresponding pixel for the bottom layer. The result is a darker picture.</para>
+      <para>
+      </para>
+      <para>You can access built-in techniques via CoreAssets.Techniques:</para>
+      <code lang="C#"><![CDATA[Technique diff = CoreAssets.Techniques.Diff;]]></code>
+      <para>It allows to create different materials in code, for example the following snippet creates a material from a texture and a normal map using <see cref="P:Urho.CoreAssets+Techniques.DiffNormal" />:</para>
+      <code lang="C#"><![CDATA[var material = new Material(); material.SetTechnique(index: 0, tech: CoreAssets.Techniques.DiffNormal, qualityLevel: 1, lodDistance: 1); material.SetTexture(TextureUnit.Diffuse, ResourceCache.GetTexture2D("Earth.jpg")); material.SetTexture(TextureUnit.Normal, ResourceCache.GetTexture2D("Earth_normal.jpg"));]]></code>
+      <para>Some of the basic techniques are explained in the following image</para>
+      <para>
+        <img href="C:\Projects\urho\Docs\Urho\_images\techniques.png" />
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="BasicVColUnlitAlpha">
@@ -25,7 +51,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color, no lights, alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -41,9 +67,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Basic diffuse technique, defines DIFFMAP and expects a texture in 'diffuse' texture unit..</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_Diff.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAdd">
@@ -57,9 +87,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Same as Diffuse but with alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffAdd.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAddAlpha">
@@ -73,9 +107,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with alpha and additive blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffAdd.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAlpha">
@@ -89,41 +127,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffAlphaMaskTranslucent">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAlphaMaskTranslucent { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAlphaMaskTranslucent" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_Diff.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAlphaTranslucent">
@@ -137,9 +147,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with alpha blending. Can be translucent.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_Diff.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffAO">
@@ -153,7 +167,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with ambient occlusion. AO should be passed to 'emissive' texture unit.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -169,23 +183,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffAOAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffAOAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffAOAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with ambient occlusion and Alpha blending. AO should be passed to 'emissive' texture unit.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -201,9 +199,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and emissive maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffEmissive.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffEmissiveAlpha">
@@ -217,9 +219,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and emissive maps with Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffEmissive.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffEnvCube">
@@ -233,9 +239,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and environment maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffEnvCube.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffEnvCubeAlpha">
@@ -249,9 +259,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and environment maps with Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffEnvCube.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffEnvCubeAO">
@@ -265,7 +279,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and environment maps with Ambient Occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -281,7 +295,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and environment maps with Alpha blending and Ambient Occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -297,7 +311,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and light maps.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -313,7 +327,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and light maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -345,9 +359,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map with blend mode 'multiply'</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffMultiply.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormal">
@@ -361,9 +379,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffNormal.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormalAlpha">
@@ -377,41 +399,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps with Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalAlphaMaskTranslucent">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAlphaMaskTranslucent { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAlphaMaskTranslucent" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffNormal.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormalAlphaTranslucent">
@@ -425,7 +419,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps with Alpha blending. Can be translucent.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -441,7 +435,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps with Ambient occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -457,23 +451,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalAOAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalAOAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalAOAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and normal maps with Ambient occlusion and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -489,7 +467,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and emissive maps.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -505,7 +483,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and emissive maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -521,7 +499,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and environment maps.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -537,327 +515,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPacked">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPacked { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPacked" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedAlpha">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAlpha { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAlpha" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedAlphaMaskTranslucent">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAlphaMaskTranslucent { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAlphaMaskTranslucent" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedAlphaTranslucent">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAlphaTranslucent { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAlphaTranslucent" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedAO">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAO { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAO" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedAOAlpha">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAOAlpha { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAOAlpha" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedAOAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedAOAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedAOAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedEmissive">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedEmissive { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedEmissive" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedEmissiveAlpha">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedEmissiveAlpha { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedEmissiveAlpha" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedEnvCube">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedEnvCube { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedEnvCube" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedEnvCubeAlpha">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedEnvCubeAlpha { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedEnvCubeAlpha" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedSpec">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpec { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpec" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedSpecAlpha">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAlpha { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAlpha" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedSpecAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedSpecAO">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAO { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAO" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedSpecAOAlpha">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAOAlpha { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAOAlpha" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedSpecAOAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecAOAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecAOAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedSpecEmissive">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecEmissive { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecEmissive" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalPackedSpecEmissiveAlpha">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalPackedSpecEmissiveAlpha { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalPackedSpecEmissiveAlpha" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and environment maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -873,9 +531,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and specular maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffNormalSpec.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormalSpecAlpha">
@@ -889,25 +551,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and specular maps with alpha.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalSpecAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffNormalSpec.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffNormalSpecAO">
@@ -921,7 +571,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and specular maps with Ambient occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -937,23 +587,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffNormalSpecAOAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffNormalSpecAOAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffNormalSpecAOAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal and specular maps with Ambient occlusion and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -969,7 +603,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal, specular and emissive maps.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -985,7 +619,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse, normal, specular and emissive maps with Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1001,14 +635,34 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map..</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffSkybox">
       <MemberSignature Language="C#" Value="public static Urho.Technique DiffSkybox { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSkybox" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Diffuse map for Skybox.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffSkyboxHDRScale">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSkyboxHDRScale { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSkyboxHDRScale" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1033,7 +687,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map for Skydome.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1049,7 +703,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map for Skyplane.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1065,9 +719,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and specular maps.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffSpec.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffSpecAlpha">
@@ -1081,25 +739,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse and specular maps with Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffSpecAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffSpecAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffSpecAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffSpec.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffUnlit">
@@ -1113,9 +759,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, not affected by any lighting (unlit).</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffUnlitAlpha">
@@ -1129,25 +779,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, not affected by any lighting (unlit) with Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DiffUnlitAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlitAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlitAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_DiffUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffVCol">
@@ -1161,7 +799,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1177,7 +815,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1193,7 +831,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors and Alpha and Additive blendings.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1209,7 +847,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors and Alpha and 'multiply' blendings.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1225,7 +863,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Diffuse map, uses Vertex Colors, Alpha blending and is not affected by any lights.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1241,9 +879,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTexture.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureAdd">
@@ -1257,7 +899,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Additive blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1273,7 +915,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Additive and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1289,9 +931,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTexture.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureAO">
@@ -1305,7 +951,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Ambient Occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1321,7 +967,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Ambient Occlusion and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1337,9 +983,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Environment map.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureEnvCube.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureEnvCubeAlpha">
@@ -1353,9 +1003,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Environment map and Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureEnvCube.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureEnvCubeAO">
@@ -1369,7 +1023,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Environment map and Ambient Occlusion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1385,7 +1039,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Environment map, Ambient Occlusion and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1401,7 +1055,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with blend mode 'multiply'.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1417,9 +1071,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Normal map.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureNormal.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureNormalAlpha">
@@ -1433,41 +1091,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with Normal map and Alpha blending.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="NoTextureNormalPacked">
-      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureNormalPacked { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureNormalPacked" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="NoTextureNormalPackedAlpha">
-      <MemberSignature Language="C#" Value="public static Urho.Technique NoTextureNormalPackedAlpha { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique NoTextureNormalPackedAlpha" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureNormal.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureOverlay">
@@ -1481,9 +1111,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color (overlay).</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureUnlit">
@@ -1497,9 +1131,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color, not affected by any lighting.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureUnlitAlpha">
@@ -1513,9 +1151,13 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Solid color with alpha, not affected by any lighting</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <img href="t_NoTextureUnlit.png" />
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NoTextureUnlitVCol">
@@ -1529,7 +1171,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color not affected by any lights.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1545,7 +1187,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1561,7 +1203,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color with Additive blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1577,7 +1219,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color with Additive and Alpha blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1593,7 +1235,7 @@
         <ReturnType>Urho.Technique</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Vertex color with 'multiply' blending.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1630,41 +1272,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="VegetationDiffAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique VegetationDiffAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique VegetationDiffAlphaMask" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="VegetationDiffUnlit">
       <MemberSignature Language="C#" Value="public static Urho.Technique VegetationDiffUnlit { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Technique VegetationDiffUnlit" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Technique</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="VegetationDiffUnlitAlphaMask">
-      <MemberSignature Language="C#" Value="public static Urho.Technique VegetationDiffUnlitAlphaMask { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique VegetationDiffUnlitAlphaMask" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

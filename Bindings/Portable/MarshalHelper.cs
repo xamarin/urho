@@ -5,15 +5,9 @@ namespace Urho
 {
 	public static class MarshalHelper
 	{
-		public static unsafe float ReadSingle(this IntPtr ptr, int offset)
+		public static unsafe float ReadSingle(this IntPtr ptr, int offset = 0)
 		{
-			if (sizeof (IntPtr) == sizeof (int))
-			{
-				var value32 = Marshal.ReadInt32(ptr, offset);
-				return *(float*)&value32;
-			}
-			var value64 = Marshal.ReadInt64(ptr, offset);
-			return (float)*(double*) &value64;
+			return *(float*)((byte*)ptr + offset);
 		}
 
 		public static float[] ToFloatsArray(this IntPtr ptr, int size)

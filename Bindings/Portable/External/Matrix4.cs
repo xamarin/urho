@@ -130,6 +130,40 @@ namespace Urho
 			}
 		}
 
+		public Matrix3 Matrix3 => new Matrix3(M11, M12, M13, M21, M22, M23, M31, M32, M33);
+
+		public Matrix3 RotationMatrix
+		{
+			get
+			{
+				Vector3 invScale = new Vector3(
+					1.0f / (float)Math.Sqrt(M11*M11 + M21*M21 + M31*M31),
+					1.0f / (float)Math.Sqrt(M12*M12 + M22*M22 + M32*M32),
+					1.0f / (float)Math.Sqrt(M13*M13 + M23*M23 + M33*M33));
+
+				var m3 = Matrix3;
+				return new Matrix3(
+					m3.R0C0*invScale.X,
+					m3.R0C1*invScale.Y,
+					m3.R0C2*invScale.Z,
+					m3.R1C0*invScale.X,
+					m3.R1C1*invScale.Y,
+					m3.R1C2*invScale.Z,
+					m3.R2C0*invScale.X,
+					m3.R2C1*invScale.Y,
+					m3.R2C2*invScale.Z);
+			}
+		}
+
+		public Quaternion Rotation
+		{
+			get
+			{
+				var matrix = RotationMatrix;
+				return new Quaternion(ref matrix);
+			}
+		}
+
 		/// <summary>
 		/// The first column of this matrix
 		/// </summary>

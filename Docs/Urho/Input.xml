@@ -256,6 +256,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CenterMousePosition">
+      <MemberSignature Language="C#" Value="public void CenterMousePosition ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CenterMousePosition() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DropFile">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.DropFileEventArgs&gt; DropFile;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.DropFileEventArgs&gt; DropFile" />
@@ -271,6 +287,22 @@
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDropFile" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Enabled">
+      <MemberSignature Language="C#" Value="public bool Enabled { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Enabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls whether input is enabled or disabled.</summary>
+        <value>The current input enabled status, defaults to <see langword="true" />.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ExitRequested">
@@ -1529,6 +1561,25 @@
       <Docs>
         <param name="mode">To be added.</param>
         <param name="suppressEvent">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMousePosition">
+      <MemberSignature Language="C#" Value="public void SetMousePosition (Urho.IntVector2 position);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMousePosition(valuetype Urho.IntVector2 position) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="position" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="position">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>

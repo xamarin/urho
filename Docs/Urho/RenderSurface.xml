@@ -10,18 +10,14 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>
-            %Color or depth-stencil surface that can be rendered into.
-            </summary>
+    <summary>Color or depth-stencil surface that can be rendered into. </summary>
     <remarks>
       <format type="text/html">
         <h2>Auxiliary Views</h2>
       </format>
-      <para>
-      </para>
+      <para></para>
       <para>Auxiliary views are viewports assigned to a <see cref="T:Urho.RenderSurface" /> by calling its <see cref="T:Urho.RenderSurfacc.SetViewport" /> method. By default these will be rendered on each frame that the texture containing the surface is visible, and can be typically used to implement for example camera displays or reflections. The texture in question must have been created in rendertarget mode, see <see cref="T:Urho.Texture.SetSize" /> method.</para>
-      <para>
-      </para>
+      <para></para>
       <para>The viewport is not assigned directly to the texture because of cube map support: a renderable cube map has 6 render surfaces, and done this way, a different camera could be assigned to each.</para>
       <para>A "backup texture" can be assigned to the rendertarget texture: because it is illegal to sample a texture that is also being simultaneously rendered to (in cases where the texture becomes "recursively" visible in the auxiliary view), the backup texture can be used to specify which texture should be used in place instead.</para>
       <para>Rendering detailed auxiliary views can easily have a large performance impact. Some things you can do for optimization with the auxiliary view camera:</para>
@@ -33,7 +29,7 @@
           <term>Use viewmasks on the camera and the scene objects to only render some of the objects in the auxiliary view.</term>
         </item>
         <item>
-          <term>Use the camera’s <see cref="T:Urho.Camera.ViewOverrideFlags" /> property to disable shadows, to disable occlusion, or force the lowest material quality.</term>
+          <term>Use the cameraвЂ™s <see cref="T:Urho.Camera.ViewOverrideFlags" /> property to disable shadows, to disable occlusion, or force the lowest material quality.</term>
         </item>
       </list>
       <para>The surface can also be configured to always update its viewports, or to only update when manually requested. See <see cref="P:Urho.RenderSurface.UpdatedMode" />. For example an editor widget showing a rendered texture might use either of those modes. Call <see cref="M:Urho.RenderSurface.QueueUpdate" /> to request a manual update of the surface on the current frame.</para>
@@ -94,6 +90,22 @@
           <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
           <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoResolve">
+      <MemberSignature Language="C#" Value="public bool AutoResolve { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AutoResolve" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return multisampling autoresolve mode.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetViewport">
@@ -176,6 +188,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="MultiSample">
+      <MemberSignature Language="C#" Value="public int MultiSample { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MultiSample" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return multisampling level.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NumViewports">
       <MemberSignature Language="C#" Value="public uint NumViewports { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 NumViewports" />
@@ -232,6 +260,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ReadOnlyView">
+      <MemberSignature Language="C#" Value="public IntPtr ReadOnlyView { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ReadOnlyView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>eturn Direct3D11 read-only depth-stencil view. May be null if not applicable. Not valid on OpenGL.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Release">
       <MemberSignature Language="C#" Value="public void Release ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Release() cil managed" />
@@ -250,6 +294,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RenderTargetView">
+      <MemberSignature Language="C#" Value="public IntPtr RenderTargetView { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int RenderTargetView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return Direct3D11 rendertarget or depth-stencil view. Not valid on OpenGL.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ResetUpdateQueued">
       <MemberSignature Language="C#" Value="public void ResetUpdateQueued ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetUpdateQueued() cil managed" />
@@ -262,7 +322,23 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reset update queued flag. Called internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResolveDirty">
+      <MemberSignature Language="C#" Value="public bool ResolveDirty { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ResolveDirty" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Get or Set or clear the need resolve flag. Called internally by Graphics.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -286,6 +362,22 @@
         <summary>
             Set viewport.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Surface">
+      <MemberSignature Language="C#" Value="public IntPtr Surface { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int Surface" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return Direct3D9 surface.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -320,7 +412,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return viewport update mode.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -14,6 +14,38 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="DX">
+      <MemberSignature Language="C#" Value="public int DX { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 DX" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Delta X</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DY">
+      <MemberSignature Language="C#" Value="public int DY { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 DY" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Delta Y</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Element">
       <MemberSignature Language="C#" Value="public Urho.Gui.UIElement Element { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Gui.UIElement Element" />
@@ -25,7 +57,7 @@
         <ReturnType>Urho.Gui.UIElement</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Element to be resized</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -41,7 +73,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Height</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -57,7 +89,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Width</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

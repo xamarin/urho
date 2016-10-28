@@ -15,6 +15,15 @@ namespace SharpieBinder
 			return w.Substring(j + 1);
 		}
 
+		public static string SafeParamName(string paramName)
+		{
+			//some C#'s keywords which can be potentially used as arguments
+			string[] csharpKeywords = { "object", "event", "string", "operator", "fixed", "ref", "case", "default", "lock", "unchecked" };
+			if (csharpKeywords.Contains(paramName))
+				return "@" + paramName;
+			return paramName;
+		}
+
 		/// <summary>
 		/// Removes the "const" and "&" from a typename string definition 
 		/// </summary>
@@ -115,7 +124,7 @@ namespace SharpieBinder
 			return string.Join ("", w.Split ('_').Select (x => Remap (Capitalize (x))));
 		}
 
-		public static string Capitalize (this string word)
+		public static string Capitalize (this string word, bool restLower = true)
 		{
 			if (string.IsNullOrEmpty(word))
 				return string.Empty;
@@ -140,7 +149,8 @@ namespace SharpieBinder
 				}
 				else
 				{
-					return char.ToUpper(word[0]) + word.Substring(1).ToLower();
+					var r = word.Substring(1);
+					return char.ToUpper(word[0]) + (restLower ? r.ToLower() : r);
 				}
 			}
 			return char.ToUpper (word[0]).ToString ();

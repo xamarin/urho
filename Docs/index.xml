@@ -70,6 +70,7 @@
       <Type Name="AttributeAnimationRemovedEventArgs" Kind="Structure" />
       <Type Name="AttributeAnimationUpdateEventArgs" Kind="Structure" />
       <Type Name="AttributeInfo" Kind="Structure" />
+      <Type Name="AutoRemoveMode" Kind="Enumeration" />
       <Type Name="Bar" Kind="Class" />
       <Type Name="BeginRenderingEventArgs" Kind="Structure" />
       <Type Name="BeginViewRenderEventArgs" Kind="Structure" />
@@ -93,6 +94,7 @@
       <Type Name="CompareMode" Kind="Enumeration" />
       <Type Name="Component" Kind="Class" />
       <Type Name="ComponentAddedEventArgs" Kind="Structure" />
+      <Type Name="ComponentClonedEventArgs" Kind="Structure" />
       <Type Name="ComponentEnabledChangedEventArgs" Kind="Structure" />
       <Type Name="ComponentRemovedEventArgs" Kind="Structure" />
       <Type Name="ComponentReplicationState" Kind="Structure" />
@@ -106,6 +108,7 @@
       <Type Name="CoreAssets+Fonts" Kind="Class" />
       <Type Name="CoreAssets+Materials" Kind="Class" />
       <Type Name="CoreAssets+Models" Kind="Class" />
+      <Type Name="CoreAssets+PostProcess" Kind="Class" />
       <Type Name="CoreAssets+RenderPaths" Kind="Class" />
       <Type Name="CoreAssets+Techniques" Kind="Class" />
       <Type Name="CoreAssets+Techniques+PBR" Kind="Class" />
@@ -137,6 +140,7 @@
       <Type Name="EndViewRenderEventArgs" Kind="Structure" />
       <Type Name="EndViewUpdateEventArgs" Kind="Structure" />
       <Type Name="Engine" Kind="Class" />
+      <Type Name="EventReceiverGroup" Kind="Class" />
       <Type Name="ExitRequestedEventArgs" Kind="Structure" />
       <Type Name="FaceCameraMode" Kind="Enumeration" />
       <Type Name="FillMode" Kind="Enumeration" />
@@ -160,6 +164,8 @@
       <Type Name="IDeserializer" Kind="Interface" />
       <Type Name="IndexBuffer" Kind="Class" />
       <Type Name="Input" Kind="Class" />
+      <Type Name="InputBeginEventArgs" Kind="Structure" />
+      <Type Name="InputEndEventArgs" Kind="Structure" />
       <Type Name="InputFocusEventArgs" Kind="Structure" />
       <Type Name="InterceptNetworkUpdateEventArgs" Kind="Structure" />
       <Type Name="InterpMethod" Kind="Enumeration" />
@@ -216,10 +222,13 @@
       <Type Name="NetworkState" Kind="Structure" />
       <Type Name="Node" Kind="Class" />
       <Type Name="NodeAddedEventArgs" Kind="Structure" />
+      <Type Name="NodeBeginContact2DEventArgs" Kind="Structure" />
+      <Type Name="NodeClonedEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionEndEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionEventArgs" Kind="Structure" />
       <Type Name="NodeCollisionStartEventArgs" Kind="Structure" />
       <Type Name="NodeEnabledChangedEventArgs" Kind="Structure" />
+      <Type Name="NodeEndContact2DEventArgs" Kind="Structure" />
       <Type Name="NodeNameChangedEventArgs" Kind="Structure" />
       <Type Name="NodeRemovedEventArgs" Kind="Structure" />
       <Type Name="NodeTagAddedEventArgs" Kind="Structure" />
@@ -243,6 +252,7 @@
       <Type Name="PrimitiveType" Kind="Enumeration" />
       <Type Name="Profiler" Kind="Class" />
       <Type Name="ProfilerBlock" Kind="Structure" />
+      <Type Name="ProgressBarChangedEventArgs" Kind="Structure" />
       <Type Name="Quaternion" Kind="Structure" />
       <Type Name="RandomAccessIterator" Kind="Structure" />
       <Type Name="Randoms" Kind="Class" />
@@ -257,6 +267,7 @@
       <Type Name="Renderer" Kind="Class" />
       <Type Name="RenderPath" Kind="Class" />
       <Type Name="RenderPathCommand" Kind="Structure" />
+      <Type Name="RenderPathEventEventArgs" Kind="Structure" />
       <Type Name="RenderSurface" Kind="Class" />
       <Type Name="RenderSurfaceUpdateEventArgs" Kind="Structure" />
       <Type Name="RenderSurfaceUpdateMode" Kind="Enumeration" />
@@ -265,6 +276,7 @@
       <Type Name="ResourceRef" Kind="Structure" />
       <Type Name="ResourceRefList" Kind="Structure" />
       <Type Name="ResourceRouter" Kind="Class" />
+      <Type Name="RibbonTrail" Kind="Class" />
       <Type Name="Scene" Kind="Class" />
       <Type Name="SceneDrawableUpdateFinishedEventArgs" Kind="Structure" />
       <Type Name="ScenePostUpdateEventArgs" Kind="Structure" />
@@ -272,7 +284,9 @@
       <Type Name="SceneUpdateEventArgs" Kind="Structure" />
       <Type Name="ScreenModeEventArgs" Kind="Structure" />
       <Type Name="Sdl" Kind="Class" />
+      <Type Name="SDL_Event" Kind="Structure" />
       <Type Name="SdlEventType" Kind="Enumeration" />
+      <Type Name="SDLRawInputEventArgs" Kind="Structure" />
       <Type Name="SdlWindowEvent" Kind="Enumeration" />
       <Type Name="Serializable" Kind="Class" />
       <Type Name="Shader" Kind="Class" />
@@ -306,6 +320,7 @@
       <Type Name="TerrainPatch" Kind="Class" />
       <Type Name="TextInputEventArgs" Kind="Structure" />
       <Type Name="Texture" Kind="Class" />
+      <Type Name="Texture2DArray" Kind="Class" />
       <Type Name="Texture3D" Kind="Class" />
       <Type Name="TextureAddressMode" Kind="Enumeration" />
       <Type Name="TextureCoordinate" Kind="Enumeration" />
@@ -319,6 +334,7 @@
       <Type Name="TouchEndEventArgs" Kind="Structure" />
       <Type Name="TouchMoveEventArgs" Kind="Structure" />
       <Type Name="TouchState" Kind="Structure" />
+      <Type Name="TrailType" Kind="Enumeration" />
       <Type Name="TransformSpace" Kind="Enumeration" />
       <Type Name="TriangleMeshData" Kind="Structure" />
       <Type Name="TypeInfo" Kind="Structure" />
@@ -346,6 +362,8 @@
       <Type Name="VertexElementType" Kind="Enumeration" />
       <Type Name="VertexLightVSVariation" Kind="Enumeration" />
       <Type Name="View" Kind="Class" />
+      <Type Name="ViewBuffersReadyEventArgs" Kind="Structure" />
+      <Type Name="ViewGlobalShaderParametersEventArgs" Kind="Structure" />
       <Type Name="ViewOverrideFlags" Kind="Enumeration" />
       <Type Name="Viewport" Kind="Class" />
       <Type Name="WeakPtr" Kind="Structure" />
@@ -577,6 +595,27 @@
       <Type Name="Window" Kind="Class" />
       <Type Name="WindowDragMode" Kind="Enumeration" />
     </Namespace>
+    <Namespace Name="Urho.HoloLens">
+      <Type Name="DebugGrid" Kind="Class" />
+      <Type Name="HoloApplication" Kind="Class" />
+      <Type Name="SpatialCursor" Kind="Class" />
+      <Type Name="SpatialMeshInfo" Kind="Structure" />
+      <Type Name="SpatialVertex" Kind="Structure" />
+    </Namespace>
+    <Namespace Name="Urho.HoloLens.HoloToolkit">
+      <Type Name="BoundedPlane" Kind="Structure" />
+      <Type Name="Bounds" Kind="Structure" />
+      <Type Name="Matrix4x4" Kind="Structure" />
+      <Type Name="Mesh" Kind="Structure" />
+      <Type Name="MeshFilter" Kind="Structure" />
+      <Type Name="OrientedBoundingBox" Kind="Structure" />
+      <Type Name="Plane" Kind="Structure" />
+      <Type Name="PlaneFinding" Kind="Class" />
+      <Type Name="PlaneFinding+MeshData" Kind="Structure" />
+      <Type Name="Quaternion" Kind="Structure" />
+      <Type Name="Transform" Kind="Structure" />
+      <Type Name="Vector3" Kind="Structure" />
+    </Namespace>
     <Namespace Name="Urho.IO">
       <Type Name="AsyncExecFinishedEventArgs" Kind="Structure" />
       <Type Name="File" Kind="Class" />
@@ -715,8 +754,10 @@
       <Type Name="ConstraintRope2D" Kind="Class" />
       <Type Name="ConstraintWeld2D" Kind="Class" />
       <Type Name="ConstraintWheel2D" Kind="Class" />
+      <Type Name="CurveType" Kind="Enumeration" />
       <Type Name="Drawable2D" Kind="Class" />
       <Type Name="EmitterType2D" Kind="Enumeration" />
+      <Type Name="LoopMode" Kind="Enumeration" />
       <Type Name="LoopMode2D" Kind="Enumeration" />
       <Type Name="Orientation2D" Kind="Enumeration" />
       <Type Name="ParticleEffect2D" Kind="Class" />
@@ -752,7 +793,7 @@
         <Target Type="T:System.IntPtr" />
       </Targets>
       <Member MemberName="ReadSingle">
-        <MemberSignature Language="C#" Value="public static float ReadSingle (this IntPtr ptr, int offset);" />
+        <MemberSignature Language="C#" Value="public static float ReadSingle (this IntPtr ptr, int offset = 0);" />
         <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 ReadSingle(native int ptr, int32 offset) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>

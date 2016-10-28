@@ -55,13 +55,90 @@
       </list>
       <para>The actual rendering of 3D views is driven by the <see cref="T:Urho.Renderer" /> class.</para>
       <format type="text/html">
-        <h2>Dealing with GPU Disconnetion</h2>
-        <div>
-          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;nbsp;</p>
-          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Additionally, to work around possible GPU driver bugs the desktop OpenGL context will be voluntarily destroyed and recreated when changing screen mode or toggling between fullscreen and windowed. Therefore, on all graphics APIs one must be prepared for losing GPU resources.</p>
-          <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
-        </div>
-      </format>
+        <h2>Dealing with GPU Disconnetion</h2> <div>
+  <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;amp;amp;amp;amp;amp;amp;amp;nbsp;</p>
+  <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">Additionally, to work around possible GPU driver bugs the desktop OpenGL context will be voluntarily destroyed and recreated when changing screen mode or toggling between fullscreen and windowed. Therefore, on all graphics APIs one must be prepared for losing GPU resources.</p>
+  <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp;amp;amp;amp;amp;amp;amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
+  <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);" />
+  <div class="verbatim">
+    <h2>Shader Parameters</h2>
+    <div>You can set parameters for the shaders by calling one of the&amp;amp;amp;amp;nbsp;<a href="">M:Urho.Graphics.SetShaderParameter</a>&amp;amp;amp;amp;nbsp;methods in this class. &amp;amp;amp;amp;nbsp;In addition to controlling the shader parameters for your own shaders, you can use this to set the parameters for the various built-in shaders.</div>
+    <div>
+      <br />
+    </div>
+    <div>Some of the parameters that you can set for the built-in shaders are:</div>
+    <div>
+      <div>
+        <br />
+      </div>
+      <div>VSP</div>
+      <div>
+        <ul>
+          <li>
+          <li>AmbientStartColor</li>
+          <li>AmbientEndColor</li>
+          <li>BillboardRot</li>
+          <li>CameraPos</li>
+          <li>ClipPlane</li>
+          <li>NearClip</li>
+          <li>FarClip</li>
+          <li>DepthMode</li>
+          <li>DeltaTime</li>
+          <li>ElapsedTime</li>
+          <li>FrustumSize</li>
+          <li>GBufferOffsets</li>
+          <li>LightDir</li>
+          <li>LightPos</li>
+          <li>NormalOffsetScale</li>
+          <li>Model</li>
+          <li>View</li>
+          <li>ViewInv</li>
+          <li>ViewProj</li>
+          <li>UOffset</li>
+          <li>VOffset</li>
+          <li>Zone</li>
+          <li>LightMatrices</li>
+          <li>SkinMatrices</li>
+          <li>VertexLights</li>
+        </li></ul>
+        <div>PSP</div>
+      </div>
+      <div>
+        <br />
+      </div>
+      <div>
+        <li>AmbientColor</li>
+        <li>CameraPosPS</li>
+        <li>DeltaTimePS</li>
+        <li>DepthReconstruct</li>
+        <li>ElapsedTimePS</li>
+        <li>FogColor</li>
+        <li>FogParams</li>
+        <li>GBufferInvSize</li>
+        <li>LightColor</li>
+        <li>LightDirPS</li>
+        <li>LightPosPS</li>
+        <li>NormalOffsetScalePS</li>
+        <li>MatDiffColor</li>
+        <li>MatEmissiveColor</li>
+        <li>MatEnvMapColor</li>
+        <li>MatSpecColor</li>
+        <li>NearClipPS</li>
+        <li>FarClipPS</li>
+        <li>ShadowCubeAdjust</li>
+        <li>ShadowDepthFade</li>
+        <li>ShadowIntensity</li>
+        <li>ShadowMapInvSize</li>
+        <li>ShadowSplits</li>
+        <li>LightMatricesPS</li>
+        <li>VSMShadowParams</li>
+        <li>Roughness</li>
+        <li>Metallic</li>
+      </div>
+    </div>
+  </div>
+  <p />
+</div></format>
     </remarks>
   </Docs>
   <Members>
@@ -99,8 +176,8 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Graphics (Urho.Context context_);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context_) cil managed" />
+      <MemberSignature Language="C#" Value="public Graphics (Urho.Context context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -109,7 +186,7 @@
         <Parameter Name="context_" Type="Urho.Context" />
       </Parameters>
       <Docs>
-        <param name="context_">To be added.</param>
+        <param name="context">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -173,6 +250,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AlphaToCoverage">
+      <MemberSignature Language="C#" Value="public bool AlphaToCoverage { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AlphaToCoverage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether alpha-to-coverage is enabled.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ApiName">
       <MemberSignature Language="C#" Value="public string ApiName { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string ApiName" />
@@ -232,7 +325,7 @@
       </Docs>
     </Member>
     <Member MemberName="BlendMode">
-      <MemberSignature Language="C#" Value="public Urho.BlendMode BlendMode { get; set; }" />
+      <MemberSignature Language="C#" Value="public Urho.BlendMode BlendMode { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.BlendMode BlendMode" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -429,6 +522,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DefaultTextureAnisotropy">
+      <MemberSignature Language="C#" Value="public uint DefaultTextureAnisotropy { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 DefaultTextureAnisotropy" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return or Set default texture anisotropy level. Called by Renderer before rendering.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DefaultTextureFilterMode">
       <MemberSignature Language="C#" Value="public Urho.TextureFilterMode DefaultTextureFilterMode { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.TextureFilterMode DefaultTextureFilterMode" />
@@ -615,6 +724,24 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Dither">
+      <MemberSignature Language="C#" Value="public bool Dither { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Dither" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Controls whether the rendering output is dithered. </summary>
+        <value>Default <see langword="true" /> on OpenGL. No effect on Direct3D.</value>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Draw">
       <MemberSignature Language="C#" Value="public void Draw (Urho.PrimitiveType type, uint vertexStart, uint vertexCount);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Draw(valuetype Urho.PrimitiveType type, unsigned int32 vertexStart, unsigned int32 vertexCount) cil managed" />
@@ -694,7 +821,7 @@
         <param name="baseVertexIndex">To be added.</param>
         <param name="minVertex">To be added.</param>
         <param name="vertexCount">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Draw indexed geometry with vertex index offset.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -756,7 +883,7 @@
         <param name="minVertex">To be added.</param>
         <param name="vertexCount">To be added.</param>
         <param name="instanceCount">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Draw indexed, instanced geometry with vertex index offset.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1220,7 +1347,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether window is high DPI.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1329,6 +1456,22 @@
         <summary>
             Return whether light pre-pass rendering is supported.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LineAntiAlias">
+      <MemberSignature Language="C#" Value="public bool LineAntiAlias { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool LineAntiAlias" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Get or Set line antialiasing on/off.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1519,6 +1662,38 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="OnWindowMoved">
+      <MemberSignature Language="C#" Value="public void OnWindowMoved ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OnWindowMoved() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Window was moved through user interaction. </summary>
+        <remarks>Called by Input subsystem.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnWindowResized">
+      <MemberSignature Language="C#" Value="public void OnWindowResized ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OnWindowResized() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>React to window resize.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Orientations">
       <MemberSignature Language="C#" Value="public string Orientations { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Orientations" />
@@ -1590,7 +1765,7 @@
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Precache shader variations from an XML file generated with BeginDumpShaders().</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1763,6 +1938,46 @@
             Return whether window is resizable.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResolveToTexture">
+      <MemberSignature Language="C#" Value="public bool ResolveToTexture (Urho.TextureCube texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ResolveToTexture(class Urho.TextureCube texture) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="texture" Type="Urho.TextureCube" />
+      </Parameters>
+      <Docs>
+        <param name="texture">To be added.</param>
+        <summary>Resolve a multisampled cube texture on itself.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResolveToTexture">
+      <MemberSignature Language="C#" Value="public bool ResolveToTexture (Urho.Urho2D.Texture2D texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ResolveToTexture(class Urho.Urho2D.Texture2D texture) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="texture" Type="Urho.Urho2D.Texture2D" />
+      </Parameters>
+      <Docs>
+        <param name="texture">To be added.</param>
+        <summary>Resolve a multisampled texture on itself.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1981,8 +2196,29 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return pointer to SDL window.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetBlendMode">
+      <MemberSignature Language="C#" Value="public void SetBlendMode (Urho.BlendMode mode, bool alphaToCoverage);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBlendMode(valuetype Urho.BlendMode mode, bool alphaToCoverage) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="mode" Type="Urho.BlendMode" />
+        <Parameter Name="alphaToCoverage" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="mode">To be added.</param>
+        <param name="alphaToCoverage">To be added.</param>
+        <summary>Set blending and alpha-to-coverage modes. Alpha-to-coverage is not supported on Direct3D9.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2007,7 +2243,7 @@
         <param name="clipPlane">To be added.</param>
         <param name="view">To be added.</param>
         <param name="projection">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set a custom clipping plane. The plane is specified in world space, but is dependent on the view and projection matrices.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2110,7 +2346,7 @@
         <param name="vsync">To be added.</param>
         <param name="tripleBuffer">To be added.</param>
         <param name="multiSample">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set screen mode. Return true if successful.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2185,6 +2421,50 @@
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="value">Boolean value to set</param>
+        <summary>Set shader boolean constant.</summary>
+        <remarks>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
+      <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, int32 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="param" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="param">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>Set shader integer constant.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetShaderParameter">
       <MemberSignature Language="C#" Value="public void SetShaderParameter (Urho.StringHash param, float value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameter(valuetype Urho.StringHash param, float32 value) cil managed" />
       <MemberType>Method</MemberType>
@@ -2199,12 +2479,14 @@
         <Parameter Name="value" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="param">To be added.</param>
-        <param name="value">To be added.</param>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="value">Float value to set</param>
         <summary>
             Set shader float constant.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameter">
@@ -2222,12 +2504,14 @@
         <Parameter Name="color" Type="Urho.Color" />
       </Parameters>
       <Docs>
-        <param name="param">To be added.</param>
-        <param name="color">To be added.</param>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="color">Color value to set.</param>
         <summary>
             Set shader color constant.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameter">
@@ -2245,10 +2529,12 @@
         <Parameter Name="matrix" Type="Urho.Matrix3x4" />
       </Parameters>
       <Docs>
-        <param name="param">To be added.</param>
-        <param name="matrix">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="matrix">Matrix value to set.</param>
+        <summary>Set shader matrix constant.</summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameter">
@@ -2266,10 +2552,12 @@
         <Parameter Name="matrix" Type="Urho.Matrix4" />
       </Parameters>
       <Docs>
-        <param name="param">To be added.</param>
-        <param name="matrix">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="matrix">Matrix value to set.</param>
+        <summary>Set shader matrix constant.</summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameter">
@@ -2287,12 +2575,14 @@
         <Parameter Name="vector" Type="Urho.Vector2" />
       </Parameters>
       <Docs>
-        <param name="param">To be added.</param>
-        <param name="vector">To be added.</param>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="vector">Vector value to set</param>
         <summary>
             Set shader 2D vector constant.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameter">
@@ -2310,12 +2600,14 @@
         <Parameter Name="vector" Type="Urho.Vector3" />
       </Parameters>
       <Docs>
-        <param name="param">To be added.</param>
-        <param name="vector">To be added.</param>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="vector">Vector3 value to set.</param>
         <summary>
             Set shader 3D vector constant.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameter">
@@ -2333,12 +2625,14 @@
         <Parameter Name="vector" Type="Urho.Vector4" />
       </Parameters>
       <Docs>
-        <param name="param">To be added.</param>
-        <param name="vector">To be added.</param>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="vector">Vector4 value to set.</param>
         <summary>
             Set shader 4D vector constant.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameter">
@@ -2357,13 +2651,15 @@
         <Parameter Name="count" Type="System.UInt32" />
       </Parameters>
       <Docs>
-        <param name="param">To be added.</param>
-        <param name="data">To be added.</param>
-        <param name="count">To be added.</param>
+        <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
+        <param name="data">Pointer to an array of floats to set</param>
+        <param name="count">Number of elements in the array.</param>
         <summary>
             Set shader float constants.
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetShaders">
@@ -2421,6 +2717,25 @@
         <summary>
             Set stencil test.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetStereo">
+      <MemberSignature Language="C#" Value="public void SetStereo (bool stereo);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetStereo(bool stereo) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="stereo" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="stereo">To be added.</param>
+        <summary>Internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2569,6 +2884,22 @@
         <summary>
             Set window position.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShaderCacheDir">
+      <MemberSignature Language="C#" Value="public string ShaderCacheDir { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ShaderCacheDir" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return or Set shader cache directory, Direct3D only. This can either be an absolute path or a path within the resource system.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2805,28 +3136,8 @@
       </Parameters>
       <Docs>
         <param name="destImage">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Take a screenshot. Return true if successful.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="TextureAnisotropy">
-      <MemberSignature Language="C#" Value="public uint TextureAnisotropy { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TextureAnisotropy" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.UInt32</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Return texture anisotropy.
-            Or
-            Set texture anisotropy.
-            </summary>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2896,8 +3207,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -2913,8 +3223,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -2930,8 +3239,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipPlane">
@@ -3024,24 +3332,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="WindowMoved">
-      <MemberSignature Language="C#" Value="public void WindowMoved ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WindowMoved() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Window was moved through user interaction. Called by Input subsystem.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="WindowPosition">
       <MemberSignature Language="C#" Value="public Urho.IntVector2 WindowPosition { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 WindowPosition" />
@@ -3057,24 +3347,6 @@
             Return window position.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="WindowResized">
-      <MemberSignature Language="C#" Value="public void WindowResized ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WindowResized() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Window was resized through user interaction. Called by Input subsystem.
-            </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -10,8 +10,10 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Shadow map focusing parameters</summary>
+    <remarks>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="AutoSize">
@@ -25,7 +27,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Auto-size (reduce resolution when far away) flag.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -40,7 +42,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Focus flag.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -55,7 +57,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Minimum view size.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -70,7 +72,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Non-uniform focusing flag.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -85,7 +87,7 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Focus quantization.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

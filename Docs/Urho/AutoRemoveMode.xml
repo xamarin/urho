@@ -1,0 +1,59 @@
+<Type Name="AutoRemoveMode" FullName="Urho.AutoRemoveMode">
+  <TypeSignature Language="C#" Value="public enum AutoRemoveMode" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed AutoRemoveMode extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Component">
+      <MemberSignature Language="C#" Value="Component" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.AutoRemoveMode Component = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AutoRemoveMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Disabled">
+      <MemberSignature Language="C#" Value="Disabled" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.AutoRemoveMode Disabled = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AutoRemoveMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Node">
+      <MemberSignature Language="C#" Value="Node" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.AutoRemoveMode Node = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AutoRemoveMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

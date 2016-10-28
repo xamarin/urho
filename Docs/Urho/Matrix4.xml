@@ -1229,6 +1229,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Matrix3">
+      <MemberSignature Language="C#" Value="public Urho.Matrix3 Matrix3 { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Matrix3 Matrix3" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Mult">
       <MemberSignature Language="C#" Value="public static Urho.Matrix4 Mult (Urho.Matrix4 left, Urho.Matrix4 right);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Matrix4 Mult(valuetype Urho.Matrix4 left, valuetype Urho.Matrix4 right) cil managed" />
@@ -1512,6 +1528,38 @@
             Build a rotation matrix that rotates about the z-axis
             </summary>
         <returns>A rotation matrix</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rotation">
+      <MemberSignature Language="C#" Value="public Urho.Quaternion Rotation { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Quaternion Rotation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RotationMatrix">
+      <MemberSignature Language="C#" Value="public Urho.Matrix3 RotationMatrix { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Matrix3 RotationMatrix" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

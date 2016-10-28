@@ -80,6 +80,11 @@ namespace Urho
 #endif
 
 		/// <summary>
+		/// Enable high DPI, only supported by Apple platforms (OSX, iOS, and tvOS)
+		/// </summary>
+		public bool HighDpi { get; set; } = true;
+
+		/// <summary>
 		/// Add any flag listed here: http://urho3d.github.io/documentation/1.5/_running.html 
 		/// </summary>
 		public string AdditionalFlags { get; set; } = string.Empty;
@@ -89,6 +94,12 @@ namespace Urho
 		/// You can use it in WPF via WindowsFormsHost (and a WF panel inside it)
 		/// </summary>
 		public IntPtr ExternalWindow { get; set; }
+
+		public bool DelayedStart { get; set; } = false;
+
+		public bool AutoloadCoreData { get; set; } = true;
+
+		public string[] ResourcePrefixPaths { get; set; }
 
 		public enum OrientationType
 		{
@@ -110,6 +121,9 @@ namespace Urho
 			if (!LimitFps)
 				builder.Append(" -nolimit");
 
+			if (DelayedStart)
+				builder.Append(" -delayedstart");
+
 			if (Width > 0)
 				builder.AppendFormat(" -x {0}", Width);
 
@@ -121,16 +135,24 @@ namespace Urho
 #endif
 				builder.Append(" -s");
 
-			var resourcePathes = new[] {"CoreData"}.Concat(ResourcePaths ?? new string[0]);
+			string[] resourcePathes = new[] { "CoreData" }.Concat(ResourcePaths ?? new string[0]).ToArray();
+			if (!AutoloadCoreData)
+				resourcePathes = ResourcePaths ?? new string[0];
 			builder.AppendFormat(" -p \"{0}\"", string.Join(";", resourcePathes.Distinct()));
 
 			if (ResourcePackagesPaths?.Length > 0)
 				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
 
+			if (ResourcePrefixPaths?.Length > 0)
+				builder.AppendFormat(" -pp \"{0}\"", string.Join(";", ResourcePrefixPaths));
+
 #if !WINDOWS_UWP
 			if (TouchEmulation)
 #endif
-				builder.Append(" -touch");
+			builder.Append(" -touch");
+
+			if (HighDpi)
+				builder.Append(" -hd");
 
 			switch (Orientation)
 			{

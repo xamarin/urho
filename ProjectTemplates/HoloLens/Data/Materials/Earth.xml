@@ -1,0 +1,4 @@
+﻿<material>
+	<technique name="Techniques/Diff.xml" quality="0" />
+	<texture unit="diffuse" name="Textures/Earth.jpg" />
+</material>

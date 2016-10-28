@@ -27,7 +27,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -65,7 +66,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -332,8 +334,8 @@
       </Docs>
     </Member>
     <Member MemberName="GetFaceCameraRotation">
-      <MemberSignature Language="C#" Value="public Urho.Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, Urho.FaceCameraMode mode);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Quaternion GetFaceCameraRotation(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.FaceCameraMode mode) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, Urho.FaceCameraMode mode, float minAngle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Quaternion GetFaceCameraRotation(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.FaceCameraMode mode, float32 minAngle) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -345,14 +347,14 @@
         <Parameter Name="position" Type="Urho.Vector3" />
         <Parameter Name="rotation" Type="Urho.Quaternion" />
         <Parameter Name="mode" Type="Urho.FaceCameraMode" />
+        <Parameter Name="minAngle" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="position">To be added.</param>
         <param name="rotation">To be added.</param>
         <param name="mode">To be added.</param>
-        <summary>
-            Return a world rotation for facing a camera on certain axes based on the existing world rotation.
-            </summary>
+        <param name="minAngle">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -378,28 +380,6 @@
         <param name="bias">To be added.</param>
         <summary>
             Return a scene node's LOD scaled distance.
-            </summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="GetProjection">
-      <MemberSignature Language="C#" Value="public Urho.Matrix4 GetProjection (bool apiSpecific);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Matrix4 GetProjection(bool apiSpecific) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Matrix4</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="apiSpecific" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="apiSpecific">To be added.</param>
-        <summary>
-            Return either API-specific or API-independent (D3D convention) projection matrix.
             </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -474,6 +454,22 @@
             Return split frustum in view space.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GPUProjection">
+      <MemberSignature Language="C#" Value="public Urho.Matrix4 GPUProjection { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Matrix4 GPUProjection" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -804,6 +800,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetProjection">
+      <MemberSignature Language="C#" Value="public void SetProjection (Urho.Matrix4 projection);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetProjection(valuetype Urho.Matrix4 projection) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="projection" Type="Urho.Matrix4" />
+      </Parameters>
+      <Docs>
+        <param name="projection">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetReflectionPlaneAttr">
       <MemberSignature Language="C#" Value="public void SetReflectionPlaneAttr (Urho.Vector4 value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetReflectionPlaneAttr(valuetype Urho.Vector4 value) cil managed" />
@@ -822,6 +837,22 @@
         <summary>
             Set reflection plane attribute.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Skew">
+      <MemberSignature Language="C#" Value="public float Skew { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 Skew" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -854,7 +885,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -870,7 +902,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -886,7 +919,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipping">

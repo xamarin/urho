@@ -13,7 +13,159 @@
     <summary>
             Describes how to render 3D geometries.
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>On the disk, they are XML data. Default and example materials exist in the bin/CoreData/Materials &amp; bin/Data/Materials subdirectories, and techniques exist in the bin/CoreData/Techniques subdirectory.</para>
+      <para>A material defines the textures, shader parameters, the culling, fill mode to use, and refers to one or several techniques. A technique defines the actual rendering passes, the shaders to use in each, and all other rendering states such as depth test, depth write, and blending.</para>
+      <para>A material definition looks like this</para>
+      <code lang="XML"><![CDATA[<material>
+    <technique name="TechniqueName" quality="q" loddistance="d" />
+    <texture unit="diffuse|normal|specular|emissive|environment" name="TextureName" />
+    <texture ... />
+    <parameter name="name" value="x y z w" />
+    <parameter ... />
+    <cull value="cw|ccw|none" />
+    <shadowcull value="cw|ccw|none" />
+    <fill value="solid|wireframe|point" />
+    <depthbias constant="x" slopescaled="y" />
+</material>
+]]></code>
+      <para>
+	  Several techniques can be defined for different quality
+	  levels and LOD distances. Technique quality levels are specified
+	  from 0 (low) to 2 (high). When rendering, the highest available
+	  technique that does not exceed the <see cref="T:Urho.Renderer" /> material quality
+	  setting will be chosen, see <see cref="P:Urho.Renderer.MaterialQuality" />. It is also
+	  possible for a technique to require Shader Model 3, in this case
+	  it will be skipped on SM2 hardware.
+	</para>
+      <para>
+	  The techniques for different LOD levels and quality settings must appear in a specific order:
+	</para>
+      <para>
+	  Material shader parameters can be floats or vectors up to 4 components, or matrices.
+	</para>
+      <para>
+	  Default culling mode is counterclockwise. The shadowcull
+	  element specifies the culling mode to use in the shadow
+	  pass. Note that material's depth bias settings do not apply
+	  in the shadow pass; during shadow rendering the light's
+	  depth bias is used instead.
+	</para>
+      <format type="text/html">
+        <h2>Material Textures</h2>
+      </format>
+      <para>
+	  Diffuse maps specify the surface color in the RGB
+	  channels. Optionally they can use the alpha channel for
+	  blending and alpha testing. They should preferably be
+	  compressed to DXT1 (no alpha or 1-bit alpha) or DXT5 (smooth
+	  alpha) format.
+	</para>
+      <para>
+	  Normal maps encode the tangent-space surface normal for
+	  normal mapping. There are two options for storing normals,
+	  which require choosing the correct material technique, as
+	  the pixel shader is different in each case:
+	</para>
+      <list type="bullet">
+        <item>
+          <term>
+	      Store as RGB. In this case use the DiffNormal
+	      techniques. This is the default used by AssetImporter, to
+	      ensure no conversion of normal textures needs to happen.
+	    </term>
+        </item>
+        <item>
+          <term>
+	      Store as xGxR, ie. Y-component in the green channel, and
+	      X-component in the alpha. In this case use the
+	      DiffNormalPacked techniques: Z will be reconstructed in
+	      the pixel shader. This encoding lends itself well to
+	      DXT5 compression. To convert normal maps to this format,
+	      you can use AMD's The Compressonator utility, see
+	      http://developer.amd.com/Resources/archive/ArchivedTools/gpu/compressonator/Pages/default.aspx
+	    </term>
+        </item>
+      </list>
+      <para>
+
+	  Make sure the normal map is oriented correctly: an even
+	  surface should have the color value R 0.5 G 0.5 B 1.0.
+	</para>
+      <para>
+
+	  Models using a normal-mapped material need to have tangent
+	  vectors in their vertex data; the easiest way to ensure this
+	  is to use the switch -t (generate tangents) when using
+	  either AssetImporter or OgreImporter to import models to
+	  Urho3D format. If there are no tangents, the light
+	  attenuation on the normal-mapped material will behave in a
+	  completely erratic fashion.
+	</para>
+      <para>
+
+	  Specular maps encode the specular surface color as RGB. Note that
+	  deferred rendering is only able to use monochromatic specular
+	  intensity from the G channel, while forward and light pre-pass
+	  rendering use fully colored specular. DXT1 format should suit these
+	  textures well.
+	</para>
+      <para>
+	  
+	  Textures can have an accompanying XML file which specifies
+	  load-time parameters, such as addressing, mipmapping, and
+	  number of mip levels to skip on each quality level:
+	</para>
+      <code lang="XML"><![CDATA[<texture>
+    <address coord="u|v|w" mode="wrap|mirror|clamp|border" />
+    <border color="r g b a" />
+    <filter mode="nearest|bilinear|trilinear|anisotropic|default" />
+    <mipmap enable="false|true" />
+    <quality low="x" medium="y" high="z" />
+    <srgb enable="false|true" />
+</texture>]]></code>
+      <para>
+
+	  The sRGB flag controls both whether the texture should be
+	  sampled with sRGB to linear conversion, and if used as a
+	  rendertarget, pixels should be converted back to sRGB when
+	  writing to it. To control whether the backbuffer should use
+	  sRGB conversion on write, use the <see cref="P:Urho.Graphics.SRGB" /> property.
+	</para>
+      <format type="text/html">
+        <h2>Material Textures</h2>
+      </format>
+      <para>
+
+	  Using cube map textures requires an XML file to define the cube map
+	  face textures or layout. In this case the XML file is the texture
+	  resource name in material scripts or in LoadResource() calls.
+
+	</para>
+      <para>
+
+	  Individual face textures are defined in the XML like this: (see bin/Data/Textures/Skybox.xml for an example)
+
+	</para>
+      <code lang="XML"><![CDATA[<cubemap>
+    <face name="PositiveX_TextureName" />
+    <face name="NegativeX_TextureName" />
+    <face name="PositiveY_TextureName" />
+    <face name="NegativeY_TextureName" />
+    <face name="PositiveZ_TextureName" />
+    <face name="NegativeZ_TextureName" />
+</cubemap>]]></code>
+      <para>
+	  Using a single image texture and a layout is used like this:
+	</para>
+      <code lang="XML"><![CDATA[<cubemap>
+    <image name="TextureName" layout="horizontal|horizontalnvidia|horizontalcross|verticalcross|blender" />
+    </cubemap>]]></code>
+      <para>
+	  For the layout definitions, see http://www.cgtextures.com/content.php?action=tutorial&amp;name=cubemaps and http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Build_a_skybox
+	</para>
+      <para></para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -28,8 +180,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Material which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -67,8 +218,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Material linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -89,6 +239,22 @@
           <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
           <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AlphaToCoverage">
+      <MemberSignature Language="C#" Value="public bool AlphaToCoverage { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool AlphaToCoverage" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="AuxViewFrameNumber">
@@ -221,11 +387,7 @@
         <ReturnType>Urho.FillMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-            Return polygon fill mode.
-            Or
-            Set polygon fill mode. Interacts with the camera's fill mode setting so that the "least filled" mode will be used.
-            </summary>
+        <summary>Return polygon fill mode. Or Set polygon fill mode. Interacts with the camera's fill mode setting so that the "least filled" mode will be used. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -244,8 +406,30 @@
         <Parameter Name="color" Type="Urho.Color" />
       </Parameters>
       <Docs>
+        <param name="color">Color to be used as a MatDiffColor</param>
+        <summary>Creates a material using NoTexture or NoTextureAlpha <see cref="T:Urho.Technique" /> with the specified color as a shader parameter "MatDiffColor".</summary>
+        <returns>Material that contains the image and has been configured with the CoreAssets.Techniques.Diff <see cref="T:Urho.Technique" />.</returns>
+        <remarks>This is a shortcut to creating a new mateiral from specified color (lit). If the color has Alpha less than 1.0f, the NoTextureAlpha <see cref="T:Urho.Technique" /> will be used, otherwise - NoTexture.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromColor">
+      <MemberSignature Language="C#" Value="public static Urho.Material FromColor (Urho.Color color, bool unlit);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material FromColor(valuetype Urho.Color color, bool unlit) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="color" Type="Urho.Color" />
+        <Parameter Name="unlit" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
         <param name="color">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="unlit">To be added.</param>
+        <summary>Creates a material from a given color. Unlit means the material won't be affected by any lights.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -268,6 +452,28 @@
         <summary>Creates a material from a 2D Texture.</summary>
         <returns>Material that contains the image and has been configured with the CoreAssets.Techniques.Diff <see cref="T:Urho.Technique" />.</returns>
         <remarks>This is a shortcut to creating a new mateiral, setting the texture to TextureUnit.Diffuse on the 2D texture loaded from the cache with the name <paramref name="image" />.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromImage">
+      <MemberSignature Language="C#" Value="public static Urho.Material FromImage (string image, string normals);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.Material FromImage(string image, string normals) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="System.String" />
+        <Parameter Name="normals" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="image">To be added.</param>
+        <param name="normals">To be added.</param>
+        <summary>Create a material from an image and a normal map using DiffNormal technique.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetPass">
@@ -426,6 +632,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="LineAntiAlias">
+      <MemberSignature Language="C#" Value="public bool LineAntiAlias { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool LineAntiAlias" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Load">
       <MemberSignature Language="C#" Value="public bool Load (Urho.Resources.XmlElement source);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Load(class Urho.Resources.XmlElement source) cil managed" />
@@ -488,7 +710,7 @@
       </Docs>
     </Member>
     <Member MemberName="Occlusion">
-      <MemberSignature Language="C#" Value="public bool Occlusion { get; }" />
+      <MemberSignature Language="C#" Value="public bool Occlusion { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool Occlusion" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -524,6 +746,22 @@
             Parse a shader parameter value from a string. Retunrs either a bool, a float, or a 2 to 4-component vector.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PixelShaderDefines">
+      <MemberSignature Language="C#" Value="public string PixelShaderDefines { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string PixelShaderDefines" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Set additional pixel shader defines. Separate multiple defines with spaces. Setting defines at the material level causes technique(s) to be cloned as necessary.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -822,7 +1060,7 @@
       <Docs>
         <param name="name">To be added.</param>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set shader parameter. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -843,7 +1081,7 @@
       <Docs>
         <param name="name">To be added.</param>
         <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Set shader parameter. </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1191,8 +1429,7 @@
       <Docs>
         <param name="imagePositiveX">
           <para>Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive X side of the cube.</para>
-          <para>
-          </para>
+          <para></para>
         </param>
         <param name="imageNegativeX">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative X side of the cube.</param>
         <param name="imagePositiveY">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive Y side of the cube.</param>
@@ -1269,8 +1506,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1286,8 +1522,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1303,8 +1538,23 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="VertexShaderDefines">
+      <MemberSignature Language="C#" Value="public string VertexShaderDefines { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string VertexShaderDefines" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Set additional vertex shader defines. Separate multiple defines with spaces. Setting defines at the material level causes technique(s) to be cloned as necessary.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>
