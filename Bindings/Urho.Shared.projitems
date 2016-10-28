@@ -9,6 +9,7 @@
     <Import_RootNamespace>Urho</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\Intervals\GenericShaderParameterFromTo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\CurveType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\LoopMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\RibbonTrail.cs" />

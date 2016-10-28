@@ -399,6 +399,33 @@ namespace Urho {
 			uint a = (uint)MathHelper.Clamp(((int)(A * 255.0f)), 0, 255);
 			return (a << 24) | (b << 16) | (g << 8) | r;
 		}
+
+		public static Color operator +(Color left, Color right)
+		{
+			left.A = MathHelper.Clamp(left.A + right.A, 0, 1);
+			left.R = MathHelper.Clamp(left.R + right.R, 0, 1);
+			left.G = MathHelper.Clamp(left.G + right.G, 0, 1);
+			left.B = MathHelper.Clamp(left.B + right.B, 0, 1);
+			return left;
+		}
+
+		public static Color operator -(Color left, Color right)
+		{
+			left.A = MathHelper.Clamp(left.A - right.A, 0, 1);
+			left.R = MathHelper.Clamp(left.R - right.R, 0, 1);
+			left.G = MathHelper.Clamp(left.G - right.G, 0, 1);
+			left.B = MathHelper.Clamp(left.B - right.B, 0, 1);
+			return left;
+		}
+
+		public static Color operator *(Color left, float value)
+		{
+			left.A = MathHelper.Clamp(left.A * value, 0, 1);
+			left.R = MathHelper.Clamp(left.R * value, 0, 1);
+			left.G = MathHelper.Clamp(left.G * value, 0, 1);
+			left.B = MathHelper.Clamp(left.B * value, 0, 1);
+			return left;
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
