@@ -90,7 +90,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ShaderPrecache_LoadShaders (IntPtr graphics, IntPtr source);
+		internal static extern void ShaderPrecache_LoadShaders_File (IntPtr graphics, IntPtr source);
 
 		/// <summary>
 		/// Load shaders from an XML file.
@@ -98,7 +98,19 @@ namespace Urho
 		public static void LoadShaders (Graphics graphics, File source)
 		{
 			Runtime.Validate (typeof(ShaderPrecache));
-			ShaderPrecache_LoadShaders ((object)graphics == null ? IntPtr.Zero : graphics.Handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			ShaderPrecache_LoadShaders_File ((object)graphics == null ? IntPtr.Zero : graphics.Handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ShaderPrecache_LoadShaders_MemoryBuffer (IntPtr graphics, IntPtr source);
+
+		/// <summary>
+		/// Load shaders from an XML file.
+		/// </summary>
+		public static void LoadShaders (Graphics graphics, MemoryBuffer source)
+		{
+			Runtime.Validate (typeof(ShaderPrecache));
+			ShaderPrecache_LoadShaders_MemoryBuffer ((object)graphics == null ? IntPtr.Zero : graphics.Handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		public override StringHash Type {

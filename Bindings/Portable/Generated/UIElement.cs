@@ -346,7 +346,7 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_LoadXML1 (IntPtr handle, IntPtr source);
+		internal static extern bool UIElement_LoadXML1_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load from an XML file. Return true if successful.
@@ -354,11 +354,23 @@ namespace Urho.Gui
 		public bool LoadXml (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_LoadXML1 (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return UIElement_LoadXML1_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_SaveXML2 (IntPtr handle, IntPtr dest, string indentation);
+		internal static extern bool UIElement_LoadXML1_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load from an XML file. Return true if successful.
+		/// </summary>
+		public bool LoadXml (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_LoadXML1_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool UIElement_SaveXML2_File (IntPtr handle, IntPtr dest, string indentation);
 
 		/// <summary>
 		/// Save to an XML file. Return true if successful.
@@ -366,7 +378,19 @@ namespace Urho.Gui
 		public bool SaveXml (File dest, string indentation)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_SaveXML2 (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
+			return UIElement_SaveXML2_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool UIElement_SaveXML2_MemoryBuffer (IntPtr handle, IntPtr dest, string indentation);
+
+		/// <summary>
+		/// Save to an XML file. Return true if successful.
+		/// </summary>
+		public bool SaveXml (MemoryBuffer dest, string indentation)
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_SaveXML2_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

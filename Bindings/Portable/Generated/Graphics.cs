@@ -922,7 +922,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_PrecacheShaders (IntPtr handle, IntPtr source);
+		internal static extern void Graphics_PrecacheShaders_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Precache shader variations from an XML file generated with BeginDumpShaders().
@@ -930,7 +930,19 @@ namespace Urho
 		public void PrecacheShaders (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			Graphics_PrecacheShaders (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			Graphics_PrecacheShaders_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Graphics_PrecacheShaders_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Precache shader variations from an XML file generated with BeginDumpShaders().
+		/// </summary>
+		public void PrecacheShaders (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			Graphics_PrecacheShaders_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

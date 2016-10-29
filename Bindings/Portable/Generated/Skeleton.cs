@@ -24,7 +24,7 @@ namespace Urho
 	public unsafe partial class Skeleton
 	{
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Skeleton_Load (IntPtr handle, IntPtr source);
+		internal static extern bool Skeleton_Load_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Read from a stream. Return true if successful.
@@ -32,11 +32,23 @@ namespace Urho
 		public bool Load (File source)
 		{
 			Runtime.ValidateObject (this);
-			return Skeleton_Load (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Skeleton_Load_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Skeleton_Save (IntPtr handle, IntPtr dest);
+		internal static extern bool Skeleton_Load_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Read from a stream. Return true if successful.
+		/// </summary>
+		public bool Load (MemoryBuffer source)
+		{
+			Runtime.ValidateObject (this);
+			return Skeleton_Load_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Skeleton_Save_File (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Write to a stream. Return true if successful.
@@ -44,7 +56,19 @@ namespace Urho
 		public bool Save (File dest)
 		{
 			Runtime.ValidateObject (this);
-			return Skeleton_Save (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+			return Skeleton_Save_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Skeleton_Save_MemoryBuffer (IntPtr handle, IntPtr dest);
+
+		/// <summary>
+		/// Write to a stream. Return true if successful.
+		/// </summary>
+		public bool Save (MemoryBuffer dest)
+		{
+			Runtime.ValidateObject (this);
+			return Skeleton_Save_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

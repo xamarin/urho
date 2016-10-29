@@ -82,7 +82,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Serializable_Load (IntPtr handle, IntPtr source, bool setInstanceDefault);
+		internal static extern bool Serializable_Load_File (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from binary data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
@@ -90,11 +90,23 @@ namespace Urho
 		public virtual bool Load (File source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Serializable_Load (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
+			return Serializable_Load_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Serializable_Save (IntPtr handle, IntPtr dest);
+		internal static extern bool Serializable_Load_MemoryBuffer (IntPtr handle, IntPtr source, bool setInstanceDefault);
+
+		/// <summary>
+		/// Load from binary data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
+		/// </summary>
+		public virtual bool Load (MemoryBuffer source, bool setInstanceDefault)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Serializable_Load_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Serializable_Save_File (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save as binary data. Return true if successful.
@@ -102,7 +114,19 @@ namespace Urho
 		public virtual bool Save (File dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Serializable_Save (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+			return Serializable_Save_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Serializable_Save_MemoryBuffer (IntPtr handle, IntPtr dest);
+
+		/// <summary>
+		/// Save as binary data. Return true if successful.
+		/// </summary>
+		public virtual bool Save (MemoryBuffer dest)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Serializable_Save_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -514,7 +538,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Serializable_WriteInitialDeltaUpdate (IntPtr handle, IntPtr dest, byte timeStamp);
+		internal static extern void Serializable_WriteInitialDeltaUpdate_File (IntPtr handle, IntPtr dest, byte timeStamp);
 
 		/// <summary>
 		/// Write initial delta network update.
@@ -522,11 +546,23 @@ namespace Urho
 		public void WriteInitialDeltaUpdate (File dest, byte timeStamp)
 		{
 			Runtime.ValidateRefCounted (this);
-			Serializable_WriteInitialDeltaUpdate (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, timeStamp);
+			Serializable_WriteInitialDeltaUpdate_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, timeStamp);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Serializable_WriteLatestDataUpdate (IntPtr handle, IntPtr dest, byte timeStamp);
+		internal static extern void Serializable_WriteInitialDeltaUpdate_MemoryBuffer (IntPtr handle, IntPtr dest, byte timeStamp);
+
+		/// <summary>
+		/// Write initial delta network update.
+		/// </summary>
+		public void WriteInitialDeltaUpdate (MemoryBuffer dest, byte timeStamp)
+		{
+			Runtime.ValidateRefCounted (this);
+			Serializable_WriteInitialDeltaUpdate_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, timeStamp);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Serializable_WriteLatestDataUpdate_File (IntPtr handle, IntPtr dest, byte timeStamp);
 
 		/// <summary>
 		/// Write a latest data network update.
@@ -534,11 +570,23 @@ namespace Urho
 		public void WriteLatestDataUpdate (File dest, byte timeStamp)
 		{
 			Runtime.ValidateRefCounted (this);
-			Serializable_WriteLatestDataUpdate (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, timeStamp);
+			Serializable_WriteLatestDataUpdate_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, timeStamp);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Serializable_ReadDeltaUpdate (IntPtr handle, IntPtr source);
+		internal static extern void Serializable_WriteLatestDataUpdate_MemoryBuffer (IntPtr handle, IntPtr dest, byte timeStamp);
+
+		/// <summary>
+		/// Write a latest data network update.
+		/// </summary>
+		public void WriteLatestDataUpdate (MemoryBuffer dest, byte timeStamp)
+		{
+			Runtime.ValidateRefCounted (this);
+			Serializable_WriteLatestDataUpdate_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, timeStamp);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Serializable_ReadDeltaUpdate_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Read and apply a network delta update. Return true if attributes were changed.
@@ -546,11 +594,23 @@ namespace Urho
 		public bool ReadDeltaUpdate (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Serializable_ReadDeltaUpdate (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Serializable_ReadDeltaUpdate_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Serializable_ReadLatestDataUpdate (IntPtr handle, IntPtr source);
+		internal static extern bool Serializable_ReadDeltaUpdate_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Read and apply a network delta update. Return true if attributes were changed.
+		/// </summary>
+		public bool ReadDeltaUpdate (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Serializable_ReadDeltaUpdate_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Serializable_ReadLatestDataUpdate_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Read and apply a network latest data update. Return true if attributes were changed.
@@ -558,7 +618,19 @@ namespace Urho
 		public bool ReadLatestDataUpdate (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Serializable_ReadLatestDataUpdate (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Serializable_ReadLatestDataUpdate_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Serializable_ReadLatestDataUpdate_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Read and apply a network latest data update. Return true if attributes were changed.
+		/// </summary>
+		public bool ReadLatestDataUpdate (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Serializable_ReadLatestDataUpdate_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

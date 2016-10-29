@@ -281,7 +281,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Input_SaveGestures (IntPtr handle, IntPtr dest);
+		internal static extern bool Input_SaveGestures_File (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save all in-memory touch gestures. Return true if successful.
@@ -289,11 +289,23 @@ namespace Urho
 		public bool SaveGestures (File dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Input_SaveGestures (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+			return Input_SaveGestures_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Input_SaveGesture (IntPtr handle, IntPtr dest, uint gestureID);
+		internal static extern bool Input_SaveGestures_MemoryBuffer (IntPtr handle, IntPtr dest);
+
+		/// <summary>
+		/// Save all in-memory touch gestures. Return true if successful.
+		/// </summary>
+		public bool SaveGestures (MemoryBuffer dest)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Input_SaveGestures_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Input_SaveGesture_File (IntPtr handle, IntPtr dest, uint gestureID);
 
 		/// <summary>
 		/// Save a specific in-memory touch gesture to a file. Return true if successful.
@@ -301,11 +313,23 @@ namespace Urho
 		public bool SaveGesture (File dest, uint gestureID)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Input_SaveGesture (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, gestureID);
+			return Input_SaveGesture_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, gestureID);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern uint Input_LoadGestures (IntPtr handle, IntPtr source);
+		internal static extern bool Input_SaveGesture_MemoryBuffer (IntPtr handle, IntPtr dest, uint gestureID);
+
+		/// <summary>
+		/// Save a specific in-memory touch gesture to a file. Return true if successful.
+		/// </summary>
+		public bool SaveGesture (MemoryBuffer dest, uint gestureID)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Input_SaveGesture_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, gestureID);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Input_LoadGestures_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load touch gestures from a file. Return number of loaded gestures, or 0 on failure.
@@ -313,7 +337,19 @@ namespace Urho
 		public uint LoadGestures (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Input_LoadGestures (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Input_LoadGestures_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Input_LoadGestures_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load touch gestures from a file. Return number of loaded gestures, or 0 on failure.
+		/// </summary>
+		public uint LoadGestures (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Input_LoadGestures_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

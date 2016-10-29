@@ -94,7 +94,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool AnimatedModel_Load (IntPtr handle, IntPtr source, bool setInstanceDefault);
+		internal static extern bool AnimatedModel_Load_File (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from binary data. Return true if successful.
@@ -102,7 +102,19 @@ namespace Urho
 		public override bool Load (File source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return AnimatedModel_Load (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
+			return AnimatedModel_Load_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool AnimatedModel_Load_MemoryBuffer (IntPtr handle, IntPtr source, bool setInstanceDefault);
+
+		/// <summary>
+		/// Load from binary data. Return true if successful.
+		/// </summary>
+		public override bool Load (MemoryBuffer source, bool setInstanceDefault)
+		{
+			Runtime.ValidateRefCounted (this);
+			return AnimatedModel_Load_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

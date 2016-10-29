@@ -797,14 +797,28 @@ Serializable_Serializable (Urho3D::Context * context)
 
 
 DllExport int
-Serializable_Load (Urho3D::Serializable *_target, File * source, bool setInstanceDefault)
+Serializable_Load_File (Urho3D::Serializable *_target, File * source, bool setInstanceDefault)
 {
 	return _target->Load (*source, setInstanceDefault);
 }
 
 
 DllExport int
-Serializable_Save (Urho3D::Serializable *_target, File * dest)
+Serializable_Load_MemoryBuffer (Urho3D::Serializable *_target, MemoryBuffer * source, bool setInstanceDefault)
+{
+	return _target->Load (*source, setInstanceDefault);
+}
+
+
+DllExport int
+Serializable_Save_File (Urho3D::Serializable *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Serializable_Save_MemoryBuffer (Urho3D::Serializable *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -1029,28 +1043,56 @@ Serializable_AllocateNetworkState (Urho3D::Serializable *_target)
 
 
 DllExport void
-Serializable_WriteInitialDeltaUpdate (Urho3D::Serializable *_target, File * dest, unsigned char timeStamp)
+Serializable_WriteInitialDeltaUpdate_File (Urho3D::Serializable *_target, File * dest, unsigned char timeStamp)
 {
 	_target->WriteInitialDeltaUpdate (*dest, timeStamp);
 }
 
 
 DllExport void
-Serializable_WriteLatestDataUpdate (Urho3D::Serializable *_target, File * dest, unsigned char timeStamp)
+Serializable_WriteInitialDeltaUpdate_MemoryBuffer (Urho3D::Serializable *_target, MemoryBuffer * dest, unsigned char timeStamp)
+{
+	_target->WriteInitialDeltaUpdate (*dest, timeStamp);
+}
+
+
+DllExport void
+Serializable_WriteLatestDataUpdate_File (Urho3D::Serializable *_target, File * dest, unsigned char timeStamp)
+{
+	_target->WriteLatestDataUpdate (*dest, timeStamp);
+}
+
+
+DllExport void
+Serializable_WriteLatestDataUpdate_MemoryBuffer (Urho3D::Serializable *_target, MemoryBuffer * dest, unsigned char timeStamp)
 {
 	_target->WriteLatestDataUpdate (*dest, timeStamp);
 }
 
 
 DllExport int
-Serializable_ReadDeltaUpdate (Urho3D::Serializable *_target, File * source)
+Serializable_ReadDeltaUpdate_File (Urho3D::Serializable *_target, File * source)
 {
 	return _target->ReadDeltaUpdate (*source);
 }
 
 
 DllExport int
-Serializable_ReadLatestDataUpdate (Urho3D::Serializable *_target, File * source)
+Serializable_ReadDeltaUpdate_MemoryBuffer (Urho3D::Serializable *_target, MemoryBuffer * source)
+{
+	return _target->ReadDeltaUpdate (*source);
+}
+
+
+DllExport int
+Serializable_ReadLatestDataUpdate_File (Urho3D::Serializable *_target, File * source)
+{
+	return _target->ReadLatestDataUpdate (*source);
+}
+
+
+DllExport int
+Serializable_ReadLatestDataUpdate_MemoryBuffer (Urho3D::Serializable *_target, MemoryBuffer * source)
 {
 	return _target->ReadLatestDataUpdate (*source);
 }
@@ -1400,7 +1442,14 @@ Component_OnSetEnabled (Urho3D::Component *_target)
 
 
 DllExport int
-Component_Save (Urho3D::Component *_target, File * dest)
+Component_Save_File (Urho3D::Component *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Component_Save_MemoryBuffer (Urho3D::Component *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -1652,14 +1701,28 @@ Resource_Resource (Urho3D::Context * context)
 
 
 DllExport int
-Resource_Load (Urho3D::Resource *_target, File * source)
+Resource_Load_File (Urho3D::Resource *_target, File * source)
 {
 	return _target->Load (*source);
 }
 
 
 DllExport int
-Resource_BeginLoad (Urho3D::Resource *_target, File * source)
+Resource_Load_MemoryBuffer (Urho3D::Resource *_target, MemoryBuffer * source)
+{
+	return _target->Load (*source);
+}
+
+
+DllExport int
+Resource_BeginLoad_File (Urho3D::Resource *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Resource_BeginLoad_MemoryBuffer (Urho3D::Resource *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -1673,7 +1736,14 @@ Resource_EndLoad (Urho3D::Resource *_target)
 
 
 DllExport int
-Resource_Save (Urho3D::Resource *_target, File * dest)
+Resource_Save_File (Urho3D::Resource *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Resource_Save_MemoryBuffer (Urho3D::Resource *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -1799,7 +1869,14 @@ Sprite2D_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Sprite2D_BeginLoad (Urho3D::Sprite2D *_target, File * source)
+Sprite2D_BeginLoad_File (Urho3D::Sprite2D *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Sprite2D_BeginLoad_MemoryBuffer (Urho3D::Sprite2D *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -2415,7 +2492,14 @@ TmxFile2D_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-TmxFile2D_BeginLoad (Urho3D::TmxFile2D *_target, File * source)
+TmxFile2D_BeginLoad_File (Urho3D::TmxFile2D *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+TmxFile2D_BeginLoad_MemoryBuffer (Urho3D::TmxFile2D *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -2919,28 +3003,56 @@ Sound_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Sound_BeginLoad (Urho3D::Sound *_target, File * source)
+Sound_BeginLoad_File (Urho3D::Sound *_target, File * source)
 {
 	return _target->BeginLoad (*source);
 }
 
 
 DllExport int
-Sound_LoadRaw (Urho3D::Sound *_target, File * source)
+Sound_BeginLoad_MemoryBuffer (Urho3D::Sound *_target, MemoryBuffer * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Sound_LoadRaw_File (Urho3D::Sound *_target, File * source)
 {
 	return _target->LoadRaw (*source);
 }
 
 
 DllExport int
-Sound_LoadWav (Urho3D::Sound *_target, File * source)
+Sound_LoadRaw_MemoryBuffer (Urho3D::Sound *_target, MemoryBuffer * source)
+{
+	return _target->LoadRaw (*source);
+}
+
+
+DllExport int
+Sound_LoadWav_File (Urho3D::Sound *_target, File * source)
 {
 	return _target->LoadWav (*source);
 }
 
 
 DllExport int
-Sound_LoadOggVorbis (Urho3D::Sound *_target, File * source)
+Sound_LoadWav_MemoryBuffer (Urho3D::Sound *_target, MemoryBuffer * source)
+{
+	return _target->LoadWav (*source);
+}
+
+
+DllExport int
+Sound_LoadOggVorbis_File (Urho3D::Sound *_target, File * source)
+{
+	return _target->LoadOggVorbis (*source);
+}
+
+
+DllExport int
+Sound_LoadOggVorbis_MemoryBuffer (Urho3D::Sound *_target, MemoryBuffer * source)
 {
 	return _target->LoadOggVorbis (*source);
 }
@@ -4696,7 +4808,14 @@ Node_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Node_Load (Urho3D::Node *_target, File * source, bool setInstanceDefault)
+Node_Load_File (Urho3D::Node *_target, File * source, bool setInstanceDefault)
+{
+	return _target->Load (*source, setInstanceDefault);
+}
+
+
+DllExport int
+Node_Load_MemoryBuffer (Urho3D::Node *_target, MemoryBuffer * source, bool setInstanceDefault)
 {
 	return _target->Load (*source, setInstanceDefault);
 }
@@ -4710,7 +4829,14 @@ Node_LoadXML (Urho3D::Node *_target, const class Urho3D::XMLElement & source, bo
 
 
 DllExport int
-Node_Save (Urho3D::Node *_target, File * dest)
+Node_Save_File (Urho3D::Node *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Node_Save_MemoryBuffer (Urho3D::Node *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -4752,14 +4878,28 @@ Node_AddReplicationState (Urho3D::Node *_target, Urho3D::NodeReplicationState * 
 
 
 DllExport int
-Node_SaveXML0 (Urho3D::Node *_target, File * dest, const char * indentation)
+Node_SaveXML0_File (Urho3D::Node *_target, File * dest, const char * indentation)
 {
 	return _target->SaveXML (*dest, Urho3D::String(indentation));
 }
 
 
 DllExport int
-Node_SaveJSON (Urho3D::Node *_target, File * dest, const char * indentation)
+Node_SaveXML0_MemoryBuffer (Urho3D::Node *_target, MemoryBuffer * dest, const char * indentation)
+{
+	return _target->SaveXML (*dest, Urho3D::String(indentation));
+}
+
+
+DllExport int
+Node_SaveJSON_File (Urho3D::Node *_target, File * dest, const char * indentation)
+{
+	return _target->SaveJSON (*dest, Urho3D::String(indentation));
+}
+
+
+DllExport int
+Node_SaveJSON_MemoryBuffer (Urho3D::Node *_target, MemoryBuffer * dest, const char * indentation)
 {
 	return _target->SaveJSON (*dest, Urho3D::String(indentation));
 }
@@ -5887,14 +6027,28 @@ Node_SetTransformSilent (Urho3D::Node *_target, const class Urho3D::Vector3 & po
 
 
 DllExport int
-Skeleton_Load (Urho3D::Skeleton *_target, File * source)
+Skeleton_Load_File (Urho3D::Skeleton *_target, File * source)
 {
 	return _target->Load (*source);
 }
 
 
 DllExport int
-Skeleton_Save (Urho3D::Skeleton *_target, File * dest)
+Skeleton_Load_MemoryBuffer (Urho3D::Skeleton *_target, MemoryBuffer * source)
+{
+	return _target->Load (*source);
+}
+
+
+DllExport int
+Skeleton_Save_File (Urho3D::Skeleton *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Skeleton_Save_MemoryBuffer (Urho3D::Skeleton *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -5999,7 +6153,14 @@ Model_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Model_BeginLoad (Urho3D::Model *_target, File * source)
+Model_BeginLoad_File (Urho3D::Model *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Model_BeginLoad_MemoryBuffer (Urho3D::Model *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -6013,7 +6174,14 @@ Model_EndLoad (Urho3D::Model *_target)
 
 
 DllExport int
-Model_Save (Urho3D::Model *_target, File * dest)
+Model_Save_File (Urho3D::Model *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Model_Save_MemoryBuffer (Urho3D::Model *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -6752,7 +6920,14 @@ AnimatedModel_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-AnimatedModel_Load (Urho3D::AnimatedModel *_target, File * source, bool setInstanceDefault)
+AnimatedModel_Load_File (Urho3D::AnimatedModel *_target, File * source, bool setInstanceDefault)
+{
+	return _target->Load (*source, setInstanceDefault);
+}
+
+
+DllExport int
+AnimatedModel_Load_MemoryBuffer (Urho3D::AnimatedModel *_target, MemoryBuffer * source, bool setInstanceDefault)
 {
 	return _target->Load (*source, setInstanceDefault);
 }
@@ -7039,14 +7214,28 @@ Animation_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Animation_BeginLoad (Urho3D::Animation *_target, File * source)
+Animation_BeginLoad_File (Urho3D::Animation *_target, File * source)
 {
 	return _target->BeginLoad (*source);
 }
 
 
 DllExport int
-Animation_Save (Urho3D::Animation *_target, File * dest)
+Animation_BeginLoad_MemoryBuffer (Urho3D::Animation *_target, MemoryBuffer * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Animation_Save_File (Urho3D::Animation *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Animation_Save_MemoryBuffer (Urho3D::Animation *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -8615,7 +8804,14 @@ Material_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Material_BeginLoad (Urho3D::Material *_target, File * source)
+Material_BeginLoad_File (Urho3D::Material *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Material_BeginLoad_MemoryBuffer (Urho3D::Material *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -8629,7 +8825,14 @@ Material_EndLoad (Urho3D::Material *_target)
 
 
 DllExport int
-Material_Save (Urho3D::Material *_target, File * dest)
+Material_Save_File (Urho3D::Material *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Material_Save_MemoryBuffer (Urho3D::Material *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -10776,14 +10979,28 @@ Image_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Image_BeginLoad (Urho3D::Image *_target, File * source)
+Image_BeginLoad_File (Urho3D::Image *_target, File * source)
 {
 	return _target->BeginLoad (*source);
 }
 
 
 DllExport int
-Image_Save (Urho3D::Image *_target, File * dest)
+Image_BeginLoad_MemoryBuffer (Urho3D::Image *_target, MemoryBuffer * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Image_Save_File (Urho3D::Image *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Image_Save_MemoryBuffer (Urho3D::Image *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -10846,7 +11063,14 @@ Image_SetPixelInt3 (Urho3D::Image *_target, int x, int y, int z, unsigned int ui
 
 
 DllExport int
-Image_LoadColorLUT (Urho3D::Image *_target, File * source)
+Image_LoadColorLUT_File (Urho3D::Image *_target, File * source)
+{
+	return _target->LoadColorLUT (*source);
+}
+
+
+DllExport int
+Image_LoadColorLUT_MemoryBuffer (Urho3D::Image *_target, MemoryBuffer * source)
 {
 	return _target->LoadColorLUT (*source);
 }
@@ -11628,7 +11852,14 @@ Graphics_EndDumpShaders (Urho3D::Graphics *_target)
 
 
 DllExport void
-Graphics_PrecacheShaders (Urho3D::Graphics *_target, File * source)
+Graphics_PrecacheShaders_File (Urho3D::Graphics *_target, File * source)
+{
+	_target->PrecacheShaders (*source);
+}
+
+
+DllExport void
+Graphics_PrecacheShaders_MemoryBuffer (Urho3D::Graphics *_target, MemoryBuffer * source)
 {
 	_target->PrecacheShaders (*source);
 }
@@ -12741,7 +12972,14 @@ Texture2D_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Texture2D_BeginLoad (Urho3D::Texture2D *_target, File * source)
+Texture2D_BeginLoad_File (Urho3D::Texture2D *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Texture2D_BeginLoad_MemoryBuffer (Urho3D::Texture2D *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -13270,7 +13508,14 @@ ParticleEffect_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-ParticleEffect_BeginLoad (Urho3D::ParticleEffect *_target, File * source)
+ParticleEffect_BeginLoad_File (Urho3D::ParticleEffect *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+ParticleEffect_BeginLoad_MemoryBuffer (Urho3D::ParticleEffect *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -13284,7 +13529,14 @@ ParticleEffect_EndLoad (Urho3D::ParticleEffect *_target)
 
 
 DllExport int
-ParticleEffect_Save (Urho3D::ParticleEffect *_target, File * dest)
+ParticleEffect_Save_File (Urho3D::ParticleEffect *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+ParticleEffect_Save_MemoryBuffer (Urho3D::ParticleEffect *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -15043,7 +15295,14 @@ Shader_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Shader_BeginLoad (Urho3D::Shader *_target, File * source)
+Shader_BeginLoad_File (Urho3D::Shader *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Shader_BeginLoad_MemoryBuffer (Urho3D::Shader *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -16049,21 +16308,42 @@ XmlFile_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-XmlFile_BeginLoad (Urho3D::XMLFile *_target, File * source)
+XmlFile_BeginLoad_File (Urho3D::XMLFile *_target, File * source)
 {
 	return _target->BeginLoad (*source);
 }
 
 
 DllExport int
-XmlFile_Save (Urho3D::XMLFile *_target, File * dest)
+XmlFile_BeginLoad_MemoryBuffer (Urho3D::XMLFile *_target, MemoryBuffer * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+XmlFile_Save_File (Urho3D::XMLFile *_target, File * dest)
 {
 	return _target->Save (*dest);
 }
 
 
 DllExport int
-XmlFile_Save0 (Urho3D::XMLFile *_target, File * dest, const char * indentation)
+XmlFile_Save_MemoryBuffer (Urho3D::XMLFile *_target, MemoryBuffer * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+XmlFile_Save0_File (Urho3D::XMLFile *_target, File * dest, const char * indentation)
+{
+	return _target->Save (*dest, Urho3D::String(indentation));
+}
+
+
+DllExport int
+XmlFile_Save0_MemoryBuffer (Urho3D::XMLFile *_target, MemoryBuffer * dest, const char * indentation)
 {
 	return _target->Save (*dest, Urho3D::String(indentation));
 }
@@ -16133,7 +16413,14 @@ ShaderPrecache_StoreShaders (Urho3D::ShaderPrecache *_target, Urho3D::ShaderVari
 
 
 DllExport void
-ShaderPrecache_LoadShaders (Urho3D::Graphics * graphics, File * source)
+ShaderPrecache_LoadShaders_File (Urho3D::Graphics * graphics, File * source)
+{
+	ShaderPrecache::LoadShaders (graphics, *source);
+}
+
+
+DllExport void
+ShaderPrecache_LoadShaders_MemoryBuffer (Urho3D::Graphics * graphics, MemoryBuffer * source)
 {
 	ShaderPrecache::LoadShaders (graphics, *source);
 }
@@ -16560,7 +16847,14 @@ Technique_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Technique_BeginLoad (Urho3D::Technique *_target, File * source)
+Technique_BeginLoad_File (Urho3D::Technique *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Technique_BeginLoad_MemoryBuffer (Urho3D::Technique *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -17415,7 +17709,14 @@ Texture2DArray_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Texture2DArray_BeginLoad (Urho3D::Texture2DArray *_target, File * source)
+Texture2DArray_BeginLoad_File (Urho3D::Texture2DArray *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Texture2DArray_BeginLoad_MemoryBuffer (Urho3D::Texture2DArray *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -17471,7 +17772,14 @@ Texture2DArray_SetData (Urho3D::Texture2DArray *_target, unsigned int layer, uns
 
 
 DllExport int
-Texture2DArray_SetData0 (Urho3D::Texture2DArray *_target, unsigned int layer, File * source)
+Texture2DArray_SetData0_File (Urho3D::Texture2DArray *_target, unsigned int layer, File * source)
+{
+	return _target->SetData (layer, *source);
+}
+
+
+DllExport int
+Texture2DArray_SetData0_MemoryBuffer (Urho3D::Texture2DArray *_target, unsigned int layer, MemoryBuffer * source)
 {
 	return _target->SetData (layer, *source);
 }
@@ -17548,7 +17856,14 @@ Texture3D_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Texture3D_BeginLoad (Urho3D::Texture3D *_target, File * source)
+Texture3D_BeginLoad_File (Urho3D::Texture3D *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Texture3D_BeginLoad_MemoryBuffer (Urho3D::Texture3D *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -17639,7 +17954,14 @@ TextureCube_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-TextureCube_BeginLoad (Urho3D::TextureCube *_target, File * source)
+TextureCube_BeginLoad_File (Urho3D::TextureCube *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+TextureCube_BeginLoad_MemoryBuffer (Urho3D::TextureCube *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -17674,7 +17996,14 @@ TextureCube_SetData (Urho3D::TextureCube *_target, enum Urho3D::CubeMapFace face
 
 
 DllExport int
-TextureCube_SetData0 (Urho3D::TextureCube *_target, enum Urho3D::CubeMapFace face, File * source)
+TextureCube_SetData0_File (Urho3D::TextureCube *_target, enum Urho3D::CubeMapFace face, File * source)
+{
+	return _target->SetData (face, *source);
+}
+
+
+DllExport int
+TextureCube_SetData0_MemoryBuffer (Urho3D::TextureCube *_target, enum Urho3D::CubeMapFace face, MemoryBuffer * source)
 {
 	return _target->SetData (face, *source);
 }
@@ -19169,14 +19498,28 @@ UIElement_ElementToScreen (Urho3D::UIElement *_target, const class Urho3D::IntVe
 
 
 DllExport int
-UIElement_LoadXML1 (Urho3D::UIElement *_target, File * source)
+UIElement_LoadXML1_File (Urho3D::UIElement *_target, File * source)
 {
 	return _target->LoadXML (*source);
 }
 
 
 DllExport int
-UIElement_SaveXML2 (Urho3D::UIElement *_target, File * dest, const char * indentation)
+UIElement_LoadXML1_MemoryBuffer (Urho3D::UIElement *_target, MemoryBuffer * source)
+{
+	return _target->LoadXML (*source);
+}
+
+
+DllExport int
+UIElement_SaveXML2_File (Urho3D::UIElement *_target, File * dest, const char * indentation)
+{
+	return _target->SaveXML (*dest, Urho3D::String(indentation));
+}
+
+
+DllExport int
+UIElement_SaveXML2_MemoryBuffer (Urho3D::UIElement *_target, MemoryBuffer * dest, const char * indentation)
 {
 	return _target->SaveXML (*dest, Urho3D::String(indentation));
 }
@@ -20762,21 +21105,42 @@ Input_RecordGesture (Urho3D::Input *_target)
 
 
 DllExport int
-Input_SaveGestures (Urho3D::Input *_target, File * dest)
+Input_SaveGestures_File (Urho3D::Input *_target, File * dest)
 {
 	return _target->SaveGestures (*dest);
 }
 
 
 DllExport int
-Input_SaveGesture (Urho3D::Input *_target, File * dest, unsigned int gestureID)
+Input_SaveGestures_MemoryBuffer (Urho3D::Input *_target, MemoryBuffer * dest)
+{
+	return _target->SaveGestures (*dest);
+}
+
+
+DllExport int
+Input_SaveGesture_File (Urho3D::Input *_target, File * dest, unsigned int gestureID)
+{
+	return _target->SaveGesture (*dest, gestureID);
+}
+
+
+DllExport int
+Input_SaveGesture_MemoryBuffer (Urho3D::Input *_target, MemoryBuffer * dest, unsigned int gestureID)
 {
 	return _target->SaveGesture (*dest, gestureID);
 }
 
 
 DllExport unsigned int
-Input_LoadGestures (Urho3D::Input *_target, File * source)
+Input_LoadGestures_File (Urho3D::Input *_target, File * source)
+{
+	return _target->LoadGestures (*source);
+}
+
+
+DllExport unsigned int
+Input_LoadGestures_MemoryBuffer (Urho3D::Input *_target, MemoryBuffer * source)
 {
 	return _target->LoadGestures (*source);
 }
@@ -24661,21 +25025,42 @@ JsonFile_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-JsonFile_BeginLoad (Urho3D::JSONFile *_target, File * source)
+JsonFile_BeginLoad_File (Urho3D::JSONFile *_target, File * source)
 {
 	return _target->BeginLoad (*source);
 }
 
 
 DllExport int
-JsonFile_Save (Urho3D::JSONFile *_target, File * dest)
+JsonFile_BeginLoad_MemoryBuffer (Urho3D::JSONFile *_target, MemoryBuffer * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+JsonFile_Save_File (Urho3D::JSONFile *_target, File * dest)
 {
 	return _target->Save (*dest);
 }
 
 
 DllExport int
-JsonFile_Save0 (Urho3D::JSONFile *_target, File * dest, const char * indendation)
+JsonFile_Save_MemoryBuffer (Urho3D::JSONFile *_target, MemoryBuffer * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+JsonFile_Save0_File (Urho3D::JSONFile *_target, File * dest, const char * indendation)
+{
+	return _target->Save (*dest, Urho3D::String(indendation));
+}
+
+
+DllExport int
+JsonFile_Save0_MemoryBuffer (Urho3D::JSONFile *_target, MemoryBuffer * dest, const char * indendation)
 {
 	return _target->Save (*dest, Urho3D::String(indendation));
 }
@@ -24731,7 +25116,14 @@ PListFile_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-PListFile_BeginLoad (Urho3D::PListFile *_target, File * source)
+PListFile_BeginLoad_File (Urho3D::PListFile *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+PListFile_BeginLoad_MemoryBuffer (Urho3D::PListFile *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -25243,14 +25635,28 @@ ObjectAnimation_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-ObjectAnimation_BeginLoad (Urho3D::ObjectAnimation *_target, File * source)
+ObjectAnimation_BeginLoad_File (Urho3D::ObjectAnimation *_target, File * source)
 {
 	return _target->BeginLoad (*source);
 }
 
 
 DllExport int
-ObjectAnimation_Save (Urho3D::ObjectAnimation *_target, File * dest)
+ObjectAnimation_BeginLoad_MemoryBuffer (Urho3D::ObjectAnimation *_target, MemoryBuffer * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+ObjectAnimation_Save_File (Urho3D::ObjectAnimation *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+ObjectAnimation_Save_MemoryBuffer (Urho3D::ObjectAnimation *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -25362,14 +25768,28 @@ Scene_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Scene_Load (Urho3D::Scene *_target, File * source, bool setInstanceDefault)
+Scene_Load_File (Urho3D::Scene *_target, File * source, bool setInstanceDefault)
 {
 	return _target->Load (*source, setInstanceDefault);
 }
 
 
 DllExport int
-Scene_Save (Urho3D::Scene *_target, File * dest)
+Scene_Load_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * source, bool setInstanceDefault)
+{
+	return _target->Load (*source, setInstanceDefault);
+}
+
+
+DllExport int
+Scene_Save_File (Urho3D::Scene *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+Scene_Save_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -25397,28 +25817,56 @@ Scene_AddReplicationState (Urho3D::Scene *_target, Urho3D::NodeReplicationState 
 
 
 DllExport int
-Scene_LoadXML0 (Urho3D::Scene *_target, File * source)
+Scene_LoadXML0_File (Urho3D::Scene *_target, File * source)
 {
 	return _target->LoadXML (*source);
 }
 
 
 DllExport int
-Scene_LoadJSON (Urho3D::Scene *_target, File * source)
+Scene_LoadXML0_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * source)
+{
+	return _target->LoadXML (*source);
+}
+
+
+DllExport int
+Scene_LoadJSON_File (Urho3D::Scene *_target, File * source)
 {
 	return _target->LoadJSON (*source);
 }
 
 
 DllExport int
-Scene_SaveXML (Urho3D::Scene *_target, File * dest, const char * indentation)
+Scene_LoadJSON_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * source)
+{
+	return _target->LoadJSON (*source);
+}
+
+
+DllExport int
+Scene_SaveXML_File (Urho3D::Scene *_target, File * dest, const char * indentation)
 {
 	return _target->SaveXML (*dest, Urho3D::String(indentation));
 }
 
 
 DllExport int
-Scene_SaveJSON (Urho3D::Scene *_target, File * dest, const char * indentation)
+Scene_SaveXML_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * dest, const char * indentation)
+{
+	return _target->SaveXML (*dest, Urho3D::String(indentation));
+}
+
+
+DllExport int
+Scene_SaveJSON_File (Urho3D::Scene *_target, File * dest, const char * indentation)
+{
+	return _target->SaveJSON (*dest, Urho3D::String(indentation));
+}
+
+
+DllExport int
+Scene_SaveJSON_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * dest, const char * indentation)
 {
 	return _target->SaveJSON (*dest, Urho3D::String(indentation));
 }
@@ -25453,7 +25901,14 @@ Scene_StopAsyncLoading (Urho3D::Scene *_target)
 
 
 DllExport Urho3D::Node *
-Scene_Instantiate (Urho3D::Scene *_target, File * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
+Scene_Instantiate_File (Urho3D::Scene *_target, File * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
+{
+	return _target->Instantiate (*source, position, rotation, mode);
+}
+
+
+DllExport Urho3D::Node *
+Scene_Instantiate_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
 {
 	return _target->Instantiate (*source, position, rotation, mode);
 }
@@ -25467,14 +25922,28 @@ Scene_InstantiateXML (Urho3D::Scene *_target, const class Urho3D::XMLElement & s
 
 
 DllExport Urho3D::Node *
-Scene_InstantiateXML1 (Urho3D::Scene *_target, File * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
+Scene_InstantiateXML1_File (Urho3D::Scene *_target, File * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
 {
 	return _target->InstantiateXML (*source, position, rotation, mode);
 }
 
 
 DllExport Urho3D::Node *
-Scene_InstantiateJSON (Urho3D::Scene *_target, File * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
+Scene_InstantiateXML1_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
+{
+	return _target->InstantiateXML (*source, position, rotation, mode);
+}
+
+
+DllExport Urho3D::Node *
+Scene_InstantiateJSON_File (Urho3D::Scene *_target, File * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
+{
+	return _target->InstantiateJSON (*source, position, rotation, mode);
+}
+
+
+DllExport Urho3D::Node *
+Scene_InstantiateJSON_MemoryBuffer (Urho3D::Scene *_target, MemoryBuffer * source, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation, enum Urho3D::CreateMode mode)
 {
 	return _target->InstantiateJSON (*source, position, rotation, mode);
 }
@@ -26104,7 +26573,14 @@ UnknownComponent_GetTypeName (Urho3D::UnknownComponent *_target)
 
 
 DllExport int
-UnknownComponent_Load (Urho3D::UnknownComponent *_target, File * source, bool setInstanceDefault)
+UnknownComponent_Load_File (Urho3D::UnknownComponent *_target, File * source, bool setInstanceDefault)
+{
+	return _target->Load (*source, setInstanceDefault);
+}
+
+
+DllExport int
+UnknownComponent_Load_MemoryBuffer (Urho3D::UnknownComponent *_target, MemoryBuffer * source, bool setInstanceDefault)
 {
 	return _target->Load (*source, setInstanceDefault);
 }
@@ -26118,7 +26594,14 @@ UnknownComponent_LoadXML (Urho3D::UnknownComponent *_target, const class Urho3D:
 
 
 DllExport int
-UnknownComponent_Save (Urho3D::UnknownComponent *_target, File * dest)
+UnknownComponent_Save_File (Urho3D::UnknownComponent *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+UnknownComponent_Save_MemoryBuffer (Urho3D::UnknownComponent *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -26209,14 +26692,28 @@ ValueAnimation_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-ValueAnimation_BeginLoad (Urho3D::ValueAnimation *_target, File * source)
+ValueAnimation_BeginLoad_File (Urho3D::ValueAnimation *_target, File * source)
 {
 	return _target->BeginLoad (*source);
 }
 
 
 DllExport int
-ValueAnimation_Save (Urho3D::ValueAnimation *_target, File * dest)
+ValueAnimation_BeginLoad_MemoryBuffer (Urho3D::ValueAnimation *_target, MemoryBuffer * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+ValueAnimation_Save_File (Urho3D::ValueAnimation *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+ValueAnimation_Save_MemoryBuffer (Urho3D::ValueAnimation *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -27235,14 +27732,28 @@ Font_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-Font_BeginLoad (Urho3D::Font *_target, File * source)
+Font_BeginLoad_File (Urho3D::Font *_target, File * source)
 {
 	return _target->BeginLoad (*source);
 }
 
 
 DllExport int
-Font_SaveXML (Urho3D::Font *_target, File * dest, int pointSize, bool usedGlyphs, const char * indentation)
+Font_BeginLoad_MemoryBuffer (Urho3D::Font *_target, MemoryBuffer * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+Font_SaveXML_File (Urho3D::Font *_target, File * dest, int pointSize, bool usedGlyphs, const char * indentation)
+{
+	return _target->SaveXML (*dest, pointSize, usedGlyphs, Urho3D::String(indentation));
+}
+
+
+DllExport int
+Font_SaveXML_MemoryBuffer (Urho3D::Font *_target, MemoryBuffer * dest, int pointSize, bool usedGlyphs, const char * indentation)
 {
 	return _target->SaveXML (*dest, pointSize, usedGlyphs, Urho3D::String(indentation));
 }
@@ -27382,7 +27893,14 @@ FontFaceBitmap_Load0 (Urho3D::FontFaceBitmap *_target, Urho3D::FontFace * fontFa
 
 
 DllExport int
-FontFaceBitmap_Save (Urho3D::FontFaceBitmap *_target, File * dest, int pointSize, const char * indentation)
+FontFaceBitmap_Save_File (Urho3D::FontFaceBitmap *_target, File * dest, int pointSize, const char * indentation)
+{
+	return _target->Save (*dest, pointSize, Urho3D::String(indentation));
+}
+
+
+DllExport int
+FontFaceBitmap_Save_MemoryBuffer (Urho3D::FontFaceBitmap *_target, MemoryBuffer * dest, int pointSize, const char * indentation)
 {
 	return _target->Save (*dest, pointSize, Urho3D::String(indentation));
 }
@@ -29685,7 +30203,18 @@ UI_DebugDraw (Urho3D::UI *_target, Urho3D::UIElement * element)
 
 
 DllExport Urho3D::UIElement *
-UI_LoadLayout (Urho3D::UI *_target, File * source, Urho3D::XMLFile * styleFile)
+UI_LoadLayout_File (Urho3D::UI *_target, File * source, Urho3D::XMLFile * styleFile)
+{
+	auto copy = _target->LoadLayout (*source, styleFile);
+	auto plain = copy.Get();
+	copy.Detach();
+	delete copy;
+	return plain;
+}
+
+
+DllExport Urho3D::UIElement *
+UI_LoadLayout_MemoryBuffer (Urho3D::UI *_target, MemoryBuffer * source, Urho3D::XMLFile * styleFile)
 {
 	auto copy = _target->LoadLayout (*source, styleFile);
 	auto plain = copy.Get();
@@ -29707,7 +30236,14 @@ UI_LoadLayout0 (Urho3D::UI *_target, Urho3D::XMLFile * file, Urho3D::XMLFile * s
 
 
 DllExport int
-UI_SaveLayout (Urho3D::UI *_target, File * dest, Urho3D::UIElement * element)
+UI_SaveLayout_File (Urho3D::UI *_target, File * dest, Urho3D::UIElement * element)
+{
+	return _target->SaveLayout (*dest, element);
+}
+
+
+DllExport int
+UI_SaveLayout_MemoryBuffer (Urho3D::UI *_target, MemoryBuffer * dest, Urho3D::UIElement * element)
 {
 	return _target->SaveLayout (*dest, element);
 }
@@ -30750,7 +31286,14 @@ AnimationSet2D_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-AnimationSet2D_BeginLoad (Urho3D::AnimationSet2D *_target, File * source)
+AnimationSet2D_BeginLoad_File (Urho3D::AnimationSet2D *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+AnimationSet2D_BeginLoad_MemoryBuffer (Urho3D::AnimationSet2D *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -32724,7 +33267,14 @@ ParticleEffect2D_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-ParticleEffect2D_BeginLoad (Urho3D::ParticleEffect2D *_target, File * source)
+ParticleEffect2D_BeginLoad_File (Urho3D::ParticleEffect2D *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+ParticleEffect2D_BeginLoad_MemoryBuffer (Urho3D::ParticleEffect2D *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }
@@ -32738,7 +33288,14 @@ ParticleEffect2D_EndLoad (Urho3D::ParticleEffect2D *_target)
 
 
 DllExport int
-ParticleEffect2D_Save (Urho3D::ParticleEffect2D *_target, File * dest)
+ParticleEffect2D_Save_File (Urho3D::ParticleEffect2D *_target, File * dest)
+{
+	return _target->Save (*dest);
+}
+
+
+DllExport int
+ParticleEffect2D_Save_MemoryBuffer (Urho3D::ParticleEffect2D *_target, MemoryBuffer * dest)
 {
 	return _target->Save (*dest);
 }
@@ -34121,7 +34678,14 @@ SpriteSheet2D_RegisterObject (Urho3D::Context * context)
 
 
 DllExport int
-SpriteSheet2D_BeginLoad (Urho3D::SpriteSheet2D *_target, File * source)
+SpriteSheet2D_BeginLoad_File (Urho3D::SpriteSheet2D *_target, File * source)
+{
+	return _target->BeginLoad (*source);
+}
+
+
+DllExport int
+SpriteSheet2D_BeginLoad_MemoryBuffer (Urho3D::SpriteSheet2D *_target, MemoryBuffer * source)
 {
 	return _target->BeginLoad (*source);
 }

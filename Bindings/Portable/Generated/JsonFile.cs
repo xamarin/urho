@@ -94,7 +94,7 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool JsonFile_BeginLoad (IntPtr handle, IntPtr source);
+		internal static extern bool JsonFile_BeginLoad_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load resource from stream. May be called from a worker thread. Return true if successful.
@@ -102,11 +102,23 @@ namespace Urho.Resources
 		public override bool BeginLoad (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return JsonFile_BeginLoad (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return JsonFile_BeginLoad_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool JsonFile_Save (IntPtr handle, IntPtr dest);
+		internal static extern bool JsonFile_BeginLoad_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load resource from stream. May be called from a worker thread. Return true if successful.
+		/// </summary>
+		public override bool BeginLoad (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return JsonFile_BeginLoad_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool JsonFile_Save_File (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save resource with default indentation (one tab). Return true if successful.
@@ -114,11 +126,23 @@ namespace Urho.Resources
 		public override bool Save (File dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return JsonFile_Save (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+			return JsonFile_Save_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool JsonFile_Save0 (IntPtr handle, IntPtr dest, string indendation);
+		internal static extern bool JsonFile_Save_MemoryBuffer (IntPtr handle, IntPtr dest);
+
+		/// <summary>
+		/// Save resource with default indentation (one tab). Return true if successful.
+		/// </summary>
+		public override bool Save (MemoryBuffer dest)
+		{
+			Runtime.ValidateRefCounted (this);
+			return JsonFile_Save_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool JsonFile_Save0_File (IntPtr handle, IntPtr dest, string indendation);
 
 		/// <summary>
 		/// Save resource with user-defined indentation, only the first character (if any) of the string is used and the length of the string defines the character count. Return true if successful.
@@ -126,7 +150,19 @@ namespace Urho.Resources
 		public bool Save (File dest, string indendation)
 		{
 			Runtime.ValidateRefCounted (this);
-			return JsonFile_Save0 (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indendation);
+			return JsonFile_Save0_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indendation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool JsonFile_Save0_MemoryBuffer (IntPtr handle, IntPtr dest, string indendation);
+
+		/// <summary>
+		/// Save resource with user-defined indentation, only the first character (if any) of the string is used and the length of the string defines the character count. Return true if successful.
+		/// </summary>
+		public bool Save (MemoryBuffer dest, string indendation)
+		{
+			Runtime.ValidateRefCounted (this);
+			return JsonFile_Save0_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indendation);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

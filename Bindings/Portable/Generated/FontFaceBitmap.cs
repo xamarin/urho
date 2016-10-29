@@ -66,7 +66,7 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool FontFaceBitmap_Save (IntPtr handle, IntPtr dest, int pointSize, string indentation);
+		internal static extern bool FontFaceBitmap_Save_File (IntPtr handle, IntPtr dest, int pointSize, string indentation);
 
 		/// <summary>
 		/// Save as a new bitmap font type in XML format. Return true if successful.
@@ -74,7 +74,19 @@ namespace Urho.Gui
 		public bool Save (File dest, int pointSize, string indentation)
 		{
 			Runtime.ValidateRefCounted (this);
-			return FontFaceBitmap_Save (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, indentation);
+			return FontFaceBitmap_Save_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, indentation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool FontFaceBitmap_Save_MemoryBuffer (IntPtr handle, IntPtr dest, int pointSize, string indentation);
+
+		/// <summary>
+		/// Save as a new bitmap font type in XML format. Return true if successful.
+		/// </summary>
+		public bool Save (MemoryBuffer dest, int pointSize, string indentation)
+		{
+			Runtime.ValidateRefCounted (this);
+			return FontFaceBitmap_Save_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, indentation);
 		}
 	}
 }

@@ -94,7 +94,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_Load (IntPtr handle, IntPtr source, bool setInstanceDefault);
+		internal static extern bool Scene_Load_File (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from binary data. Removes all existing child nodes and components first. Return true if successful.
@@ -102,11 +102,23 @@ namespace Urho
 		public override bool Load (File source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Scene_Load (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
+			return Scene_Load_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_Save (IntPtr handle, IntPtr dest);
+		internal static extern bool Scene_Load_MemoryBuffer (IntPtr handle, IntPtr source, bool setInstanceDefault);
+
+		/// <summary>
+		/// Load from binary data. Removes all existing child nodes and components first. Return true if successful.
+		/// </summary>
+		public override bool Load (MemoryBuffer source, bool setInstanceDefault)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Scene_Load_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Scene_Save_File (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save to binary data. Return true if successful.
@@ -114,7 +126,19 @@ namespace Urho
 		public override bool Save (File dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Scene_Save (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+			return Scene_Save_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Scene_Save_MemoryBuffer (IntPtr handle, IntPtr dest);
+
+		/// <summary>
+		/// Save to binary data. Return true if successful.
+		/// </summary>
+		public override bool Save (MemoryBuffer dest)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Scene_Save_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -154,7 +178,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_LoadXML0 (IntPtr handle, IntPtr source);
+		internal static extern bool Scene_LoadXML0_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load from an XML file. Return true if successful.
@@ -162,11 +186,23 @@ namespace Urho
 		public bool LoadXml (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Scene_LoadXML0 (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Scene_LoadXML0_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_LoadJSON (IntPtr handle, IntPtr source);
+		internal static extern bool Scene_LoadXML0_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load from an XML file. Return true if successful.
+		/// </summary>
+		public bool LoadXml (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Scene_LoadXML0_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Scene_LoadJSON_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load from a JSON file. Return true if successful.
@@ -174,11 +210,23 @@ namespace Urho
 		public bool LoadJson (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Scene_LoadJSON (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Scene_LoadJSON_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_SaveXML (IntPtr handle, IntPtr dest, string indentation);
+		internal static extern bool Scene_LoadJSON_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load from a JSON file. Return true if successful.
+		/// </summary>
+		public bool LoadJson (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Scene_LoadJSON_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Scene_SaveXML_File (IntPtr handle, IntPtr dest, string indentation);
 
 		/// <summary>
 		/// Save to an XML file. Return true if successful.
@@ -186,11 +234,23 @@ namespace Urho
 		public override bool SaveXml (File dest, string indentation)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Scene_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
+			return Scene_SaveXML_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_SaveJSON (IntPtr handle, IntPtr dest, string indentation);
+		internal static extern bool Scene_SaveXML_MemoryBuffer (IntPtr handle, IntPtr dest, string indentation);
+
+		/// <summary>
+		/// Save to an XML file. Return true if successful.
+		/// </summary>
+		public override bool SaveXml (MemoryBuffer dest, string indentation)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Scene_SaveXML_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Scene_SaveJSON_File (IntPtr handle, IntPtr dest, string indentation);
 
 		/// <summary>
 		/// Save to a JSON file. Return true if successful.
@@ -198,7 +258,19 @@ namespace Urho
 		public override bool SaveJson (File dest, string indentation)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Scene_SaveJSON (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
+			return Scene_SaveJSON_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Scene_SaveJSON_MemoryBuffer (IntPtr handle, IntPtr dest, string indentation);
+
+		/// <summary>
+		/// Save to a JSON file. Return true if successful.
+		/// </summary>
+		public override bool SaveJson (MemoryBuffer dest, string indentation)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Scene_SaveJSON_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -250,7 +322,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Scene_Instantiate (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
+		internal static extern IntPtr Scene_Instantiate_File (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
 
 		/// <summary>
 		/// Instantiate scene content from binary data. Return root node if successful.
@@ -258,7 +330,19 @@ namespace Urho
 		public Node Instantiate (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Node> (Scene_Instantiate (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
+			return Runtime.LookupObject<Node> (Scene_Instantiate_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Scene_Instantiate_MemoryBuffer (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
+
+		/// <summary>
+		/// Instantiate scene content from binary data. Return root node if successful.
+		/// </summary>
+		public Node Instantiate (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Node> (Scene_Instantiate_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -274,7 +358,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Scene_InstantiateXML1 (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
+		internal static extern IntPtr Scene_InstantiateXML1_File (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
 
 		/// <summary>
 		/// Instantiate scene content from XML data. Return root node if successful.
@@ -282,11 +366,23 @@ namespace Urho
 		public Node InstantiateXml (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Node> (Scene_InstantiateXML1 (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
+			return Runtime.LookupObject<Node> (Scene_InstantiateXML1_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Scene_InstantiateJSON (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
+		internal static extern IntPtr Scene_InstantiateXML1_MemoryBuffer (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
+
+		/// <summary>
+		/// Instantiate scene content from XML data. Return root node if successful.
+		/// </summary>
+		public Node InstantiateXml (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Node> (Scene_InstantiateXML1_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Scene_InstantiateJSON_File (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
 
 		/// <summary>
 		/// Instantiate scene content from JSON data. Return root node if successful.
@@ -294,7 +390,19 @@ namespace Urho
 		public Node InstantiateJson (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Node> (Scene_InstantiateJSON (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
+			return Runtime.LookupObject<Node> (Scene_InstantiateJSON_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Scene_InstantiateJSON_MemoryBuffer (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
+
+		/// <summary>
+		/// Instantiate scene content from JSON data. Return root node if successful.
+		/// </summary>
+		public Node InstantiateJson (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Node> (Scene_InstantiateJSON_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

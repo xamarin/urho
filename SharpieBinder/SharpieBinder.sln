@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructsValidator", "Structs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetsModelGenerator", "AssetsModelGenerator\AssetsModelGenerator.csproj", "{6A8BB38A-2C9B-4A5C-AA03-8FCD7DF35C87}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Urho.Shared", "..\Bindings\Urho.Shared.shproj", "{05693742-16E4-45AD-B7DD-B5F3DE51BC11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -94,7 +94,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Texture2DArray_BeginLoad (IntPtr handle, IntPtr source);
+		internal static extern bool Texture2DArray_BeginLoad_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load resource from stream. May be called from a worker thread. Return true if successful.
@@ -102,7 +102,19 @@ namespace Urho
 		public override bool BeginLoad (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Texture2DArray_BeginLoad (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Texture2DArray_BeginLoad_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Texture2DArray_BeginLoad_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load resource from stream. May be called from a worker thread. Return true if successful.
+		/// </summary>
+		public override bool BeginLoad (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture2DArray_BeginLoad_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -190,7 +202,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Texture2DArray_SetData0 (IntPtr handle, uint layer, IntPtr source);
+		internal static extern bool Texture2DArray_SetData0_File (IntPtr handle, uint layer, IntPtr source);
 
 		/// <summary>
 		/// Set data of one layer from a stream. Return true if successful.
@@ -198,7 +210,19 @@ namespace Urho
 		public bool SetData (uint layer, File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Texture2DArray_SetData0 (handle, layer, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Texture2DArray_SetData0_File (handle, layer, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Texture2DArray_SetData0_MemoryBuffer (IntPtr handle, uint layer, IntPtr source);
+
+		/// <summary>
+		/// Set data of one layer from a stream. Return true if successful.
+		/// </summary>
+		public bool SetData (uint layer, MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture2DArray_SetData0_MemoryBuffer (handle, layer, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

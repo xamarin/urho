@@ -94,7 +94,7 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Font_BeginLoad (IntPtr handle, IntPtr source);
+		internal static extern bool Font_BeginLoad_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load resource from stream. May be called from a worker thread. Return true if successful.
@@ -102,11 +102,23 @@ namespace Urho.Gui
 		public override bool BeginLoad (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Font_BeginLoad (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Font_BeginLoad_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Font_SaveXML (IntPtr handle, IntPtr dest, int pointSize, bool usedGlyphs, string indentation);
+		internal static extern bool Font_BeginLoad_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load resource from stream. May be called from a worker thread. Return true if successful.
+		/// </summary>
+		public override bool BeginLoad (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Font_BeginLoad_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Font_SaveXML_File (IntPtr handle, IntPtr dest, int pointSize, bool usedGlyphs, string indentation);
 
 		/// <summary>
 		/// Save resource as a new bitmap font type in XML format. Return true if successful.
@@ -114,7 +126,19 @@ namespace Urho.Gui
 		public bool SaveXml (File dest, int pointSize, bool usedGlyphs, string indentation)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Font_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, usedGlyphs, indentation);
+			return Font_SaveXML_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, usedGlyphs, indentation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Font_SaveXML_MemoryBuffer (IntPtr handle, IntPtr dest, int pointSize, bool usedGlyphs, string indentation);
+
+		/// <summary>
+		/// Save resource as a new bitmap font type in XML format. Return true if successful.
+		/// </summary>
+		public bool SaveXml (MemoryBuffer dest, int pointSize, bool usedGlyphs, string indentation)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Font_SaveXML_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, usedGlyphs, indentation);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

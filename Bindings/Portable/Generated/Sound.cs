@@ -94,7 +94,7 @@ namespace Urho.Audio
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Sound_BeginLoad (IntPtr handle, IntPtr source);
+		internal static extern bool Sound_BeginLoad_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load resource from stream. May be called from a worker thread. Return true if successful.
@@ -102,11 +102,23 @@ namespace Urho.Audio
 		public override bool BeginLoad (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Sound_BeginLoad (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Sound_BeginLoad_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Sound_LoadRaw (IntPtr handle, IntPtr source);
+		internal static extern bool Sound_BeginLoad_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load resource from stream. May be called from a worker thread. Return true if successful.
+		/// </summary>
+		public override bool BeginLoad (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Sound_BeginLoad_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Sound_LoadRaw_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load raw sound data.
@@ -114,11 +126,23 @@ namespace Urho.Audio
 		public bool LoadRaw (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Sound_LoadRaw (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Sound_LoadRaw_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Sound_LoadWav (IntPtr handle, IntPtr source);
+		internal static extern bool Sound_LoadRaw_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load raw sound data.
+		/// </summary>
+		public bool LoadRaw (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Sound_LoadRaw_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Sound_LoadWav_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load WAV format sound data.
@@ -126,11 +150,23 @@ namespace Urho.Audio
 		public bool LoadWav (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Sound_LoadWav (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Sound_LoadWav_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Sound_LoadOggVorbis (IntPtr handle, IntPtr source);
+		internal static extern bool Sound_LoadWav_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load WAV format sound data.
+		/// </summary>
+		public bool LoadWav (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Sound_LoadWav_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Sound_LoadOggVorbis_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load Ogg Vorbis format sound data. Does not decode at load, but will rather be decoded while playing.
@@ -138,7 +174,19 @@ namespace Urho.Audio
 		public bool LoadOggVorbis (File source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Sound_LoadOggVorbis (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+			return Sound_LoadOggVorbis_File (handle, (object)source == null ? IntPtr.Zero : source.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Sound_LoadOggVorbis_MemoryBuffer (IntPtr handle, IntPtr source);
+
+		/// <summary>
+		/// Load Ogg Vorbis format sound data. Does not decode at load, but will rather be decoded while playing.
+		/// </summary>
+		public bool LoadOggVorbis (MemoryBuffer source)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Sound_LoadOggVorbis_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

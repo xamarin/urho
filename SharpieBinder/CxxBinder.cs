@@ -24,7 +24,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Sharpie.Bind;
 using System.Text;
-
+using UnwrapTypeInfo = System.Tuple<string, string, string[]>;
 
 namespace SharpieBinder
 {
@@ -823,7 +823,7 @@ namespace SharpieBinder
 				return;
 			case "class Urho3D::Serializer &":
 			case "class Urho3D::Deserializer &":
-				highLevel = new SimpleType ("File");
+				highLevel = new SimpleType ("DeSerializer");
 				lowLevel = new SimpleType ("IntPtr");
 				wrapKind = WrapKind.HandleMember;
 				return;
@@ -1005,9 +1005,9 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			/*if (currentType.Name == "Material" && decl.Name == "SetShaderParameter")
-				return false;
-			return true;*/
+			//if (currentType.Name == "Resource" && decl.Name == "Load")
+			//	return false;
+			//return true;
 
 			// skip OpenGL(ES) specific API: TODO wrap with #ifdef
 			if (OglSpecificMethodsMap.ContainsKey(currentType.Name))
@@ -1478,7 +1478,7 @@ namespace SharpieBinder
 					break;
 				case "Urho3D::Deserializer &":
 				case "Urho3D::Serializer &":
-					ctype = "File *";
+					ctype = "Urho3D::DeSerializer *";
 					paramInvoke = $"*{paramInvoke}";
 					break;
 				case "const class Urho3D::String &":
@@ -1721,6 +1721,47 @@ namespace SharpieBinder
 			//method does not have "Variant" arguments
 			else
 			{
+				var unwrapTypes = new List<UnwrapTypeInfo>
+				{
+					new UnwrapTypeInfo("Urho3D::DeSerializer", "DeSerializer", new string[] { "File", "MemoryBuffer", /*VectorBuffer, NamedPipe, HttpRequest*/ }),
+				};
+				bool methodHandled = false;
+				foreach (var item in unwrapTypes)
+				{
+					if (code.Contains(item.Item1))
+					{
+						methodHandled = true;
+						for (int i = 0; i < item.Item3.Length; i++)
+						{
+							var unwrapType = item.Item3[i];
+							var postfix = "_" + unwrapType;
+							//C:
+							pn(code
+								.Replace(item.Item1, unwrapType)
+								.Replace(methodNameSuffix, postfix)
+								.Replace(variantConverterMask, string.Empty));
+
+							var pinvokeClone = pinvoke.Clone() as MethodDeclaration;
+							pinvokeClone.Name += postfix;
+							currentType.Members.Add(pinvokeClone);
+
+							var clonedMethod = method.Clone() as MethodDeclaration;
+							var paramToReplace = clonedMethod.Parameters.First(p => p.Type.ToString() == item.Item2);
+							paramToReplace.Type = new SimpleType(unwrapType);
+
+							var exp = clonedMethod.Body.Last();
+							var fixedStatements = csParser.ParseStatements(exp.ToString().Replace(pinvoke_name, pinvoke_name + postfix));
+							clonedMethod.Body.Last().Remove();
+							fixedStatements.ToList().ForEach(s => clonedMethod.Body.Add(s));
+							currentType.Members.Add(clonedMethod);
+							InsertSummaryComments(clonedMethod, StringUtil.GetMethodComments(decl));
+						}
+					}
+				}
+
+				if (methodHandled)
+					return;
+
 				//C:
 				pn(code
 					.Replace(methodNameSuffix, string.Empty)
