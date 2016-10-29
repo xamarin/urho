@@ -124,6 +124,11 @@ namespace Urho {
 		}
 
 		/// <summary>
+		/// Yield a frame
+		/// </summary>
+		public Task YieldFrame() => InvokeOnMainAsync(null);
+
+		/// <summary>
 		/// Invoke actions in the Main Thread (the next Update call)
 		/// </summary>
 		public static Task InvokeOnMainAsync(Action action)
@@ -131,7 +136,7 @@ namespace Urho {
 			var tcs = new TaskCompletionSource<bool>();
 			InvokeOnMain(() =>
 				{
-					action();
+					action?.Invoke();
 					tcs.TrySetResult(true);
 				});
 			return tcs.Task;
