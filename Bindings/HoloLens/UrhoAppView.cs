@@ -15,7 +15,7 @@ namespace Urho.HoloLens
 	public class UrhoAppView : IFrameworkView, IDisposable 
 	{
 		Type holoAppType;
-		string assetsDirectory;
+		ApplicationOptions options;
 		bool windowVisible = true;
 		bool windowClosed;
 		bool appInited;
@@ -33,17 +33,17 @@ namespace Urho.HoloLens
 
 		public static UrhoAppView Current { get; private set; }
 
-		UrhoAppView(Type holoAppType, string assetsDirectory)
+		UrhoAppView(Type holoAppType, ApplicationOptions opts)
 		{
 			this.holoAppType = holoAppType;
-			this.assetsDirectory = assetsDirectory;
+			this.options = opts;
 			windowVisible = true;
 			Current = this;
 		}
 
-		public static UrhoAppView Create<T>(string assetsPakName) where T : HoloApplication
+		public static UrhoAppView Create<T>(ApplicationOptions opts) where T : HoloApplication
 		{
-			return new UrhoAppView(typeof(T), assetsPakName);
+			return new UrhoAppView(typeof(T), opts);
 		}
 
 		public void Dispose() {}
@@ -101,12 +101,11 @@ namespace Urho.HoloLens
 					VoiceManager = new VoiceManager();
 					appInited = true;
 
-					var options = new ApplicationOptions(assetsDirectory) 
-						{
-							Width = 1268,
-							Height = 720,
-							LimitFps = false
-						};
+					//override some options:
+					options.LimitFps = false;
+					options.Width = 1268; //TODO: find system
+					options.Height = 720;
+
 					Game = (HoloApplication) Activator.CreateInstance(holoAppType, options);
 					Game.Run();
 					GesturesManager = new GesturesManager(Game, ReferenceFrame);
