@@ -8,9 +8,16 @@
 				return FromImage(image);
 
 			var cache = Application.Current.ResourceCache;
+			var diff = cache.GetTexture2D(image);
+			if (diff == null)
+				return null;
+			var normal = cache.GetTexture2D(normals);
+			if (normal == null)
+				return FromImage(image);
+
 			var material = new Material();
-			material.SetTexture(TextureUnit.Diffuse, cache.GetTexture2D(image));
-			material.SetTexture(TextureUnit.Normal, cache.GetTexture2D(normals));
+			material.SetTexture(TextureUnit.Diffuse, diff);
+			material.SetTexture(TextureUnit.Normal, normal);
 			material.SetTechnique(0, CoreAssets.Techniques.DiffNormal, 0, 0);
 			return material;
 		}
@@ -18,8 +25,11 @@
 		public static Material FromImage(string image)
 		{
 			var cache = Application.Current.ResourceCache;
+			var diff = cache.GetTexture2D(image);
+			if (diff == null)
+				return null;
 			var material = new Material();
-			material.SetTexture(TextureUnit.Diffuse, cache.GetTexture2D(image));
+			material.SetTexture(TextureUnit.Diffuse, diff);
 			material.SetTechnique(0, CoreAssets.Techniques.Diff, 0, 0);
 			return material;
 		}
