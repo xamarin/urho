@@ -11,12 +11,8 @@ namespace Playgrounds.Console
 	{
 		static void Main(string[] args)
 		{
-			const float scale = 0.65f;
-			const float width = 1280f * 2 * scale;
-			const float height = 720f * scale;
-
-			var app = new StereoModePerformance(new ApplicationOptions("Data") { Width = (int)width, Height = (int)height });
-			app.Run();
+			StereoModePerformance.RunApp();
+			//HoloScene.HoloScene.RunApp();
 		}
 	}
 }

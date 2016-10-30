@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HoloScene\DTO.cs" />
+    <Compile Include="HoloScene\HoloScene.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StereoModePerformance.cs" />
@@ -65,12 +67,16 @@
       <Name>Urho.Desktop</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="HoloScene\Data\" />
+  </ItemGroup>
+  <ItemGroup Condition="Exists('..\..\..\Bin\Desktop\Win32\mono-urho-d3d.dll')">
     <Content Include="..\..\..\Bin\Desktop\Win32\mono-urho-d3d.dll">
       <Link>mono-urho-d3d.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup Condition="Exists('..\..\..\Bin\Desktop\Win32\mono-urho.dll')">
     <Content Include="..\..\..\Bin\Desktop\Win32\mono-urho.dll">
       <Link>mono-urho.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

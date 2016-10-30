@@ -9,6 +9,16 @@ namespace Playgrounds.Console
 		{
 		}
 
+		public static void RunApp()
+		{
+			const float scale = 0.65f;
+			const float width = 1280f * 2 * scale;
+			const float height = 720f * scale;
+
+			var app = new StereoModePerformance(new ApplicationOptions("Data") { Width = (int)width, Height = (int)height });
+			app.Run();
+		}
+
 		protected override void Start()
 		{
 			var scene = new Scene();
