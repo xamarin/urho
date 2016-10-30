@@ -309,81 +309,21 @@ extern "C" {
 		return results;
 	}
 	
-#if false
-
-	// Stuff to check interop
-void check1 (Context *app)
-{
-
-	ResourceCache* cache = app->GetSubsystem<ResourceCache>();
-	Texture2D* logoTexture = cache->GetResource<Texture2D>("Textures/LogoLarge.png");
-	printf ("LOGOTEXTURE %p\n", logoTexture);
-    
-        auto x = app->GetSubsystems ();
-        for (auto i = x.Begin(); i != x.End(); ++i){
-                printf ("got %s\n", i->second_.Get ()->GetTypeName().CString ());
-        }
-        void *g = app->GetSubsystem<Graphics>();
-        printf ("GGGG->%p\n", g);
-}
-
-	class Vector3i {
-	public:
-		Vector3i(int a, int b, int c):x(a),y(b),z(c) {}
-		int x, y, z;
-	
-	};
-
-	struct Vector2i {
-	public:
-		int a, b;
-		Vector2i (int a1, int b1):a(a1),b(b1) {}
-	};
-		
-	Vector3i a (0xdeadbeef,0xcafebabe,0xfeed8001);
-	Vector3i &Readl_getVector3 ()
+	DllExport MemoryBuffer* MemoryBuffer_MemoryBuffer(void* data, int size)
 	{
-		return a;
-	}
-	
-	Vector3i getVector3 ()
-	{
-		return Readl_getVector3 ();
-	}
-	
-	void check2 (Vector3& vec)
-	{
-		printf ("Got %g %g %g\n", vec.x_, vec.y_, vec.z_);
-	}
-	
-	Urho3D::IntVector2
-	Input_GetMousePosition (Input *_target);
-
-	Vector2i Foo1 ()
-	{
-		return Vector2i(0xb00bf00d, 0xfeedc0de);
+		auto buffer = new MemoryBuffer(data, size);
+		return buffer;
 	}
 
-	Urho3D::IntVector2 Foo2 ()
+	DllExport unsigned char* MemoryBuffer_GetData(MemoryBuffer* target, int *count)
 	{
-		return Urho3D::IntVector2(0xdeadbeef,0xdecafbab);
+		*count = target->GetSize();
+		return target->GetData();
 	}
-	
-	Vector2i Test2 (Input *inp)
+
+	DllExport void MemoryBuffer_Dispose(MemoryBuffer* target)
 	{
-		return *((Vector2i *)&inp->GetMouseMove ());
+		delete target;
 	}
-	
-//void check2 (ResourceCache *rc)
-//{
-//        auto x = rc->GetSubsystems ();
-//        for (auto i = x.Begin(); i != x.End(); ++i){
-//                printf ("got %s\n", i->second_.Get ()->GetTypeName().CString ());
-//        }
-//        void *g = rc->GetSubsystem<Graphics>();
-//        printf ("GGGG->%x\n", g);
-//}
-#endif
-	
 }
 
