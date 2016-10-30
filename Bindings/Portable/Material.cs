@@ -1,4 +1,7 @@
-﻿namespace Urho
+﻿using Urho.Resources;
+using Urho.Urho2D;
+
+namespace Urho
 {
 	partial class Material
 	{
@@ -31,6 +34,16 @@
 			var material = new Material();
 			material.SetTexture(TextureUnit.Diffuse, diff);
 			material.SetTechnique(0, CoreAssets.Techniques.Diff, 0, 0);
+			return material;
+		}
+
+		public static Material FromImage(Image image, bool useAlpha = false)
+		{
+			var texture = new Texture2D();
+			texture.SetData(image, useAlpha);
+			var material = new Material();
+			material.SetTechnique(0, CoreAssets.Techniques.Diff, 0, 0);
+			material.SetTexture(TextureUnit.Diffuse, texture);
 			return material;
 		}
 
