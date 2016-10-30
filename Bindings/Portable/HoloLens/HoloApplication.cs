@@ -154,11 +154,14 @@ namespace Urho.HoloLens
 			this.rightProj = rightProj;
 		}
 
+		public Dictionary<string, Action> CortanaCommands { get; private set; }
+
 		/// <summary>
 		/// NOTE: Make sure "Microphone" capability is declared.
 		/// </summary>
 		protected Task<bool> RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
+			CortanaCommands = commands;
 #if UWP_HOLO
 			return Urho.HoloLens.UrhoAppView.Current.VoiceManager.RegisterCortanaCommands(commands);
 #else

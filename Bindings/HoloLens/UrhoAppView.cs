@@ -101,6 +101,9 @@ namespace Urho.HoloLens
 					VoiceManager = new VoiceManager();
 					appInited = true;
 
+					if (options == null)
+						options = new ApplicationOptions();
+
 					//override some options:
 					options.LimitFps = false;
 					options.Width = 1268; //TODO: find system
