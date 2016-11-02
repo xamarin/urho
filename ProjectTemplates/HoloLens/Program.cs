@@ -24,7 +24,7 @@ namespace $safeprojectname$
 
 		class AppViewSource : IFrameworkViewSource
 		{
-			public IFrameworkView CreateView() => UrhoAppView.Create<HelloWorldApplication>("Data");
+			public IFrameworkView CreateView() => UrhoAppView.Create<HelloWorldApplication>(new ApplicationOptions("Data"));
 		}
 	}
 
@@ -33,7 +33,7 @@ namespace $safeprojectname$
 	{
 		Node earthNode;
 
-		public HelloWorldApplication(string assets) : base(assets) { }
+		public HelloWorldApplication(ApplicationOptions opts) : base(opts) { }
 
 		protected override async void Start()
 		{

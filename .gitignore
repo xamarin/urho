@@ -18,7 +18,7 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/
 [Oo]bj/
-/packages
+packages/
 /Urho3D/Urho3D_Windows
 /Urho3D/Urho3D_Android
 /Urho3D/Urho3D_Mac
