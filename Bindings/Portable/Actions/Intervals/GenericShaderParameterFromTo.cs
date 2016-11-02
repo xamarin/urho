@@ -1,7 +1,7 @@
 ﻿using System;
 using Urho.Actions;
 
-namespace Urho.Portable.Actions.Intervals
+namespace Urho.Actions
 {
 	public class ShaderParameterFromTo<TShaderParamType> : FiniteTimeAction
 	{

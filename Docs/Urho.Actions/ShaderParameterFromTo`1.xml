@@ -1,0 +1,165 @@
+<Type Name="ShaderParameterFromTo&lt;TShaderParamType&gt;" FullName="Urho.Actions.ShaderParameterFromTo&lt;TShaderParamType&gt;">
+  <TypeSignature Language="C#" Value="public class ShaderParameterFromTo&lt;TShaderParamType&gt; : Urho.Actions.FiniteTimeAction" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShaderParameterFromTo`1&lt;TShaderParamType&gt; extends Urho.Actions.FiniteTimeAction" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <TypeParameters>
+    <TypeParameter Name="TShaderParamType" />
+  </TypeParameters>
+  <Base>
+    <BaseTypeName>Urho.Actions.FiniteTimeAction</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <typeparam name="TShaderParamType">To be added.</typeparam>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShaderParameterFromTo (string parameter, TShaderParamType fromValue, TShaderParamType toValue, Action&lt;string,TShaderParamType,TShaderParamType,float,Urho.Material&gt; valueAction, float duration, Urho.Material material = null);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string parameter, !TShaderParamType fromValue, !TShaderParamType toValue, class System.Action`5&lt;string, !TShaderParamType, !TShaderParamType, float32, class Urho.Material&gt; valueAction, float32 duration, class Urho.Material material) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="parameter" Type="System.String" />
+        <Parameter Name="fromValue" Type="TShaderParamType" />
+        <Parameter Name="toValue" Type="TShaderParamType" />
+        <Parameter Name="valueAction" Type="System.Action&lt;System.String,TShaderParamType,TShaderParamType,System.Single,Urho.Material&gt;" />
+        <Parameter Name="duration" Type="System.Single" />
+        <Parameter Name="material" Type="Urho.Material" />
+      </Parameters>
+      <Docs>
+        <param name="parameter">To be added.</param>
+        <param name="fromValue">To be added.</param>
+        <param name="toValue">To be added.</param>
+        <param name="valueAction">To be added.</param>
+        <param name="duration">To be added.</param>
+        <param name="material">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public TShaderParamType FromValue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance !TShaderParamType FromValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TShaderParamType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Material">
+      <MemberSignature Language="C#" Value="public Urho.Material Material { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Material Material" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Parameter">
+      <MemberSignature Language="C#" Value="public string Parameter { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Parameter" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Reverse">
+      <MemberSignature Language="C#" Value="public override Urho.Actions.FiniteTimeAction Reverse ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance class Urho.Actions.FiniteTimeAction Reverse() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Actions.FiniteTimeAction</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartAction">
+      <MemberSignature Language="C#" Value="protected override Urho.Actions.ActionState StartAction (Urho.Node target);" />
+      <MemberSignature Language="ILAsm" Value=".method familyorassemblyhidebysig virtual instance class Urho.Actions.ActionState StartAction(class Urho.Node target) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Actions.ActionState</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="target" Type="Urho.Node" />
+      </Parameters>
+      <Docs>
+        <param name="target">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToValue">
+      <MemberSignature Language="C#" Value="public TShaderParamType ToValue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance !TShaderParamType ToValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TShaderParamType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ValueAction">
+      <MemberSignature Language="C#" Value="public Action&lt;string,TShaderParamType,TShaderParamType,float,Urho.Material&gt; ValueAction { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Action`5&lt;string, !TShaderParamType, !TShaderParamType, float32, class Urho.Material&gt; ValueAction" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;System.String,TShaderParamType,TShaderParamType,System.Single,Urho.Material&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

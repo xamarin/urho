@@ -1080,6 +1080,28 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Load">
+      <MemberSignature Language="C#" Value="public override bool Load (Urho.MemoryBuffer source, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Load(class Urho.MemoryBuffer source, bool setInstanceDefault) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.MemoryBuffer" />
+        <Parameter Name="setInstanceDefault" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <param name="setInstanceDefault">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="LoadXml">
       <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXml(class Urho.Resources.XmlElement source, bool setInstanceDefault) cil managed" />
@@ -2248,6 +2270,26 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Save">
+      <MemberSignature Language="C#" Value="public override bool Save (Urho.MemoryBuffer dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Save(class Urho.MemoryBuffer dest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SaveDefaultAttributes">
       <MemberSignature Language="C#" Value="public override bool SaveDefaultAttributes ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveDefaultAttributes() cil managed" />
@@ -2291,6 +2333,28 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="SaveJson">
+      <MemberSignature Language="C#" Value="public virtual bool SaveJson (Urho.MemoryBuffer dest, string indentation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool SaveJson(class Urho.MemoryBuffer dest, string indentation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
+        <Parameter Name="indentation" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="indentation">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SaveXml">
       <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.Resources.XmlElement dest);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXml(class Urho.Resources.XmlElement dest) cil managed" />
@@ -2323,6 +2387,28 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
       </ReturnValue>
       <Parameters>
         <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="indentation" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="indentation">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveXml">
+      <MemberSignature Language="C#" Value="public virtual bool SaveXml (Urho.MemoryBuffer dest, string indentation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool SaveXml(class Urho.MemoryBuffer dest, string indentation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
         <Parameter Name="indentation" Type="System.String" />
       </Parameters>
       <Docs>

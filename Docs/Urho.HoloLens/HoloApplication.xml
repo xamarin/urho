@@ -35,35 +35,33 @@ public class MyApplication : HoloApplication
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="protected HoloApplication (string assetsDirectory);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(string assetsDirectory) cil managed" />
+      <MemberSignature Language="C#" Value="protected HoloApplication (Urho.ApplicationOptions opts);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(class Urho.ApplicationOptions opts) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="assetsDirectory" Type="System.String" />
+        <Parameter Name="opts" Type="Urho.ApplicationOptions" />
       </Parameters>
       <Docs>
-        <param name="assetsDirectory">Relative path to a directory with assets.</param>
-        <summary>Default constructor for HoloLens based applications.</summary>
-        <remarks>
-        </remarks>
+        <param name="opts">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="CameraLight">
-      <MemberSignature Language="C#" Value="public Urho.Light CameraLight { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Light CameraLight" />
+    <Member MemberName="CortanaCommands">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.Dictionary&lt;string,Action&gt; CortanaCommands { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.Dictionary`2&lt;string, class System.Action&gt; CortanaCommands" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Light</ReturnType>
+        <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Action&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>
-          <see cref="T:Urho.Light" /> component attached to user's <see cref="T:Urho.Camera" /></summary>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -89,6 +87,22 @@ public class MyApplication : HoloApplication
         <param name="rotation">To be added.</param>
         <summary>Creates <see cref="T:Urho.Model" /> from spatial geometry using <see cref="T:Urho.Geometry" /> with <see cref="T:Urho.IndexBuffer" /> and <see cref="T:Urho.VertexBuffer" />.</summary>
         <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CullingCamera">
+      <MemberSignature Language="C#" Value="public Urho.Camera CullingCamera { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Camera CullingCamera" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Camera</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -254,22 +268,6 @@ public class MyApplication : HoloApplication
         <summary>User's current position.</summary>
         <value>To be added.</value>
         <remarks>The exact position will be between the cameras representing user's eyes.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="HoloTransparentColor">
-      <MemberSignature Language="C#" Value="public Urho.Color HoloTransparentColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color HoloTransparentColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Color</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>This color can be used as a occluder for game objects, but in a real world it is fully transparent.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="LeftCamera">
@@ -555,14 +553,6 @@ public class MyApplication : HoloApplication
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Diagnostics.DebuggerStepThrough</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.AsyncStateMachine(typeof(Urho.HoloLens.HoloApplication/&lt;Start&gt;c__async0))</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
@@ -633,6 +623,22 @@ public class MyApplication : HoloApplication
         <param name="text">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Zone">
+      <MemberSignature Language="C#" Value="public Urho.Zone Zone { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Zone Zone" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Zone</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

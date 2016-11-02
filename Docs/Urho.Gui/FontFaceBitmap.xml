@@ -146,5 +146,29 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Save">
+      <MemberSignature Language="C#" Value="public bool Save (Urho.MemoryBuffer dest, int pointSize, string indentation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Save(class Urho.MemoryBuffer dest, int32 pointSize, string indentation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
+        <Parameter Name="pointSize" Type="System.Int32" />
+        <Parameter Name="indentation" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="pointSize">To be added.</param>
+        <param name="indentation">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
   </Members>
 </Type>

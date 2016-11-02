@@ -964,6 +964,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="LoadGestures">
+      <MemberSignature Language="C#" Value="public uint LoadGestures (Urho.MemoryBuffer source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 LoadGestures(class Urho.MemoryBuffer source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.MemoryBuffer" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Minimized">
       <MemberSignature Language="C#" Value="public bool Minimized { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool Minimized" />
@@ -1469,6 +1489,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SaveGesture">
+      <MemberSignature Language="C#" Value="public bool SaveGesture (Urho.MemoryBuffer dest, uint gestureID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveGesture(class Urho.MemoryBuffer dest, unsigned int32 gestureID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
+        <Parameter Name="gestureID" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="gestureID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SaveGestures">
       <MemberSignature Language="C#" Value="public bool SaveGestures (Urho.IO.File dest);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveGestures(class Urho.IO.File dest) cil managed" />
@@ -1481,6 +1523,26 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="dest" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveGestures">
+      <MemberSignature Language="C#" Value="public bool SaveGestures (Urho.MemoryBuffer dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveGestures(class Urho.MemoryBuffer dest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>

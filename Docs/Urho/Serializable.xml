@@ -276,6 +276,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Load">
+      <MemberSignature Language="C#" Value="public virtual bool Load (Urho.MemoryBuffer source, bool setInstanceDefault);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Load(class Urho.MemoryBuffer source, bool setInstanceDefault) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.MemoryBuffer" />
+        <Parameter Name="setInstanceDefault" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <param name="setInstanceDefault">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="LoadXml">
       <MemberSignature Language="C#" Value="public virtual bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool LoadXml(class Urho.Resources.XmlElement source, bool setInstanceDefault) cil managed" />
@@ -390,6 +412,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ReadDeltaUpdate">
+      <MemberSignature Language="C#" Value="public bool ReadDeltaUpdate (Urho.MemoryBuffer source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ReadDeltaUpdate(class Urho.MemoryBuffer source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.MemoryBuffer" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ReadLatestDataUpdate">
       <MemberSignature Language="C#" Value="public bool ReadLatestDataUpdate (Urho.IO.File source);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ReadLatestDataUpdate(class Urho.IO.File source) cil managed" />
@@ -402,6 +444,26 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="source" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadLatestDataUpdate">
+      <MemberSignature Language="C#" Value="public bool ReadLatestDataUpdate (Urho.MemoryBuffer source);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool ReadLatestDataUpdate(class Urho.MemoryBuffer source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.MemoryBuffer" />
       </Parameters>
       <Docs>
         <param name="source">To be added.</param>
@@ -458,6 +520,26 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="dest" Type="Urho.IO.File" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Save">
+      <MemberSignature Language="C#" Value="public virtual bool Save (Urho.MemoryBuffer dest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Save(class Urho.MemoryBuffer dest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
       </Parameters>
       <Docs>
         <param name="dest">To be added.</param>
@@ -1265,6 +1347,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="WriteInitialDeltaUpdate">
+      <MemberSignature Language="C#" Value="public void WriteInitialDeltaUpdate (Urho.MemoryBuffer dest, byte timeStamp);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WriteInitialDeltaUpdate(class Urho.MemoryBuffer dest, unsigned int8 timeStamp) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
+        <Parameter Name="timeStamp" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="timeStamp">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="WriteLatestDataUpdate">
       <MemberSignature Language="C#" Value="public void WriteLatestDataUpdate (Urho.IO.File dest, byte timeStamp);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WriteLatestDataUpdate(class Urho.IO.File dest, unsigned int8 timeStamp) cil managed" />
@@ -1277,6 +1380,27 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="timeStamp" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="timeStamp">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WriteLatestDataUpdate">
+      <MemberSignature Language="C#" Value="public void WriteLatestDataUpdate (Urho.MemoryBuffer dest, byte timeStamp);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void WriteLatestDataUpdate(class Urho.MemoryBuffer dest, unsigned int8 timeStamp) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
         <Parameter Name="timeStamp" Type="System.Byte" />
       </Parameters>
       <Docs>

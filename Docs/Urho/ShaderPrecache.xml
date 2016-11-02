@@ -98,6 +98,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="LoadShaders">
+      <MemberSignature Language="C#" Value="public static void LoadShaders (Urho.Graphics graphics, Urho.MemoryBuffer source);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void LoadShaders(class Urho.Graphics graphics, class Urho.MemoryBuffer source) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="graphics" Type="Urho.Graphics" />
+        <Parameter Name="source" Type="Urho.MemoryBuffer" />
+      </Parameters>
+      <Docs>
+        <param name="graphics">To be added.</param>
+        <param name="source">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="StoreShaders">
       <MemberSignature Language="C#" Value="public void StoreShaders (Urho.ShaderVariation vs, Urho.ShaderVariation ps);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StoreShaders(class Urho.ShaderVariation vs, class Urho.ShaderVariation ps) cil managed" />

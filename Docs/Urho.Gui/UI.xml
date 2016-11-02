@@ -568,6 +568,28 @@
       </Docs>
     </Member>
     <Member MemberName="LoadLayout">
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.MemoryBuffer source, Urho.Resources.XmlFile styleFile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement LoadLayout(class Urho.MemoryBuffer source, class Urho.Resources.XmlFile styleFile) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="Urho.MemoryBuffer" />
+        <Parameter Name="styleFile" Type="Urho.Resources.XmlFile" />
+      </Parameters>
+      <Docs>
+        <param name="source">To be added.</param>
+        <param name="styleFile">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadLayout">
       <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.Resources.XmlFile file, Urho.Resources.XmlFile styleFile);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement LoadLayout(class Urho.Resources.XmlFile file, class Urho.Resources.XmlFile styleFile) cil managed" />
       <MemberType>Method</MemberType>
@@ -753,6 +775,28 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="dest" Type="Urho.IO.File" />
+        <Parameter Name="element" Type="Urho.Gui.UIElement" />
+      </Parameters>
+      <Docs>
+        <param name="dest">To be added.</param>
+        <param name="element">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveLayout">
+      <MemberSignature Language="C#" Value="public bool SaveLayout (Urho.MemoryBuffer dest, Urho.Gui.UIElement element);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveLayout(class Urho.MemoryBuffer dest, class Urho.Gui.UIElement element) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="dest" Type="Urho.MemoryBuffer" />
         <Parameter Name="element" Type="Urho.Gui.UIElement" />
       </Parameters>
       <Docs>

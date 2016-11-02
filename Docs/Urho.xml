@@ -306,6 +306,13 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.AnimatedModel.Load(Urho.MemoryBuffer,System.Boolean)">
+            <param name="source"></param>
+            <param name="setInstanceDefault"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.AnimatedModel.LoadXml(Urho.Resources.XmlElement,System.Boolean)">
             <param name="source"></param>
             <param name="setInstanceDefault"></param>
@@ -640,6 +647,12 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Animation.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Animation.Clone(System.String)">
             <param name="cloneName"></param>
             <summary></summary>
@@ -738,6 +751,12 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Animation.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Animation.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -855,7 +874,7 @@
         </member>
         <member name="M:Urho.AnimationController.GetBlendMode(System.String)">
             <param name="name"></param>
-            <summary></summary>
+            <summary>Return animation blending mode.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -973,7 +992,7 @@
         </member>
         <member name="M:Urho.AnimationController.IsPlaying(System.Byte)">
             <param name="layer"></param>
-            <summary></summary>
+            <summary>Return whether an animation is active. Note that non-looping animations that are being clamped at the end also return true.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -1032,7 +1051,7 @@
         <member name="M:Urho.AnimationController.SetBlendMode(System.String,Urho.AnimationBlendMode)">
             <param name="name"></param>
             <param name="mode"></param>
-            <summary></summary>
+            <summary>Set animation blending mode. Return true on success.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -1529,10 +1548,6 @@
                 </example>
             </remarks>
         </member>
-        <member name="C:Urho.Application">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
         <member name="C:Urho.Application(System.IntPtr)">
             <param name="handle">Pointer to the raw unmanaged Urho object.</param>
             <summary>Constructs a new instance of Urho.Application, given a raw pointer to an unmanaged object</summary>
@@ -1785,6 +1800,11 @@
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Application.YieldFrame">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Application+ActionIntPtr">
             <param name="value"></param>
             <summary></summary>
@@ -1803,17 +1823,14 @@
                 <para>You can use the convenience <see cref="T:Urho.ApplicationOptions.Default" /> or <see cref="T:Urho.ApplicationOptions.PortraitDefault" /> static values as options to use as either defaults for landscape or portrait.</para>
             </remarks>
         </member>
+        <member name="C:Urho.ApplicationOptions">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="C:Urho.ApplicationOptions(System.String)">
             <param name="assetsFolder">This is usually the “Data” directory, but can be null if your application only requires the built-in assets.</param>
             <summary>Initializes the application options with a directory pointing to the assets folders (Usually the “Data” directory)</summary>
             <remarks>Constructs a new instance of <see cref="T:Urho.ApplicationOptions" /></remarks>
-        </member>
-        <member name="C:Urho.ApplicationOptions(System.String[])">
-            <param name="assetsFolders">An array of directory names.   Each directory contains assets that your application can reference at runtime.</param>
-            <summary>Initializes the application options with a set of asset directories.</summary>
-            <remarks>
-                <para />
-            </remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.AdditionalFlags">
             <summary>Any additional options from the Urho engine that might not be encompassed by one of the strongly typed properties here.</summary>
@@ -1858,7 +1875,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.HighDpi">
-            <summary></summary>
+            <summary>Enable HighDPI mode (iOS or macOS only). Default value is True.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -3384,6 +3401,27 @@ while (true){
             <summary>Opaque magenta color (RGB values are set to 1, 0, 1).</summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Color.op_Addition(Urho.Color,Urho.Color)">
+            <param name="left"></param>
+            <param name="right"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.op_Multiply(Urho.Color,System.Single)">
+            <param name="left"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.op_Subtraction(Urho.Color,Urho.Color)">
+            <param name="left"></param>
+            <param name="right"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="F:Urho.Color.R">
             <summary>Red component</summary>
             <remarks></remarks>
@@ -3631,6 +3669,12 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Component.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Component.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -3917,7 +3961,7 @@ while (true){
             <remarks>By default the empty constructors for nodes will create the objects in the current Context (Available in the <see cref="P:Urho.Application.CurrentContext" />).   </remarks>
         </member>
         <member name="C:Urho.Context">
-            <summary></summary>
+            <summary>Construct.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Context(System.IntPtr)">
@@ -3970,14 +4014,14 @@ while (true){
         </member>
         <member name="M:Urho.Context.GetEventReceivers(Urho.StringHash)">
             <param name="eventType"></param>
-            <summary></summary>
+            <summary>Return event receivers for a sender and event type, or null if they do not exist.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.GetEventReceivers(Urho.UrhoObject,Urho.StringHash)">
             <param name="sender"></param>
             <param name="eventType"></param>
-            <summary></summary>
+            <summary>Return event receivers for an event type, or null if they do not exist.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -4057,7 +4101,7 @@ while (true){
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Matrix3x4)">
             <param name="key"></param>
             <param name="value"></param>
-            <summary></summary>
+            <summary>Set global variable with the respective key and value</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,Urho.Matrix4)">
@@ -5613,7 +5657,7 @@ while (true){
             <param name="transform"></param>
             <param name="color"></param>
             <param name="depthTest"></param>
-            <summary></summary>
+            <summary>Add a bounding box with transform.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.DebugRenderer.AddCircle(Urho.Vector3,Urho.Vector3,System.Single,Urho.Color,System.Int32,System.Boolean)">
@@ -5721,7 +5765,7 @@ while (true){
             <param name="transform"></param>
             <param name="color"></param>
             <param name="depthTest"></param>
-            <summary></summary>
+            <summary>Add a triangle mesh.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.DebugRenderer.HasContent">
@@ -5740,12 +5784,12 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.DebugRenderer.LineAntiAlias">
-            <summary></summary>
+            <summary>Set line antialiasing on/off. Default false.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.DebugRenderer.Projection">
-            <summary></summary>
+            <summary>Return the projection transform.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -5790,7 +5834,7 @@ while (true){
             <remarks />
         </member>
         <member name="P:Urho.DebugRenderer.View">
-            <summary></summary>
+            <summary>Return the view transform.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -5916,7 +5960,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.DecalSet.OptimizeBufferSize">
-            <summary></summary>
+            <summary>Set whether to optimize GPU buffer sizes according to current amount of decals. Default false, which will size the buffers according to the maximum vertices/indices. When true, buffers will be reallocated whenever decals are added/removed, which can be worse for performance.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -7560,13 +7604,13 @@ while (true){
                 <format type="text/html">
                     <h2>Dealing with GPU Disconnetion</h2>
                     <div>
-                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;amp;amp;amp;amp;amp;amp;nbsp;</p>
-                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Additionally, to work around possible GPU driver bugs the desktop OpenGL context will be voluntarily destroyed and recreated when changing screen mode or toggling between fullscreen and windowed. Therefore, on all graphics APIs one must be prepared for losing GPU resources.</p>
-                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp;amp;amp;amp;amp;amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
-                        <p style="box-sizing: border-box; margin: 0px 0px 20px; color: rgb(119, 119, 119); font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; widows: 1; background-color: rgb(255, 255, 255);" />
+                        <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">On Direct3D9 and Android OpenGL ES 2.0 it is possible to lose the rendering context (and therefore GPU resources) due to the application window being minimized or sent to the background. &amp;amp;amp;amp;amp;amp;amp;amp;nbsp;</p>
+                        <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">Additionally, to work around possible GPU driver bugs the desktop OpenGL context will be voluntarily destroyed and recreated when changing screen mode or toggling between fullscreen and windowed. Therefore, on all graphics APIs one must be prepared for losing GPU resources.</p>
+                        <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);">Textures that have been loaded from a file, as well as vertex &amp;amp;amp;amp;amp;amp;amp;amp;amp; index buffers that have shadowing enabled will restore their contents automatically, the rest have to be restored manually. On Direct3D9 non-dynamic (managed) textures and buffers will never be lost, as the runtime automatically backs them up to system memory.</p>
+                        <p style="margin: 0px 0px 20px; color: rgb(119, 119, 119); line-height: 20px; font-family: Lato, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; widows: 1; background-color: rgb(255, 255, 255);" />
                         <div class="verbatim">
                             <h2>Shader Parameters</h2>
-                            <div>You can set parameters for the shaders by calling one of the&amp;amp;amp;nbsp;<a href="">M:Urho.Graphics.SetShaderParameter</a>&amp;amp;amp;nbsp;methods in this class. &amp;amp;amp;nbsp;In addition to controlling the shader parameters for your own shaders, you can use this to set the parameters for the various built-in shaders.</div>
+                            <div>You can set parameters for the shaders by calling one of the&amp;amp;amp;amp;nbsp;<a href="">M:Urho.Graphics.SetShaderParameter</a>&amp;amp;amp;amp;nbsp;methods in this class. &amp;amp;amp;amp;nbsp;In addition to controlling the shader parameters for your own shaders, you can use this to set the parameters for the various built-in shaders.</div>
                             <div>
                                 <br />
                             </div>
@@ -7578,32 +7622,33 @@ while (true){
                                 <div>VSP</div>
                                 <div>
                                     <ul>
-                                        <li />
-                                        <li>AmbientStartColor</li>
-                                        <li>AmbientEndColor</li>
-                                        <li>BillboardRot</li>
-                                        <li>CameraPos</li>
-                                        <li>ClipPlane</li>
-                                        <li>NearClip</li>
-                                        <li>FarClip</li>
-                                        <li>DepthMode</li>
-                                        <li>DeltaTime</li>
-                                        <li>ElapsedTime</li>
-                                        <li>FrustumSize</li>
-                                        <li>GBufferOffsets</li>
-                                        <li>LightDir</li>
-                                        <li>LightPos</li>
-                                        <li>NormalOffsetScale</li>
-                                        <li>Model</li>
-                                        <li>View</li>
-                                        <li>ViewInv</li>
-                                        <li>ViewProj</li>
-                                        <li>UOffset</li>
-                                        <li>VOffset</li>
-                                        <li>Zone</li>
-                                        <li>LightMatrices</li>
-                                        <li>SkinMatrices</li>
-                                        <li>VertexLights</li>
+                                        <li>
+                                            <li>AmbientStartColor</li>
+                                            <li>AmbientEndColor</li>
+                                            <li>BillboardRot</li>
+                                            <li>CameraPos</li>
+                                            <li>ClipPlane</li>
+                                            <li>NearClip</li>
+                                            <li>FarClip</li>
+                                            <li>DepthMode</li>
+                                            <li>DeltaTime</li>
+                                            <li>ElapsedTime</li>
+                                            <li>FrustumSize</li>
+                                            <li>GBufferOffsets</li>
+                                            <li>LightDir</li>
+                                            <li>LightPos</li>
+                                            <li>NormalOffsetScale</li>
+                                            <li>Model</li>
+                                            <li>View</li>
+                                            <li>ViewInv</li>
+                                            <li>ViewProj</li>
+                                            <li>UOffset</li>
+                                            <li>VOffset</li>
+                                            <li>Zone</li>
+                                            <li>LightMatrices</li>
+                                            <li>SkinMatrices</li>
+                                            <li>VertexLights</li>
+                                        </li>
                                     </ul>
                                     <div>PSP</div>
                                 </div>
@@ -7688,7 +7733,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.AlphaToCoverage">
-            <summary></summary>
+            <summary>Return whether alpha-to-coverage is enabled.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -7789,7 +7834,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.DefaultTextureAnisotropy">
-            <summary></summary>
+            <summary>Return or Set default texture anisotropy level. Called by Renderer before rendering.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -7903,7 +7948,7 @@ while (true){
             <param name="baseVertexIndex"></param>
             <param name="minVertex"></param>
             <param name="vertexCount"></param>
-            <summary></summary>
+            <summary>Draw indexed geometry with vertex index offset.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.DrawInstanced(Urho.PrimitiveType,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
@@ -7926,7 +7971,7 @@ while (true){
             <param name="minVertex"></param>
             <param name="vertexCount"></param>
             <param name="instanceCount"></param>
-            <summary></summary>
+            <summary>Draw indexed, instanced geometry with vertex index offset.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.DummyColorFormat">
@@ -8100,7 +8145,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.HighDPI">
-            <summary></summary>
+            <summary>Return whether window is high DPI.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -8147,7 +8192,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.LineAntiAlias">
-            <summary></summary>
+            <summary>Get or Set line antialiasing on/off.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -8226,7 +8271,7 @@ while (true){
             <remarks>Called by Input subsystem.</remarks>
         </member>
         <member name="M:Urho.Graphics.OnWindowResized">
-            <summary></summary>
+            <summary>React to window resize.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.Orientations">
@@ -8253,6 +8298,11 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.PrecacheShaders(Urho.IO.File)">
+            <param name="source"></param>
+            <summary>Precache shader variations from an XML file generated with BeginDumpShaders().</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Graphics.PrecacheShaders(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <remarks></remarks>
@@ -8321,13 +8371,13 @@ while (true){
         </member>
         <member name="M:Urho.Graphics.ResolveToTexture(Urho.TextureCube)">
             <param name="texture"></param>
-            <summary></summary>
+            <summary>Resolve a multisampled cube texture on itself.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.ResolveToTexture(Urho.Urho2D.Texture2D)">
             <param name="texture"></param>
-            <summary></summary>
+            <summary>Resolve a multisampled texture on itself.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -8411,14 +8461,14 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.SdlWindow">
-            <summary></summary>
+            <summary>Return pointer to SDL window.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.SetBlendMode(Urho.BlendMode,System.Boolean)">
             <param name="mode"></param>
             <param name="alphaToCoverage"></param>
-            <summary></summary>
+            <summary>Set blending and alpha-to-coverage modes. Alpha-to-coverage is not supported on Direct3D9.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.SetClipPlane(System.Boolean,Urho.Plane,Urho.Matrix3x4,Urho.Matrix4)">
@@ -8426,7 +8476,7 @@ while (true){
             <param name="clipPlane"></param>
             <param name="view"></param>
             <param name="projection"></param>
-            <summary></summary>
+            <summary>Set a custom clipping plane. The plane is specified in world space, but is dependent on the view and projection matrices.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.SetDepthBias(System.Single,System.Single)">
@@ -8463,7 +8513,7 @@ while (true){
             <param name="vsync"></param>
             <param name="tripleBuffer"></param>
             <param name="multiSample"></param>
-            <summary></summary>
+            <summary>Set screen mode. Return true if successful.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -8502,7 +8552,7 @@ while (true){
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,System.Int32)">
             <param name="param"></param>
             <param name="value"></param>
-            <summary></summary>
+            <summary>Set shader integer constant.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,System.Single)">
@@ -8528,7 +8578,7 @@ while (true){
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Matrix3x4)">
             <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
             <param name="matrix">Matrix value to set.</param>
-            <summary></summary>
+            <summary>Set shader matrix constant.</summary>
             <remarks>
                 <para />
             </remarks>
@@ -8536,7 +8586,7 @@ while (true){
         <member name="M:Urho.Graphics.SetShaderParameter(Urho.StringHash,Urho.Matrix4)">
             <param name="param">Hashcode for one of the parameters to set (see <see cref="T:Urho.Graphics" /> for a list of built-in shader parameter names)</param>
             <param name="matrix">Matrix value to set.</param>
-            <summary></summary>
+            <summary>Set shader matrix constant.</summary>
             <remarks>
                 <para />
             </remarks>
@@ -8606,7 +8656,7 @@ while (true){
         </member>
         <member name="M:Urho.Graphics.SetStereo(System.Boolean)">
             <param name="stereo"></param>
-            <summary></summary>
+            <summary>Internal use.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Graphics.SetTexture(System.UInt32,Urho.Texture)">
@@ -8660,7 +8710,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.ShaderCacheDir">
-            <summary></summary>
+            <summary>Return or Set shader cache directory, Direct3D only. This can either be an absolute path or a path within the resource system.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -8752,7 +8802,7 @@ while (true){
         </member>
         <member name="M:Urho.Graphics.TakeScreenShot(Urho.Resources.Image)">
             <param name="destImage"></param>
-            <summary></summary>
+            <summary>Take a screenshot. Return true if successful.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -9464,6 +9514,12 @@ while (true){
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Input.LoadGestures(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Input.Minimized">
             <summary>Return whether application window is minimized.</summary>
             <value></value>
@@ -9646,7 +9702,20 @@ while (true){
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Input.SaveGesture(Urho.MemoryBuffer,System.UInt32)">
+            <param name="dest"></param>
+            <param name="gestureID"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Input.SaveGestures(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Input.SaveGestures(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -12230,6 +12299,12 @@ while (true){
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Material.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Material.Clone(System.String)">
             <param name="cloneName"></param>
             <summary>
@@ -12277,7 +12352,7 @@ while (true){
         <member name="M:Urho.Material.FromColor(Urho.Color,System.Boolean)">
             <param name="color"></param>
             <param name="unlit"></param>
-            <summary></summary>
+            <summary>Creates a material from a given color. Unlit means the material won't be affected by any lights.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -12290,6 +12365,13 @@ while (true){
         <member name="M:Urho.Material.FromImage(System.String,System.String)">
             <param name="image"></param>
             <param name="normals"></param>
+            <summary>Create a material from an image and a normal map using DiffNormal technique.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Material.FromImage(Urho.Resources.Image,System.Boolean)">
+            <param name="image"></param>
+            <param name="useAlpha"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -12394,7 +12476,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Material.PixelShaderDefines">
-            <summary></summary>
+            <summary>Set additional pixel shader defines. Separate multiple defines with spaces. Setting defines at the material level causes technique(s) to be cloned as necessary.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -12428,6 +12510,12 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Material.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -12499,13 +12587,13 @@ while (true){
         <member name="M:Urho.Material.SetShaderParameter(System.String,Urho.Matrix3x4)">
             <param name="name"></param>
             <param name="value"></param>
-            <summary></summary>
+            <summary>Set shader parameter. </summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.SetShaderParameter(System.String,Urho.Matrix4)">
             <param name="name"></param>
             <param name="value"></param>
-            <summary></summary>
+            <summary>Set shader parameter. </summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.SetShaderParameter(System.String,Urho.Quaternion)">
@@ -12672,7 +12760,7 @@ while (true){
             <remarks />
         </member>
         <member name="P:Urho.Material.VertexShaderDefines">
-            <summary></summary>
+            <summary>Set additional vertex shader defines. Separate multiple defines with spaces. Setting defines at the material level causes technique(s) to be cloned as necessary.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -12695,7 +12783,7 @@ while (true){
             <param name="value"></param>
             <param name="min"></param>
             <param name="max"></param>
-            <summary></summary>
+            <summary>Clamp an integer to a range. </summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -12726,7 +12814,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="F:Urho.MathHelper.DTORF">
-            <summary></summary>
+            <summary>Degrees to radians const.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.MathHelper.E">
@@ -13935,6 +14023,43 @@ while (true){
             </summary>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.MemoryBuffer">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.MemoryBuffer(System.Byte[])">
+            <param name="data"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.MemoryBuffer(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.MemoryBuffer(System.IO.MemoryStream)">
+            <param name="ms"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.MemoryBuffer.Dispose">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.MemoryBuffer.Finalize">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.MemoryBuffer.GetData">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.MemoryBuffer.Handle">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Model">
             <summary>
             3D model resource.
@@ -13973,6 +14098,12 @@ while (true){
             </remarks>
         </member>
         <member name="M:Urho.Model.BeginLoad(Urho.IO.File)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Model.BeginLoad(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -14103,6 +14234,12 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Model.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Model.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -14834,6 +14971,13 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Node.Load(Urho.MemoryBuffer,System.Boolean)">
+            <param name="source"></param>
+            <param name="setInstanceDefault"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Node.LoadXml(Urho.Resources.XmlElement,System.Boolean)">
             <param name="source"></param>
             <param name="setInstanceDefault"></param>
@@ -15239,6 +15383,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Node.Save(Urho.MemoryBuffer)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Node.SaveDefaultAttributes">
             <summary>
             Return whether should save default-valued attributes into XML. Always save node transforms for readability, even if identity.
@@ -15255,6 +15405,13 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                 <para />
             </remarks>
         </member>
+        <member name="M:Urho.Node.SaveJson(Urho.MemoryBuffer,System.String)">
+            <param name="dest"></param>
+            <param name="indentation"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Node.SaveXml(Urho.Resources.XmlElement)">
             <param name="dest">The destiation to store the node on.</param>
             <summary>Saves the entire node as a prefab into the provided XmlElement.</summary>
@@ -15262,6 +15419,13 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SaveXml(Urho.IO.File,System.String)">
+            <param name="dest"></param>
+            <param name="indentation"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Node.SaveXml(Urho.MemoryBuffer,System.String)">
             <param name="dest"></param>
             <param name="indentation"></param>
             <summary></summary>
@@ -16188,6 +16352,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.ObjectAnimation.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.ObjectAnimation.GetAttributeAnimation(System.String)">
             <param name="name"></param>
             <summary>
@@ -16249,6 +16419,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.ObjectAnimation.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ObjectAnimation.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -16772,6 +16948,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.ParticleEffect.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.ParticleEffect.Clone(System.String)">
             <param name="cloneName"></param>
             <summary></summary>
@@ -17093,6 +17275,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.ParticleEffect.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ParticleEffect.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -18191,6 +18379,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Randoms.NextColor">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Randoms.NextNormal">
             <summary></summary>
             <returns></returns>
@@ -18199,6 +18392,11 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <member name="M:Urho.Randoms.NextNormal(System.Single,System.Single)">
             <param name="min"></param>
             <param name="max"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Randoms.NextNormalColor">
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -18535,7 +18733,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                 <para>Renderer implements the actual rendering of 3D views each frame, and controls global settings such as texture quality, material quality, specular lighting and shadow map base resolution.</para>
                 <para>To render, it needs a <see cref="T:Urho.Scene" /> with an <see cref="T:Urho.Octree" /> component, and a <see cref="T:Urho.Camera" /> that does not necessarily have to belong to the scene. The octree stores all visible components (derived from <see cref="T:Urho.Drawable" />) to allow querying for them in an accelerated manner. The needed information is collected in a <see cref="T:Urho.Viewport" /> object, which can be assigned with <see cref="M:Urho.Renderer.SetViewport" /> method.</para>
                 <para>By default there is one viewport, but the amount can be increased with the <see cref="P:Urho.NumViewports" /> property. The viewport(s) should cover the entire screen or otherwise hall-of-mirrors artifacts may occur. By specifying a zero screen rectangle the whole window will be used automatically. The viewports will be rendered in ascending order, so if you want for example to have a small overlay window on top of the main viewport, use viewport index 0 for the main view, and 1 for the overlay.</para>
-                <para>Viewports can also be defined for render target textures. See “Auxiliary Views” in the documentation for <see cref="T:Urho.RendereTarget" /> for details.</para>
+                <para>Viewports can also be defined for render target textures. See вЂњAuxiliary ViewsвЂќ in the documentation for <see cref="T:Urho.RendereTarget" /> for details.</para>
                 <para>Each viewport defines a command sequence for rendering the scene, the <see cref="T:Urho.RenderPath" />. By default there exist forward, light pre-pass and deferred render paths in the bin/CoreData/RenderPaths directory, see <see cref="T:Urho.Renderer.DefaultRenderPath" /> to set the default for new viewports. If not overridden from the command line, forward rendering is the default. Deferred rendering modes will be advantageous once there is a large number of per-pixel lights affecting each object, but their disadvantages are the lack of hardware multisampling and inability to choose the lighting model per material. In place of multisample antialiasing, a FXAA post-processing edge filter can be used, see the MultipleViewports sample application (bin/Data/Scripts/09_MultipleViewports.as) for an example of how to use.</para>
                 <para>The steps for rendering each viewport on each frame are roughly the following:</para>
                 <list type="bullet">
@@ -18765,7 +18963,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.DefaultTechnique">
-            <summary></summary>
+            <summary>Return default non-textured material technique. Or Set default non-textured material technique.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -18816,7 +19014,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.Renderer.GetActualView(Urho.View)">
             <param name="view"></param>
-            <summary></summary>
+            <summary>Return a view or its source view if it uses one. Used internally for render statistics.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -18825,7 +19023,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <param name="height"></param>
             <param name="multiSample"></param>
             <param name="autoResolve"></param>
-            <summary></summary>
+            <summary>Allocate a depth-stencil surface that does not need to be readable. Should only be called during actual rendering, not before.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -18879,7 +19077,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.Renderer.GetPreparedView(Urho.Camera)">
             <param name="cullCamera"></param>
-            <summary></summary>
+            <summary>Return a prepared view if exists for the specified camera. Used to avoid duplicate view preparation CPU work.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -18893,7 +19091,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <param name="filtered"></param>
             <param name="srgb"></param>
             <param name="persistentKey"></param>
-            <summary></summary>
+            <summary>Allocate a rendertarget or depth-stencil texture for deferred rendering or postprocessing. Should only be called during actual rendering, not before.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -18985,7 +19183,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.MobileNormalOffsetMul">
-            <summary></summary>
+            <summary>Return shadow normal offset multiplier for mobile platforms. Or Set shadow normal offset multiplier for mobile platforms to counteract possible worse shadow map precision. Default 1.0 (no effect.)</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -19015,7 +19213,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.NumExtraInstancingBufferElements">
-            <summary></summary>
+            <summary>Return number of extra instancing buffer elements. Or Set number of extra instancing buffer elements. Default is 0. Extra 4-vectors are available through TEXCOORD7 and further.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -19155,7 +19353,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="M:Urho.Renderer.SetDefaultRenderPath(Urho.Resources.XmlFile)">
             <param name="file"></param>
-            <summary></summary>
+            <summary>Set default renderpath from xml file.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Renderer.SetViewport(System.UInt32,Urho.Viewport)">
@@ -19169,7 +19367,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <member name="M:Urho.Renderer.SetVSMShadowParameters(System.Single,System.Single)">
             <param name="minVariance"></param>
             <param name="lightBleedingReduction"></param>
-            <summary></summary>
+            <summary>Set shadow parameters when VSM is used, they help to reduce light bleeding. LightBleeding must be in [0, 1]</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.ShadowCamera">
@@ -19198,7 +19396,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.ShadowSoftness">
-            <summary></summary>
+            <summary>Return shadow softness. Or Set shadow softness, only works when SHADOWQUALITY_BLUR_VSM is used.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -19214,7 +19412,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <member name="M:Urho.Renderer.StorePreparedView(Urho.View,Urho.Camera)">
             <param name="view"></param>
             <param name="cullCamera"></param>
-            <summary></summary>
+            <summary>Mark a view as prepared by the specified culling camera.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Renderer.SubscribeToBeginViewRender(System.Action{Urho.BeginViewRenderEventArgs})">
@@ -19275,7 +19473,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.ThreadedOcclusion">
-            <summary></summary>
+            <summary>Return whether occlusion rendering is threaded. Or Set whether to thread occluder rendering. Default false.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -19307,12 +19505,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.VSMMultiSample">
-            <summary></summary>
+            <summary>Return VSM shadow multisample level. Or Set VSM shadow map multisampling level. Default 1 (no multisampling.)</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Renderer.VSMShadowParameters">
-            <summary></summary>
+            <summary>Return VSM shadow parameters.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -19974,7 +20172,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
                         <term>Use viewmasks on the camera and the scene objects to only render some of the objects in the auxiliary view.</term>
                     </item>
                     <item>
-                        <term>Use the camera’s <see cref="T:Urho.Camera.ViewOverrideFlags" /> property to disable shadows, to disable occlusion, or force the lowest material quality.</term>
+                        <term>Use the cameraвЂ™s <see cref="T:Urho.Camera.ViewOverrideFlags" /> property to disable shadows, to disable occlusion, or force the lowest material quality.</term>
                     </item>
                 </list>
                 <para>The surface can also be configured to always update its viewports, or to only update when manually requested. See <see cref="P:Urho.RenderSurface.UpdatedMode" />. For example an editor widget showing a rendered texture might use either of those modes. Call <see cref="M:Urho.RenderSurface.QueueUpdate" /> to request a manual update of the surface on the current frame.</para>
@@ -20004,7 +20202,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </remarks>
         </member>
         <member name="P:Urho.RenderSurface.AutoResolve">
-            <summary></summary>
+            <summary>Return multisampling autoresolve mode.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -20042,7 +20240,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.RenderSurface.MultiSample">
-            <summary></summary>
+            <summary>Return multisampling level.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -20069,7 +20267,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.RenderSurface.ReadOnlyView">
-            <summary></summary>
+            <summary>eturn Direct3D11 read-only depth-stencil view. May be null if not applicable. Not valid on OpenGL.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -20080,16 +20278,16 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.RenderSurface.RenderTargetView">
-            <summary></summary>
+            <summary>Return Direct3D11 rendertarget or depth-stencil view. Not valid on OpenGL.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.RenderSurface.ResetUpdateQueued">
-            <summary></summary>
+            <summary>Reset update queued flag. Called internally.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.RenderSurface.ResolveDirty">
-            <summary></summary>
+            <summary>Get or Set or clear the need resolve flag. Called internally by Graphics.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -20102,7 +20300,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.RenderSurface.Surface">
-            <summary></summary>
+            <summary>Return Direct3D9 surface.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -20116,7 +20314,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.RenderSurface.UpdateQueued">
-            <summary></summary>
+            <summary>Return viewport update mode.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -20610,6 +20808,15 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Scene.Instantiate(Urho.MemoryBuffer,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
+            <param name="source"></param>
+            <param name="position"></param>
+            <param name="rotation"></param>
+            <param name="mode"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Scene.InstantiateJson(Urho.IO.File,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
             <param name="source">data source</param>
             <param name="position">Position where the object will be instantiated.</param>
@@ -20619,6 +20826,15 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns>Return root node if successful, <see langword="null" /> on error.</returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Scene.InstantiateJson(Urho.MemoryBuffer,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
+            <param name="source"></param>
+            <param name="position"></param>
+            <param name="rotation"></param>
+            <param name="mode"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Scene.InstantiateXml(Urho.IO.File,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
             <param name="source">data source</param>
             <param name="position">Position where the object will be instantiated.</param>
@@ -20626,6 +20842,15 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <param name="mode">Creation mode.</param>
             <summary>Instantiate scene content from serialized XML data.</summary>
             <returns>Return root node if successful, <see langword="null" /> on error.</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Scene.InstantiateXml(Urho.MemoryBuffer,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
+            <param name="source"></param>
+            <param name="position"></param>
+            <param name="rotation"></param>
+            <param name="mode"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.InstantiateXml(Urho.Resources.XmlElement,Urho.Vector3,Urho.Quaternion,Urho.CreateMode)">
@@ -20638,6 +20863,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.Load(Urho.IO.File,System.Boolean)">
+            <param name="source"></param>
+            <param name="setInstanceDefault"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Scene.Load(Urho.MemoryBuffer,System.Boolean)">
             <param name="source"></param>
             <param name="setInstanceDefault"></param>
             <summary></summary>
@@ -20673,6 +20905,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Scene.LoadJson(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Scene.LoadXml(System.String)">
             <param name="path"></param>
             <summary></summary>
@@ -20680,6 +20918,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.LoadXml(Urho.IO.File)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Scene.LoadXml(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -20795,7 +21039,20 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Scene.Save(Urho.MemoryBuffer)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Scene.SaveJson(Urho.IO.File,System.String)">
+            <param name="dest"></param>
+            <param name="indentation"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Scene.SaveJson(Urho.MemoryBuffer,System.String)">
             <param name="dest"></param>
             <param name="indentation"></param>
             <summary></summary>
@@ -20810,6 +21067,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.SaveXml(Urho.IO.File,System.String)">
+            <param name="dest"></param>
+            <param name="indentation"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Scene.SaveXml(Urho.MemoryBuffer,System.String)">
             <param name="dest"></param>
             <param name="indentation"></param>
             <summary></summary>
@@ -21502,6 +21766,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Serializable.Load(Urho.MemoryBuffer,System.Boolean)">
+            <param name="source"></param>
+            <param name="setInstanceDefault"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Serializable.LoadXml(Urho.Resources.XmlElement,System.Boolean)">
             <param name="source"></param>
             <param name="setInstanceDefault"></param>
@@ -21542,7 +21813,19 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Serializable.ReadDeltaUpdate(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Serializable.ReadLatestDataUpdate(Urho.IO.File)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Serializable.ReadLatestDataUpdate(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -21561,6 +21844,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Serializable.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Serializable.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -21852,7 +22141,19 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Serializable.WriteInitialDeltaUpdate(Urho.MemoryBuffer,System.Byte)">
+            <param name="dest"></param>
+            <param name="timeStamp"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Serializable.WriteLatestDataUpdate(Urho.IO.File,System.Byte)">
+            <param name="dest"></param>
+            <param name="timeStamp"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Serializable.WriteLatestDataUpdate(Urho.MemoryBuffer,System.Byte)">
             <param name="dest"></param>
             <param name="timeStamp"></param>
             <summary></summary>
@@ -22181,6 +22482,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Shader.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Shader.EndLoad">
             <summary>
             Finish resource loading. Always called from the main thread. Return true if successful.
@@ -22346,6 +22653,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks />
         </member>
         <member name="M:Urho.ShaderPrecache.LoadShaders(Urho.Graphics,Urho.IO.File)">
+            <param name="graphics"></param>
+            <param name="source"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ShaderPrecache.LoadShaders(Urho.Graphics,Urho.MemoryBuffer)">
             <param name="graphics"></param>
             <param name="source"></param>
             <summary></summary>
@@ -22717,6 +23030,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Skeleton.Load(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Skeleton.NumBones">
             <summary>
             Return number of bones.
@@ -22744,6 +23063,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Skeleton.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Skeleton.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -23765,6 +24090,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Technique.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Technique.Clone(System.String)">
             <param name="cloneName"></param>
             <summary></summary>
@@ -24597,12 +24928,12 @@ uniform sampler2D sDetailMap3;]]></code>
             </remarks>
         </member>
         <member name="P:Urho.Texture.Anisotropy">
-            <summary></summary>
+            <summary>Return texture max. anisotropy level. Value 0 means to use the default value from Renderer. Or Set texture max. anisotropy level. No effect if not using anisotropic filtering. Value 0 (default) uses the default setting from Renderer.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.AutoResolve">
-            <summary></summary>
+            <summary>Return texture multisampling autoresolve mode. When true, the texture is resolved before being sampled on SetTexture(). When false, the texture will not be resolved and must be read as individual samples in the shader.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -24628,7 +24959,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <param name="width"></param>
             <param name="height"></param>
             <param name="requestedLevels"></param>
-            <summary></summary>
+            <summary>Check maximum allowed mip levels for a specific texture size.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -24637,7 +24968,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <param name="height"></param>
             <param name="depth"></param>
             <param name="requestedLevels"></param>
-            <summary></summary>
+            <summary>Check maximum allowed mip levels for a specific 3D texture size.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -24766,7 +25097,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.MultiSample">
-            <summary></summary>
+            <summary>Return texture multisampling level (1 = no multisampling).</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -24778,17 +25109,17 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.ResolveDirty">
-            <summary></summary>
+            <summary>Set or clear the need resolve flag. Called internally by Graphics.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.ResolveTexture">
-            <summary></summary>
+            <summary>Return resolve texture. Only used on Direct3D11.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.Sampler">
-            <summary></summary>
+            <summary>Return sampler state object. Only used on Direct3D11.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -24817,12 +25148,12 @@ uniform sampler2D sDetailMap3;]]></code>
         </member>
         <member name="M:Urho.Texture.SetParameters(Urho.Resources.XmlElement)">
             <param name="element"></param>
-            <summary></summary>
+            <summary>Set additional parameters from an XML element.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Texture.SetParameters(Urho.Resources.XmlFile)">
             <param name="xml"></param>
-            <summary></summary>
+            <summary>Set additional parameters from an XML file.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Texture.SetParametersDirty">
@@ -24832,7 +25163,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.ShaderResourceView">
-            <summary></summary>
+            <summary>Return shader resource view. Only used on Direct3D11.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -24907,6 +25238,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Texture2DArray.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Texture2DArray.EndLoad">
             <summary></summary>
             <returns></returns>
@@ -24948,6 +25285,13 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Texture2DArray.SetData(System.UInt32,Urho.IO.File)">
+            <param name="layer"></param>
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Texture2DArray.SetData(System.UInt32,Urho.MemoryBuffer)">
             <param name="layer"></param>
             <param name="source"></param>
             <summary></summary>
@@ -25042,6 +25386,12 @@ uniform sampler2D sDetailMap3;]]></code>
             </remarks>
         </member>
         <member name="M:Urho.Texture3D.BeginLoad(Urho.IO.File)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Texture3D.BeginLoad(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -25212,6 +25562,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.TextureCube.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.TextureCube.EndLoad">
             <summary>
             Finish resource loading. Always called from the main thread. Return true if successful.
@@ -25257,6 +25613,13 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.TextureCube.SetData(Urho.CubeMapFace,Urho.IO.File)">
+            <param name="face"></param>
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.TextureCube.SetData(Urho.CubeMapFace,Urho.MemoryBuffer)">
             <param name="face"></param>
             <param name="source"></param>
             <summary></summary>
@@ -25791,6 +26154,13 @@ uniform sampler2D sDetailMap3;]]></code>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.UnknownComponent.Load(Urho.MemoryBuffer,System.Boolean)">
+            <param name="source"></param>
+            <param name="setInstanceDefault"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.UnknownComponent.LoadXml(Urho.Resources.XmlElement,System.Boolean)">
             <param name="source"></param>
             <param name="setInstanceDefault"></param>
@@ -25806,6 +26176,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.UnknownComponent.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.UnknownComponent.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -26402,6 +26778,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.ValueAnimation.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ValueAnimation.BeginTime">
             <summary>
             Return begin time.
@@ -26463,6 +26845,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.ValueAnimation.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ValueAnimation.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -29306,7 +29694,7 @@ uniform sampler2D sDetailMap3;]]></code>
         </member>
         <member name="M:Urho.View.DrawFullscreenQuad(System.Boolean)">
             <param name="setIdentityProjection"></param>
-            <summary></summary>
+            <summary>Draw a fullscreen quad. Shaders and renderstates must have been set beforehand. Quad will be drawn to the middle of depth range, similarly to deferred directional lights.</summary>
             <remarks></remarks>
         </member>
         <member name="E:Urho.View.EndViewUpdate">
@@ -29319,7 +29707,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <param name="name"></param>
             <param name="isRenderTarget"></param>
             <param name="isVolumeMap"></param>
-            <summary></summary>
+            <summary>Get a named texture from the rendertarget list or from the resource cache, to be either used as a rendertarget or texture binding.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -29331,7 +29719,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="P:Urho.View.NumActiveOccluders">
-            <summary></summary>
+            <summary>Return number of occluders that were actually rendered. Occluders may be rejected if running out of triangles or if behind other occluders.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -29378,12 +29766,12 @@ uniform sampler2D sDetailMap3;]]></code>
         </member>
         <member name="M:Urho.View.SetCameraShaderParameters(Urho.Camera)">
             <param name="camera"></param>
-            <summary></summary>
+            <summary>Set camera-specific shader parameters. Called by Batch and internally by View.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.View.SetCommandShaderParameters(Urho.RenderPathCommand)">
             <param name="command"></param>
-            <summary></summary>
+            <summary>Set command's shader parameters if any. Called internally by View.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.View.SetGBufferShaderParameters(Urho.IntVector2,Urho.IntRect)">
@@ -29402,11 +29790,11 @@ uniform sampler2D sDetailMap3;]]></code>
         </member>
         <member name="M:Urho.View.SetStereoMode(System.Boolean)">
             <param name="stereo"></param>
-            <summary></summary>
+            <summary>Internal use.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.View.SourceView">
-            <summary></summary>
+            <summary>Return the source view that was already prepared. Used when viewports specify the same culling camera.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -29451,12 +29839,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks />
         </member>
         <member name="P:Urho.View.ViewRect">
-            <summary></summary>
+            <summary>Return view rectangle.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.View.ViewSize">
-            <summary></summary>
+            <summary>Return view dimensions.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -33438,6 +33826,163 @@ public class MyInstantState : ActionInstantState
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.Actions.ShaderParameterColorFromTo">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.ShaderParameterColorFromTo(System.String,Urho.Color,Urho.Color,System.Single,Urho.Material)">
+            <param name="parameter"></param>
+            <param name="fromValue"></param>
+            <param name="toValue"></param>
+            <param name="duration"></param>
+            <param name="material"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Actions.ShaderParameterFloatFromTo">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.ShaderParameterFloatFromTo(System.String,System.Single,System.Single,System.Single,Urho.Material)">
+            <param name="parameter"></param>
+            <param name="fromValue"></param>
+            <param name="toValue"></param>
+            <param name="duration"></param>
+            <param name="material"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Actions.ShaderParameterFromTo`1">
+            <typeparam name="TShaderParamType"></typeparam>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.ShaderParameterFromTo`1(`0System`0.`0String`0,`0TShaderParamType`0,`0TShaderParamType`0,`0System`0.`0Action`0{`0System`0.`0String`0,`0TShaderParamType`0,`0TShaderParamType`0,`0System`0.`0Single`0,`0Urho`0.`0Material`0},`0System`0.`0Single`0,`0Urho`0.`0Material`0)">
+            <param name="parameter"></param>
+            <param name="fromValue"></param>
+            <param name="toValue"></param>
+            <param name="valueAction"></param>
+            <param name="duration"></param>
+            <param name="material"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromTo`1.FromValue">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromTo`1.Material">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromTo`1.Parameter">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Actions.ShaderParameterFromTo`1.Reverse">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Actions.ShaderParameterFromTo`1.StartAction(`0Urho`0.`0Node`0)">
+            <param name="target"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromTo`1.ToValue">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromTo`1.ValueAction">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Actions.ShaderParameterFromToState`1">
+            <typeparam name="TShaderParamType"></typeparam>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.ShaderParameterFromToState`1(`0Urho`0.`0Actions`0.`0ShaderParameterFromTo`0{`0TShaderParamType`0},`0Urho`0.`0Node`0)">
+            <param name="action"></param>
+            <param name="target"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromToState`1.FromValue">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromToState`1.Material">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromToState`1.ParameterName">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromToState`1.ToValue">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Actions.ShaderParameterFromToState`1.Update(`0System`0.`0Single`0)">
+            <param name="time"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.ShaderParameterFromToState`1.ValueAction">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Actions.ShaderParameterVector2FromTo">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.ShaderParameterVector2FromTo(System.String,Urho.Vector2,Urho.Vector2,System.Single,Urho.Material)">
+            <param name="parameter"></param>
+            <param name="fromValue"></param>
+            <param name="toValue"></param>
+            <param name="duration"></param>
+            <param name="material"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Actions.ShaderParameterVector3FromTo">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.ShaderParameterVector3FromTo(System.String,Urho.Vector3,Urho.Vector3,System.Single,Urho.Material)">
+            <param name="parameter"></param>
+            <param name="fromValue"></param>
+            <param name="toValue"></param>
+            <param name="duration"></param>
+            <param name="material"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Actions.ShaderParameterVector4FromTo">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Actions.ShaderParameterVector4FromTo(System.String,Urho.Vector4,Urho.Vector4,System.Single,Urho.Material)">
+            <param name="parameter"></param>
+            <param name="fromValue"></param>
+            <param name="toValue"></param>
+            <param name="duration"></param>
+            <param name="material"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Actions.Show">
             <summary>Shows a node.</summary>
             <remarks>Sets the Enabled property of the target node to to false.</remarks>
@@ -34211,6 +34756,12 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Audio.Sound.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Audio.Sound.Compressed">
             <summary>Return whether is compressed.</summary>
             <value></value>
@@ -34270,13 +34821,31 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Audio.Sound.LoadOggVorbis(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Audio.Sound.LoadRaw(Urho.IO.File)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Audio.Sound.LoadRaw(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Audio.Sound.LoadWav(Urho.IO.File)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Audio.Sound.LoadWav(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -34949,7 +35518,7 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Desktop.DesktopUrhoInitializer.CopyEmbeddedCoreDataTo(System.String)">
             <param name="destinationFolder"></param>
-            <summary></summary>
+            <summary>Urho for desktop platforms comes with embedded CoreData.pak. This method extracts and copies it to the specified directory. </summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Gui.BorderImage">
@@ -36470,6 +37039,12 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Gui.Font.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Gui.Font.GetFace(System.Int32)">
             <param name="pointSize"></param>
             <summary>
@@ -36500,6 +37075,15 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.Font.SaveXml(Urho.IO.File,System.Int32,System.Boolean,System.String)">
+            <param name="dest"></param>
+            <param name="pointSize"></param>
+            <param name="usedGlyphs"></param>
+            <param name="indentation"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.Font.SaveXml(Urho.MemoryBuffer,System.Int32,System.Boolean,System.String)">
             <param name="dest"></param>
             <param name="pointSize"></param>
             <param name="usedGlyphs"></param>
@@ -36674,6 +37258,14 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.FontFaceBitmap.Save(Urho.IO.File,System.Int32,System.String)">
+            <param name="dest"></param>
+            <param name="pointSize"></param>
+            <param name="indentation"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.FontFaceBitmap.Save(Urho.MemoryBuffer,System.Int32,System.String)">
             <param name="dest"></param>
             <param name="pointSize"></param>
             <param name="indentation"></param>
@@ -37958,27 +38550,27 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.ResizedEventArgs.DX">
-            <summary></summary>
+            <summary>Delta X</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.ResizedEventArgs.DY">
-            <summary></summary>
+            <summary>Delta Y</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.ResizedEventArgs.Element">
-            <summary></summary>
+            <summary>Element to be resized</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.ResizedEventArgs.Height">
-            <summary></summary>
+            <summary>Height</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.ResizedEventArgs.Width">
-            <summary></summary>
+            <summary>Width</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -39980,6 +40572,13 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Gui.UI.LoadLayout(Urho.MemoryBuffer,Urho.Resources.XmlFile)">
+            <param name="source"></param>
+            <param name="styleFile"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Gui.UI.LoadLayout(Urho.Resources.XmlFile,Urho.Resources.XmlFile)">
             <param name="file"></param>
             <param name="styleFile"></param>
@@ -40043,6 +40642,13 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UI.SaveLayout(Urho.IO.File,Urho.Gui.UIElement)">
+            <param name="dest"></param>
+            <param name="element"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.UI.SaveLayout(Urho.MemoryBuffer,Urho.Gui.UIElement)">
             <param name="dest"></param>
             <param name="element"></param>
             <summary></summary>
@@ -40245,7 +40851,7 @@ public class MyInstantState : ActionInstantState
                 <para>You can also use the Editor application to create UI layouts. The serialization format is similar to scene XML serialization, with three important differences:</para>
                 <para>1) The element type to instantiate, and the style to use for it can be set separately. For example the following element definition tells to instantiate a <see cref="T:Urho.Gui.Button" /> element, and that it should use the style "CloseButton" defined in the style XML file.</para>
                 <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.Gui.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
-                <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="true”.</para>
+                <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="trueвЂќ.</para>
                 <para>You can associate one or more strings to a UIElement, by using the <see cref="M:Urho.Gui.UIElement.AddTag" /> and the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> methods.</para>
                 <para />
                 <see cref="" />
@@ -40505,7 +41111,9 @@ public class MyInstantState : ActionInstantState
         <member name="M:Urho.Gui.UIElement.CreateToolTip(System.String,System.UInt32)">
             <param name="name">Name assign to the created element.   You can lookup the element later with <see cref="M:Urho.Gui.UIElement.GetChild" /> to find this component later.</param>
             <param name="index">Position in the hierarchy where the button will be created, if none, this adds it as the last element.</param>
-            <summary></summary>
+            <summary>
+                <para />
+            </summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -40524,7 +41132,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.Defocused">
-            <summary></summary>
+            <summary>Handle being defocused.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDefocused" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40550,7 +41158,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.DragBegin">
-            <summary></summary>
+            <summary>React to mouse drag begin.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragBegin" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40570,13 +41178,13 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.DragCancel">
-            <summary></summary>
+            <summary>React to a mouse drag cancel event (ie, when an extra button is pressed).</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragCancel" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.DragDropFinish">
-            <summary></summary>
+            <summary>React to drag and drop finish. Return true to signal that the drop was accepted.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragDropFinish" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40591,19 +41199,19 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.DragDropTest">
-            <summary></summary>
+            <summary>React to drag and drop test. Return true to signal that the drop is acceptable.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragDropTest" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.DragEnd">
-            <summary></summary>
+            <summary>React to mouse drag end.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragEnd" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.DragMove">
-            <summary></summary>
+            <summary>React to mouse drag motion.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToDragMove" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40614,12 +41222,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.EffectiveMinSize">
-            <summary></summary>
+            <summary>Return effective color, multiplied by brightness and affected by temperature when "use physical values" is enabled. Alpha is always 1 so that can compare against the default black color to detect a light with no effect.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.ElementAdded">
-            <summary></summary>
+            <summary>A child element has been added to an element. Sent by the UI root element, or element-event-sender if set.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToElementAdded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40632,7 +41240,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.ElementRemoved">
-            <summary></summary>
+            <summary>A child element is about to be removed from an element. Sent by the UI root element, or element-event-sender if set.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToElementRemoved" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40646,7 +41254,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.EnableAnchor">
-            <summary></summary>
+            <summary>Enable automatic positioning &amp; sizing of the element relative to its parent using min/max anchor and min/max offset. Default false.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -40668,7 +41276,7 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Gui.UIElement.FilterAttributes(Urho.Resources.XmlElement)">
             <param name="dest"></param>
-            <summary></summary>
+            <summary>Filter attributes in serialization process.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -40696,7 +41304,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.Focused">
-            <summary></summary>
+            <summary>Handle being focused.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToFocused" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40739,7 +41347,7 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Gui.UIElement.GetDefaultStyle(System.Boolean)">
             <param name="recursiveUp"></param>
-            <summary></summary>
+            <summary>Return default style.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -40790,13 +41398,13 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.HoverBegin">
-            <summary></summary>
+            <summary>Hovering on an UI element has started</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToHoverBegin" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.HoverEnd">
-            <summary></summary>
+            <summary>Hovering on an UI element has ended</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToHoverEnd" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40887,7 +41495,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.LayoutElementMaxSize">
-            <summary></summary>
+            <summary>Return maximum layout element size in the layout direction. Only valid after layout has been calculated. Used internally by UI for optimizations.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -40919,7 +41527,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.LayoutUpdated">
-            <summary></summary>
+            <summary>UI element layout updated.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToLayoutUpdated" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -40928,11 +41536,17 @@ public class MyInstantState : ActionInstantState
             <param name="childElem"></param>
             <param name="styleFile"></param>
             <param name="setInstanceDefault"></param>
-            <summary></summary>
+            <summary>Create a child by loading from XML data with style. Returns the child element if successful, null if otherwise.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.LoadXml(Urho.IO.File)">
+            <param name="source"></param>
+            <summary>Load from XML data. Return true if successful.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.UIElement.LoadXml(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -40941,7 +41555,7 @@ public class MyInstantState : ActionInstantState
         <member name="M:Urho.Gui.UIElement.LoadXml(Urho.Resources.XmlElement,System.Boolean)">
             <param name="source"></param>
             <param name="setInstanceDefault"></param>
-            <summary></summary>
+            <summary>Load from XML data. Return true if successful.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -40949,12 +41563,12 @@ public class MyInstantState : ActionInstantState
             <param name="source"></param>
             <param name="styleFile"></param>
             <param name="setInstanceDefault"></param>
-            <summary></summary>
+            <summary>Create a child by loading from XML data with style. Returns the child element if successful, null if otherwise.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.MaxAnchor">
-            <summary></summary>
+            <summary>Set maximum (bottom right) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -40968,7 +41582,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.MaxOffset">
-            <summary></summary>
+            <summary>Return maximum offset. Or Set offset of element's bottom right from the maximum anchor in pixels. No effect when anchor is not enabled.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -40991,7 +41605,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.MinAnchor">
-            <summary></summary>
+            <summary>Return minimum anchor. Or Set minimum (top left) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41005,7 +41619,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.MinOffset">
-            <summary></summary>
+            <summary>Return minimum offset. Or Set offset of element's top left from the minimum anchor in pixels. No effect when anchor is not enabled.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41037,7 +41651,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.NameChanged">
-            <summary></summary>
+            <summary>UI element name changed.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNameChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -41107,13 +41721,13 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Gui.UIElement.OnPositionSet(Urho.IntVector2)">
             <param name="newPosition"></param>
-            <summary></summary>
+            <summary>React to position change.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.OnResize(Urho.IntVector2,Urho.IntVector2)">
             <param name="newSize"></param>
             <param name="delta"></param>
-            <summary></summary>
+            <summary>React to resze.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.OnSetEditable">
@@ -41157,7 +41771,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UIElement.Pivot">
-            <summary></summary>
+            <summary>Return pivot. Or Set pivot relative to element's size (from 0 to 1, where 0.5 is center.) Overrides horizontal &amp; vertical alignment.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41171,7 +41785,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.Positioned">
-            <summary></summary>
+            <summary>React to position change.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToPositioned" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -41205,7 +41819,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.RemoveAllTags">
-            <summary></summary>
+            <summary>Remove all tags.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.RemoveChild(Urho.Gui.UIElement,System.UInt32)">
@@ -41237,7 +41851,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.Resized">
-            <summary></summary>
+            <summary>React to resize.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToResized" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -41251,11 +41865,18 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Gui.UIElement.SaveXml(Urho.Resources.XmlElement)">
             <param name="dest"></param>
-            <summary></summary>
+            <summary>Save as XML data. Return true if successful.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SaveXml(Urho.IO.File,System.String)">
+            <param name="dest"></param>
+            <param name="indentation"></param>
+            <summary>Save as XML data. Return true if successful.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.UIElement.SaveXml(Urho.MemoryBuffer,System.String)">
             <param name="dest"></param>
             <param name="indentation"></param>
             <summary></summary>
@@ -41314,7 +41935,7 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Gui.UIElement.SetDefaultStyle(Urho.Resources.XmlFile)">
             <param name="style"></param>
-            <summary></summary>
+            <summary>Set default style file for later use by children elements.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetElementEventSender(System.Boolean)">
@@ -41379,7 +42000,7 @@ public class MyInstantState : ActionInstantState
         <member name="M:Urho.Gui.UIElement.SetMaxAnchor(System.Single,System.Single)">
             <param name="x"></param>
             <param name="y"></param>
-            <summary></summary>
+            <summary>Set maximum (bottom right) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetMaxSize(System.Int32,System.Int32)">
@@ -41393,7 +42014,7 @@ public class MyInstantState : ActionInstantState
         <member name="M:Urho.Gui.UIElement.SetMinAnchor(System.Single,System.Single)">
             <param name="x"></param>
             <param name="y"></param>
-            <summary></summary>
+            <summary>Set minimum (top left) anchor in relation to the parent element (from 0 to 1.) No effect when anchor is not enabled.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetMinSize(System.Int32,System.Int32)">
@@ -41415,7 +42036,7 @@ public class MyInstantState : ActionInstantState
         <member name="M:Urho.Gui.UIElement.SetPivot(System.Single,System.Single)">
             <param name="x"></param>
             <param name="y"></param>
-            <summary></summary>
+            <summary>Set pivot relative to element's size (from 0 to 1, where 0.5 is center.) Overrides horizontal &amp; vertical alignment.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetPosition(System.Int32,System.Int32)">
@@ -41436,20 +42057,20 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Gui.UIElement.SetStyle(Urho.Resources.XmlElement)">
             <param name="element"></param>
-            <summary></summary>
+            <summary>Set style from an XML element. Return true if the style is applied successfully.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetStyle(System.String,Urho.Resources.XmlFile)">
             <param name="styleName"></param>
             <param name="file"></param>
-            <summary></summary>
+            <summary>Set style from an XML file. Find the style element by name. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetStyleAuto(Urho.Resources.XmlFile)">
             <param name="file"></param>
-            <summary></summary>
+            <summary>Set style from an XML file. Find the style element automatically by using the element's typename. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -41504,13 +42125,13 @@ public class MyInstantState : ActionInstantState
         <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,Urho.Matrix3x4)">
             <param name="key"></param>
             <param name="value"></param>
-            <summary></summary>
+            <summary>Set a user variable.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,Urho.Matrix4)">
             <param name="key"></param>
             <param name="value"></param>
-            <summary></summary>
+            <summary>Set a user variable.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,Urho.Quaternion)">
@@ -41805,7 +42426,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.UIElement.VisibleChanged">
-            <summary></summary>
+            <summary>React to visibility change.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToVisibleChanged" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -42382,14 +43003,13 @@ public class MyApplication : HoloApplication
 }
 ]]></code></example></remarks>
         </member>
-        <member name="C:Urho.HoloLens.HoloApplication(System.String)">
-            <param name="assetsDirectory">Relative path to a directory with assets.</param>
-            <summary>Default constructor for HoloLens based applications.</summary>
-            <remarks />
+        <member name="C:Urho.HoloLens.HoloApplication(Urho.ApplicationOptions)">
+            <param name="opts"></param>
+            <summary></summary>
+            <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.CameraLight">
-            <summary>
-                <see cref="T:Urho.Light" /> component attached to user's <see cref="T:Urho.Camera" /></summary>
+        <member name="P:Urho.HoloLens.HoloApplication.CortanaCommands">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -42399,6 +43019,11 @@ public class MyApplication : HoloApplication
             <param name="rotation"></param>
             <summary>Creates <see cref="T:Urho.Model" /> from spatial geometry using <see cref="T:Urho.Geometry" /> with <see cref="T:Urho.IndexBuffer" /> and <see cref="T:Urho.VertexBuffer" />.</summary>
             <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.HoloLens.HoloApplication.CullingCamera">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.DefaultRenderPath">
@@ -42451,11 +43076,6 @@ public class MyApplication : HoloApplication
             <summary>User's current position.</summary>
             <value></value>
             <remarks>The exact position will be between the cameras representing user's eyes.</remarks>
-        </member>
-        <member name="P:Urho.HoloLens.HoloApplication.HoloTransparentColor">
-            <summary>This color can be used as a occluder for game objects, but in a real world it is fully transparent.</summary>
-            <value></value>
-            <remarks></remarks>
         </member>
         <member name="P:Urho.HoloLens.HoloApplication.LeftCamera">
             <summary>
@@ -42556,6 +43176,11 @@ public class MyApplication : HoloApplication
             <param name="text"></param>
             <summary></summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.HoloLens.HoloApplication.Zone">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.HoloLens.SpatialCursor">
@@ -48804,7 +49429,7 @@ public class MyApplication : HoloApplication
             <summary>
             %Image resource.
             </summary>
-            <remarks></remarks>
+            <remarks>Save the image to a file. Format of the image is determined by file extension. JPG is saved with maximum quality.</remarks>
         </member>
         <member name="C:Urho.Resources.Image">
             <summary>
@@ -48848,8 +49473,14 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Resources.Image.CleanupLevels">
+        <member name="M:Urho.Resources.Image.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
             <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Image.CleanupLevels">
+            <summary>Clean up the mip levels.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.Image.Clear(Urho.Color)">
@@ -49011,6 +49642,12 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.Image.LoadColorLUT(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Resources.Image.NextLevel">
             <summary>
             Return next mip level by bilinear filtering.
@@ -49056,11 +49693,17 @@ public class MyApplication : HoloApplication
         </member>
         <member name="M:Urho.Resources.Image.Save(System.String)">
             <param name="fileName"></param>
-            <summary></summary>
+            <summary>Save the image to a file. Format of the image is determined by file extension. JPG is saved with maximum quality.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.Image.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary>Save the image to a stream. Regardless of original format, the image is saved as png. Compressed image data is not supported. Return true if successful.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Image.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -49076,7 +49719,7 @@ public class MyApplication : HoloApplication
         </member>
         <member name="M:Urho.Resources.Image.SaveDDS(System.String)">
             <param name="fileName"></param>
-            <summary></summary>
+            <summary>Save in DDS format. Only uncompressed RGBA images are supported. Return true if successful.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -49246,6 +49889,12 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.JsonFile.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.JsonFile.FromString(System.String)">
             <param name="source"></param>
             <summary></summary>
@@ -49265,7 +49914,20 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.JsonFile.Save(Urho.MemoryBuffer)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.JsonFile.Save(Urho.IO.File,System.String)">
+            <param name="dest"></param>
+            <param name="indendation"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.JsonFile.Save(Urho.MemoryBuffer,System.String)">
             <param name="dest"></param>
             <param name="indendation"></param>
             <summary></summary>
@@ -49386,6 +50048,12 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.PListFile.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.PListFile.RegisterObject(Urho.Context)">
             <param name="context"></param>
             <summary>
@@ -49500,6 +50168,12 @@ public class MyApplication : HoloApplication
         </member>
         <member name="M:Urho.Resources.Resource.BeginLoad(Urho.IO.File)">
             <param name="source"></param>
+            <summary>Load resource from stream. May be called from a worker thread. Return true if successful.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Resource.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -49513,11 +50187,17 @@ public class MyApplication : HoloApplication
         </member>
         <member name="M:Urho.Resources.Resource.Load(System.String)">
             <param name="fileName"></param>
-            <summary></summary>
+            <summary>Load resource from file.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.Resource.Load(Urho.IO.File)">
+            <param name="source"></param>
+            <summary>Load resource synchronously. Call both BeginLoad() &amp; EndLoad() and return true if both succeeded.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Resource.Load(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -49549,19 +50229,19 @@ public class MyApplication : HoloApplication
             <remarks></remarks>
         </member>
         <member name="E:Urho.Resources.Resource.ReloadFailed">
-            <summary></summary>
+            <summary>Resource reloading failed.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToReloadFailed" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Resources.Resource.ReloadFinished">
-            <summary></summary>
+            <summary>Resource reloading finished.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToReloadFinished" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
         <member name="E:Urho.Resources.Resource.ReloadStarted">
-            <summary></summary>
+            <summary>Resource reloading started.</summary>
             <remarks>
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToReloadStarted" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
@@ -49574,11 +50254,17 @@ public class MyApplication : HoloApplication
         </member>
         <member name="M:Urho.Resources.Resource.Save(System.String)">
             <param name="fileName"></param>
-            <summary></summary>
+            <summary>Save resource to file.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.Resource.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary>Save resource to file.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Resource.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -51275,6 +51961,12 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlFile.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlFile.FromString(System.String)">
             <param name="source"></param>
             <summary>
@@ -51301,7 +51993,20 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlFile.Save(Urho.MemoryBuffer)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlFile.Save(Urho.IO.File,System.String)">
+            <param name="dest"></param>
+            <param name="indentation"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlFile.Save(Urho.MemoryBuffer,System.String)">
             <param name="dest"></param>
             <param name="indentation"></param>
             <summary></summary>
@@ -51753,6 +52458,12 @@ public class MyApplication : HoloApplication
             </remarks>
         </member>
         <member name="M:Urho.Urho2D.AnimationSet2D.BeginLoad(Urho.IO.File)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.AnimationSet2D.BeginLoad(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -54122,6 +54833,12 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Urho2D.ParticleEffect2D.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Urho2D.ParticleEffect2D.BlendMode">
             <summary>
             Return blend mode.
@@ -54350,6 +55067,12 @@ public class MyApplication : HoloApplication
             <remarks></remarks>
         </member>
         <member name="M:Urho.Urho2D.ParticleEffect2D.Save(Urho.IO.File)">
+            <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.ParticleEffect2D.Save(Urho.MemoryBuffer)">
             <param name="dest"></param>
             <summary></summary>
             <returns></returns>
@@ -55424,6 +56147,12 @@ public class MyApplication : HoloApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Urho2D.Sprite2D.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Urho2D.Sprite2D.EndLoad">
             <summary>
             Finish resource loading. Always called from the main thread. Return true if successful.
@@ -55557,6 +56286,12 @@ public class MyApplication : HoloApplication
             </remarks>
         </member>
         <member name="M:Urho.Urho2D.SpriteSheet2D.BeginLoad(Urho.IO.File)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.SpriteSheet2D.BeginLoad(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>
@@ -55830,6 +56565,12 @@ public class MyApplication : HoloApplication
         </member>
         <member name="M:Urho.Urho2D.Texture2D.BeginLoad(Urho.IO.File)">
             <param name="source"></param>
+            <summary>Load resource from stream. May be called from a worker thread. Return true if successful.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.Texture2D.BeginLoad(Urho.MemoryBuffer)">
+            <param name="source"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -55851,7 +56592,7 @@ public class MyApplication : HoloApplication
             <remarks></remarks>
         </member>
         <member name="P:Urho.Urho2D.Texture2D.Image">
-            <summary></summary>
+            <summary>Get image data from zero mip level. Only RGB and RGBA textures are supported.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -55878,7 +56619,7 @@ public class MyApplication : HoloApplication
         <member name="M:Urho.Urho2D.Texture2D.SetData(Urho.Resources.Image,System.Boolean)">
             <param name="image"></param>
             <param name="useAlpha"></param>
-            <summary></summary>
+            <summary>Set data from an image. Return true if successful. Optionally make a single channel image alpha-only.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -55902,7 +56643,9 @@ public class MyApplication : HoloApplication
             <param name="usage"></param>
             <param name="multiSample"></param>
             <param name="autoResolve"></param>
-            <summary></summary>
+            <summary>
+                <para>Set size, format, usage and multisampling parameters for rendertargets. Zero size will follow application window size. Return true if successful.</para>
+                <para />Autoresolve true means the multisampled texture will be automatically resolved to 1-sample after being rendered to and before being sampled as a texture.<para />Autoresolve false means the multisampled texture will be read as individual samples in the shader and is not supported on Direct3D9.<para /></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -56528,6 +57271,12 @@ public class MyApplication : HoloApplication
             <remarks></remarks>
         </member>
         <member name="M:Urho.Urho2D.TmxFile2D.BeginLoad(Urho.IO.File)">
+            <param name="source"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.TmxFile2D.BeginLoad(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
             <returns></returns>

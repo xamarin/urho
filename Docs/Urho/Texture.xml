@@ -28,7 +28,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Texture which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -66,7 +67,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Texture linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">

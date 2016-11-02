@@ -1,0 +1,45 @@
+<Type Name="ShaderParameterVector4FromTo" FullName="Urho.Actions.ShaderParameterVector4FromTo">
+  <TypeSignature Language="C#" Value="public class ShaderParameterVector4FromTo : Urho.Actions.ShaderParameterFromTo&lt;Urho.Vector4&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ShaderParameterVector4FromTo extends Urho.Actions.ShaderParameterFromTo`1&lt;valuetype Urho.Vector4&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Actions.ShaderParameterFromTo&lt;Urho.Vector4&gt;</BaseTypeName>
+    <BaseTypeArguments>
+      <BaseTypeArgument TypeParamName="TShaderParamType">Urho.Vector4</BaseTypeArgument>
+    </BaseTypeArguments>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ShaderParameterVector4FromTo (string parameter, Urho.Vector4 fromValue, Urho.Vector4 toValue, float duration, Urho.Material material = null);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string parameter, valuetype Urho.Vector4 fromValue, valuetype Urho.Vector4 toValue, float32 duration, class Urho.Material material) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="parameter" Type="System.String" />
+        <Parameter Name="fromValue" Type="Urho.Vector4" />
+        <Parameter Name="toValue" Type="Urho.Vector4" />
+        <Parameter Name="duration" Type="System.Single" />
+        <Parameter Name="material" Type="Urho.Material" />
+      </Parameters>
+      <Docs>
+        <param name="parameter">To be added.</param>
+        <param name="fromValue">To be added.</param>
+        <param name="toValue">To be added.</param>
+        <param name="duration">To be added.</param>
+        <param name="material">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

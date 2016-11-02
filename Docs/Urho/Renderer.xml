@@ -61,7 +61,8 @@
           <term>Post-alpha pass, can be used for 3D overlays that should appear on top of everything else.</term>
         </item>
       </list>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Rendering components</h2>
       </format>
@@ -133,8 +134,10 @@
         </item>
       </list>
       <para>Additionally there are 2D drawable components defined by the Urho2D library.</para>
-      <para></para>
-      <para></para>
+      <para>
+      </para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Optimizations</h2>
       </format>
@@ -149,26 +152,30 @@
           <term>Hardware instancing: rendering operations with the same geometry, material and light will be grouped together and performed as one draw call if supported. Note that even when instancing is not available, they still benefit from the grouping, as render state only needs to be checked &amp; set once before rendering each group, reducing the CPU cost.</term>
         </item>
       </list>
-      <para></para>
+      <para>
+      </para>
       <list type="bullet">
         <item>
           <term>Light stencil masking: in forward rendering, before objects lit by a spot or point light are re-rendered additively, the light's bounding shape is rendered to the stencil buffer to ensure pixels outside the light range are not processed.</term>
         </item>
       </list>
       <para>Note that many more optimization opportunities are possible at the content level, for example using geometry &amp; material LOD, grouping many static objects into one object for less draw calls, minimizing the amount of subgeometries (submeshes) per object for less draw calls, using texture atlases to avoid render state changes, using compressed (and smaller) textures, and setting maximum draw distances for objects, lights and shadows.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Reusing view preparation</h2>
       </format>
       <para>In some applications, like stereoscopic VR rendering, one needs to render a slightly different view of the world to separate viewports. Normally this results in the view preparation process (described above) being repeated for each view, which can be costly for CPU performance.</para>
       <para>To eliminate the duplicate view preparation cost, you can use <see cref="M:Urho.Viewport.SetCullCamera" /> <see cref="SetCullCamera()" /> to instruct a <see cref="T:Urho.Viewport" /> to use a different camera for culling than rendering. When multiple viewports share the same culling camera, the view preparation will be performed only once.</para>
       <para>To work properly, the culling camera's frustum should cover all the views you are rendering using it, or else missing objects may be present. The culling camera should not be using the auto aspect ratio mode, to ensure you stay in full control of its view frustum.</para>
-      <para></para>
-      <para></para>
+      <para>
+      </para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>
-  <br />
-</h2>
+          <br />
+        </h2>
       </format>
     </remarks>
   </Docs>
@@ -185,7 +192,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Renderer which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -223,7 +231,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Renderer linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -1733,7 +1742,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1749,7 +1759,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1765,7 +1776,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

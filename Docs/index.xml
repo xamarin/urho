@@ -205,6 +205,7 @@
       <Type Name="Matrix3" Kind="Structure" />
       <Type Name="Matrix3x4" Kind="Structure" />
       <Type Name="Matrix4" Kind="Structure" />
+      <Type Name="MemoryBuffer" Kind="Class" />
       <Type Name="Model" Kind="Class" />
       <Type Name="ModelMorph" Kind="Structure" />
       <Type Name="MonoDebugHud" Kind="Class" />
@@ -488,6 +489,13 @@
       <Type Name="ScaleToState" Kind="Class" />
       <Type Name="Sequence" Kind="Class" />
       <Type Name="SequenceState" Kind="Class" />
+      <Type Name="ShaderParameterColorFromTo" Kind="Class" />
+      <Type Name="ShaderParameterFloatFromTo" Kind="Class" />
+      <Type Name="ShaderParameterFromTo`1" DisplayName="ShaderParameterFromTo&lt;TShaderParamType&gt;" Kind="Class" />
+      <Type Name="ShaderParameterFromToState`1" DisplayName="ShaderParameterFromToState&lt;TShaderParamType&gt;" Kind="Class" />
+      <Type Name="ShaderParameterVector2FromTo" Kind="Class" />
+      <Type Name="ShaderParameterVector3FromTo" Kind="Class" />
+      <Type Name="ShaderParameterVector4FromTo" Kind="Class" />
       <Type Name="Show" Kind="Class" />
       <Type Name="ShowState" Kind="Class" />
       <Type Name="Spawn" Kind="Class" />
@@ -691,6 +699,8 @@
       <Type Name="PhysicsWorld" Kind="Class" />
       <Type Name="RigidBody" Kind="Class" />
       <Type Name="ShapeType" Kind="Enumeration" />
+    </Namespace>
+    <Namespace Name="Urho.Portable.Actions.Intervals">
     </Namespace>
     <Namespace Name="Urho.Repl">
     </Namespace>

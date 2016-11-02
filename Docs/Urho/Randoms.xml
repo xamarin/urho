@@ -53,6 +53,23 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="NextColor">
+      <MemberSignature Language="C#" Value="public static Urho.Color NextColor ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Color NextColor() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NextNormal">
       <MemberSignature Language="C#" Value="public static float NextNormal ();" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 NextNormal() cil managed" />
@@ -87,6 +104,23 @@
       <Docs>
         <param name="min">To be added.</param>
         <param name="max">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NextNormalColor">
+      <MemberSignature Language="C#" Value="public static Urho.Color NextNormalColor ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Color NextNormalColor() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
