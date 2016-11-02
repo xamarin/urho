@@ -92,9 +92,7 @@ RemoveNugetFromSamples:
 RemoveNugetFromSamplesMono:
 	mcs Bindings/RemoveNugetFromSamples.cs -r:System.Xml.dll -r:System.Xml.Linq.dll && mono RemoveNugetFromSamples.exe -refsonly && rm -f Bindings/RemoveNugetFromSamples.exe
 
-refresh-docs:
-	make PchMac
-	make ParseEventsMac
+refresh-docs: Generated
 	xbuild /target:clean bindings/Urho.Desktop.csproj
 	xbuild bindings/Urho.Desktop.csproj
 	(cd docs; make update)
