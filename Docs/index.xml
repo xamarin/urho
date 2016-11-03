@@ -700,8 +700,6 @@
       <Type Name="RigidBody" Kind="Class" />
       <Type Name="ShapeType" Kind="Enumeration" />
     </Namespace>
-    <Namespace Name="Urho.Portable.Actions.Intervals">
-    </Namespace>
     <Namespace Name="Urho.Repl">
     </Namespace>
     <Namespace Name="Urho.Resources">
