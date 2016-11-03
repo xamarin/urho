@@ -235,7 +235,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Draw submitted batches. Uses worker threads if enabled during SetSize().</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -328,7 +328,7 @@
         <ReturnType>Urho.Matrix4</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return projection matrix.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -425,7 +425,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether is using threads to speed up rendering.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -523,7 +523,7 @@
         <ReturnType>Urho.Matrix3x4</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return view transform matrix.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

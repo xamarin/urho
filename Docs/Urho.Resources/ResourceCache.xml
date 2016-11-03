@@ -1169,7 +1169,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a formatted string containing the memory actively used.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

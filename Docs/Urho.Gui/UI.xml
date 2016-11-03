@@ -256,7 +256,9 @@
         <ReturnType>Urho.IntVector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return root element custom size. Returns 0,0 when custom size is not being used and automatic resizing according to window size is in use instead (default.)
+            Or
+            Set custom size of the root element. This disables automatic resizing of the root element according to window size. Set custom size 0,0 to return to automatic resizing.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -815,7 +817,9 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return current UI scale.
+            Or
+            Set %UI scale. 1.0 is default (pixel perfect). Resize the root element to match.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

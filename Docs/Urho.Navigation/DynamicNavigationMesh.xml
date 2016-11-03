@@ -201,7 +201,9 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the maximum number of layers permitted to build.
+            Or
+            Set the maximum number of layers that navigation construction can create.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -832,7 +832,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether is currently inside the Bullet substep loop.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1120,7 +1120,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether physics world will automatically simulate during scene update.
+            Or
+            Enable or disable automatic physics simulation during scene update. Enabled by default.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

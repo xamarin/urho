@@ -90,7 +90,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Begin event send. When receivers are removed during send, group has to be cleaned up afterward.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -106,7 +106,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>End event send. Clean up if necessary.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

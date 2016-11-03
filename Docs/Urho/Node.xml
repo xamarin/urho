@@ -729,7 +729,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the node's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -4065,7 +4065,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <ReturnType>Urho.Matrix3x4</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return world space transform matrix.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

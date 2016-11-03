@@ -139,7 +139,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return modal flag.
+            Or
+            Set modal flag. When the modal flag is set, the focused window needs to be dismissed first to allow other UI elements to gain focus.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -252,7 +254,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether is movable.
+            Or
+            Set whether can be moved.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -318,7 +322,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether is resizable.
+            Or
+            Set whether can be resized.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

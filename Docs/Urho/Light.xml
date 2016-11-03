@@ -160,7 +160,7 @@
         <ReturnType>Urho.Color</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the color value of the temperature in Kelvin.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -688,7 +688,9 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return maximum shadow extrusion distance for directional lights.
+            Or
+            Set maximum shadow extrusion for directional lights. The actual extrusion will be the smaller of this and camera far clip. Default 1000.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -802,7 +804,9 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the temperature of the light in Kelvin.
+            Or
+            Set temperature of the light in Kelvin. Modulates the light color when "use physical values" is enabled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -882,7 +886,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return if light uses temperature and brightness in lumens.
+            Or
+            Set use physical light values.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

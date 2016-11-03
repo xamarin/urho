@@ -229,7 +229,9 @@
         <ReturnType>Urho.Camera</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the culling camera. If null, the viewport camera will be used for culling (normal case.)
+            Or
+            Set separate camera to use for culling. Sharing a culling camera between several viewports allows to prepare the view only once, saving in CPU use. The culling camera's frustum should cover all the viewport cameras' frusta or else objects may be missing from the rendered view.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

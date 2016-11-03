@@ -257,7 +257,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Center the mouse position.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1050,7 +1050,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether the mouse is locked to the window</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1418,7 +1418,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reset the mouse grabbed to the last unsuppressed SetMouseGrabbed call</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1434,7 +1434,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reset the last mouse mode that wasn't suppressed in SetMouseMode</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

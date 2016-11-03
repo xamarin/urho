@@ -703,7 +703,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether does not refer to an element or an XPath node.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

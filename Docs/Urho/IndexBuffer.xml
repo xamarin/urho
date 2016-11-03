@@ -182,7 +182,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Mark the buffer destroyed on graphics context destruction. May be a no-op depending on the API.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

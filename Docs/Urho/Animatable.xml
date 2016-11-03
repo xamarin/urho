@@ -274,7 +274,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Remove object animation. Same as calling SetObjectAnimation with a null pointer.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

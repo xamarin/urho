@@ -901,7 +901,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Yield a frame</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

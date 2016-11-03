@@ -603,7 +603,7 @@
         <ReturnType>Urho.TypeInfo*</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return type info.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -619,7 +619,7 @@
         <ReturnType>Urho.TypeInfo*</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return type info static.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

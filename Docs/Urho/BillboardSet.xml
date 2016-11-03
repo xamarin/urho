@@ -163,7 +163,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether billboards are fixed screen size.
+            Or
+            Set whether billboards have fixed size on screen (measured in pixels) regardless of distance to camera. Default false.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -259,7 +261,9 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return minimal angle between billboard normal and look-at direction.
+            Or
+            Set minimal angle between billboard normal and look-at direction.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

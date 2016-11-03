@@ -135,7 +135,7 @@
         <ReturnType>Urho.Camera</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return culling camera. Normally same as the viewport camera.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
