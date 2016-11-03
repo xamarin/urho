@@ -31,6 +31,12 @@ namespace Urho.Forms
 		static Urho.iOS.UrhoSurface surface;
 		static Urho.Application app;
 
+		public IosSurfaceRenderer() {
+			if (surface != null) {
+				this.Add(surface);
+			}
+		}
+
 		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
 		{
 			await launcherSemaphore.WaitAsync();

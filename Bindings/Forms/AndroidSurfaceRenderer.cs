@@ -29,10 +29,15 @@ namespace Urho.Forms
 		static TaskCompletionSource<Application> applicationTaskSource; 
 		static readonly SemaphoreSlim launcherSemaphore = new SemaphoreSlim(1);
 		readonly FrameLayout surfaceViewPlaceholder;
+		static SDLSurface surfaceView;
 
 		public AndroidUrhoSurface(Android.Content.Context context) : base(context)
 		{
 			AddView(surfaceViewPlaceholder = new FrameLayout(Context));
+			if (surfaceView != null) {
+				surfaceView.RemoveFromParent ();
+				surfaceViewPlaceholder.AddView (surfaceView);
+			}
 		}
 
 		protected override void OnLayout(bool changed, int l, int t, int r, int b)
@@ -48,9 +53,11 @@ namespace Urho.Forms
 			await launcherSemaphore.WaitAsync();
 			await Urho.Application.StopCurrent();
 			surfaceViewPlaceholder.RemoveAllViews();
+			surfaceView?.Dispose ();
+			surfaceView = null;
 			applicationTaskSource = new TaskCompletionSource<Application>();
 			Urho.Application.Started += UrhoApplicationStarted;
-			var surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context, type, options);
+			surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context, type, options);
 			surfaceViewPlaceholder.AddView(surfaceView);
 			return await applicationTaskSource.Task;
 		}
