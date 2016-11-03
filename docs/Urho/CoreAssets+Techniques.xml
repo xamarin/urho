@@ -27,8 +27,7 @@
       <para>VColor - will take Vertex Color (for example, defined via DefineColor) into account.</para>
       <para>Additive blending simply sums the values in the two layers. Blending with white gives white. Blending with black does not change the image. </para>
       <para>Multiply blend mode multiplies the numbers for each pixel of the top layer with the corresponding pixel for the bottom layer. The result is a darker picture.</para>
-      <para>
-      </para>
+      <para></para>
       <para>You can access built-in techniques via CoreAssets.Techniques:</para>
       <code lang="C#"><![CDATA[Technique diff = CoreAssets.Techniques.Diff;]]></code>
       <para>It allows to create different materials in code, for example the following snippet creates a material from a texture and a normal map using <see cref="P:Urho.CoreAssets+Techniques.DiffNormal" />:</para>

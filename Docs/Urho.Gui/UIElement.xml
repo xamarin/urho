@@ -22,19 +22,16 @@
       <para>2) Internal child elements, for example the scroll bars of a <see cref="T:Urho.Gui.ScrollView" />, need to be marked as such to avoid instantiating them as duplicates. This is done by adding the attribute internal="true" to the XML element, and is required in both layout and style XML files. Furthermore, the elements must be listed in the order they have been added as children of the parent element (if in doubt, see the element's C++ constructor code. Omitting elements in the middle is OK)</para>
       <para>3) The popup element shown by <see cref="T:Urho.Gui.Menu" /> and <see cref="T:Urho.Gui.DropDownList" /> is not an actual child element. In XML serialization, it is nevertheless stored as a child element, but is marked with the attribute popup="trueвЂќ.</para>
       <para>You can associate one or more strings to a UIElement, by using the <see cref="M:Urho.Gui.UIElement.AddTag" /> and the <see cref="M:Urho.Gui.UIElement.RemoveTag" /> methods.</para>
-      <para>
-      </para>
+      <para></para>
       <see cref="" />
-      <para>
-      </para>
+      <para></para>
       <format type="text/html">
         <h2>UI Element Layout</h2>
       </format>
       <para>By default UI elements operate in a "free" layout mode, where child elements' positions can be specified relative to any of the parent element corners, but they are not automatically positioned or resized.</para>
       <para>To create automatically adjusting layouts, the layout mode can be switched to either "horizontal" or "vertical". Now the child elements will be positioned left to right or top to bottom, based on the order in which they were added. They will be preferably resized to fit the parent element, taking into account their minimum and maximum sizes, but failing to do that, the parent element will be resized.</para>
       <para>Left, top, right and bottom border widths and spacing between elements can also be specified for the layout. A grid layout is not directly supported, but it can be manually created with a horizontal layout inside a vertical layout, or vice versa.</para>
-      <para>
-      </para>
+      <para></para>
       <format type="text/html" />
     </remarks>
   </Docs>
@@ -51,8 +48,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UIElement which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -90,8 +86,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UIElement linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -454,8 +449,7 @@
             </summary>
         <returns>The created UIElement.    If the provided type is not a <see cref="T:Urho.Gui.UIElement" />, the return value is <paramref name="null" />.</returns>
         <remarks>
-          <para>
-          </para>
+          <para></para>
         </remarks>
       </Docs>
     </Member>
@@ -4202,8 +4196,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -4219,8 +4212,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -4236,8 +4228,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

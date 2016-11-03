@@ -20,8 +20,7 @@
       <para>the face to render to (0-5) can also be specified.</para>
       <para>A rendertarget's size can be either absolute or multiply or divide the destination viewport size. The multiplier or divisor does not need to be an integer number. Furthermore, a rendertarget can be declared "persistent" so that it will not be mixed with other rendertargets of the same size and format, and its contents can be assumed to be available also on subsequent frames.</para>
       <para>Note that if you already have created a named rendertarget texture in code and have stored it into the resource cache by using <see cref="M:Urho.ResourceCache.AddManualResource" /> you can use it directly as an output (by referring to its name) without requiring a rendertarget definition for it.</para>
-      <para>
-      </para>
+      <para></para>
       <para>The available commands are:</para>
       <list type="bullet">
         <item>

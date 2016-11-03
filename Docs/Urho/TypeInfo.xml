@@ -56,8 +56,7 @@
       </ReturnValue>
       <Docs>
         <summary>Urho's low-level type name.</summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
   </Members>

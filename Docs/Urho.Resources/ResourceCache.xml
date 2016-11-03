@@ -28,8 +28,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Resources.ResourceCache which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -67,8 +66,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Resources.ResourceCache linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -449,8 +447,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -477,8 +474,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -505,8 +501,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -573,8 +568,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -601,8 +595,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -629,8 +622,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -657,8 +649,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -685,8 +676,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -739,8 +729,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -813,8 +802,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -841,8 +829,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -869,8 +856,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -897,8 +883,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -925,8 +910,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -980,8 +964,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1008,8 +991,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1036,8 +1018,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1064,8 +1045,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1092,8 +1072,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1120,8 +1099,7 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para>
-          </para>
+          <para></para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1798,8 +1776,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1815,8 +1792,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1832,8 +1808,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UnknownResourceType">
