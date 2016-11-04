@@ -14,10 +14,6 @@ namespace Urho
 
 		public Octree Octree { get; private set; }
 
-		public Node RootNode { get; private set; }
-
-		public Node LightNode { get; private set; }
-
 		public Light Light { get; private set; }
 
 		public Camera RightCamera { get; set; }
@@ -29,12 +25,10 @@ namespace Urho
 			// 3D scene with Octree
 			Scene = new Scene(Context);
 			Octree = Scene.CreateComponent<Octree>();
-			RootNode = Scene.CreateChild("RootNode");
-			RootNode.Position = new Vector3(x: 0, y: 0, z: 8);
 
-			LightNode = Scene.CreateChild("DirectionalLight");
-			LightNode.SetDirection(new Vector3(0.5f, 0.0f, 0.8f));
-			Light = LightNode.CreateComponent<Light>();
+			var lightNode = Scene.CreateChild("DirectionalLight");
+			lightNode.SetDirection(new Vector3(0.5f, 0.0f, 0.8f));
+			Light = lightNode.CreateComponent<Light>();
 			Light.LightType = LightType.Directional;
 			Light.CastShadows = true;
 			Light.ShadowBias = new BiasParameters(0.00025f, 0.5f);
@@ -48,8 +42,8 @@ namespace Urho
 			var rightEyeNode = Scene.CreateChild();
 			RightCamera = rightEyeNode.CreateComponent<Camera>();
 			
-			leftEyeNode.Translate(new Vector3(-0.03f, 0, 0));
-			rightEyeNode.Translate(new Vector3(0.03f, 0, 0));
+			leftEyeNode.Translate(new Vector3(-0.032f, 0, 0));
+			rightEyeNode.Translate(new Vector3(0.032f, 0, 0));
 
 			Renderer.NumViewports = 2;
 
@@ -58,6 +52,9 @@ namespace Urho
 
 			var leftVp = new Viewport(Context, Scene, LeftCamera, leftEyeRect, null);
 			var rightVp = new Viewport(Context, Scene, RightCamera, rightEyeRect, null);
+
+			leftVp.SetClearColor(Color.Red);
+			rightVp.SetClearColor(Color.Blue);
 
 			Renderer.SetViewport(0, leftVp);
 			Renderer.SetViewport(1, rightVp);

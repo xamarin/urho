@@ -54,8 +54,27 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VrTestApp.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidNativeLibrary Include="..\..\..\Bin\Android\x86_64\libmono-urho.so">
+      <Link>Libs\x86_64\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="..\..\..\Bin\Android\arm64-v8a\libmono-urho.so">
+      <Link>Libs\arm64-v8a\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="..\..\..\Bin\Android\armeabi-v7a\libmono-urho.so">
+      <Link>Libs\armeabi-v7a\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="..\..\..\Bin\Android\armeabi\libmono-urho.so">
+      <Link>Libs\armeabi\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="..\..\..\Bin\Android\x86\libmono-urho.so">
+      <Link>Libs\x86\libmono-urho.so</Link>
+    </AndroidNativeLibrary>
+    <AndroidAsset Include="..\..\..\Urho3D\CoreData.pak">
+      <Link>Assets\CoreData.pak</Link>
+    </AndroidAsset>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>

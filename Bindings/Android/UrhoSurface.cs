@@ -185,15 +185,15 @@ namespace Urho.Droid
 						currentHeadView[10],
 						currentHeadView[11],
 
-
 						currentHeadView[12],
 						currentHeadView[13],
 						currentHeadView[14],
 						currentHeadView[15]);
-					var rot = m4.Rotation;
-					var rotation = new Quaternion(-rot.X, -rot.Y, rot.Z, rot.W);
 
-					((StereoApplication)Application.Current).SetHeadPostion(rotation, Vector3.Zero);
+					var rot = m4.Rotation;
+					//RH -> LH:
+					var rotation = new Quaternion(-rot.X, -rot.Y, rot.Z, rot.W);
+					((StereoApplication)Application.Current).SetHeadPostion(rotation, new Vector3(currentHeadView[12], currentHeadView[13], -currentHeadView[14]));
 				}
 			}
 		}
