@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\SpatialVertex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\LogicComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Randoms.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\StereoApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\ActionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\Base\Action.cs" />
