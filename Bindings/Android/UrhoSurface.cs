@@ -8,6 +8,7 @@ using Android.Util;
 using Android.Views;
 using Java.Lang;
 using Org.Libsdl.App;
+using Urho.HoloLens;
 using Com.Google.Vrtoolkit.Cardboard.Sensors;
 
 namespace Urho.Droid
@@ -146,7 +147,7 @@ namespace Urho.Droid
 			SDLActivity.FinishActivityOnNativeExit = finishActivityOnExit;
 			RegisterSdlLauncher(_ => {
 					var app = applicationFactory();
-					if (app is StereoApplication)
+					if (app is HoloApplication)
 					{
 						tracker = HeadTracker.CreateFromContext(Android.App.Application.Context);
 						StartTracker();
@@ -193,7 +194,7 @@ namespace Urho.Droid
 					var rot = m4.Rotation;
 					//RH -> LH:
 					var rotation = new Quaternion(-rot.X, -rot.Y, rot.Z, rot.W);
-					((StereoApplication)Application.Current).SetHeadPostion(rotation, new Vector3(currentHeadView[12], currentHeadView[13], -currentHeadView[14]));
+					((HoloApplication)Application.Current).UpdateStereoView(rotation, new Vector3(currentHeadView[12], currentHeadView[13], -currentHeadView[14]));
 				}
 			}
 		}
