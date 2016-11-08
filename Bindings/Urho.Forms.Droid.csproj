@@ -73,6 +73,10 @@
     <None Include="packages.Urho.Forms.Droid.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Android\Urho.Droid.GoogleVR\Urho.Droid.GoogleVR.csproj">
+      <Project>{357bb22b-adbc-4a78-851c-6ac40df5d32a}</Project>
+      <Name>Urho.Droid.GoogleVR</Name>
+    </ProjectReference>
     <ProjectReference Include="Android\Urho.Droid.SdlBinding\Urho.Droid.SdlBinding.csproj">
       <Project>{68a19c58-7eba-4af4-be15-f5d7a13b6c97}</Project>
       <Name>Urho.Droid.SdlBinding</Name>
