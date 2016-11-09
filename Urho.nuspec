@@ -32,6 +32,7 @@
      <file src="Nuget/Android/UrhoSharpReadme.txt" target="content/MonoAndroid/UrhoSharpReadme.txt" />
      <file src="Bin/Android/Urho.dll" target="lib/MonoAndroid/Urho.dll" />
      <file src="Bin/Android/Urho.Droid.SdlBinding.dll" target="lib/MonoAndroid/Urho.Droid.SdlBinding.dll" />
+     <file src="Bin/Android/Urho.Droid.GoogleVR.dll" target="lib/MonoAndroid/Urho.Droid.GoogleVR.dll" />
      <file src="docs/Urho.XML" target="lib/MonoAndroid/Urho.XML" />
 
      <file src="Bin/Android/x86_64/libmono-urho.so" target="native/Android/x86_64/libmono-urho.so" />
