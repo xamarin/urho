@@ -54,7 +54,6 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VrTestApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidNativeLibrary Include="..\..\..\Bin\Android\x86_64\libmono-urho.so">

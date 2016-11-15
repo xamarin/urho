@@ -87,10 +87,10 @@ namespace Urho.HoloLens
 
 		protected virtual XmlFile DefaultRenderPath => Emulator ? 
 			CoreAssets.RenderPaths.Forward :
-#if ANDROID
-			CoreAssets.RenderPaths.Forward;
-#else
+#if UWP_HOLO
 			CoreAssets.RenderPaths.ForwardHWDepth;
+#else
+			CoreAssets.RenderPaths.Forward;
 #endif
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -151,7 +151,7 @@ namespace Urho.HoloLens
 					LeftCamera.Handle, RightCamera.Handle, CullingCamera.Handle,
 					ref leftView, ref leftProj,
 					ref rightView, ref rightProj));
-#elif ANDROID
+#else
 			var leftEyeRect = new IntRect(0, 0, Graphics.Width / 2, Graphics.Height);
 			var rightEyeRect = new IntRect(Graphics.Width / 2, 0, Graphics.Width, Graphics.Height);
 			
@@ -163,15 +163,6 @@ namespace Urho.HoloLens
 			leftCameraNode.Translate(new Vector3(-0.032f, 0, 0));
 			rightCameraNode.Translate(new Vector3(0.032f, 0, 0));
 #endif
-		}
-
-		internal void UpdateStereoView(Quaternion rotation, Vector3 position)
-		{
-			InvokeOnMain(() =>
-			{
-				LeftCamera.Node.Rotation = rotation;
-				RightCamera.Node.Rotation = rotation;
-			});
 		}
 
 		internal void UpdateStereoView(Matrix4 leftView, Matrix4 rightView, Matrix4 leftProj, Matrix4 rightProj)

@@ -21,7 +21,7 @@ namespace Playgrounds.Droid
 
 		void Button_Click(object sender, System.EventArgs e)
 		{
-			UrhoSurface.RunInActivity<VrTestApp>();
+			//UrhoSurface.RunInActivity<VrTestApp>();
 		}
 	}
 }
