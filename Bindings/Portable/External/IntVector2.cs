@@ -938,6 +938,15 @@ namespace Urho
 
 		#endregion
 
+
+		/// <summary>
+		/// Distance between two 2D points (should be moved to IntVector2).
+		/// </summary>
+		public static float Distance(IntVector2 v1, IntVector2 v2)
+		{
+			return (float)Math.Sqrt((v1.X - v2.X) * (v1.X - v2.X) + (v1.Y - v2.Y) * (v1.Y - v2.Y));
+		}
+
 		public bool IsEmpty => X == 0 && Y == 0;
 	}
 }
