@@ -1,4 +1,4 @@
-# armv7s, armv7, arm64, i386
+# armv7s, armv7, arm64, i386, x86_64
 ARCH=i386
 SDK_VER=9.2
 MIN_IOS_VER=8.0
@@ -7,6 +7,8 @@ URHO_DIR=Urho3D/Urho3D_iOS
 URHO_SOURCE_DIR=Urho3D/Source
 
 ifeq ($(ARCH), i386)
+TARGET=iPhoneSimulator
+else ifeq ($(ARCH), x86_64)
 TARGET=iPhoneSimulator
 else
 TARGET=iPhoneOS
@@ -30,6 +32,8 @@ Urho3D_IOS:
 libUrho3D.a: Urho3D_IOS
 ifeq ($(ARCH), i386)
 	cd $(URHO_DIR) && xcodebuild -arch "i386" ONLY_ACTIVE_ARCH=NO VALID_ARCHS="i386" -target Urho3D -sdk iphonesimulator$(SDK_VER)
+else ifeq ($(ARCH), x86_64)
+	cd $(URHO_DIR) && xcodebuild -arch "x86_64" ONLY_ACTIVE_ARCH=NO VALID_ARCHS="x86_64" -target Urho3D -sdk iphonesimulator$(SDK_VER)
 else
 	cd $(URHO_DIR) && xcodebuild ARCHS=$(ARCH) ONLY_ACTIVE_ARCH=NO -target Urho3D -configuration Release
 endif
@@ -41,7 +45,7 @@ libmono-urho.dylib: MakeBinDirectory libUrho3D.a vector.o binding.o glue.o event
 	mkdir -p $(OUTPUT_DIR) && $(CPP) -dynamiclib -g -o $(OUTPUT_DIR)/libmono-urho_$(ARCH).dylib -g $(URHO_LIBS) $(OUTPUT_DIR)/binding.o $(OUTPUT_DIR)/glue.o $(OUTPUT_DIR)/vector.o $(OUTPUT_DIR)/events.o $(OUTPUT_DIR)/ApplicationProxy.o
 
 fat-libmono-urho.dylib:
-	make libmono-urho.dylib -f MakeiOS ARCH="i386" && make libmono-urho.dylib -f MakeiOS ARCH="armv7" && make libmono-urho.dylib -f MakeiOS ARCH="arm64" && cd $(OUTPUT_DIR) && lipo -create libmono-urho_i386.dylib libmono-urho_armv7.dylib libmono-urho_arm64.dylib -output libmono-urho.dylib
+	make libmono-urho.dylib -f MakeiOS ARCH="i386" && make libmono-urho.dylib -f MakeiOS ARCH="x86_64" && make libmono-urho.dylib -f MakeiOS ARCH="armv7" && make libmono-urho.dylib -f MakeiOS ARCH="arm64" && cd $(OUTPUT_DIR) && lipo -create libmono-urho_i386.dylib libmono-urho_x86_64.dylib libmono-urho_armv7.dylib libmono-urho_arm64.dylib -output libmono-urho.dylib
 
 Urho.framework: fat-libmono-urho.dylib
 	rm -rf $(OUTPUT_DIR)/Urho.framework && mkdir $(OUTPUT_DIR)/Urho.framework && cp Bindings/iOS/Urho.framework.plist $(OUTPUT_DIR)/Urho.framework/Info.plist && cd $(OUTPUT_DIR) && cp libmono-Urho.dylib Urho.framework/Urho && install_name_tool -id @rpath/Urho.framework/Urho Urho.framework/Urho && zip -r Urho.framework.zip Urho.framework
