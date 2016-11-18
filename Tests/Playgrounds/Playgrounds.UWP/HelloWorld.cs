@@ -1,4 +1,5 @@
-﻿using Urho;
+﻿using System.Threading.Tasks;
+using Urho;
 
 namespace Playgrounds.UWP
 {
@@ -6,7 +7,7 @@ namespace Playgrounds.UWP
 	{
 		public HelloWorld(ApplicationOptions options = null) : base(options) { }
 
-		protected override void Start()
+		protected override async void Start()
 		{
 			Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.ForwardHWDepth);
 			var scene = new Scene();
@@ -20,6 +21,9 @@ namespace Playgrounds.UWP
 			var modelObject = boxNode.CreateComponent<StaticModel>();
 			modelObject.Model = ResourceCache.GetModel("Models/Box.mdl");
 			modelObject.SetMaterial(ResourceCache.GetMaterial("Materials/StoneSmall.xml"));
+
+			await Task.Delay(1000);
+			await ToMainThreadAsync();
 
 			// Light
 			var lightNode = scene.CreateChild(name: "light");

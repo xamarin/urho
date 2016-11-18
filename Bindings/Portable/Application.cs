@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Urho.IO;
@@ -126,12 +127,12 @@ namespace Urho {
 		/// <summary>
 		/// Yield a frame
 		/// </summary>
-		public Task YieldFrame() => InvokeOnMainAsync(null);
+		public ConfiguredTaskAwaitable<bool> ToMainThreadAsync() => InvokeOnMainAsync(null);
 
 		/// <summary>
 		/// Invoke actions in the Main Thread (the next Update call)
 		/// </summary>
-		public static Task InvokeOnMainAsync(Action action)
+		public static ConfiguredTaskAwaitable<bool> InvokeOnMainAsync(Action action)
 		{
 			var tcs = new TaskCompletionSource<bool>();
 			InvokeOnMain(() =>
@@ -139,7 +140,7 @@ namespace Urho {
 					action?.Invoke();
 					tcs.TrySetResult(true);
 				});
-			return tcs.Task;
+			return tcs.Task.ConfigureAwait(false);
 		}
 
 		static Application GetApp(IntPtr h) => Runtime.LookupObject<Application>(h);
