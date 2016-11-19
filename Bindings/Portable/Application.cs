@@ -125,14 +125,19 @@ namespace Urho {
 		}
 
 		/// <summary>
-		/// Yield a frame
+		/// Dispatch to OnUpdate
 		/// </summary>
-		public ConfiguredTaskAwaitable<bool> ToMainThreadAsync() => InvokeOnMainAsync(null);
+		public static ConfiguredTaskAwaitable<bool> ToMainThreadAsync()
+		{
+			var tcs = new TaskCompletionSource<bool>();
+			InvokeOnMain(() => tcs.TrySetResult(true));
+			return tcs.Task.ConfigureAwait(false);
+		}
 
 		/// <summary>
 		/// Invoke actions in the Main Thread (the next Update call)
 		/// </summary>
-		public static ConfiguredTaskAwaitable<bool> InvokeOnMainAsync(Action action)
+		public static Task<bool> InvokeOnMainAsync(Action action)
 		{
 			var tcs = new TaskCompletionSource<bool>();
 			InvokeOnMain(() =>
@@ -140,7 +145,7 @@ namespace Urho {
 					action?.Invoke();
 					tcs.TrySetResult(true);
 				});
-			return tcs.Task.ConfigureAwait(false);
+			return tcs.Task;
 		}
 
 		static Application GetApp(IntPtr h) => Runtime.LookupObject<Application>(h);
