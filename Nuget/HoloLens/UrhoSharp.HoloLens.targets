@@ -4,16 +4,15 @@
             <Link>mono-holourho.dll</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <!--DEBUG:-->
+         <Content Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">
+             <Link>CoreData.pak</Link>
+             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+         </Content>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <Content Include="$(MSBuildProgramFiles32)\Windows Kits\10\bin\x86\ucrt\ucrtbased.dll">
             <Link>ucrtbased.dll</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-    </ItemGroup>
-	<ItemGroup>
-		<Content Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">
-			<Link>CoreData.pak</Link>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
     </ItemGroup>
 </Project>
