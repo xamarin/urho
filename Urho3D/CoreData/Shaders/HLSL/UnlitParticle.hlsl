@@ -1,7 +1,6 @@
 #include "Uniforms.hlsl"
 #include "Samplers.hlsl"
 #include "Transform.hlsl"
-#include "Lighting.hlsl"
 #include "ScreenPos.hlsl"
 #include "Fog.hlsl"
 
@@ -19,9 +18,6 @@ cbuffer CustomPS : register(b6)
 #endif
 
 void VS(float4 iPos : POSITION,
-    #if !defined(BILLBOARD) && !defined(TRAILFACECAM)
-        float3 iNormal : NORMAL,
-    #endif
     #ifndef NOUV
         float2 iTexCoord : TEXCOORD0,
     #endif
@@ -38,6 +34,9 @@ void VS(float4 iPos : POSITION,
     #if defined(BILLBOARD) || defined(DIRBILLBOARD)
         float2 iSize : TEXCOORD1,
     #endif
+    #if defined(DIRBILLBOARD) || defined(TRAILBONE)
+        float3 iNormal : NORMAL,
+    #endif
     #if defined(TRAILFACECAM) || defined(TRAILBONE)
         float4 iTangent : TANGENT,
     #endif
@@ -45,20 +44,7 @@ void VS(float4 iPos : POSITION,
     #ifdef SOFTPARTICLES
         out float4 oScreenPos : TEXCOORD1,
     #endif
-    out float4 oWorldPos : TEXCOORD3,
-    #if PERPIXEL
-        #ifdef SHADOW
-            out float4 oShadowPos[NUMCASCADES] : TEXCOORD4,
-        #endif
-        #ifdef SPOTLIGHT
-            out float4 oSpotPos : TEXCOORD5,
-        #endif
-        #ifdef POINTLIGHT
-            out float3 oCubeMaskVec : TEXCOORD5,
-        #endif
-    #else
-        out float3 oVertexLight : TEXCOORD4,
-    #endif
+    out float4 oWorldPos : TEXCOORD2,
     #ifdef VERTEXCOLOR
         out float4 oColor : COLOR0,
     #endif
@@ -71,7 +57,7 @@ void VS(float4 iPos : POSITION,
     #ifdef NOUV
     float2 iTexCoord = float2(0.0, 0.0);
     #endif
-    
+
     float4x3 modelMatrix = iModelMatrix;
     float3 worldPos = GetWorldPos(modelMatrix);
     oPos = GetClipPos(worldPos);
@@ -89,53 +75,13 @@ void VS(float4 iPos : POSITION,
     #ifdef VERTEXCOLOR
         oColor = iColor;
     #endif
-
-    #ifdef PERPIXEL
-        // Per-pixel forward lighting
-        float4 projWorldPos = float4(worldPos.xyz, 1.0);
-
-        #ifdef SHADOW
-            // Shadow projection: transform from world space to shadow space
-            GetShadowPos(projWorldPos, float3(0, 0, 0), oShadowPos);
-        #endif
-
-        #ifdef SPOTLIGHT
-            // Spotlight projection: transform from world space to projector texture coordinates
-            oSpotPos = mul(projWorldPos, cLightMatrices[0]);
-        #endif
-
-        #ifdef POINTLIGHT
-            oCubeMaskVec = mul(worldPos - cLightPos.xyz, (float3x3)cLightMatrices[0]);
-        #endif
-    #else
-        // Ambient & per-vertex lighting
-        oVertexLight = GetAmbient(GetZonePos(worldPos));
-
-        #ifdef NUMVERTEXLIGHTS
-            for (int i = 0; i < NUMVERTEXLIGHTS; ++i)
-                oVertexLight += GetVertexLightVolumetric(i, worldPos) * cVertexLights[i * 3].rgb;
-        #endif
-    #endif
 }
 
 void PS(float2 iTexCoord : TEXCOORD0,
     #ifdef SOFTPARTICLES
         float4 iScreenPos: TEXCOORD1,
     #endif
-    float4 iWorldPos : TEXCOORD3,
-    #ifdef PERPIXEL
-        #ifdef SHADOW
-            float4 iShadowPos[NUMCASCADES] : TEXCOORD4,
-        #endif
-        #ifdef SPOTLIGHT
-            float4 iSpotPos : TEXCOORD5,
-        #endif
-        #ifdef POINTLIGHT
-            float3 iCubeMaskVec : TEXCOORD5,
-        #endif
-    #else
-        float3 iVertexLight : TEXCOORD4,
-    #endif
+    float4 iWorldPos: TEXCOORD2,
     #ifdef VERTEXCOLOR
         float4 iColor : COLOR0,
     #endif
@@ -146,12 +92,11 @@ void PS(float2 iTexCoord : TEXCOORD0,
 {
     // Get material diffuse albedo
     #ifdef DIFFMAP
-        float4 diffInput = Sample2D(DiffMap, iTexCoord);
+        float4 diffColor = cMatDiffColor * Sample2D(DiffMap, iTexCoord);
         #ifdef ALPHAMASK
-            if (diffInput.a < 0.5)
+            if (diffColor.a < 0.5)
                 discard;
         #endif
-        float4 diffColor = cMatDiffColor * diffInput;
     #else
         float4 diffColor = cMatDiffColor;
     #endif
@@ -166,11 +111,11 @@ void PS(float2 iTexCoord : TEXCOORD0,
     #else
         float fogFactor = GetFogFactor(iWorldPos.w);
     #endif
-
+    
     // Soft particle fade
     // In expand mode depth test should be off. In that case do manual alpha discard test first to reduce fill rate
     #ifdef SOFTPARTICLES
-        #ifdef EXPAND
+        #if defined(EXPAND) && !defined(ADDITIVE)
             if (diffColor.a < 0.01)
                 discard;
         #endif
@@ -189,34 +134,12 @@ void PS(float2 iTexCoord : TEXCOORD0,
             float fade = saturate(1.0 - diffZ * cSoftParticleFadeScale);
         #endif
 
-        diffColor.a = max(diffColor.a - fade, 0.0);
-    #endif
-
-    #ifdef PERPIXEL
-        // Per-pixel forward lighting
-        float3 lightColor;
-        float3 finalColor;
-        
-        float diff = GetDiffuseVolumetric(iWorldPos.xyz);
-
-        #ifdef SHADOW
-            diff *= GetShadow(iShadowPos, iWorldPos.w);
-        #endif
-
-        #if defined(SPOTLIGHT)
-            lightColor = iSpotPos.w > 0.0 ? Sample2DProj(LightSpotMap, iSpotPos).rgb * cLightColor.rgb : 0.0;
-        #elif defined(CUBEMASK)
-            lightColor = texCUBE(sLightCubeMap, iCubeMaskVec).rgb * cLightColor.rgb;
+        #ifndef ADDITIVE
+            diffColor.a = max(diffColor.a - fade, 0.0);
         #else
-            lightColor = cLightColor.rgb;
+            diffColor.rgb = max(diffColor.rgb - fade, float3(0.0, 0.0, 0.0));
         #endif
-
-        finalColor = diff * lightColor * diffColor.rgb;
-        oColor = float4(GetLitFog(finalColor, fogFactor), diffColor.a);
-    #else
-        // Ambient & per-vertex lighting
-        float3 finalColor = iVertexLight * diffColor.rgb;
-
-        oColor = float4(GetFog(finalColor, fogFactor), diffColor.a);
     #endif
+
+    oColor = float4(GetFog(diffColor.rgb, fogFactor), diffColor.a);
 }
