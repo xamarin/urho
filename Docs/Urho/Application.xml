@@ -15,7 +15,8 @@
             </summary>
     <remarks>
       <para>This is the base class that your application should subclass and provide at implementations for the <see cref="M:Urho.Application.Setup" /> and <see cref="M:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="M:Urho.Application.Start" /> methods.</para>
-      <para></para>
+      <para>
+      </para>
       <para>Access to various subsystems in Urho is available through the various properties in this class:</para>
       <list type="bullet">
         <item>
@@ -31,7 +32,8 @@
         <item>
           <term>
             <see cref="P:Urho.Application.FileSystem" />
-            <para></para>
+            <para>
+            </para>
           </term>
         </item>
         <item>
@@ -82,7 +84,8 @@
       </list>
       <para>An application is tied to a <see cref="T:Urho.Context" /> which should be passed on the initial constructor.</para>
       <para>This shows a minimal application:</para>
-      <para></para>
+      <para>
+      </para>
       <example>
         <code lang="C#"><![CDATA[public class HelloWorld : Application
 {
@@ -459,23 +462,23 @@
       </Docs>
     </Member>
     <Member MemberName="InvokeOnMainAsync">
-      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task InvokeOnMainAsync (Action action);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task InvokeOnMainAsync(class System.Action action) cil managed" />
+      <MemberSignature Language="C#" Value="public static System.Threading.Tasks.Task&lt;bool&gt; InvokeOnMainAsync (Action action);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Threading.Tasks.Task`1&lt;bool&gt; InvokeOnMainAsync(class System.Action action) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+        <ReturnType>System.Threading.Tasks.Task&lt;System.Boolean&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="action" Type="System.Action" />
       </Parameters>
       <Docs>
-        <param name="action">Method to be invoked on the main thread.</param>
-        <summary>Invoke actions in the Main Thread (the next Update call), async variation.</summary>
+        <param name="action">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>This method is equivalent to <see cref="M:Urho.Application.InvokeOnMain," /> with the difference that the result can be awaited on.</remarks>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="IsClosed">
@@ -762,6 +765,23 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ToMainThreadAsync">
+      <MemberSignature Language="C#" Value="public static System.Runtime.CompilerServices.ConfiguredTaskAwaitable&lt;bool&gt; ToMainThreadAsync ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1&lt;bool&gt; ToMainThreadAsync() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Runtime.CompilerServices.ConfiguredTaskAwaitable&lt;System.Boolean&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Type">
       <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
@@ -791,7 +811,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -807,7 +828,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -823,7 +845,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UI">
@@ -886,23 +909,6 @@
       <Docs>
         <summary>Returns the WorkQueue subsystem.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="YieldFrame">
-      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task YieldFrame ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Threading.Tasks.Task YieldFrame() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Threading.Tasks.Task</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>Yield a frame</summary>
-        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

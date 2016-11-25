@@ -16,7 +16,8 @@
     <remarks>
       <para>When you create a Scene, it is automatically attached to the specified context (or the default as exposed by <see cref="P:Urho.Application.CurrentContext)" />.   The Scene is just the toplevel <see cref="T:Urho.Node" /> and it holds the various nodes for your application.   </para>
       <para>In general, you will want to add an Octree component to your scene, without it, none of the visual components will be shown.  The default Octree component volume goes from (-1000,-1000,-1000) to (1000,1000,1000) in world coordinates.</para>
-      <para></para>
+      <para>
+      </para>
       <example>
         <code lang="C#"><![CDATA[scene.CreateComponent<Octree> ();
 
@@ -56,7 +57,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <summary>
           <para>Constructs a new instance of Urho.Scene which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -94,7 +96,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <summary>
           <para>Constructs a new instance of Urho.Scene linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -1408,7 +1411,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public bool SaveXml (string path, string indentation = &quot; &quot;);" />
+      <MemberSignature Language="C#" Value="public bool SaveXml (string path, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(string path, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -2045,7 +2048,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -2061,7 +2065,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -2077,7 +2082,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnregisterAllVars">

@@ -13,9 +13,11 @@
     <summary>Base class for actions in Urho.</summary>
     <remarks>
       <para>In general, you will be using one of the concrete implementations of BaseAction that provide a lot of functionality.</para>
-      <para></para>
+      <para>
+      </para>
       <para>Actions are stateless, when you subclass this class, you should never keep any writable state.  Your subclass should merely act as a blueprint for what the action should do.</para>
-      <para></para>
+      <para>
+      </para>
       <para>When you create own actions, you need to override the <see cref="M:Urho.Actions.BaseAction.StartAction" /> method to return an <see cref="T:Urho.Actions.ActionState" /> subclass which is in chage of driving the action over time.</para>
     </remarks>
   </Docs>
@@ -68,10 +70,12 @@
       <Docs>
         <summary>Tag used to easily reference an action from code using a code.</summary>
         <value>
-          <para></para>
+          <para>
+          </para>
         </value>
         <remarks>
-          <para></para>
+          <para>
+          </para>
         </remarks>
       </Docs>
     </Member>

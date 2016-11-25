@@ -1,10 +1,6 @@
 <Type Name="CharEntryEventArgs" FullName="Urho.Gui.CharEntryEventArgs">
   <TypeSignature Language="C#" Value="public struct CharEntryEventArgs" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit CharEntryEventArgs extends System.ValueType" />
-  <AssemblyInfo>
-    <AssemblyName>Urho</AssemblyName>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-  </AssemblyInfo>
   <Base>
     <BaseTypeName>System.ValueType</BaseTypeName>
   </Base>

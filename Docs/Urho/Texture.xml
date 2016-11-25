@@ -28,7 +28,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Texture which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -66,7 +67,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Texture linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -541,6 +543,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="LevelsDirty">
+      <MemberSignature Language="C#" Value="public bool LevelsDirty { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool LevelsDirty" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MultiSample">
       <MemberSignature Language="C#" Value="public int MultiSample { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 MultiSample" />
@@ -572,6 +590,22 @@
             Return whether parameters are dirty.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegenerateLevels">
+      <MemberSignature Language="C#" Value="public void RegenerateLevels ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RegenerateLevels() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -643,6 +677,22 @@
         <summary>
             Set addressing mode by texture coordinate.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetLevelsDirty">
+      <MemberSignature Language="C#" Value="public void SetLevelsDirty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetLevelsDirty() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

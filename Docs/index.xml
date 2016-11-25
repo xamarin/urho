@@ -113,6 +113,7 @@
       <Type Name="CoreAssets+Techniques" Kind="Class" />
       <Type Name="CoreAssets+Techniques+PBR" Kind="Class" />
       <Type Name="CoreAssets+Textures" Kind="Class" />
+      <Type Name="CoreAssets+UIs" Kind="Class" />
       <Type Name="CreateMode" Kind="Enumeration" />
       <Type Name="CrowdAgentNodeFailureEventArgs" Kind="Structure" />
       <Type Name="CrowdAgentNodeFormationEventArgs" Kind="Structure" />
@@ -319,6 +320,7 @@
       <Type Name="Terrain" Kind="Class" />
       <Type Name="TerrainCreatedEventArgs" Kind="Structure" />
       <Type Name="TerrainPatch" Kind="Class" />
+      <Type Name="TextEditingEventArgs" Kind="Structure" />
       <Type Name="TextInputEventArgs" Kind="Structure" />
       <Type Name="Texture" Kind="Class" />
       <Type Name="Texture2DArray" Kind="Class" />
@@ -526,7 +528,6 @@
     <Namespace Name="Urho.Gui">
       <Type Name="BorderImage" Kind="Class" />
       <Type Name="Button" Kind="Class" />
-      <Type Name="CharEntryEventArgs" Kind="Structure" />
       <Type Name="CheckBox" Kind="Class" />
       <Type Name="Corner" Kind="Enumeration" />
       <Type Name="Cursor" Kind="Class" />
@@ -585,6 +586,7 @@
       <Type Name="Text3D" Kind="Class" />
       <Type Name="TextChangedEventArgs" Kind="Structure" />
       <Type Name="TextEffect" Kind="Enumeration" />
+      <Type Name="TextEntryEventArgs" Kind="Structure" />
       <Type Name="TextFinishedEventArgs" Kind="Structure" />
       <Type Name="ToggledEventArgs" Kind="Structure" />
       <Type Name="ToolTip" Kind="Class" />

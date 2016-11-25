@@ -396,6 +396,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Distance">
+      <MemberSignature Language="C#" Value="public static float Distance (Urho.IntVector2 v1, Urho.IntVector2 v2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig float32 Distance(valuetype Urho.IntVector2 v1, valuetype Urho.IntVector2 v2) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="v1" Type="Urho.IntVector2" />
+        <Parameter Name="v2" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="v1">To be added.</param>
+        <param name="v2">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Div">
       <MemberSignature Language="C#" Value="public void Div (int f);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Div(int32 f) cil managed" />

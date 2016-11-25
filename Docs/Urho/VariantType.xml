@@ -171,7 +171,7 @@
     </Member>
     <Member MemberName="MaxVarTypes">
       <MemberSignature Language="C#" Value="MaxVarTypes" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType MaxVarTypes = int32(24)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType MaxVarTypes = int32(25)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -214,6 +214,20 @@
     <Member MemberName="Quaternion">
       <MemberSignature Language="C#" Value="Quaternion" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Quaternion = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VariantType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Rect">
+      <MemberSignature Language="C#" Value="Rect" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Rect = int32(24)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

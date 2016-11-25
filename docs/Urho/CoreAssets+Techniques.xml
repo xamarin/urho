@@ -27,7 +27,8 @@
       <para>VColor - will take Vertex Color (for example, defined via DefineColor) into account.</para>
       <para>Additive blending simply sums the values in the two layers. Blending with white gives white. Blending with black does not change the image. </para>
       <para>Multiply blend mode multiplies the numbers for each pixel of the top layer with the corresponding pixel for the bottom layer. The result is a darker picture.</para>
-      <para></para>
+      <para>
+      </para>
       <para>You can access built-in techniques via CoreAssets.Techniques:</para>
       <code lang="C#"><![CDATA[Technique diff = CoreAssets.Techniques.Diff;]]></code>
       <para>It allows to create different materials in code, for example the following snippet creates a material from a texture and a normal map using <see cref="P:Urho.CoreAssets+Techniques.DiffNormal" />:</para>
@@ -334,6 +335,38 @@
     <Member MemberName="DiffLitParticleAlpha">
       <MemberSignature Language="C#" Value="public static Urho.Technique DiffLitParticleAlpha { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffLitParticleAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffLitParticleAlphaSoft">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffLitParticleAlphaSoft { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffLitParticleAlphaSoft" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffLitParticleAlphaSoftExpand">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffLitParticleAlphaSoftExpand { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffLitParticleAlphaSoftExpand" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -785,6 +818,86 @@
             <img href="t_DiffUnlit.png" />
           </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffUnlitParticleAdd">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlitParticleAdd { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlitParticleAdd" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffUnlitParticleAddSoft">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlitParticleAddSoft { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlitParticleAddSoft" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffUnlitParticleAlpha">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlitParticleAlpha { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlitParticleAlpha" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffUnlitParticleAlphaSoft">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlitParticleAlphaSoft { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlitParticleAlphaSoft" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DiffUnlitParticleAlphaSoftExpand">
+      <MemberSignature Language="C#" Value="public static Urho.Technique DiffUnlitParticleAlphaSoftExpand { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Technique DiffUnlitParticleAlphaSoftExpand" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Technique</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="DiffVCol">

@@ -30,7 +30,8 @@
         <param name="target">The node that this action will be operating on.</param>
         <summary>Creates a new action state</summary>
         <remarks>
-          <para></para>
+          <para>
+          </para>
         </remarks>
       </Docs>
     </Member>
@@ -82,10 +83,12 @@
       <Docs>
         <summary>The node that this action will be operating on.</summary>
         <value>
-          <para></para>
+          <para>
+          </para>
         </value>
         <remarks>
-          <para></para>
+          <para>
+          </para>
         </remarks>
       </Docs>
     </Member>
@@ -175,7 +178,8 @@
             </summary>
         <remarks>
           <para>When you provide your own Actions, and your own action states, this is the method that will perform the actual changes to your <see cref="P:Urho.Actions.ActionState.Target" /> node.   The action should affect the state of the target node in an implementation specific way, and should be done in function of the specified dt.</para>
-          <para></para>
+          <para>
+          </para>
         </remarks>
       </Docs>
     </Member>

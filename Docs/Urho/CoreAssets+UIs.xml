@@ -1,0 +1,82 @@
+<Type Name="CoreAssets+UIs" FullName="Urho.CoreAssets+UIs">
+  <TypeSignature Language="C#" Value="public static class CoreAssets.UIs" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit CoreAssets/UIs extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="DefaultStyle">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile DefaultStyle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile DefaultStyle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MessageBox">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile MessageBox { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile MessageBox" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScreenJoystick">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile ScreenJoystick { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile ScreenJoystick" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScreenJoystick2">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile ScreenJoystick2 { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile ScreenJoystick2" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
