@@ -934,15 +934,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Node_CreateChild (IntPtr handle, string name, CreateMode mode, uint id);
+		internal static extern IntPtr Node_CreateChild (IntPtr handle, string name, CreateMode mode, uint id, bool temporary);
 
 		/// <summary>
 		/// Create a child scene node (with specified ID if provided).
 		/// </summary>
-		public Node CreateChild (string name, CreateMode mode, uint id)
+		public Node CreateChild (string name, CreateMode mode, uint id, bool temporary)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Node> (Node_CreateChild (handle, name, mode, id));
+			return Runtime.LookupObject<Node> (Node_CreateChild (handle, name, mode, id, temporary));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Node_CreateTemporaryChild (IntPtr handle, string name, CreateMode mode, uint id);
+
+		/// <summary>
+		/// Create a temporary child scene node (with specified ID if provided).
+		/// </summary>
+		public Node CreateTemporaryChild (string name, CreateMode mode, uint id)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Node> (Node_CreateTemporaryChild (handle, name, mode, id));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1982,15 +1994,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Node_CreateChild24 (IntPtr handle, uint id, CreateMode mode);
+		internal static extern IntPtr Node_CreateChild24 (IntPtr handle, uint id, CreateMode mode, bool temporary);
 
 		/// <summary>
 		/// Create a child node with specific ID.
 		/// </summary>
-		public Node CreateChild (uint id, CreateMode mode)
+		public Node CreateChild (uint id, CreateMode mode, bool temporary)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Node> (Node_CreateChild24 (handle, id, mode));
+			return Runtime.LookupObject<Node> (Node_CreateChild24 (handle, id, mode, temporary));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

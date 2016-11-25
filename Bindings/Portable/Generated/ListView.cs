@@ -439,7 +439,7 @@ namespace Urho.Gui
 		internal static extern bool ListView_IsExpanded (IntPtr handle, uint index);
 
 		/// <summary>
-		/// Return whether an item at index has its children expanded (in hierachy mode only).
+		/// Return whether an item at index has its children expanded (in hierarchy mode only).
 		/// </summary>
 		public bool IsExpanded (uint index)
 		{
