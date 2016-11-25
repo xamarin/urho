@@ -51,6 +51,14 @@ namespace Urho
 			public static XmlFile Blur => Cache.GetXmlFile("PostProcess/Blur.xml");
 		}
 
+		public static class UIs
+		{
+			public static XmlFile DefaultStyle => Cache.GetXmlFile("UI/DefaultStyle.xml");
+			public static XmlFile MessageBox => Cache.GetXmlFile("UI/MessageBox.xml");
+			public static XmlFile ScreenJoystick => Cache.GetXmlFile("UI/ScreenJoystick.xml");
+			public static XmlFile ScreenJoystick2 => Cache.GetXmlFile("UI/ScreenJoystick2.xml");
+		}
+
 		public static class Techniques
 		{
 			public static Technique BasicVColUnlitAlpha => Cache.GetTechnique("Techniques/BasicVColUnlitAlpha.xml");
@@ -125,6 +133,13 @@ namespace Urho
 			public static Technique VegetationDiff => Cache.GetTechnique("Techniques/VegetationDiff.xml");
 			public static Technique VegetationDiffUnlit => Cache.GetTechnique("Techniques/VegetationDiffUnlit.xml");
 			public static Technique Water => Cache.GetTechnique("Techniques/Water.xml");
+			public static Technique DiffLitParticleAlphaSoft => Cache.GetTechnique("Techniques/DiffLitParticleAlphaSoft.xml");
+			public static Technique DiffLitParticleAlphaSoftExpand => Cache.GetTechnique("Techniques/DiffLitParticleAlphaSoftExpand.xml");
+			public static Technique DiffUnlitParticleAdd => Cache.GetTechnique("Techniques/DiffUnlitParticleAdd.xml");
+			public static Technique DiffUnlitParticleAddSoft => Cache.GetTechnique("Techniques/DiffUnlitParticleAddSoft.xml");
+			public static Technique DiffUnlitParticleAlpha => Cache.GetTechnique("Techniques/DiffUnlitParticleAlpha.xml");
+			public static Technique DiffUnlitParticleAlphaSoft => Cache.GetTechnique("Techniques/DiffUnlitParticleAlphaSoft.xml");
+			public static Technique DiffUnlitParticleAlphaSoftExpand => Cache.GetTechnique("Techniques/DiffUnlitParticleAlphaSoftExpand.xml");
 
 			public static class PBR
 			{
