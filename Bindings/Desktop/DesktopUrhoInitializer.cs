@@ -36,14 +36,18 @@ namespace Urho.Desktop
 
 		internal static void OnInited()
 		{
+			if (Environment.OSVersion.Platform != PlatformID.Win32NT)
+				return;
+
 			var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-			//unlike the OS X, windows doesn't support FAT binaries
-			if (Environment.OSVersion.Platform == PlatformID.Win32NT &&
-				!Environment.Is64BitProcess &&
-				Is64Bit(Path.Combine(currentPath, Consts.NativeImport + ".dll")))
-			{
-				throw new NotSupportedException("mono-urho.dll is 64bit, but current process is x86 (change target platform from Any CPU/x86 to x64)");
-			}
+			bool is64BitProcess = IntPtr.Size == 8;
+			bool is64BitLib = Is64Bit(Path.Combine(currentPath, Consts.NativeImport + ".dll"));
+
+			if (is64BitProcess && !is64BitLib)
+				throw new NotSupportedException("mono-urho.dll is 32bit, but current process is x64");
+
+			if (!is64BitProcess && is64BitLib)
+				throw new NotSupportedException("mono-urho.dll is 64bit, but current process is x86 (change target platform from Any CPU/x86 to x64). Or rename mono-urho_32bit.dll to mono-urho.dll in the output dir.");
 		}
 
 		public static void CopyEmbeddedCoreDataTo(string destinationFolder)
