@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ShaderParameterAnimationInfo : ValueAnimationInfo
 	{
+		[Preserve]
 		public ShaderParameterAnimationInfo (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ShaderParameterAnimationInfo (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

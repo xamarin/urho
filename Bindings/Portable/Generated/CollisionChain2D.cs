@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class CollisionChain2D : CollisionShape2D
 	{
+		[Preserve]
 		public CollisionChain2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected CollisionChain2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

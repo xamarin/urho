@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Renderer : UrhoObject
 	{
+		[Preserve]
 		public Renderer (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Renderer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

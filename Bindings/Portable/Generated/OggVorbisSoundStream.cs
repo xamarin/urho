@@ -23,10 +23,12 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class OggVorbisSoundStream : SoundStream
 	{
+		[Preserve]
 		public OggVorbisSoundStream (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected OggVorbisSoundStream (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

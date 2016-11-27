@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class CustomGeometry : Drawable
 	{
+		[Preserve]
 		public CustomGeometry (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected CustomGeometry (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

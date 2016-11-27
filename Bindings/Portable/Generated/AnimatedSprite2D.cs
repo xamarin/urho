@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class AnimatedSprite2D : StaticSprite2D
 	{
+		[Preserve]
 		public AnimatedSprite2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected AnimatedSprite2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

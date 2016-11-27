@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Context : RefCounted
 	{
+		[Preserve]
 		public Context (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Context (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

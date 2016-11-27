@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class TerrainPatch : Drawable
 	{
+		[Preserve]
 		public TerrainPatch (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected TerrainPatch (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class BillboardSet : Drawable
 	{
+		[Preserve]
 		public BillboardSet (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected BillboardSet (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

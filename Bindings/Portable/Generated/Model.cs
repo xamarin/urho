@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Model : Resource
 	{
+		[Preserve]
 		public Model (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Model (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

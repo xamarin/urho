@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class CheckBox : BorderImage
 	{
+		[Preserve]
 		public CheckBox (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected CheckBox (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

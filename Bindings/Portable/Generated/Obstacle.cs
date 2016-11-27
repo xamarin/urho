@@ -23,10 +23,12 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class Obstacle : Component
 	{
+		[Preserve]
 		public Obstacle (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Obstacle (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

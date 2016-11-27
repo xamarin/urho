@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Camera : Component
 	{
+		[Preserve]
 		public Camera (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Camera (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

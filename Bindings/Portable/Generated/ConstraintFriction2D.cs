@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintFriction2D : Constraint2D
 	{
+		[Preserve]
 		public ConstraintFriction2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ConstraintFriction2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

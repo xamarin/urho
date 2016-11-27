@@ -23,10 +23,12 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class CrowdAgent : Component
 	{
+		[Preserve]
 		public CrowdAgent (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected CrowdAgent (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.Network
 	/// </summary>
 	public unsafe partial class NetworkPriority : Component
 	{
+		[Preserve]
 		public NetworkPriority (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected NetworkPriority (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintPulley2D : Constraint2D
 	{
+		[Preserve]
 		public ConstraintPulley2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ConstraintPulley2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

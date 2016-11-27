@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class Texture2D : Texture
 	{
+		[Preserve]
 		public Texture2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Texture2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

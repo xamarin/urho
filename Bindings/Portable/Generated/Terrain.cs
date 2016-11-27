@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Terrain : Component
 	{
+		[Preserve]
 		public Terrain (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Terrain (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

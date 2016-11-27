@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Animatable : Serializable
 	{
+		[Preserve]
 		public Animatable (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Animatable (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

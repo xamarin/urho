@@ -64,6 +64,7 @@ namespace Urho {
 			private set { currentContext = value; }
 		}
 
+		[Preserve]
 		public Application(ApplicationOptions options) : this(new Context(), options) {}
 
 		Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)

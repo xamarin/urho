@@ -23,10 +23,12 @@ namespace Urho.IO
 	/// </summary>
 	public unsafe partial class File : UrhoObject, IDeserializer, ISerializer
 	{
+		[Preserve]
 		public File (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected File (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

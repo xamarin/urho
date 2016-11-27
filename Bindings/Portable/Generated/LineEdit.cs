@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class LineEdit : BorderImage
 	{
+		[Preserve]
 		public LineEdit (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected LineEdit (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

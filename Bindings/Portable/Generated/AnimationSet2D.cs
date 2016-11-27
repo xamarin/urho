@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class AnimationSet2D : Resource
 	{
+		[Preserve]
 		public AnimationSet2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected AnimationSet2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class FileSelector : UrhoObject
 	{
+		[Preserve]
 		public FileSelector (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected FileSelector (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

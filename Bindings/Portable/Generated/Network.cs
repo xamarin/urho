@@ -23,10 +23,12 @@ namespace Urho.Network
 	/// </summary>
 	public unsafe partial class Network : UrhoObject
 	{
+		[Preserve]
 		public Network (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Network (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

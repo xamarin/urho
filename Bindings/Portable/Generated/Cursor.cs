@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Cursor : BorderImage
 	{
+		[Preserve]
 		public Cursor (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Cursor (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

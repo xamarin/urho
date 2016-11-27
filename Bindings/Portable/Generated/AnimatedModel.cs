@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class AnimatedModel : StaticModel
 	{
+		[Preserve]
 		public AnimatedModel (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected AnimatedModel (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

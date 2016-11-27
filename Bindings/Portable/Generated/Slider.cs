@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Slider : BorderImage
 	{
+		[Preserve]
 		public Slider (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Slider (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

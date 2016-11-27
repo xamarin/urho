@@ -23,10 +23,12 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class SoundSource : Component
 	{
+		[Preserve]
 		public SoundSource (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected SoundSource (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

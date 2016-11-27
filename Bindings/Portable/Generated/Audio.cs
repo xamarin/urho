@@ -23,10 +23,12 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class Audio : UrhoObject
 	{
+		[Preserve]
 		public Audio (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Audio (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

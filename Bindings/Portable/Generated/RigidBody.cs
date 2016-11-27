@@ -23,10 +23,12 @@ namespace Urho.Physics
 	/// </summary>
 	public unsafe partial class RigidBody : Component
 	{
+		[Preserve]
 		public RigidBody (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected RigidBody (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

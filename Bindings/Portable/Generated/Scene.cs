@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Scene : Node
 	{
+		[Preserve]
 		public Scene (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Scene (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

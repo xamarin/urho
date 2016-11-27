@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Font : Resource
 	{
+		[Preserve]
 		public Font (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Font (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

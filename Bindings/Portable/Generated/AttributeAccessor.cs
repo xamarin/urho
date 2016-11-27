@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class AttributeAccessor : RefCounted
 	{
+		[Preserve]
 		public AttributeAccessor (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected AttributeAccessor (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

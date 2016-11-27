@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ConstantBuffer : UrhoObject
 	{
+		[Preserve]
 		public ConstantBuffer (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ConstantBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

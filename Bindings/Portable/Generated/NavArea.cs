@@ -23,10 +23,12 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class NavArea : Component
 	{
+		[Preserve]
 		public NavArea (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected NavArea (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

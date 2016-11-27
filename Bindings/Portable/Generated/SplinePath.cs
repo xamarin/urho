@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class SplinePath : Component
 	{
+		[Preserve]
 		public SplinePath (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected SplinePath (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

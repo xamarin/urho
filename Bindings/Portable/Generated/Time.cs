@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Time : UrhoObject
 	{
+		[Preserve]
 		public Time (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Time (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

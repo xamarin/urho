@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Skybox : StaticModel
 	{
+		[Preserve]
 		public Skybox (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Skybox (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

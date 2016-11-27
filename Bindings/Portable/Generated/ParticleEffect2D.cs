@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ParticleEffect2D : Resource
 	{
+		[Preserve]
 		public ParticleEffect2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ParticleEffect2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

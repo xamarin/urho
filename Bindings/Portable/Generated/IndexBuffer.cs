@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class IndexBuffer : UrhoObject
 	{
+		[Preserve]
 		public IndexBuffer (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected IndexBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

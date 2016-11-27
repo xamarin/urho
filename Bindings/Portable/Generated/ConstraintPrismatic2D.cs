@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintPrismatic2D : Constraint2D
 	{
+		[Preserve]
 		public ConstraintPrismatic2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ConstraintPrismatic2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

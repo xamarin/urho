@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Pass : RefCounted
 	{
+		[Preserve]
 		public Pass (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Pass (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

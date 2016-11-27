@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class View3D : Window
 	{
+		[Preserve]
 		public View3D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected View3D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

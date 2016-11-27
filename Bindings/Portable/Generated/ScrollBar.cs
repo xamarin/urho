@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class ScrollBar : BorderImage
 	{
+		[Preserve]
 		public ScrollBar (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ScrollBar (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

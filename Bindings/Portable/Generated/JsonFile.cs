@@ -23,10 +23,12 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class JsonFile : Resource
 	{
+		[Preserve]
 		public JsonFile (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected JsonFile (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

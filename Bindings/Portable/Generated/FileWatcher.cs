@@ -23,10 +23,12 @@ namespace Urho.IO
 	/// </summary>
 	public unsafe partial class FileWatcher : UrhoObject
 	{
+		[Preserve]
 		public FileWatcher (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected FileWatcher (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

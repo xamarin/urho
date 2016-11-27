@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Serializable : UrhoObject
 	{
+		[Preserve]
 		public Serializable (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Serializable (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

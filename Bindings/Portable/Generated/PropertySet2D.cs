@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class PropertySet2D : RefCounted
 	{
+		[Preserve]
 		public PropertySet2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected PropertySet2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

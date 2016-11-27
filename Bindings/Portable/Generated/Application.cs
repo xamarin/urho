@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public partial class Application : UrhoObject
 	{
+		[Preserve]
 		public Application (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Application (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

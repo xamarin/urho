@@ -23,10 +23,12 @@ namespace Urho.Physics
 	/// </summary>
 	public unsafe partial class Constraint : Component
 	{
+		[Preserve]
 		public Constraint (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Constraint (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

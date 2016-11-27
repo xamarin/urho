@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ShaderVariation : RefCounted
 	{
+		[Preserve]
 		public ShaderVariation (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ShaderVariation (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

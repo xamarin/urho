@@ -23,10 +23,12 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class PListFile : Resource
 	{
+		[Preserve]
 		public PListFile (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected PListFile (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

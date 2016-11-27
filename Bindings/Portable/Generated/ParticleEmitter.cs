@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ParticleEmitter : BillboardSet
 	{
+		[Preserve]
 		public ParticleEmitter (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ParticleEmitter (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class NavigationMesh : Component
 	{
+		[Preserve]
 		public NavigationMesh (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected NavigationMesh (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}
