@@ -46,7 +46,7 @@ namespace Urho
 		/// This method is called by RefCounted::~RefCounted or RefCounted::AddRef
 		/// </summary>
 		[MonoPInvokeCallback(typeof(NativeCallback))]
-		static void OnNativeCallback(CallbackType type, IntPtr target, IntPtr param1, IntPtr param2, IntPtr param3, IntPtr param4)
+		static void OnNativeCallback(CallbackType type, IntPtr target, IntPtr param1, int param2, string param3)
 		{
 			const string typeNameKey = "SharpTypeName";
 
@@ -136,6 +136,11 @@ namespace Urho
 						else
 							reference.HandleNativeDelete();
 					}
+					break;
+
+				case CallbackType.Log_Write:
+					Urho.Application.ThrowUnhandledException(
+						new Exception(param3 + ". You can omit this exception by subscribing to Urho.Application.UnhandledException event and set Handled property to True."));
 					break;
 			}
 		}

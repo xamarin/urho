@@ -268,14 +268,9 @@
 #include <Urho3D/Urho2D/TileMapLayer2D.h>
 #include <Urho3D/Urho2D/TmxFile2D.h>
 #include <Urho3D/Urho2D/Urho2D.h>
+#include <Urho3D/Mono.h>
 
 // Workaround Windows defining these
 #undef GetObject
 #undef MessageBox
 #undef GetMessage
-
-#if UWP
-#define stringdup _strdup
-#else
-#define stringdup strdup
-#endif

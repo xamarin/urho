@@ -489,11 +489,32 @@ namespace Urho {
 				throw new InvalidOperationException($"Constructor {applicationType}(ApplicationOptions) was not found.", exc);
 			}
 		}
+
+		internal static void ThrowUnhandledException(Exception exc)
+		{
+			var args = new UnhandledExceptionEventArgs(exc);
+			UnhandledException?.Invoke(null, args);
+			if (!args.Handled)
+				throw exc;
+		}
+
+		public static event EventHandler<UnhandledExceptionEventArgs> UnhandledException;
 	}
 
 	public interface IUrhoSurface
 	{
 		void Remove();
 		bool IsAlive { get; }
+	}
+
+	public class UnhandledExceptionEventArgs : EventArgs
+	{
+		public Exception Exception { get; private set; }
+		public bool Handled { get; set; }
+
+		public UnhandledExceptionEventArgs(Exception exception)
+		{
+			Exception = exception;
+		}
 	}
 }

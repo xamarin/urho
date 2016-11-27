@@ -92,6 +92,8 @@ namespace Urho {
 		Component_OnNodeSetEnabled,
 
 		RefCounted_AddRef,
-		RefCounted_Delete
+		RefCounted_Delete,
+
+		Log_Write,
 	};
 }
