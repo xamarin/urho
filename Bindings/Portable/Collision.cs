@@ -34,6 +34,9 @@ namespace Urho.Physics {
 		
 		internal static CollisionData [] FromContactData (IntPtr data, int size)
 		{
+			if (data == IntPtr.Zero || size < 1)
+				return new CollisionData[0];
+
 			const int encodedSize = 4 * 3+3+1+1;
 			var n = size / encodedSize;
 			byte *ptr = (byte *) data;
