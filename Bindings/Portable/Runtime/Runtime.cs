@@ -82,7 +82,7 @@ namespace Urho
 								var typeObj = Type.GetType(name);
 								if (typeObj == null)
 								{
-									Log.Write(LogLevel.Warning, $"{name} doesn't exist. Probably was removed by Linker. Add it to a some LinkerPleaseInlude.cs in case if you need it.");
+									Log.Write(LogLevel.Warning, $"{name} doesn't exist. Probably was removed by Linker. Add it to a some LinkerPleaseInclude.cs in case if you need it.");
 									return;
 								}
 								component = (Component)Activator.CreateInstance(typeObj, target);
