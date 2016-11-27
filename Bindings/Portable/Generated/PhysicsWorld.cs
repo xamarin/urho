@@ -23,10 +23,12 @@ namespace Urho.Physics
 	/// </summary>
 	public unsafe partial class PhysicsWorld : Component
 	{
+		[Preserve]
 		public PhysicsWorld (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected PhysicsWorld (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

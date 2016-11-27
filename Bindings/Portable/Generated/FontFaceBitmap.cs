@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class FontFaceBitmap : FontFace
 	{
+		[Preserve]
 		public FontFaceBitmap (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected FontFaceBitmap (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

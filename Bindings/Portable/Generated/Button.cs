@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Button : BorderImage
 	{
+		[Preserve]
 		public Button (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Button (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

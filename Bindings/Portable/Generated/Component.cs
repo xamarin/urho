@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Component : Animatable
 	{
+		[Preserve]
 		public Component (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Component (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ParticleEmitter2D : Drawable2D
 	{
+		[Preserve]
 		public ParticleEmitter2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ParticleEmitter2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

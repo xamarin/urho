@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class RibbonTrail : Drawable
 	{
+		[Preserve]
 		public RibbonTrail (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected RibbonTrail (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.IO
 	/// </summary>
 	public unsafe partial class FileSystem : UrhoObject
 	{
+		[Preserve]
 		public FileSystem (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected FileSystem (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

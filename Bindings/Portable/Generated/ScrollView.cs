@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class ScrollView : UIElement
 	{
+		[Preserve]
 		public ScrollView (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ScrollView (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

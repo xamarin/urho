@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class ToolTip : UIElement
 	{
+		[Preserve]
 		public ToolTip (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ToolTip (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

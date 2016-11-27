@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Menu : Button
 	{
+		[Preserve]
 		public Menu (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Menu (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

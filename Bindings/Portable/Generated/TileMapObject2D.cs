@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class TileMapObject2D : RefCounted
 	{
+		[Preserve]
 		public TileMapObject2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected TileMapObject2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class AnimationController : Component
 	{
+		[Preserve]
 		public AnimationController (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected AnimationController (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class BufferedSoundStream : SoundStream
 	{
+		[Preserve]
 		public BufferedSoundStream (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected BufferedSoundStream (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

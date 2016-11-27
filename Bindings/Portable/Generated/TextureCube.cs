@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class TextureCube : Texture
 	{
+		[Preserve]
 		public TextureCube (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected TextureCube (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

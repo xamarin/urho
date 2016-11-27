@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class RenderPath : RefCounted
 	{
+		[Preserve]
 		public RenderPath (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected RenderPath (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Drawable : Component
 	{
+		[Preserve]
 		public Drawable (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Drawable (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

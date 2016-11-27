@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintMotor2D : Constraint2D
 	{
+		[Preserve]
 		public ConstraintMotor2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ConstraintMotor2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

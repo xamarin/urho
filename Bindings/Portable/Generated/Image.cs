@@ -23,10 +23,12 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class Image : Resource
 	{
+		[Preserve]
 		public Image (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Image (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

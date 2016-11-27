@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class TmxObjectGroup2D : TmxLayer2D
 	{
+		[Preserve]
 		public TmxObjectGroup2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected TmxObjectGroup2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

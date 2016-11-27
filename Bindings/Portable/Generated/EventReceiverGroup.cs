@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class EventReceiverGroup : RefCounted
 	{
+		[Preserve]
 		public EventReceiverGroup (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected EventReceiverGroup (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

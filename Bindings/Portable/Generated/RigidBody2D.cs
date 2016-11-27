@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class RigidBody2D : Component
 	{
+		[Preserve]
 		public RigidBody2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected RigidBody2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

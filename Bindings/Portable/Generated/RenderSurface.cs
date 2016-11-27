@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class RenderSurface : RefCounted
 	{
+		[Preserve]
 		public RenderSurface (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected RenderSurface (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class FontFace : RefCounted
 	{
+		[Preserve]
 		public FontFace (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected FontFace (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class DynamicNavigationMesh : NavigationMesh
 	{
+		[Preserve]
 		public DynamicNavigationMesh (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected DynamicNavigationMesh (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

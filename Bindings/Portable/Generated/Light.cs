@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Light : Drawable
 	{
+		[Preserve]
 		public Light (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Light (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

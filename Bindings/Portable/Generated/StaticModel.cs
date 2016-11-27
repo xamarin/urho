@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class StaticModel : Drawable
 	{
+		[Preserve]
 		public StaticModel (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected StaticModel (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

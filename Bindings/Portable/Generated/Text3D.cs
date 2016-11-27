@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Text3D : Drawable
 	{
+		[Preserve]
 		public Text3D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Text3D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

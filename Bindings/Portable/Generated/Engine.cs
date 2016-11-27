@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Engine : UrhoObject
 	{
+		[Preserve]
 		public Engine (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Engine (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

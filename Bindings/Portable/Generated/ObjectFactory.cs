@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ObjectFactory : RefCounted
 	{
+		[Preserve]
 		public ObjectFactory (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ObjectFactory (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

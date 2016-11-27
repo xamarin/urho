@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class DebugHud : UrhoObject
 	{
+		[Preserve]
 		public DebugHud (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected DebugHud (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

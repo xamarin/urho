@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class UI : UrhoObject
 	{
+		[Preserve]
 		public UI (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected UI (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

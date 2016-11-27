@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintRevolute2D : Constraint2D
 	{
+		[Preserve]
 		public ConstraintRevolute2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ConstraintRevolute2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

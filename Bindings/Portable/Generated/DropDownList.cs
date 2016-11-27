@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class DropDownList : Menu
 	{
+		[Preserve]
 		public DropDownList (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected DropDownList (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

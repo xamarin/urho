@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class SpriteSheet2D : Resource
 	{
+		[Preserve]
 		public SpriteSheet2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected SpriteSheet2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

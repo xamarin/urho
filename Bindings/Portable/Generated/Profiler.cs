@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Profiler : UrhoObject
 	{
+		[Preserve]
 		public Profiler (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Profiler (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

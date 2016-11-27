@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Texture2DArray : Texture
 	{
+		[Preserve]
 		public Texture2DArray (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Texture2DArray (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

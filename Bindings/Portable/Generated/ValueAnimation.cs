@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ValueAnimation : Resource
 	{
+		[Preserve]
 		public ValueAnimation (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ValueAnimation (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

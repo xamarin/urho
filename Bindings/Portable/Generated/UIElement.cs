@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class UIElement : Animatable
 	{
+		[Preserve]
 		public UIElement (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected UIElement (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

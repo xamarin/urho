@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class Drawable2D : Drawable
 	{
+		[Preserve]
 		public Drawable2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Drawable2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

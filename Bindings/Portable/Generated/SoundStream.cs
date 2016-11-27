@@ -23,10 +23,12 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class SoundStream : RefCounted
 	{
+		[Preserve]
 		public SoundStream (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected SoundStream (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

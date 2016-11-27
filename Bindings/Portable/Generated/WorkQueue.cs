@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class WorkQueue : UrhoObject
 	{
+		[Preserve]
 		public WorkQueue (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected WorkQueue (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

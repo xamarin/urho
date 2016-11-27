@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintDistance2D : Constraint2D
 	{
+		[Preserve]
 		public ConstraintDistance2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ConstraintDistance2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

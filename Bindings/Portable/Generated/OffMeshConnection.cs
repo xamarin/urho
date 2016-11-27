@@ -23,10 +23,12 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class OffMeshConnection : Component
 	{
+		[Preserve]
 		public OffMeshConnection (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected OffMeshConnection (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

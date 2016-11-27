@@ -23,10 +23,12 @@ namespace Urho.Physics
 	/// </summary>
 	public unsafe partial class CollisionShape : Component
 	{
+		[Preserve]
 		public CollisionShape (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected CollisionShape (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Graphics : UrhoObject
 	{
+		[Preserve]
 		public Graphics (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Graphics (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

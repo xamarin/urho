@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class StaticModelGroup : StaticModel
 	{
+		[Preserve]
 		public StaticModelGroup (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected StaticModelGroup (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

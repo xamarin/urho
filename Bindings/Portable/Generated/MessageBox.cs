@@ -23,10 +23,12 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class MessageBox : UrhoObject
 	{
+		[Preserve]
 		public MessageBox (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected MessageBox (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

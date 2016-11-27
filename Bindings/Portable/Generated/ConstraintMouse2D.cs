@@ -23,10 +23,12 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintMouse2D : Constraint2D
 	{
+		[Preserve]
 		public ConstraintMouse2D (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ConstraintMouse2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

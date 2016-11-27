@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Viewport : UrhoObject
 	{
+		[Preserve]
 		public Viewport (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Viewport (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

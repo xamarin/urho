@@ -23,10 +23,12 @@ namespace Urho.Network
 	/// </summary>
 	public unsafe partial class HttpRequest : RefCounted, IDeserializer
 	{
+		[Preserve]
 		public HttpRequest (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected HttpRequest (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

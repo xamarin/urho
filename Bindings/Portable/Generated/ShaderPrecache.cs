@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ShaderPrecache : UrhoObject
 	{
+		[Preserve]
 		public ShaderPrecache (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected ShaderPrecache (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

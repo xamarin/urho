@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Zone : Drawable
 	{
+		[Preserve]
 		public Zone (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Zone (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

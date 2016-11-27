@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class UnknownComponent : Component
 	{
+		[Preserve]
 		public UnknownComponent (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected UnknownComponent (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class OcclusionBuffer : UrhoObject
 	{
+		[Preserve]
 		public OcclusionBuffer (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected OcclusionBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

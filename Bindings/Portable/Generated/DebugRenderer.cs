@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class DebugRenderer : Component
 	{
+		[Preserve]
 		public DebugRenderer (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected DebugRenderer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

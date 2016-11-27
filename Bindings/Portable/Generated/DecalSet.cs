@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class DecalSet : Drawable
 	{
+		[Preserve]
 		public DecalSet (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected DecalSet (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

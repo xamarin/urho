@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Octree : Component
 	{
+		[Preserve]
 		public Octree (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected Octree (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

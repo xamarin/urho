@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class AnimationState : RefCounted
 	{
+		[Preserve]
 		public AnimationState (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected AnimationState (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

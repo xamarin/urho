@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class VertexBuffer : UrhoObject
 	{
+		[Preserve]
 		public VertexBuffer (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected VertexBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}

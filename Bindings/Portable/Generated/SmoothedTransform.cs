@@ -23,10 +23,12 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class SmoothedTransform : Component
 	{
+		[Preserve]
 		public SmoothedTransform (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		protected SmoothedTransform (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 		}
