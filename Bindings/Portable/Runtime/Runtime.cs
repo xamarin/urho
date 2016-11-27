@@ -21,7 +21,7 @@ namespace Urho
 		static Dictionary<Type, int> hashDict;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		delegate void NativeCallback(CallbackType type, IntPtr target, IntPtr param1, IntPtr param2, IntPtr param3, IntPtr param4);
+		delegate void NativeCallback(CallbackType type, IntPtr target, IntPtr param1, int param2, string param3);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RegisterMonoNativeCallbacks(NativeCallback callback);
