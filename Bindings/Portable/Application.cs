@@ -191,6 +191,13 @@ namespace Urho {
 			Runtime.Start();
 			Current = GetApp(h);
 			Current.SubscribeToAppEvents();
+#if WINDOWS_UWP
+			// UWP temp workaround:
+			var text = new Text();
+			text.SetFont(CoreAssets.Fonts.AnonymousPro, 1);
+			text.Value = " ";
+			Current.UI.Root.AddChild(text);
+#endif
 			Current.Start();
 			Started?.Invoke();
 
