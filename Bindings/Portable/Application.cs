@@ -64,6 +64,9 @@ namespace Urho {
 			private set { currentContext = value; }
 		}
 
+		// see Drawable2D.h:66
+		public const float PixelSize = 0.01f;
+
 		[Preserve]
 		public Application(ApplicationOptions options) : this(new Context(), options) {}
 
