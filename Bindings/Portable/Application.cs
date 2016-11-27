@@ -18,9 +18,10 @@ using Urho.Actions;
 using Urho.Gui;
 
 namespace Urho {
-	
-	public partial class Application {
 
+	[PreserveAttribute(AllMembers = true)]
+	public partial class Application
+	{
 		// references needed to prevent GC from collecting callbacks passed to native code
 		static ActionIntPtr setupCallback;
 		static ActionIntPtr startCallback;

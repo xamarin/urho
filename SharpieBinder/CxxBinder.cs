@@ -535,8 +535,8 @@ namespace SharpieBinder
 					Body = new BlockStatement(),
 					Initializer = new ConstructorInitializer()
 				};
-				
 
+				nativeCtor.Attributes.Add(CreatePreserveAttribute());
 				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("handle"));
 
@@ -551,6 +551,7 @@ namespace SharpieBinder
 				};
 
 
+				nativeCtor.Attributes.Add(CreatePreserveAttribute());
 				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("UrhoObjectFlag"), "emptyFlag"));
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("emptyFlag"));
 
@@ -567,6 +568,13 @@ namespace SharpieBinder
 				attrs.Attributes.Add(serializable);
 				currentType.Attributes.Add(attrs);
 			}
+		}
+
+		public AttributeSection CreatePreserveAttribute()
+		{
+			var atr = new Attribute { Type = new SimpleType("Preserve") };
+			// AllMembers = value ?
+			return new AttributeSection(atr);
 		}
 
 		public static AstType CreateAstType(string dottedName, IEnumerable<AstType> typeArguments)

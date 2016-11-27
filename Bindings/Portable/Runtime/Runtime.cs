@@ -79,7 +79,13 @@ namespace Urho
 							Component component;
 							try
 							{
-								component = (Component)Activator.CreateInstance(Type.GetType(name), target);
+								var typeObj = Type.GetType(name);
+								if (typeObj == null)
+								{
+									Log.Write(LogLevel.Warning, $"{name} doesn't exist. Probably was removed by Linker. Add it to a some LinkerPleaseInlude.cs in case if you need it.");
+									return;
+								}
+								component = (Component)Activator.CreateInstance(typeObj, target);
 							}
 							catch (Exception exc)
 							{
