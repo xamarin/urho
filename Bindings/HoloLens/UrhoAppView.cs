@@ -79,11 +79,22 @@ namespace Urho.HoloLens
 		/// </summary>
 		public void SetWindow(CoreWindow window)
 		{
-			window.KeyDown += this.OnKeyPressed;
-			window.Closed += this.OnWindowClosed;
+			window.KeyDown += OnKeyDown;
+			window.KeyUp += OnKeyUp;
+			window.Closed += OnWindowClosed;
 			window.VisibilityChanged += this.OnVisibilityChanged;
 			HolographicSpace = HolographicSpace.CreateForCoreWindow(window);
 			WindowIsSet?.Invoke(window);
+		}
+
+		void OnKeyUp(CoreWindow sender, KeyEventArgs args)
+		{
+			// Sdl.SendKeyboardEvent(SdlKeyState.SDL_RELEASED, (int)args.KeyStatus.ScanCode);
+		}
+
+		void OnKeyDown(CoreWindow sender, KeyEventArgs args)
+		{
+			// Sdl.SendKeyboardEvent(SdlKeyState.SDL_PRESSED, (int)args.KeyStatus.ScanCode);
 		}
 
 		/// <summary>
@@ -231,15 +242,6 @@ namespace Urho.HoloLens
 		void OnWindowClosed(CoreWindow sender, CoreWindowEventArgs arg)
 		{
 			windowClosed = true;
-		}
-
-		#endregion
-
-		#region Input event handlers
-
-		void OnKeyPressed(CoreWindow sender, KeyEventArgs args)
-		{
-			// TODO: redirect to SDL Key Down
 		}
 
 		#endregion

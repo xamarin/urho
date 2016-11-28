@@ -60,7 +60,8 @@ namespace Urho {
 		Windows,
 		MacOSX,
 		Linux, 
-		UWP
+		UWP,
+		HoloLens
 	}
 
 	internal static class PlatformsMap
@@ -76,7 +77,9 @@ namespace Urho {
 				case "Mac OS X": return Platforms.MacOSX;
 				case "Linux": return Platforms.Linux;
 			}
-#if UWP
+#if UWP_HOLO
+			return Platforms.HoloLens;
+#elif WINDOWS_UWP
 			return Platforms.UWP;
 #endif
 			return Platforms.Unknown;
