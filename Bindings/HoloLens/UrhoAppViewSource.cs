@@ -1,4 +1,5 @@
-﻿using Windows.ApplicationModel.Core;
+﻿using System;
+using Windows.ApplicationModel.Core;
 using Urho.HoloLens;
 
 namespace Urho
@@ -7,6 +8,8 @@ namespace Urho
 	{
 		readonly ApplicationOptions opts;
 
+		public event Action<UrhoAppView> UrhoAppViewCreated;
+
 		public UrhoAppViewSource() { }
 
 		public UrhoAppViewSource(ApplicationOptions opts)
@@ -14,6 +17,11 @@ namespace Urho
 			this.opts = opts;
 		}
 
-		public IFrameworkView CreateView() => UrhoAppView.Create<T>(opts);
+		public IFrameworkView CreateView()
+		{
+			var appView = UrhoAppView.Create<T>(opts);
+			UrhoAppViewCreated?.Invoke(appView);
+			return appView;
+		}
 	}
 }
