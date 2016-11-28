@@ -10,8 +10,8 @@ namespace Urho
 
 		public UrhoEventAdapter()
 		{
-			managedSubscribersByObjects = new Dictionary<IntPtr, List<Action<TEventArgs>>>();
-			nativeSubscriptionsForObjects = new Dictionary<IntPtr, Subscription>();
+			managedSubscribersByObjects = new Dictionary<IntPtr, List<Action<TEventArgs>>>(IntPtrEqualityComparer.Instance);
+			nativeSubscriptionsForObjects = new Dictionary<IntPtr, Subscription>(IntPtrEqualityComparer.Instance);
 		}
 
 		public void AddManagedSubscriber(IntPtr handle, Action<TEventArgs> action, Func<Action<TEventArgs>, Subscription> nativeSubscriber)

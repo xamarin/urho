@@ -9,7 +9,8 @@ namespace Urho
 	/// </summary>
 	internal class RefCountedCache
 	{
-		Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = new Dictionary<IntPtr, ReferenceHolder<RefCounted>>(256); //based on samples (average)
+		Dictionary<IntPtr, ReferenceHolder<RefCounted>> knownObjects = 
+			new Dictionary<IntPtr, ReferenceHolder<RefCounted>>(IntPtrEqualityComparer.Instance);
 
 		public int Count => knownObjects.Count;
 
