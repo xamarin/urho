@@ -44,9 +44,10 @@ namespace Urho.Forms
 			if (surface != null)
 			{
 				surface.RemoveFromSuperview ();
-				//app.Graphics.Release (false, false);
 			}
-			this.Add(surface = new Urho.iOS.UrhoSurface(this.Bounds));
+			surface = new Urho.iOS.UrhoSurface(this.Bounds);
+			surface.AutoresizingMask = UIViewAutoresizing.All;
+			this.Add(surface);
 
 			await surface.InitializeTask;
 			app = Urho.Application.CreateInstance(type, options);
