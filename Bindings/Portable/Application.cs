@@ -496,6 +496,11 @@ namespace Urho {
 
 		internal static void ThrowUnhandledException(Exception exc)
 		{
+			string[] errorsToSkip = { "Could not initialize audio output." };
+			foreach (var item in errorsToSkip)
+				if (exc.Message.StartsWith(item))
+					return;
+
 			var args = new UnhandledExceptionEventArgs(exc);
 			UnhandledException?.Invoke(null, args);
 			if (!args.Handled)
