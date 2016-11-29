@@ -50,7 +50,7 @@ namespace Urho
 		/// <summary>
 		/// iOS only
 		/// </summary>
-		public OrientationType Orientation { get; set; } = OrientationType.Portrait;
+		public OrientationType Orientation { get; set; } = OrientationType.LandscapeAndPortrait;
 #else
 		/// <summary>
 		/// iOS only
