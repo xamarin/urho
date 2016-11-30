@@ -51,6 +51,7 @@
     <Compile Include="HoloScene\HoloScene.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleApp.cs" />
     <Compile Include="StereoModePerformance.cs" />
   </ItemGroup>
   <ItemGroup>
