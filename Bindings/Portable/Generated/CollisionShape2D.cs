@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class CollisionShape2D : Component
 	{
+		unsafe partial void OnCollisionShape2DCreated ();
+
 		[Preserve]
 		public CollisionShape2D (IntPtr handle) : base (handle)
 		{
+			OnCollisionShape2DCreated ();
 		}
 
 		[Preserve]
 		protected CollisionShape2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnCollisionShape2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

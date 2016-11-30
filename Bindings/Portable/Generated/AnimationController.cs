@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class AnimationController : Component
 	{
+		unsafe partial void OnAnimationControllerCreated ();
+
 		[Preserve]
 		public AnimationController (IntPtr handle) : base (handle)
 		{
+			OnAnimationControllerCreated ();
 		}
 
 		[Preserve]
 		protected AnimationController (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnAnimationControllerCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(AnimationController));
 			handle = AnimationController_AnimationController ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnAnimationControllerCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

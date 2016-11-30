@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Shader : Resource
 	{
+		unsafe partial void OnShaderCreated ();
+
 		[Preserve]
 		public Shader (IntPtr handle) : base (handle)
 		{
+			OnShaderCreated ();
 		}
 
 		[Preserve]
 		protected Shader (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnShaderCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Shader));
 			handle = Shader_Shader ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnShaderCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

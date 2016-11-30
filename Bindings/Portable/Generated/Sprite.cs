@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Sprite : UIElement
 	{
+		unsafe partial void OnSpriteCreated ();
+
 		[Preserve]
 		public Sprite (IntPtr handle) : base (handle)
 		{
+			OnSpriteCreated ();
 		}
 
 		[Preserve]
 		protected Sprite (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSpriteCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(Sprite));
 			handle = Sprite_Sprite ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSpriteCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

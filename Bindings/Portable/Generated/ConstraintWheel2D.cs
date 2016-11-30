@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintWheel2D : Constraint2D
 	{
+		unsafe partial void OnConstraintWheel2DCreated ();
+
 		[Preserve]
 		public ConstraintWheel2D (IntPtr handle) : base (handle)
 		{
+			OnConstraintWheel2DCreated ();
 		}
 
 		[Preserve]
 		protected ConstraintWheel2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnConstraintWheel2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(ConstraintWheel2D));
 			handle = ConstraintWheel2D_ConstraintWheel2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnConstraintWheel2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

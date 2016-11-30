@@ -528,7 +528,18 @@ namespace SharpieBinder
 			// Same for Urho3D::Object
 			bool objectSubclass = decl.TagKind == TagDeclKind.Class && decl.QualifiedName != "Urho3D::Object" && decl.IsDerivedFrom(ScanBaseTypes.UrhoObjectType);
 
-			if (refCountedSubclass) {
+			var initMethod = new MethodDeclaration
+			{
+				ReturnType = new PrimitiveType("void"),
+				Modifiers = Modifiers.Unsafe | Modifiers.Partial,
+				// I have to add "currentType.Name" due to NRefactory bug
+				// otherwise it adds "override" keyword even if it's not specified (Modifier.Private can not be used with partial)
+				Name = "On" + currentType.Name + "Created"
+			};
+			currentType.Members.Add(initMethod);
+
+			if (refCountedSubclass) 
+			{
 				var nativeCtor = new ConstructorDeclaration
 				{
 					Modifiers = Modifiers.Public,
@@ -536,10 +547,13 @@ namespace SharpieBinder
 					Initializer = new ConstructorInitializer()
 				};
 
+				var initMethodCall = new InvocationExpression(new IdentifierExpression(initMethod.Name), null);
+
 				nativeCtor.Attributes.Add(CreatePreserveAttribute());
 				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("handle"));
 
+				nativeCtor.Body.Add(initMethodCall.Clone());
 				currentType.Members.Add(nativeCtor);
 
 				// The construtor with the emtpy chain flag
@@ -555,6 +569,7 @@ namespace SharpieBinder
 				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("UrhoObjectFlag"), "emptyFlag"));
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("emptyFlag"));
 
+				nativeCtor.Body.Add(initMethodCall.Clone());
 				currentType.Members.Add(nativeCtor);
 
 			} else if (IsStructure(decl)) {
@@ -1604,6 +1619,7 @@ namespace SharpieBinder
 						if (hasBaseTypes) { 
 							constructor.Body.Add (new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "RegisterObject"), new ThisReferenceExpression ()));
 						}
+						constructor.Body.Add(new InvocationExpression(new IdentifierExpression($"On{currentType.Name}Created"), null));
 					}
 				}
 				var rstr = String.Format(marshalReturn, cinvoke.ToString());

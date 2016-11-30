@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Component : Animatable
 	{
+		unsafe partial void OnComponentCreated ();
+
 		[Preserve]
 		public Component (IntPtr handle) : base (handle)
 		{
+			OnComponentCreated ();
 		}
 
 		[Preserve]
 		protected Component (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnComponentCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Component));
 			handle = Component_Component ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnComponentCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

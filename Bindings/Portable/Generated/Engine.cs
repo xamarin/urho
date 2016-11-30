@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Engine : UrhoObject
 	{
+		unsafe partial void OnEngineCreated ();
+
 		[Preserve]
 		public Engine (IntPtr handle) : base (handle)
 		{
+			OnEngineCreated ();
 		}
 
 		[Preserve]
 		protected Engine (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnEngineCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Engine));
 			handle = Engine_Engine ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnEngineCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

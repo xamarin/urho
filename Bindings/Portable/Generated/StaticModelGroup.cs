@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class StaticModelGroup : StaticModel
 	{
+		unsafe partial void OnStaticModelGroupCreated ();
+
 		[Preserve]
 		public StaticModelGroup (IntPtr handle) : base (handle)
 		{
+			OnStaticModelGroupCreated ();
 		}
 
 		[Preserve]
 		protected StaticModelGroup (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnStaticModelGroupCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(StaticModelGroup));
 			handle = StaticModelGroup_StaticModelGroup ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnStaticModelGroupCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

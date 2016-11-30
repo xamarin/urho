@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ObjectFactory : RefCounted
 	{
+		unsafe partial void OnObjectFactoryCreated ();
+
 		[Preserve]
 		public ObjectFactory (IntPtr handle) : base (handle)
 		{
+			OnObjectFactoryCreated ();
 		}
 
 		[Preserve]
 		protected ObjectFactory (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnObjectFactoryCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

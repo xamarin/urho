@@ -23,14 +23,18 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class NavArea : Component
 	{
+		unsafe partial void OnNavAreaCreated ();
+
 		[Preserve]
 		public NavArea (IntPtr handle) : base (handle)
 		{
+			OnNavAreaCreated ();
 		}
 
 		[Preserve]
 		protected NavArea (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnNavAreaCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Navigation
 			Runtime.Validate (typeof(NavArea));
 			handle = NavArea_NavArea ((object)param1 == null ? IntPtr.Zero : param1.Handle);
 			Runtime.RegisterObject (this);
+			OnNavAreaCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

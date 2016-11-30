@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintMouse2D : Constraint2D
 	{
+		unsafe partial void OnConstraintMouse2DCreated ();
+
 		[Preserve]
 		public ConstraintMouse2D (IntPtr handle) : base (handle)
 		{
+			OnConstraintMouse2DCreated ();
 		}
 
 		[Preserve]
 		protected ConstraintMouse2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnConstraintMouse2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(ConstraintMouse2D));
 			handle = ConstraintMouse2D_ConstraintMouse2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnConstraintMouse2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

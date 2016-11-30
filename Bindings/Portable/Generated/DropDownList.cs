@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class DropDownList : Menu
 	{
+		unsafe partial void OnDropDownListCreated ();
+
 		[Preserve]
 		public DropDownList (IntPtr handle) : base (handle)
 		{
+			OnDropDownListCreated ();
 		}
 
 		[Preserve]
 		protected DropDownList (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnDropDownListCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(DropDownList));
 			handle = DropDownList_DropDownList ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnDropDownListCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class LogicComponent : Component
 	{
+		unsafe partial void OnLogicComponentCreated ();
+
 		[Preserve]
 		public LogicComponent (IntPtr handle) : base (handle)
 		{
+			OnLogicComponentCreated ();
 		}
 
 		[Preserve]
 		protected LogicComponent (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnLogicComponentCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(LogicComponent));
 			handle = LogicComponent_LogicComponent ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnLogicComponentCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

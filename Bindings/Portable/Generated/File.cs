@@ -23,14 +23,18 @@ namespace Urho.IO
 	/// </summary>
 	public unsafe partial class File : UrhoObject, IDeserializer, ISerializer
 	{
+		unsafe partial void OnFileCreated ();
+
 		[Preserve]
 		public File (IntPtr handle) : base (handle)
 		{
+			OnFileCreated ();
 		}
 
 		[Preserve]
 		protected File (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.IO
 			Runtime.Validate (typeof(File));
 			handle = File_File ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -91,6 +96,7 @@ namespace Urho.IO
 			Runtime.Validate (typeof(File));
 			handle = File_File0 ((object)context == null ? IntPtr.Zero : context.Handle, fileName, mode);
 			Runtime.RegisterObject (this);
+			OnFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -101,6 +107,7 @@ namespace Urho.IO
 			Runtime.Validate (typeof(File));
 			handle = File_File1 ((object)context == null ? IntPtr.Zero : context.Handle, (object)package == null ? IntPtr.Zero : package.Handle, fileName);
 			Runtime.RegisterObject (this);
+			OnFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

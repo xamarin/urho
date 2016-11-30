@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Slider : BorderImage
 	{
+		unsafe partial void OnSliderCreated ();
+
 		[Preserve]
 		public Slider (IntPtr handle) : base (handle)
 		{
+			OnSliderCreated ();
 		}
 
 		[Preserve]
 		protected Slider (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSliderCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(Slider));
 			handle = Slider_Slider ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSliderCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

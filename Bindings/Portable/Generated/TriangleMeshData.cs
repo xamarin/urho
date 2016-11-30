@@ -24,6 +24,8 @@ namespace Urho
 	[StructLayout (LayoutKind.Sequential)]
 	public unsafe partial struct TriangleMeshData
 	{
+		unsafe partial void OnTriangleMeshDataCreated ();
+
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr TriangleMeshData_TriangleMeshData (IntPtr model, uint lodLevel);
 

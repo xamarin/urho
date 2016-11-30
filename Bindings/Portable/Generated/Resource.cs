@@ -23,14 +23,18 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class Resource : UrhoObject
 	{
+		unsafe partial void OnResourceCreated ();
+
 		[Preserve]
 		public Resource (IntPtr handle) : base (handle)
 		{
+			OnResourceCreated ();
 		}
 
 		[Preserve]
 		protected Resource (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnResourceCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Resources
 			Runtime.Validate (typeof(Resource));
 			handle = Resource_Resource ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnResourceCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

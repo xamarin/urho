@@ -23,14 +23,18 @@ namespace Urho.IO
 	/// </summary>
 	public unsafe partial class Log : UrhoObject
 	{
+		unsafe partial void OnLogCreated ();
+
 		[Preserve]
 		public Log (IntPtr handle) : base (handle)
 		{
+			OnLogCreated ();
 		}
 
 		[Preserve]
 		protected Log (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnLogCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.IO
 			Runtime.Validate (typeof(Log));
 			handle = Log_Log ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnLogCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

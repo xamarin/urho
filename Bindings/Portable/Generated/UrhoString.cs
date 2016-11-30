@@ -23,6 +23,8 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class UrhoString
 	{
+		unsafe partial void OnUrhoStringCreated ();
+
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr UrhoString_String ();
 
@@ -30,6 +32,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String ();
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -39,6 +42,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String0 (str);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -48,6 +52,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String1 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -57,6 +62,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String2 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -66,6 +72,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String3 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -75,6 +82,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String4 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -84,6 +92,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String5 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -93,6 +102,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String6 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -102,6 +112,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String7 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -111,6 +122,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String8 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -120,6 +132,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String9 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -129,6 +142,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String10 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -138,6 +152,7 @@ namespace Urho
 		{
 			Runtime.Validate (typeof(UrhoString));
 			handle = UrhoString_String11 (value);
+			OnUrhoStringCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

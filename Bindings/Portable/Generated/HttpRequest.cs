@@ -23,14 +23,18 @@ namespace Urho.Network
 	/// </summary>
 	public unsafe partial class HttpRequest : RefCounted, IDeserializer
 	{
+		unsafe partial void OnHttpRequestCreated ();
+
 		[Preserve]
 		public HttpRequest (IntPtr handle) : base (handle)
 		{
+			OnHttpRequestCreated ();
 		}
 
 		[Preserve]
 		protected HttpRequest (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnHttpRequestCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

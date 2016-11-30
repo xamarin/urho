@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class MessageBox : UrhoObject
 	{
+		unsafe partial void OnMessageBoxCreated ();
+
 		[Preserve]
 		public MessageBox (IntPtr handle) : base (handle)
 		{
+			OnMessageBoxCreated ();
 		}
 
 		[Preserve]
 		protected MessageBox (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnMessageBoxCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -77,6 +81,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(MessageBox));
 			handle = MessageBox_MessageBox ((object)context == null ? IntPtr.Zero : context.Handle, messageString, titleString, (object)layoutFile == null ? IntPtr.Zero : layoutFile.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle);
 			Runtime.RegisterObject (this);
+			OnMessageBoxCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

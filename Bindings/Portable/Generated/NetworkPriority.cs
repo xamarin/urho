@@ -23,14 +23,18 @@ namespace Urho.Network
 	/// </summary>
 	public unsafe partial class NetworkPriority : Component
 	{
+		unsafe partial void OnNetworkPriorityCreated ();
+
 		[Preserve]
 		public NetworkPriority (IntPtr handle) : base (handle)
 		{
+			OnNetworkPriorityCreated ();
 		}
 
 		[Preserve]
 		protected NetworkPriority (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnNetworkPriorityCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Network
 			Runtime.Validate (typeof(NetworkPriority));
 			handle = NetworkPriority_NetworkPriority ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnNetworkPriorityCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

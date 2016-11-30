@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Texture : Resource
 	{
+		unsafe partial void OnTextureCreated ();
+
 		[Preserve]
 		public Texture (IntPtr handle) : base (handle)
 		{
+			OnTextureCreated ();
 		}
 
 		[Preserve]
 		protected Texture (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTextureCreated ();
 		}
 
 		public Texture () : this (Application.CurrentContext)
@@ -45,6 +49,7 @@ namespace Urho
 			Runtime.Validate (typeof(Texture));
 			handle = Texture_Texture ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTextureCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

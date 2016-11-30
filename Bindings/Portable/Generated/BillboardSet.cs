@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class BillboardSet : Drawable
 	{
+		unsafe partial void OnBillboardSetCreated ();
+
 		[Preserve]
 		public BillboardSet (IntPtr handle) : base (handle)
 		{
+			OnBillboardSetCreated ();
 		}
 
 		[Preserve]
 		protected BillboardSet (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnBillboardSetCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(BillboardSet));
 			handle = BillboardSet_BillboardSet ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnBillboardSetCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

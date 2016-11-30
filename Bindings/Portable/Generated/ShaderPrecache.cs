@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ShaderPrecache : UrhoObject
 	{
+		unsafe partial void OnShaderPrecacheCreated ();
+
 		[Preserve]
 		public ShaderPrecache (IntPtr handle) : base (handle)
 		{
+			OnShaderPrecacheCreated ();
 		}
 
 		[Preserve]
 		protected ShaderPrecache (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnShaderPrecacheCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -77,6 +81,7 @@ namespace Urho
 			Runtime.Validate (typeof(ShaderPrecache));
 			handle = ShaderPrecache_ShaderPrecache ((object)context == null ? IntPtr.Zero : context.Handle, fileName);
 			Runtime.RegisterObject (this);
+			OnShaderPrecacheCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

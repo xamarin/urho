@@ -23,14 +23,18 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class SoundListener : Component
 	{
+		unsafe partial void OnSoundListenerCreated ();
+
 		[Preserve]
 		public SoundListener (IntPtr handle) : base (handle)
 		{
+			OnSoundListenerCreated ();
 		}
 
 		[Preserve]
 		protected SoundListener (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSoundListenerCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Audio
 			Runtime.Validate (typeof(SoundListener));
 			handle = SoundListener_SoundListener ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSoundListenerCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

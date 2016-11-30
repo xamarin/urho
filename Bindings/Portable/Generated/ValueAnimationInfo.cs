@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ValueAnimationInfo : RefCounted
 	{
+		unsafe partial void OnValueAnimationInfoCreated ();
+
 		[Preserve]
 		public ValueAnimationInfo (IntPtr handle) : base (handle)
 		{
+			OnValueAnimationInfoCreated ();
 		}
 
 		[Preserve]
 		protected ValueAnimationInfo (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnValueAnimationInfoCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho
 			Runtime.Validate (typeof(ValueAnimationInfo));
 			handle = ValueAnimationInfo_ValueAnimationInfo ((object)animation == null ? IntPtr.Zero : animation.Handle, wrapMode, speed);
 			Runtime.RegisterObject (this);
+			OnValueAnimationInfoCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -51,6 +56,7 @@ namespace Urho
 			Runtime.Validate (typeof(ValueAnimationInfo));
 			handle = ValueAnimationInfo_ValueAnimationInfo0 ((object)target == null ? IntPtr.Zero : target.Handle, (object)animation == null ? IntPtr.Zero : animation.Handle, wrapMode, speed);
 			Runtime.RegisterObject (this);
+			OnValueAnimationInfoCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

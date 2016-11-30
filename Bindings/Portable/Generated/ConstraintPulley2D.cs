@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintPulley2D : Constraint2D
 	{
+		unsafe partial void OnConstraintPulley2DCreated ();
+
 		[Preserve]
 		public ConstraintPulley2D (IntPtr handle) : base (handle)
 		{
+			OnConstraintPulley2DCreated ();
 		}
 
 		[Preserve]
 		protected ConstraintPulley2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnConstraintPulley2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(ConstraintPulley2D));
 			handle = ConstraintPulley2D_ConstraintPulley2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnConstraintPulley2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

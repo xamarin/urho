@@ -23,14 +23,18 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class PListFile : Resource
 	{
+		unsafe partial void OnPListFileCreated ();
+
 		[Preserve]
 		public PListFile (IntPtr handle) : base (handle)
 		{
+			OnPListFileCreated ();
 		}
 
 		[Preserve]
 		protected PListFile (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnPListFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Resources
 			Runtime.Validate (typeof(PListFile));
 			handle = PListFile_PListFile ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnPListFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

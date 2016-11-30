@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Text : UIElement
 	{
+		unsafe partial void OnTextCreated ();
+
 		[Preserve]
 		public Text (IntPtr handle) : base (handle)
 		{
+			OnTextCreated ();
 		}
 
 		[Preserve]
 		protected Text (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTextCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(Text));
 			handle = Text_Text ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTextCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class OffMeshConnection : Component
 	{
+		unsafe partial void OnOffMeshConnectionCreated ();
+
 		[Preserve]
 		public OffMeshConnection (IntPtr handle) : base (handle)
 		{
+			OnOffMeshConnectionCreated ();
 		}
 
 		[Preserve]
 		protected OffMeshConnection (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnOffMeshConnectionCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Navigation
 			Runtime.Validate (typeof(OffMeshConnection));
 			handle = OffMeshConnection_OffMeshConnection ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnOffMeshConnectionCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Menu : Button
 	{
+		unsafe partial void OnMenuCreated ();
+
 		[Preserve]
 		public Menu (IntPtr handle) : base (handle)
 		{
+			OnMenuCreated ();
 		}
 
 		[Preserve]
 		protected Menu (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnMenuCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(Menu));
 			handle = Menu_Menu ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnMenuCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

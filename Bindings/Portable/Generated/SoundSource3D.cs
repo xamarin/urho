@@ -23,14 +23,18 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class SoundSource3D : SoundSource
 	{
+		unsafe partial void OnSoundSource3DCreated ();
+
 		[Preserve]
 		public SoundSource3D (IntPtr handle) : base (handle)
 		{
+			OnSoundSource3DCreated ();
 		}
 
 		[Preserve]
 		protected SoundSource3D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSoundSource3DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Audio
 			Runtime.Validate (typeof(SoundSource3D));
 			handle = SoundSource3D_SoundSource3D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSoundSource3DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

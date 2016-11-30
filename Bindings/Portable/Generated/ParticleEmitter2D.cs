@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ParticleEmitter2D : Drawable2D
 	{
+		unsafe partial void OnParticleEmitter2DCreated ();
+
 		[Preserve]
 		public ParticleEmitter2D (IntPtr handle) : base (handle)
 		{
+			OnParticleEmitter2DCreated ();
 		}
 
 		[Preserve]
 		protected ParticleEmitter2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnParticleEmitter2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(ParticleEmitter2D));
 			handle = ParticleEmitter2D_ParticleEmitter2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnParticleEmitter2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

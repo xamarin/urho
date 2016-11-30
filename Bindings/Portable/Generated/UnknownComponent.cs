@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class UnknownComponent : Component
 	{
+		unsafe partial void OnUnknownComponentCreated ();
+
 		[Preserve]
 		public UnknownComponent (IntPtr handle) : base (handle)
 		{
+			OnUnknownComponentCreated ();
 		}
 
 		[Preserve]
 		protected UnknownComponent (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnUnknownComponentCreated ();
 		}
 
 		public UnknownComponent () : this (Application.CurrentContext)
@@ -45,6 +49,7 @@ namespace Urho
 			Runtime.Validate (typeof(UnknownComponent));
 			handle = UnknownComponent_UnknownComponent ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnUnknownComponentCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

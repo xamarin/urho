@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintPrismatic2D : Constraint2D
 	{
+		unsafe partial void OnConstraintPrismatic2DCreated ();
+
 		[Preserve]
 		public ConstraintPrismatic2D (IntPtr handle) : base (handle)
 		{
+			OnConstraintPrismatic2DCreated ();
 		}
 
 		[Preserve]
 		protected ConstraintPrismatic2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnConstraintPrismatic2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(ConstraintPrismatic2D));
 			handle = ConstraintPrismatic2D_ConstraintPrismatic2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnConstraintPrismatic2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

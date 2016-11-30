@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class RenderSurface : RefCounted
 	{
+		unsafe partial void OnRenderSurfaceCreated ();
+
 		[Preserve]
 		public RenderSurface (IntPtr handle) : base (handle)
 		{
+			OnRenderSurfaceCreated ();
 		}
 
 		[Preserve]
 		protected RenderSurface (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnRenderSurfaceCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho
 			Runtime.Validate (typeof(RenderSurface));
 			handle = RenderSurface_RenderSurface ((object)parentTexture == null ? IntPtr.Zero : parentTexture.Handle);
 			Runtime.RegisterObject (this);
+			OnRenderSurfaceCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

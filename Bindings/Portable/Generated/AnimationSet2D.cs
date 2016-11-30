@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class AnimationSet2D : Resource
 	{
+		unsafe partial void OnAnimationSet2DCreated ();
+
 		[Preserve]
 		public AnimationSet2D (IntPtr handle) : base (handle)
 		{
+			OnAnimationSet2DCreated ();
 		}
 
 		[Preserve]
 		protected AnimationSet2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnAnimationSet2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(AnimationSet2D));
 			handle = AnimationSet2D_AnimationSet2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnAnimationSet2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

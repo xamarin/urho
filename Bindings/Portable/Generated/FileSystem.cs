@@ -23,14 +23,18 @@ namespace Urho.IO
 	/// </summary>
 	public unsafe partial class FileSystem : UrhoObject
 	{
+		unsafe partial void OnFileSystemCreated ();
+
 		[Preserve]
 		public FileSystem (IntPtr handle) : base (handle)
 		{
+			OnFileSystemCreated ();
 		}
 
 		[Preserve]
 		protected FileSystem (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnFileSystemCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.IO
 			Runtime.Validate (typeof(FileSystem));
 			handle = FileSystem_FileSystem ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnFileSystemCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

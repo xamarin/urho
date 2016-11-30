@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Serializable : UrhoObject
 	{
+		unsafe partial void OnSerializableCreated ();
+
 		[Preserve]
 		public Serializable (IntPtr handle) : base (handle)
 		{
+			OnSerializableCreated ();
 		}
 
 		[Preserve]
 		protected Serializable (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSerializableCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Serializable));
 			handle = Serializable_Serializable ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSerializableCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

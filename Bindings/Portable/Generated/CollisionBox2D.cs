@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class CollisionBox2D : CollisionShape2D
 	{
+		unsafe partial void OnCollisionBox2DCreated ();
+
 		[Preserve]
 		public CollisionBox2D (IntPtr handle) : base (handle)
 		{
+			OnCollisionBox2DCreated ();
 		}
 
 		[Preserve]
 		protected CollisionBox2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnCollisionBox2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(CollisionBox2D));
 			handle = CollisionBox2D_CollisionBox2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnCollisionBox2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

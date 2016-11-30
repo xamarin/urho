@@ -23,14 +23,18 @@ namespace Urho.Network
 	/// </summary>
 	public unsafe partial class Network : UrhoObject
 	{
+		unsafe partial void OnNetworkCreated ();
+
 		[Preserve]
 		public Network (IntPtr handle) : base (handle)
 		{
+			OnNetworkCreated ();
 		}
 
 		[Preserve]
 		protected Network (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnNetworkCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Network
 			Runtime.Validate (typeof(Network));
 			handle = Network_Network ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnNetworkCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

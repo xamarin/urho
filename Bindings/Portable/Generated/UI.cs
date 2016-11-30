@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class UI : UrhoObject
 	{
+		unsafe partial void OnUICreated ();
+
 		[Preserve]
 		public UI (IntPtr handle) : base (handle)
 		{
+			OnUICreated ();
 		}
 
 		[Preserve]
 		protected UI (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnUICreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(UI));
 			handle = UI_UI ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnUICreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

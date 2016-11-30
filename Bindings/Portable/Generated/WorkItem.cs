@@ -24,6 +24,8 @@ namespace Urho
 	[StructLayout (LayoutKind.Sequential)]
 	public unsafe partial struct WorkItem
 	{
+		unsafe partial void OnWorkItemCreated ();
+
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr WorkItem_WorkItem ();
 

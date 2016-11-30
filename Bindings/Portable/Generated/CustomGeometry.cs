@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class CustomGeometry : Drawable
 	{
+		unsafe partial void OnCustomGeometryCreated ();
+
 		[Preserve]
 		public CustomGeometry (IntPtr handle) : base (handle)
 		{
+			OnCustomGeometryCreated ();
 		}
 
 		[Preserve]
 		protected CustomGeometry (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnCustomGeometryCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(CustomGeometry));
 			handle = CustomGeometry_CustomGeometry ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnCustomGeometryCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ResourceRouter : UrhoObject
 	{
+		unsafe partial void OnResourceRouterCreated ();
+
 		[Preserve]
 		public ResourceRouter (IntPtr handle) : base (handle)
 		{
+			OnResourceRouterCreated ();
 		}
 
 		[Preserve]
 		protected ResourceRouter (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnResourceRouterCreated ();
 		}
 	}
 }

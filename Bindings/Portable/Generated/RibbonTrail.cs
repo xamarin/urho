@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class RibbonTrail : Drawable
 	{
+		unsafe partial void OnRibbonTrailCreated ();
+
 		[Preserve]
 		public RibbonTrail (IntPtr handle) : base (handle)
 		{
+			OnRibbonTrailCreated ();
 		}
 
 		[Preserve]
 		protected RibbonTrail (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnRibbonTrailCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(RibbonTrail));
 			handle = RibbonTrail_RibbonTrail ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnRibbonTrailCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

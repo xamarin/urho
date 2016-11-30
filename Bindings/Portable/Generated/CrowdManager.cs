@@ -23,14 +23,18 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class CrowdManager : Component
 	{
+		unsafe partial void OnCrowdManagerCreated ();
+
 		[Preserve]
 		public CrowdManager (IntPtr handle) : base (handle)
 		{
+			OnCrowdManagerCreated ();
 		}
 
 		[Preserve]
 		protected CrowdManager (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnCrowdManagerCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Navigation
 			Runtime.Validate (typeof(CrowdManager));
 			handle = CrowdManager_CrowdManager ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnCrowdManagerCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class BorderImage : UIElement
 	{
+		unsafe partial void OnBorderImageCreated ();
+
 		[Preserve]
 		public BorderImage (IntPtr handle) : base (handle)
 		{
+			OnBorderImageCreated ();
 		}
 
 		[Preserve]
 		protected BorderImage (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnBorderImageCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(BorderImage));
 			handle = BorderImage_BorderImage ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnBorderImageCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

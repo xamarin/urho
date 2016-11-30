@@ -23,14 +23,18 @@ namespace Urho.Network
 	/// </summary>
 	public unsafe partial class Connection : UrhoObject
 	{
+		unsafe partial void OnConnectionCreated ();
+
 		[Preserve]
 		public Connection (IntPtr handle) : base (handle)
 		{
+			OnConnectionCreated ();
 		}
 
 		[Preserve]
 		protected Connection (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnConnectionCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

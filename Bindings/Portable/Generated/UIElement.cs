@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class UIElement : Animatable
 	{
+		unsafe partial void OnUIElementCreated ();
+
 		[Preserve]
 		public UIElement (IntPtr handle) : base (handle)
 		{
+			OnUIElementCreated ();
 		}
 
 		[Preserve]
 		protected UIElement (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnUIElementCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(UIElement));
 			handle = UIElement_UIElement ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnUIElementCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

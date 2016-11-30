@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class DebugRenderer : Component
 	{
+		unsafe partial void OnDebugRendererCreated ();
+
 		[Preserve]
 		public DebugRenderer (IntPtr handle) : base (handle)
 		{
+			OnDebugRendererCreated ();
 		}
 
 		[Preserve]
 		protected DebugRenderer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnDebugRendererCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(DebugRenderer));
 			handle = DebugRenderer_DebugRenderer ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnDebugRendererCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

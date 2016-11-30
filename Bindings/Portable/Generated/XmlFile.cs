@@ -23,14 +23,18 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class XmlFile : Resource
 	{
+		unsafe partial void OnXmlFileCreated ();
+
 		[Preserve]
 		public XmlFile (IntPtr handle) : base (handle)
 		{
+			OnXmlFileCreated ();
 		}
 
 		[Preserve]
 		protected XmlFile (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnXmlFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Resources
 			Runtime.Validate (typeof(XmlFile));
 			handle = XmlFile_XMLFile ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnXmlFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class SmoothedTransform : Component
 	{
+		unsafe partial void OnSmoothedTransformCreated ();
+
 		[Preserve]
 		public SmoothedTransform (IntPtr handle) : base (handle)
 		{
+			OnSmoothedTransformCreated ();
 		}
 
 		[Preserve]
 		protected SmoothedTransform (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSmoothedTransformCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(SmoothedTransform));
 			handle = SmoothedTransform_SmoothedTransform ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSmoothedTransformCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

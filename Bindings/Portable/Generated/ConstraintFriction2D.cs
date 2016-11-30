@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintFriction2D : Constraint2D
 	{
+		unsafe partial void OnConstraintFriction2DCreated ();
+
 		[Preserve]
 		public ConstraintFriction2D (IntPtr handle) : base (handle)
 		{
+			OnConstraintFriction2DCreated ();
 		}
 
 		[Preserve]
 		protected ConstraintFriction2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnConstraintFriction2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(ConstraintFriction2D));
 			handle = ConstraintFriction2D_ConstraintFriction2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnConstraintFriction2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

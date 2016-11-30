@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class RigidBody2D : Component
 	{
+		unsafe partial void OnRigidBody2DCreated ();
+
 		[Preserve]
 		public RigidBody2D (IntPtr handle) : base (handle)
 		{
+			OnRigidBody2DCreated ();
 		}
 
 		[Preserve]
 		protected RigidBody2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnRigidBody2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(RigidBody2D));
 			handle = RigidBody2D_RigidBody2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnRigidBody2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

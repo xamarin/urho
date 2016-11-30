@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class OcclusionBuffer : UrhoObject
 	{
+		unsafe partial void OnOcclusionBufferCreated ();
+
 		[Preserve]
 		public OcclusionBuffer (IntPtr handle) : base (handle)
 		{
+			OnOcclusionBufferCreated ();
 		}
 
 		[Preserve]
 		protected OcclusionBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnOcclusionBufferCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(OcclusionBuffer));
 			handle = OcclusionBuffer_OcclusionBuffer ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnOcclusionBufferCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

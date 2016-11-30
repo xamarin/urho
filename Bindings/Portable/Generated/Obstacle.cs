@@ -23,14 +23,18 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class Obstacle : Component
 	{
+		unsafe partial void OnObstacleCreated ();
+
 		[Preserve]
 		public Obstacle (IntPtr handle) : base (handle)
 		{
+			OnObstacleCreated ();
 		}
 
 		[Preserve]
 		protected Obstacle (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnObstacleCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Navigation
 			Runtime.Validate (typeof(Obstacle));
 			handle = Obstacle_Obstacle ((object)param1 == null ? IntPtr.Zero : param1.Handle);
 			Runtime.RegisterObject (this);
+			OnObstacleCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

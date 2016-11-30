@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class FileSelector : UrhoObject
 	{
+		unsafe partial void OnFileSelectorCreated ();
+
 		[Preserve]
 		public FileSelector (IntPtr handle) : base (handle)
 		{
+			OnFileSelectorCreated ();
 		}
 
 		[Preserve]
 		protected FileSelector (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnFileSelectorCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(FileSelector));
 			handle = FileSelector_FileSelector ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnFileSelectorCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

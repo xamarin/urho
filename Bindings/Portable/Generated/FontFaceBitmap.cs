@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class FontFaceBitmap : FontFace
 	{
+		unsafe partial void OnFontFaceBitmapCreated ();
+
 		[Preserve]
 		public FontFaceBitmap (IntPtr handle) : base (handle)
 		{
+			OnFontFaceBitmapCreated ();
 		}
 
 		[Preserve]
 		protected FontFaceBitmap (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnFontFaceBitmapCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(FontFaceBitmap));
 			handle = FontFaceBitmap_FontFaceBitmap ((object)font == null ? IntPtr.Zero : font.Handle);
 			Runtime.RegisterObject (this);
+			OnFontFaceBitmapCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

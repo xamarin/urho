@@ -23,6 +23,8 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class XmlElement
 	{
+		unsafe partial void OnXmlElementCreated ();
+
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr XmlElement_XMLElement ();
 
@@ -30,6 +32,7 @@ namespace Urho.Resources
 		{
 			Runtime.Validate (typeof(XmlElement));
 			handle = XmlElement_XMLElement ();
+			OnXmlElementCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -39,6 +42,7 @@ namespace Urho.Resources
 		{
 			Runtime.Validate (typeof(XmlElement));
 			handle = XmlElement_XMLElement0 (ref rhs);
+			OnXmlElementCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

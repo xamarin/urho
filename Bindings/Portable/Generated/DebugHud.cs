@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class DebugHud : UrhoObject
 	{
+		unsafe partial void OnDebugHudCreated ();
+
 		[Preserve]
 		public DebugHud (IntPtr handle) : base (handle)
 		{
+			OnDebugHudCreated ();
 		}
 
 		[Preserve]
 		protected DebugHud (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnDebugHudCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(DebugHud));
 			handle = DebugHud_DebugHud ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnDebugHudCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

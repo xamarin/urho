@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class Texture2D : Texture
 	{
+		unsafe partial void OnTexture2DCreated ();
+
 		[Preserve]
 		public Texture2D (IntPtr handle) : base (handle)
 		{
+			OnTexture2DCreated ();
 		}
 
 		[Preserve]
 		protected Texture2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTexture2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(Texture2D));
 			handle = Texture2D_Texture2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTexture2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho.Physics
 	/// </summary>
 	public unsafe partial class RigidBody : Component
 	{
+		unsafe partial void OnRigidBodyCreated ();
+
 		[Preserve]
 		public RigidBody (IntPtr handle) : base (handle)
 		{
+			OnRigidBodyCreated ();
 		}
 
 		[Preserve]
 		protected RigidBody (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnRigidBodyCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Physics
 			Runtime.Validate (typeof(RigidBody));
 			handle = RigidBody_RigidBody ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnRigidBodyCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class TmxImageLayer2D : TmxLayer2D
 	{
+		unsafe partial void OnTmxImageLayer2DCreated ();
+
 		[Preserve]
 		public TmxImageLayer2D (IntPtr handle) : base (handle)
 		{
+			OnTmxImageLayer2DCreated ();
 		}
 
 		[Preserve]
 		protected TmxImageLayer2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTmxImageLayer2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(TmxImageLayer2D));
 			handle = TmxImageLayer2D_TmxImageLayer2D ((object)tmxFile == null ? IntPtr.Zero : tmxFile.Handle);
 			Runtime.RegisterObject (this);
+			OnTmxImageLayer2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

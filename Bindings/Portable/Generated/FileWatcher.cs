@@ -23,14 +23,18 @@ namespace Urho.IO
 	/// </summary>
 	public unsafe partial class FileWatcher : UrhoObject
 	{
+		unsafe partial void OnFileWatcherCreated ();
+
 		[Preserve]
 		public FileWatcher (IntPtr handle) : base (handle)
 		{
+			OnFileWatcherCreated ();
 		}
 
 		[Preserve]
 		protected FileWatcher (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnFileWatcherCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.IO
 			Runtime.Validate (typeof(FileWatcher));
 			handle = FileWatcher_FileWatcher ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnFileWatcherCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

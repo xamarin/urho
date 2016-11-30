@@ -23,6 +23,8 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Skeleton
 	{
+		unsafe partial void OnSkeletonCreated ();
+
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool Skeleton_Load_File (IntPtr handle, IntPtr source);
 

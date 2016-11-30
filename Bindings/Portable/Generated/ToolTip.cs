@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class ToolTip : UIElement
 	{
+		unsafe partial void OnToolTipCreated ();
+
 		[Preserve]
 		public ToolTip (IntPtr handle) : base (handle)
 		{
+			OnToolTipCreated ();
 		}
 
 		[Preserve]
 		protected ToolTip (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnToolTipCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(ToolTip));
 			handle = ToolTip_ToolTip ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnToolTipCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

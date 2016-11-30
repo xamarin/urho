@@ -23,14 +23,18 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class Image : Resource
 	{
+		unsafe partial void OnImageCreated ();
+
 		[Preserve]
 		public Image (IntPtr handle) : base (handle)
 		{
+			OnImageCreated ();
 		}
 
 		[Preserve]
 		protected Image (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnImageCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Resources
 			Runtime.Validate (typeof(Image));
 			handle = Image_Image ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnImageCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

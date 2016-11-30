@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Font : Resource
 	{
+		unsafe partial void OnFontCreated ();
+
 		[Preserve]
 		public Font (IntPtr handle) : base (handle)
 		{
+			OnFontCreated ();
 		}
 
 		[Preserve]
 		protected Font (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnFontCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(Font));
 			handle = Font_Font ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnFontCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

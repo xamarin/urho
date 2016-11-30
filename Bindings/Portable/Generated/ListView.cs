@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class ListView : ScrollView
 	{
+		unsafe partial void OnListViewCreated ();
+
 		[Preserve]
 		public ListView (IntPtr handle) : base (handle)
 		{
+			OnListViewCreated ();
 		}
 
 		[Preserve]
 		protected ListView (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnListViewCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(ListView));
 			handle = ListView_ListView ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnListViewCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Profiler : UrhoObject
 	{
+		unsafe partial void OnProfilerCreated ();
+
 		[Preserve]
 		public Profiler (IntPtr handle) : base (handle)
 		{
+			OnProfilerCreated ();
 		}
 
 		[Preserve]
 		protected Profiler (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnProfilerCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Profiler));
 			handle = Profiler_Profiler ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnProfilerCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class TextureCube : Texture
 	{
+		unsafe partial void OnTextureCubeCreated ();
+
 		[Preserve]
 		public TextureCube (IntPtr handle) : base (handle)
 		{
+			OnTextureCubeCreated ();
 		}
 
 		[Preserve]
 		protected TextureCube (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTextureCubeCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(TextureCube));
 			handle = TextureCube_TextureCube ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTextureCubeCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

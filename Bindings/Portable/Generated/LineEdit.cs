@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class LineEdit : BorderImage
 	{
+		unsafe partial void OnLineEditCreated ();
+
 		[Preserve]
 		public LineEdit (IntPtr handle) : base (handle)
 		{
+			OnLineEditCreated ();
 		}
 
 		[Preserve]
 		protected LineEdit (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnLineEditCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(LineEdit));
 			handle = LineEdit_LineEdit ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnLineEditCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

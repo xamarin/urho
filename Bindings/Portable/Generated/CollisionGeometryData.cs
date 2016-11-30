@@ -24,5 +24,6 @@ namespace Urho
 	[StructLayout (LayoutKind.Sequential)]
 	public unsafe partial struct CollisionGeometryData
 	{
+		unsafe partial void OnCollisionGeometryDataCreated ();
 	}
 }

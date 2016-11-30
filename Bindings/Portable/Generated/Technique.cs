@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Technique : Resource
 	{
+		unsafe partial void OnTechniqueCreated ();
+
 		[Preserve]
 		public Technique (IntPtr handle) : base (handle)
 		{
+			OnTechniqueCreated ();
 		}
 
 		[Preserve]
 		protected Technique (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTechniqueCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Technique));
 			handle = Technique_Technique ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTechniqueCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

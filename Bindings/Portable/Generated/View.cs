@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class View : UrhoObject
 	{
+		unsafe partial void OnViewCreated ();
+
 		[Preserve]
 		public View (IntPtr handle) : base (handle)
 		{
+			OnViewCreated ();
 		}
 
 		[Preserve]
 		protected View (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnViewCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(View));
 			handle = View_View ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnViewCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ShaderParameterAnimationInfo : ValueAnimationInfo
 	{
+		unsafe partial void OnShaderParameterAnimationInfoCreated ();
+
 		[Preserve]
 		public ShaderParameterAnimationInfo (IntPtr handle) : base (handle)
 		{
+			OnShaderParameterAnimationInfoCreated ();
 		}
 
 		[Preserve]
 		protected ShaderParameterAnimationInfo (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnShaderParameterAnimationInfoCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho
 			Runtime.Validate (typeof(ShaderParameterAnimationInfo));
 			handle = ShaderParameterAnimationInfo_ShaderParameterAnimationInfo ((object)material == null ? IntPtr.Zero : material.Handle, name, (object)attributeAnimation == null ? IntPtr.Zero : attributeAnimation.Handle, wrapMode, speed);
 			Runtime.RegisterObject (this);
+			OnShaderParameterAnimationInfoCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

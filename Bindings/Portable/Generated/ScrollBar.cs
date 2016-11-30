@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class ScrollBar : BorderImage
 	{
+		unsafe partial void OnScrollBarCreated ();
+
 		[Preserve]
 		public ScrollBar (IntPtr handle) : base (handle)
 		{
+			OnScrollBarCreated ();
 		}
 
 		[Preserve]
 		protected ScrollBar (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnScrollBarCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(ScrollBar));
 			handle = ScrollBar_ScrollBar ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnScrollBarCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

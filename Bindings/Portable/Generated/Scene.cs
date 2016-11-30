@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Scene : Node
 	{
+		unsafe partial void OnSceneCreated ();
+
 		[Preserve]
 		public Scene (IntPtr handle) : base (handle)
 		{
+			OnSceneCreated ();
 		}
 
 		[Preserve]
 		protected Scene (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSceneCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Scene));
 			handle = Scene_Scene ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSceneCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

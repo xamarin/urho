@@ -23,14 +23,18 @@ namespace Urho.Resources
 	/// </summary>
 	public unsafe partial class JsonFile : Resource
 	{
+		unsafe partial void OnJsonFileCreated ();
+
 		[Preserve]
 		public JsonFile (IntPtr handle) : base (handle)
 		{
+			OnJsonFileCreated ();
 		}
 
 		[Preserve]
 		protected JsonFile (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnJsonFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Resources
 			Runtime.Validate (typeof(JsonFile));
 			handle = JsonFile_JSONFile ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnJsonFileCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

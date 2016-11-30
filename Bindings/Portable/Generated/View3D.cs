@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class View3D : Window
 	{
+		unsafe partial void OnView3DCreated ();
+
 		[Preserve]
 		public View3D (IntPtr handle) : base (handle)
 		{
+			OnView3DCreated ();
 		}
 
 		[Preserve]
 		protected View3D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnView3DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(View3D));
 			handle = View3D_View3D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnView3DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

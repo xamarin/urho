@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Cursor : BorderImage
 	{
+		unsafe partial void OnCursorCreated ();
+
 		[Preserve]
 		public Cursor (IntPtr handle) : base (handle)
 		{
+			OnCursorCreated ();
 		}
 
 		[Preserve]
 		protected Cursor (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnCursorCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(Cursor));
 			handle = Cursor_Cursor ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnCursorCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class UrhoObject
 	{
+		unsafe partial void OnUrhoObjectCreated ();
+
 		[Preserve]
 		public UrhoObject (IntPtr handle) : base (handle)
 		{
+			OnUrhoObjectCreated ();
 		}
 
 		[Preserve]
 		protected UrhoObject (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnUrhoObjectCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

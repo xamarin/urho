@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Skybox : StaticModel
 	{
+		unsafe partial void OnSkyboxCreated ();
+
 		[Preserve]
 		public Skybox (IntPtr handle) : base (handle)
 		{
+			OnSkyboxCreated ();
 		}
 
 		[Preserve]
 		protected Skybox (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSkyboxCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Skybox));
 			handle = Skybox_Skybox ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSkyboxCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class AnimatedModel : StaticModel
 	{
+		unsafe partial void OnAnimatedModelCreated ();
+
 		[Preserve]
 		public AnimatedModel (IntPtr handle) : base (handle)
 		{
+			OnAnimatedModelCreated ();
 		}
 
 		[Preserve]
 		protected AnimatedModel (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnAnimatedModelCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(AnimatedModel));
 			handle = AnimatedModel_AnimatedModel ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnAnimatedModelCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

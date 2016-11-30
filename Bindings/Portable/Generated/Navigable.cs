@@ -23,14 +23,18 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class Navigable : Component
 	{
+		unsafe partial void OnNavigableCreated ();
+
 		[Preserve]
 		public Navigable (IntPtr handle) : base (handle)
 		{
+			OnNavigableCreated ();
 		}
 
 		[Preserve]
 		protected Navigable (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnNavigableCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Navigation
 			Runtime.Validate (typeof(Navigable));
 			handle = Navigable_Navigable ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnNavigableCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

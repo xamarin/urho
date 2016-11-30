@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class AttributeAccessor : RefCounted
 	{
+		unsafe partial void OnAttributeAccessorCreated ();
+
 		[Preserve]
 		public AttributeAccessor (IntPtr handle) : base (handle)
 		{
+			OnAttributeAccessorCreated ();
 		}
 
 		[Preserve]
 		protected AttributeAccessor (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnAttributeAccessorCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

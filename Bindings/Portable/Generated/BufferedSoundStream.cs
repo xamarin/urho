@@ -23,14 +23,18 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class BufferedSoundStream : SoundStream
 	{
+		unsafe partial void OnBufferedSoundStreamCreated ();
+
 		[Preserve]
 		public BufferedSoundStream (IntPtr handle) : base (handle)
 		{
+			OnBufferedSoundStreamCreated ();
 		}
 
 		[Preserve]
 		protected BufferedSoundStream (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnBufferedSoundStreamCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho.Audio
 			Runtime.Validate (typeof(BufferedSoundStream));
 			handle = BufferedSoundStream_BufferedSoundStream ();
 			Runtime.RegisterObject (this);
+			OnBufferedSoundStreamCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

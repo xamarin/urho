@@ -23,14 +23,18 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class CrowdAgent : Component
 	{
+		unsafe partial void OnCrowdAgentCreated ();
+
 		[Preserve]
 		public CrowdAgent (IntPtr handle) : base (handle)
 		{
+			OnCrowdAgentCreated ();
 		}
 
 		[Preserve]
 		protected CrowdAgent (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnCrowdAgentCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Navigation
 			Runtime.Validate (typeof(CrowdAgent));
 			handle = CrowdAgent_CrowdAgent ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnCrowdAgentCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

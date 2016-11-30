@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class AnimatedSprite2D : StaticSprite2D
 	{
+		unsafe partial void OnAnimatedSprite2DCreated ();
+
 		[Preserve]
 		public AnimatedSprite2D (IntPtr handle) : base (handle)
 		{
+			OnAnimatedSprite2DCreated ();
 		}
 
 		[Preserve]
 		protected AnimatedSprite2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnAnimatedSprite2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(AnimatedSprite2D));
 			handle = AnimatedSprite2D_AnimatedSprite2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnAnimatedSprite2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

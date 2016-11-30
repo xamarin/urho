@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Renderer : UrhoObject
 	{
+		unsafe partial void OnRendererCreated ();
+
 		[Preserve]
 		public Renderer (IntPtr handle) : base (handle)
 		{
+			OnRendererCreated ();
 		}
 
 		[Preserve]
 		protected Renderer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnRendererCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Renderer));
 			handle = Renderer_Renderer ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnRendererCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

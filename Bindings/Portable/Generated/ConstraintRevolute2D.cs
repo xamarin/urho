@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintRevolute2D : Constraint2D
 	{
+		unsafe partial void OnConstraintRevolute2DCreated ();
+
 		[Preserve]
 		public ConstraintRevolute2D (IntPtr handle) : base (handle)
 		{
+			OnConstraintRevolute2DCreated ();
 		}
 
 		[Preserve]
 		protected ConstraintRevolute2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnConstraintRevolute2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(ConstraintRevolute2D));
 			handle = ConstraintRevolute2D_ConstraintRevolute2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnConstraintRevolute2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

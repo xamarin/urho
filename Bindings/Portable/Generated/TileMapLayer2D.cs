@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class TileMapLayer2D : Component
 	{
+		unsafe partial void OnTileMapLayer2DCreated ();
+
 		[Preserve]
 		public TileMapLayer2D (IntPtr handle) : base (handle)
 		{
+			OnTileMapLayer2DCreated ();
 		}
 
 		[Preserve]
 		protected TileMapLayer2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTileMapLayer2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(TileMapLayer2D));
 			handle = TileMapLayer2D_TileMapLayer2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTileMapLayer2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

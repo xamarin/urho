@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class SpriteSheet2D : Resource
 	{
+		unsafe partial void OnSpriteSheet2DCreated ();
+
 		[Preserve]
 		public SpriteSheet2D (IntPtr handle) : base (handle)
 		{
+			OnSpriteSheet2DCreated ();
 		}
 
 		[Preserve]
 		protected SpriteSheet2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSpriteSheet2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(SpriteSheet2D));
 			handle = SpriteSheet2D_SpriteSheet2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnSpriteSheet2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

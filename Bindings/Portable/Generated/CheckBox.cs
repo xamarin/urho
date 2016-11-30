@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class CheckBox : BorderImage
 	{
+		unsafe partial void OnCheckBoxCreated ();
+
 		[Preserve]
 		public CheckBox (IntPtr handle) : base (handle)
 		{
+			OnCheckBoxCreated ();
 		}
 
 		[Preserve]
 		protected CheckBox (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnCheckBoxCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(CheckBox));
 			handle = CheckBox_CheckBox ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnCheckBoxCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

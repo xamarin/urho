@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Material : Resource
 	{
+		unsafe partial void OnMaterialCreated ();
+
 		[Preserve]
 		public Material (IntPtr handle) : base (handle)
 		{
+			OnMaterialCreated ();
 		}
 
 		[Preserve]
 		protected Material (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnMaterialCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Material));
 			handle = Material_Material ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnMaterialCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Node : Animatable
 	{
+		unsafe partial void OnNodeCreated ();
+
 		[Preserve]
 		public Node (IntPtr handle) : base (handle)
 		{
+			OnNodeCreated ();
 		}
 
 		[Preserve]
 		protected Node (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnNodeCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Node));
 			handle = Node_Node ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnNodeCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

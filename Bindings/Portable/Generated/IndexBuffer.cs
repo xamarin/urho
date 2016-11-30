@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class IndexBuffer : UrhoObject
 	{
+		unsafe partial void OnIndexBufferCreated ();
+
 		[Preserve]
 		public IndexBuffer (IntPtr handle) : base (handle)
 		{
+			OnIndexBufferCreated ();
 		}
 
 		[Preserve]
 		protected IndexBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnIndexBufferCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -77,6 +81,7 @@ namespace Urho
 			Runtime.Validate (typeof(IndexBuffer));
 			handle = IndexBuffer_IndexBuffer ((object)context == null ? IntPtr.Zero : context.Handle, forceHeadless);
 			Runtime.RegisterObject (this);
+			OnIndexBufferCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

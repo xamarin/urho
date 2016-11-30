@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class FontFaceFreeType : FontFace
 	{
+		unsafe partial void OnFontFaceFreeTypeCreated ();
+
 		[Preserve]
 		public FontFaceFreeType (IntPtr handle) : base (handle)
 		{
+			OnFontFaceFreeTypeCreated ();
 		}
 
 		[Preserve]
 		protected FontFaceFreeType (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnFontFaceFreeTypeCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(FontFaceFreeType));
 			handle = FontFaceFreeType_FontFaceFreeType ((object)font == null ? IntPtr.Zero : font.Handle);
 			Runtime.RegisterObject (this);
+			OnFontFaceFreeTypeCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

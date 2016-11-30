@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class WorkQueue : UrhoObject
 	{
+		unsafe partial void OnWorkQueueCreated ();
+
 		[Preserve]
 		public WorkQueue (IntPtr handle) : base (handle)
 		{
+			OnWorkQueueCreated ();
 		}
 
 		[Preserve]
 		protected WorkQueue (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnWorkQueueCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(WorkQueue));
 			handle = WorkQueue_WorkQueue ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnWorkQueueCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

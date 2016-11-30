@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Light : Drawable
 	{
+		unsafe partial void OnLightCreated ();
+
 		[Preserve]
 		public Light (IntPtr handle) : base (handle)
 		{
+			OnLightCreated ();
 		}
 
 		[Preserve]
 		protected Light (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnLightCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Light));
 			handle = Light_Light ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnLightCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

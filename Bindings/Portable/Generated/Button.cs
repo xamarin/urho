@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Button : BorderImage
 	{
+		unsafe partial void OnButtonCreated ();
+
 		[Preserve]
 		public Button (IntPtr handle) : base (handle)
 		{
+			OnButtonCreated ();
 		}
 
 		[Preserve]
 		protected Button (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnButtonCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(Button));
 			handle = Button_Button ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnButtonCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class FontFace : RefCounted
 	{
+		unsafe partial void OnFontFaceCreated ();
+
 		[Preserve]
 		public FontFace (IntPtr handle) : base (handle)
 		{
+			OnFontFaceCreated ();
 		}
 
 		[Preserve]
 		protected FontFace (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnFontFaceCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

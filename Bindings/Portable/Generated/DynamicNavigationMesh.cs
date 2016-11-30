@@ -23,14 +23,18 @@ namespace Urho.Navigation
 	/// </summary>
 	public unsafe partial class DynamicNavigationMesh : NavigationMesh
 	{
+		unsafe partial void OnDynamicNavigationMeshCreated ();
+
 		[Preserve]
 		public DynamicNavigationMesh (IntPtr handle) : base (handle)
 		{
+			OnDynamicNavigationMeshCreated ();
 		}
 
 		[Preserve]
 		protected DynamicNavigationMesh (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnDynamicNavigationMeshCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Navigation
 			Runtime.Validate (typeof(DynamicNavigationMesh));
 			handle = DynamicNavigationMesh_DynamicNavigationMesh ((object)param1 == null ? IntPtr.Zero : param1.Handle);
 			Runtime.RegisterObject (this);
+			OnDynamicNavigationMeshCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

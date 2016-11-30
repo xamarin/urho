@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ParticleEffect : Resource
 	{
+		unsafe partial void OnParticleEffectCreated ();
+
 		[Preserve]
 		public ParticleEffect (IntPtr handle) : base (handle)
 		{
+			OnParticleEffectCreated ();
 		}
 
 		[Preserve]
 		protected ParticleEffect (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnParticleEffectCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(ParticleEffect));
 			handle = ParticleEffect_ParticleEffect ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnParticleEffectCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

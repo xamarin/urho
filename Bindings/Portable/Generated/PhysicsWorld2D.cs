@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class PhysicsWorld2D : Component
 	{
+		unsafe partial void OnPhysicsWorld2DCreated ();
+
 		[Preserve]
 		public PhysicsWorld2D (IntPtr handle) : base (handle)
 		{
+			OnPhysicsWorld2DCreated ();
 		}
 
 		[Preserve]
 		protected PhysicsWorld2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnPhysicsWorld2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(PhysicsWorld2D));
 			handle = PhysicsWorld2D_PhysicsWorld2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnPhysicsWorld2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

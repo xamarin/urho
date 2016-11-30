@@ -23,14 +23,18 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class SoundStream : RefCounted
 	{
+		unsafe partial void OnSoundStreamCreated ();
+
 		[Preserve]
 		public SoundStream (IntPtr handle) : base (handle)
 		{
+			OnSoundStreamCreated ();
 		}
 
 		[Preserve]
 		protected SoundStream (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnSoundStreamCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

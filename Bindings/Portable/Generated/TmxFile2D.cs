@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class TmxFile2D : Resource
 	{
+		unsafe partial void OnTmxFile2DCreated ();
+
 		[Preserve]
 		public TmxFile2D (IntPtr handle) : base (handle)
 		{
+			OnTmxFile2DCreated ();
 		}
 
 		[Preserve]
 		protected TmxFile2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTmxFile2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(TmxFile2D));
 			handle = TmxFile2D_TmxFile2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTmxFile2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

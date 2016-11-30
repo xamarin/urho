@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class DecalSet : Drawable
 	{
+		unsafe partial void OnDecalSetCreated ();
+
 		[Preserve]
 		public DecalSet (IntPtr handle) : base (handle)
 		{
+			OnDecalSetCreated ();
 		}
 
 		[Preserve]
 		protected DecalSet (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnDecalSetCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(DecalSet));
 			handle = DecalSet_DecalSet ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnDecalSetCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class TerrainPatch : Drawable
 	{
+		unsafe partial void OnTerrainPatchCreated ();
+
 		[Preserve]
 		public TerrainPatch (IntPtr handle) : base (handle)
 		{
+			OnTerrainPatchCreated ();
 		}
 
 		[Preserve]
 		protected TerrainPatch (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTerrainPatchCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(TerrainPatch));
 			handle = TerrainPatch_TerrainPatch ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTerrainPatchCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

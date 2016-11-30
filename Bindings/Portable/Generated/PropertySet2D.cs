@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class PropertySet2D : RefCounted
 	{
+		unsafe partial void OnPropertySet2DCreated ();
+
 		[Preserve]
 		public PropertySet2D (IntPtr handle) : base (handle)
 		{
+			OnPropertySet2DCreated ();
 		}
 
 		[Preserve]
 		protected PropertySet2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnPropertySet2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(PropertySet2D));
 			handle = PropertySet2D_PropertySet2D ();
 			Runtime.RegisterObject (this);
+			OnPropertySet2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

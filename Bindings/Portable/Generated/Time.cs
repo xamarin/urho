@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Time : UrhoObject
 	{
+		unsafe partial void OnTimeCreated ();
+
 		[Preserve]
 		public Time (IntPtr handle) : base (handle)
 		{
+			OnTimeCreated ();
 		}
 
 		[Preserve]
 		protected Time (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTimeCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Time));
 			handle = Time_Time ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTimeCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

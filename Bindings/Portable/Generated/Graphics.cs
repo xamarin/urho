@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Graphics : UrhoObject
 	{
+		unsafe partial void OnGraphicsCreated ();
+
 		[Preserve]
 		public Graphics (IntPtr handle) : base (handle)
 		{
+			OnGraphicsCreated ();
 		}
 
 		[Preserve]
 		protected Graphics (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnGraphicsCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Graphics));
 			handle = Graphics_Graphics ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnGraphicsCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

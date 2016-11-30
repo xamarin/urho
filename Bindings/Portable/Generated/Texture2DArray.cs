@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Texture2DArray : Texture
 	{
+		unsafe partial void OnTexture2DArrayCreated ();
+
 		[Preserve]
 		public Texture2DArray (IntPtr handle) : base (handle)
 		{
+			OnTexture2DArrayCreated ();
 		}
 
 		[Preserve]
 		protected Texture2DArray (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnTexture2DArrayCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Texture2DArray));
 			handle = Texture2DArray_Texture2DArray ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnTexture2DArrayCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

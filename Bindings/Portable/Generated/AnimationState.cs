@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class AnimationState : RefCounted
 	{
+		unsafe partial void OnAnimationStateCreated ();
+
 		[Preserve]
 		public AnimationState (IntPtr handle) : base (handle)
 		{
+			OnAnimationStateCreated ();
 		}
 
 		[Preserve]
 		protected AnimationState (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnAnimationStateCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho
 			Runtime.Validate (typeof(AnimationState));
 			handle = AnimationState_AnimationState ((object)model == null ? IntPtr.Zero : model.Handle, (object)animation == null ? IntPtr.Zero : animation.Handle);
 			Runtime.RegisterObject (this);
+			OnAnimationStateCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -51,6 +56,7 @@ namespace Urho
 			Runtime.Validate (typeof(AnimationState));
 			handle = AnimationState_AnimationState0 ((object)node == null ? IntPtr.Zero : node.Handle, (object)animation == null ? IntPtr.Zero : animation.Handle);
 			Runtime.RegisterObject (this);
+			OnAnimationStateCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

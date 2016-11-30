@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class UrhoConsole : UrhoObject
 	{
+		unsafe partial void OnUrhoConsoleCreated ();
+
 		[Preserve]
 		public UrhoConsole (IntPtr handle) : base (handle)
 		{
+			OnUrhoConsoleCreated ();
 		}
 
 		[Preserve]
 		protected UrhoConsole (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnUrhoConsoleCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(UrhoConsole));
 			handle = UrhoConsole_Console ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnUrhoConsoleCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

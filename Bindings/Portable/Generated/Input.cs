@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Input : UrhoObject
 	{
+		unsafe partial void OnInputCreated ();
+
 		[Preserve]
 		public Input (IntPtr handle) : base (handle)
 		{
+			OnInputCreated ();
 		}
 
 		[Preserve]
 		protected Input (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnInputCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Input));
 			handle = Input_Input ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnInputCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

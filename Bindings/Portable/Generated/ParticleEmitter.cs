@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class ParticleEmitter : BillboardSet
 	{
+		unsafe partial void OnParticleEmitterCreated ();
+
 		[Preserve]
 		public ParticleEmitter (IntPtr handle) : base (handle)
 		{
+			OnParticleEmitterCreated ();
 		}
 
 		[Preserve]
 		protected ParticleEmitter (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnParticleEmitterCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(ParticleEmitter));
 			handle = ParticleEmitter_ParticleEmitter ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnParticleEmitterCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

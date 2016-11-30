@@ -23,14 +23,18 @@ namespace Urho.Urho2D
 	/// </summary>
 	public unsafe partial class ConstraintDistance2D : Constraint2D
 	{
+		unsafe partial void OnConstraintDistance2DCreated ();
+
 		[Preserve]
 		public ConstraintDistance2D (IntPtr handle) : base (handle)
 		{
+			OnConstraintDistance2DCreated ();
 		}
 
 		[Preserve]
 		protected ConstraintDistance2D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnConstraintDistance2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Urho2D
 			Runtime.Validate (typeof(ConstraintDistance2D));
 			handle = ConstraintDistance2D_ConstraintDistance2D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnConstraintDistance2DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

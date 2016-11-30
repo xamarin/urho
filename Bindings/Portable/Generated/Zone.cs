@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Zone : Drawable
 	{
+		unsafe partial void OnZoneCreated ();
+
 		[Preserve]
 		public Zone (IntPtr handle) : base (handle)
 		{
+			OnZoneCreated ();
 		}
 
 		[Preserve]
 		protected Zone (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnZoneCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Zone));
 			handle = Zone_Zone ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnZoneCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

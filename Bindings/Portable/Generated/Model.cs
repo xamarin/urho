@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Model : Resource
 	{
+		unsafe partial void OnModelCreated ();
+
 		[Preserve]
 		public Model (IntPtr handle) : base (handle)
 		{
+			OnModelCreated ();
 		}
 
 		[Preserve]
 		protected Model (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnModelCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Model));
 			handle = Model_Model ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnModelCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -23,14 +23,18 @@ namespace Urho
 	/// </summary>
 	public unsafe partial class Viewport : UrhoObject
 	{
+		unsafe partial void OnViewportCreated ();
+
 		[Preserve]
 		public Viewport (IntPtr handle) : base (handle)
 		{
+			OnViewportCreated ();
 		}
 
 		[Preserve]
 		protected Viewport (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnViewportCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho
 			Runtime.Validate (typeof(Viewport));
 			handle = Viewport_Viewport ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnViewportCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -91,6 +96,7 @@ namespace Urho
 			Runtime.Validate (typeof(Viewport));
 			handle = Viewport_Viewport0 ((object)context == null ? IntPtr.Zero : context.Handle, (object)scene == null ? IntPtr.Zero : scene.Handle, (object)camera == null ? IntPtr.Zero : camera.Handle, (object)renderPath == null ? IntPtr.Zero : renderPath.Handle);
 			Runtime.RegisterObject (this);
+			OnViewportCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -101,6 +107,7 @@ namespace Urho
 			Runtime.Validate (typeof(Viewport));
 			handle = Viewport_Viewport1 ((object)context == null ? IntPtr.Zero : context.Handle, (object)scene == null ? IntPtr.Zero : scene.Handle, (object)camera == null ? IntPtr.Zero : camera.Handle, ref rect, (object)renderPath == null ? IntPtr.Zero : renderPath.Handle);
 			Runtime.RegisterObject (this);
+			OnViewportCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

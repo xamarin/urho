@@ -23,14 +23,18 @@ namespace Urho.Gui
 	/// </summary>
 	public unsafe partial class Text3D : Drawable
 	{
+		unsafe partial void OnText3DCreated ();
+
 		[Preserve]
 		public Text3D (IntPtr handle) : base (handle)
 		{
+			OnText3DCreated ();
 		}
 
 		[Preserve]
 		protected Text3D (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnText3DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -81,6 +85,7 @@ namespace Urho.Gui
 			Runtime.Validate (typeof(Text3D));
 			handle = Text3D_Text3D ((object)context == null ? IntPtr.Zero : context.Handle);
 			Runtime.RegisterObject (this);
+			OnText3DCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

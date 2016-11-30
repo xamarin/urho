@@ -23,14 +23,18 @@ namespace Urho.Audio
 	/// </summary>
 	public unsafe partial class OggVorbisSoundStream : SoundStream
 	{
+		unsafe partial void OnOggVorbisSoundStreamCreated ();
+
 		[Preserve]
 		public OggVorbisSoundStream (IntPtr handle) : base (handle)
 		{
+			OnOggVorbisSoundStreamCreated ();
 		}
 
 		[Preserve]
 		protected OggVorbisSoundStream (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
+			OnOggVorbisSoundStreamCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -41,6 +45,7 @@ namespace Urho.Audio
 			Runtime.Validate (typeof(OggVorbisSoundStream));
 			handle = OggVorbisSoundStream_OggVorbisSoundStream ((object)sound == null ? IntPtr.Zero : sound.Handle);
 			Runtime.RegisterObject (this);
+			OnOggVorbisSoundStreamCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
