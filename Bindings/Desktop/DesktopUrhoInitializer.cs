@@ -57,21 +57,23 @@ namespace Urho.Desktop
 				input.CopyTo(output);
 		}
 
-		static bool Is64Bit(string dllPath)
+		static bool Is64Bit(string file)
 		{
-			using (var fs = new FileStream(dllPath, FileMode.Open, FileAccess.Read))
-			using (var br = new BinaryReader(fs))
+			using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
+			using (var binaryReader = new BinaryReader(fileStream))
 			{
-				fs.Seek(0x3c, SeekOrigin.Begin);
-				var peOffset = br.ReadInt32();
-				fs.Seek(peOffset, SeekOrigin.Begin);
-				var value = br.ReadUInt16();
-
-				const ushort IMAGE_FILE_MACHINE_AMD64 = 0x8664;
-				const ushort IMAGE_FILE_MACHINE_IA64 = 0x200;
-				return value == IMAGE_FILE_MACHINE_AMD64 ||
-						value == IMAGE_FILE_MACHINE_IA64;
+				if (binaryReader.ReadUInt16() == 23117)
+				{
+					fileStream.Seek(0x3A, SeekOrigin.Current);
+					fileStream.Seek(binaryReader.ReadUInt32(), SeekOrigin.Begin);
+					if (binaryReader.ReadUInt32() == 17744)
+					{
+						fileStream.Seek(20, SeekOrigin.Current);
+						return binaryReader.ReadUInt16() != 0x10B; //PE32
+					}
+				}
 			}
+			return false;
 		}
 	}
 }
