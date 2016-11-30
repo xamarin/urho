@@ -33,5 +33,22 @@ namespace Urho
 				return SaveXml(file, indentation);
 			}
 		}
+
+		unsafe partial void OnSceneCreated()
+		{
+			ComponentCloned += Scene_ComponentCloned;
+		}
+		
+		void Scene_ComponentCloned(ComponentClonedEventArgs e)
+		{
+			if (e.CloneComponent.GetType() != e.Component.GetType())
+			{
+				// it means Component to clone is a managed subclass.
+				// Let's wrap this Handle with that Managed class and re-register in the internal cache.
+				var clonedManagedComponent = (Component)Activator.CreateInstance(e.Component.GetType(), e.CloneComponent.Handle);
+				clonedManagedComponent.OnCloned(e.Scene, e.Component);
+				Runtime.RegisterObject(clonedManagedComponent);
+			}
+		}
 	}
 }

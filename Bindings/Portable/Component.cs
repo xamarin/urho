@@ -37,6 +37,8 @@ namespace Urho
 
 		public virtual void OnNodeSetEnabled() { }
 
+		public virtual void OnCloned(Scene scene, Component originalComponent) { }
+
 		protected override void OnDeleted()
 		{
 			if (subscribedToSceneUpdate)

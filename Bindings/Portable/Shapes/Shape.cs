@@ -1,10 +1,14 @@
-﻿using Urho.Resources;
+﻿using System;
+using Urho.Resources;
 
 namespace Urho.Shapes
 {
 	public abstract class Shape : StaticModel
 	{
 		Material material;
+
+		protected Shape() : base() { }
+		protected Shape(IntPtr handle) : base(handle) { }
 
 		public override void OnAttachedToNode(Node node)
 		{
@@ -48,6 +52,12 @@ namespace Urho.Shapes
 		public override void OnSerialize(IComponentSerializer s)
 		{
 			s.Serialize(nameof(Color), Color);
+		}
+
+		public override void OnCloned(Scene scene, Component originalComponent)
+		{
+			var shape = (Shape)originalComponent;
+			Color = shape.Color;
 		}
 	}
 }

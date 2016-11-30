@@ -11,7 +11,8 @@ namespace Playgrounds.Console
 	{
 		static void Main(string[] args)
 		{
-			StereoModePerformance.RunApp();
+			SimpleApp.RunApp();
+			//StereoModePerformance.RunApp();
 			//HoloScene.HoloScene.RunApp();
 		}
 	}
