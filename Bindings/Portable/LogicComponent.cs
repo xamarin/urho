@@ -13,10 +13,12 @@ namespace Urho
 		Subscription physicsPostStepSubscription;
 		Subscription scenePostUpdateSubscription;
 
+		[Preserve]
 		public LogicComponent (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Preserve]
 		public LogicComponent () : this (Application.CurrentContext)
 		{
 		}
@@ -86,6 +88,7 @@ namespace Urho
 
 		public override StringHash Type => new StringHash(LogicComponent_GetType(handle));
 		public override string TypeName => Marshal.PtrToStringAnsi(LogicComponent_GetTypeName(handle));
+		[Preserve]
 		public new static StringHash TypeStatic => new StringHash(LogicComponent_GetTypeStatic());
 		public new static string TypeNameStatic => Marshal.PtrToStringAnsi(LogicComponent_GetTypeNameStatic());
 	}

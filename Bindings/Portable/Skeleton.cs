@@ -10,7 +10,8 @@ namespace Urho {
 	
 	public partial class Skeleton {
 		IntPtr handle;
-		
+
+		[Preserve]
 		public Skeleton (IntPtr handle, object container)
 		{
 			this.handle = handle;

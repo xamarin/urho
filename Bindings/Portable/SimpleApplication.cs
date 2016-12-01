@@ -11,6 +11,7 @@ namespace Urho
 {
 	public class SimpleApplication : Application
 	{
+		[Preserve]
 		public SimpleApplication(ApplicationOptions options) : base(options) {}
 
 		public static Task<SimpleApplication> RunAsync(int width = 600, int height = 500)

@@ -6,11 +6,13 @@ namespace Urho {
 	[StructLayout(LayoutKind.Sequential)]
 	public struct StringHash {
 		public int Code;
+		[Preserve]
 		public StringHash (int code)
 		{
 			this.Code = code;
 		}
 
+		[Preserve]
 		public StringHash (string str)
 		{
 			this.Code = urho_stringhash_from_string (str);
@@ -28,6 +30,7 @@ namespace Urho {
 	// Points to a StringHash
 	public struct StringHashRef {
 		IntPtr ptr;
+		[Preserve]
 		public StringHashRef (IntPtr ptr)
 		{
 			this.ptr = ptr;

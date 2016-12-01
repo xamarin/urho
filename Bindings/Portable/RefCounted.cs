@@ -13,8 +13,10 @@ namespace Urho {
 
 		public IntPtr Handle => handle;
 
+		[Preserve]
 		internal RefCounted (UrhoObjectFlag empty) { }
-		
+
+		[Preserve]
 		protected RefCounted (IntPtr handle)
 		{
 			if (handle == IntPtr.Zero)

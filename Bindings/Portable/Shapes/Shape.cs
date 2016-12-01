@@ -7,7 +7,9 @@ namespace Urho.Shapes
 	{
 		Material material;
 
+		[Preserve]
 		protected Shape() : base() { }
+		[Preserve]
 		protected Shape(IntPtr handle) : base(handle) { }
 
 		public override void OnAttachedToNode(Node node)
