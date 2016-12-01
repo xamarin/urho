@@ -20,7 +20,7 @@ namespace $safeprojectname$
         async void LaunchGame()
         {
             await Task.Yield();
-            new MyGame().Run();
+            new MyGame(new ApplicationOptions("Data")).Run();
         }
     }
 }

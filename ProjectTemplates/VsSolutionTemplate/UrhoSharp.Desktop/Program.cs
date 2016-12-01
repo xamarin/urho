@@ -6,7 +6,7 @@ namespace $safeprojectname$
     {
         static void Main(string[] args)
         {
-            new MyGame().Run();
+            new MyGame(new ApplicationOptions("Data")).Run();
         }
     }
 }

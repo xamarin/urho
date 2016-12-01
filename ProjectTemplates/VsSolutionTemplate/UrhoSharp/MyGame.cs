@@ -11,9 +11,8 @@ namespace $safeprojectname$
 {
     public class MyGame : Application
     {
-        public MyGame() : base(new ApplicationOptions("Data") { })
-        {
-        }
+		[Preserve]
+        public MyGame(ApplicationOptions opts) : base(opts) { }
 
         protected override void Start()
         {

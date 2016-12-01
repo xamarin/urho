@@ -17,7 +17,7 @@ namespace $safeprojectname$
         {
             base.OnCreate(bundle);
             var layout = new AbsoluteLayout(this);
-            var surface = UrhoSurface.CreateSurface<MyGame>(this);
+            var surface = UrhoSurface.CreateSurface<MyGame>(this, new ApplicationOptions("Data"));
             layout.AddView(surface);
             SetContentView(layout);
         }
