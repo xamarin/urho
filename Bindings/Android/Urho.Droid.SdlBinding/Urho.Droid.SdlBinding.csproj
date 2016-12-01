@@ -43,9 +43,8 @@
   <ItemGroup>
     <TransformFile Include="Metadata.xml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <LibraryProjectZip Include="urhosdl-release.aar" />
+    <LibraryProjectZip Include="sdl-release.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

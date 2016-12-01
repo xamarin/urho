@@ -60,6 +60,7 @@ public class SDLActivity {
 
     // Audio
     protected static AudioTrack mAudioTrack;
+    protected static AudioRecord mAudioRecord;
 
     // Urho3D: flag to load the .so and a new method load them
     private static boolean mIsSharedLibraryLoaded = false;
@@ -81,6 +82,7 @@ public class SDLActivity {
         mJoystickHandler = null;
         mSDLThread = null;
         mAudioTrack = null;
+        mAudioRecord = null;
         mExitCalledFromJava = false;
         mIsPaused = false;
         mIsSurfaceReady = false;
@@ -459,7 +461,7 @@ public class SDLActivity {
     /**
      * This method is called by SDL using JNI.
      */
-    public static int audioInit(int sampleRate, boolean is16Bit, boolean isStereo, int desiredFrames) {
+    public static int audioOpen(int sampleRate, boolean is16Bit, boolean isStereo, int desiredFrames) {
         int channelConfig = isStereo ? AudioFormat.CHANNEL_CONFIGURATION_STEREO : AudioFormat.CHANNEL_CONFIGURATION_MONO;
         int audioFormat = is16Bit ? AudioFormat.ENCODING_PCM_16BIT : AudioFormat.ENCODING_PCM_8BIT;
         int frameSize = (isStereo ? 2 : 1) * (is16Bit ? 2 : 1);
@@ -534,14 +536,71 @@ public class SDLActivity {
             }
         }
     }
-
     /**
      * This method is called by SDL using JNI.
      */
-    public static void audioQuit() {
+    public static int captureOpen(int sampleRate, boolean is16Bit, boolean isStereo, int desiredFrames) {
+        int channelConfig = isStereo ? AudioFormat.CHANNEL_CONFIGURATION_STEREO : AudioFormat.CHANNEL_CONFIGURATION_MONO;
+        int audioFormat = is16Bit ? AudioFormat.ENCODING_PCM_16BIT : AudioFormat.ENCODING_PCM_8BIT;
+        int frameSize = (isStereo ? 2 : 1) * (is16Bit ? 2 : 1);
+
+        Log.v(TAG, "SDL capture: wanted " + (isStereo ? "stereo" : "mono") + " " + (is16Bit ? "16-bit" : "8-bit") + " " + (sampleRate / 1000f) + "kHz, " + desiredFrames + " frames buffer");
+
+        // Let the user pick a larger buffer if they really want -- but ye
+        // gods they probably shouldn't, the minimums are horrifyingly high
+        // latency already
+        desiredFrames = Math.max(desiredFrames, (AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat) + frameSize - 1) / frameSize);
+
+        if (mAudioRecord == null) {
+            mAudioRecord = new AudioRecord(MediaRecorder.AudioSource.DEFAULT, sampleRate,
+                    channelConfig, audioFormat, desiredFrames * frameSize);
+
+            // see notes about AudioTrack state in audioOpen(), above. Probably also applies here.
+            if (mAudioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
+                Log.e(TAG, "Failed during initialization of AudioRecord");
+                mAudioRecord.release();
+                mAudioRecord = null;
+                return -1;
+            }
+
+            mAudioRecord.startRecording();
+        }
+
+        Log.v(TAG, "SDL capture: got " + ((mAudioRecord.getChannelCount() >= 2) ? "stereo" : "mono") + " " + ((mAudioRecord.getAudioFormat() == AudioFormat.ENCODING_PCM_16BIT) ? "16-bit" : "8-bit") + " " + (mAudioRecord.getSampleRate() / 1000f) + "kHz, " + desiredFrames + " frames buffer");
+
+        return 0;
+    }
+
+    /** This method is called by SDL using JNI. */
+    public static int captureReadShortBuffer(short[] buffer, boolean blocking) {
+        // !!! FIXME: this is available in API Level 23. Until then, we always block.  :(
+        //return mAudioRecord.read(buffer, 0, buffer.length, blocking ? AudioRecord.READ_BLOCKING : AudioRecord.READ_NON_BLOCKING);
+        return mAudioRecord.read(buffer, 0, buffer.length);
+    }
+
+    /** This method is called by SDL using JNI. */
+    public static int captureReadByteBuffer(byte[] buffer, boolean blocking) {
+        // !!! FIXME: this is available in API Level 23. Until then, we always block.  :(
+        //return mAudioRecord.read(buffer, 0, buffer.length, blocking ? AudioRecord.READ_BLOCKING : AudioRecord.READ_NON_BLOCKING);
+        return mAudioRecord.read(buffer, 0, buffer.length);
+    }
+
+
+    /** This method is called by SDL using JNI. */
+    public static void audioClose() {
         if (mAudioTrack != null) {
             mAudioTrack.stop();
+            mAudioTrack.release();
             mAudioTrack = null;
+        }
+    }
+
+    /** This method is called by SDL using JNI. */
+    public static void captureClose() {
+        if (mAudioRecord != null) {
+            mAudioRecord.stop();
+            mAudioRecord.release();
+            mAudioRecord = null;
         }
     }
 
@@ -594,6 +653,21 @@ public class SDLActivity {
     @Deprecated
     public InputStream openAPKExtensionInputStream(String fileName) throws IOException {
         return openAPKExpansionInputStream(fileName);
+    }
+
+    // Check if a given device is considered a possible SDL joystick
+    public static boolean isDeviceSDLJoystick(int deviceId) {
+        InputDevice device = InputDevice.getDevice(deviceId);
+        // We cannot use InputDevice.isVirtual before API 16, so let's accept
+        // only nonnegative device ids (VIRTUAL_KEYBOARD equals -1)
+        if ((device == null) || (deviceId < 0)) {
+            return false;
+        }
+        int sources = device.getSources();
+        return (((sources & InputDevice.SOURCE_CLASS_JOYSTICK) == InputDevice.SOURCE_CLASS_JOYSTICK) ||
+                ((sources & InputDevice.SOURCE_DPAD) == InputDevice.SOURCE_DPAD) ||
+                ((sources & InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD)
+        );
     }
 
     /**
@@ -956,7 +1030,7 @@ class SDLInputConnection extends BaseInputConnection {
          */
         int keyCode = event.getKeyCode();
         if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            if (event.isPrintingKey()) {
+            if (event.isPrintingKey() || keyCode == KeyEvent.KEYCODE_SPACE) {
                 commitText(String.valueOf((char) event.getUnicodeChar()), 1);
             }
             SDLActivity.onNativeKeyDown(keyCode);
@@ -1059,7 +1133,7 @@ class SDLJoystickHandler_API12 extends SDLJoystickHandler {
                 InputDevice joystickDevice = InputDevice.getDevice(deviceIds[i]);
 
                 // Urho3D - revert back commit 34a0b0478654e8dfaf111aecc0e4535875c4ec87 as it does more harm than good
-                if( (joystickDevice.getSources() & InputDevice.SOURCE_CLASS_JOYSTICK) != 0) {
+                if (SDLActivity.isDeviceSDLJoystick(deviceIds[i])) {
                     joystick.device_id = deviceIds[i];
                     joystick.name = joystickDevice.getName();
                     joystick.axes = new ArrayList<InputDevice.MotionRange>();
@@ -1161,8 +1235,7 @@ class SDLGenericMotionListener_API12 implements View.OnGenericMotionListener {
             case InputDevice.SOURCE_JOYSTICK:
             case InputDevice.SOURCE_GAMEPAD:
             case InputDevice.SOURCE_DPAD:
-                SDLActivity.handleJoystickMotionEvent(event);
-                return true;
+                return SDLActivity.handleJoystickMotionEvent(event);
 
             case InputDevice.SOURCE_MOUSE:
                 action = event.getActionMasked();

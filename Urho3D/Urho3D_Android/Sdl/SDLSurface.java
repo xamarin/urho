@@ -229,11 +229,14 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
     @Override
     public boolean onKey(View  v, int keyCode, KeyEvent event) {
         // Dispatch the different events depending on where they come from
-        // Some SOURCE_DPAD or SOURCE_GAMEPAD are also SOURCE_KEYBOARD
-        // So, we try to process them as DPAD or GAMEPAD events first, if that fails we try them as KEYBOARD
-
-        if ( (event.getSource() & InputDevice.SOURCE_GAMEPAD) != 0 ||
-                (event.getSource() & InputDevice.SOURCE_DPAD) != 0 ) {
+        // Some SOURCE_JOYSTICK, SOURCE_DPAD or SOURCE_GAMEPAD are also SOURCE_KEYBOARD
+        // So, we try to process them as JOYSTICK/DPAD/GAMEPAD events first, if that fails we try them as KEYBOARD
+        //
+        // Furthermore, it's possible a game controller has SOURCE_KEYBOARD and
+        // SOURCE_JOYSTICK, while its key events arrive from the keyboard source
+        // So, retrieve the device itself and check all of its sources
+        if (SDLActivity.isDeviceSDLJoystick(event.getDeviceId())) {
+            // Note that we process events with specific key codes here
             if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 if (SDLActivity.onNativePadDown(event.getDeviceId(), keyCode) == 0) {
                     return true;
@@ -245,7 +248,7 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
             }
         }
 
-        if( (event.getSource() & InputDevice.SOURCE_KEYBOARD) != 0) {
+        if ((event.getSource() & InputDevice.SOURCE_KEYBOARD) != 0) {
             if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 //Log.v("SDL", "key down: " + keyCode);
                 SDLActivity.onNativeKeyDown(keyCode);
@@ -255,6 +258,20 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
                 //Log.v("SDL", "key up: " + keyCode);
                 SDLActivity.onNativeKeyUp(keyCode);
                 return true;
+            }
+        }
+
+        if ((event.getSource() & InputDevice.SOURCE_MOUSE) != 0) {
+            // on some devices key events are sent for mouse BUTTON_BACK/FORWARD presses
+            // they are ignored here because sending them as mouse input to SDL is messy
+            if ((keyCode == KeyEvent.KEYCODE_BACK) || (keyCode == KeyEvent.KEYCODE_FORWARD)) {
+                switch (event.getAction()) {
+                    case KeyEvent.ACTION_DOWN:
+                    case KeyEvent.ACTION_UP:
+                        // mark the event as handled or it will be handled by system
+                        // handling KEYCODE_BACK by system will call onBackPressed()
+                        return true;
+                }
             }
         }
 
@@ -391,7 +408,7 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
             }
             SDLActivity.onNativeAccel(-x / SensorManager.GRAVITY_EARTH,
                     y / SensorManager.GRAVITY_EARTH,
-                    event.values[2] / SensorManager.GRAVITY_EARTH - 1);
+                    event.values[2] / SensorManager.GRAVITY_EARTH);
         }
     }
 }
