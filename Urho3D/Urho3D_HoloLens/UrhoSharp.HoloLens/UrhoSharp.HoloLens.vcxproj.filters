@@ -120,6 +120,7 @@
     <ClCompile Include="PlaneFinding\pch.cpp" />
     <ClCompile Include="PlaneFinding\Util.cpp" />
     <ClCompile Include="PlaneFinding\dllmain.cpp" />
+    <ClCompile Include="..\..\Source\Source\ThirdParty\SDL\src\video\winrt\SDL_winrtgamebar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Bindings\Native\ApplicationProxy.h" />
@@ -270,6 +271,7 @@
     <ClInclude Include="PlaneFinding\PlaneFinding.h" />
     <ClInclude Include="PlaneFinding\targetver.h" />
     <ClInclude Include="PlaneFinding\Util.h" />
+    <ClInclude Include="..\..\Source\Source\ThirdParty\SDL\src\video\winrt\SDL_winrtgamebar_cpp.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UrhoSharp.HoloLens_TemporaryKey.pfx" />
