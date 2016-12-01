@@ -85,13 +85,7 @@ namespace Urho.HoloLens
 			if (Input.GetKeyDown(Key.D)) cameraNode.Translate( Vector3.UnitX * moveSpeed * timeStep);
 		}
 
-		protected virtual XmlFile DefaultRenderPath => Emulator ? 
-			CoreAssets.RenderPaths.Forward :
-#if UWP_HOLO
-			CoreAssets.RenderPaths.ForwardHWDepth;
-#else
-			CoreAssets.RenderPaths.Forward;
-#endif
+		protected virtual XmlFile DefaultRenderPath => CoreAssets.RenderPaths.Forward;
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void Camera_SetHoloProjections(
