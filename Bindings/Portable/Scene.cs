@@ -39,12 +39,6 @@ namespace Urho
 			ComponentCloned += Scene_ComponentCloned;
 		}
 
-		protected override void OnDeleted()
-		{
-			ComponentCloned -= Scene_ComponentCloned;
-			base.OnDeleted();
-		}
-
 		void Scene_ComponentCloned(ComponentClonedEventArgs e)
 		{
 			if (e.CloneComponent.GetType() != e.Component.GetType())
