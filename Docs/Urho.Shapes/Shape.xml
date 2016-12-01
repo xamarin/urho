@@ -36,6 +36,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected Shape (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Color">
       <MemberSignature Language="C#" Value="public Urho.Color Color { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Color Color" />
@@ -85,6 +101,27 @@
       <Docs>
         <param name="node">To be added.</param>
         <summary>Implements OnAttachedToNode.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCloned">
+      <MemberSignature Language="C#" Value="public override void OnCloned (Urho.Scene scene, Urho.Component originalComponent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnCloned(class Urho.Scene scene, class Urho.Component originalComponent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="Urho.Scene" />
+        <Parameter Name="originalComponent" Type="Urho.Component" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <param name="originalComponent">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

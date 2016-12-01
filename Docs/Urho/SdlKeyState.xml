@@ -1,0 +1,45 @@
+<Type Name="SdlKeyState" FullName="Urho.SdlKeyState">
+  <TypeSignature Language="C#" Value="public enum SdlKeyState" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed SdlKeyState extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="SDL_PRESSED">
+      <MemberSignature Language="C#" Value="SDL_PRESSED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlKeyState SDL_PRESSED = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlKeyState</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_RELEASED">
+      <MemberSignature Language="C#" Value="SDL_RELEASED" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SdlKeyState SDL_RELEASED = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SdlKeyState</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

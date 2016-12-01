@@ -3,6 +3,22 @@
         <name>Urho</name>
     </assembly>
     <members>
+        <member name="T:PreserveAttribute">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:PreserveAttribute">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:PreserveAttribute.AllMembers">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:PreserveAttribute.Conditional">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Animatable">
             <summary>
             Base class for animatable object, an animatable object can be set animation on it's attributes, or can be set an object animation to it.
@@ -1705,6 +1721,10 @@
                 <para />
             </remarks>
         </member>
+        <member name="F:Urho.Application.PixelSize">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Application.Platform">
             <summary>Simple way of obtaining the platform on which the program is running from cross platform code.</summary>
             <value>
@@ -1791,6 +1811,10 @@
         <member name="P:Urho.Application.UI">
             <summary>Returns the UI subsystem.</summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Application.UnhandledException">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="E:Urho.Application.Update">
@@ -3620,6 +3644,12 @@ while (true){
         </member>
         <member name="M:Urho.Component.OnAttachedToNode(Urho.Node)">
             <param name="node"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Component.OnCloned(Urho.Scene,Urho.Component)">
+            <param name="scene"></param>
+            <param name="originalComponent"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -17882,6 +17912,9 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <member name="F:Urho.Platforms.Android">
             <summary>Running on Android.</summary>
         </member>
+        <member name="F:Urho.Platforms.HoloLens">
+            <summary></summary>
+        </member>
         <member name="F:Urho.Platforms.iOS">
             <summary>Running on iOS.</summary>
         </member>
@@ -20878,6 +20911,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToComponentAdded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
+        <member name="E:Urho.Scene.ComponentCloned">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="E:Urho.Scene.ComponentEnabledChanged">
             <summary></summary>
             <remarks>
@@ -21136,6 +21173,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
                 <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToNodeAdded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
             </remarks>
         </member>
+        <member name="E:Urho.Scene.NodeCloned">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="E:Urho.Scene.NodeEnabledChanged">
             <summary></summary>
             <remarks>
@@ -21163,6 +21204,10 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <member name="M:Urho.Scene.NodeTagRemoved(Urho.Node,System.String)">
             <param name="node"></param>
             <param name="tag"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Scene.OnDeleted">
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -21335,6 +21380,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
                 <para>For a more event-like approach, use the <see cref="E:Urho.Scene.ComponentAdded" /> event.</para>
             </remarks>
         </member>
+        <member name="M:Urho.Scene.SubscribeToComponentCloned(System.Action{Urho.ComponentClonedEventArgs})">
+            <param name="handler"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Scene.SubscribeToComponentEnabledChanged(System.Action{Urho.ComponentEnabledChangedEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
             <summary>Subscribes to the ComponentEnabledChanged event raised by the Scene.</summary>
@@ -21364,6 +21415,12 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
                 <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
                 <para>For a more event-like approach, use the <see cref="E:Urho.Scene.NodeAdded" /> event.</para>
             </remarks>
+        </member>
+        <member name="M:Urho.Scene.SubscribeToNodeCloned(System.Action{Urho.NodeClonedEventArgs})">
+            <param name="handler"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
         </member>
         <member name="M:Urho.Scene.SubscribeToNodeEnabledChanged(System.Action{Urho.NodeEnabledChangedEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
@@ -21616,6 +21673,18 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Sdl.SendKeyboardEvent(Urho.SdlKeyState,System.Int32)">
+            <param name="state"></param>
+            <param name="key"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Sdl.SendKeyboardEvent(Urho.SdlKeyState,Urho.SDL_Scancode)">
+            <param name="state"></param>
+            <param name="key"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Sdl.SendWindowEvent(Urho.SdlWindowEvent,System.Int32,System.Int32)">
             <param name="wndEvent"></param>
             <param name="data1"></param>
@@ -21630,6 +21699,736 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <member name="T:Urho.SDL_Event">
             <summary></summary>
             <remarks></remarks>
+        </member>
+        <member name="T:Urho.SDL_Scancode">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_NUM_SCANCODES">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_0">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_3">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_4">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_5">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_6">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_7">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_8">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_9">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_A">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AC_BACK">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AC_BOOKMARKS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AC_FORWARD">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AC_HOME">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AC_REFRESH">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AC_SEARCH">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AC_STOP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AGAIN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_ALTERASE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_APOSTROPHE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_APP1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_APP2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_APPLICATION">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AUDIOMUTE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AUDIONEXT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AUDIOPLAY">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AUDIOPREV">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AUDIOSTOP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_B">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_BACKSLASH">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_BACKSPACE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_BRIGHTNESSDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_BRIGHTNESSUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_C">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CALCULATOR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CANCEL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CAPSLOCK">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CLEAR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CLEARAGAIN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_COMMA">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_COMPUTER">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_COPY">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CRSEL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CURRENCYSUBUNIT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CURRENCYUNIT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_CUT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_D">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_DECIMALSEPARATOR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_DELETE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_DISPLAYSWITCH">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_DOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_E">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_EJECT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_END">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_EQUALS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_ESCAPE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_EXECUTE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_EXSEL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F10">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F11">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F12">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F13">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F14">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F15">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F16">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F17">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F18">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F19">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F20">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F21">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F22">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F23">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F24">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F3">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F4">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F5">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F6">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F7">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F8">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_F9">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_FIND">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_G">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_GRAVE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_H">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_HELP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_HOME">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_I">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INSERT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL3">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL4">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL5">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL6">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL7">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL8">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_INTERNATIONAL9">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_J">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_K">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KBDILLUMDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KBDILLUMTOGGLE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KBDILLUMUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_0">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_00">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_000">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_3">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_4">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_5">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_6">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_7">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_8">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_9">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_A">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_AMPERSAND">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_AT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_B">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_BACKSPACE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_BINARY">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_C">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_CLEAR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_CLEARENTRY">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_COLON">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_COMMA">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_D">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_DBLAMPERSAND">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_DBLVERTICALBAR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_DECIMAL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_DIVIDE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_E">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_ENTER">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_EQUALS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_EQUALSAS400">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_EXCLAM">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_F">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_GREATER">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_HASH">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_HEXADECIMAL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_LEFTBRACE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_LEFTPAREN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_LESS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MEMADD">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MEMCLEAR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MEMDIVIDE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MEMMULTIPLY">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MEMRECALL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MEMSTORE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MEMSUBTRACT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MINUS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_MULTIPLY">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_OCTAL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_PERCENT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_PERIOD">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_PLUS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_PLUSMINUS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_POWER">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_RIGHTBRACE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_RIGHTPAREN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_SPACE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_TAB">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_VERTICALBAR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_KP_XOR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_L">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LALT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG1">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG3">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG4">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG5">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG6">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG7">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG8">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LANG9">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LCTRL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LEFT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LEFTBRACKET">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LGUI">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_LSHIFT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_M">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_MAIL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_MEDIASELECT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_MENU">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_MINUS">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_MODE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_MUTE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_N">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_NONUSBACKSLASH">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_NONUSHASH">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_NUMLOCKCLEAR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_O">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_OPER">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_OUT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_P">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_PAGEDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_PAGEUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_PASTE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_PAUSE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_PERIOD">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_POWER">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_PRINTSCREEN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_PRIOR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_Q">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_R">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_RALT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_RCTRL">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_RETURN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_RETURN2">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_RGUI">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_RIGHT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_RIGHTBRACKET">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_RSHIFT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_S">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_SCROLLLOCK">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_SELECT">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_SEMICOLON">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_SEPARATOR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_SLASH">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_SLEEP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_SPACE">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_STOP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_SYSREQ">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_T">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_TAB">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_THOUSANDSSEPARATOR">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_U">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_UNDO">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_UNKNOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_UP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_V">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_VOLUMEDOWN">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_VOLUMEUP">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_W">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_WWW">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_X">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_Y">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_Z">
+            <summary></summary>
         </member>
         <member name="T:Urho.SdlEventType">
             <summary></summary>
@@ -21759,6 +22558,16 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
         </member>
         <member name="F:Urho.SdlEventType.SDL_WINDOWEVENT">
+            <summary></summary>
+        </member>
+        <member name="T:Urho.SdlKeyState">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SdlKeyState.SDL_PRESSED">
+            <summary></summary>
+        </member>
+        <member name="F:Urho.SdlKeyState.SDL_RELEASED">
             <summary></summary>
         </member>
         <member name="T:Urho.SDLRawInputEventArgs">
@@ -26301,6 +27110,25 @@ uniform sampler2D sDetailMap3;]]></code>
         <member name="F:Urho.TypeInfo.TypeName">
             <summary>Urho's low-level type name.</summary>
             <remarks />
+        </member>
+        <member name="T:Urho.UnhandledExceptionEventArgs">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.UnhandledExceptionEventArgs(System.Exception)">
+            <param name="exception"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.UnhandledExceptionEventArgs.Exception">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.UnhandledExceptionEventArgs.Handled">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
         </member>
         <member name="T:Urho.UnknownComponent">
             <summary>
@@ -52277,6 +53105,11 @@ public class MyApplication : HoloApplication
             </summary>
             <remarks />
         </member>
+        <member name="C:Urho.Shapes.Box(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Shapes.Box.ModelResource">
             <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
             <value></value>
@@ -52305,6 +53138,11 @@ public class MyApplication : HoloApplication
                 <para>Constructs an instance of the type, for internal use.   These types are created by calling <see cref="M:Urho.Node.CreateComponent" /></para>
             </summary>
             <remarks />
+        </member>
+        <member name="C:Urho.Shapes.Cone(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.Shapes.Cone.ModelResource">
             <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
@@ -52335,6 +53173,11 @@ public class MyApplication : HoloApplication
             </summary>
             <remarks />
         </member>
+        <member name="C:Urho.Shapes.Cylinder(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Shapes.Cylinder.ModelResource">
             <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
             <value></value>
@@ -52361,6 +53204,11 @@ public class MyApplication : HoloApplication
                 <para>Constructs an instance of the type, for internal use.   These types are created by calling <see cref="M:Urho.Node.CreateComponent" /></para>
             </summary>
             <remarks />
+        </member>
+        <member name="C:Urho.Shapes.Plane(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.Shapes.Plane.ModelResource">
             <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
@@ -52391,6 +53239,11 @@ public class MyApplication : HoloApplication
             </summary>
             <remarks />
         </member>
+        <member name="C:Urho.Shapes.Pyramid(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Shapes.Pyramid.ModelResource">
             <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
             <value></value>
@@ -52412,6 +53265,11 @@ public class MyApplication : HoloApplication
             </summary>
             <remarks />
         </member>
+        <member name="C:Urho.Shapes.Shape(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Shapes.Shape.Color">
             <summary>Color for the shape.</summary>
             <value></value>
@@ -52425,6 +53283,12 @@ public class MyApplication : HoloApplication
         <member name="M:Urho.Shapes.Shape.OnAttachedToNode(Urho.Node)">
             <param name="node"></param>
             <summary>Implements OnAttachedToNode.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Shapes.Shape.OnCloned(Urho.Scene,Urho.Component)">
+            <param name="scene"></param>
+            <param name="originalComponent"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Shapes.Shape.OnDeserialize(Urho.Resources.IComponentDeserializer)">
@@ -52461,6 +53325,11 @@ public class MyApplication : HoloApplication
             </summary>
             <remarks />
         </member>
+        <member name="C:Urho.Shapes.Sphere(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Shapes.Sphere.ModelResource">
             <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
             <value></value>
@@ -52489,6 +53358,11 @@ public class MyApplication : HoloApplication
                 <para>Constructs an instance of the type, for internal use.   These types are created by calling <see cref="M:Urho.Node.CreateComponent" /></para>
             </summary>
             <remarks />
+        </member>
+        <member name="C:Urho.Shapes.Torus(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.Shapes.Torus.ModelResource">
             <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
@@ -56855,6 +57729,15 @@ public class MyApplication : HoloApplication
             <summary>
             Set data either partially or fully on a mip level. Return true if successful.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.Texture2D.SetSize(System.Int32,System.Int32,System.UInt32,Urho.TextureUsage)">
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="format"></param>
+            <param name="usage"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>

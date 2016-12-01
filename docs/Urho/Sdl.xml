@@ -33,6 +33,48 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SendKeyboardEvent">
+      <MemberSignature Language="C#" Value="public static void SendKeyboardEvent (Urho.SdlKeyState state, int key);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SendKeyboardEvent(valuetype Urho.SdlKeyState state, int32 key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="state" Type="Urho.SdlKeyState" />
+        <Parameter Name="key" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="state">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SendKeyboardEvent">
+      <MemberSignature Language="C#" Value="public static void SendKeyboardEvent (Urho.SdlKeyState state, Urho.SDL_Scancode key);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SendKeyboardEvent(valuetype Urho.SdlKeyState state, valuetype Urho.SDL_Scancode key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="state" Type="Urho.SdlKeyState" />
+        <Parameter Name="key" Type="Urho.SDL_Scancode" />
+      </Parameters>
+      <Docs>
+        <param name="state">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SendWindowEvent">
       <MemberSignature Language="C#" Value="public static void SendWindowEvent (Urho.SdlWindowEvent wndEvent, int data1 = 0, int data2 = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SendWindowEvent(valuetype Urho.SdlWindowEvent wndEvent, int32 data1, int32 data2) cil managed" />

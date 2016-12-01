@@ -1,0 +1,3405 @@
+<Type Name="SDL_Scancode" FullName="Urho.SDL_Scancode">
+  <TypeSignature Language="C#" Value="public enum SDL_Scancode" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed SDL_Scancode extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="SDL_NUM_SCANCODES">
+      <MemberSignature Language="C#" Value="SDL_NUM_SCANCODES" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_NUM_SCANCODES = int32(512)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_0">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_0" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_0 = int32(39)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_1">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_1 = int32(30)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_2">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_2 = int32(31)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_3">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_3" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_3 = int32(32)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_4">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_4" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_4 = int32(33)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_5">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_5" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_5 = int32(34)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_6">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_6" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_6 = int32(35)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_7">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_7" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_7 = int32(36)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_8">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_8" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_8 = int32(37)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_9">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_9" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_9 = int32(38)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_A">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_A" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_A = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AC_BACK">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AC_BACK" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AC_BACK = int32(270)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AC_BOOKMARKS">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AC_BOOKMARKS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AC_BOOKMARKS = int32(274)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AC_FORWARD">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AC_FORWARD" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AC_FORWARD = int32(271)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AC_HOME">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AC_HOME" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AC_HOME = int32(269)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AC_REFRESH">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AC_REFRESH" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AC_REFRESH = int32(273)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AC_SEARCH">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AC_SEARCH" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AC_SEARCH = int32(268)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AC_STOP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AC_STOP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AC_STOP = int32(272)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AGAIN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AGAIN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AGAIN = int32(121)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_ALTERASE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_ALTERASE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_ALTERASE = int32(153)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_APOSTROPHE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_APOSTROPHE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_APOSTROPHE = int32(52)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_APP1">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_APP1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_APP1 = int32(283)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_APP2">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_APP2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_APP2 = int32(284)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_APPLICATION">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_APPLICATION" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_APPLICATION = int32(101)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AUDIOMUTE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AUDIOMUTE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AUDIOMUTE = int32(262)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AUDIONEXT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AUDIONEXT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AUDIONEXT = int32(258)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AUDIOPLAY">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AUDIOPLAY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AUDIOPLAY = int32(261)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AUDIOPREV">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AUDIOPREV" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AUDIOPREV = int32(259)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_AUDIOSTOP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_AUDIOSTOP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_AUDIOSTOP = int32(260)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_B">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_B" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_B = int32(5)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_BACKSLASH">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_BACKSLASH" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_BACKSLASH = int32(49)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_BACKSPACE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_BACKSPACE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_BACKSPACE = int32(42)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_BRIGHTNESSDOWN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_BRIGHTNESSDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_BRIGHTNESSDOWN = int32(275)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_BRIGHTNESSUP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_BRIGHTNESSUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_BRIGHTNESSUP = int32(276)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_C">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_C" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_C = int32(6)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CALCULATOR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CALCULATOR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CALCULATOR = int32(266)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CANCEL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CANCEL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CANCEL = int32(155)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CAPSLOCK">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CAPSLOCK" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CAPSLOCK = int32(57)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CLEAR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CLEAR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CLEAR = int32(156)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CLEARAGAIN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CLEARAGAIN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CLEARAGAIN = int32(162)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_COMMA">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_COMMA" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_COMMA = int32(54)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_COMPUTER">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_COMPUTER" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_COMPUTER = int32(267)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_COPY">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_COPY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_COPY = int32(124)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CRSEL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CRSEL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CRSEL = int32(163)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CURRENCYSUBUNIT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CURRENCYSUBUNIT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CURRENCYSUBUNIT = int32(181)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CURRENCYUNIT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CURRENCYUNIT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CURRENCYUNIT = int32(180)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_CUT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_CUT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_CUT = int32(123)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_D">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_D" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_D = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_DECIMALSEPARATOR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_DECIMALSEPARATOR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_DECIMALSEPARATOR = int32(179)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_DELETE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_DELETE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_DELETE = int32(76)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_DISPLAYSWITCH">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_DISPLAYSWITCH" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_DISPLAYSWITCH = int32(277)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_DOWN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_DOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_DOWN = int32(81)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_E">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_E" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_E = int32(8)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_EJECT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_EJECT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_EJECT = int32(281)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_END">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_END" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_END = int32(77)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_EQUALS">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_EQUALS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_EQUALS = int32(46)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_ESCAPE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_ESCAPE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_ESCAPE = int32(41)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_EXECUTE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_EXECUTE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_EXECUTE = int32(116)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_EXSEL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_EXSEL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_EXSEL = int32(164)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F = int32(9)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F1">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F1 = int32(58)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F10">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F10" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F10 = int32(67)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F11">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F11" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F11 = int32(68)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F12">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F12" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F12 = int32(69)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F13">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F13" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F13 = int32(104)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F14">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F14" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F14 = int32(105)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F15">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F15" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F15 = int32(106)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F16">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F16" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F16 = int32(107)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F17">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F17" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F17 = int32(108)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F18">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F18" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F18 = int32(109)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F19">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F19" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F19 = int32(110)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F2">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F2 = int32(59)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F20">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F20" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F20 = int32(111)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F21">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F21" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F21 = int32(112)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F22">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F22" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F22 = int32(113)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F23">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F23" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F23 = int32(114)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F24">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F24" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F24 = int32(115)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F3">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F3" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F3 = int32(60)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F4">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F4" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F4 = int32(61)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F5">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F5" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F5 = int32(62)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F6">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F6" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F6 = int32(63)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F7">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F7" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F7 = int32(64)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F8">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F8" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F8 = int32(65)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_F9">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_F9" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_F9 = int32(66)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_FIND">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_FIND" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_FIND = int32(126)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_G">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_G" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_G = int32(10)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_GRAVE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_GRAVE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_GRAVE = int32(53)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_H">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_H" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_H = int32(11)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_HELP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_HELP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_HELP = int32(117)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_HOME">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_HOME" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_HOME = int32(74)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_I">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_I" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_I = int32(12)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INSERT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INSERT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INSERT = int32(73)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL1">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL1 = int32(135)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL2">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL2 = int32(136)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL3">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL3" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL3 = int32(137)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL4">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL4" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL4 = int32(138)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL5">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL5" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL5 = int32(139)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL6">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL6" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL6 = int32(140)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL7">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL7" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL7 = int32(141)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL8">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL8" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL8 = int32(142)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_INTERNATIONAL9">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_INTERNATIONAL9" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_INTERNATIONAL9 = int32(143)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_J">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_J" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_J = int32(13)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_K">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_K" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_K = int32(14)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KBDILLUMDOWN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KBDILLUMDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KBDILLUMDOWN = int32(279)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KBDILLUMTOGGLE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KBDILLUMTOGGLE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KBDILLUMTOGGLE = int32(278)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KBDILLUMUP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KBDILLUMUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KBDILLUMUP = int32(280)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_0">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_0" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_0 = int32(98)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_00">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_00" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_00 = int32(176)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_000">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_000" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_000 = int32(177)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_1">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_1 = int32(89)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_2">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_2 = int32(90)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_3">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_3" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_3 = int32(91)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_4">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_4" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_4 = int32(92)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_5">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_5" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_5 = int32(93)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_6">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_6" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_6 = int32(94)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_7">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_7" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_7 = int32(95)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_8">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_8" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_8 = int32(96)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_9">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_9" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_9 = int32(97)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_A">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_A" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_A = int32(188)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_AMPERSAND">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_AMPERSAND" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_AMPERSAND = int32(199)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_AT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_AT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_AT = int32(206)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_B">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_B" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_B = int32(189)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_BACKSPACE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_BACKSPACE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_BACKSPACE = int32(187)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_BINARY">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_BINARY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_BINARY = int32(218)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_C">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_C" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_C = int32(190)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_CLEAR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_CLEAR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_CLEAR = int32(216)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_CLEARENTRY">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_CLEARENTRY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_CLEARENTRY = int32(217)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_COLON">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_COLON" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_COLON = int32(203)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_COMMA">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_COMMA" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_COMMA = int32(133)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_D">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_D" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_D = int32(191)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_DBLAMPERSAND">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_DBLAMPERSAND" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_DBLAMPERSAND = int32(200)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_DBLVERTICALBAR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_DBLVERTICALBAR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_DBLVERTICALBAR = int32(202)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_DECIMAL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_DECIMAL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_DECIMAL = int32(220)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_DIVIDE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_DIVIDE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_DIVIDE = int32(84)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_E">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_E" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_E = int32(192)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_ENTER">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_ENTER" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_ENTER = int32(88)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_EQUALS">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_EQUALS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_EQUALS = int32(103)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_EQUALSAS400">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_EQUALSAS400" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_EQUALSAS400 = int32(134)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_EXCLAM">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_EXCLAM" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_EXCLAM = int32(207)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_F">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_F" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_F = int32(193)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_GREATER">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_GREATER" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_GREATER = int32(198)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_HASH">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_HASH" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_HASH = int32(204)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_HEXADECIMAL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_HEXADECIMAL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_HEXADECIMAL = int32(221)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_LEFTBRACE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_LEFTBRACE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_LEFTBRACE = int32(184)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_LEFTPAREN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_LEFTPAREN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_LEFTPAREN = int32(182)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_LESS">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_LESS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_LESS = int32(197)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MEMADD">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MEMADD" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MEMADD = int32(211)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MEMCLEAR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MEMCLEAR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MEMCLEAR = int32(210)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MEMDIVIDE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MEMDIVIDE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MEMDIVIDE = int32(214)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MEMMULTIPLY">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MEMMULTIPLY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MEMMULTIPLY = int32(213)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MEMRECALL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MEMRECALL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MEMRECALL = int32(209)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MEMSTORE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MEMSTORE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MEMSTORE = int32(208)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MEMSUBTRACT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MEMSUBTRACT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MEMSUBTRACT = int32(212)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MINUS">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MINUS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MINUS = int32(86)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_MULTIPLY">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_MULTIPLY" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_MULTIPLY = int32(85)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_OCTAL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_OCTAL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_OCTAL = int32(219)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_PERCENT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_PERCENT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_PERCENT = int32(196)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_PERIOD">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_PERIOD" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_PERIOD = int32(99)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_PLUS">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_PLUS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_PLUS = int32(87)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_PLUSMINUS">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_PLUSMINUS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_PLUSMINUS = int32(215)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_POWER">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_POWER" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_POWER = int32(195)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_RIGHTBRACE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_RIGHTBRACE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_RIGHTBRACE = int32(185)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_RIGHTPAREN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_RIGHTPAREN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_RIGHTPAREN = int32(183)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_SPACE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_SPACE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_SPACE = int32(205)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_TAB">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_TAB" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_TAB = int32(186)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_VERTICALBAR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_VERTICALBAR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_VERTICALBAR = int32(201)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_KP_XOR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_KP_XOR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_KP_XOR = int32(194)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_L">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_L" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_L = int32(15)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LALT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LALT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LALT = int32(226)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG1">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG1" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG1 = int32(144)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG2">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG2 = int32(145)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG3">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG3" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG3 = int32(146)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG4">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG4" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG4 = int32(147)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG5">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG5" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG5 = int32(148)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG6">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG6" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG6 = int32(149)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG7">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG7" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG7 = int32(150)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG8">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG8" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG8 = int32(151)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LANG9">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LANG9" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LANG9 = int32(152)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LCTRL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LCTRL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LCTRL = int32(224)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LEFT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LEFT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LEFT = int32(80)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LEFTBRACKET">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LEFTBRACKET" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LEFTBRACKET = int32(47)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LGUI">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LGUI" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LGUI = int32(227)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_LSHIFT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_LSHIFT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_LSHIFT = int32(225)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_M">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_M" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_M = int32(16)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_MAIL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_MAIL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_MAIL = int32(265)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_MEDIASELECT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_MEDIASELECT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_MEDIASELECT = int32(263)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_MENU">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_MENU" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_MENU = int32(118)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_MINUS">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_MINUS" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_MINUS = int32(45)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_MODE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_MODE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_MODE = int32(257)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_MUTE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_MUTE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_MUTE = int32(127)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_N">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_N" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_N = int32(17)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_NONUSBACKSLASH">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_NONUSBACKSLASH" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_NONUSBACKSLASH = int32(100)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_NONUSHASH">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_NONUSHASH" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_NONUSHASH = int32(50)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_NUMLOCKCLEAR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_NUMLOCKCLEAR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_NUMLOCKCLEAR = int32(83)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_O">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_O" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_O = int32(18)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_OPER">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_OPER" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_OPER = int32(161)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_OUT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_OUT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_OUT = int32(160)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_P">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_P" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_P = int32(19)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_PAGEDOWN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_PAGEDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_PAGEDOWN = int32(78)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_PAGEUP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_PAGEUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_PAGEUP = int32(75)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_PASTE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_PASTE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_PASTE = int32(125)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_PAUSE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_PAUSE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_PAUSE = int32(72)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_PERIOD">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_PERIOD" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_PERIOD = int32(55)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_POWER">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_POWER" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_POWER = int32(102)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_PRINTSCREEN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_PRINTSCREEN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_PRINTSCREEN = int32(70)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_PRIOR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_PRIOR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_PRIOR = int32(157)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_Q">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_Q" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_Q = int32(20)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_R">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_R" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_R = int32(21)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_RALT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_RALT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_RALT = int32(230)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_RCTRL">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_RCTRL" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_RCTRL = int32(228)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_RETURN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_RETURN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_RETURN = int32(40)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_RETURN2">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_RETURN2" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_RETURN2 = int32(158)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_RGUI">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_RGUI" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_RGUI = int32(231)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_RIGHT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_RIGHT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_RIGHT = int32(79)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_RIGHTBRACKET">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_RIGHTBRACKET" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_RIGHTBRACKET = int32(48)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_RSHIFT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_RSHIFT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_RSHIFT = int32(229)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_S">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_S" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_S = int32(22)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_SCROLLLOCK">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_SCROLLLOCK" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_SCROLLLOCK = int32(71)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_SELECT">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_SELECT" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_SELECT = int32(119)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_SEMICOLON">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_SEMICOLON" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_SEMICOLON = int32(51)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_SEPARATOR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_SEPARATOR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_SEPARATOR = int32(159)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_SLASH">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_SLASH" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_SLASH = int32(56)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_SLEEP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_SLEEP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_SLEEP = int32(282)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_SPACE">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_SPACE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_SPACE = int32(44)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_STOP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_STOP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_STOP = int32(120)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_SYSREQ">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_SYSREQ" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_SYSREQ = int32(154)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_T">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_T" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_T = int32(23)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_TAB">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_TAB" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_TAB = int32(43)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_THOUSANDSSEPARATOR">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_THOUSANDSSEPARATOR" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_THOUSANDSSEPARATOR = int32(178)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_U">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_U" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_U = int32(24)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_UNDO">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_UNDO" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_UNDO = int32(122)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_UNKNOWN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_UNKNOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_UNKNOWN = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_UP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_UP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_UP = int32(82)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_V">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_V" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_V = int32(25)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_VOLUMEDOWN">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_VOLUMEDOWN" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_VOLUMEDOWN = int32(129)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_VOLUMEUP">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_VOLUMEUP" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_VOLUMEUP = int32(128)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_W">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_W" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_W = int32(26)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_WWW">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_WWW" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_WWW = int32(264)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_X">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_X" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_X = int32(27)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_Y">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_Y" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_Y = int32(28)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="SDL_SCANCODE_Z">
+      <MemberSignature Language="C#" Value="SDL_SCANCODE_Z" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.SDL_Scancode SDL_SCANCODE_Z = int32(29)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SDL_Scancode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

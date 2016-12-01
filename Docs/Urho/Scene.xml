@@ -52,6 +52,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters />
       <Docs>
         <summary>
@@ -68,6 +73,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
@@ -88,6 +98,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="context" Type="Urho.Context" />
       </Parameters>
@@ -107,6 +122,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
       </Parameters>
@@ -396,6 +416,21 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <remarks>
           <para>The event can register multiple callbacks and invoke all of them.   If this is not desired, and you only need a single shot callback, you can use the <see cref="M:Urho.SubscribeToComponentAdded" /> method.   That one will force that callback and will ignore any previously set events here.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ComponentCloned">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.ComponentClonedEventArgs&gt; ComponentCloned;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.ComponentClonedEventArgs&gt; ComponentCloned" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.ComponentClonedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ComponentEnabledChanged">
@@ -1155,6 +1190,21 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="NodeCloned">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.NodeClonedEventArgs&gt; NodeCloned;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NodeClonedEventArgs&gt; NodeCloned" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.NodeClonedEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NodeEnabledChanged">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.NodeEnabledChangedEventArgs&gt; NodeEnabledChanged;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.NodeEnabledChangedEventArgs&gt; NodeEnabledChanged" />
@@ -1244,6 +1294,22 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <param name="node">To be added.</param>
         <param name="tag">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeleted">
+      <MemberSignature Language="C#" Value="protected override void OnDeleted ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void OnDeleted() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1719,6 +1785,26 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubscribeToComponentCloned">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToComponentCloned (Action&lt;Urho.ComponentClonedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToComponentCloned(class System.Action`1&lt;valuetype Urho.ComponentClonedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.ComponentClonedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SubscribeToComponentEnabledChanged">
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToComponentEnabledChanged (Action&lt;Urho.ComponentEnabledChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToComponentEnabledChanged(class System.Action`1&lt;valuetype Urho.ComponentEnabledChangedEventArgs&gt; handler) cil managed" />
@@ -1789,6 +1875,26 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
           <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
           <para>For a more event-like approach, use the <see cref="E:Urho.Scene.NodeAdded" /> event.</para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToNodeCloned">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNodeCloned (Action&lt;Urho.NodeClonedEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNodeCloned(class System.Action`1&lt;valuetype Urho.NodeClonedEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.NodeClonedEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeEnabledChanged">
@@ -2076,6 +2182,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.StringHash</ReturnType>
       </ReturnValue>

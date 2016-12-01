@@ -9,6 +9,11 @@
     <BaseTypeName>Urho.UrhoObject</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Preserve(AllMembers=true)</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
     <summary>
             Base class for creating applications which initialize the Urho3D engine and run a main loop until exited.
@@ -121,6 +126,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
@@ -141,6 +151,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="options" Type="Urho.ApplicationOptions" />
       </Parameters>
@@ -157,6 +172,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="emptyFlag" Type="Urho.UrhoObjectFlag" />
       </Parameters>
@@ -582,6 +602,22 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="PixelSize">
+      <MemberSignature Language="C#" Value="public const float PixelSize = 0.01;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal float32 PixelSize = (0.01)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <MemberValue>0.01</MemberValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Platform">
       <MemberSignature Language="C#" Value="public static Urho.Platforms Platform { get; }" />
       <MemberSignature Language="ILAsm" Value=".property valuetype Urho.Platforms Platform" />
@@ -839,6 +875,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.StringHash</ReturnType>
       </ReturnValue>
@@ -862,6 +903,21 @@
       <Docs>
         <summary>Returns the UI subsystem.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnhandledException">
+      <MemberSignature Language="C#" Value="public static event EventHandler&lt;Urho.UnhandledExceptionEventArgs&gt; UnhandledException;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Urho.UnhandledExceptionEventArgs&gt; UnhandledException" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Urho.UnhandledExceptionEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

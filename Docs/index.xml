@@ -47,6 +47,9 @@
   <Remarks>To be added.</Remarks>
   <Copyright>To be added.</Copyright>
   <Types>
+    <Namespace Name="">
+      <Type Name="PreserveAttribute" Kind="Class" />
+    </Namespace>
     <Namespace Name="Urho">
       <Type Name="Animatable" Kind="Class" />
       <Type Name="AnimatedModel" Kind="Class" />
@@ -287,7 +290,9 @@
       <Type Name="ScreenModeEventArgs" Kind="Structure" />
       <Type Name="Sdl" Kind="Class" />
       <Type Name="SDL_Event" Kind="Structure" />
+      <Type Name="SDL_Scancode" Kind="Enumeration" />
       <Type Name="SdlEventType" Kind="Enumeration" />
+      <Type Name="SdlKeyState" Kind="Enumeration" />
       <Type Name="SDLRawInputEventArgs" Kind="Structure" />
       <Type Name="SdlWindowEvent" Kind="Enumeration" />
       <Type Name="Serializable" Kind="Class" />
@@ -341,6 +346,7 @@
       <Type Name="TransformSpace" Kind="Enumeration" />
       <Type Name="TriangleMeshData" Kind="Structure" />
       <Type Name="TypeInfo" Kind="Structure" />
+      <Type Name="UnhandledExceptionEventArgs" Kind="Class" />
       <Type Name="UnknownComponent" Kind="Class" />
       <Type Name="UpdateEventArgs" Kind="Structure" />
       <Type Name="UpdateGeometryType" Kind="Enumeration" />
