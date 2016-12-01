@@ -1,7 +1,7 @@
 ﻿{
 	"dependencies": {
 		"Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-		"UrhoSharp.HoloLens": "1.1.231"
+		"UrhoSharp.HoloLens": "1.2.4.3"
 	},
 
 	"frameworks": {

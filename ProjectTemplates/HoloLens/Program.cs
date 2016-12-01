@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using Urho;
 using Urho.Actions;
 using Urho.HoloLens;
@@ -13,18 +16,38 @@ namespace $safeprojectname$
 	/// </summary>
 	internal class Program
 	{
-		/// <summary>
-		/// Defines the entry point of the application.
-		/// </summary>
 		[MTAThread]
-		private static void Main()
+		static void Main()
 		{
-			CoreApplication.Run(new AppViewSource());
+			var options = new ApplicationOptions("Data");
+			var appViewSource = new UrhoAppViewSource<HelloWorldApplication>(options);
+			appViewSource.UrhoAppViewCreated += AppViewCreated;
+			Urho.Application.UnhandledException += Application_UnhandledException;
+			CoreApplication.Run(appViewSource);
 		}
 
-		class AppViewSource : IFrameworkViewSource
+		static void AppViewCreated(UrhoAppView view)
 		{
-			public IFrameworkView CreateView() => UrhoAppView.Create<HelloWorldApplication>(new ApplicationOptions("Data"));
+			view.WindowIsSet += View_WindowIsSet;
+			view.AppStarted += View_AppStarted;
+		}
+
+		static void Application_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+		{
+			Debug.WriteLine(e.Exception);
+			if (Debugger.IsAttached)
+				Debugger.Break();
+			// e.Handled = true;
+		}
+
+		static void View_AppStarted(HoloApplication app)
+		{
+		}
+
+		static void View_WindowIsSet(CoreWindow window)
+		{
+			// Subscribe to CoreWindow events, for example Input
+			// window.KeyDown += 
 		}
 	}
 
@@ -96,7 +119,6 @@ namespace $safeprojectname$
 		{
 			earthNode.Position = relativeHandPosition + earthPostionBeforeManipulations;
 		}
-
 
 		public override void OnGestureTapped()
 		{

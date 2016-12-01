@@ -499,7 +499,8 @@ namespace Urho {
 			string[] errorsToSkip =
 				{
 					"Could not initialize audio output.",
-					"Failed to create input layout for shader"
+					"Failed to create input layout for shader",
+					"Failed to create texture"
 				};
 			foreach (var item in errorsToSkip)
 				if (exc.Message.StartsWith(item))
