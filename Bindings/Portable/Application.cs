@@ -496,7 +496,11 @@ namespace Urho {
 
 		internal static void ThrowUnhandledException(Exception exc)
 		{
-			string[] errorsToSkip = { "Could not initialize audio output." };
+			string[] errorsToSkip =
+				{
+					"Could not initialize audio output.",
+					"Failed to create input layout for shader"
+				};
 			foreach (var item in errorsToSkip)
 				if (exc.Message.StartsWith(item))
 					return;

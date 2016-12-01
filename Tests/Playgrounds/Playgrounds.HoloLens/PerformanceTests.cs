@@ -20,11 +20,11 @@ namespace Playgrounds.HoloLens
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					for (int k = 0; k < 3; k++)
+					for (int k = 0; k < 10; k++)
 					{
 						var child = Scene.CreateChild();
 						child.SetScale(0.05f);
-						var sphere = child.CreateComponent<Box>();
+						var sphere = child.CreateComponent<Sphere>();
 						//sphere.Model = ResourceCache.GetModel("Sphere.mdl");
 
 						var mat = Material.FromColor(Randoms.NextColor());
