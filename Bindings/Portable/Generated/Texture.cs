@@ -37,6 +37,7 @@ namespace Urho
 			OnTextureCreated ();
 		}
 
+		[Preserve]
 		public Texture () : this (Application.CurrentContext)
 		{
 		}
@@ -44,6 +45,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Texture_Texture (IntPtr context);
 
+		[Preserve]
 		public Texture (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Texture));

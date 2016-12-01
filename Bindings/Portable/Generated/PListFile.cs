@@ -73,6 +73,7 @@ namespace Urho.Resources
 			return Marshal.PtrToStringAnsi (PListFile_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public PListFile () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Resources
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr PListFile_PListFile (IntPtr context);
 
+		[Preserve]
 		public PListFile (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(PListFile));
@@ -136,6 +138,7 @@ namespace Urho.Resources
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

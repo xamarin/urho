@@ -73,6 +73,7 @@ namespace Urho.Physics
 			return Marshal.PtrToStringAnsi (Constraint_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Constraint () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Physics
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Constraint_Constraint (IntPtr context);
 
+		[Preserve]
 		public Constraint (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Constraint));
@@ -508,6 +510,7 @@ namespace Urho.Physics
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

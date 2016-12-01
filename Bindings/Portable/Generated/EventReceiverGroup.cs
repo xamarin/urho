@@ -40,6 +40,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr EventReceiverGroup_EventReceiverGroup ();
 
+		[Preserve]
 		public EventReceiverGroup () : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(EventReceiverGroup));

@@ -40,6 +40,7 @@ namespace Urho.Urho2D
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr TileMapObject2D_TileMapObject2D ();
 
+		[Preserve]
 		public TileMapObject2D () : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(TileMapObject2D));

@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (CheckBox_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public CheckBox () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr CheckBox_CheckBox (IntPtr context);
 
+		[Preserve]
 		public CheckBox (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(CheckBox));
@@ -196,6 +198,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

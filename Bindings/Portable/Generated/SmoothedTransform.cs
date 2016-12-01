@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (SmoothedTransform_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public SmoothedTransform () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr SmoothedTransform_SmoothedTransform (IntPtr context);
 
+		[Preserve]
 		public SmoothedTransform (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(SmoothedTransform));
@@ -232,6 +234,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

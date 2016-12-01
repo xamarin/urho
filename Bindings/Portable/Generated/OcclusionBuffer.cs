@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (OcclusionBuffer_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public OcclusionBuffer () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr OcclusionBuffer_OcclusionBuffer (IntPtr context);
 
+		[Preserve]
 		public OcclusionBuffer (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(OcclusionBuffer));
@@ -364,6 +366,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

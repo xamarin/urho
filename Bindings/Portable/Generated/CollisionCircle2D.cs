@@ -73,6 +73,7 @@ namespace Urho.Urho2D
 			return Marshal.PtrToStringAnsi (CollisionCircle2D_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public CollisionCircle2D () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Urho2D
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr CollisionCircle2D_CollisionCircle2D (IntPtr context);
 
+		[Preserve]
 		public CollisionCircle2D (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(CollisionCircle2D));
@@ -172,6 +174,7 @@ namespace Urho.Urho2D
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

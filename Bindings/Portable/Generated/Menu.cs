@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (Menu_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Menu () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Menu_Menu (IntPtr context);
 
+		[Preserve]
 		public Menu (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Menu));
@@ -304,6 +306,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

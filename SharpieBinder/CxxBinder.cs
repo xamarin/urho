@@ -1365,6 +1365,7 @@ namespace SharpieBinder
 						(propertyInfo != null ? Modifiers.Private : Modifiers.Public)  |
 						(decl.Name == "ToString" ? Modifiers.Override : 0)
 				};
+				constructor.Attributes.Add(CreatePreserveAttribute());
 				constructor.Body = new BlockStatement();
 				if (validateInvocation != null)
 					constructor.Body.Add(validateInvocation);
@@ -1532,6 +1533,7 @@ namespace SharpieBinder
 						Body = new BlockStatement(),
 						Initializer = new ConstructorInitializer { ConstructorInitializerType = ConstructorInitializerType.This }
 					};
+				ctor.Attributes.Add(CreatePreserveAttribute());
 				ctor.Initializer.Arguments.Add(csParser.ParseExpression("Application.CurrentContext"));
 				currentType.Members.Add(ctor);
 			}
@@ -1996,6 +1998,9 @@ namespace SharpieBinder
 							ReturnType = gs.MethodReturn,
 							Modifiers = Modifiers.Public | (gs.Getter.IsStatic ? Modifiers.Static : 0) | mods
 						};
+
+						if (pname == "TypeStatic")
+							p.Attributes.Add(CreatePreserveAttribute());
 
 						p.Getter = new Accessor()
 						{

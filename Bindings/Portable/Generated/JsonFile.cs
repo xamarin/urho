@@ -73,6 +73,7 @@ namespace Urho.Resources
 			return Marshal.PtrToStringAnsi (JsonFile_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public JsonFile () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Resources
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr JsonFile_JSONFile (IntPtr context);
 
+		[Preserve]
 		public JsonFile (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(JsonFile));
@@ -196,6 +198,7 @@ namespace Urho.Resources
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

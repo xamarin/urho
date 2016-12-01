@@ -73,6 +73,7 @@ namespace Urho.Physics
 			return Marshal.PtrToStringAnsi (CollisionShape_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public CollisionShape () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Physics
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr CollisionShape_CollisionShape (IntPtr context);
 
+		[Preserve]
 		public CollisionShape (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(CollisionShape));
@@ -520,6 +522,7 @@ namespace Urho.Physics
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

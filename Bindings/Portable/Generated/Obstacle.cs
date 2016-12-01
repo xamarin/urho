@@ -73,6 +73,7 @@ namespace Urho.Navigation
 			return Marshal.PtrToStringAnsi (Obstacle_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Obstacle () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Navigation
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Obstacle_Obstacle (IntPtr param1);
 
+		[Preserve]
 		public Obstacle (Context param1) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Obstacle));
@@ -208,6 +210,7 @@ namespace Urho.Navigation
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

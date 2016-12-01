@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (DecalSet_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public DecalSet () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr DecalSet_DecalSet (IntPtr context);
 
+		[Preserve]
 		public DecalSet (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(DecalSet));
@@ -328,6 +330,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

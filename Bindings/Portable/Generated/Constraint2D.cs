@@ -73,6 +73,7 @@ namespace Urho.Urho2D
 			return Marshal.PtrToStringAnsi (Constraint2D_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Constraint2D () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Urho2D
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Constraint2D_Constraint2D (IntPtr context);
 
+		[Preserve]
 		public Constraint2D (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Constraint2D));
@@ -232,6 +234,7 @@ namespace Urho.Urho2D
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

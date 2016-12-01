@@ -28,6 +28,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr RefCounted_RefCounted ();
 
+		[Preserve]
 		public RefCounted ()
 		{
 			handle = RefCounted_RefCounted ();

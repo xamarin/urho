@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (BorderImage_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public BorderImage () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr BorderImage_BorderImage (IntPtr context);
 
+		[Preserve]
 		public BorderImage (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(BorderImage));
@@ -316,6 +318,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

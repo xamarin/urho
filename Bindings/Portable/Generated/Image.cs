@@ -73,6 +73,7 @@ namespace Urho.Resources
 			return Marshal.PtrToStringAnsi (Image_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Image () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Resources
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Image_Image (IntPtr context);
 
+		[Preserve]
 		public Image (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Image));
@@ -688,6 +690,7 @@ namespace Urho.Resources
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

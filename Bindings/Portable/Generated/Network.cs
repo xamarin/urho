@@ -73,6 +73,7 @@ namespace Urho.Network
 			return Marshal.PtrToStringAnsi (Network_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Network () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Network
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Network_Network (IntPtr context);
 
+		[Preserve]
 		public Network (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Network));
@@ -352,6 +354,7 @@ namespace Urho.Network
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

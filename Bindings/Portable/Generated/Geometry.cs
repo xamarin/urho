@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Geometry_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Geometry () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Geometry_Geometry (IntPtr context);
 
+		[Preserve]
 		public Geometry (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Geometry));
@@ -354,6 +356,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (View3D_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public View3D () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr View3D_View3D (IntPtr context);
 
+		[Preserve]
 		public View3D (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(View3D));
@@ -256,6 +258,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

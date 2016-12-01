@@ -40,6 +40,7 @@ namespace Urho.Urho2D
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr TmxObjectGroup2D_TmxObjectGroup2D (IntPtr tmxFile);
 
+		[Preserve]
 		public TmxObjectGroup2D (TmxFile2D tmxFile) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(TmxObjectGroup2D));

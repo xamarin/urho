@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (LogicComponent_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public LogicComponent () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr LogicComponent_LogicComponent (IntPtr context);
 
+		[Preserve]
 		public LogicComponent (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(LogicComponent));
@@ -232,6 +234,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

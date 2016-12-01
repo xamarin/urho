@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Light_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Light () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Light_Light (IntPtr context);
 
+		[Preserve]
 		public Light (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Light));
@@ -868,6 +870,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

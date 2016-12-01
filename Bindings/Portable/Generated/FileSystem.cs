@@ -73,6 +73,7 @@ namespace Urho.IO
 			return Marshal.PtrToStringAnsi (FileSystem_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public FileSystem () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.IO
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr FileSystem_FileSystem (IntPtr context);
 
+		[Preserve]
 		public FileSystem (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(FileSystem));
@@ -352,6 +354,7 @@ namespace Urho.IO
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

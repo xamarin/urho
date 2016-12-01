@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Animation_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Animation () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Animation_Animation (IntPtr context);
 
+		[Preserve]
 		public Animation (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Animation));
@@ -508,6 +510,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

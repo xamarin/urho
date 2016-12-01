@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (Text_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Text () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Text_Text (IntPtr context);
 
+		[Preserve]
 		public Text (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Text));
@@ -676,6 +678,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

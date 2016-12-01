@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (BillboardSet_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public BillboardSet () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr BillboardSet_BillboardSet (IntPtr context);
 
+		[Preserve]
 		public BillboardSet (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(BillboardSet));
@@ -376,6 +378,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

@@ -40,6 +40,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ShaderParameterAnimationInfo_ShaderParameterAnimationInfo (IntPtr material, string name, IntPtr attributeAnimation, WrapMode wrapMode, float speed);
 
+		[Preserve]
 		public ShaderParameterAnimationInfo (Material material, string name, ValueAnimation attributeAnimation, WrapMode wrapMode, float speed) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ShaderParameterAnimationInfo));

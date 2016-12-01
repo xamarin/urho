@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (TextureCube_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public TextureCube () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr TextureCube_TextureCube (IntPtr context);
 
+		[Preserve]
 		public TextureCube (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(TextureCube));
@@ -256,6 +258,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

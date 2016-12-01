@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Time_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Time () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Time_Time (IntPtr context);
 
+		[Preserve]
 		public Time (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Time));
@@ -232,6 +234,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

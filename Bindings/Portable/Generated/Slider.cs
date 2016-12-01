@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (Slider_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Slider () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Slider_Slider (IntPtr context);
 
+		[Preserve]
 		public Slider (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Slider));
@@ -292,6 +294,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

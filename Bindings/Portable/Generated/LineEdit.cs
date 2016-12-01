@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (LineEdit_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public LineEdit () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr LineEdit_LineEdit (IntPtr context);
 
+		[Preserve]
 		public LineEdit (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(LineEdit));
@@ -400,6 +402,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

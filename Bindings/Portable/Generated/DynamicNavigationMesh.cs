@@ -73,6 +73,7 @@ namespace Urho.Navigation
 			return Marshal.PtrToStringAnsi (DynamicNavigationMesh_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public DynamicNavigationMesh () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Navigation
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr DynamicNavigationMesh_DynamicNavigationMesh (IntPtr param1);
 
+		[Preserve]
 		public DynamicNavigationMesh (Context param1) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(DynamicNavigationMesh));
@@ -232,6 +234,7 @@ namespace Urho.Navigation
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

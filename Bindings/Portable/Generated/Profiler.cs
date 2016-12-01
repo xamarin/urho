@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Profiler_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Profiler () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Profiler_Profiler (IntPtr context);
 
+		[Preserve]
 		public Profiler (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Profiler));
@@ -184,6 +186,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

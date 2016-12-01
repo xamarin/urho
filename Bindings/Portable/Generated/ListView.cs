@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (ListView_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public ListView () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ListView_ListView (IntPtr context);
 
+		[Preserve]
 		public ListView (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ListView));
@@ -562,6 +564,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

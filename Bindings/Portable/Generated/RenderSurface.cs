@@ -40,6 +40,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr RenderSurface_RenderSurface (IntPtr parentTexture);
 
+		[Preserve]
 		public RenderSurface (Texture parentTexture) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(RenderSurface));

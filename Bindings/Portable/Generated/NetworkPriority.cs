@@ -73,6 +73,7 @@ namespace Urho.Network
 			return Marshal.PtrToStringAnsi (NetworkPriority_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public NetworkPriority () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Network
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr NetworkPriority_NetworkPriority (IntPtr context);
 
+		[Preserve]
 		public NetworkPriority (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(NetworkPriority));
@@ -208,6 +210,7 @@ namespace Urho.Network
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

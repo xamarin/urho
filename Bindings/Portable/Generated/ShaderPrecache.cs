@@ -76,6 +76,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ShaderPrecache_ShaderPrecache (IntPtr context, string fileName);
 
+		[Preserve]
 		public ShaderPrecache (Context context, string fileName) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ShaderPrecache));
@@ -132,6 +133,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

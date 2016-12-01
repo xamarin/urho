@@ -73,6 +73,7 @@ namespace Urho.Navigation
 			return Marshal.PtrToStringAnsi (Navigable_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Navigable () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Navigation
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Navigable_Navigable (IntPtr context);
 
+		[Preserve]
 		public Navigable (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Navigable));
@@ -136,6 +138,7 @@ namespace Urho.Navigation
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

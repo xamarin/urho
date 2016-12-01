@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (ParticleEmitter_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public ParticleEmitter () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ParticleEmitter_ParticleEmitter (IntPtr context);
 
+		[Preserve]
 		public ParticleEmitter (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ParticleEmitter));
@@ -304,6 +306,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

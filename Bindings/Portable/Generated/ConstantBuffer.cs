@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (ConstantBuffer_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public ConstantBuffer () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ConstantBuffer_ConstantBuffer (IntPtr context);
 
+		[Preserve]
 		public ConstantBuffer (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ConstantBuffer));
@@ -184,6 +186,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (ToolTip_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public ToolTip () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ToolTip_ToolTip (IntPtr context);
 
+		[Preserve]
 		public ToolTip (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ToolTip));
@@ -148,6 +150,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

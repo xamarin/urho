@@ -29,6 +29,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr RefCount_RefCount ();
 
+		[Preserve]
 		public RefCount ()
 		{
 			Runtime.Validate (typeof(RefCount));

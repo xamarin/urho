@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (RibbonTrail_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public RibbonTrail () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr RibbonTrail_RibbonTrail (IntPtr context);
 
+		[Preserve]
 		public RibbonTrail (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(RibbonTrail));
@@ -496,6 +498,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

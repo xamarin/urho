@@ -76,6 +76,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr VertexBuffer_VertexBuffer (IntPtr context, bool forceHeadless);
 
+		[Preserve]
 		public VertexBuffer (Context context, bool forceHeadless) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(VertexBuffer));
@@ -372,6 +373,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

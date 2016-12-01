@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (TerrainPatch_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public TerrainPatch () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr TerrainPatch_TerrainPatch (IntPtr context);
 
+		[Preserve]
 		public TerrainPatch (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(TerrainPatch));
@@ -376,6 +378,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

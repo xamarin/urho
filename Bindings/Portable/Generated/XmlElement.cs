@@ -28,6 +28,7 @@ namespace Urho.Resources
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr XmlElement_XMLElement ();
 
+		[Preserve]
 		public XmlElement ()
 		{
 			Runtime.Validate (typeof(XmlElement));
@@ -38,6 +39,7 @@ namespace Urho.Resources
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr XmlElement_XMLElement0 (ref Urho.Resources.XmlElement rhs);
 
+		[Preserve]
 		public XmlElement (Urho.Resources.XmlElement rhs)
 		{
 			Runtime.Validate (typeof(XmlElement));

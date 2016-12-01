@@ -505,6 +505,7 @@ namespace Urho.Network
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

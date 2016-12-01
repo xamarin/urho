@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Graphics_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Graphics () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Graphics_Graphics (IntPtr context);
 
+		[Preserve]
 		public Graphics (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Graphics));
@@ -2152,6 +2154,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

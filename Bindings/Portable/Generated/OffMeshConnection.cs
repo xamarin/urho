@@ -73,6 +73,7 @@ namespace Urho.Navigation
 			return Marshal.PtrToStringAnsi (OffMeshConnection_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public OffMeshConnection () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Navigation
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr OffMeshConnection_OffMeshConnection (IntPtr context);
 
+		[Preserve]
 		public OffMeshConnection (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(OffMeshConnection));
@@ -256,6 +258,7 @@ namespace Urho.Navigation
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

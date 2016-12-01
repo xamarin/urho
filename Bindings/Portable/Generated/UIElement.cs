@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (UIElement_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public UIElement () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr UIElement_UIElement (IntPtr context);
 
+		[Preserve]
 		public UIElement (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(UIElement));
@@ -2456,6 +2458,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

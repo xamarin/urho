@@ -76,6 +76,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr MessageBox_MessageBox (IntPtr context, string messageString, string titleString, IntPtr layoutFile, IntPtr styleFile);
 
+		[Preserve]
 		public MessageBox (Context context, string messageString, string titleString, Urho.Resources.XmlFile layoutFile, Urho.Resources.XmlFile styleFile) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(MessageBox));
@@ -168,6 +169,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

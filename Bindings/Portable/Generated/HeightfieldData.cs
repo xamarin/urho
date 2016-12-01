@@ -29,6 +29,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr HeightfieldData_HeightfieldData (IntPtr terrain, uint lodLevel);
 
+		[Preserve]
 		public HeightfieldData (Terrain terrain, uint lodLevel)
 		{
 			Runtime.Validate (typeof(HeightfieldData));

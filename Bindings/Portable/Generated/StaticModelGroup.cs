@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (StaticModelGroup_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public StaticModelGroup () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr StaticModelGroup_StaticModelGroup (IntPtr context);
 
+		[Preserve]
 		public StaticModelGroup (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(StaticModelGroup));
@@ -208,6 +210,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

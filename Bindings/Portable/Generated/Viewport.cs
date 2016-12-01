@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Viewport_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Viewport () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Viewport_Viewport (IntPtr context);
 
+		[Preserve]
 		public Viewport (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Viewport));
@@ -91,6 +93,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Viewport_Viewport0 (IntPtr context, IntPtr scene, IntPtr camera, IntPtr renderPath);
 
+		[Preserve]
 		public Viewport (Context context, Scene scene, Camera camera, RenderPath renderPath) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Viewport));
@@ -102,6 +105,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Viewport_Viewport1 (IntPtr context, IntPtr scene, IntPtr camera, ref Urho.IntRect rect, IntPtr renderPath);
 
+		[Preserve]
 		public Viewport (Context context, Scene scene, Camera camera, Urho.IntRect rect, RenderPath renderPath) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Viewport));
@@ -350,6 +354,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

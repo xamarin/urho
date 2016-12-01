@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (Button_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Button () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Button_Button (IntPtr context);
 
+		[Preserve]
 		public Button (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Button));
@@ -304,6 +306,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

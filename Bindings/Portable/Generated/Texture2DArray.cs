@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Texture2DArray_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Texture2DArray () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Texture2DArray_Texture2DArray (IntPtr context);
 
+		[Preserve]
 		public Texture2DArray (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Texture2DArray));
@@ -292,6 +294,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

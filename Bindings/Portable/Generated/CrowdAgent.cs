@@ -73,6 +73,7 @@ namespace Urho.Navigation
 			return Marshal.PtrToStringAnsi (CrowdAgent_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public CrowdAgent () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Navigation
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr CrowdAgent_CrowdAgent (IntPtr context);
 
+		[Preserve]
 		public CrowdAgent (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(CrowdAgent));
@@ -556,6 +558,7 @@ namespace Urho.Navigation
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

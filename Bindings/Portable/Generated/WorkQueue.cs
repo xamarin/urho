@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (WorkQueue_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public WorkQueue () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr WorkQueue_WorkQueue (IntPtr context);
 
+		[Preserve]
 		public WorkQueue (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(WorkQueue));
@@ -244,6 +246,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

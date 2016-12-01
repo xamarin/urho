@@ -73,6 +73,7 @@ namespace Urho.Resources
 			return Marshal.PtrToStringAnsi (ResourceCache_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public ResourceCache () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Resources
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ResourceCache_ResourceCache (IntPtr context);
 
+		[Preserve]
 		public ResourceCache (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ResourceCache));
@@ -632,6 +634,7 @@ namespace Urho.Resources
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

@@ -73,6 +73,7 @@ namespace Urho.IO
 			return Marshal.PtrToStringAnsi (PackageFile_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public PackageFile () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.IO
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr PackageFile_PackageFile (IntPtr context);
 
+		[Preserve]
 		public PackageFile (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(PackageFile));
@@ -91,6 +93,7 @@ namespace Urho.IO
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr PackageFile_PackageFile0 (IntPtr context, string fileName, uint startOffset);
 
+		[Preserve]
 		public PackageFile (Context context, string fileName, uint startOffset) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(PackageFile));
@@ -231,6 +234,7 @@ namespace Urho.IO
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

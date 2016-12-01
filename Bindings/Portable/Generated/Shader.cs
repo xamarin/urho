@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Shader_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Shader () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Shader_Shader (IntPtr context);
 
+		[Preserve]
 		public Shader (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Shader));
@@ -184,6 +186,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

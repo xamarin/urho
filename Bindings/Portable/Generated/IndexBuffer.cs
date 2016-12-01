@@ -76,6 +76,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr IndexBuffer_IndexBuffer (IntPtr context, bool forceHeadless);
 
+		[Preserve]
 		public IndexBuffer (Context context, bool forceHeadless) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(IndexBuffer));
@@ -264,6 +265,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

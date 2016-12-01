@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Camera_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Camera () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Camera_Camera (IntPtr context);
 
+		[Preserve]
 		public Camera (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Camera));
@@ -883,6 +885,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

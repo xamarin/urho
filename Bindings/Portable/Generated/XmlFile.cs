@@ -73,6 +73,7 @@ namespace Urho.Resources
 			return Marshal.PtrToStringAnsi (XmlFile_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public XmlFile () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Resources
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr XmlFile_XMLFile (IntPtr context);
 
+		[Preserve]
 		public XmlFile (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(XmlFile));
@@ -220,6 +222,7 @@ namespace Urho.Resources
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

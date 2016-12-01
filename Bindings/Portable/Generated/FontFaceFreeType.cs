@@ -40,6 +40,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr FontFaceFreeType_FontFaceFreeType (IntPtr font);
 
+		[Preserve]
 		public FontFaceFreeType (Font font) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(FontFaceFreeType));

@@ -40,6 +40,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr FontFaceBitmap_FontFaceBitmap (IntPtr font);
 
+		[Preserve]
 		public FontFaceBitmap (Font font) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(FontFaceBitmap));

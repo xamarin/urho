@@ -29,6 +29,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr WorkItem_WorkItem ();
 
+		[Preserve]
 		public WorkItem ()
 		{
 			Runtime.Validate (typeof(WorkItem));

@@ -40,6 +40,7 @@ namespace Urho.Urho2D
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr TmxTileLayer2D_TmxTileLayer2D (IntPtr tmxFile);
 
+		[Preserve]
 		public TmxTileLayer2D (TmxFile2D tmxFile) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(TmxTileLayer2D));

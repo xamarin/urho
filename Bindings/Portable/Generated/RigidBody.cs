@@ -73,6 +73,7 @@ namespace Urho.Physics
 			return Marshal.PtrToStringAnsi (RigidBody_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public RigidBody () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Physics
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr RigidBody_RigidBody (IntPtr context);
 
+		[Preserve]
 		public RigidBody (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(RigidBody));
@@ -1024,6 +1026,7 @@ namespace Urho.Physics
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

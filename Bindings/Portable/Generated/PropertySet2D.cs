@@ -40,6 +40,7 @@ namespace Urho.Urho2D
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr PropertySet2D_PropertySet2D ();
 
+		[Preserve]
 		public PropertySet2D () : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(PropertySet2D));

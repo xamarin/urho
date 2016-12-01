@@ -40,6 +40,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ShaderVariation_ShaderVariation (IntPtr owner, ShaderType type);
 
+		[Preserve]
 		public ShaderVariation (Shader owner, ShaderType type) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ShaderVariation));

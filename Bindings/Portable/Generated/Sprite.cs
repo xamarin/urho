@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (Sprite_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Sprite () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Sprite_Sprite (IntPtr context);
 
+		[Preserve]
 		public Sprite (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Sprite));
@@ -424,6 +426,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Serializable_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Serializable () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Serializable_Serializable (IntPtr context);
 
+		[Preserve]
 		public Serializable (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Serializable));
@@ -760,6 +762,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

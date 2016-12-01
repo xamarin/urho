@@ -40,6 +40,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr AnimationState_AnimationState (IntPtr model, IntPtr animation);
 
+		[Preserve]
 		public AnimationState (AnimatedModel model, Animation animation) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(AnimationState));
@@ -51,6 +52,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr AnimationState_AnimationState0 (IntPtr node, IntPtr animation);
 
+		[Preserve]
 		public AnimationState (Node node, Animation animation) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(AnimationState));

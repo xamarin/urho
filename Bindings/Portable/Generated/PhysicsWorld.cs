@@ -73,6 +73,7 @@ namespace Urho.Physics
 			return Marshal.PtrToStringAnsi (PhysicsWorld_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public PhysicsWorld () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Physics
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr PhysicsWorld_PhysicsWorld (IntPtr scontext);
 
+		[Preserve]
 		public PhysicsWorld (Context scontext) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(PhysicsWorld));
@@ -604,6 +606,7 @@ namespace Urho.Physics
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

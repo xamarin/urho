@@ -73,6 +73,7 @@ namespace Urho.IO
 			return Marshal.PtrToStringAnsi (FileWatcher_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public FileWatcher () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.IO
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr FileWatcher_FileWatcher (IntPtr context);
 
+		[Preserve]
 		public FileWatcher (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(FileWatcher));
@@ -184,6 +186,7 @@ namespace Urho.IO
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

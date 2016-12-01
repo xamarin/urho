@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (Cursor_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Cursor () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Cursor_Cursor (IntPtr context);
 
+		[Preserve]
 		public Cursor (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Cursor));
@@ -208,6 +210,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

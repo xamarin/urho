@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (Skybox_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Skybox () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Skybox_Skybox (IntPtr context);
 
+		[Preserve]
 		public Skybox (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Skybox));
@@ -112,6 +114,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

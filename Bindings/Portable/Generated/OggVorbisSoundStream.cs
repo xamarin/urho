@@ -40,6 +40,7 @@ namespace Urho.Audio
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr OggVorbisSoundStream_OggVorbisSoundStream (IntPtr sound);
 
+		[Preserve]
 		public OggVorbisSoundStream (Sound sound) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(OggVorbisSoundStream));

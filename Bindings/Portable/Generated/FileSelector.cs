@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (FileSelector_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public FileSelector () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr FileSelector_FileSelector (IntPtr context);
 
+		[Preserve]
 		public FileSelector (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(FileSelector));
@@ -388,6 +390,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

@@ -73,6 +73,7 @@ namespace Urho.Audio
 			return Marshal.PtrToStringAnsi (SoundSource3D_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public SoundSource3D () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Audio
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr SoundSource3D_SoundSource3D (IntPtr context);
 
+		[Preserve]
 		public SoundSource3D (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(SoundSource3D));
@@ -292,6 +294,7 @@ namespace Urho.Audio
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

@@ -40,6 +40,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr RenderPath_RenderPath ();
 
+		[Preserve]
 		public RenderPath () : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(RenderPath));

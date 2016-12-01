@@ -37,6 +37,7 @@ namespace Urho
 			OnUnknownComponentCreated ();
 		}
 
+		[Preserve]
 		public UnknownComponent () : this (Application.CurrentContext)
 		{
 		}
@@ -44,6 +45,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr UnknownComponent_UnknownComponent (IntPtr context);
 
+		[Preserve]
 		public UnknownComponent (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(UnknownComponent));
@@ -250,6 +252,7 @@ namespace Urho
 		/// <summary>
 		/// Return static type.
 		/// </summary>
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

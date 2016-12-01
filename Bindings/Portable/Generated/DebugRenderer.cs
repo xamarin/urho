@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (DebugRenderer_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public DebugRenderer () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr DebugRenderer_DebugRenderer (IntPtr context);
 
+		[Preserve]
 		public DebugRenderer (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(DebugRenderer));
@@ -376,6 +378,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

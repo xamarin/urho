@@ -40,6 +40,7 @@ namespace Urho.Audio
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr BufferedSoundStream_BufferedSoundStream ();
 
+		[Preserve]
 		public BufferedSoundStream () : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(BufferedSoundStream));

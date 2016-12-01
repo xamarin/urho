@@ -40,6 +40,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ShaderProgram_ShaderProgram (IntPtr graphics, IntPtr vertexShader, IntPtr pixelShader);
 
+		[Preserve]
 		public ShaderProgram (Graphics graphics, ShaderVariation vertexShader, ShaderVariation pixelShader) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ShaderProgram));

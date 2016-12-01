@@ -73,6 +73,7 @@ namespace Urho.Gui
 			return Marshal.PtrToStringAnsi (Font_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public Font () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho.Gui
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Font_Font (IntPtr context);
 
+		[Preserve]
 		public Font (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Font));
@@ -256,6 +258,7 @@ namespace Urho.Gui
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

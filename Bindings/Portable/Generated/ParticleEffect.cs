@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (ParticleEffect_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public ParticleEffect () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ParticleEffect_ParticleEffect (IntPtr context);
 
+		[Preserve]
 		public ParticleEffect (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ParticleEffect));
@@ -1156,6 +1158,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();

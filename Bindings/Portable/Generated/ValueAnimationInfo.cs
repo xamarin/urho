@@ -40,6 +40,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ValueAnimationInfo_ValueAnimationInfo (IntPtr animation, WrapMode wrapMode, float speed);
 
+		[Preserve]
 		public ValueAnimationInfo (ValueAnimation animation, WrapMode wrapMode, float speed) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ValueAnimationInfo));
@@ -51,6 +52,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ValueAnimationInfo_ValueAnimationInfo0 (IntPtr target, IntPtr animation, WrapMode wrapMode, float speed);
 
+		[Preserve]
 		public ValueAnimationInfo (Urho.UrhoObject target, ValueAnimation animation, WrapMode wrapMode, float speed) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(ValueAnimationInfo));

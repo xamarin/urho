@@ -73,6 +73,7 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (SplinePath_GetTypeNameStatic ());
 		}
 
+		[Preserve]
 		public SplinePath () : this (Application.CurrentContext)
 		{
 		}
@@ -80,6 +81,7 @@ namespace Urho
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr SplinePath_SplinePath (IntPtr context);
 
+		[Preserve]
 		public SplinePath (Context context) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(SplinePath));
@@ -352,6 +354,7 @@ namespace Urho
 			}
 		}
 
+		[Preserve]
 		public new static StringHash TypeStatic {
 			get {
 				return GetTypeStatic ();
