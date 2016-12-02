@@ -1,15 +1,25 @@
 # ![](http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png) UrhoSharp
 
 UrhoSharp is a lightweight Game Engine suitable for using with C# and
-F# to create games that run on Android, iOS, Mac, Windows and
-Unix. The game engine is available as a portable class library,
-allowing your game code to be written once and shared across all
-platforms. UrhoSharp is powered by [Urho3D](http://urho3d.github.io/),
+F# to create games and 3D applications. The game engine is available 
+as a **portable class library**, allowing your game code to be written 
+once and shared across all platforms. UrhoSharp is powered by [Urho3D](http://urho3d.github.io/),
 a game engine that has been under development for more than a decade.
 More information can be found in the [UrhoSharp
 documentation](http://developer.xamarin.com/guides/cross-platform/urho/introduction/).
 The bindings for Urho3D are licensed under the MIT license, as found
 on the LICENSE file.
+
+Supported platforms:
+- Windows, WPF, WinForms
+- iOS, tvOS
+- macOS
+- Android
+- UWP (x86 only)
+- HoloLens (3D holograms)
+- Xamarin.Forms (iOS, Android, UWP)
+
+UrhoSharp can be embedded into any of these platforms as a custom view (UIView, Grid, Surface, etc).
 
 Samples
 =======
@@ -18,6 +28,7 @@ Sample code lives in https://github.com/xamarin/urho-samples and
 repository has them as a git submodule. Samples use UrhoSharp via nuget.
 
 ![Sample](https://github.com/xamarin/urho-samples/raw/master/SamplyGame/Screenshots/Video.gif) ![Sample](https://github.com/xamarin/urho-samples/raw/master/FormsSample/Screenshots/Android.gif)
+![Sample](https://github.com/xamarin/urho-samples/blob/master/HoloLens/03_Mutant/Screenshots/Video.gif)
 
 # Setup
 
@@ -49,8 +60,8 @@ Windows and OS X environment.  Please follow these steps:
 
 - XCode
 - Xamarin Studio
-- CMake (i.e. `brew install cmake`)
-- Mono 64 bit (i.e. Mono 4.4+ or `brew install mono`)
+- CMake (`brew install cmake`)
+- Mono 64 bit (Mono 4.4+ or `brew install mono`)
 - Command Line tools (`xcode-select --install`)
 - Android NDK (and ANDROID_NDK variable)
 
@@ -92,7 +103,7 @@ make Mac
 ```
 it takes 5-10 minutes.
 
-**6. Compile UrhoSharp for iOS (fat dylib: i386, armv7, arm64)**
+**6. Compile UrhoSharp for iOS (fat dylib: i386, x86_64, armv7, arm64)**
 ```
 make iOS
 ```
@@ -101,11 +112,11 @@ Note: Make sure you have an iOS 9.0 simulator target or modify
 [SDKVER](https://github.com/xamarin/urho/blob/master/MakeiOS#L3) to
 target another simulator.
 
-**7. Compile UrhoSharp for Android (armeabi, armeabi-v7a, x86)** 
+**7. Compile UrhoSharp for Android (armeabi, armeabi-v7a, arm64, x86, x86_64)** 
 ```
-make -j3 Android
+make -j5 Android
 ```
--j3 means a job per ABI. Make sure you have installed Android SDK and NDK (see MakeAndroid file)
+-j5 means a job per ABI. Make sure you have installed Android SDK and NDK (see MakeAndroid file)
 
 **8. Compile UrhoSharp for Windows (64 bit)**
 
@@ -114,7 +125,7 @@ environment. Make sure you have installed:
 
 - Visual Studio 2015
 - CMake
-- GNU make (e.g. cygwin)
+- GNU make (cygwin)
 
 SharpieBinder doesn't work on Windows yet so you will have to copy
 bindings/generated folder from OS X environment to Windows.
@@ -128,6 +139,16 @@ make Windows64  (or Windows32)
 Then, open Urho.sln and compile MonoUrho.Windows project in Release configuration.
 
 All compiled binaries could be found in the Bin/{platform} folder.
+
+**9. Compile UrhoSharp for UWP and HoloLens
+
+Execute:
+```
+make UWP32
+make HoloLens
+```
+
+And compile MonoUrho.UWP and MonoUrho.HoloLens projects in Release (x86 only) configuration.
 
 Updating Documentation
 ======================
