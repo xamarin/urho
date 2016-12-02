@@ -2,7 +2,7 @@
 
 namespace Urho
 {
-	public static class LogSharp
+	static class LogSharp // TODO: remove
 	{
 		public static LogSharpLevel LogLevel { get; set; } = LogSharpLevel.Debug;
 

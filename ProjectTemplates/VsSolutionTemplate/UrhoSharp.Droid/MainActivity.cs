@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Urho;
 using Urho.Droid;
 
 namespace $safeprojectname$
