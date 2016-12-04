@@ -148,8 +148,8 @@ extern "C"
 		if (cullingCamera)
 		{
 			Camera_SetHoloProjection(cullingCamera, leftView, leftProjection);
-			// extend culling camera FOV by 30%
-			cullingCamera->SetFov(cullingCamera->GetFov() * 1.3f);
+			// extend culling camera FOV by 60%
+			cullingCamera->SetFov(cullingCamera->GetFov() * 1.6f);
 		}
 	}
 
