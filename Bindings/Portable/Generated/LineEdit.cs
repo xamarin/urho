@@ -163,15 +163,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void LineEdit_OnTextInput (IntPtr handle, string text);
+		internal static extern void LineEdit_OnTextInput (IntPtr handle, string text, int buttons, int qualifiers);
 
 		/// <summary>
 		/// React to text input event.
 		/// </summary>
-		public override void OnTextInput (string text)
+		public override void OnTextInput (string text, int buttons, int qualifiers)
 		{
 			Runtime.ValidateRefCounted (this);
-			LineEdit_OnTextInput (handle, text);
+			LineEdit_OnTextInput (handle, text, buttons, qualifiers);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

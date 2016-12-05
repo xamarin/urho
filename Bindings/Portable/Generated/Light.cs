@@ -163,30 +163,6 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Light_SetRadius (IntPtr handle, float radius);
-
-		/// <summary>
-		/// Set area light radius. Greater than zero activates area light mode. Works only with PBR shaders.
-		/// </summary>
-		private void SetRadius (float radius)
-		{
-			Runtime.ValidateRefCounted (this);
-			Light_SetRadius (handle, radius);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Light_SetLength (IntPtr handle, float length);
-
-		/// <summary>
-		/// Set tube area light length. Works only with PBR shaders.
-		/// </summary>
-		private void SetLength (float length)
-		{
-			Runtime.ValidateRefCounted (this);
-			Light_SetLength (handle, length);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Light_SetUsePhysicalValues (IntPtr handle, bool enable);
 
 		/// <summary>
@@ -436,30 +412,6 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Light_GetTemperature (handle);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern float Light_GetRadius (IntPtr handle);
-
-		/// <summary>
-		/// Return area light mode radius. Works only with PBR shaders.
-		/// </summary>
-		private float GetRadius ()
-		{
-			Runtime.ValidateRefCounted (this);
-			return Light_GetRadius (handle);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern float Light_GetLength (IntPtr handle);
-
-		/// <summary>
-		/// Return area tube light length. Works only with PBR shaders.
-		/// </summary>
-		private float GetLength ()
-		{
-			Runtime.ValidateRefCounted (this);
-			return Light_GetLength (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -936,34 +888,6 @@ namespace Urho
 			}
 			set {
 				SetTemperature (value);
-			}
-		}
-
-		/// <summary>
-		/// Return area light mode radius. Works only with PBR shaders.
-		/// Or
-		/// Set area light radius. Greater than zero activates area light mode. Works only with PBR shaders.
-		/// </summary>
-		public float Radius {
-			get {
-				return GetRadius ();
-			}
-			set {
-				SetRadius (value);
-			}
-		}
-
-		/// <summary>
-		/// Return area tube light length. Works only with PBR shaders.
-		/// Or
-		/// Set tube area light length. Works only with PBR shaders.
-		/// </summary>
-		public float Length {
-			get {
-				return GetLength ();
-			}
-			set {
-				SetLength (value);
 			}
 		}
 

@@ -190,36 +190,12 @@ namespace Urho.Urho2D
 		internal static extern void StaticSprite2D_SetUseHotSpot (IntPtr handle, bool useHotSpot);
 
 		/// <summary>
-		/// Set whether to use custom-defined hot spot.
+		/// Set use hot spot.
 		/// </summary>
 		private void SetUseHotSpot (bool useHotSpot)
 		{
 			Runtime.ValidateRefCounted (this);
 			StaticSprite2D_SetUseHotSpot (handle, useHotSpot);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void StaticSprite2D_SetUseDrawRect (IntPtr handle, bool useDrawRect);
-
-		/// <summary>
-		/// Set whether to use custom-defined draw rectangle.
-		/// </summary>
-		private void SetUseDrawRect (bool useDrawRect)
-		{
-			Runtime.ValidateRefCounted (this);
-			StaticSprite2D_SetUseDrawRect (handle, useDrawRect);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void StaticSprite2D_SetUseTextureRect (IntPtr handle, bool useTextureRect);
-
-		/// <summary>
-		/// Set whether to use custom-defined texture rectangle.
-		/// </summary>
-		private void SetUseTextureRect (bool useTextureRect)
-		{
-			Runtime.ValidateRefCounted (this);
-			StaticSprite2D_SetUseTextureRect (handle, useTextureRect);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -322,36 +298,12 @@ namespace Urho.Urho2D
 		internal static extern bool StaticSprite2D_GetUseHotSpot (IntPtr handle);
 
 		/// <summary>
-		/// Return whether to use custom-defined hot spot.
+		/// Return use hot spot.
 		/// </summary>
 		private bool GetUseHotSpot ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return StaticSprite2D_GetUseHotSpot (handle);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool StaticSprite2D_GetUseDrawRect (IntPtr handle);
-
-		/// <summary>
-		/// Return whether to use custom-defined draw rectangle.
-		/// </summary>
-		private bool GetUseDrawRect ()
-		{
-			Runtime.ValidateRefCounted (this);
-			return StaticSprite2D_GetUseDrawRect (handle);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool StaticSprite2D_GetUseTextureRect (IntPtr handle);
-
-		/// <summary>
-		/// Return whether to use custom-defined texture rectangle.
-		/// </summary>
-		private bool GetUseTextureRect ()
-		{
-			Runtime.ValidateRefCounted (this);
-			return StaticSprite2D_GetUseTextureRect (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -512,9 +464,9 @@ namespace Urho.Urho2D
 		}
 
 		/// <summary>
-		/// Return whether to use custom-defined hot spot.
+		/// Return use hot spot.
 		/// Or
-		/// Set whether to use custom-defined hot spot.
+		/// Set use hot spot.
 		/// </summary>
 		public bool UseHotSpot {
 			get {
@@ -522,34 +474,6 @@ namespace Urho.Urho2D
 			}
 			set {
 				SetUseHotSpot (value);
-			}
-		}
-
-		/// <summary>
-		/// Return whether to use custom-defined draw rectangle.
-		/// Or
-		/// Set whether to use custom-defined draw rectangle.
-		/// </summary>
-		public bool UseDrawRect {
-			get {
-				return GetUseDrawRect ();
-			}
-			set {
-				SetUseDrawRect (value);
-			}
-		}
-
-		/// <summary>
-		/// Return whether to use custom-defined texture rectangle.
-		/// Or
-		/// Set whether to use custom-defined texture rectangle.
-		/// </summary>
-		public bool UseTextureRect {
-			get {
-				return GetUseTextureRect ();
-			}
-			set {
-				SetUseTextureRect (value);
 			}
 		}
 

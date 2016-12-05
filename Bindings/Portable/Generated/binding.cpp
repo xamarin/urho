@@ -5298,16 +5298,9 @@ Node_MarkDirty (Urho3D::Node *_target)
 
 
 DllExport Urho3D::Node *
-Node_CreateChild (Urho3D::Node *_target, const char * name, enum Urho3D::CreateMode mode, unsigned int id, bool temporary)
+Node_CreateChild (Urho3D::Node *_target, const char * name, enum Urho3D::CreateMode mode, unsigned int id)
 {
-	return _target->CreateChild (Urho3D::String(name), mode, id, temporary);
-}
-
-
-DllExport Urho3D::Node *
-Node_CreateTemporaryChild (Urho3D::Node *_target, const char * name, enum Urho3D::CreateMode mode, unsigned int id)
-{
-	return _target->CreateTemporaryChild (Urho3D::String(name), mode, id);
+	return _target->CreateChild (Urho3D::String(name), mode, id);
 }
 
 
@@ -5978,9 +5971,9 @@ Node_MarkReplicationDirty (Urho3D::Node *_target)
 
 
 DllExport Urho3D::Node *
-Node_CreateChild24 (Urho3D::Node *_target, unsigned int id, enum Urho3D::CreateMode mode, bool temporary)
+Node_CreateChild24 (Urho3D::Node *_target, unsigned int id, enum Urho3D::CreateMode mode)
 {
-	return _target->CreateChild (id, mode, temporary);
+	return _target->CreateChild (id, mode);
 }
 
 
@@ -8145,13 +8138,6 @@ Texture_IsResolveDirty (Urho3D::Texture *_target)
 }
 
 
-DllExport int
-Texture_GetLevelsDirty (Urho3D::Texture *_target)
-{
-	return _target->GetLevelsDirty ();
-}
-
-
 DllExport Urho3D::Texture *
 Texture_GetBackupTexture (Urho3D::Texture *_target)
 {
@@ -8292,20 +8278,6 @@ Texture_SetResolveDirty (Urho3D::Texture *_target, bool enable)
 }
 
 
-DllExport void
-Texture_SetLevelsDirty (Urho3D::Texture *_target)
-{
-	_target->SetLevelsDirty ();
-}
-
-
-DllExport void
-Texture_RegenerateLevels (Urho3D::Texture *_target)
-{
-	_target->RegenerateLevels ();
-}
-
-
 DllExport unsigned int
 Texture_CheckMaxLevels (int width, int height, unsigned int requestedLevels)
 {
@@ -8394,20 +8366,6 @@ DllExport void
 Light_SetTemperature (Urho3D::Light *_target, float temperature)
 {
 	_target->SetTemperature (temperature);
-}
-
-
-DllExport void
-Light_SetRadius (Urho3D::Light *_target, float radius)
-{
-	_target->SetRadius (radius);
-}
-
-
-DllExport void
-Light_SetLength (Urho3D::Light *_target, float length)
-{
-	_target->SetLength (length);
 }
 
 
@@ -8555,20 +8513,6 @@ DllExport float
 Light_GetTemperature (Urho3D::Light *_target)
 {
 	return _target->GetTemperature ();
-}
-
-
-DllExport float
-Light_GetRadius (Urho3D::Light *_target)
-{
-	return _target->GetRadius ();
-}
-
-
-DllExport float
-Light_GetLength (Urho3D::Light *_target)
-{
-	return _target->GetLength ();
 }
 
 
@@ -10433,20 +10377,6 @@ DebugRenderer_AddTriangle1 (Urho3D::DebugRenderer *_target, const class Urho3D::
 
 
 DllExport void
-DebugRenderer_AddPolygon (Urho3D::DebugRenderer *_target, const class Urho3D::Vector3 & v1, const class Urho3D::Vector3 & v2, const class Urho3D::Vector3 & v3, const class Urho3D::Vector3 & v4, const class Urho3D::Color & color, bool depthTest)
-{
-	_target->AddPolygon (v1, v2, v3, v4, color, depthTest);
-}
-
-
-DllExport void
-DebugRenderer_AddPolygon2 (Urho3D::DebugRenderer *_target, const class Urho3D::Vector3 & v1, const class Urho3D::Vector3 & v2, const class Urho3D::Vector3 & v3, const class Urho3D::Vector3 & v4, unsigned int color, bool depthTest)
-{
-	_target->AddPolygon (v1, v2, v3, v4, color, depthTest);
-}
-
-
-DllExport void
 DebugRenderer_AddNode (Urho3D::DebugRenderer *_target, Urho3D::Node * node, float scale, bool depthTest)
 {
 	_target->AddNode (node, scale, depthTest);
@@ -10454,16 +10384,16 @@ DebugRenderer_AddNode (Urho3D::DebugRenderer *_target, Urho3D::Node * node, floa
 
 
 DllExport void
-DebugRenderer_AddBoundingBox (Urho3D::DebugRenderer *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Color & color, bool depthTest, bool solid)
+DebugRenderer_AddBoundingBox (Urho3D::DebugRenderer *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Color & color, bool depthTest)
 {
-	_target->AddBoundingBox (box, color, depthTest, solid);
+	_target->AddBoundingBox (box, color, depthTest);
 }
 
 
 DllExport void
-DebugRenderer_AddBoundingBox3 (Urho3D::DebugRenderer *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Matrix3x4 & transform, const class Urho3D::Color & color, bool depthTest, bool solid)
+DebugRenderer_AddBoundingBox2 (Urho3D::DebugRenderer *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Matrix3x4 & transform, const class Urho3D::Color & color, bool depthTest)
 {
-	_target->AddBoundingBox (box, transform, color, depthTest, solid);
+	_target->AddBoundingBox (box, transform, color, depthTest);
 }
 
 
@@ -19519,9 +19449,9 @@ UIElement_OnKey (Urho3D::UIElement *_target, int key, int buttons, int qualifier
 
 
 DllExport void
-UIElement_OnTextInput (Urho3D::UIElement *_target, const char * text)
+UIElement_OnTextInput (Urho3D::UIElement *_target, const char * text, int buttons, int qualifiers)
 {
-	_target->OnTextInput (Urho3D::String(text));
+	_target->OnTextInput (Urho3D::String(text), buttons, qualifiers);
 }
 
 
@@ -28082,9 +28012,9 @@ LineEdit_OnKey (Urho3D::LineEdit *_target, int key, int buttons, int qualifiers)
 
 
 DllExport void
-LineEdit_OnTextInput (Urho3D::LineEdit *_target, const char * text)
+LineEdit_OnTextInput (Urho3D::LineEdit *_target, const char * text, int buttons, int qualifiers)
 {
-	_target->OnTextInput (Urho3D::String(text));
+	_target->OnTextInput (Urho3D::String(text), buttons, qualifiers);
 }
 
 
@@ -31090,20 +31020,6 @@ StaticSprite2D_SetUseHotSpot (Urho3D::StaticSprite2D *_target, bool useHotSpot)
 
 
 DllExport void
-StaticSprite2D_SetUseDrawRect (Urho3D::StaticSprite2D *_target, bool useDrawRect)
-{
-	_target->SetUseDrawRect (useDrawRect);
-}
-
-
-DllExport void
-StaticSprite2D_SetUseTextureRect (Urho3D::StaticSprite2D *_target, bool useTextureRect)
-{
-	_target->SetUseTextureRect (useTextureRect);
-}
-
-
-DllExport void
 StaticSprite2D_SetHotSpot (Urho3D::StaticSprite2D *_target, const class Urho3D::Vector2 & hotspot)
 {
 	_target->SetHotSpot (hotspot);
@@ -31163,20 +31079,6 @@ DllExport int
 StaticSprite2D_GetUseHotSpot (Urho3D::StaticSprite2D *_target)
 {
 	return _target->GetUseHotSpot ();
-}
-
-
-DllExport int
-StaticSprite2D_GetUseDrawRect (Urho3D::StaticSprite2D *_target)
-{
-	return _target->GetUseDrawRect ();
-}
-
-
-DllExport int
-StaticSprite2D_GetUseTextureRect (Urho3D::StaticSprite2D *_target)
-{
-	return _target->GetUseTextureRect ();
 }
 
 
