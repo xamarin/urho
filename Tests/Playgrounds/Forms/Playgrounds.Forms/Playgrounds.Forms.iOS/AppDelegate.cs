@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Urho.Forms;
 
 using Foundation;
 using UIKit;
@@ -22,6 +23,7 @@ namespace Playgrounds.Forms.iOS
 		//
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
+			var a = new IosSurfaceRenderer();
 			global::Xamarin.Forms.Forms.Init();
 			LoadApplication(new App());
 
