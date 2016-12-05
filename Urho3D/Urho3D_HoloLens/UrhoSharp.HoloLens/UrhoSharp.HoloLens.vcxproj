@@ -88,7 +88,7 @@
     <ClInclude Include="..\..\..\Bindings\Native\ApplicationProxy.h" />
     <ClInclude Include="..\..\..\Bindings\Native\glue.h" />
     <ClInclude Include="..\..\..\Bindings\Native\interop.h" />
-    <ClInclude Include="..\..\Source\Source\ThirdParty\SDL\src\video\winrt\SDL_winrtgamebar_cpp.h" />
+    <!--ClInclude Include="..\..\Source\Source\ThirdParty\SDL\src\video\winrt\SDL_winrtgamebar_cpp.h" /-->
     <ClInclude Include="PlaneFinding\HalfEdgeMesh.h" />
     <ClInclude Include="PlaneFinding\MathHelpers.h" />
     <ClInclude Include="PlaneFinding\NBest.h" />
@@ -238,9 +238,9 @@
     <ClCompile Include="..\..\..\Bindings\Native\vector.cpp" />
     <ClCompile Include="..\..\..\Bindings\Portable\Generated\binding.cpp" />
     <ClCompile Include="..\..\..\Bindings\Portable\Generated\events.cpp" />
-    <ClCompile Include="..\..\Source\Source\ThirdParty\SDL\src\video\winrt\SDL_winrtgamebar.cpp">
+    <!--ClCompile Include="..\..\Source\Source\ThirdParty\SDL\src\video\winrt\SDL_winrtgamebar.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
-    </ClCompile>
+    </ClCompile-->
     <ClCompile Include="PlaneFinding\dllmain.cpp" />
     <ClCompile Include="PlaneFinding\FindPlanes.cpp" />
     <ClCompile Include="PlaneFinding\HalfEdgeMesh.cpp" />
