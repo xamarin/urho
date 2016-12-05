@@ -99,9 +99,6 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
-    <Compile Include="App.cs" />
-    <Compile Include="Charts.cs" />
-    <Compile Include="RandomHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -147,6 +144,10 @@
     <ProjectReference Include="..\..\..\..\..\bindings\Urho.Forms.iOS.csproj">
       <Project>{8F3352BA-BF6A-49F8-81D6-58D54B3EA72B}</Project>
       <Name>Urho.Forms.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Playgrounds.Forms\Playgrounds.Forms.csproj">
+      <Project>{258f64d6-bdfb-48e7-93cc-b96c57fec2fe}</Project>
+      <Name>Playgrounds.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
