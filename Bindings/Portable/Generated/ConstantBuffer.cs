@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Hardware constant buffer.
 	/// </summary>
-	public unsafe partial class ConstantBuffer : UrhoObject
+	public unsafe partial class ConstantBuffer : UrhoObject, IGPUObject
 	{
 		unsafe partial void OnConstantBufferCreated ();
 
@@ -35,6 +35,11 @@ namespace Urho
 		protected ConstantBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 			OnConstantBufferCreated ();
+		}
+
+		public GPUObject AsGPUObject ()
+		{
+			return new GPUObject (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

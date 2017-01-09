@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Base class for texture resources.
 	/// </summary>
-	public unsafe partial class Texture : Resource
+	public unsafe partial class Texture : Resource, IGPUObject
 	{
 		unsafe partial void OnTextureCreated ();
 
@@ -35,6 +35,11 @@ namespace Urho
 		protected Texture (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 			OnTextureCreated ();
+		}
+
+		public GPUObject AsGPUObject ()
+		{
+			return new GPUObject (handle);
 		}
 
 		[Preserve]

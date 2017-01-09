@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Vertex or pixel shader on the GPU.
 	/// </summary>
-	public unsafe partial class ShaderVariation : RefCounted
+	public unsafe partial class ShaderVariation : RefCounted, IGPUObject
 	{
 		unsafe partial void OnShaderVariationCreated ();
 
@@ -35,6 +35,11 @@ namespace Urho
 		protected ShaderVariation (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 			OnShaderVariationCreated ();
+		}
+
+		public GPUObject AsGPUObject ()
+		{
+			return new GPUObject (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

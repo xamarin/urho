@@ -36,7 +36,7 @@ namespace SharpieBinder
 					"",
 					syntaxTree.FileName,
 					"",
-					"Copyright 2015 Xamarin Inc. All rights reserved.",
+					"Copyright 2015 Xamarin Inc. All rights reserved.\n",
 				};
 			foreach (var line in lines)
 				syntaxTree.Members.Add(new Comment(" " + line));

@@ -7964,6 +7964,76 @@ AnimationController_GetAnimationState1 (Urho3D::AnimationController *_target, in
 
 
 DllExport void *
+GPUObject_GPUObject (Urho3D::Graphics * graphics)
+{
+	return new GPUObject(graphics);
+}
+
+
+DllExport void
+GPUObject_OnDeviceLost (Urho3D::GPUObject *_target)
+{
+	_target->OnDeviceLost ();
+}
+
+
+DllExport void
+GPUObject_OnDeviceReset (Urho3D::GPUObject *_target)
+{
+	_target->OnDeviceReset ();
+}
+
+
+DllExport void
+GPUObject_Release (Urho3D::GPUObject *_target)
+{
+	_target->Release ();
+}
+
+
+DllExport void
+GPUObject_ClearDataLost (Urho3D::GPUObject *_target)
+{
+	_target->ClearDataLost ();
+}
+
+
+DllExport Urho3D::Graphics *
+GPUObject_GetGraphics (Urho3D::GPUObject *_target)
+{
+	return _target->GetGraphics ();
+}
+
+
+DllExport void *
+GPUObject_GetGPUObject (Urho3D::GPUObject *_target)
+{
+	return _target->GetGPUObject ();
+}
+
+
+DllExport unsigned int
+GPUObject_GetGPUObjectName (Urho3D::GPUObject *_target)
+{
+	return _target->GetGPUObjectName ();
+}
+
+
+DllExport int
+GPUObject_IsDataLost (Urho3D::GPUObject *_target)
+{
+	return _target->IsDataLost ();
+}
+
+
+DllExport int
+GPUObject_HasPendingData (Urho3D::GPUObject *_target)
+{
+	return _target->HasPendingData ();
+}
+
+
+DllExport void *
 Texture_Texture (Urho3D::Context * context)
 {
 	return WeakPtr<Texture>(new Texture(context));

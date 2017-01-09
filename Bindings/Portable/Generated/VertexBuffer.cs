@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Hardware vertex buffer.
 	/// </summary>
-	public unsafe partial class VertexBuffer : UrhoObject
+	public unsafe partial class VertexBuffer : UrhoObject, IGPUObject
 	{
 		unsafe partial void OnVertexBufferCreated ();
 
@@ -35,6 +35,11 @@ namespace Urho
 		protected VertexBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 			OnVertexBufferCreated ();
+		}
+
+		public GPUObject AsGPUObject ()
+		{
+			return new GPUObject (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

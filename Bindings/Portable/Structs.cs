@@ -664,11 +664,7 @@ namespace Urho {
 		public IntPtr Ptrs;
 		public IntPtr Allocator;
 	}
-	
-	// DEBATABLE: maybe we should let the binder handle it?
-	[StructLayout (LayoutKind.Sequential)]
-	public struct GPUObject {
-	}
+
 	// DEBATABLE: maybe we should let the binder handle it?
 	[StructLayout (LayoutKind.Sequential)]
 	public struct GraphicsImpl {

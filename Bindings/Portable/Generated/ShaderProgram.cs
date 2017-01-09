@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Linked shader program on the GPU.
 	/// </summary>
-	public unsafe partial class ShaderProgram : RefCounted
+	public unsafe partial class ShaderProgram : RefCounted, IGPUObject
 	{
 		unsafe partial void OnShaderProgramCreated ();
 
@@ -35,6 +35,11 @@ namespace Urho
 		protected ShaderProgram (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 			OnShaderProgramCreated ();
+		}
+
+		public GPUObject AsGPUObject ()
+		{
+			return new GPUObject (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

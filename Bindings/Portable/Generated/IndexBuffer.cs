@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Hardware index buffer.
 	/// </summary>
-	public unsafe partial class IndexBuffer : UrhoObject
+	public unsafe partial class IndexBuffer : UrhoObject, IGPUObject
 	{
 		unsafe partial void OnIndexBufferCreated ();
 
@@ -35,6 +35,11 @@ namespace Urho
 		protected IndexBuffer (UrhoObjectFlag emptyFlag) : base (emptyFlag)
 		{
 			OnIndexBufferCreated ();
+		}
+
+		public GPUObject AsGPUObject ()
+		{
+			return new GPUObject (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -429,5 +429,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\EventReceiverGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\MemoryBuffer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Localization.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\GPUObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\GPUObject.cs" />
   </ItemGroup>
 </Project>

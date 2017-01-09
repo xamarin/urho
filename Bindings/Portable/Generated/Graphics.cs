@@ -1855,24 +1855,24 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_AddGPUObject (IntPtr handle, GPUObject* @object);
+		internal static extern void Graphics_AddGPUObject (IntPtr handle, IntPtr @object);
 
 		/// <summary>
 		/// Add a GPU object to keep track of. Called by GPUObject.
 		/// </summary>
-		public void AddGPUObject (GPUObject* @object)
+		public void AddGPUObject (IntPtr @object)
 		{
 			Runtime.ValidateRefCounted (this);
 			Graphics_AddGPUObject (handle, @object);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Graphics_RemoveGPUObject (IntPtr handle, GPUObject* @object);
+		internal static extern void Graphics_RemoveGPUObject (IntPtr handle, IntPtr @object);
 
 		/// <summary>
 		/// Remove a GPU object. Called by GPUObject.
 		/// </summary>
-		public void RemoveGPUObject (GPUObject* @object)
+		public void RemoveGPUObject (IntPtr @object)
 		{
 			Runtime.ValidateRefCounted (this);
 			Graphics_RemoveGPUObject (handle, @object);
