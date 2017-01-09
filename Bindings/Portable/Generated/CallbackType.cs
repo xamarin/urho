@@ -26,6 +26,7 @@ namespace Urho
 		Attachedtonode,
 		Onnodesetenabled,
 		Addref,
-		Delete
+		Delete,
+		Write
 	}
 }

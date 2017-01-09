@@ -182,6 +182,7 @@
 #include <Urho3D/Resource/JSONFile.h>
 #include <Urho3D/Resource/JSONValue.h>
 #include <Urho3D/Resource/PListFile.h>
+#include <Urho3D/Resource/Localization.h>
 #include <Urho3D/Resource/Resource.h>
 #include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Resource/ResourceEvents.h>

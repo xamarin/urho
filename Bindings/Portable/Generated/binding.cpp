@@ -25130,6 +25130,111 @@ PListFile_BeginLoad_MemoryBuffer (Urho3D::PListFile *_target, MemoryBuffer * sou
 
 
 DllExport int
+Localization_GetType (Urho3D::Localization *_target)
+{
+	return (_target->GetType ()).Value ();
+}
+
+
+DllExport const char *
+Localization_GetTypeName (Urho3D::Localization *_target)
+{
+	return stringdup((_target->GetTypeName ()).CString ());
+}
+
+
+DllExport int
+Localization_GetTypeStatic ()
+{
+	return (Localization::GetTypeStatic ()).Value ();
+}
+
+
+DllExport const char *
+Localization_GetTypeNameStatic ()
+{
+	return stringdup((Localization::GetTypeNameStatic ()).CString ());
+}
+
+
+DllExport void *
+Localization_Localization (Urho3D::Context * context)
+{
+	return WeakPtr<Localization>(new Localization(context));
+}
+
+
+DllExport int
+Localization_GetNumLanguages (Urho3D::Localization *_target)
+{
+	return _target->GetNumLanguages ();
+}
+
+
+DllExport int
+Localization_GetLanguageIndex (Urho3D::Localization *_target)
+{
+	return _target->GetLanguageIndex ();
+}
+
+
+DllExport int
+Localization_GetLanguageIndex0 (Urho3D::Localization *_target, const char * language)
+{
+	return _target->GetLanguageIndex (Urho3D::String(language));
+}
+
+
+DllExport const char *
+Localization_GetLanguage (Urho3D::Localization *_target)
+{
+	return stringdup((_target->GetLanguage ()).CString ());
+}
+
+
+DllExport const char *
+Localization_GetLanguage1 (Urho3D::Localization *_target, int index)
+{
+	return stringdup((_target->GetLanguage (index)).CString ());
+}
+
+
+DllExport void
+Localization_SetLanguage (Urho3D::Localization *_target, int index)
+{
+	_target->SetLanguage (index);
+}
+
+
+DllExport void
+Localization_SetLanguage2 (Urho3D::Localization *_target, const char * language)
+{
+	_target->SetLanguage (Urho3D::String(language));
+}
+
+
+DllExport const char *
+Localization_Get (Urho3D::Localization *_target, const char * id)
+{
+	return stringdup((_target->Get (Urho3D::String(id))).CString ());
+}
+
+
+DllExport void
+Localization_Reset (Urho3D::Localization *_target)
+{
+	_target->Reset ();
+}
+
+
+DllExport void
+Localization_LoadJSONFile (Urho3D::Localization *_target, const char * name)
+{
+	_target->LoadJSONFile (Urho3D::String(name));
+}
+
+
+DllExport int
 ResourceCache_GetType (Urho3D::ResourceCache *_target)
 {
 	return (_target->GetType ()).Value ();
