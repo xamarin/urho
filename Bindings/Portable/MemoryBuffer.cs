@@ -13,6 +13,9 @@ namespace Urho
 		static extern IntPtr MemoryBuffer_GetData(IntPtr handle, out int data);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern uint MemoryBuffer_GetSize(IntPtr handle);
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern IntPtr MemoryBuffer_Dispose(IntPtr handle);
 
 		public MemoryBuffer(byte[] data)
@@ -28,6 +31,8 @@ namespace Urho
 		public MemoryBuffer(IntPtr handle) { Handle = handle; }
 
 		public IntPtr Handle { get; private set; }
+
+		public uint Size => MemoryBuffer_GetSize(Handle);
 
 		public byte[] GetData()
 		{

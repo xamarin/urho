@@ -325,5 +325,15 @@ extern "C" {
 	{
 		delete target;
 	}
+
+	DllExport unsigned MemoryBuffer_GetSize(MemoryBuffer* target)
+	{
+		return target->GetSize();
+	}
+
+	DllExport unsigned File_GetSize(File* target)
+	{
+		return target->GetSize();
+	}
 }
 
