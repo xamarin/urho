@@ -7,11 +7,11 @@ namespace Urho.Actions
 {
 	public class FadeTo : FiniteTimeAction
 	{
-		public byte ToOpacity { get; }
+		public float ToOpacity { get; }
 
 		#region Constructors
 
-		public FadeTo (float duration, byte opacity) : base (duration)
+		public FadeTo (float duration, float opacity) : base (duration)
 		{
 			ToOpacity = opacity;
 		}
