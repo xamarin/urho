@@ -67,7 +67,7 @@ UpdateCoreDataPak:
 	make -j1 CoreData.pak -f MakeWindows
 
 $(LOCAL_CLANG): 
-	if test ! -e clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; then curl -O http://llvm.org/releases/3.7.0/clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; fi
+	if test ! -e clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; then curl -O http://releases.llvm.org/3.7.0/clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; fi
 	tar xzvf clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz
 
 #compile Urho.pch for SharpieBinder on Mac
