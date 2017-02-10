@@ -15,15 +15,15 @@ namespace $safeprojectname$
 		[Preserve]
         public MyGame(ApplicationOptions opts) : base(opts) { }
 
-		static SamplyGame()
+	static MyGame()
+	{
+		UnhandledException += (s, e) =>
 		{
-			UnhandledException += (s, e) =>
-			{
-				if (Debugger.IsAttached)
-					Debugger.Break();
-				e.Handled = true;
-			};
-		}
+			if (Debugger.IsAttached)
+				Debugger.Break();
+			e.Handled = true;
+		};
+	}
 
         protected override void Start()
         {
