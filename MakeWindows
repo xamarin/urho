@@ -18,3 +18,6 @@ libUrho3D.a: Urho3D_Windows
 
 CoreData.pak:
 	Urho3D/Urho3D_Windows/bin/tool/PackageTool.exe Urho3D/CoreData Urho3D/CoreData.pak -q
+
+AssetImporter: Urho3D_Windows
+	cd Urho3D/Urho3D_Windows && cmake --build . --target AssetImporter --config Release && rm -rf ../../Bin/AssetImporter.exe && cp bin/tool/AssetImporter.exe ../../Bin/AssetImporter.exe

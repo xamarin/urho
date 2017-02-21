@@ -39,3 +39,6 @@ events.o:
 
 ApplicationProxy.o:
 	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.o Bindings/Native/ApplicationProxy.cpp
+
+AssetImporter: libUrho3D_64.a
+	cd $(URHO3D_MAC_DIR)/Source/Tools && xcodebuild ARCHS=$(ARCH_MAC) ONLY_ACTIVE_ARCH=NO -target AssetImporter -configuration Release
