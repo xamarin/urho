@@ -33516,7 +33516,7 @@ public class MyInstantState : ActionInstantState
             <remarks>This fades in an attached <see cref="T:Urho.Urho2D.StaticSprite2D" /> component of a node by altering the alpha component on the <see cref="P:Urho.Urho2D.StaticSprite2D.Color" /> property, or the attached <see cref="T:Urho.Shapes.Shape" /> component of a node by altering the alpha component on the <see cref="P:Urho.Shapes.Shape.Color" /> property.</remarks>
         </member>
         <member name="C:Urho.Actions.FadeIn(System.Single)">
-            <param name="durataion"></param>
+            <param name="duration"></param>
             <summary></summary>
             <remarks></remarks>
         </member>

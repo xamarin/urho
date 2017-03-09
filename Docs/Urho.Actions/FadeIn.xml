@@ -15,17 +15,17 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public FadeIn (float durataion);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 durataion) cil managed" />
+      <MemberSignature Language="C#" Value="public FadeIn (float duration);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="durataion" Type="System.Single" />
+        <Parameter Name="duration" Type="System.Single" />
       </Parameters>
       <Docs>
-        <param name="durataion">To be added.</param>
+        <param name="duration">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
