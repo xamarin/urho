@@ -9,7 +9,7 @@ namespace Urho.Actions
 	{
 		#region Constructors
 
-		public FadeIn (float durataion) : base (durataion)
+		public FadeIn (float duration) : base (duration)
 		{
 		}
 
