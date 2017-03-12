@@ -211,6 +211,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void DebugRenderer_AddFrustum (IntPtr handle, ref Urho.Frustum frustum, ref Urho.Color color, bool depthTest);
+
+		/// <summary>
+		/// Add a frustum.
+		/// </summary>
+		public void AddFrustum (Urho.Frustum frustum, Urho.Color color, bool depthTest)
+		{
+			Runtime.ValidateRefCounted (this);
+			DebugRenderer_AddFrustum (handle, ref frustum, ref color, depthTest);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void DebugRenderer_AddCylinder (IntPtr handle, ref Urho.Vector3 position, float radius, float height, ref Urho.Color color, bool depthTest);
 
 		/// <summary>
@@ -319,6 +331,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.Frustum DebugRenderer_GetFrustum (IntPtr handle);
+
+		/// <summary>
+		/// Return the view frustum.
+		/// </summary>
+		private Urho.Frustum GetFrustum ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return DebugRenderer_GetFrustum (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool DebugRenderer_IsInside (IntPtr handle, ref Urho.BoundingBox box);
 
 		/// <summary>
@@ -396,6 +420,15 @@ namespace Urho
 		public Urho.Matrix4 Projection {
 			get {
 				return GetProjection ();
+			}
+		}
+
+		/// <summary>
+		/// Return the view frustum.
+		/// </summary>
+		public Urho.Frustum Frustum {
+			get {
+				return GetFrustum ();
 			}
 		}
 	}

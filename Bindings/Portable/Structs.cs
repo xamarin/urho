@@ -427,10 +427,6 @@ namespace Urho {
 			return left;
 		}
 	}
-
-	[StructLayout (LayoutKind.Sequential)]
-	public struct Frustum {
-	}
 	
 	[StructLayout (LayoutKind.Sequential)]
 	public struct WeakPtr {

@@ -525,6 +525,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.Frustum Camera_GetFrustum (IntPtr handle);
+
+		/// <summary>
+		/// Return frustum in world space.
+		/// </summary>
+		private Urho.Frustum GetFrustum ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Camera_GetFrustum (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern Matrix4 Camera_GetProjection (IntPtr handle);
 
 		/// <summary>
@@ -1170,6 +1182,15 @@ namespace Urho
 		public Matrix4 Projection {
 			get {
 				return GetProjection ();
+			}
+		}
+
+		/// <summary>
+		/// Return frustum in world space.
+		/// </summary>
+		public Urho.Frustum Frustum {
+			get {
+				return GetFrustum ();
 			}
 		}
 

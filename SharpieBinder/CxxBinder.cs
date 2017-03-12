@@ -96,6 +96,7 @@ namespace SharpieBinder
 				["Urho3D::RefCount"] = new BaseNodeType(Bind),
 				["Urho3D::String"] = new BaseNodeType(Bind),
 				["Urho3D::XMLElement"] = new BaseNodeType(Bind),
+				["Urho3D::Frustum"] = new BaseNodeType(Bind),
 				["Urho3D::Skeleton"] = new BaseNodeType(Bind),
 				["Urho3D::GPUObject"] = new BaseNodeType(Bind),
 			};
@@ -253,7 +254,7 @@ namespace SharpieBinder
 		{
 			// Quick and dirty: it really should use our manually curated list of known value types,
 			// but for now, this will do
-			var classesNotStructs = new[] {"String", "Skeleton", "XMLElement", "GPUObject"};
+			var classesNotStructs = new[] {"String", "Skeleton", "XMLElement", "GPUObject", "Frustum"};
 			if (classesNotStructs.Contains(decl.Name))
 				return false;
 
@@ -432,6 +433,9 @@ namespace SharpieBinder
 			case "const struct Urho3D::TileMapInfo2D &":
 			case "const struct Urho3D::RenderPathCommand &":
 			case "const class Urho3D::XMLElement &":
+			case "const class Urho3D::Frustum &":
+			case "class Urho3D::Frustum &":
+			case "class Urho3D::Frustum":
 			case "class Urho3D::XMLElement &":
 			case "struct Urho3D::PhysicsRaycastResult &":
 			case "const class Urho3D::Ray &":
@@ -482,6 +486,8 @@ namespace SharpieBinder
 			
 			// Candidate for a hand binding (Connection.h)
 			if (qt.ToString().Contains("kNet::SharedPtr"))
+				return true;
+			if (s.Contains("Frustum"))
 				return true;
 			if (s.Contains("XMLElement"))
 				return true;
@@ -575,6 +581,8 @@ namespace SharpieBinder
 			case "const struct Urho3D::RenderPathCommand &":
 			case "const class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement &":
+			case "const class Urho3D::Frustum &":
+			case "class Urho3D::Frustum &":
 			case "const class Urho3D::Ray &":
 				var simpleType = NamespaceRegistry.RemapTypeToNamespace (cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms());
 				highLevel = new SimpleType (simpleType);
@@ -788,7 +796,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			//if (currentType.Name == "Graphics" && decl.Name == "AddGPUObject")
+			// (currentType.Name == "Camera" && decl.Name == "GetViewSpaceSplitFrustum")
 			//	return false;
 			//return true;
 

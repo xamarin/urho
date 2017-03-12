@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -371,6 +371,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\WorkQueue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\WrapMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\XmlElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Frustum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\XmlFile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Zone.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Sdl.cs" />
@@ -432,5 +433,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Localization.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\GPUObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\GPUObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Frustum.cs" />
   </ItemGroup>
 </Project>

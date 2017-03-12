@@ -7964,6 +7964,118 @@ AnimationController_GetAnimationState1 (Urho3D::AnimationController *_target, in
 
 
 DllExport void *
+Frustum_Frustum ()
+{
+	return new Frustum();
+}
+
+
+DllExport void *
+Frustum_Frustum0 (const class Urho3D::Frustum & frustum)
+{
+	return new Frustum(frustum);
+}
+
+
+DllExport void
+Frustum_Define (Urho3D::Frustum *_target, float fov, float aspectRatio, float zoom, float nearZ, float farZ, const class Urho3D::Matrix3x4 & transform)
+{
+	_target->Define (fov, aspectRatio, zoom, nearZ, farZ, transform);
+}
+
+
+DllExport void
+Frustum_Define1 (Urho3D::Frustum *_target, const class Urho3D::Vector3 & near, const class Urho3D::Vector3 & far, const class Urho3D::Matrix3x4 & transform)
+{
+	_target->Define (near, far, transform);
+}
+
+
+DllExport void
+Frustum_Define2 (Urho3D::Frustum *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Matrix3x4 & transform)
+{
+	_target->Define (box, transform);
+}
+
+
+DllExport void
+Frustum_Define3 (Urho3D::Frustum *_target, const class Urho3D::Matrix4 & projection)
+{
+	_target->Define (projection);
+}
+
+
+DllExport void
+Frustum_DefineOrtho (Urho3D::Frustum *_target, float orthoSize, float aspectRatio, float zoom, float nearZ, float farZ, const class Urho3D::Matrix3x4 & transform)
+{
+	_target->DefineOrtho (orthoSize, aspectRatio, zoom, nearZ, farZ, transform);
+}
+
+
+DllExport void
+Frustum_DefineSplit (Urho3D::Frustum *_target, const class Urho3D::Matrix4 & projection, float near, float far)
+{
+	_target->DefineSplit (projection, near, far);
+}
+
+
+DllExport void
+Frustum_Transform (Urho3D::Frustum *_target, const class Urho3D::Matrix3x4 & transform)
+{
+	_target->Transform (transform);
+}
+
+
+DllExport enum Urho3D::Intersection
+Frustum_IsInside (Urho3D::Frustum *_target, const class Urho3D::Vector3 & point)
+{
+	return _target->IsInside (point);
+}
+
+
+DllExport enum Urho3D::Intersection
+Frustum_IsInside4 (Urho3D::Frustum *_target, const class Urho3D::BoundingBox & box)
+{
+	return _target->IsInside (box);
+}
+
+
+DllExport enum Urho3D::Intersection
+Frustum_IsInsideFast (Urho3D::Frustum *_target, const class Urho3D::BoundingBox & box)
+{
+	return _target->IsInsideFast (box);
+}
+
+
+DllExport float
+Frustum_Distance (Urho3D::Frustum *_target, const class Urho3D::Vector3 & point)
+{
+	return _target->Distance (point);
+}
+
+
+DllExport Urho3D::Frustum
+Frustum_Transformed (Urho3D::Frustum *_target, const class Urho3D::Matrix3x4 & transform)
+{
+	return _target->Transformed (transform);
+}
+
+
+DllExport Urho3D::Rect
+Frustum_Projected (Urho3D::Frustum *_target, const class Urho3D::Matrix4 & transform)
+{
+	return _target->Projected (transform);
+}
+
+
+DllExport void
+Frustum_UpdatePlanes (Urho3D::Frustum *_target)
+{
+	_target->UpdatePlanes ();
+}
+
+
+DllExport void *
 GPUObject_GPUObject (Urho3D::Graphics * graphics)
 {
 	return new GPUObject(graphics);
@@ -9886,6 +9998,13 @@ Camera_GetAutoAspectRatio (Urho3D::Camera *_target)
 }
 
 
+DllExport const class Urho3D::Frustum &
+Camera_GetFrustum (Urho3D::Camera *_target)
+{
+	return _target->GetFrustum ();
+}
+
+
 DllExport Interop::Matrix4 
 Camera_GetProjection (Urho3D::Camera *_target)
 {
@@ -10468,6 +10587,13 @@ DebugRenderer_AddBoundingBox2 (Urho3D::DebugRenderer *_target, const class Urho3
 
 
 DllExport void
+DebugRenderer_AddFrustum (Urho3D::DebugRenderer *_target, const class Urho3D::Frustum & frustum, const class Urho3D::Color & color, bool depthTest)
+{
+	_target->AddFrustum (frustum, color, depthTest);
+}
+
+
+DllExport void
 DebugRenderer_AddCylinder (Urho3D::DebugRenderer *_target, const class Urho3D::Vector3 & position, float radius, float height, const class Urho3D::Color & color, bool depthTest)
 {
 	_target->AddCylinder (position, radius, height, color, depthTest);
@@ -10527,6 +10653,13 @@ DllExport Interop::Matrix4
 DebugRenderer_GetProjection (Urho3D::DebugRenderer *_target)
 {
 	return *((Interop::Matrix4  *) &(_target->GetProjection ()));
+}
+
+
+DllExport const class Urho3D::Frustum &
+DebugRenderer_GetFrustum (Urho3D::DebugRenderer *_target)
+{
+	return _target->GetFrustum ();
 }
 
 
