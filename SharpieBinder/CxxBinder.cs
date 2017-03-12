@@ -774,6 +774,17 @@ namespace SharpieBinder
 			}
 		}
 
+		public string RemapVariableName(string name)
+		{
+			switch (name)
+			{
+				case "far": return "farValue";
+				case "near": return "nearValue";
+				default:
+					return name;
+			}
+		}
+
 		static readonly Dictionary<string, string[]> OglSpecificMethodsMap = new Dictionary<string, string[]> {
 			{ "ConstantBuffer",		new[] { "OnDeviceReset" } },
 			{ "Graphics",			new[] { "CleanupRenderSurface","CleanupShaderPrograms","GetAnisotropySupport","GetDepthTexture","GetForceGL2","GetGL3Support","GetGL3Support","GetOrCreateConstantBuffer","GetShaderProgram","MarkFBODirty","MarkFBODirty","Release","Restore","SetForceGL2","SetTextureForUpdate","SetUBO","SetVBO" } },
@@ -1175,6 +1186,8 @@ namespace SharpieBinder
 				string paramName = param.Name;
 				if (string.IsNullOrEmpty(paramName))
 					paramName = "param" + (anonymousParameterNameCount++);
+
+				paramName = RemapVariableName(paramName);
 
 				Expression parameterReference = new IdentifierExpression (paramName);
 				switch (currentType.Name) {

@@ -60,15 +60,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Frustum_Define1 (IntPtr handle, ref Urho.Vector3 near, ref Urho.Vector3 far, ref Urho.Matrix3x4 transform);
+		internal static extern void Frustum_Define1 (IntPtr handle, ref Urho.Vector3 nearValue, ref Urho.Vector3 farValue, ref Urho.Matrix3x4 transform);
 
 		/// <summary>
 		/// Define with near and far dimension vectors and a transform matrix.
 		/// </summary>
-		public void Define (Urho.Vector3 near, Urho.Vector3 far, Urho.Matrix3x4 transform)
+		public void Define (Urho.Vector3 nearValue, Urho.Vector3 farValue, Urho.Matrix3x4 transform)
 		{
 			Runtime.ValidateObject (this);
-			Frustum_Define1 (handle, ref near, ref far, ref transform);
+			Frustum_Define1 (handle, ref nearValue, ref farValue, ref transform);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -108,17 +108,17 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Frustum_DefineSplit (IntPtr handle, ref Urho.Matrix4 projection, float near, float far);
+		internal static extern void Frustum_DefineSplit (IntPtr handle, ref Urho.Matrix4 projection, float nearValue, float farValue);
 
 		/// <summary>
 		/// Define a split (limited) frustum from a projection matrix, with near
 		/// &
 		/// far distances specified.
 		/// </summary>
-		public void DefineSplit (Urho.Matrix4 projection, float near, float far)
+		public void DefineSplit (Urho.Matrix4 projection, float nearValue, float farValue)
 		{
 			Runtime.ValidateObject (this);
-			Frustum_DefineSplit (handle, ref projection, near, far);
+			Frustum_DefineSplit (handle, ref projection, nearValue, farValue);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

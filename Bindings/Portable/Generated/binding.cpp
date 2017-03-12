@@ -7985,9 +7985,9 @@ Frustum_Define (Urho3D::Frustum *_target, float fov, float aspectRatio, float zo
 
 
 DllExport void
-Frustum_Define1 (Urho3D::Frustum *_target, const class Urho3D::Vector3 & near, const class Urho3D::Vector3 & far, const class Urho3D::Matrix3x4 & transform)
+Frustum_Define1 (Urho3D::Frustum *_target, const class Urho3D::Vector3 & nearValue, const class Urho3D::Vector3 & farValue, const class Urho3D::Matrix3x4 & transform)
 {
-	_target->Define (near, far, transform);
+	_target->Define (nearValue, farValue, transform);
 }
 
 
@@ -8013,9 +8013,9 @@ Frustum_DefineOrtho (Urho3D::Frustum *_target, float orthoSize, float aspectRati
 
 
 DllExport void
-Frustum_DefineSplit (Urho3D::Frustum *_target, const class Urho3D::Matrix4 & projection, float near, float far)
+Frustum_DefineSplit (Urho3D::Frustum *_target, const class Urho3D::Matrix4 & projection, float nearValue, float farValue)
 {
-	_target->DefineSplit (projection, near, far);
+	_target->DefineSplit (projection, nearValue, farValue);
 }
 
 
