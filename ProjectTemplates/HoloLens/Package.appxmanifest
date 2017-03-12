@@ -3,7 +3,7 @@
 	xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" 
 	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" 
 	xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
-	IgnorableNamespaces="uap mp">
+	IgnorableNamespaces="uap uap2 mp">
   <Identity Name="HoloUrhoSharp" Publisher="CN=Egor" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="bcaf243a-e17d-4aea-ab93-4bf965b64647" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
