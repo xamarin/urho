@@ -335,5 +335,31 @@ extern "C" {
 	{
 		return target->GetSize();
 	}
+
+	DllExport Interop::Vector3 *
+	Frustum_GetVertices(Frustum * frustum, int* count)
+	{
+		int size = NUM_FRUSTUM_VERTICES;
+		Interop::Vector3 * results = new Interop::Vector3[size];
+		for (int i = 0; i < size; i++) {
+			auto vector = *((Interop::Vector3  *) &(frustum->vertices_[i]));
+			results[i] = vector;
+		}
+		*count = size;
+		return results;
+	}
+
+	DllExport Interop::Plane *
+	Frustum_GetPlanes(Frustum * frustum, int* count)
+	{
+		int size = NUM_FRUSTUM_PLANES;
+		Interop::Plane * results = new Interop::Plane[size];
+		for (int i = 0; i < size; i++) {
+			auto plane = *((Interop::Plane  *) &(frustum->planes_[i]));
+			results[i] = plane;
+		}
+		*count = size;
+		return results;
+	}
 }
 

@@ -31,14 +31,17 @@ namespace Urho
 			return result;
 		}
 
-		public static T[] ToStructsArray<T>(this IntPtr ptr, int size) where T : struct 
+		public static T[] ToStructsArray<T>(this IntPtr ptr, int size) where T : struct
 		{
+			if (ptr == IntPtr.Zero)
+				return new T[0];
+
 			T[] result = new T[size];
-			var typeSize = Marshal.SizeOf(typeof (T));
+			var typeSize = Marshal.SizeOf(typeof(T));
 			for (int i = 0; i < size; i++)
 			{
-				var currentPtr = Marshal.ReadIntPtr(ptr, typeSize*i);
-				result[i] = (T)Marshal.PtrToStructure(currentPtr, typeof (T));
+				IntPtr data = new IntPtr(ptr.ToInt64() + typeSize * i);
+				result[i] = (T)Marshal.PtrToStructure(data, typeof(T));
 			}
 			return result;
 		}
