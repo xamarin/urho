@@ -301,6 +301,27 @@ namespace Urho {
 		public float m22;
 		public float m23;
 
+		public static readonly Matrix3x4 Identity = new Matrix3x4 {m00 = 1, m11 = 1, m22 = 1};
+		public static readonly Matrix3x4 Zero = new Matrix3x4 ();
+
+		public Matrix3x4(
+			float v00, float v01, float v02, float v03,
+			float v10, float v11, float v12, float v13,
+			float v20, float v21, float v22, float v23)
+		{
+			m00 = v00; m01 = v01; m02 = v02; m03 = v03;
+			m10 = v10; m11 = v11; m12 = v12; m13 = v13;
+			m20 = v20; m21 = v21; m22 = v22; m23 = v23;
+		}
+
+		public Matrix3x4(Vector3 row0, Vector3 row1, Vector3 row2, Vector3 row3)
+		{
+			m00 = row0.X; m10 = row0.Y; m20 = row0.Z;
+			m01 = row1.X; m11 = row1.Y; m21 = row1.Z;
+			m02 = row2.X; m12 = row2.Y; m22 = row2.Z;
+			m03 = row3.X; m13 = row0.Y; m23 = row0.Z;
+		}
+
 		public Matrix3x4 Inverse()
 		{
 			float det = m00 * m11 * m22 +

@@ -47,6 +47,13 @@ namespace Playgrounds.Console
 			var leftVp = new Viewport(Context, scene, leftEye, null);
 
 			Renderer.SetViewport(0, leftVp);
+
+			//Frustum ff = leftEye.Frustum;
+			//var value = ff.Vertices;
+			Frustum ff = new Frustum();
+			//float fov, float aspectRatio, float zoom, float nearZ, float farZ, Urho.Matrix3x4 transform
+			ff.Define(30f, 1.5f, 5f, 5f, 50f, Matrix3x4.Identity);
+			var v = ff.Vertices;
 		}
 	}
 }
