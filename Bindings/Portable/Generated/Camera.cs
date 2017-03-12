@@ -525,15 +525,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Urho.Frustum Camera_GetFrustum (IntPtr handle);
+		internal static extern IntPtr Camera_GetFrustum (IntPtr handle);
 
 		/// <summary>
 		/// Return frustum in world space.
 		/// </summary>
-		private Urho.Frustum GetFrustum ()
+		private Frustum GetFrustum ()
 		{
 			Runtime.ValidateRefCounted (this);
-			return Camera_GetFrustum (handle);
+			return new Frustum (Camera_GetFrustum (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1188,7 +1188,7 @@ namespace Urho
 		/// <summary>
 		/// Return frustum in world space.
 		/// </summary>
-		public Urho.Frustum Frustum {
+		public Frustum Frustum {
 			get {
 				return GetFrustum ();
 			}

@@ -6,6 +6,8 @@ namespace Urho.Resources
 	{
 		IntPtr handle;
 
+		public IntPtr Handle => handle;
+
 		[Preserve]
 		public XmlElement(IntPtr handle)
 		{

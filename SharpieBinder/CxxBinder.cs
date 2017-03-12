@@ -514,6 +514,7 @@ namespace SharpieBinder
 			None,				// no wrapping needed
 			HandleMember,		// access the .Handle on the parameter
 			UrhoObject,			// access the .Handle on the parameter, but the object is known to be an UrhoObject.
+			SimpleObject,
 			EventHandler,		// 
 			StringHash,			// StringHash is handled specially (we surface StringHash, but we always pass an int/receive an int)
 			VectorSharedPtr,	// Used to marshal Vector pointers, by using an implementation of a IList<T> 
@@ -579,10 +580,6 @@ namespace SharpieBinder
 			case "const class Urho3D::IntRect &":
 			case "const struct Urho3D::TileMapInfo2D &":
 			case "const struct Urho3D::RenderPathCommand &":
-			case "const class Urho3D::XMLElement &":
-			case "class Urho3D::XMLElement &":
-			case "const class Urho3D::Frustum &":
-			case "class Urho3D::Frustum &":
 			case "const class Urho3D::Ray &":
 				var simpleType = NamespaceRegistry.RemapTypeToNamespace (cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms());
 				highLevel = new SimpleType (simpleType);
@@ -591,9 +588,17 @@ namespace SharpieBinder
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "class Urho3D::Image &":
-				highLevel = new SimpleType ("Image");
-				lowLevel = new SimpleType ("IntPtr");
+				highLevel = new SimpleType("Image");
+				lowLevel = new SimpleType("IntPtr");
 				wrapKind = WrapKind.HandleMember;
+				return;
+			case "const class Urho3D::XMLElement &":
+			case "class Urho3D::XMLElement &":
+			case "const class Urho3D::Frustum &":
+			case "class Urho3D::Frustum &":
+				highLevel = new SimpleType (cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms());
+				lowLevel = new SimpleType ("IntPtr");
+				wrapKind = WrapKind.SimpleObject;
 				return;
 			case "struct Urho3D::PhysicsRaycastResult &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
@@ -807,7 +812,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			// (currentType.Name == "Camera" && decl.Name == "GetViewSpaceSplitFrustum")
+			//if (currentType.Name == "Camera" && decl.Name == "GetFrustum")
 			//	return false;
 			//return true;
 
@@ -1253,6 +1258,7 @@ namespace SharpieBinder
 				case WrapKind.None:
 					invoke.Arguments.Add(parameterReference);
 					break;
+				case WrapKind.SimpleObject:
 				case WrapKind.HandleMember:
 				case WrapKind.UrhoObject:
 					var cond = new ConditionalExpression (new BinaryOperatorExpression (
@@ -1333,6 +1339,9 @@ namespace SharpieBinder
 					ret = new ReturnStatement();
 
 				switch (returnIsWrapped) {
+				case WrapKind.SimpleObject:
+					returnExpression = new ObjectCreateExpression(new SimpleType(((SimpleType)methodReturn2).Identifier), invoke);
+					break;
 				case WrapKind.HandleMember:
 					returnExpression = new InvocationExpression (new MemberReferenceExpression (new IdentifierExpression ("Runtime"), "LookupRefCounted", methodReturn2), invoke);
 					break;

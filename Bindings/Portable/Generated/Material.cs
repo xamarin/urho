@@ -163,27 +163,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Material_Load (IntPtr handle, ref Urho.Resources.XmlElement source);
+		internal static extern bool Material_Load (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load from an XML element. Return true if successful.
 		/// </summary>
-		public bool Load (Urho.Resources.XmlElement source)
+		public bool Load (XmlElement source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Material_Load (handle, ref source);
+			return Material_Load (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Material_Save0 (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool Material_Save0 (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save to an XML element. Return true if successful.
 		/// </summary>
-		public bool Save (Urho.Resources.XmlElement dest)
+		public bool Save (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Material_Save0 (handle, ref dest);
+			return Material_Save0 (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

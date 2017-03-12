@@ -127,15 +127,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Component_SaveXML (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool Component_SaveXML (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save as XML data. Return true if successful.
 		/// </summary>
-		public override bool SaveXml (Urho.Resources.XmlElement dest)
+		public override bool SaveXml (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Component_SaveXML (handle, ref dest);
+			return Component_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

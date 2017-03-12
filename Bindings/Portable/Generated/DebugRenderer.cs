@@ -211,15 +211,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void DebugRenderer_AddFrustum (IntPtr handle, ref Urho.Frustum frustum, ref Urho.Color color, bool depthTest);
+		internal static extern void DebugRenderer_AddFrustum (IntPtr handle, IntPtr frustum, ref Urho.Color color, bool depthTest);
 
 		/// <summary>
 		/// Add a frustum.
 		/// </summary>
-		public void AddFrustum (Urho.Frustum frustum, Urho.Color color, bool depthTest)
+		public void AddFrustum (Frustum frustum, Urho.Color color, bool depthTest)
 		{
 			Runtime.ValidateRefCounted (this);
-			DebugRenderer_AddFrustum (handle, ref frustum, ref color, depthTest);
+			DebugRenderer_AddFrustum (handle, (object)frustum == null ? IntPtr.Zero : frustum.Handle, ref color, depthTest);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -331,15 +331,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Urho.Frustum DebugRenderer_GetFrustum (IntPtr handle);
+		internal static extern IntPtr DebugRenderer_GetFrustum (IntPtr handle);
 
 		/// <summary>
 		/// Return the view frustum.
 		/// </summary>
-		private Urho.Frustum GetFrustum ()
+		private Frustum GetFrustum ()
 		{
 			Runtime.ValidateRefCounted (this);
-			return DebugRenderer_GetFrustum (handle);
+			return new Frustum (DebugRenderer_GetFrustum (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -426,7 +426,7 @@ namespace Urho
 		/// <summary>
 		/// Return the view frustum.
 		/// </summary>
-		public Urho.Frustum Frustum {
+		public Frustum Frustum {
 			get {
 				return GetFrustum ();
 			}

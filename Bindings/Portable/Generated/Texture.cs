@@ -492,15 +492,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Texture_SetParameters1 (IntPtr handle, ref Urho.Resources.XmlElement element);
+		internal static extern void Texture_SetParameters1 (IntPtr handle, IntPtr element);
 
 		/// <summary>
 		/// Set additional parameters from an XML element.
 		/// </summary>
-		public void SetParameters (Urho.Resources.XmlElement element)
+		public void SetParameters (XmlElement element)
 		{
 			Runtime.ValidateRefCounted (this);
-			Texture_SetParameters1 (handle, ref element);
+			Texture_SetParameters1 (handle, (object)element == null ? IntPtr.Zero : element.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

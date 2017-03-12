@@ -37,26 +37,26 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr XmlElement_XMLElement0 (ref Urho.Resources.XmlElement rhs);
+		internal static extern IntPtr XmlElement_XMLElement0 (IntPtr rhs);
 
 		[Preserve]
-		public XmlElement (Urho.Resources.XmlElement rhs)
+		public XmlElement (XmlElement rhs)
 		{
 			Runtime.Validate (typeof(XmlElement));
-			handle = XmlElement_XMLElement0 (ref rhs);
+			handle = XmlElement_XMLElement0 ((object)rhs == null ? IntPtr.Zero : rhs.Handle);
 			OnXmlElementCreated ();
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool XmlElement_RemoveChild (IntPtr handle, ref Urho.Resources.XmlElement element);
+		internal static extern bool XmlElement_RemoveChild (IntPtr handle, IntPtr element);
 
 		/// <summary>
 		/// Remove a child element. Return true if successful.
 		/// </summary>
-		public bool RemoveChild (Urho.Resources.XmlElement element)
+		public bool RemoveChild (XmlElement element)
 		{
 			Runtime.ValidateObject (this);
-			return XmlElement_RemoveChild (handle, ref element);
+			return XmlElement_RemoveChild (handle, (object)element == null ? IntPtr.Zero : element.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

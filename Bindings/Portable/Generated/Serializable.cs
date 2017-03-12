@@ -139,27 +139,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Serializable_LoadXML (IntPtr handle, ref Urho.Resources.XmlElement source, bool setInstanceDefault);
+		internal static extern bool Serializable_LoadXML (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from XML data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
 		/// </summary>
-		public virtual bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault)
+		public virtual bool LoadXml (XmlElement source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Serializable_LoadXML (handle, ref source, setInstanceDefault);
+			return Serializable_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Serializable_SaveXML (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool Serializable_SaveXML (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save as XML data. Return true if successful.
 		/// </summary>
-		public virtual bool SaveXml (Urho.Resources.XmlElement dest)
+		public virtual bool SaveXml (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Serializable_SaveXML (handle, ref dest);
+			return Serializable_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

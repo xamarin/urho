@@ -151,27 +151,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool ValueAnimation_LoadXML (IntPtr handle, ref Urho.Resources.XmlElement source);
+		internal static extern bool ValueAnimation_LoadXML (IntPtr handle, IntPtr source);
 
 		/// <summary>
 		/// Load from XML data. Return true if successful.
 		/// </summary>
-		public bool LoadXml (Urho.Resources.XmlElement source)
+		public bool LoadXml (XmlElement source)
 		{
 			Runtime.ValidateRefCounted (this);
-			return ValueAnimation_LoadXML (handle, ref source);
+			return ValueAnimation_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool ValueAnimation_SaveXML (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool ValueAnimation_SaveXML (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save as XML data. Return true if successful.
 		/// </summary>
-		public bool SaveXml (Urho.Resources.XmlElement dest)
+		public bool SaveXml (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return ValueAnimation_SaveXML (handle, ref dest);
+			return ValueAnimation_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -151,15 +151,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Scene_LoadXML (IntPtr handle, ref Urho.Resources.XmlElement source, bool setInstanceDefault);
+		internal static extern bool Scene_LoadXML (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from XML data. Removes all existing child nodes and components first. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Scene_LoadXML (handle, ref source, setInstanceDefault);
+			return Scene_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -355,15 +355,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Scene_InstantiateXML (IntPtr handle, ref Urho.Resources.XmlElement source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
+		internal static extern IntPtr Scene_InstantiateXML (IntPtr handle, IntPtr source, ref Urho.Vector3 position, ref Urho.Quaternion rotation, CreateMode mode);
 
 		/// <summary>
 		/// Instantiate scene content from XML data. Return root node if successful.
 		/// </summary>
-		public Node InstantiateXml (Urho.Resources.XmlElement source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		public Node InstantiateXml (XmlElement source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Node> (Scene_InstantiateXML (handle, ref source, ref position, ref rotation, mode));
+			return Runtime.LookupObject<Node> (Scene_InstantiateXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

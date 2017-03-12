@@ -50,15 +50,15 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void PropertySet2D_Load (IntPtr handle, ref Urho.Resources.XmlElement element);
+		internal static extern void PropertySet2D_Load (IntPtr handle, IntPtr element);
 
 		/// <summary>
 		/// Load from XML element.
 		/// </summary>
-		public void Load (Urho.Resources.XmlElement element)
+		public void Load (XmlElement element)
 		{
 			Runtime.ValidateRefCounted (this);
-			PropertySet2D_Load (handle, ref element);
+			PropertySet2D_Load (handle, (object)element == null ? IntPtr.Zero : element.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

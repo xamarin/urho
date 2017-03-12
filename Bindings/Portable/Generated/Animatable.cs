@@ -86,27 +86,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Animatable_LoadXML (IntPtr handle, ref Urho.Resources.XmlElement source, bool setInstanceDefault);
+		internal static extern bool Animatable_LoadXML (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from XML data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Animatable_LoadXML (handle, ref source, setInstanceDefault);
+			return Animatable_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Animatable_SaveXML (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool Animatable_SaveXML (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save as XML data. Return true if successful.
 		/// </summary>
-		public override bool SaveXml (Urho.Resources.XmlElement dest)
+		public override bool SaveXml (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Animatable_SaveXML (handle, ref dest);
+			return Animatable_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -127,15 +127,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool AnimatedModel_LoadXML (IntPtr handle, ref Urho.Resources.XmlElement source, bool setInstanceDefault);
+		internal static extern bool AnimatedModel_LoadXML (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from XML data. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return AnimatedModel_LoadXML (handle, ref source, setInstanceDefault);
+			return AnimatedModel_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

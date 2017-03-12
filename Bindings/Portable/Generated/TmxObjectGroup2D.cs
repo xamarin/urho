@@ -50,15 +50,15 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool TmxObjectGroup2D_Load (IntPtr handle, ref Urho.Resources.XmlElement element, ref Urho.Urho2D.TileMapInfo2D info);
+		internal static extern bool TmxObjectGroup2D_Load (IntPtr handle, IntPtr element, ref Urho.Urho2D.TileMapInfo2D info);
 
 		/// <summary>
 		/// Load from XML element.
 		/// </summary>
-		public bool Load (Urho.Resources.XmlElement element, Urho.Urho2D.TileMapInfo2D info)
+		public bool Load (XmlElement element, Urho.Urho2D.TileMapInfo2D info)
 		{
 			Runtime.ValidateRefCounted (this);
-			return TmxObjectGroup2D_Load (handle, ref element, ref info);
+			return TmxObjectGroup2D_Load (handle, (object)element == null ? IntPtr.Zero : element.Handle, ref info);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

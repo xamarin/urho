@@ -115,51 +115,51 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_LoadXML (IntPtr handle, ref Urho.Resources.XmlElement source, bool setInstanceDefault);
+		internal static extern bool UIElement_LoadXML (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from XML data. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_LoadXML (handle, ref source, setInstanceDefault);
+			return UIElement_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_LoadXML0 (IntPtr handle, ref Urho.Resources.XmlElement source, IntPtr styleFile, bool setInstanceDefault);
+		internal static extern bool UIElement_LoadXML0 (IntPtr handle, IntPtr source, IntPtr styleFile, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from XML data with style. Return true if successful.
 		/// </summary>
-		public virtual bool LoadXml (Urho.Resources.XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
+		public virtual bool LoadXml (XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_LoadXML0 (handle, ref source, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault);
+			return UIElement_LoadXML0 (handle, (object)source == null ? IntPtr.Zero : source.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr UIElement_LoadChildXML (IntPtr handle, ref Urho.Resources.XmlElement childElem, IntPtr styleFile, bool setInstanceDefault);
+		internal static extern IntPtr UIElement_LoadChildXML (IntPtr handle, IntPtr childElem, IntPtr styleFile, bool setInstanceDefault);
 
 		/// <summary>
 		/// Create a child by loading from XML data with style. Returns the child element if successful, null if otherwise.
 		/// </summary>
-		public UIElement LoadChildXml (Urho.Resources.XmlElement childElem, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
+		public UIElement LoadChildXml (XmlElement childElem, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<UIElement> (UIElement_LoadChildXML (handle, ref childElem, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault));
+			return Runtime.LookupObject<UIElement> (UIElement_LoadChildXML (handle, (object)childElem == null ? IntPtr.Zero : childElem.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_SaveXML (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool UIElement_SaveXML (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save as XML data. Return true if successful.
 		/// </summary>
-		public override bool SaveXml (Urho.Resources.XmlElement dest)
+		public override bool SaveXml (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_SaveXML (handle, ref dest);
+			return UIElement_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -403,15 +403,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_FilterAttributes (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool UIElement_FilterAttributes (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Filter attributes in serialization process.
 		/// </summary>
-		public bool FilterAttributes (Urho.Resources.XmlElement dest)
+		public bool FilterAttributes (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_FilterAttributes (handle, ref dest);
+			return UIElement_FilterAttributes (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1045,15 +1045,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_SetStyle12 (IntPtr handle, ref Urho.Resources.XmlElement element);
+		internal static extern bool UIElement_SetStyle12 (IntPtr handle, IntPtr element);
 
 		/// <summary>
 		/// Set style from an XML element. Return true if the style is applied successfully.
 		/// </summary>
-		public bool SetStyle (Urho.Resources.XmlElement element)
+		public bool SetStyle (XmlElement element)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_SetStyle12 (handle, ref element);
+			return UIElement_SetStyle12 (handle, (object)element == null ? IntPtr.Zero : element.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

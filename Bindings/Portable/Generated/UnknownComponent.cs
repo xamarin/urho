@@ -115,15 +115,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UnknownComponent_LoadXML (IntPtr handle, ref Urho.Resources.XmlElement source, bool setInstanceDefault);
+		internal static extern bool UnknownComponent_LoadXML (IntPtr handle, IntPtr source, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from XML data. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UnknownComponent_LoadXML (handle, ref source, setInstanceDefault);
+			return UnknownComponent_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -151,15 +151,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UnknownComponent_SaveXML (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool UnknownComponent_SaveXML (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save as XML data. Return true if successful.
 		/// </summary>
-		public override bool SaveXml (Urho.Resources.XmlElement dest)
+		public override bool SaveXml (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UnknownComponent_SaveXML (handle, ref dest);
+			return UnknownComponent_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

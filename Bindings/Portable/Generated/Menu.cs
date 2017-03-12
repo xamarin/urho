@@ -103,27 +103,27 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Menu_LoadXML (IntPtr handle, ref Urho.Resources.XmlElement source, IntPtr styleFile, bool setInstanceDefault);
+		internal static extern bool Menu_LoadXML (IntPtr handle, IntPtr source, IntPtr styleFile, bool setInstanceDefault);
 
 		/// <summary>
 		/// Load from XML data with style. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (Urho.Resources.XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Menu_LoadXML (handle, ref source, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault);
+			return Menu_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Menu_SaveXML (IntPtr handle, ref Urho.Resources.XmlElement dest);
+		internal static extern bool Menu_SaveXML (IntPtr handle, IntPtr dest);
 
 		/// <summary>
 		/// Save as XML data. Return true if successful.
 		/// </summary>
-		public override bool SaveXml (Urho.Resources.XmlElement dest)
+		public override bool SaveXml (XmlElement dest)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Menu_SaveXML (handle, ref dest);
+			return Menu_SaveXML (handle, (object)dest == null ? IntPtr.Zero : dest.Handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

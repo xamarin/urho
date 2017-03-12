@@ -37,13 +37,13 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Frustum_Frustum0 (ref Urho.Frustum frustum);
+		internal static extern IntPtr Frustum_Frustum0 (IntPtr frustum);
 
 		[Preserve]
-		public Frustum (Urho.Frustum frustum)
+		public Frustum (Frustum frustum)
 		{
 			Runtime.Validate (typeof(Frustum));
-			handle = Frustum_Frustum0 (ref frustum);
+			handle = Frustum_Frustum0 ((object)frustum == null ? IntPtr.Zero : frustum.Handle);
 			OnFrustumCreated ();
 		}
 
