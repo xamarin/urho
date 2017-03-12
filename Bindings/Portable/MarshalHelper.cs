@@ -33,7 +33,7 @@ namespace Urho
 
 		public static T[] ToStructsArray<T>(this IntPtr ptr, int size) where T : struct
 		{
-			if (ptr == IntPtr.Zero)
+			if (ptr == IntPtr.Zero || size < 1)
 				return new T[0];
 
 			T[] result = new T[size];
