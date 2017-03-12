@@ -1938,10 +1938,10 @@ Sprite2D_GetTexture (Urho3D::Sprite2D *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 Sprite2D_GetRectangle (Urho3D::Sprite2D *_target)
 {
-	return _target->GetRectangle ();
+	return *((Interop::IntRect  *) &(_target->GetRectangle ()));
 }
 
 
@@ -12397,10 +12397,10 @@ Graphics_GetDepthStencil (Urho3D::Graphics *_target)
 }
 
 
-DllExport Urho3D::IntRect
+DllExport Interop::IntRect 
 Graphics_GetViewport (Urho3D::Graphics *_target)
 {
-	return _target->GetViewport ();
+	return *((Interop::IntRect  *) &(_target->GetViewport ()));
 }
 
 
@@ -12488,10 +12488,10 @@ Graphics_GetScissorTest (Urho3D::Graphics *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 Graphics_GetScissorRect (Urho3D::Graphics *_target)
 {
-	return _target->GetScissorRect ();
+	return *((Interop::IntRect  *) &(_target->GetScissorRect ()));
 }
 
 
@@ -12894,10 +12894,10 @@ Viewport_GetView (Urho3D::Viewport *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 Viewport_GetRect (Urho3D::Viewport *_target)
 {
-	return _target->GetRect ();
+	return *((Interop::IntRect  *) &(_target->GetRect ()));
 }
 
 
@@ -16335,10 +16335,10 @@ XmlElement_GetInt (Urho3D::XMLElement *_target, const char * name)
 }
 
 
-DllExport Urho3D::IntRect
+DllExport Interop::IntRect 
 XmlElement_GetIntRect (Urho3D::XMLElement *_target, const char * name)
 {
-	return _target->GetIntRect (Urho3D::String(name));
+	return *((Interop::IntRect  *) &(_target->GetIntRect (Urho3D::String(name))));
 }
 
 
@@ -18790,10 +18790,10 @@ View_GetDrawDebug (Urho3D::View *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 View_GetViewRect (Urho3D::View *_target)
 {
-	return _target->GetViewRect ();
+	return *((Interop::IntRect  *) &(_target->GetViewRect ()));
 }
 
 
@@ -20537,10 +20537,10 @@ UIElement_GetPivot (Urho3D::UIElement *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 UIElement_GetClipBorder (Urho3D::UIElement *_target)
 {
-	return _target->GetClipBorder ();
+	return *((Interop::IntRect  *) &(_target->GetClipBorder ()));
 }
 
 
@@ -20719,10 +20719,10 @@ UIElement_GetLayoutSpacing (Urho3D::UIElement *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 UIElement_GetLayoutBorder (Urho3D::UIElement *_target)
 {
-	return _target->GetLayoutBorder ();
+	return *((Interop::IntRect  *) &(_target->GetLayoutBorder ()));
 }
 
 
@@ -20817,10 +20817,10 @@ UIElement_IsInsideCombined (Urho3D::UIElement *_target, Urho3D::IntVector2 posit
 }
 
 
-DllExport Urho3D::IntRect
+DllExport Interop::IntRect 
 UIElement_GetCombinedScreenRect (Urho3D::UIElement *_target)
 {
-	return _target->GetCombinedScreenRect ();
+	return *((Interop::IntRect  *) &(_target->GetCombinedScreenRect ()));
 }
 
 
@@ -21020,24 +21020,24 @@ BorderImage_GetTexture (Urho3D::BorderImage *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 BorderImage_GetImageRect (Urho3D::BorderImage *_target)
 {
-	return _target->GetImageRect ();
+	return *((Interop::IntRect  *) &(_target->GetImageRect ()));
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 BorderImage_GetBorder (Urho3D::BorderImage *_target)
 {
-	return _target->GetBorder ();
+	return *((Interop::IntRect  *) &(_target->GetBorder ()));
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 BorderImage_GetImageBorder (Urho3D::BorderImage *_target)
 {
-	return _target->GetImageBorder ();
+	return *((Interop::IntRect  *) &(_target->GetImageBorder ()));
 }
 
 
@@ -29523,10 +29523,10 @@ Sprite_GetTexture (Urho3D::Sprite *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 Sprite_GetImageRect (Urho3D::Sprite *_target)
 {
-	return _target->GetImageRect ();
+	return *((Interop::IntRect  *) &(_target->GetImageRect ()));
 }
 
 
@@ -30991,10 +30991,10 @@ Window_GetFixedHeightResizing (Urho3D::Window *_target)
 }
 
 
-DllExport const class Urho3D::IntRect &
+DllExport Interop::IntRect 
 Window_GetResizeBorder (Urho3D::Window *_target)
 {
-	return _target->GetResizeBorder ();
+	return *((Interop::IntRect  *) &(_target->GetResizeBorder ()));
 }
 
 

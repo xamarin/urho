@@ -1065,6 +1065,7 @@ namespace SharpieBinder
 			case "const class Urho3D::Matrix3x4 &":
 			case "const class Urho3D::Vector2 &":
 			case "const class Urho3D::Vector4 &":
+			case "const class Urho3D::IntRect &":
 			case "const class Urho3D::IntVector2 &":
 			case "const class Urho3D::Quaternion &":
 			case "const class Urho3D::Plane &":
@@ -1077,6 +1078,7 @@ namespace SharpieBinder
 			case "Urho3D::Vector2":
 			case "Urho3D::Vector4":
 			case "Urho3D::IntVector2":
+			case "Urho3D::IntRect":
 			case "Urho3D::Quaternion":
 			case "Urho3D::Plane":
 			case "Urho3D::BoundingBox":
