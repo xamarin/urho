@@ -340,7 +340,7 @@ namespace SharpieBinder
 				var initMethodCall = new InvocationExpression(new IdentifierExpression(initMethod.Name), null);
 
 				nativeCtor.Attributes.Add(CreatePreserveAttribute());
-				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
+				nativeCtor.Parameters.Add(new ParameterDeclaration(new SimpleType(nameof(IntPtr)), "handle"));
 				nativeCtor.Initializer.Arguments.Add(new IdentifierExpression("handle"));
 
 				nativeCtor.Body.Add(initMethodCall.Clone());
@@ -546,9 +546,15 @@ namespace SharpieBinder
 
 			var cleanType = CleanType(qt);
 			var cleanTypeStr = cleanType.ToString();
+			var typeName = cleanTypeStr
+					.DropConst()
+					.DropClassOrStructPrefix()
+					.DropUrhoNamespace();
 
-			switch (cleanTypeStr) {
-			case "const char *":
+			bool hasConst = cleanTypeStr.Contains("const ");
+
+			switch (typeName) {
+			case "char *":
 				lowLevel = new PrimitiveType("string");
 				highLevel = new PrimitiveType("string");
 				return;
@@ -556,16 +562,15 @@ namespace SharpieBinder
 			// Troublesome because on windows it is a sizeof(unsigned), on unix sizeof(pthread_t), which is 
 			// 32 or 64 bits.
 			case "void *":
-			case "class Urho3D::GPUObject *":
-				lowLevel = new PrimitiveType("IntPtr");
-				highLevel = new PrimitiveType("IntPtr");
+			case "GPUObject *":
+				lowLevel = new PrimitiveType(hasConst ? "void*" : nameof(IntPtr));
+				highLevel = new PrimitiveType(hasConst ? "void*" : nameof(IntPtr));
 				return;
-
-			case "const Urho3D::String &":
-			case "class Urho3D::String":
+			case "String &":
+			case "String":
 			case ConstStringReference:
 				if (isReturn) {
-					lowLevel = new PrimitiveType("IntPtr");
+					lowLevel = new PrimitiveType(nameof(IntPtr));
 					highLevel = new PrimitiveType("string");
 					wrapKind = WrapKind.MarshalPtrToString;
 					return;
@@ -574,71 +579,68 @@ namespace SharpieBinder
 					highLevel = new PrimitiveType("string");
 					return;
 				}
-			case "const class Urho3D::Vector2 &":
-			case "const class Urho3D::Vector3 &":
-			case "const class Urho3D::Vector4 &":
-			case "const class Urho3D::Matrix4 &":
-			case "const class Urho3D::Matrix3x4 &":
-			case "const class Urho3D::Quaternion &":
-			case "const class Urho3D::Plane &":
-			case "const class Urho3D::BoundingBox &":
-			case "const class Urho3D::Color &":
-			case "const class Urho3D::IntVector2 &":
-			case "const class Urho3D::IntRect &":
-			case "const struct Urho3D::TileMapInfo2D &":
-			case "const struct Urho3D::RenderPathCommand &":
-			case "const class Urho3D::Ray &":
+			case "Vector2 &":
+			case "Vector3 &":
+			case "Vector4 &":
+			case "Matrix4 &":
+			case "Matrix3x4 &":
+			case "Quaternion &":
+			case "Plane &":
+			case "BoundingBox &":
+			case "Color &":
+			case "IntVector2 &":
+			case "IntRect &":
+			case "TileMapInfo2D &":
+			case "RenderPathCommand &":
+			case "Ray &":
 				var simpleType = NamespaceRegistry.RemapTypeToNamespace (cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms());
 				highLevel = new SimpleType (simpleType);
 				lowLevel = new SimpleType (simpleType);
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				wrapKind = WrapKind.RefBlittable;
 				return;
-			case "class Urho3D::Image &":
+			case "Image &":
 				highLevel = new SimpleType("Image");
-				lowLevel = new SimpleType("IntPtr");
+				lowLevel = new SimpleType(nameof(IntPtr));
 				wrapKind = WrapKind.HandleMember;
 				return;
-			case "const class Urho3D::XMLElement &":
-			case "class Urho3D::XMLElement &":
-			case "class Urho3D::XMLElement":
-			case "class Urho3D::Polyhedron":
-			case "const class Urho3D::Polyhedron &":
-			case "class Urho3D::Polyhedron &":
-			case "class Urho3D::Frustum":
-			case "const class Urho3D::Frustum &":
-			case "class Urho3D::Frustum &":
-				highLevel = new SimpleType (cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms());
-				lowLevel = new SimpleType ("IntPtr");
+			case "XMLElement &":
+			case "XMLElement":
+			case "Polyhedron":
+			case "Polyhedron &":
+			case "Frustum":
+			case "Frustum &":
+				highLevel = new SimpleType(typeName.RemapAcronyms().DropConstAndReference());
+				lowLevel = new SimpleType (nameof(IntPtr));
 				wrapKind = WrapKind.SimpleObject;
 				return;
-			case "struct Urho3D::PhysicsRaycastResult &":
+			case "PhysicsRaycastResult &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				highLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				highLevel = new SimpleType ("PhysicsRaycastResult");
 				lowLevel = new SimpleType ("PhysicsRaycastResult");
 				wrapKind = WrapKind.RefBlittable;
 				return;
-			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
-			case "const struct Urho3D::BiasParameters &":
-			case "const struct Urho3D::FocusParameters &":
-			case "const struct Urho3D::CascadeParameters &":
+			case "CrowdObstacleAvoidanceParams &":
+			case "BiasParameters &":
+			case "FocusParameters &":
+			case "CascadeParameters &":
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				var structName = cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace();
 				highLevel = new SimpleType (structName);
 				lowLevel = new SimpleType (structName);
 				wrapKind = WrapKind.RefBlittable;
 				return;
-			case "class Urho3D::Serializer &":
-			case "class Urho3D::Deserializer &":
+			case "Serializer &":
+			case "Deserializer &":
 				highLevel = new SimpleType ("DeSerializer");
-				lowLevel = new SimpleType ("IntPtr");
+				lowLevel = new SimpleType (nameof(IntPtr));
 				wrapKind = WrapKind.HandleMember;
 				return;
-			case "struct Urho3D::TouchState *":
+			case "TouchState *":
 				if (isReturn)
 				{
-					lowLevel = new PrimitiveType("IntPtr");
+					lowLevel = new PrimitiveType(nameof(IntPtr));
 					highLevel = new SimpleType("TouchState");
 					wrapKind = WrapKind.MarshalPtrToStruct;
 					return;
@@ -646,23 +648,23 @@ namespace SharpieBinder
 				break;
 
 				// currently "Vector<X> &" are only supported for return values
-			case "const Vector<SharedPtr<class Urho3D::AnimationState> > &":
-			case "const Vector<SharedPtr<class Urho3D::Node> > &":
-			case "const Vector<SharedPtr<class Urho3D::Component> > &":
-			case "const Vector<SharedPtr<class Urho3D::VertexBuffer> > &":
-			case "const Vector<SharedPtr<class Urho3D::IndexBuffer> > &":
-			case "const Vector<SharedPtr<class Urho3D::UIElement> > &":
-			case "const Vector<SharedPtr<class Urho3D::PackageFile> > &":
-			case "const Vector<SharedPtr<class Urho3D::Texture2D> > &":
+			case "Vector<SharedPtr<class Urho3D::AnimationState> > &":
+			case "Vector<SharedPtr<class Urho3D::Node> > &":
+			case "Vector<SharedPtr<class Urho3D::Component> > &":
+			case "Vector<SharedPtr<class Urho3D::VertexBuffer> > &":
+			case "Vector<SharedPtr<class Urho3D::IndexBuffer> > &":
+			case "Vector<SharedPtr<class Urho3D::UIElement> > &":
+			case "Vector<SharedPtr<class Urho3D::PackageFile> > &":
+			case "Vector<SharedPtr<class Urho3D::Texture2D> > &":
 				var sp = cleanTypeStr.IndexOf ("::");
 				var ep = cleanTypeStr.IndexOf ("> >");
 				string tn = cleanTypeStr.Substring (sp + 2, ep - sp - 2);
 
 				highLevel = csParser.ParseTypeReference ("IReadOnlyList<" + tn + ">");
-				lowLevel = new SimpleType ("IntPtr");
+				lowLevel = new SimpleType (nameof(IntPtr));
 				wrapKind = WrapKind.VectorSharedPtr;
 				return;
-			case "class Urho3D::StringHash":
+			case "StringHash":
 				highLevel = new SimpleType ("StringHash");
 				lowLevel = new PrimitiveType ("int");
 				wrapKind = WrapKind.StringHash;
@@ -679,7 +681,7 @@ namespace SharpieBinder
 				if (cleanTypeStr.Contains("class")) //TODO: inspect underlying type instead
 				{
 					wrapKind = WrapKind.HandleMember;
-					lowLevel = new SimpleType("IntPtr");
+					lowLevel = new SimpleType(nameof(IntPtr));
 				}
 				else
 				{
@@ -695,7 +697,7 @@ namespace SharpieBinder
 				CXXRecordDecl decl;
 				if (underlying != null && ScanBaseTypes.nameToDecl.TryGetValue(underlying.Decl.QualifiedName, out decl)) {
 					if (decl.IsDerivedFrom(ScanBaseTypes.UrhoObjectType)) {
-						lowLevel = new SimpleType("IntPtr");
+						lowLevel = new SimpleType(nameof(IntPtr));
 						var remapped = RemapTypeName(decl.Name);
 						if (remapped != decl.Name)
 							highLevel = csParser.ParseTypeReference(NamespaceRegistry.RemapTypeToNamespace (remapped));
@@ -705,7 +707,7 @@ namespace SharpieBinder
 						return;
 					}
 					if (decl.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted)) {
-						lowLevel = new SimpleType("IntPtr");
+						lowLevel = new SimpleType(nameof(IntPtr));
 						var remapped = RemapTypeName(decl.Name);
 						if (remapped != decl.Name)
 							highLevel = csParser.ParseTypeReference(NamespaceRegistry.RemapTypeToNamespace(remapped));
@@ -716,8 +718,8 @@ namespace SharpieBinder
 					}
 					if (decl == ScanBaseTypes.EventHandlerType) {
 						wrapKind = WrapKind.EventHandler;
-						lowLevel = new SimpleType("IntPtr");
-						highLevel = new SimpleType("IntPtr");
+						lowLevel = new SimpleType(nameof(IntPtr));
+						highLevel = new SimpleType(nameof(IntPtr));
 						return;
 					}
 					if (decl.Name == "ProfilerBlock") {
@@ -726,13 +728,13 @@ namespace SharpieBinder
 
 					}
 					if (decl.Name == "Deserializer") {
-						lowLevel = new SimpleType("IntPtr");
+						lowLevel = new SimpleType(nameof(IntPtr));
 						highLevel = new SimpleType("IDeserializer");
 						wrapKind = WrapKind.HandleMember;
 						return;
 					}
 					if (decl.Name == "Serializer") {
-						lowLevel = new SimpleType("IntPtr");
+						lowLevel = new SimpleType(nameof(IntPtr));
 						highLevel = new SimpleType("ISerializer");
 						wrapKind = WrapKind.HandleMember;
 						return;
@@ -824,7 +826,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			//if (currentType.Name == "XmlElement" && decl.Name == "CreateChild")
+			//if (currentType.Name == "File" && decl.Name == "Write")
 			//	return false;
 			//return true;
 
@@ -1022,7 +1024,7 @@ namespace SharpieBinder
 			var isConstructor = decl is CXXConstructorDecl;
 
 			if (isConstructor) {
-				pinvokeReturn = new SimpleType ("IntPtr");
+				pinvokeReturn = new SimpleType (nameof(IntPtr));
 
 				// Do not bind a default constructor for Skeleton
 				if (currentType.Name == "Skeleton")
@@ -1036,7 +1038,7 @@ namespace SharpieBinder
 				Modifiers = Modifiers.Extern | Modifiers.Static | Modifiers.Internal
 			};
 			if (!decl.IsStatic && !isConstructor)
-				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType("IntPtr"), "handle"));
+				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType(nameof(IntPtr)), "handle"));
 
 			var dllImport = new Attribute { Type = new SimpleType("DllImport") };
 			dllImport.Arguments.Add (csParser.ParseExpression ("Consts.NativeImport"));

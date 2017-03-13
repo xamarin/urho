@@ -29,12 +29,16 @@ namespace SharpieBinder
 		/// </summary>
 		public static string DropConstAndReference(this string tname)
 		{
-			if (tname.StartsWith("const"))
-				tname = tname.Substring("const".Length);
+			tname = DropConst(tname);
 			// strip the &
 			if (tname.EndsWith("&"))
 				tname = tname.Substring(0, tname.Length - 1);
 			return tname.Trim();
+		}
+
+		public static string DropConst(this string str)
+		{
+			return str.Replace("const ", "");
 		}
 
 		public static string ExtractGenericParameter(this string str)
