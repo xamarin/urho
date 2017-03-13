@@ -223,6 +223,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void DebugRenderer_AddPolyhedron (IntPtr handle, IntPtr poly, ref Urho.Color color, bool depthTest);
+
+		/// <summary>
+		/// Add a polyhedron.
+		/// </summary>
+		public void AddPolyhedron (Polyhedron poly, Urho.Color color, bool depthTest)
+		{
+			Runtime.ValidateRefCounted (this);
+			DebugRenderer_AddPolyhedron (handle, (object)poly == null ? IntPtr.Zero : poly.Handle, ref color, depthTest);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void DebugRenderer_AddCylinder (IntPtr handle, ref Urho.Vector3 position, float radius, float height, ref Urho.Color color, bool depthTest);
 
 		/// <summary>

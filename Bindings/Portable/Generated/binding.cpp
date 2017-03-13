@@ -10594,6 +10594,13 @@ DebugRenderer_AddFrustum (Urho3D::DebugRenderer *_target, const class Urho3D::Fr
 
 
 DllExport void
+DebugRenderer_AddPolyhedron (Urho3D::DebugRenderer *_target, const class Urho3D::Polyhedron & poly, const class Urho3D::Color & color, bool depthTest)
+{
+	_target->AddPolyhedron (poly, color, depthTest);
+}
+
+
+DllExport void
 DebugRenderer_AddCylinder (Urho3D::DebugRenderer *_target, const class Urho3D::Vector3 & position, float radius, float height, const class Urho3D::Color & color, bool depthTest)
 {
 	_target->AddCylinder (position, radius, height, color, depthTest);
@@ -18738,6 +18745,111 @@ DllExport Urho3D::ResourceRef
 Zone_GetZoneTextureAttr (Urho3D::Zone *_target)
 {
 	return _target->GetZoneTextureAttr ();
+}
+
+
+DllExport void *
+Polyhedron_Polyhedron ()
+{
+	return new Polyhedron();
+}
+
+
+DllExport void *
+Polyhedron_Polyhedron0 (const class Urho3D::Polyhedron & polyhedron)
+{
+	return new Polyhedron(polyhedron);
+}
+
+
+DllExport void *
+Polyhedron_Polyhedron1 (const class Urho3D::BoundingBox & box)
+{
+	return new Polyhedron(box);
+}
+
+
+DllExport void *
+Polyhedron_Polyhedron2 (const class Urho3D::Frustum & frustum)
+{
+	return new Polyhedron(frustum);
+}
+
+
+DllExport void
+Polyhedron_Define (Urho3D::Polyhedron *_target, const class Urho3D::BoundingBox & box)
+{
+	_target->Define (box);
+}
+
+
+DllExport void
+Polyhedron_Define3 (Urho3D::Polyhedron *_target, const class Urho3D::Frustum & frustum)
+{
+	_target->Define (frustum);
+}
+
+
+DllExport void
+Polyhedron_AddFace (Urho3D::Polyhedron *_target, const class Urho3D::Vector3 & v0, const class Urho3D::Vector3 & v1, const class Urho3D::Vector3 & v2)
+{
+	_target->AddFace (v0, v1, v2);
+}
+
+
+DllExport void
+Polyhedron_AddFace4 (Urho3D::Polyhedron *_target, const class Urho3D::Vector3 & v0, const class Urho3D::Vector3 & v1, const class Urho3D::Vector3 & v2, const class Urho3D::Vector3 & v3)
+{
+	_target->AddFace (v0, v1, v2, v3);
+}
+
+
+DllExport void
+Polyhedron_Clip (Urho3D::Polyhedron *_target, const class Urho3D::Plane & plane)
+{
+	_target->Clip (plane);
+}
+
+
+DllExport void
+Polyhedron_Clip5 (Urho3D::Polyhedron *_target, const class Urho3D::BoundingBox & box)
+{
+	_target->Clip (box);
+}
+
+
+DllExport void
+Polyhedron_Clip6 (Urho3D::Polyhedron *_target, const class Urho3D::Frustum & box)
+{
+	_target->Clip (box);
+}
+
+
+DllExport void
+Polyhedron_Clear (Urho3D::Polyhedron *_target)
+{
+	_target->Clear ();
+}
+
+
+DllExport void
+Polyhedron_Transform (Urho3D::Polyhedron *_target, const class Urho3D::Matrix3x4 & transform)
+{
+	_target->Transform (transform);
+}
+
+
+DllExport Urho3D::Polyhedron *
+Polyhedron_Transformed (Urho3D::Polyhedron *_target, const class Urho3D::Matrix3x4 & transform)
+{
+	return new Urho3D::Polyhedron (_target->Transformed (transform));
+}
+
+
+DllExport int
+Polyhedron_Empty (Urho3D::Polyhedron *_target)
+{
+	return _target->Empty ();
 }
 
 

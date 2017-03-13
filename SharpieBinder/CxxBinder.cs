@@ -97,6 +97,7 @@ namespace SharpieBinder
 				["Urho3D::String"] = new BaseNodeType(Bind),
 				["Urho3D::XMLElement"] = new BaseNodeType(Bind),
 				["Urho3D::Frustum"] = new BaseNodeType(Bind),
+				["Urho3D::Polyhedron"] = new BaseNodeType(Bind),
 				["Urho3D::Skeleton"] = new BaseNodeType(Bind),
 				["Urho3D::GPUObject"] = new BaseNodeType(Bind),
 			};
@@ -254,7 +255,7 @@ namespace SharpieBinder
 		{
 			// Quick and dirty: it really should use our manually curated list of known value types,
 			// but for now, this will do
-			var classesNotStructs = new[] {"String", "Skeleton", "XMLElement", "GPUObject", "Frustum"};
+			var classesNotStructs = new[] {"String", "Skeleton", "XMLElement", "GPUObject", "Frustum", "Polyhedron"};
 			if (classesNotStructs.Contains(decl.Name))
 				return false;
 
@@ -436,6 +437,9 @@ namespace SharpieBinder
 			case "const class Urho3D::Frustum &":
 			case "class Urho3D::Frustum &":
 			case "class Urho3D::Frustum":
+			case "const class Urho3D::Polyhedron &":
+			case "class Urho3D::Polyhedron &":
+			case "class Urho3D::Polyhedron":
 			case "class Urho3D::XMLElement":
 			case "class Urho3D::XMLElement &":
 			case "struct Urho3D::PhysicsRaycastResult &":
@@ -489,6 +493,8 @@ namespace SharpieBinder
 			if (qt.ToString().Contains("kNet::SharedPtr"))
 				return true;
 			if (s.Contains("Frustum"))
+				return true;
+			if (s.Contains("Polyhedron"))
 				return true;
 			if (s.Contains("XMLElement"))
 				return true;
@@ -596,6 +602,9 @@ namespace SharpieBinder
 			case "const class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement":
+			case "class Urho3D::Polyhedron":
+			case "const class Urho3D::Polyhedron &":
+			case "class Urho3D::Polyhedron &":
 			case "class Urho3D::Frustum":
 			case "const class Urho3D::Frustum &":
 			case "class Urho3D::Frustum &":
@@ -1048,6 +1057,7 @@ namespace SharpieBinder
 				creturnType = "int";
 				marshalReturn = "({0}).Value ()";
 				break;
+			case "Urho3D::Polyhedron":
 			case "Urho3D::Frustum":
 			case "Urho3D::XMLElement":
 				marshalReturn = "new " + creturnType + " ({0})";

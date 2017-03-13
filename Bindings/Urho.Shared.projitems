@@ -434,5 +434,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\GPUObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\GPUObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Frustum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Polyhedron.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Polyhedron.cs" />
   </ItemGroup>
 </Project>
