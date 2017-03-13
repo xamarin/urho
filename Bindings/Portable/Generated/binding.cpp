@@ -8054,10 +8054,10 @@ Frustum_Distance (Urho3D::Frustum *_target, const class Urho3D::Vector3 & point)
 }
 
 
-DllExport Urho3D::Frustum
+DllExport Urho3D::Frustum *
 Frustum_Transformed (Urho3D::Frustum *_target, const class Urho3D::Matrix3x4 & transform)
 {
-	return _target->Transformed (transform);
+	return &(_target->Transformed (transform));
 }
 
 
@@ -8838,17 +8838,17 @@ Light_GetShapeTexture (Urho3D::Light *_target)
 }
 
 
-DllExport Urho3D::Frustum
+DllExport Urho3D::Frustum *
 Light_GetFrustum (Urho3D::Light *_target)
 {
-	return _target->GetFrustum ();
+	return &(_target->GetFrustum ());
 }
 
 
-DllExport Urho3D::Frustum
+DllExport Urho3D::Frustum *
 Light_GetViewSpaceFrustum (Urho3D::Light *_target, const class Urho3D::Matrix3x4 & view)
 {
-	return _target->GetViewSpaceFrustum (view);
+	return &(_target->GetViewSpaceFrustum (view));
 }
 
 
@@ -10033,24 +10033,24 @@ Camera_GetHalfViewSize (Urho3D::Camera *_target)
 }
 
 
-DllExport Urho3D::Frustum
+DllExport Urho3D::Frustum *
 Camera_GetSplitFrustum (Urho3D::Camera *_target, float nearClip, float farClip)
 {
-	return _target->GetSplitFrustum (nearClip, farClip);
+	return &(_target->GetSplitFrustum (nearClip, farClip));
 }
 
 
-DllExport Urho3D::Frustum
+DllExport Urho3D::Frustum *
 Camera_GetViewSpaceFrustum (Urho3D::Camera *_target)
 {
-	return _target->GetViewSpaceFrustum ();
+	return &(_target->GetViewSpaceFrustum ());
 }
 
 
-DllExport Urho3D::Frustum
+DllExport Urho3D::Frustum *
 Camera_GetViewSpaceSplitFrustum (Urho3D::Camera *_target, float nearClip, float farClip)
 {
-	return _target->GetViewSpaceSplitFrustum (nearClip, farClip);
+	return &(_target->GetViewSpaceSplitFrustum (nearClip, farClip));
 }
 
 
@@ -15819,6 +15819,13 @@ XmlElement_XMLElement0 (const class Urho3D::XMLElement & rhs)
 }
 
 
+DllExport Urho3D::XMLElement *
+XmlElement_CreateChild (Urho3D::XMLElement *_target, const char * name)
+{
+	return &(_target->CreateChild (Urho3D::String(name)));
+}
+
+
 DllExport int
 XmlElement_RemoveChild (Urho3D::XMLElement *_target, const class Urho3D::XMLElement & element)
 {
@@ -16237,6 +16244,27 @@ XmlElement_HasChild (Urho3D::XMLElement *_target, const char * name)
 }
 
 
+DllExport Urho3D::XMLElement *
+XmlElement_GetChild (Urho3D::XMLElement *_target, const char * name)
+{
+	return &(_target->GetChild (Urho3D::String(name)));
+}
+
+
+DllExport Urho3D::XMLElement *
+XmlElement_GetNext (Urho3D::XMLElement *_target, const char * name)
+{
+	return &(_target->GetNext (Urho3D::String(name)));
+}
+
+
+DllExport Urho3D::XMLElement *
+XmlElement_GetParent (Urho3D::XMLElement *_target)
+{
+	return &(_target->GetParent ());
+}
+
+
 DllExport unsigned int
 XmlElement_GetNumAttributes (Urho3D::XMLElement *_target)
 {
@@ -16468,6 +16496,13 @@ XmlElement_GetXPathResultIndex (Urho3D::XMLElement *_target)
 }
 
 
+DllExport Urho3D::XMLElement *
+XmlElement_NextResult (Urho3D::XMLElement *_target)
+{
+	return &(_target->NextResult ());
+}
+
+
 DllExport int
 XmlFile_GetType (Urho3D::XMLFile *_target)
 {
@@ -16559,6 +16594,20 @@ XmlFile_FromString (Urho3D::XMLFile *_target, const char * source)
 }
 
 
+DllExport Urho3D::XMLElement *
+XmlFile_CreateRoot (Urho3D::XMLFile *_target, const char * name)
+{
+	return &(_target->CreateRoot (Urho3D::String(name)));
+}
+
+
+DllExport Urho3D::XMLElement *
+XmlFile_GetRoot (Urho3D::XMLFile *_target, const char * name)
+{
+	return &(_target->GetRoot (Urho3D::String(name)));
+}
+
+
 DllExport const char *
 XmlFile_ToString (Urho3D::XMLFile *_target, const char * indentation)
 {
@@ -16570,6 +16619,13 @@ DllExport void
 XmlFile_Patch (Urho3D::XMLFile *_target, Urho3D::XMLFile * patchFile)
 {
 	_target->Patch (patchFile);
+}
+
+
+DllExport void
+XmlFile_Patch1 (Urho3D::XMLFile *_target, Urho3D::XMLElement patchElement)
+{
+	_target->Patch (patchElement);
 }
 
 

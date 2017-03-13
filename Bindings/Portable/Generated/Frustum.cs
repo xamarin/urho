@@ -182,7 +182,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Frustum Frustum_Transformed (IntPtr handle, ref Urho.Matrix3x4 transform);
+		internal static extern IntPtr Frustum_Transformed (IntPtr handle, ref Urho.Matrix3x4 transform);
 
 		/// <summary>
 		/// Return transformed by a 3x4 matrix.
@@ -190,7 +190,7 @@ namespace Urho
 		public Frustum Transformed (Urho.Matrix3x4 transform)
 		{
 			Runtime.ValidateObject (this);
-			return Frustum_Transformed (handle, ref transform);
+			return new Frustum (Frustum_Transformed (handle, ref transform));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

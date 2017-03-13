@@ -48,6 +48,18 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlElement_CreateChild (IntPtr handle, string name);
+
+		/// <summary>
+		/// Create a child element.
+		/// </summary>
+		public XmlElement CreateChild (string name)
+		{
+			Runtime.ValidateObject (this);
+			return new XmlElement (XmlElement_CreateChild (handle, name));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool XmlElement_RemoveChild (IntPtr handle, IntPtr element);
 
 		/// <summary>
@@ -820,6 +832,42 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlElement_GetChild (IntPtr handle, string name);
+
+		/// <summary>
+		/// Return child element, or null if missing.
+		/// </summary>
+		public XmlElement GetChild (string name)
+		{
+			Runtime.ValidateObject (this);
+			return new XmlElement (XmlElement_GetChild (handle, name));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlElement_GetNext (IntPtr handle, string name);
+
+		/// <summary>
+		/// Return next sibling element.
+		/// </summary>
+		public XmlElement GetNext (string name)
+		{
+			Runtime.ValidateObject (this);
+			return new XmlElement (XmlElement_GetNext (handle, name));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlElement_GetParent (IntPtr handle);
+
+		/// <summary>
+		/// Return parent element.
+		/// </summary>
+		private XmlElement GetParent ()
+		{
+			Runtime.ValidateObject (this);
+			return new XmlElement (XmlElement_GetParent (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint XmlElement_GetNumAttributes (IntPtr handle);
 
 		/// <summary>
@@ -1219,6 +1267,18 @@ namespace Urho.Resources
 			return XmlElement_GetXPathResultIndex (handle);
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlElement_NextResult (IntPtr handle);
+
+		/// <summary>
+		/// Return next XPath query result. Only valid when this instance of XMLElement is itself one of the query result in the result set.
+		/// </summary>
+		public XmlElement NextResult ()
+		{
+			Runtime.ValidateObject (this);
+			return new XmlElement (XmlElement_NextResult (handle));
+		}
+
 		/// <summary>
 		/// Return whether does not refer to an element or an XPath node.
 		/// </summary>
@@ -1234,6 +1294,15 @@ namespace Urho.Resources
 		public string Name {
 			get {
 				return GetName ();
+			}
+		}
+
+		/// <summary>
+		/// Return parent element.
+		/// </summary>
+		public XmlElement Parent {
+			get {
+				return GetParent ();
 			}
 		}
 

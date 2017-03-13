@@ -187,6 +187,30 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlFile_CreateRoot (IntPtr handle, string name);
+
+		/// <summary>
+		/// Clear the document and create a root element.
+		/// </summary>
+		public XmlElement CreateRoot (string name)
+		{
+			Runtime.ValidateRefCounted (this);
+			return new XmlElement (XmlFile_CreateRoot (handle, name));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlFile_GetRoot (IntPtr handle, string name);
+
+		/// <summary>
+		/// Return the root element, with optionally specified name. Return null element if not found.
+		/// </summary>
+		public XmlElement GetRoot (string name)
+		{
+			Runtime.ValidateRefCounted (this);
+			return new XmlElement (XmlFile_GetRoot (handle, name));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr XmlFile_ToString (IntPtr handle, string indentation);
 
 		/// <summary>
@@ -208,6 +232,18 @@ namespace Urho.Resources
 		{
 			Runtime.ValidateRefCounted (this);
 			XmlFile_Patch (handle, (object)patchFile == null ? IntPtr.Zero : patchFile.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void XmlFile_Patch1 (IntPtr handle, IntPtr patchElement);
+
+		/// <summary>
+		/// Patch the XMLFile with another XMLElement. Based on RFC 5261.
+		/// </summary>
+		public void Patch (XmlElement patchElement)
+		{
+			Runtime.ValidateRefCounted (this);
+			XmlFile_Patch1 (handle, (object)patchElement == null ? IntPtr.Zero : patchElement.Handle);
 		}
 
 		public override StringHash Type {

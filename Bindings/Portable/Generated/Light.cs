@@ -655,7 +655,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Frustum Light_GetFrustum (IntPtr handle);
+		internal static extern IntPtr Light_GetFrustum (IntPtr handle);
 
 		/// <summary>
 		/// Return spotlight frustum.
@@ -663,11 +663,11 @@ namespace Urho
 		private Frustum GetFrustum ()
 		{
 			Runtime.ValidateRefCounted (this);
-			return Light_GetFrustum (handle);
+			return new Frustum (Light_GetFrustum (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Frustum Light_GetViewSpaceFrustum (IntPtr handle, ref Urho.Matrix3x4 view);
+		internal static extern IntPtr Light_GetViewSpaceFrustum (IntPtr handle, ref Urho.Matrix3x4 view);
 
 		/// <summary>
 		/// Return spotlight frustum in the specified view space.
@@ -675,7 +675,7 @@ namespace Urho
 		public Frustum GetViewSpaceFrustum (Urho.Matrix3x4 view)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Light_GetViewSpaceFrustum (handle, ref view);
+			return new Frustum (Light_GetViewSpaceFrustum (handle, ref view));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

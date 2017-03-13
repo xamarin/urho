@@ -585,7 +585,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Frustum Camera_GetSplitFrustum (IntPtr handle, float nearClip, float farClip);
+		internal static extern IntPtr Camera_GetSplitFrustum (IntPtr handle, float nearClip, float farClip);
 
 		/// <summary>
 		/// Return frustum split by custom near and far clip distances.
@@ -593,11 +593,11 @@ namespace Urho
 		public Frustum GetSplitFrustum (float nearClip, float farClip)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Camera_GetSplitFrustum (handle, nearClip, farClip);
+			return new Frustum (Camera_GetSplitFrustum (handle, nearClip, farClip));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Frustum Camera_GetViewSpaceFrustum (IntPtr handle);
+		internal static extern IntPtr Camera_GetViewSpaceFrustum (IntPtr handle);
 
 		/// <summary>
 		/// Return frustum in view space.
@@ -605,11 +605,11 @@ namespace Urho
 		private Frustum GetViewSpaceFrustum ()
 		{
 			Runtime.ValidateRefCounted (this);
-			return Camera_GetViewSpaceFrustum (handle);
+			return new Frustum (Camera_GetViewSpaceFrustum (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Frustum Camera_GetViewSpaceSplitFrustum (IntPtr handle, float nearClip, float farClip);
+		internal static extern IntPtr Camera_GetViewSpaceSplitFrustum (IntPtr handle, float nearClip, float farClip);
 
 		/// <summary>
 		/// Return split frustum in view space.
@@ -617,7 +617,7 @@ namespace Urho
 		public Frustum GetViewSpaceSplitFrustum (float nearClip, float farClip)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Camera_GetViewSpaceSplitFrustum (handle, nearClip, farClip);
+			return new Frustum (Camera_GetViewSpaceSplitFrustum (handle, nearClip, farClip));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

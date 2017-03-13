@@ -436,6 +436,7 @@ namespace SharpieBinder
 			case "const class Urho3D::Frustum &":
 			case "class Urho3D::Frustum &":
 			case "class Urho3D::Frustum":
+			case "class Urho3D::XMLElement":
 			case "class Urho3D::XMLElement &":
 			case "struct Urho3D::PhysicsRaycastResult &":
 			case "const class Urho3D::Ray &":
@@ -594,6 +595,8 @@ namespace SharpieBinder
 				return;
 			case "const class Urho3D::XMLElement &":
 			case "class Urho3D::XMLElement &":
+			case "class Urho3D::XMLElement":
+			case "class Urho3D::Frustum":
 			case "const class Urho3D::Frustum &":
 			case "class Urho3D::Frustum &":
 				highLevel = new SimpleType (cleanTypeStr.DropConstAndReference().DropClassOrStructPrefix().DropUrhoNamespace().RemapAcronyms());
@@ -812,7 +815,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			//if (currentType.Name == "Camera" && decl.Name == "GetFrustum")
+			//if (currentType.Name == "XmlElement" && decl.Name == "CreateChild")
 			//	return false;
 			//return true;
 
@@ -1044,6 +1047,11 @@ namespace SharpieBinder
 			case "Urho3D::StringHash":
 				creturnType = "int";
 				marshalReturn = "({0}).Value ()";
+				break;
+			case "Urho3D::Frustum":
+			case "Urho3D::XMLElement":
+				creturnType = creturnType + " *";
+				marshalReturn = "&({0})";
 				break;
 			case "Urho3D::String":
 			case "const Urho3D::String &":
