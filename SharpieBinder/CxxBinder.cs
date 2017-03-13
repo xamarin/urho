@@ -1050,8 +1050,8 @@ namespace SharpieBinder
 				break;
 			case "Urho3D::Frustum":
 			case "Urho3D::XMLElement":
+				marshalReturn = "new " + creturnType + " ({0})";
 				creturnType = creturnType + " *";
-				marshalReturn = "&({0})";
 				break;
 			case "Urho3D::String":
 			case "const Urho3D::String &":
