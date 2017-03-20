@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System;
+using System.Linq;
 using Urho;
 
 namespace Urho.Actions
@@ -261,6 +262,22 @@ namespace Urho.Actions
 
 
 		#region Adding/removing actions
+
+		public void CancelActiveActions()
+		{
+			foreach (var target in targets)
+			{
+				var tcs = target.Value.ActionStates.LastOrDefault();
+				TaskSourceState taskSourceState = tcs as TaskSourceState;
+				if (taskSourceState != null)
+				{
+					taskSourceState.Cancel();
+					continue;
+				}
+				var seqState = tcs as SequenceState;
+				seqState?.Cancel();
+			}
+		}
 
 		public ActionState AddAction(BaseAction action, Node target, bool paused = false)
 		{

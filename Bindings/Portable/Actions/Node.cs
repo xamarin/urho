@@ -13,13 +13,8 @@ namespace Urho
 		public Task<ActionState> RunActionsAsync(FiniteTimeAction action)
 		{
 			var tcs = new TaskCompletionSource<ActionState>();
-
-			ActionState state = null;
-			var completion = new CallFunc(() => tcs.TrySetResult(state));
-
-			var asyncAction = new Sequence(action, completion);
-
-			state = Application.Current.ActionManager.AddAction(asyncAction, this);
+			var asyncAction = new Sequence(action, new TaskSource(tcs)) { CancelAction = s => tcs.TrySetCanceled() };
+			Application.Current.ActionManager.AddAction(asyncAction, this);
 			return tcs.Task;
 		}
 
@@ -34,12 +29,10 @@ namespace Urho
 
 			var tcs = new TaskCompletionSource<ActionState>();
 
-			ActionState state = null;
-			FiniteTimeAction completion = new AsyncCompletionCallFunc(() => tcs.TrySetResult(state));
+			FiniteTimeAction completion = new TaskSource(tcs);
+			var asyncAction = actions.Length > 0 ? new Sequence(actions, completion) { CancelAction = s => tcs.TrySetCanceled() } : completion;
 
-			var asyncAction = actions.Length > 0 ? new Sequence(actions, completion) : completion;
-
-			state = Application.Current.ActionManager.AddAction(asyncAction, this);
+			Application.Current.ActionManager.AddAction(asyncAction, this);
 			return tcs.Task;
 		}
 

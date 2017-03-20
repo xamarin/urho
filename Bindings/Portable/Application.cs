@@ -214,6 +214,7 @@ namespace Urho {
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static async void ProxyStop (IntPtr h)
 		{
+			Current.ActionManager.CancelActiveActions();
 			LogSharp.Debug("ProxyStop");
 			UrhoPlatformInitializer.Initialized = false;
 			var context = Current.Context;

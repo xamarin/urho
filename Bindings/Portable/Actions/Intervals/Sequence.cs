@@ -1,4 +1,6 @@
+using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Urho;
 
 namespace Urho.Actions
@@ -7,6 +9,7 @@ namespace Urho.Actions
 	{
 		public FiniteTimeAction[] Actions { get; } = new FiniteTimeAction[2];
 
+		public Action<SequenceState> CancelAction { get; set; }
 
 		#region Constructors
 
@@ -77,7 +80,6 @@ namespace Urho.Actions
 		protected internal override ActionState StartAction(Node target)
 		{
 			return new SequenceState (this, target);
-
 		}
 
 		public override FiniteTimeAction Reverse ()
@@ -92,16 +94,17 @@ namespace Urho.Actions
 		protected FiniteTimeAction[] actionSequences = new FiniteTimeAction[2];
 		protected FiniteTimeActionState[] actionStates = new FiniteTimeActionState[2];
 		protected float split;
-		private bool hasInfiniteAction = false;
+		bool hasInfiniteAction = false;
+		Action<SequenceState> cancelAction;
 
 		public SequenceState (Sequence action, Node target)
 			: base (action, target)
-		{ 
+		{
+			cancelAction = action.CancelAction;
 			actionSequences = action.Actions;
 			hasInfiniteAction = (actionSequences [0] is RepeatForever) || (actionSequences [1] is RepeatForever);
 			split = actionSequences [0].Duration / Duration;
 			last = -1;
-
 		}
 
 		public override bool IsDone {
@@ -202,10 +205,8 @@ namespace Urho.Actions
 
 			actionStates [found].Update (new_t);
 			last = found;
-
 		}
 
-
+		internal void Cancel() => cancelAction?.Invoke(this);
 	}
-
 }
