@@ -79,8 +79,11 @@ namespace Urho
 		/// <summary>
 		/// Enable high DPI, only supported by Apple platforms (OSX, iOS, and tvOS)
 		/// </summary>
+#if IOS
 		public bool HighDpi { get; set; } = true;
-
+#else
+		public bool HighDpi { get; set; } = false;
+#endif
 		/// <summary>
 		/// Add any flag listed here: http://urho3d.github.io/documentation/1.5/_running.html 
 		/// </summary>
