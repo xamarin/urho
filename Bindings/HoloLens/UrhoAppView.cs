@@ -16,6 +16,7 @@ namespace Urho.HoloLens
 	{
 		Type holoAppType;
 		ApplicationOptions options;
+		CoreWindow window;
 		bool windowVisible = true;
 		bool windowClosed;
 		bool appInited;
@@ -77,12 +78,13 @@ namespace Urho.HoloLens
 		/// <summary>
 		/// Called when the CoreWindow object is created (or re-created).
 		/// </summary>
-		public void SetWindow(CoreWindow window)
+		public void SetWindow(CoreWindow coreWindow)
 		{
+			window = coreWindow;
 			window.KeyDown += OnKeyDown;
 			window.KeyUp += OnKeyUp;
 			window.Closed += OnWindowClosed;
-			window.VisibilityChanged += this.OnVisibilityChanged;
+			window.VisibilityChanged += OnVisibilityChanged;
 			HolographicSpace = HolographicSpace.CreateForCoreWindow(window);
 			WindowIsSet?.Invoke(window);
 		}
@@ -118,32 +120,14 @@ namespace Urho.HoloLens
 			coreWindow.CustomProperties.Add(nameof(HolographicSpace), HolographicSpace);
 
 			InitializeSpace();
+			HolographicSpace.CameraAdded += HolographicSpace_CameraAdded;
 			InteractionManager = SpatialInteractionManager.GetForCurrentView();
-			InteractionManager.InteractionDetected += (s, e) => GesturesManager?.HandleInteraction(e.Interaction);
+			if (InteractionManager != null)
+				InteractionManager.InteractionDetected += (s, e) => GesturesManager?.HandleInteraction(e.Interaction);
 
 			while (!windowClosed)
 			{
-				if (!appInited)
-				{
-					SpatialMappingManager = new SpatialMappingManager();
-					VoiceManager = new VoiceManager();
-					appInited = true;
-
-					if (options == null)
-						options = new ApplicationOptions();
-
-					//override some options:
-					options.LimitFps = false;
-					options.Width = 1268; //TODO: find system
-					options.Height = 720;
-
-					Game = (HoloApplication) Activator.CreateInstance(holoAppType, options);
-					Game.Run();
-					GesturesManager = new GesturesManager(Game, ReferenceFrame);
-					AppStarted?.Invoke(Game);
-				}
-
-				if (windowVisible && (null != HolographicSpace))
+				if (appInited && windowVisible && (null != HolographicSpace))
 				{
 					if (Game != null)
 					{
@@ -186,6 +170,32 @@ namespace Urho.HoloLens
 				{
 					CoreWindow.GetForCurrentThread().Dispatcher.ProcessEvents(CoreProcessEventsOption.ProcessOneAndAllPending);
 				}
+			}
+		}
+
+		async void HolographicSpace_CameraAdded(HolographicSpace sender, HolographicSpaceCameraAddedEventArgs args)
+		{
+			if (!appInited)
+			{
+				await window.Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
+				{
+					SpatialMappingManager = new SpatialMappingManager();
+					VoiceManager = new VoiceManager();
+
+					if (options == null)
+						options = new ApplicationOptions();
+
+					//override some options:
+					options.LimitFps = false;
+					options.Width = (int)args.Camera.RenderTargetSize.Width;
+					options.Height = (int)args.Camera.RenderTargetSize.Height;
+
+					Game = (HoloApplication)Activator.CreateInstance(holoAppType, options);
+					Game.Run();
+					GesturesManager = new GesturesManager(Game, ReferenceFrame);
+					AppStarted?.Invoke(Game);
+					appInited = true;
+				});
 			}
 		}
 
