@@ -106,6 +106,7 @@ namespace Urho
 			Viewport = new Viewport(Context, Scene, Camera, null);
 			Renderer.SetViewport(0, Viewport);
 			Viewport.SetClearColor(Color.White);
+			Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA2);
 
 			// Subscribe to Esc key:
 			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Exit(); });
