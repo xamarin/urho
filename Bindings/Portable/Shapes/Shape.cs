@@ -6,6 +6,8 @@ namespace Urho.Shapes
 	public abstract class Shape : StaticModel
 	{
 		Material material;
+		Color color = Color.Magenta;
+		bool alphaTechnique;
 
 		[Preserve]
 		protected Shape() : base() { }
@@ -21,21 +23,23 @@ namespace Urho.Shapes
 
 		protected abstract string ModelResource { get; }
 
-		Color color = Color.Magenta;
 		public Color Color
 		{
 			set
 			{
-				if (material == null)
+				const float tolerance = 0.001f;
+				if (
+					// we had NoTextureAlpha but now user requests color with A=1 -> change to NoTexture
+					(alphaTechnique && Math.Abs(value.A - 1) < tolerance) ||
+					// we had NoTexture but now user requests color with A<1 -> change to NoTextureAlpha
+					(!alphaTechnique && value.A < (1 - tolerance)) ||
+					// material is not set yet
+					material == null)
 				{
-					//try to restore material (after deserialization)
-					material = GetMaterial(0);
-					if (material == null)
-					{
-						material = new Material();
-						material.SetTechnique(0, Application.ResourceCache.GetTechnique("Techniques/NoTextureAlpha.xml"), 1, 1);
-					}
+					alphaTechnique = value.A < (1 - tolerance); 
+					material = Material.FromColor(value);
 					SetMaterial(material);
+					return;
 				}
 				material.SetShaderParameter("MatDiffColor", value);
 				color = value;
