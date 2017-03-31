@@ -24,7 +24,7 @@ namespace Urho.Physics {
 		
 		internal static CollisionData [] FromContactData (IntPtr data, int size)
 		{
-			return data.ToStructsArray<CollisionData>(size);
+			return data.ToStructsArray<CollisionData>(size / sizeof(CollisionData));
 		}
 	}
 }
