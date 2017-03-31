@@ -31,6 +31,7 @@ namespace Urho {
 		static int renderThreadId = -1;
 		List<Action> actionsToDispatch = new List<Action>();
 		static List<Action> staticActionsToDispatch;
+		static List<DelayState> delayTasks;
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -153,6 +154,17 @@ namespace Urho {
 			return tcs.Task;
 		}
 
+		public Task Delay(float seconds)
+		{
+			var tcs = new TaskCompletionSource<bool>();
+			if (delayTasks == null)
+				delayTasks = new List<DelayState>();
+			delayTasks.Add(new DelayState { Duration = seconds, Task = tcs });
+			return tcs.Task;
+		}
+
+		public Task Delay(TimeSpan timeSpan) => Delay((float)timeSpan.TotalSeconds);
+
 		static Application GetApp(IntPtr h) => Runtime.LookupObject<Application>(h);
 
 		void HandleUpdate(UpdateEventArgs args)
@@ -177,6 +189,20 @@ namespace Urho {
 					foreach (var action in actionsToDispatch)
 						action();
 					actionsToDispatch.Clear();
+				}
+			}
+
+			if (delayTasks != null)
+			{
+				for (int i = 0; i < delayTasks.Count; i++)
+				{
+					var task = delayTasks[i];
+					task.Duration -= timeStep;
+					if (task.Duration <= 0)
+					{
+						task.Task.TrySetResult(true);
+						delayTasks.RemoveAt(i);
+					}
 				}
 			}
 		}
@@ -514,6 +540,12 @@ namespace Urho {
 		}
 
 		public static event EventHandler<UnhandledExceptionEventArgs> UnhandledException;
+
+		class DelayState
+		{
+			public float Duration { get; set; }
+			public TaskCompletionSource<bool> Task { get; set; }
+		}
 	}
 
 	public interface IUrhoSurface
