@@ -1,4 +1,5 @@
-﻿using Urho.Resources;
+﻿using System;
+using Urho.Resources;
 using Urho.Urho2D;
 
 namespace Urho
@@ -56,10 +57,11 @@ namespace Urho
 		{
 			var material = new Material();
 			var cache = Application.Current.ResourceCache;
+			float tolerance = 0.001f;
 			if (unlit)
-				material.SetTechnique(0, color.A == 1 ? CoreAssets.Techniques.NoTextureUnlit : CoreAssets.Techniques.NoTextureUnlitAlpha, 1, 1);
+				material.SetTechnique(0, Math.Abs(color.A - 1) < tolerance ? CoreAssets.Techniques.NoTextureUnlit : CoreAssets.Techniques.NoTextureUnlitAlpha, 1, 1);
 			else
-				material.SetTechnique(0, color.A == 1 ? CoreAssets.Techniques.NoTexture : CoreAssets.Techniques.NoTextureAlpha, 1, 1);
+				material.SetTechnique(0, Math.Abs(color.A - 1) < tolerance ? CoreAssets.Techniques.NoTexture : CoreAssets.Techniques.NoTextureAlpha, 1, 1);
 			material.SetShaderParameter("MatDiffColor", color);
 			return material;
 		}
