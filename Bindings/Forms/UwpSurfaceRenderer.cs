@@ -13,9 +13,12 @@ namespace Urho.Forms
 
 		protected override void OnElementChanged(ElementChangedEventArgs<UrhoSurface> e)
 		{
-			urhoSurface = new Urho.UWP.UrhoSurface();
-			e.NewElement.UrhoApplicationLauncher = UrhoLauncher;
-			SetNativeControl(urhoSurface);
+			if (e.NewElement != null)
+			{
+				urhoSurface = new Urho.UWP.UrhoSurface();
+				e.NewElement.UrhoApplicationLauncher = UrhoLauncher;
+				SetNativeControl(urhoSurface);
+			}
 			base.OnElementChanged(e);
 		}
 
