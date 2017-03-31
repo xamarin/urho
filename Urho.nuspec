@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp</id>
-       <version>1.2</version>
+       <version>1.3.1</version>
        <title>UrhoSharp</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
@@ -12,9 +12,24 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
-	   <releaseNotes>[Core] Rollback Urho3D to e035fa (2016-10-16)
-[Core] Fix 'vshost.exe' stopped working
-[Core] Update CoreData</releaseNotes>
+	   <releaseNotes>BUGFIXES:
+- #182 Polyhedron class missing
+- #181 IntRect marshalling
+- #151 missing XmlFile.GetRoot
+- #193 NullReferenceException at Urho.Physics.CollisionData.FromContactData
+- FadeTo.ToOpacity return type (byte->float)
+- VS templates syntax error
+
+FEATURES:
+- Surface Localization component, ChangeLanguage event
+- Surface GPUObject. Close #176
+- Surface File::Size, MemoryBuffer::Size, add File.Read() method.
+- Predefined structs fro VertexBuffer::SetData
+- Cancel Tasks created by RunActionsAsync when app is being closed
+- AppOptions - set HighDpi to false for OSX by default
+- Surface methods accepting XMLElement
+- Surface Frustum type
+- New ctors in Matrix3x4</releaseNotes>
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
