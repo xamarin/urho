@@ -101,6 +101,8 @@ namespace Urho
 
 		public string[] ResourcePrefixPaths { get; set; }
 
+		public int Multisampling { get; set; }
+
 		public enum OrientationType
 		{
 			Landscape,
@@ -130,7 +132,10 @@ namespace Urho
 			if (Height > 0)
 				builder.AppendFormat(" -y {0}", Height);
 
-#if !IOS //always use -s on iOS and UWP
+			if (Multisampling > 0)
+				builder.AppendFormat(" -m {0}", Multisampling);
+
+#if !IOS //always use -s on iOS
 			if (ResizableWindow)
 #endif
 				builder.Append(" -s");
