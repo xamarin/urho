@@ -16,20 +16,25 @@
 - #182 Polyhedron class missing
 - #181 IntRect marshalling
 - #151 missing XmlFile.GetRoot
+- #183 UwpSurfaceRenderer - NRE.
+- #172 Color and Material Anomalies
 - #193 NullReferenceException at Urho.Physics.CollisionData.FromContactData
 - FadeTo.ToOpacity return type (byte->float)
 - VS templates syntax error
 
 FEATURES:
-- Surface Localization component, ChangeLanguage event
-- Surface GPUObject. Close #176
-- Surface File::Size, MemoryBuffer::Size, add File.Read() method.
-- Predefined structs fro VertexBuffer::SetData
-- Cancel Tasks created by RunActionsAsync when app is being closed
+- Added Mulitsampling property in ApplicationOptions
+- Added SetData(byte[]) to Texture2D
+- HoloLens x64 support
+- Predefined structs for VertexBuffer::SetData
+- Node::RunActionsAsync throws OperationCanceledException if urho is closed.
 - AppOptions - set HighDpi to false for OSX by default
-- Surface methods accepting XMLElement
-- Surface Frustum type
-- New ctors in Matrix3x4</releaseNotes>
+- New ctors in Matrix3x4
+- Bound Localization component, ChangeLanguage event
+- Bound GPUObject. Close #176
+- Bound File::Size, MemoryBuffer::Size, add File.Read() method.
+- Bound methods accepting XMLElement
+- Bound Frustum type</releaseNotes>
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
