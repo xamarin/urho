@@ -8,12 +8,12 @@
 					<Link>PackageTool_macOS</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
-				<None Include="$(MSBuildThisFileDirectory)\..\..\Tools\Win64\AssetImporter_Win64">
-					<Link>AssetImporter_Win64</Link>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\Tools\Win64\AssetImporter_Win64.exe">
+					<Link>AssetImporter_Win64.exe</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
-				<None Include="$(MSBuildThisFileDirectory)\..\..\Tools\Win64\PackageTool_Win64">
-					<Link>PackageTool_Win64</Link>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\Tools\Win64\PackageTool_Win64.exe">
+					<Link>PackageTool_Win64.exe</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
 		</ItemGroup>
