@@ -16,7 +16,11 @@
        <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
-     <file src="Bin/Tools/**" target="Tools" />
-     <file src="Nuget/Desktop/UrhoSharp.Tools.targets" target="build" />
+     <file src="Bin/Tools/Win64/AssetImporter_Win64.exe" target="Tools/Win64/AssetImporter_Win64.exe" />
+     <file src="Bin/Tools/Win64/PackageTool_Win64.exe" target="Tools/Win64/PackageTool_Win64.exe" />
+     <file src="Bin/Tools/macOS/AssetImporter_macOS" target="Tools/macOS/AssetImporter_macOS" />
+     <file src="Bin/Tools/macOS/PackageTool_macOS" target="Tools/macOS/PackageTool_macOS" />
+	 
+     <file src="Nuget/Tools/UrhoSharp.Tools.targets" target="build" />
    </files>
 </package>
