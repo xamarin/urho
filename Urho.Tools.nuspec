@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+       <id>UrhoSharp.Tools</id>
+       <version>1.3</version>
+       <title>Tools for UrhoSharp</title>
+       <authors>Xamarin Inc.</authors>
+       <owners>Xamarin</owners>
+       <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
+       <projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
+       <iconUrl>http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png</iconUrl>
+       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <summary>Tools for UrhoSharp</summary>
+       <description>Tools for UrhoSharp: AssetImporter, PackageTool</description>
+	   <releaseNotes></releaseNotes>
+       <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
+   </metadata>
+   <files>
+     <file src="Bin/Tools/**" target="Tools" />
+     <file src="Nuget/Desktop/UrhoSharp.Tools.targets" target="build" />
+   </files>
+</package>

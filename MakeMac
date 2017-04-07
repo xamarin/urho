@@ -2,13 +2,14 @@ ARCH=-arch i386 -arch x86_64
 URHO3D_SRC_DIR=Urho3D/Source
 URHO3D_MAC_DIR=Urho3D/Urho3D_Mac
 OUTPUT_DIR=Bin/Desktop
+TOOLS_DIR=../../Bin/Tools/macOS
 
 URHO_FLAGS=-I$(URHO3D_MAC_DIR)/include -I$(URHO3D_MAC_DIR)/include/kNet -I$(URHO3D_MAC_DIR)/include/Urho3D/ThirdParty -DURHO3D_OPENGL
 URHO_LIBS=-L$(URHO3D_MAC_DIR)/lib -framework AudioToolbox -framework AudioUnit -framework Carbon -framework Cocoa -framework CoreAudio -framework CoreVideo -framework ForceFeedback -framework IOKit -framework OpenGL -framework CoreServices -lUrho3D -ldl -lpthread 
 CXXFLAGS=-g $(ARCH) -Wno-address-of-temporary -Wno-return-type-c-linkage -Wno-clang++11-extensions $(URHO_FLAGS)
 
 Urho3D_Mac:
-	$(URHO3D_SRC_DIR)/./cmake_xcode.sh $(URHO3D_MAC_DIR) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0
+	$(URHO3D_SRC_DIR)/./cmake_xcode.sh $(URHO3D_MAC_DIR) -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_TOOLS=1
 
 libUrho3D_32.a: Urho3D_Mac
 	cd $(URHO3D_MAC_DIR) && xcodebuild ARCHS=i386 ONLY_ACTIVE_ARCH=NO -target Urho3D -configuration Release && mv lib/libUrho3D.a lib/libUrho3D_32.a
@@ -40,5 +41,5 @@ events.o:
 ApplicationProxy.o:
 	clang++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.o Bindings/Native/ApplicationProxy.cpp
 
-AssetImporter: libUrho3D_64.a
-	cd $(URHO3D_MAC_DIR)/Source/Tools && xcodebuild ARCHS=$(ARCH_MAC) ONLY_ACTIVE_ARCH=NO -target AssetImporter -configuration Release
+Tools: libUrho3D_Fat.a
+	cd $(URHO3D_MAC_DIR)/Source/Tools && xcodebuild ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO -target AssetImporter -target PackageTool -configuration Release && mkdir -p $(TOOLS_DIR) && cp bin/tool/AssetImporter $(TOOLS_DIR)/AssetImporter_macOS && cp bin/tool/PackageTool $(TOOLS_DIR)/PackageTool_macOS

@@ -1,0 +1,20 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<ItemGroup>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\Tools\macOS\AssetImporter_macOS">
+					<Link>AssetImporter_macOS</Link>
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</None>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\Tools\macOS\PackageTool_macOS">
+					<Link>PackageTool_macOS</Link>
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</None>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\Tools\Win64\AssetImporter_Win64">
+					<Link>AssetImporter_Win64</Link>
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</None>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\Tools\Win64\PackageTool_Win64">
+					<Link>PackageTool_Win64</Link>
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</None>
+		</ItemGroup>
+</Project>

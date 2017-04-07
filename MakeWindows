@@ -1,6 +1,6 @@
-# 1 for 64bit, 0 for 32bit:
 URHO3D_SRC_DIR=Urho3D/Source
 TARGET=Visual Studio 14 Win64
+TOOLS_DIR=../../Bin/Tools/Win64
 
 ifeq ($(RENDERER), D3D11)
 RENDERER_FLAGS=-DURHO3D_OPENGL=0 -DURHO3D_D3D11=1
@@ -19,5 +19,6 @@ libUrho3D.a: Urho3D_Windows
 CoreData.pak:
 	Urho3D/Urho3D_Windows/bin/tool/PackageTool.exe Urho3D/CoreData Urho3D/CoreData.pak -q
 
-AssetImporter: Urho3D_Windows
-	cd Urho3D/Urho3D_Windows && cmake --build . --target AssetImporter --config Release && rm -rf ../../Bin/AssetImporter.exe && cp bin/tool/AssetImporter.exe ../../Bin/AssetImporter.exe
+Tools: Urho3D_Windows
+	cd Urho3D/Urho3D_Windows && cmake --build . --target AssetImporter --config Release && cmake --build . --target PackageTool --config Release && mkdir -p $(TOOLS_DIR) && cp bin/tool/AssetImporter.exe $(TOOLS_DIR)/AssetImporter_Win64.exe && cp bin/tool/PackageTool.exe $(TOOLS_DIR)/PackageTool_Win64.exe
+	
