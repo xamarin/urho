@@ -3,7 +3,7 @@
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp.Forms</id>
        <version>1.3</version>
-       <title>UrhoSharp for Xamarin.Forms</title>
+       <title>UrhoSharp.Forms</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
        <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
