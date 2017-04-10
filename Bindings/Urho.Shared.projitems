@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\RibbonTrail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Texture2DArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\TrailType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\ScriptInstance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Texture2D.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\DebugGrid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\HoloApplication.cs" />
