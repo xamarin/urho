@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 	<Metadata>
-		<Identity Id="HoloLensVsix.Egor Bogatov.10e04010-21a6-4b1a-9db7-042d7b6f7d46" Version="1.2.21" Language="en-US" Publisher="Egor Bogatov" />
+		<Identity Id="HoloLensVsix.Egor Bogatov.10e04010-21a6-4b1a-9db7-042d7b6f7d46" Version="1.3.0" Language="en-US" Publisher="Egor Bogatov" />
 		<DisplayName>UrhoSharp for HoloLens</DisplayName>
 		<Description xml:space="preserve">UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and HoloLens. </Description>
 		<MoreInfo>http://developer.xamarin.com/guides/cross-platform/urho/introduction/</MoreInfo>

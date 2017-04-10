@@ -18,8 +18,8 @@
    <files>
      <file src="Bin/Tools/Win64/AssetImporter_Win64.exe" target="Tools/Win64/AssetImporter_Win64.exe" />
      <file src="Bin/Tools/Win64/PackageTool_Win64.exe" target="Tools/Win64/PackageTool_Win64.exe" />
-     <file src="Bin/Tools/macOS/AssetImporter_macOS" target="Tools/macOS/AssetImporter_macOS" />
-     <file src="Bin/Tools/macOS/PackageTool_macOS" target="Tools/macOS/PackageTool_macOS" />
+     <file src="Bin/Tools/macOS/AssetImporter_macOS.exe" target="Tools/macOS/AssetImporter_macOS.exe" />
+     <file src="Bin/Tools/macOS/PackageTool_macOS.exe" target="Tools/macOS/PackageTool_macOS.exe" />
 	 
      <file src="Nuget/Tools/UrhoSharp.Tools.targets" target="build" />
    </files>
