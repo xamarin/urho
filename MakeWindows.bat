@@ -20,9 +20,6 @@ set "RENDERER_FLAGS="
 set "URHO3D_SRC_DIR=Urho3D/Source"
 cd %URHO3D_SRC_DIR% 
 
-rm -rf Urho3D/Urho3D_Windows/CMakeFiles
-rm -rf Urho3D/Urho3D_Windows/CMakeCache.txt
-
 @echo on
 
 cmake -E make_directory ../Urho3D_Windows
@@ -36,4 +33,4 @@ cmake --build . --target AssetImporter --config %CONFIG%
 
 cd ../..
 
-"C:\Program Files (x86)\MSBuild\%VS_VER%.0\Bin\MSBuild.exe" Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows.vcxproj /p:Configuration=%CONFIG% /p:Platform=%PLATFORM%
+:: msbuild Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows.vcxproj /p:Configuration=%CONFIG% /p:Platform=%PLATFORM%

@@ -22,9 +22,9 @@ cmake -E make_directory ../Urho3D_HoloLens
 cmake -E chdir ../Urho3D_HoloLens cmake -G "%TARGET%" ../Urho3D_HoloLens -DURHO3D_D3D11=1 -DUWP=1 -DUWP_HOLO=1 -DURHO3D_NEON=0 -DURHO3D_WIN32_CONSOLE=0 -DURHO3D_NETWORK=1 -DURHO3D_FILEWATCHER=0 -DURHO3D_PROFILING=0 -DURHO3D_THREADING=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=%VS_VER% ../../Urho3D/Source/
 
 cd ../..
-cp -r Urho3D/Urho3D_UWP/MonoUrho.UWP/SdlStub/SDL Urho3D/Urho3D_HoloLens/include/Urho3D/ThirdParty
+xcopy MonoUrho.UWP\SdlStub\SDL include\Urho3D\ThirdParty\SDL\* /Y
 cd Urho3D/Urho3D_HoloLens
 cmake --build . --target Urho3D --config %CONFIG%
 cd ../..
 
-"C:\Program Files (x86)\MSBuild\%VS_VER%.0\Bin\MSBuild.exe" Urho3D\Urho3D_HoloLens\UrhoSharp.HoloLens\UrhoSharp.HoloLens.vcxproj /p:Configuration=%CONFIG% /p:Platform=%PLATFORM%
+:: msbuild Urho3D\Urho3D_HoloLens\UrhoSharp.HoloLens\UrhoSharp.HoloLens.vcxproj /p:Configuration=%CONFIG% /p:Platform=%PLATFORM%
