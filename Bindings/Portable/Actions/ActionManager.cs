@@ -265,6 +265,7 @@ namespace Urho.Actions
 
 		public void CancelActiveActions()
 		{
+			//this might be very slow when debugged is attached.
 			foreach (var target in targets)
 			{
 				var tcs = target.Value.ActionStates.LastOrDefault();

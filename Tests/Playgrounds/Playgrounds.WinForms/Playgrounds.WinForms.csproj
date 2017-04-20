@@ -89,16 +89,22 @@
       <Name>Urho.WinForms</Name>
     </ProjectReference>
   </ItemGroup>
-	<ItemGroup Condition="Exists('..\..\..\Bin\Desktop\Win32\mono-urho.dll')">
-		<Content Include="..\..\..\Bin\Desktop\Win32\mono-urho.dll">
-			<Link>mono-urho.dll</Link>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<None Include="..\..\..\Urho3D\CoreData.pak">
-			<Link>CoreData.pak</Link>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
+  <ItemGroup Condition="Exists('..\..\..\Bin\Desktop\Win32\mono-urho.dll')">
+    <None Include="..\..\..\Bin\Desktop\Win32\mono-urho.dll">
+      <Link>mono-urho.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\Urho3D\CoreData.pak">
+      <Link>CoreData.pak</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Bin\Desktop\Win32\mono-urho-d3d.dll">
+      <Link>mono-urho.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

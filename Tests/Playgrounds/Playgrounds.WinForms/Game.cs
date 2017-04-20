@@ -27,21 +27,25 @@ namespace Playgrounds.WinForms
 			helloText.HorizontalAlignment = HorizontalAlignment.Center;
 			helloText.VerticalAlignment = VerticalAlignment.Top;
 			helloText.SetColor(Color.Black);
-			helloText.SetFont(font: CoreAssets.Fonts.AnonymousPro, size: 30);
+			helloText.SetFont(font: CoreAssets.Fonts.AnonymousPro, size: 20);
 			UI.Root.AddChild(helloText);
 
 			// 3D scene with Octree
 			var scene = new Scene(Context);
 			scene.CreateComponent<Octree>();
+			scene.CreateComponent<Zone>().AmbientColor = new Color(0.3f, 0.3f, 0.3f);
 
-			// Box
-			Node boxNode = scene.CreateChild();
-			boxNode.Position = new Vector3(x: 0, y: 0, z: 5);
-			boxNode.SetScale(1f);
-			boxNode.Rotation = new Quaternion(x: 60, y: 0, z: 30);
+			for (int i = 0; i < 10; i++)
+			{
+				for (int j = -2; j <= 2; j++)
+				{
+					for (int k = -2; k <= 1; k++)
+					{
+						SpawnBox(scene, new Vector3(j, k, 7 + i));
+					}
+				}
+			}
 
-			var box = boxNode.CreateComponent<Box>();
-			box.Color = Color.Magenta;
 
 			// Light
 			Node lightNode = scene.CreateChild(name: "light");
@@ -59,13 +63,22 @@ namespace Playgrounds.WinForms
 			viewport.SetClearColor(Urho.WinForms.UrhoSurface.ConvertColor(System.Drawing.SystemColors.Control));
 			Renderer.SetViewport(0, viewport);
 
-			try
-			{
-				// Do actions
-				await boxNode.RunActionsAsync(new RepeatForever(
-					new RotateBy(duration: 1, deltaAngleX: 90, deltaAngleY: 0, deltaAngleZ: 0)));
-			}
-			catch (OperationCanceledException) { }
+			new MonoDebugHud(this).Show(Color.Red);
+		}
+
+		async void SpawnBox(Node parent, Vector3 pos)
+		{
+			// Box
+			Node boxNode = parent.CreateChild();
+			boxNode.Position = pos;//new Vector3(x: 0, y: 0, z: 5);
+			boxNode.SetScale(1f);
+			boxNode.Rotation = new Quaternion(x: 60, y: 0, z: 30);
+
+			var box = boxNode.CreateComponent<Box>();
+			box.Color = Randoms.NextColor();
+
+			await boxNode.RunActionsAsync(new RepeatForever(
+				new RotateBy(duration: 1, deltaAngleX: Randoms.Next(-90, 90), deltaAngleY: 0, deltaAngleZ: 0)));
 		}
 	}
 }

@@ -31,6 +31,8 @@
 			this.urhoSurface = new Urho.WinForms.UrhoSurface();
 			this.restartButton = new System.Windows.Forms.Button();
 			this.removeControlBtn = new System.Windows.Forms.Button();
+			this.progressBar1 = new System.Windows.Forms.ProgressBar();
+			this.pausedCb = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// urhoSurface
@@ -41,7 +43,7 @@
 			this.urhoSurface.FpsLimit = 60;
 			this.urhoSurface.Location = new System.Drawing.Point(12, 61);
 			this.urhoSurface.Name = "urhoSurface";
-			this.urhoSurface.Size = new System.Drawing.Size(573, 411);
+			this.urhoSurface.Size = new System.Drawing.Size(922, 550);
 			this.urhoSurface.TabIndex = 0;
 			// 
 			// restartButton
@@ -60,21 +62,46 @@
 			this.removeControlBtn.Name = "removeControlBtn";
 			this.removeControlBtn.Size = new System.Drawing.Size(105, 23);
 			this.removeControlBtn.TabIndex = 2;
-			this.removeControlBtn.Text = "Remove control";
+			this.removeControlBtn.Text = "Stop";
 			this.removeControlBtn.UseVisualStyleBackColor = true;
 			this.removeControlBtn.Click += new System.EventHandler(this.removeControlBtn_Click);
+			// 
+			// progressBar1
+			// 
+			this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.progressBar1.Location = new System.Drawing.Point(311, 18);
+			this.progressBar1.MarqueeAnimationSpeed = 10;
+			this.progressBar1.Name = "progressBar1";
+			this.progressBar1.Size = new System.Drawing.Size(624, 23);
+			this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+			this.progressBar1.TabIndex = 3;
+			// 
+			// pausedCb
+			// 
+			this.pausedCb.AutoSize = true;
+			this.pausedCb.Location = new System.Drawing.Point(243, 22);
+			this.pausedCb.Name = "pausedCb";
+			this.pausedCb.Size = new System.Drawing.Size(62, 17);
+			this.pausedCb.TabIndex = 4;
+			this.pausedCb.Text = "Paused";
+			this.pausedCb.UseVisualStyleBackColor = true;
+			this.pausedCb.CheckedChanged += new System.EventHandler(this.pausedCb_CheckedChanged);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(597, 484);
+			this.ClientSize = new System.Drawing.Size(946, 623);
+			this.Controls.Add(this.pausedCb);
+			this.Controls.Add(this.progressBar1);
 			this.Controls.Add(this.removeControlBtn);
 			this.Controls.Add(this.restartButton);
 			this.Controls.Add(this.urhoSurface);
 			this.Name = "MainForm";
 			this.Text = "MainForm";
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -83,6 +110,8 @@
 		private Urho.WinForms.UrhoSurface urhoSurface;
 		private System.Windows.Forms.Button restartButton;
 		private System.Windows.Forms.Button removeControlBtn;
+		private System.Windows.Forms.ProgressBar progressBar1;
+		private System.Windows.Forms.CheckBox pausedCb;
 	}
 }
 

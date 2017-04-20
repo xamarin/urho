@@ -73,6 +73,8 @@ namespace Urho {
 
 		Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
 		{
+			//Workbooks specific:
+			CancelActiveActionsOnStop = this is SimpleApplication;
 			if (context == null)
 				throw new ArgumentNullException (nameof(context));
 
@@ -237,10 +239,13 @@ namespace Urho {
 #endif
 		}
 
+		public static bool CancelActiveActionsOnStop { get; set; }
+
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static async void ProxyStop (IntPtr h)
 		{
-			Current.ActionManager.CancelActiveActions();
+			if (CancelActiveActionsOnStop)
+				Current.ActionManager.CancelActiveActions();
 			LogSharp.Debug("ProxyStop");
 			UrhoPlatformInitializer.Initialized = false;
 			var context = Current.Context;
@@ -300,18 +305,21 @@ namespace Urho {
 #else
 			Current.Engine.Exit ();
 #endif
-#if IOS || WINDOWS_UWP
+#if IOS || WINDOWS_UWP || DESKTOP
 			ProxyStop(Current.Handle);
 #endif
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+			GC.Collect();
 		}
 
 		public bool IsExiting => Runtime.IsClosing || Engine.Exiting;
 
-		public bool IsActive => !IsExiting && !IsClosed && !IsDeleted;
+		public bool IsActive => !IsClosed && !IsDeleted && !IsExiting;
 
 		public Task Exit()
 		{
-			if (IsClosed)
+			if (!IsActive)
 				return Task.FromResult<object>(null);
 			IsClosed = true;
 			return StopCurrent();

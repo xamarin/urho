@@ -5,19 +5,26 @@ namespace Playgrounds.WinForms
 {
 	public partial class MainForm : Form
 	{
+		Game game;
+
 		public MainForm()
 		{
 			InitializeComponent();
 		}
 
-		void restartButton_Click(object sender, EventArgs e)
+		async void restartButton_Click(object sender, EventArgs e)
 		{
-			urhoSurface.Show<Game>(new Urho.ApplicationOptions());
+			game = await urhoSurface.Show<Game>(new Urho.ApplicationOptions());
 		}
 
 		private void removeControlBtn_Click(object sender, EventArgs e)
 		{
-			this.Controls.Remove(urhoSurface);
+			game?.Exit();
+		}
+
+		void pausedCb_CheckedChanged(object sender, EventArgs e)
+		{
+			urhoSurface.Paused = pausedCb.Checked;
 		}
 	}
 }

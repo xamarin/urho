@@ -91,15 +91,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Engine_RunFrame (IntPtr handle);
+		internal static extern int Engine_RunFrame (IntPtr handle);
 
 		/// <summary>
 		/// Run one frame.
 		/// </summary>
-		public void RunFrame ()
+		public int RunFrame ()
 		{
 			Runtime.ValidateRefCounted (this);
-			Engine_RunFrame (handle);
+			return Engine_RunFrame (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -403,15 +403,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Engine_ApplyFrameLimit (IntPtr handle);
+		internal static extern int Engine_ApplyFrameLimit (IntPtr handle);
 
 		/// <summary>
 		/// Get the timestep for the next frame and sleep for frame limiting if necessary.
 		/// </summary>
-		public void ApplyFrameLimit ()
+		public int ApplyFrameLimit ()
 		{
 			Runtime.ValidateRefCounted (this);
-			Engine_ApplyFrameLimit (handle);
+			return Engine_ApplyFrameLimit (handle);
 		}
 
 		public override StringHash Type {

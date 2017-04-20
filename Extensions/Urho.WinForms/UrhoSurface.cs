@@ -10,6 +10,7 @@ namespace Urho.WinForms
 	public partial class UrhoSurface: UserControl
 	{
 		static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(1);
+		bool paused;
 
 		public UrhoSurface()
 		{
@@ -28,6 +29,21 @@ namespace Urho.WinForms
 
 		public Panel UnderlyingPanel { get; private set; }
 
+		public bool Paused
+		{
+			get { return paused; }
+			set
+			{
+				if (paused && !value)
+				{
+					paused = value;
+					StartLoop(Application);
+				}
+				else
+					paused = value;
+			}
+		}
+
 		public int FpsLimit { get; set; } = 60;
 
 		public static Color ConvertColor(System.Drawing.Color color)
@@ -35,12 +51,12 @@ namespace Urho.WinForms
 			return new Color(color.R / 255f, color.G / 255f, color.B / 255f, color.A / 255f);
 		}
 		
-		public Task Show<TApplication>(ApplicationOptions opts = null)
+		public async Task<TApplication> Show<TApplication>(ApplicationOptions opts = null) where TApplication : Application
 		{
-			return Show(typeof(TApplication), opts);
+			return (TApplication)(await Show(typeof(TApplication), opts));
 		}
 
-		public async Task Show(Type appType, ApplicationOptions opts = null)
+		public async Task<Application> Show(Type appType, ApplicationOptions opts = null)
 		{
 			opts = opts ?? new ApplicationOptions();
 			await Semaphore.WaitAsync();
@@ -59,11 +75,24 @@ namespace Urho.WinForms
 			Application = app;
 			app.Run();
 			Semaphore.Release();
-			while (app != null && app.IsActive)
+			StartLoop(app);
+			return app;
+		}
+
+		async void StartLoop(Application app)
+		{
+			while (!Paused && app != null && app.IsActive)
 			{
-				app?.Engine?.RunFrame();
-				//TODO: RunFrame should return time taken to render
-				await Task.Delay(TimeSpan.FromMilliseconds(1000d / FpsLimit));
+				var elapsed = app.Engine.RunFrame();
+				var targetMax = 1000000L / FpsLimit;
+				if (elapsed >= targetMax)
+					await Task.Yield();
+				else
+				{
+					var ts = TimeSpan.FromMilliseconds((targetMax - elapsed) / 1000d);
+					await Task.Delay(ts);
+				}
+				System.Windows.Forms.Application.DoEvents();
 			}
 		}
 	}

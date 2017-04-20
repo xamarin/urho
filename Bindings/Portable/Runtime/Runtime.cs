@@ -225,6 +225,10 @@ namespace Urho
 		// for RefCounted, UrhoObjects
 		internal static void ValidateRefCounted<T>(T obj, [CallerMemberName] string name = "") where T : RefCounted
 		{
+			//TODO: remove ValidateRefCounted from IsExiting in the Binder
+			if (name == "IsExisting")
+				return;
+
 			if (IsClosing)
 			{
 				var errorText = $"{typeof(T).Name}.{name} (Handle={obj.Handle}) was invoked after Application.Stop";
