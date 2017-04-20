@@ -307,6 +307,8 @@ namespace Urho {
 
 		public bool IsExiting => Runtime.IsClosing || Engine.Exiting;
 
+		public bool IsActive => !IsExiting && !IsClosed && !IsDeleted;
+
 		public Task Exit()
 		{
 			if (IsClosed)
