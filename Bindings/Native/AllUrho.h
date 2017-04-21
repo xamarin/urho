@@ -135,6 +135,13 @@
 #include <Urho3D/Input/Input.h>
 #include <Urho3D/Input/InputEvents.h>
 
+#include <Urho3D/IK/IK.h>
+#include <Urho3D/IK/IKConstraint.h>
+#include <Urho3D/IK/IKConverters.h>
+#include <Urho3D/IK/IKEffector.h>
+#include <Urho3D/IK/IKEvents.h>
+#include <Urho3D/IK/IKSolver.h>
+
 #include <Urho3D/Math/AreaAllocator.h>
 #include <Urho3D/Math/BoundingBox.h>
 #include <Urho3D/Math/Color.h>
@@ -252,6 +259,7 @@
 #include <Urho3D/Urho2D/ConstraintWeld2D.h>
 #include <Urho3D/Urho2D/ConstraintWheel2D.h>
 #include <Urho3D/Urho2D/Drawable2D.h>
+#include <Urho3D/Urho2D/Urho2DEvents.h>
 #include <Urho3D/Urho2D/ParticleEffect2D.h>
 #include <Urho3D/Urho2D/ParticleEmitter2D.h>
 #include <Urho3D/Urho2D/PhysicsEvents2D.h>
