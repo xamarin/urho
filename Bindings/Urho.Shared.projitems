@@ -438,5 +438,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Frustum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Polyhedron.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Polyhedron.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\FontType.cs" />
   </ItemGroup>
 </Project>

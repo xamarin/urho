@@ -154,7 +154,7 @@ namespace Urho
 		internal static extern void DebugRenderer_AddTriangle (IntPtr handle, ref Urho.Vector3 v1, ref Urho.Vector3 v2, ref Urho.Vector3 v3, ref Urho.Color color, bool depthTest);
 
 		/// <summary>
-		/// Add a triangle.
+		/// Add a solid triangle.
 		/// </summary>
 		public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Color color, bool depthTest)
 		{
@@ -166,12 +166,36 @@ namespace Urho
 		internal static extern void DebugRenderer_AddTriangle1 (IntPtr handle, ref Urho.Vector3 v1, ref Urho.Vector3 v2, ref Urho.Vector3 v3, uint color, bool depthTest);
 
 		/// <summary>
-		/// Add a triangle with color already converted to unsigned.
+		/// Add a solid triangle with color already converted to unsigned.
 		/// </summary>
 		public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, uint color, bool depthTest)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddTriangle1 (handle, ref v1, ref v2, ref v3, color, depthTest);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void DebugRenderer_AddPolygon (IntPtr handle, ref Urho.Vector3 v1, ref Urho.Vector3 v2, ref Urho.Vector3 v3, ref Urho.Vector3 v4, ref Urho.Color color, bool depthTest);
+
+		/// <summary>
+		/// Add a solid quadrangular polygon.
+		/// </summary>
+		public void AddPolygon (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Vector3 v4, Urho.Color color, bool depthTest)
+		{
+			Runtime.ValidateRefCounted (this);
+			DebugRenderer_AddPolygon (handle, ref v1, ref v2, ref v3, ref v4, ref color, depthTest);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void DebugRenderer_AddPolygon2 (IntPtr handle, ref Urho.Vector3 v1, ref Urho.Vector3 v2, ref Urho.Vector3 v3, ref Urho.Vector3 v4, uint color, bool depthTest);
+
+		/// <summary>
+		/// Add a solid quadrangular polygon with color already converted to unsigned.
+		/// </summary>
+		public void AddPolygon (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Vector3 v4, uint color, bool depthTest)
+		{
+			Runtime.ValidateRefCounted (this);
+			DebugRenderer_AddPolygon2 (handle, ref v1, ref v2, ref v3, ref v4, color, depthTest);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -187,27 +211,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void DebugRenderer_AddBoundingBox (IntPtr handle, ref Urho.BoundingBox box, ref Urho.Color color, bool depthTest);
+		internal static extern void DebugRenderer_AddBoundingBox (IntPtr handle, ref Urho.BoundingBox box, ref Urho.Color color, bool depthTest, bool solid);
 
 		/// <summary>
 		/// Add a bounding box.
 		/// </summary>
-		public void AddBoundingBox (Urho.BoundingBox box, Urho.Color color, bool depthTest)
+		public void AddBoundingBox (Urho.BoundingBox box, Urho.Color color, bool depthTest, bool solid)
 		{
 			Runtime.ValidateRefCounted (this);
-			DebugRenderer_AddBoundingBox (handle, ref box, ref color, depthTest);
+			DebugRenderer_AddBoundingBox (handle, ref box, ref color, depthTest, solid);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void DebugRenderer_AddBoundingBox2 (IntPtr handle, ref Urho.BoundingBox box, ref Urho.Matrix3x4 transform, ref Urho.Color color, bool depthTest);
+		internal static extern void DebugRenderer_AddBoundingBox3 (IntPtr handle, ref Urho.BoundingBox box, ref Urho.Matrix3x4 transform, ref Urho.Color color, bool depthTest, bool solid);
 
 		/// <summary>
 		/// Add a bounding box with transform.
 		/// </summary>
-		public void AddBoundingBox (Urho.BoundingBox box, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest)
+		public void AddBoundingBox (Urho.BoundingBox box, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest, bool solid)
 		{
 			Runtime.ValidateRefCounted (this);
-			DebugRenderer_AddBoundingBox2 (handle, ref box, ref transform, ref color, depthTest);
+			DebugRenderer_AddBoundingBox3 (handle, ref box, ref transform, ref color, depthTest, solid);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

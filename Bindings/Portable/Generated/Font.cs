@@ -187,6 +187,18 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern FontType Font_GetFontType (IntPtr handle);
+
+		/// <summary>
+		/// Return font type.
+		/// </summary>
+		private FontType GetFontType ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Font_GetFontType (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool Font_IsSDFFont (IntPtr handle);
 
 		/// <summary>
@@ -296,6 +308,15 @@ namespace Urho.Gui
 			}
 			set {
 				SetScaledGlyphOffset (value);
+			}
+		}
+
+		/// <summary>
+		/// Return font type.
+		/// </summary>
+		public FontType FontType {
+			get {
+				return GetFontType ();
 			}
 		}
 

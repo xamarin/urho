@@ -60,6 +60,18 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlElement_GetOrCreateChild (IntPtr handle, string name);
+
+		/// <summary>
+		/// Return the first child element with name or create if does not exist.
+		/// </summary>
+		public XmlElement GetOrCreateChild (string name)
+		{
+			Runtime.ValidateObject (this);
+			return new XmlElement (XmlElement_GetOrCreateChild (handle, name));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool XmlElement_RemoveChild (IntPtr handle, IntPtr element);
 
 		/// <summary>
@@ -241,6 +253,30 @@ namespace Urho.Resources
 		{
 			Runtime.ValidateObject (this);
 			return XmlElement_SetInt (handle, name, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool XmlElement_SetUInt64 (IntPtr handle, string name, ulong value);
+
+		/// <summary>
+		/// Set an unsigned long long integer attribute.
+		/// </summary>
+		public bool SetUInt64 (string name, ulong value)
+		{
+			Runtime.ValidateObject (this);
+			return XmlElement_SetUInt64 (handle, name, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool XmlElement_SetInt64 (IntPtr handle, string name, long value);
+
+		/// <summary>
+		/// Set a long long integer attribute.
+		/// </summary>
+		public bool SetInt64 (string name, long value)
+		{
+			Runtime.ValidateObject (this);
+			return XmlElement_SetInt64 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1040,6 +1076,30 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern ulong XmlElement_GetUInt64 (IntPtr handle, string name);
+
+		/// <summary>
+		/// Return an unsigned long long integer attribute, or zero if missing.
+		/// </summary>
+		public ulong GetUInt64 (string name)
+		{
+			Runtime.ValidateObject (this);
+			return XmlElement_GetUInt64 (handle, name);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern long XmlElement_GetInt64 (IntPtr handle, string name);
+
+		/// <summary>
+		/// Return a long long integer attribute, or zero if missing.
+		/// </summary>
+		public long GetInt64 (string name)
+		{
+			Runtime.ValidateObject (this);
+			return XmlElement_GetInt64 (handle, name);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntRect XmlElement_GetIntRect (IntPtr handle, string name);
 
 		/// <summary>
@@ -1061,6 +1121,18 @@ namespace Urho.Resources
 		{
 			Runtime.ValidateObject (this);
 			return XmlElement_GetIntVector2 (handle, name);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntVector3 XmlElement_GetIntVector3 (IntPtr handle, string name);
+
+		/// <summary>
+		/// Return an IntVector3 attribute, or default if missing.
+		/// </summary>
+		public IntVector3 GetIntVector3 (string name)
+		{
+			Runtime.ValidateObject (this);
+			return XmlElement_GetIntVector3 (handle, name);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

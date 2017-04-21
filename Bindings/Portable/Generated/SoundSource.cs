@@ -238,7 +238,7 @@ namespace Urho.Audio
 		internal static extern void SoundSource_SetAutoRemoveMode (IntPtr handle, AutoRemoveMode mode);
 
 		/// <summary>
-		/// / Set to remove either the sound source component or its owner node from the scene automatically on sound playback completion. Disabled by default.
+		/// Set to remove either the sound source component or its owner node from the scene automatically on sound playback completion. Disabled by default.
 		/// </summary>
 		private void SetAutoRemoveMode (AutoRemoveMode mode)
 		{
@@ -555,7 +555,7 @@ namespace Urho.Audio
 		/// <summary>
 		/// Return automatic removal mode on sound playback completion.
 		/// Or
-		/// / Set to remove either the sound source component or its owner node from the scene automatically on sound playback completion. Disabled by default.
+		/// Set to remove either the sound source component or its owner node from the scene automatically on sound playback completion. Disabled by default.
 		/// </summary>
 		public AutoRemoveMode AutoRemoveMode {
 			get {

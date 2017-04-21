@@ -21,7 +21,7 @@ namespace Urho.IO
 	/// <summary>
 	/// %File opened either through the filesystem or from within a package file.
 	/// </summary>
-	public unsafe partial class File : UrhoObject, IDeserializer, ISerializer
+	public unsafe partial class File : UrhoObject, IAbstractFile
 	{
 		unsafe partial void OnFileCreated ();
 

@@ -2,7 +2,7 @@
 // 
 // Generated using `sharpie urho`
 // 
-// TextureFilterMode.cs
+// FontType.cs
 // 
 // Copyright 2015 Xamarin Inc. All rights reserved.
 
@@ -19,16 +19,13 @@ using Urho.Network;
 namespace Urho
 {
 	/// <summary>
-	/// Texture filtering mode.
+	/// %Font file type.
 	/// </summary>
-	public enum TextureFilterMode
+	public enum FontType
 	{
-		Nearest = 0,
-		Bilinear,
-		Trilinear,
-		Anisotropic,
-		NearestAnisotropic,
-		Default,
-		MaxFiltermodes
+		None = 0,
+		Freetype,
+		Bitmap,
+		MaxFontTypes
 	}
 }

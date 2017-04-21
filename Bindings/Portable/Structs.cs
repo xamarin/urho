@@ -129,6 +129,11 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
+	public struct IntVector3 {
+		public int X, Y, Z;
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
 	public struct ResourceRef {
 		public StringHash Type;
 		public UrhoString Name;

@@ -79,7 +79,7 @@ namespace Urho {
 		public Node CreateChild (string name = "", uint id = 0, CreateMode mode = CreateMode.Replicated, bool temporary = false)
 		{
 			Runtime.ValidateRefCounted(this);
-			return CreateChild (name, mode, id);
+			return CreateChild (name, mode, id, temporary);
 		}
 
 		/// <summary>

@@ -1750,16 +1750,16 @@ Resource_Save_MemoryBuffer (Urho3D::Resource *_target, MemoryBuffer * dest)
 
 
 DllExport int
-Resource_Load0 (Urho3D::Resource *_target, const char * fileName)
+Resource_LoadFile (Urho3D::Resource *_target, const char * fileName)
 {
-	return _target->Load (Urho3D::String(fileName));
+	return _target->LoadFile (Urho3D::String(fileName));
 }
 
 
 DllExport int
-Resource_Save1 (Urho3D::Resource *_target, const char * fileName)
+Resource_SaveFile (Urho3D::Resource *_target, const char * fileName)
 {
-	return _target->Save (Urho3D::String(fileName));
+	return _target->SaveFile (Urho3D::String(fileName));
 }
 
 
@@ -3710,6 +3710,20 @@ Context_RemoveSubsystem (Urho3D::Context *_target, int objectType)
 }
 
 
+DllExport int
+Context_RequireSDL (Urho3D::Context *_target, unsigned int sdlFlags)
+{
+	return _target->RequireSDL (sdlFlags);
+}
+
+
+DllExport void
+Context_ReleaseSDL (Urho3D::Context *_target)
+{
+	_target->ReleaseSDL ();
+}
+
+
 DllExport void
 Context_CopyBaseAttributes (Urho3D::Context *_target, int baseType, int derivedType)
 {
@@ -4482,6 +4496,20 @@ DllExport void
 UrhoConsole_SetFocusOnShow (Urho3D::Console *_target, bool enable)
 {
 	_target->SetFocusOnShow (enable);
+}
+
+
+DllExport void
+UrhoConsole_AddAutoComplete (Urho3D::Console *_target, const char * option)
+{
+	_target->AddAutoComplete (Urho3D::String(option));
+}
+
+
+DllExport void
+UrhoConsole_RemoveAutoComplete (Urho3D::Console *_target, const char * option)
+{
+	_target->RemoveAutoComplete (Urho3D::String(option));
 }
 
 
@@ -5298,9 +5326,16 @@ Node_MarkDirty (Urho3D::Node *_target)
 
 
 DllExport Urho3D::Node *
-Node_CreateChild (Urho3D::Node *_target, const char * name, enum Urho3D::CreateMode mode, unsigned int id)
+Node_CreateChild (Urho3D::Node *_target, const char * name, enum Urho3D::CreateMode mode, unsigned int id, bool temporary)
 {
-	return _target->CreateChild (Urho3D::String(name), mode, id);
+	return _target->CreateChild (Urho3D::String(name), mode, id, temporary);
+}
+
+
+DllExport Urho3D::Node *
+Node_CreateTemporaryChild (Urho3D::Node *_target, const char * name, enum Urho3D::CreateMode mode, unsigned int id)
+{
+	return _target->CreateTemporaryChild (Urho3D::String(name), mode, id);
 }
 
 
@@ -5550,6 +5585,13 @@ DllExport Urho3D::Scene *
 Node_GetScene (Urho3D::Node *_target)
 {
 	return _target->GetScene ();
+}
+
+
+DllExport int
+Node_IsChildOf (Urho3D::Node *_target, Urho3D::Node * node)
+{
+	return _target->IsChildOf (node);
 }
 
 
@@ -5971,9 +6013,9 @@ Node_MarkReplicationDirty (Urho3D::Node *_target)
 
 
 DllExport Urho3D::Node *
-Node_CreateChild24 (Urho3D::Node *_target, unsigned int id, enum Urho3D::CreateMode mode)
+Node_CreateChild24 (Urho3D::Node *_target, unsigned int id, enum Urho3D::CreateMode mode, bool temporary)
 {
-	return _target->CreateChild (id, mode);
+	return _target->CreateChild (id, mode, temporary);
 }
 
 
@@ -7059,6 +7101,13 @@ AnimatedModel_ResetMorphWeights (Urho3D::AnimatedModel *_target)
 }
 
 
+DllExport void
+AnimatedModel_ApplyAnimation (Urho3D::AnimatedModel *_target)
+{
+	_target->ApplyAnimation ();
+}
+
+
 DllExport const Vector<SharedPtr<class Urho3D::AnimationState> > &
 AnimatedModel_GetAnimationStates (Urho3D::AnimatedModel *_target)
 {
@@ -7411,14 +7460,21 @@ Animation_GetNumTracks (Urho3D::Animation *_target)
 
 
 DllExport Urho3D::AnimationTrack *
-Animation_GetTrack (Urho3D::Animation *_target, const char * name)
+Animation_GetTrack (Urho3D::Animation *_target, unsigned int index)
+{
+	return _target->GetTrack (index);
+}
+
+
+DllExport Urho3D::AnimationTrack *
+Animation_GetTrack0 (Urho3D::Animation *_target, const char * name)
 {
 	return _target->GetTrack (Urho3D::String(name));
 }
 
 
 DllExport Urho3D::AnimationTrack *
-Animation_GetTrack0 (Urho3D::Animation *_target, int nameHash)
+Animation_GetTrack1 (Urho3D::Animation *_target, int nameHash)
 {
 	return _target->GetTrack (Urho3D::StringHash(nameHash));
 }
@@ -8320,6 +8376,13 @@ Texture_IsResolveDirty (Urho3D::Texture *_target)
 }
 
 
+DllExport int
+Texture_GetLevelsDirty (Urho3D::Texture *_target)
+{
+	return _target->GetLevelsDirty ();
+}
+
+
 DllExport Urho3D::Texture *
 Texture_GetBackupTexture (Urho3D::Texture *_target)
 {
@@ -8460,6 +8523,20 @@ Texture_SetResolveDirty (Urho3D::Texture *_target, bool enable)
 }
 
 
+DllExport void
+Texture_SetLevelsDirty (Urho3D::Texture *_target)
+{
+	_target->SetLevelsDirty ();
+}
+
+
+DllExport void
+Texture_RegenerateLevels (Urho3D::Texture *_target)
+{
+	_target->RegenerateLevels ();
+}
+
+
 DllExport unsigned int
 Texture_CheckMaxLevels (int width, int height, unsigned int requestedLevels)
 {
@@ -8548,6 +8625,20 @@ DllExport void
 Light_SetTemperature (Urho3D::Light *_target, float temperature)
 {
 	_target->SetTemperature (temperature);
+}
+
+
+DllExport void
+Light_SetRadius (Urho3D::Light *_target, float radius)
+{
+	_target->SetRadius (radius);
+}
+
+
+DllExport void
+Light_SetLength (Urho3D::Light *_target, float length)
+{
+	_target->SetLength (length);
 }
 
 
@@ -8695,6 +8786,20 @@ DllExport float
 Light_GetTemperature (Urho3D::Light *_target)
 {
 	return _target->GetTemperature ();
+}
+
+
+DllExport float
+Light_GetRadius (Urho3D::Light *_target)
+{
+	return _target->GetRadius ();
+}
+
+
+DllExport float
+Light_GetLength (Urho3D::Light *_target)
+{
+	return _target->GetLength ();
 }
 
 
@@ -10566,6 +10671,20 @@ DebugRenderer_AddTriangle1 (Urho3D::DebugRenderer *_target, const class Urho3D::
 
 
 DllExport void
+DebugRenderer_AddPolygon (Urho3D::DebugRenderer *_target, const class Urho3D::Vector3 & v1, const class Urho3D::Vector3 & v2, const class Urho3D::Vector3 & v3, const class Urho3D::Vector3 & v4, const class Urho3D::Color & color, bool depthTest)
+{
+	_target->AddPolygon (v1, v2, v3, v4, color, depthTest);
+}
+
+
+DllExport void
+DebugRenderer_AddPolygon2 (Urho3D::DebugRenderer *_target, const class Urho3D::Vector3 & v1, const class Urho3D::Vector3 & v2, const class Urho3D::Vector3 & v3, const class Urho3D::Vector3 & v4, unsigned int color, bool depthTest)
+{
+	_target->AddPolygon (v1, v2, v3, v4, color, depthTest);
+}
+
+
+DllExport void
 DebugRenderer_AddNode (Urho3D::DebugRenderer *_target, Urho3D::Node * node, float scale, bool depthTest)
 {
 	_target->AddNode (node, scale, depthTest);
@@ -10573,16 +10692,16 @@ DebugRenderer_AddNode (Urho3D::DebugRenderer *_target, Urho3D::Node * node, floa
 
 
 DllExport void
-DebugRenderer_AddBoundingBox (Urho3D::DebugRenderer *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Color & color, bool depthTest)
+DebugRenderer_AddBoundingBox (Urho3D::DebugRenderer *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Color & color, bool depthTest, bool solid)
 {
-	_target->AddBoundingBox (box, color, depthTest);
+	_target->AddBoundingBox (box, color, depthTest, solid);
 }
 
 
 DllExport void
-DebugRenderer_AddBoundingBox2 (Urho3D::DebugRenderer *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Matrix3x4 & transform, const class Urho3D::Color & color, bool depthTest)
+DebugRenderer_AddBoundingBox3 (Urho3D::DebugRenderer *_target, const class Urho3D::BoundingBox & box, const class Urho3D::Matrix3x4 & transform, const class Urho3D::Color & color, bool depthTest, bool solid)
 {
-	_target->AddBoundingBox (box, transform, color, depthTest);
+	_target->AddBoundingBox (box, transform, color, depthTest, solid);
 }
 
 
@@ -11217,9 +11336,9 @@ Image_Save_MemoryBuffer (Urho3D::Image *_target, MemoryBuffer * dest)
 
 
 DllExport int
-Image_Save0 (Urho3D::Image *_target, const char * fileName)
+Image_SaveFile (Urho3D::Image *_target, const char * fileName)
 {
-	return _target->Save (Urho3D::String(fileName));
+	return _target->SaveFile (Urho3D::String(fileName));
 }
 
 
@@ -11231,7 +11350,7 @@ Image_SetSize (Urho3D::Image *_target, int width, int height, unsigned int compo
 
 
 DllExport int
-Image_SetSize1 (Urho3D::Image *_target, int width, int height, int depth, unsigned int components)
+Image_SetSize0 (Urho3D::Image *_target, int width, int height, int depth, unsigned int components)
 {
 	return _target->SetSize (width, height, depth, components);
 }
@@ -11252,7 +11371,7 @@ Image_SetPixel (Urho3D::Image *_target, int x, int y, const class Urho3D::Color 
 
 
 DllExport void
-Image_SetPixel2 (Urho3D::Image *_target, int x, int y, int z, const class Urho3D::Color & color)
+Image_SetPixel1 (Urho3D::Image *_target, int x, int y, int z, const class Urho3D::Color & color)
 {
 	_target->SetPixel (x, y, z, color);
 }
@@ -11266,7 +11385,7 @@ Image_SetPixelInt (Urho3D::Image *_target, int x, int y, unsigned int uintColor)
 
 
 DllExport void
-Image_SetPixelInt3 (Urho3D::Image *_target, int x, int y, int z, unsigned int uintColor)
+Image_SetPixelInt2 (Urho3D::Image *_target, int x, int y, int z, unsigned int uintColor)
 {
 	_target->SetPixelInt (x, y, z, uintColor);
 }
@@ -11385,7 +11504,7 @@ Image_GetPixel (Urho3D::Image *_target, int x, int y)
 
 
 DllExport Interop::Color 
-Image_GetPixel4 (Urho3D::Image *_target, int x, int y, int z)
+Image_GetPixel3 (Urho3D::Image *_target, int x, int y, int z)
 {
 	return *((Interop::Color  *) &(_target->GetPixel (x, y, z)));
 }
@@ -11399,7 +11518,7 @@ Image_GetPixelInt (Urho3D::Image *_target, int x, int y)
 
 
 DllExport unsigned int
-Image_GetPixelInt5 (Urho3D::Image *_target, int x, int y, int z)
+Image_GetPixelInt4 (Urho3D::Image *_target, int x, int y, int z)
 {
 	return _target->GetPixelInt (x, y, z);
 }
@@ -11607,9 +11726,9 @@ Graphics_SetWindowPosition0 (Urho3D::Graphics *_target, int x, int y)
 
 
 DllExport int
-Graphics_SetMode (Urho3D::Graphics *_target, int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample)
+Graphics_SetMode (Urho3D::Graphics *_target, int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample, int monitor, int refreshRate)
 {
-	return _target->SetMode (width, height, fullscreen, borderless, resizable, highDPI, vsync, tripleBuffer, multiSample);
+	return _target->SetMode (width, height, fullscreen, borderless, resizable, highDPI, vsync, tripleBuffer, multiSample, monitor, refreshRate);
 }
 
 
@@ -12145,6 +12264,13 @@ Graphics_GetMultiSample (Urho3D::Graphics *_target)
 }
 
 
+DllExport Interop::IntVector2 
+Graphics_GetSize (Urho3D::Graphics *_target)
+{
+	return *((Interop::IntVector2  *) &(_target->GetSize ()));
+}
+
+
 DllExport int
 Graphics_GetFullscreen (Urho3D::Graphics *_target)
 {
@@ -12177,6 +12303,20 @@ DllExport int
 Graphics_GetVSync (Urho3D::Graphics *_target)
 {
 	return _target->GetVSync ();
+}
+
+
+DllExport int
+Graphics_GetRefreshRate (Urho3D::Graphics *_target)
+{
+	return _target->GetRefreshRate ();
+}
+
+
+DllExport int
+Graphics_GetMonitor (Urho3D::Graphics *_target)
+{
+	return _target->GetMonitor ();
 }
 
 
@@ -12307,9 +12447,16 @@ Graphics_GetSRGBWriteSupport (Urho3D::Graphics *_target)
 
 
 DllExport Interop::IntVector2 
-Graphics_GetDesktopResolution (Urho3D::Graphics *_target)
+Graphics_GetDesktopResolution (Urho3D::Graphics *_target, int monitor)
 {
-	return *((Interop::IntVector2  *) &(_target->GetDesktopResolution ()));
+	return *((Interop::IntVector2  *) &(_target->GetDesktopResolution (monitor)));
+}
+
+
+DllExport int
+Graphics_GetMonitorCount (Urho3D::Graphics *_target)
+{
+	return _target->GetMonitorCount ();
 }
 
 
@@ -15833,6 +15980,13 @@ XmlElement_CreateChild (Urho3D::XMLElement *_target, const char * name)
 }
 
 
+DllExport Urho3D::XMLElement *
+XmlElement_GetOrCreateChild (Urho3D::XMLElement *_target, const char * name)
+{
+	return new Urho3D::XMLElement (_target->GetOrCreateChild (Urho3D::String(name)));
+}
+
+
 DllExport int
 XmlElement_RemoveChild (Urho3D::XMLElement *_target, const class Urho3D::XMLElement & element)
 {
@@ -15935,6 +16089,20 @@ DllExport int
 XmlElement_SetInt (Urho3D::XMLElement *_target, const char * name, int value)
 {
 	return _target->SetInt (Urho3D::String(name), value);
+}
+
+
+DllExport int
+XmlElement_SetUInt64 (Urho3D::XMLElement *_target, const char * name, unsigned long long value)
+{
+	return _target->SetUInt64 (Urho3D::String(name), value);
+}
+
+
+DllExport int
+XmlElement_SetInt64 (Urho3D::XMLElement *_target, const char * name, long long value)
+{
+	return _target->SetInt64 (Urho3D::String(name), value);
 }
 
 
@@ -16370,6 +16538,20 @@ XmlElement_GetInt (Urho3D::XMLElement *_target, const char * name)
 }
 
 
+DllExport unsigned long long
+XmlElement_GetUInt64 (Urho3D::XMLElement *_target, const char * name)
+{
+	return _target->GetUInt64 (Urho3D::String(name));
+}
+
+
+DllExport long long
+XmlElement_GetInt64 (Urho3D::XMLElement *_target, const char * name)
+{
+	return _target->GetInt64 (Urho3D::String(name));
+}
+
+
 DllExport Interop::IntRect 
 XmlElement_GetIntRect (Urho3D::XMLElement *_target, const char * name)
 {
@@ -16381,6 +16563,13 @@ DllExport Interop::IntVector2
 XmlElement_GetIntVector2 (Urho3D::XMLElement *_target, const char * name)
 {
 	return *((Interop::IntVector2  *) &(_target->GetIntVector2 (Urho3D::String(name))));
+}
+
+
+DllExport Urho3D::IntVector3
+XmlElement_GetIntVector3 (Urho3D::XMLElement *_target, const char * name)
+{
+	return _target->GetIntVector3 (Urho3D::String(name));
 }
 
 
@@ -16605,6 +16794,13 @@ DllExport Urho3D::XMLElement *
 XmlFile_CreateRoot (Urho3D::XMLFile *_target, const char * name)
 {
 	return new Urho3D::XMLElement (_target->CreateRoot (Urho3D::String(name)));
+}
+
+
+DllExport Urho3D::XMLElement *
+XmlFile_GetOrCreateRoot (Urho3D::XMLFile *_target, const char * name)
+{
+	return new Urho3D::XMLElement (_target->GetOrCreateRoot (Urho3D::String(name)));
 }
 
 
@@ -19820,9 +20016,9 @@ UIElement_OnKey (Urho3D::UIElement *_target, int key, int buttons, int qualifier
 
 
 DllExport void
-UIElement_OnTextInput (Urho3D::UIElement *_target, const char * text, int buttons, int qualifiers)
+UIElement_OnTextInput (Urho3D::UIElement *_target, const char * text)
 {
-	_target->OnTextInput (Urho3D::String(text), buttons, qualifiers);
+	_target->OnTextInput (Urho3D::String(text));
 }
 
 
@@ -21682,6 +21878,13 @@ DllExport int
 Input_GetMouseMoveWheel (Urho3D::Input *_target)
 {
 	return _target->GetMouseMoveWheel ();
+}
+
+
+DllExport Interop::Vector2 
+Input_GetInputScale (Urho3D::Input *_target)
+{
+	return *((Interop::Vector2  *) &(_target->GetInputScale ()));
 }
 
 
@@ -28256,6 +28459,13 @@ Font_GetFace (Urho3D::Font *_target, int pointSize)
 }
 
 
+DllExport enum Urho3D::FontType
+Font_GetFontType (Urho3D::Font *_target)
+{
+	return _target->GetFontType ();
+}
+
+
 DllExport int
 Font_IsSDFFont (Urho3D::Font *_target)
 {
@@ -28488,9 +28698,9 @@ LineEdit_OnKey (Urho3D::LineEdit *_target, int key, int buttons, int qualifiers)
 
 
 DllExport void
-LineEdit_OnTextInput (Urho3D::LineEdit *_target, const char * text, int buttons, int qualifiers)
+LineEdit_OnTextInput (Urho3D::LineEdit *_target, const char * text)
 {
-	_target->OnTextInput (Urho3D::String(text), buttons, qualifiers);
+	_target->OnTextInput (Urho3D::String(text));
 }
 
 
@@ -30420,6 +30630,13 @@ Text3D_GetWidth (Urho3D::Text3D *_target)
 
 
 DllExport int
+Text3D_GetHeight (Urho3D::Text3D *_target)
+{
+	return _target->GetHeight ();
+}
+
+
+DllExport int
 Text3D_GetRowHeight (Urho3D::Text3D *_target)
 {
 	return _target->GetRowHeight ();
@@ -31496,6 +31713,20 @@ StaticSprite2D_SetUseHotSpot (Urho3D::StaticSprite2D *_target, bool useHotSpot)
 
 
 DllExport void
+StaticSprite2D_SetUseDrawRect (Urho3D::StaticSprite2D *_target, bool useDrawRect)
+{
+	_target->SetUseDrawRect (useDrawRect);
+}
+
+
+DllExport void
+StaticSprite2D_SetUseTextureRect (Urho3D::StaticSprite2D *_target, bool useTextureRect)
+{
+	_target->SetUseTextureRect (useTextureRect);
+}
+
+
+DllExport void
 StaticSprite2D_SetHotSpot (Urho3D::StaticSprite2D *_target, const class Urho3D::Vector2 & hotspot)
 {
 	_target->SetHotSpot (hotspot);
@@ -31555,6 +31786,20 @@ DllExport int
 StaticSprite2D_GetUseHotSpot (Urho3D::StaticSprite2D *_target)
 {
 	return _target->GetUseHotSpot ();
+}
+
+
+DllExport int
+StaticSprite2D_GetUseDrawRect (Urho3D::StaticSprite2D *_target)
+{
+	return _target->GetUseDrawRect ();
+}
+
+
+DllExport int
+StaticSprite2D_GetUseTextureRect (Urho3D::StaticSprite2D *_target)
+{
+	return _target->GetUseTextureRect ();
 }
 
 
@@ -32441,6 +32686,13 @@ Constraint2D_RegisterObject (Urho3D::Context * context)
 
 
 DllExport void
+Constraint2D_ApplyAttributes (Urho3D::Constraint2D *_target)
+{
+	_target->ApplyAttributes ();
+}
+
+
+DllExport void
 Constraint2D_OnSetEnabled (Urho3D::Constraint2D *_target)
 {
 	_target->OnSetEnabled ();
@@ -32580,6 +32832,13 @@ ConstraintDistance2D_SetDampingRatio (Urho3D::ConstraintDistance2D *_target, flo
 }
 
 
+DllExport void
+ConstraintDistance2D_SetLength (Urho3D::ConstraintDistance2D *_target, float length)
+{
+	_target->SetLength (length);
+}
+
+
 DllExport Interop::Vector2 
 ConstraintDistance2D_GetOwnerBodyAnchor (Urho3D::ConstraintDistance2D *_target)
 {
@@ -32605,6 +32864,13 @@ DllExport float
 ConstraintDistance2D_GetDampingRatio (Urho3D::ConstraintDistance2D *_target)
 {
 	return _target->GetDampingRatio ();
+}
+
+
+DllExport float
+ConstraintDistance2D_GetLength (Urho3D::ConstraintDistance2D *_target)
+{
+	return _target->GetLength ();
 }
 
 
@@ -34947,6 +35213,13 @@ DllExport void
 RigidBody2D_ApplyLinearImpulse (Urho3D::RigidBody2D *_target, const class Urho3D::Vector2 & impulse, const class Urho3D::Vector2 & point, bool wake)
 {
 	_target->ApplyLinearImpulse (impulse, point, wake);
+}
+
+
+DllExport void
+RigidBody2D_ApplyLinearImpulseToCenter (Urho3D::RigidBody2D *_target, const class Urho3D::Vector2 & impulse, bool wake)
+{
+	_target->ApplyLinearImpulseToCenter (impulse, wake);
 }
 
 

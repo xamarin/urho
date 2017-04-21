@@ -595,6 +595,18 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int Text3D_GetHeight (IntPtr handle);
+
+		/// <summary>
+		/// Return text height.
+		/// </summary>
+		private int GetHeight ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Text3D_GetHeight (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern int Text3D_GetRowHeight (IntPtr handle);
 
 		/// <summary>
@@ -1061,6 +1073,15 @@ namespace Urho.Gui
 		public int FontSize {
 			get {
 				return GetFontSize ();
+			}
+		}
+
+		/// <summary>
+		/// Return text height.
+		/// </summary>
+		public int Height {
+			get {
+				return GetHeight ();
 			}
 		}
 

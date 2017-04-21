@@ -19,7 +19,7 @@ using Urho.Network;
 namespace Urho
 {
 	/// <summary>
-	/// %Geometry type.
+	/// %Geometry type for vertex shader geometry variations.
 	/// </summary>
 	public enum GeometryType
 	{
@@ -30,7 +30,7 @@ namespace Urho
 		Dirbillboard = 4,
 		TrailFaceCamera = 5,
 		TrailBone = 6,
-		StaticNoinstancing = 7,
-		MaxGeometrytypes = 7
+		MaxGeometrytypes = 7,
+		StaticNoinstancing = 7
 	}
 }

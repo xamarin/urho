@@ -151,6 +151,18 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ConstraintDistance2D_SetLength (IntPtr handle, float length);
+
+		/// <summary>
+		/// Set length.
+		/// </summary>
+		private void SetLength (float length)
+		{
+			Runtime.ValidateRefCounted (this);
+			ConstraintDistance2D_SetLength (handle, length);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern Urho.Vector2 ConstraintDistance2D_GetOwnerBodyAnchor (IntPtr handle);
 
 		/// <summary>
@@ -196,6 +208,18 @@ namespace Urho.Urho2D
 		{
 			Runtime.ValidateRefCounted (this);
 			return ConstraintDistance2D_GetDampingRatio (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float ConstraintDistance2D_GetLength (IntPtr handle);
+
+		/// <summary>
+		/// Return length.
+		/// </summary>
+		private float GetLength ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return ConstraintDistance2D_GetLength (handle);
 		}
 
 		public override StringHash Type {
@@ -276,6 +300,20 @@ namespace Urho.Urho2D
 			}
 			set {
 				SetDampingRatio (value);
+			}
+		}
+
+		/// <summary>
+		/// Return length.
+		/// Or
+		/// Set length.
+		/// </summary>
+		public float Length {
+			get {
+				return GetLength ();
+			}
+			set {
+				SetLength (value);
 			}
 		}
 	}

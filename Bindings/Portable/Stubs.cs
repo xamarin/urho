@@ -21,6 +21,9 @@ namespace Urho {
 		IntPtr Handle { get; }
 	}
 
+	public interface IAbstractFile : ISerializer, IDeserializer {
+	}
+
 	[StructLayout(LayoutKind.Sequential)]
 	public unsafe partial struct WorkItem
 	{

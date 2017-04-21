@@ -103,6 +103,18 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint2D_ApplyAttributes (IntPtr handle);
+
+		/// <summary>
+		/// Apply attribute changes that can not be applied immediately. Called after scene load or a network update.
+		/// </summary>
+		public override void ApplyAttributes ()
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint2D_ApplyAttributes (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Constraint2D_OnSetEnabled (IntPtr handle);
 
 		/// <summary>

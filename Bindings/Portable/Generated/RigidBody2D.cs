@@ -331,6 +331,18 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RigidBody2D_ApplyLinearImpulseToCenter (IntPtr handle, ref Urho.Vector2 impulse, bool wake);
+
+		/// <summary>
+		/// Apply linear impulse to center.
+		/// </summary>
+		public void ApplyLinearImpulseToCenter (Urho.Vector2 impulse, bool wake)
+		{
+			Runtime.ValidateRefCounted (this);
+			RigidBody2D_ApplyLinearImpulseToCenter (handle, ref impulse, wake);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void RigidBody2D_ApplyAngularImpulse (IntPtr handle, float impulse, bool wake);
 
 		/// <summary>

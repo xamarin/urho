@@ -310,7 +310,7 @@ namespace Urho.IO
 		internal static extern IntPtr FileSystem_GetProgramDir (IntPtr handle);
 
 		/// <summary>
-		/// Return the program's directory. If it does not contain the Urho3D default CoreData and Data directories, and the current working directory does, return the working directory instead.
+		/// Return the program's directory.
 		/// </summary>
 		private string GetProgramDir ()
 		{
@@ -391,7 +391,7 @@ namespace Urho.IO
 		}
 
 		/// <summary>
-		/// Return the program's directory. If it does not contain the Urho3D default CoreData and Data directories, and the current working directory does, return the working directory instead.
+		/// Return the program's directory.
 		/// </summary>
 		public string ProgramDir {
 			get {

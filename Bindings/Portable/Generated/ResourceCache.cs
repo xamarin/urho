@@ -130,7 +130,7 @@ namespace Urho.Resources
 		internal static extern bool ResourceCache_AddManualResource (IntPtr handle, IntPtr resource);
 
 		/// <summary>
-		/// Add a manually created resource. Must be uniquely named.
+		/// Add a manually created resource. Must be uniquely named within its type.
 		/// </summary>
 		public bool AddManualResource (Resource resource)
 		{
@@ -434,7 +434,7 @@ namespace Urho.Resources
 		internal static extern bool ResourceCache_Exists (IntPtr handle, string name);
 
 		/// <summary>
-		/// Return whether a file exists by name.
+		/// Return whether a file exists in the resource directories or package files. Does not check manually added in-memory resources.
 		/// </summary>
 		public bool Exists (string name)
 		{
