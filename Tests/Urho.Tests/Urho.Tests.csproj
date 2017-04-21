@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\ActionManager.cs" />
+    <Compile Include="ColorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\bindings\Urho.Desktop.csproj">

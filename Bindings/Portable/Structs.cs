@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Runtime.InteropServices;
@@ -412,6 +413,23 @@ namespace Urho {
 		public static Color Yellow = new Color (1.0f, 1.0f, 0.0f);
 		public static Color Transparent = new Color (0.0f, 0.0f, 0.0f, 0.0f);
 
+		public static Color FromByteFormat(byte r, byte g, byte b, byte a)
+		{
+			return new Color(r / 255f, g / 255f, b / 255f, a / 255f);
+		}
+		
+		public static Color FromHex(string hex)
+		{
+			hex = hex.Replace("#", string.Empty);
+			if (hex.Length == 6)
+				hex = "FF" + hex;
+			byte a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
+			byte r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
+			byte g = (byte)(Convert.ToUInt32(hex.Substring(4, 2), 16));
+			byte b = (byte)(Convert.ToUInt32(hex.Substring(6, 2), 16));
+			return FromByteFormat(r, g, b, a);
+		}
+
 		public uint ToUInt()
 		{
 			uint r = (uint)MathHelper.Clamp(((int)(R * 255.0f)), 0, 255);
@@ -447,6 +465,49 @@ namespace Urho {
 			left.B = MathHelper.Clamp(left.B * value, 0, 1);
 			return left;
 		}
+
+		public static bool operator ==(Color left, Color right)
+		{
+			return left.Equals(right);
+		}
+
+		public static bool operator !=(Color left, Color right)
+		{
+			return !left.Equals(right);
+		}
+
+		public bool Equals(Color other)
+		{
+			return R.Equals(other.R) && G.Equals(other.G) && B.Equals(other.B) && A.Equals(other.A);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj)) return false;
+			return obj is Color && Equals((Color)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				var hashCode = R.GetHashCode();
+				hashCode = (hashCode * 397) ^ G.GetHashCode();
+				hashCode = (hashCode * 397) ^ B.GetHashCode();
+				hashCode = (hashCode * 397) ^ A.GetHashCode();
+				return hashCode;
+			}
+		}
+
+		public override string ToString()
+		{
+			return $"r:{R}, g:{G}, b:{B}, a:{A}";
+		}
+
+		public static explicit operator Color(Vector3 vector) => new Color(vector.X, vector.Y, vector.Z);
+		public static explicit operator Vector3(Color color) => new Vector3(color.R, color.G, color.B);
+		public static explicit operator Color(Vector4 vector) => new Color(vector.X, vector.Y, vector.Z, vector.W);
+		public static explicit operator Vector4(Color color) => new Vector4(color.R, color.G, color.B, color.A);
 	}
 	
 	[StructLayout (LayoutKind.Sequential)]
