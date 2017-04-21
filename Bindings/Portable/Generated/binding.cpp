@@ -4156,7 +4156,7 @@ Engine_Engine (Urho3D::Context * context)
 }
 
 
-DllExport long
+DllExport int
 Engine_RunFrame (Urho3D::Engine *_target)
 {
 	return _target->RunFrame ();
@@ -4338,7 +4338,7 @@ Engine_Render (Urho3D::Engine *_target)
 }
 
 
-DllExport long
+DllExport int
 Engine_ApplyFrameLimit (Urho3D::Engine *_target)
 {
 	return _target->ApplyFrameLimit ();
