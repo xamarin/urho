@@ -23,6 +23,18 @@ namespace Urho
 			public static Model Pyramid => Cache.GetModel("Models/Pyramid.mdl");
 			public static Model Sphere => Cache.GetModel("Models/Sphere.mdl");
 			public static Model Torus => Cache.GetModel("Models/Torus.mdl");
+
+			public static class LinePrimitives
+			{
+				public static Model Basis => Cache.GetModel("Models/LinePrimitives/Basis.mdl");
+				public static Model Box1x1x1 => Cache.GetModel("Models/LinePrimitives/Box1x1x1.mdl");
+				public static Model CubicBezier => Cache.GetModel("Models/LinePrimitives/CubicBezier.mdl");
+				public static Model LinearBezier => Cache.GetModel("Models/LinePrimitives/LinearBezier.mdl");
+				public static Model QuadraticBezier => Cache.GetModel("Models/LinePrimitives/QuadraticBezier.mdl");
+				public static Model UnitX => Cache.GetModel("Models/LinePrimitives/UnitX.mdl");
+				public static Model UnitY => Cache.GetModel("Models/LinePrimitives/UnitY.mdl");
+				public static Model UnitZ => Cache.GetModel("Models/LinePrimitives/UnitZ.mdl");
+			}
 		}
 
 		public static class Fonts
@@ -46,9 +58,16 @@ namespace Urho
 
 		public static class PostProcess
 		{
+			public static XmlFile AutoExposure => Cache.GetXmlFile("PostProcess/AutoExposure.xml");
+			public static XmlFile Bloom => Cache.GetXmlFile("PostProcess/Bloom.xml");
+			public static XmlFile BloomHDR => Cache.GetXmlFile("PostProcess/BloomHDR.xml");
+			public static XmlFile Blur => Cache.GetXmlFile("PostProcess/Blur.xml");
+			public static XmlFile ColorCorrection => Cache.GetXmlFile("PostProcess/ColorCorrection.xml");
 			public static XmlFile FXAA2 => Cache.GetXmlFile("PostProcess/FXAA2.xml");
 			public static XmlFile FXAA3 => Cache.GetXmlFile("PostProcess/FXAA3.xml");
-			public static XmlFile Blur => Cache.GetXmlFile("PostProcess/Blur.xml");
+			public static XmlFile GammaCorrection => Cache.GetXmlFile("PostProcess/GammaCorrection.xml");
+			public static XmlFile GreyScale => Cache.GetXmlFile("PostProcess/GreyScale.xml");
+			public static XmlFile Tonemap => Cache.GetXmlFile("PostProcess/Tonemap.xml");
 		}
 
 		public static class UIs
@@ -78,6 +97,8 @@ namespace Urho
 			public static Technique DiffLightMap => Cache.GetTechnique("Techniques/DiffLightMap.xml");
 			public static Technique DiffLightMapAlpha => Cache.GetTechnique("Techniques/DiffLightMapAlpha.xml");
 			public static Technique DiffLitParticleAlpha => Cache.GetTechnique("Techniques/DiffLitParticleAlpha.xml");
+			public static Technique DiffLitParticleAlphaSoft => Cache.GetTechnique("Techniques/DiffLitParticleAlphaSoft.xml");
+			public static Technique DiffLitParticleAlphaSoftExpand => Cache.GetTechnique("Techniques/DiffLitParticleAlphaSoftExpand.xml");
 			public static Technique DiffMultiply => Cache.GetTechnique("Techniques/DiffMultiply.xml");
 			public static Technique DiffNormal => Cache.GetTechnique("Techniques/DiffNormal.xml");
 			public static Technique DiffNormalAlpha => Cache.GetTechnique("Techniques/DiffNormalAlpha.xml");
@@ -103,6 +124,12 @@ namespace Urho
 			public static Technique DiffSpecAlpha => Cache.GetTechnique("Techniques/DiffSpecAlpha.xml");
 			public static Technique DiffUnlit => Cache.GetTechnique("Techniques/DiffUnlit.xml");
 			public static Technique DiffUnlitAlpha => Cache.GetTechnique("Techniques/DiffUnlitAlpha.xml");
+			public static Technique DiffUnlitParticleAdd => Cache.GetTechnique("Techniques/DiffUnlitParticleAdd.xml");
+			public static Technique DiffUnlitParticleAddSoft => Cache.GetTechnique("Techniques/DiffUnlitParticleAddSoft.xml");
+			public static Technique DiffUnlitParticleAddSoftExpand => Cache.GetTechnique("Techniques/DiffUnlitParticleAddSoftExpand.xml");
+			public static Technique DiffUnlitParticleAlpha => Cache.GetTechnique("Techniques/DiffUnlitParticleAlpha.xml");
+			public static Technique DiffUnlitParticleAlphaSoft => Cache.GetTechnique("Techniques/DiffUnlitParticleAlphaSoft.xml");
+			public static Technique DiffUnlitParticleAlphaSoftExpand => Cache.GetTechnique("Techniques/DiffUnlitParticleAlphaSoftExpand.xml");
 			public static Technique DiffVCol => Cache.GetTechnique("Techniques/DiffVCol.xml");
 			public static Technique DiffVColAdd => Cache.GetTechnique("Techniques/DiffVColAdd.xml");
 			public static Technique DiffVColAddAlpha => Cache.GetTechnique("Techniques/DiffVColAddAlpha.xml");
@@ -133,13 +160,6 @@ namespace Urho
 			public static Technique VegetationDiff => Cache.GetTechnique("Techniques/VegetationDiff.xml");
 			public static Technique VegetationDiffUnlit => Cache.GetTechnique("Techniques/VegetationDiffUnlit.xml");
 			public static Technique Water => Cache.GetTechnique("Techniques/Water.xml");
-			public static Technique DiffLitParticleAlphaSoft => Cache.GetTechnique("Techniques/DiffLitParticleAlphaSoft.xml");
-			public static Technique DiffLitParticleAlphaSoftExpand => Cache.GetTechnique("Techniques/DiffLitParticleAlphaSoftExpand.xml");
-			public static Technique DiffUnlitParticleAdd => Cache.GetTechnique("Techniques/DiffUnlitParticleAdd.xml");
-			public static Technique DiffUnlitParticleAddSoft => Cache.GetTechnique("Techniques/DiffUnlitParticleAddSoft.xml");
-			public static Technique DiffUnlitParticleAlpha => Cache.GetTechnique("Techniques/DiffUnlitParticleAlpha.xml");
-			public static Technique DiffUnlitParticleAlphaSoft => Cache.GetTechnique("Techniques/DiffUnlitParticleAlphaSoft.xml");
-			public static Technique DiffUnlitParticleAlphaSoftExpand => Cache.GetTechnique("Techniques/DiffUnlitParticleAlphaSoftExpand.xml");
 
 			public static class PBR
 			{
@@ -163,18 +183,15 @@ namespace Urho
 
 		public static class Textures
 		{
-			public static Texture2D LUTIdentity => Cache.GetTexture2D("Textures/LUTIdentity.png");
-			public static Texture2D LUTIdentityXml => Cache.GetTexture2D("Textures/LUTIdentity.xml");
-			public static Texture2D Ramp => Cache.GetTexture2D("Textures/Ramp.png");
-			public static Texture2D RampXml => Cache.GetTexture2D("Textures/Ramp.xml");
-			public static Texture2D RampExtreme => Cache.GetTexture2D("Textures/RampExtreme.png");
-			public static Texture2D RampExtremeXml => Cache.GetTexture2D("Textures/RampExtreme.xml");
-			public static Texture2D RampWide => Cache.GetTexture2D("Textures/RampWide.png");
-			public static Texture2D RampWideXml => Cache.GetTexture2D("Textures/RampWide.xml");
-			public static Texture2D Spot => Cache.GetTexture2D("Textures/Spot.png");
-			public static Texture2D SpotXml => Cache.GetTexture2D("Textures/Spot.xml");
-			public static Texture2D SpotWide => Cache.GetTexture2D("Textures/SpotWide.png");
-			public static Texture2D SpotWideXml => Cache.GetTexture2D("Textures/SpotWide.xml");
+			public static Texture2D DefaultUI => Cache.GetTexture2D("Textures/DefaultUI.png");
+			public static Texture2D LUTIdentity => Cache.GetTexture2D("Textures/LUTIdentity.xml");
+			public static Texture2D Ramp => Cache.GetTexture2D("Textures/Ramp.xml");
+			public static Texture2D RampExtreme => Cache.GetTexture2D("Textures/RampExtreme.xml");
+			public static Texture2D RampWide => Cache.GetTexture2D("Textures/RampWide.xml");
+			public static Texture2D Spot => Cache.GetTexture2D("Textures/Spot.xml");
+			public static Texture2D SpotWide => Cache.GetTexture2D("Textures/SpotWide.xml");
+			public static Texture2D TouchInput => Cache.GetTexture2D("Textures/TouchInput.png");
+			public static Texture2D UI => Cache.GetTexture2D("Textures/UI.xml");
 		}
 	}
 
