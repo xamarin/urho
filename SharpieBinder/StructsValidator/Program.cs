@@ -104,6 +104,7 @@ namespace StructsValidator
 				"TypeInfo",
 				"HashBase",
 				"CascadeParameters",
+				"PositionNormal", "PositionNormalColor", "PositionNormalColorTexcoord", "PositionNormalColorTexcoordTangent",
 			};
 
 			if (name.EndsWith("EventArgs") || 

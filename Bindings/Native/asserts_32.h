@@ -65,6 +65,12 @@ void check_bindings_offsets()
 	static_assert(offsetof(Rect, min_) == 0, "Rect.Min has wrong offset (0)");
 	static_assert(offsetof(Rect, max_) == 8, "Rect.Max has wrong offset (8)");
 
+	// IntVector3:
+	static_assert(sizeof(IntVector3) == 12, "IntVector3 has wrong size (12)");
+	static_assert(offsetof(IntVector3, x_) == 0, "IntVector3.X has wrong offset (0)");
+	static_assert(offsetof(IntVector3, y_) == 4, "IntVector3.Y has wrong offset (4)");
+	static_assert(offsetof(IntVector3, z_) == 8, "IntVector3.Z has wrong offset (8)");
+
 	// ResourceRef:
 	static_assert(sizeof(ResourceRef) == 16, "ResourceRef has wrong size (16)");
 	static_assert(offsetof(ResourceRef, type_) == 0, "ResourceRef.Type has wrong offset (0)");
@@ -243,12 +249,6 @@ void check_bindings_offsets()
 	static_assert(offsetof(FocusParameters, quantize_) == 4, "FocusParameters.Quantize has wrong offset (4)");
 	static_assert(offsetof(FocusParameters, minView_) == 8, "FocusParameters.MinView has wrong offset (8)");
 
-	// PackageEntry:
-	static_assert(sizeof(PackageEntry) == 12, "PackageEntry has wrong size (12)");
-	static_assert(offsetof(PackageEntry, offset_) == 0, "PackageEntry.Offset has wrong offset (0)");
-	static_assert(offsetof(PackageEntry, size_) == 4, "PackageEntry.Size has wrong offset (4)");
-	static_assert(offsetof(PackageEntry, checksum_) == 8, "PackageEntry.Checksum has wrong offset (8)");
-
 	// CrowdObstacleAvoidanceParams:
 	static_assert(sizeof(CrowdObstacleAvoidanceParams) == 28, "CrowdObstacleAvoidanceParams has wrong size (28)");
 	static_assert(offsetof(CrowdObstacleAvoidanceParams, velBias) == 0, "CrowdObstacleAvoidanceParams.VelBias has wrong offset (0)");
@@ -286,6 +286,12 @@ void check_bindings_offsets()
 	static_assert(offsetof(TileMapInfo2D, height_) == 8, "TileMapInfo2D.Height has wrong offset (8)");
 	static_assert(offsetof(TileMapInfo2D, tileWidth_) == 12, "TileMapInfo2D.TileWidth has wrong offset (12)");
 	static_assert(offsetof(TileMapInfo2D, tileHeight_) == 16, "TileMapInfo2D.TileHeight has wrong offset (16)");
+
+	// PackageEntry:
+	static_assert(sizeof(PackageEntry) == 12, "PackageEntry has wrong size (12)");
+	static_assert(offsetof(PackageEntry, offset_) == 0, "PackageEntry.Offset has wrong offset (0)");
+	static_assert(offsetof(PackageEntry, size_) == 4, "PackageEntry.Size has wrong offset (4)");
+	static_assert(offsetof(PackageEntry, checksum_) == 8, "PackageEntry.Checksum has wrong offset (8)");
 }
 #endif
 
@@ -298,16 +304,14 @@ void check_bindings_offsets()
   HashIteratorBase
   Iterator
   ResourceRefList
-  Frustum
+  SDL_Event
   TextureFrame
   LightBatchQueue
-  GPUObject
   GraphicsImpl
   RandomAccessIterator
   ModelMorph
   Octant
   AnimationTrack
-  CustomGeometryVertex
   NetworkState
   ComponentReplicationState
   ShaderParameter
