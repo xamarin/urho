@@ -1,13 +1,15 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Urho.WinForms
+namespace Urho.Extensions.WinForms
 {
-	[ToolboxItem(true)]
-	public partial class UrhoSurface: UserControl
+#if !WPF
+	[System.ComponentModel.ToolboxItem(true)]
+	public
+#endif
+	partial class UrhoSurface: UserControl
 	{
 		static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(1);
 		bool paused;
@@ -58,6 +60,7 @@ namespace Urho.WinForms
 
 		public async Task<Application> Show(Type appType, ApplicationOptions opts = null)
 		{
+			paused = false;
 			opts = opts ?? new ApplicationOptions();
 			await Semaphore.WaitAsync();
 			if (Application.HasCurrent)
@@ -66,7 +69,7 @@ namespace Urho.WinForms
 			Controls.Clear();
 			UnderlyingPanel = new Panel { Dock = DockStyle.Fill };
 			Controls.Add(UnderlyingPanel);
-			UnderlyingPanel.Focus();
+			UnderlyingPanel.Visible = false;
 
 			opts.ExternalWindow = UnderlyingPanel.Handle;
 			opts.DelayedStart = true;
@@ -76,7 +79,15 @@ namespace Urho.WinForms
 			app.Run();
 			Semaphore.Release();
 			StartLoop(app);
+			UnderlyingPanel.Visible = true;
+			UnderlyingPanel.Focus();
 			return app;
+		}
+
+		public void Stop()
+		{
+			Application?.Exit();
+			Controls.Clear();
 		}
 
 		async void StartLoop(Application app)
@@ -94,6 +105,11 @@ namespace Urho.WinForms
 				}
 				System.Windows.Forms.Application.DoEvents();
 			}
+		}
+
+		void UrhoSurface_MouseDown(object sender, MouseEventArgs e)
+		{
+			UnderlyingPanel?.Focus();
 		}
 	}
 }

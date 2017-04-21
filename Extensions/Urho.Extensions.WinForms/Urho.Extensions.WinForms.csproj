@@ -7,8 +7,8 @@
     <ProjectGuid>{7DBB096F-213D-4560-9E11-49EF384B6198}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Urho.WinForms</RootNamespace>
-    <AssemblyName>Urho.WinForms</AssemblyName>
+    <RootNamespace>Urho.Extensions.WinForms</RootNamespace>
+    <AssemblyName>Urho.Extensions.WinForms</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -50,6 +50,11 @@
       <Project>{f0359d5e-d6d4-47d3-a9f0-5a97c31dc476}</Project>
       <Name>Urho.Desktop</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UrhoSurface.resx">
+      <DependentUpon>UrhoSurface.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

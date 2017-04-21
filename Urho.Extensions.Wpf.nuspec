@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>UrhoSharp.Extensions.WinForms</id>
+       <id>UrhoSharp.Extensions.Wpf</id>
        <version>1.3</version>
-       <title>UrhoSharp.Extensions.WinForms</title>
+       <title>UrhoSharp.Extensions.Wpf</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
        <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
@@ -13,12 +13,12 @@
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
        <releaseNotes></releaseNotes>
-       <tags>Urho Urho3D WinForms UrhoSharp Xamarin 2D 3D games engine</tags>
+       <tags>Urho Urho3D Wpf UrhoSharp Xamarin 2D 3D games engine</tags>
        <dependencies>
          <dependency id="UrhoSharp" version="1.3" />
        </dependencies>
    </metadata>
    <files>
-     <file src="Bin/Extensions/WinForms/Urho.Extensions.WinForms.dll" target="lib/net45/Urho.dll" />
+     <file src="Bin/Extensions/Wpf/Urho.Extensions.Wpf.dll" target="lib/net45/Urho.dll" />
    </files>
 </package>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="Playgrounds.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Playgrounds.Wpf"
+        xmlns:wpf="clr-namespace:Urho.Extensions.Wpf;assembly=Urho.Extensions.Wpf"
+        mc:Ignorable="d" Background="Wheat"
+        Title="MainWindow" Height="540.238" Width="819.591">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<wpf:UrhoSurface Grid.Row="1" x:Name="UrhoSurface" Margin="4"/>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="4,0,0,0">
+			<Button x:Name="RestartBtn" Click="RestartBtn_Click" Content="Restart" Width="100" HorizontalAlignment="Left" Margin="4"/>
+			<Button x:Name="StopBtn" Click="StopBtn_Click" Content="Stop" Width="100" HorizontalAlignment="Left" Margin="4"/>
+			<Button x:Name="SpawnBtn" Click="SpawnBtn_Click" Content="Spawn a shape" Width="100" HorizontalAlignment="Left" Margin="4"/>
+			<CheckBox x:Name="PausedCb" Unchecked="PausedCb_Checked" Checked="PausedCb_Checked" Content="Paused" VerticalAlignment="Center" Margin="4"/>
+			<ProgressBar IsIndeterminate="True" Width="300" Margin="20,4,4,4"/>
+		</StackPanel>
+	</Grid>
+</Window>
