@@ -19,6 +19,6 @@
        </dependencies>
    </metadata>
    <files>
-     <file src="Bin/Extensions/WinForms/Urho.Extensions.WinForms.dll" target="lib/net45/Urho.dll" />
+     <file src="Bin/Extensions/WinForms/Urho.Extensions.WinForms.dll" target="lib/net45/Urho.Extensions.WinForms.dll" />
    </files>
 </package>

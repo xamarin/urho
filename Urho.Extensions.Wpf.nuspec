@@ -19,6 +19,6 @@
        </dependencies>
    </metadata>
    <files>
-     <file src="Bin/Extensions/Wpf/Urho.Extensions.Wpf.dll" target="lib/net45/Urho.dll" />
+     <file src="Bin/Extensions/Wpf/Urho.Extensions.Wpf.dll" target="lib/net45/Urho.Extensions.Wpf.dll" />
    </files>
 </package>

@@ -19,7 +19,8 @@ namespace Playgrounds.Wpf
 		async void RestartBtn_Click(object sender, RoutedEventArgs e)
 		{
 			app = await UrhoSurface.Show<Game>(new Urho.ApplicationOptions());
-			app.Viewport.SetClearColor(Urho.Extensions.Wpf.UrhoSurface.ConvertColor(((SolidColorBrush)Background).Color));
+			if (app.IsActive) //in case if user clicks "restart" too quickly
+				app.Viewport.SetClearColor(Urho.Extensions.Wpf.UrhoSurface.ConvertColor(((SolidColorBrush)Background).Color));
 		}
 
 		void StopBtn_Click(object sender, RoutedEventArgs e)
@@ -34,7 +35,7 @@ namespace Playgrounds.Wpf
 			UrhoSurface.Paused = PausedCb.IsChecked == true;
 		}
 
-		async void SpawnBtn_Click(object sender, RoutedEventArgs e)
+		void SpawnBtn_Click(object sender, RoutedEventArgs e)
 		{
 			if (app == null || !app.IsActive)
 				return;
