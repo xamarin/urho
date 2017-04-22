@@ -48,14 +48,14 @@ tvOS:
 	make -j1 fat-libmono-urho.dylib -f MaketvOS
 
 Windows32:
-	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14" VS_VER=14 RENDERER=OPENGL
+	make -j1 libUrho3D.a -f MakeWindows ARCH="Win32" VS_VER=14 RENDERER=OPENGL
 Windows64:
-	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" VS_VER=14 RENDERER=OPENGL
+	make -j1 libUrho3D.a -f MakeWindows ARCH="Win64" VS_VER=14 RENDERER=OPENGL
 
 Windows32_D3D11:
-	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14" VS_VER=14 RENDERER=D3D11
+	make -j1 libUrho3D.a -f MakeWindows ARCH="Win32" VS_VER=14 RENDERER=D3D11
 Windows64_D3D11:
-	make -j1 libUrho3D.a -f MakeWindows TARGET="Visual Studio 14 Win64" VS_VER=14 RENDERER=D3D11
+	make -j1 libUrho3D.a -f MakeWindows ARCH="Win64" VS_VER=14 RENDERER=D3D11
 	
 UWP32:
 	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
@@ -67,9 +67,8 @@ HoloLens64:
 	make -j1 libUrho3D.a -f MakeHoloLens TARGET="Visual Studio 14 Win64" CONFIG=Release && make -j1 libUrho3D.a -f MakeHoloLens TARGET="Visual Studio 14 Win64" CONFIG=Debug
 
 Windows: Windows32 Windows64
-
+Windows_D3D11: Windows32_D3D11 Windows64_D3D11
 All-Macos: Android Mac iOS
-
 All-Windows: Android Windows
 
 UpdateCoreDataPak:
