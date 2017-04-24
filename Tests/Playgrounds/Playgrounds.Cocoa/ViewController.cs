@@ -4,8 +4,6 @@ using Urho.Extensions.Cocoa;
 using Playgrounds.WinForms;
 using AppKit;
 using Foundation;
-using System.Reflection;
-using System.IO;
 
 namespace Playgrounds.Cocoa
 {
@@ -22,7 +20,6 @@ namespace Playgrounds.Cocoa
 
 			urhoSurface = new UrhoSurface();
 			urhoSurface.Frame = UrhoSurfacePlaceholder.Bounds;
-			urhoSurface.AutoresizingMask = NSViewResizingMask.WidthSizable | NSViewResizingMask.HeightSizable;
 
 			//Add UrhoSurface to a NSView defined in the storyboard.
 			UrhoSurfacePlaceholder.AddSubview(urhoSurface);

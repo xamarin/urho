@@ -15,6 +15,7 @@ namespace Urho.Extensions.Cocoa
 
 		public UrhoSurface()
 		{
+			AutoresizingMask = NSViewResizingMask.WidthSizable | NSViewResizingMask.HeightSizable;
 		}
 
 		public override async void ViewDidMoveToWindow()
