@@ -35,7 +35,7 @@ namespace Urho {
              ObjectCallbackSignature callbackFrameStarted;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_FrameStarted (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToFrameStarted (Action<FrameStartedEventArgs> handler)
+             internal Subscription SubscribeToFrameStarted (Action<FrameStartedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -103,7 +103,7 @@ namespace Urho {
              ObjectCallbackSignature callbackPostUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PostUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPostUpdate (Action<PostUpdateEventArgs> handler)
+             internal Subscription SubscribeToPostUpdate (Action<PostUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PostUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -137,7 +137,7 @@ namespace Urho {
              ObjectCallbackSignature callbackRenderUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_RenderUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToRenderUpdate (Action<RenderUpdateEventArgs> handler)
+             internal Subscription SubscribeToRenderUpdate (Action<RenderUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new RenderUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -171,7 +171,7 @@ namespace Urho {
              ObjectCallbackSignature callbackPostRenderUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PostRenderUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPostRenderUpdate (Action<PostRenderUpdateEventArgs> handler)
+             internal Subscription SubscribeToPostRenderUpdate (Action<PostRenderUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PostRenderUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -204,7 +204,7 @@ namespace Urho {
              ObjectCallbackSignature callbackFrameEnded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_FrameEnded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToFrameEnded (Action<FrameEndedEventArgs> handler)
+             internal Subscription SubscribeToFrameEnded (Action<FrameEndedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameEndedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -238,7 +238,7 @@ namespace Urho {
              ObjectCallbackSignature callbackWorkItemCompleted;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_WorkItemCompleted (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToWorkItemCompleted (Action<WorkItemCompletedEventArgs> handler)
+             internal Subscription SubscribeToWorkItemCompleted (Action<WorkItemCompletedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new WorkItemCompletedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -273,7 +273,7 @@ namespace Urho {
              ObjectCallbackSignature callbackConsoleCommand;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ConsoleCommand (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToConsoleCommand (Action<ConsoleCommandEventArgs> handler)
+             internal Subscription SubscribeToConsoleCommand (Action<ConsoleCommandEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ConsoleCommandEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -307,7 +307,7 @@ namespace Urho {
              ObjectCallbackSignature callbackBoneHierarchyCreated;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_BoneHierarchyCreated (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToBoneHierarchyCreated (Action<BoneHierarchyCreatedEventArgs> handler)
+             internal Subscription SubscribeToBoneHierarchyCreated (Action<BoneHierarchyCreatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BoneHierarchyCreatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -345,7 +345,7 @@ namespace Urho {
              ObjectCallbackSignature callbackAnimationTrigger;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_AnimationTrigger (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToAnimationTrigger (Action<AnimationTriggerEventArgs> handler)
+             internal Subscription SubscribeToAnimationTrigger (Action<AnimationTriggerEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AnimationTriggerEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -399,7 +399,7 @@ namespace Urho {
              ObjectCallbackSignature callbackTerrainCreated;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TerrainCreated (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTerrainCreated (Action<TerrainCreatedEventArgs> handler)
+             internal Subscription SubscribeToTerrainCreated (Action<TerrainCreatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TerrainCreatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -454,7 +454,7 @@ namespace Urho {
              ObjectCallbackSignature callbackRenderSurfaceUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_RenderSurfaceUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToRenderSurfaceUpdate (Action<RenderSurfaceUpdateEventArgs> handler)
+             internal Subscription SubscribeToRenderSurfaceUpdate (Action<RenderSurfaceUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new RenderSurfaceUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -506,7 +506,7 @@ namespace Urho {
              ObjectCallbackSignature callbackBeginViewUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_BeginViewUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToBeginViewUpdate (Action<BeginViewUpdateEventArgs> handler)
+             internal Subscription SubscribeToBeginViewUpdate (Action<BeginViewUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BeginViewUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -544,7 +544,7 @@ namespace Urho {
              ObjectCallbackSignature callbackEndViewUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_EndViewUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToEndViewUpdate (Action<EndViewUpdateEventArgs> handler)
+             internal Subscription SubscribeToEndViewUpdate (Action<EndViewUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new EndViewUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -582,7 +582,7 @@ namespace Urho {
              ObjectCallbackSignature callbackBeginViewRender;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_BeginViewRender (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToBeginViewRender (Action<BeginViewRenderEventArgs> handler)
+             internal Subscription SubscribeToBeginViewRender (Action<BeginViewRenderEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BeginViewRenderEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -644,7 +644,7 @@ namespace Urho {
              ObjectCallbackSignature callbackEndViewRender;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_EndViewRender (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToEndViewRender (Action<EndViewRenderEventArgs> handler)
+             internal Subscription SubscribeToEndViewRender (Action<EndViewRenderEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new EndViewRenderEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -701,7 +701,7 @@ namespace Urho.IO {
              ObjectCallbackSignature callbackLogMessage;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_LogMessage (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToLogMessage (Action<LogMessageEventArgs> handler)
+             internal Subscription SubscribeToLogMessage (Action<LogMessageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LogMessageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -736,7 +736,7 @@ namespace Urho.IO {
              ObjectCallbackSignature callbackAsyncExecFinished;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_AsyncExecFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToAsyncExecFinished (Action<AsyncExecFinishedEventArgs> handler)
+             internal Subscription SubscribeToAsyncExecFinished (Action<AsyncExecFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncExecFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -772,7 +772,7 @@ namespace Urho {
              ObjectCallbackSignature callbackMouseButtonDown;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MouseButtonDown (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMouseButtonDown (Action<MouseButtonDownEventArgs> handler)
+             internal Subscription SubscribeToMouseButtonDown (Action<MouseButtonDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseButtonDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -808,7 +808,7 @@ namespace Urho {
              ObjectCallbackSignature callbackMouseButtonUp;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MouseButtonUp (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMouseButtonUp (Action<MouseButtonUpEventArgs> handler)
+             internal Subscription SubscribeToMouseButtonUp (Action<MouseButtonUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseButtonUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -847,7 +847,7 @@ namespace Urho {
              ObjectCallbackSignature callbackMouseMoved;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MouseMoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMouseMoved (Action<MouseMovedEventArgs> handler)
+             internal Subscription SubscribeToMouseMoved (Action<MouseMovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseMovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -883,7 +883,7 @@ namespace Urho {
              ObjectCallbackSignature callbackMouseWheel;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MouseWheel (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMouseWheel (Action<MouseWheelEventArgs> handler)
+             internal Subscription SubscribeToMouseWheel (Action<MouseWheelEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseWheelEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -921,7 +921,7 @@ namespace Urho {
              ObjectCallbackSignature callbackKeyDown;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_KeyDown (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToKeyDown (Action<KeyDownEventArgs> handler)
+             internal Subscription SubscribeToKeyDown (Action<KeyDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new KeyDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -958,7 +958,7 @@ namespace Urho {
              ObjectCallbackSignature callbackKeyUp;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_KeyUp (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToKeyUp (Action<KeyUpEventArgs> handler)
+             internal Subscription SubscribeToKeyUp (Action<KeyUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new KeyUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -994,7 +994,7 @@ namespace Urho {
              ObjectCallbackSignature callbackTextInput;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TextInput (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTextInput (Action<TextInputEventArgs> handler)
+             internal Subscription SubscribeToTextInput (Action<TextInputEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextInputEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1028,7 +1028,7 @@ namespace Urho {
              ObjectCallbackSignature callbackJoystickConnected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_JoystickConnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToJoystickConnected (Action<JoystickConnectedEventArgs> handler)
+             internal Subscription SubscribeToJoystickConnected (Action<JoystickConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1062,7 +1062,7 @@ namespace Urho {
              ObjectCallbackSignature callbackJoystickDisconnected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_JoystickDisconnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToJoystickDisconnected (Action<JoystickDisconnectedEventArgs> handler)
+             internal Subscription SubscribeToJoystickDisconnected (Action<JoystickDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1097,7 +1097,7 @@ namespace Urho {
              ObjectCallbackSignature callbackJoystickButtonDown;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_JoystickButtonDown (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToJoystickButtonDown (Action<JoystickButtonDownEventArgs> handler)
+             internal Subscription SubscribeToJoystickButtonDown (Action<JoystickButtonDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1132,7 +1132,7 @@ namespace Urho {
              ObjectCallbackSignature callbackJoystickButtonUp;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_JoystickButtonUp (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToJoystickButtonUp (Action<JoystickButtonUpEventArgs> handler)
+             internal Subscription SubscribeToJoystickButtonUp (Action<JoystickButtonUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1168,7 +1168,7 @@ namespace Urho {
              ObjectCallbackSignature callbackJoystickAxisMove;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_JoystickAxisMove (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToJoystickAxisMove (Action<JoystickAxisMoveEventArgs> handler)
+             internal Subscription SubscribeToJoystickAxisMove (Action<JoystickAxisMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickAxisMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1204,7 +1204,7 @@ namespace Urho {
              ObjectCallbackSignature callbackJoystickHatMove;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_JoystickHatMove (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToJoystickHatMove (Action<JoystickHatMoveEventArgs> handler)
+             internal Subscription SubscribeToJoystickHatMove (Action<JoystickHatMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickHatMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1241,7 +1241,7 @@ namespace Urho {
              ObjectCallbackSignature callbackTouchBegin;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TouchBegin (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTouchBegin (Action<TouchBeginEventArgs> handler)
+             internal Subscription SubscribeToTouchBegin (Action<TouchBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1277,7 +1277,7 @@ namespace Urho {
              ObjectCallbackSignature callbackTouchEnd;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TouchEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTouchEnd (Action<TouchEndEventArgs> handler)
+             internal Subscription SubscribeToTouchEnd (Action<TouchEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1316,7 +1316,7 @@ namespace Urho {
              ObjectCallbackSignature callbackTouchMove;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TouchMove (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTouchMove (Action<TouchMoveEventArgs> handler)
+             internal Subscription SubscribeToTouchMove (Action<TouchMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1350,7 +1350,7 @@ namespace Urho {
              ObjectCallbackSignature callbackGestureRecorded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_GestureRecorded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToGestureRecorded (Action<GestureRecordedEventArgs> handler)
+             internal Subscription SubscribeToGestureRecorded (Action<GestureRecordedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new GestureRecordedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1388,7 +1388,7 @@ namespace Urho {
              ObjectCallbackSignature callbackGestureInput;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_GestureInput (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToGestureInput (Action<GestureInputEventArgs> handler)
+             internal Subscription SubscribeToGestureInput (Action<GestureInputEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new GestureInputEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1426,7 +1426,7 @@ namespace Urho {
              ObjectCallbackSignature callbackMultiGesture;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MultiGesture (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMultiGesture (Action<MultiGestureEventArgs> handler)
+             internal Subscription SubscribeToMultiGesture (Action<MultiGestureEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MultiGestureEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1460,7 +1460,7 @@ namespace Urho {
              ObjectCallbackSignature callbackDropFile;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_DropFile (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToDropFile (Action<DropFileEventArgs> handler)
+             internal Subscription SubscribeToDropFile (Action<DropFileEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DropFileEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1495,7 +1495,7 @@ namespace Urho {
              ObjectCallbackSignature callbackInputFocus;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_InputFocus (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToInputFocus (Action<InputFocusEventArgs> handler)
+             internal Subscription SubscribeToInputFocus (Action<InputFocusEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new InputFocusEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1529,7 +1529,7 @@ namespace Urho {
              ObjectCallbackSignature callbackMouseVisibleChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MouseVisibleChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMouseVisibleChanged (Action<MouseVisibleChangedEventArgs> handler)
+             internal Subscription SubscribeToMouseVisibleChanged (Action<MouseVisibleChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseVisibleChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1564,7 +1564,7 @@ namespace Urho {
              ObjectCallbackSignature callbackMouseModeChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MouseModeChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMouseModeChanged (Action<MouseModeChangedEventArgs> handler)
+             internal Subscription SubscribeToMouseModeChanged (Action<MouseModeChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseModeChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1597,7 +1597,7 @@ namespace Urho {
              ObjectCallbackSignature callbackExitRequested;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ExitRequested (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToExitRequested (Action<ExitRequestedEventArgs> handler)
+             internal Subscription SubscribeToExitRequested (Action<ExitRequestedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ExitRequestedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1655,7 +1655,7 @@ namespace Urho.Navigation {
              ObjectCallbackSignature callbackNavigationMeshRebuilt;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NavigationMeshRebuilt (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNavigationMeshRebuilt (Action<NavigationMeshRebuiltEventArgs> handler)
+             internal Subscription SubscribeToNavigationMeshRebuilt (Action<NavigationMeshRebuiltEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationMeshRebuiltEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1692,7 +1692,7 @@ namespace Urho.Navigation {
              ObjectCallbackSignature callbackNavigationAreaRebuilt;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NavigationAreaRebuilt (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNavigationAreaRebuilt (Action<NavigationAreaRebuiltEventArgs> handler)
+             internal Subscription SubscribeToNavigationAreaRebuilt (Action<NavigationAreaRebuiltEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationAreaRebuiltEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1755,7 +1755,7 @@ namespace Urho.Navigation {
              ObjectCallbackSignature callbackCrowdAgentReposition;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_CrowdAgentReposition (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToCrowdAgentReposition (Action<CrowdAgentRepositionEventArgs> handler)
+             internal Subscription SubscribeToCrowdAgentReposition (Action<CrowdAgentRepositionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentRepositionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1807,7 +1807,7 @@ namespace Urho.Navigation {
              ObjectCallbackSignature callbackCrowdAgentFailure;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_CrowdAgentFailure (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToCrowdAgentFailure (Action<CrowdAgentFailureEventArgs> handler)
+             internal Subscription SubscribeToCrowdAgentFailure (Action<CrowdAgentFailureEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentFailureEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1859,7 +1859,7 @@ namespace Urho.Navigation {
              ObjectCallbackSignature callbackCrowdAgentStateChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_CrowdAgentStateChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToCrowdAgentStateChanged (Action<CrowdAgentStateChangedEventArgs> handler)
+             internal Subscription SubscribeToCrowdAgentStateChanged (Action<CrowdAgentStateChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentStateChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1910,7 +1910,7 @@ namespace Urho.Navigation {
              ObjectCallbackSignature callbackNavigationObstacleAdded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NavigationObstacleAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNavigationObstacleAdded (Action<NavigationObstacleAddedEventArgs> handler)
+             internal Subscription SubscribeToNavigationObstacleAdded (Action<NavigationObstacleAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1948,7 +1948,7 @@ namespace Urho.Navigation {
              ObjectCallbackSignature callbackNavigationObstacleRemoved;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NavigationObstacleRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNavigationObstacleRemoved (Action<NavigationObstacleRemovedEventArgs> handler)
+             internal Subscription SubscribeToNavigationObstacleRemoved (Action<NavigationObstacleRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -1981,7 +1981,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackServerConnected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ServerConnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToServerConnected (Action<ServerConnectedEventArgs> handler)
+             internal Subscription SubscribeToServerConnected (Action<ServerConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ServerConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2014,7 +2014,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackServerDisconnected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ServerDisconnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToServerDisconnected (Action<ServerDisconnectedEventArgs> handler)
+             internal Subscription SubscribeToServerDisconnected (Action<ServerDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ServerDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2047,7 +2047,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackConnectFailed;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ConnectFailed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToConnectFailed (Action<ConnectFailedEventArgs> handler)
+             internal Subscription SubscribeToConnectFailed (Action<ConnectFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ConnectFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2081,7 +2081,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackClientConnected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ClientConnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToClientConnected (Action<ClientConnectedEventArgs> handler)
+             internal Subscription SubscribeToClientConnected (Action<ClientConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2115,7 +2115,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackClientDisconnected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ClientDisconnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToClientDisconnected (Action<ClientDisconnectedEventArgs> handler)
+             internal Subscription SubscribeToClientDisconnected (Action<ClientDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2150,7 +2150,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackClientIdentity;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ClientIdentity (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToClientIdentity (Action<ClientIdentityEventArgs> handler)
+             internal Subscription SubscribeToClientIdentity (Action<ClientIdentityEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientIdentityEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2184,7 +2184,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackClientSceneLoaded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ClientSceneLoaded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToClientSceneLoaded (Action<ClientSceneLoadedEventArgs> handler)
+             internal Subscription SubscribeToClientSceneLoaded (Action<ClientSceneLoadedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientSceneLoadedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2220,7 +2220,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackNetworkMessage;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NetworkMessage (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNetworkMessage (Action<NetworkMessageEventArgs> handler)
+             internal Subscription SubscribeToNetworkMessage (Action<NetworkMessageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkMessageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2253,7 +2253,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackNetworkUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NetworkUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNetworkUpdate (Action<NetworkUpdateEventArgs> handler)
+             internal Subscription SubscribeToNetworkUpdate (Action<NetworkUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2286,7 +2286,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackNetworkUpdateSent;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NetworkUpdateSent (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNetworkUpdateSent (Action<NetworkUpdateSentEventArgs> handler)
+             internal Subscription SubscribeToNetworkUpdateSent (Action<NetworkUpdateSentEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateSentEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2320,7 +2320,7 @@ namespace Urho.Network {
              ObjectCallbackSignature callbackNetworkSceneLoadFailed;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NetworkSceneLoadFailed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNetworkSceneLoadFailed (Action<NetworkSceneLoadFailedEventArgs> handler)
+             internal Subscription SubscribeToNetworkSceneLoadFailed (Action<NetworkSceneLoadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkSceneLoadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2363,7 +2363,7 @@ namespace Urho.Physics {
              ObjectCallbackSignature callbackPhysicsPreStep;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PhysicsPreStep (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPhysicsPreStep (Action<PhysicsPreStepEventArgs> handler)
+             internal Subscription SubscribeToPhysicsPreStep (Action<PhysicsPreStepEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsPreStepEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2398,7 +2398,7 @@ namespace Urho.Physics {
              ObjectCallbackSignature callbackPhysicsPostStep;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PhysicsPostStep (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPhysicsPostStep (Action<PhysicsPostStepEventArgs> handler)
+             internal Subscription SubscribeToPhysicsPostStep (Action<PhysicsPostStepEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsPostStepEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2438,7 +2438,7 @@ namespace Urho.Physics {
              ObjectCallbackSignature callbackPhysicsCollisionStart;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PhysicsCollisionStart (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPhysicsCollisionStart (Action<PhysicsCollisionStartEventArgs> handler)
+             internal Subscription SubscribeToPhysicsCollisionStart (Action<PhysicsCollisionStartEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionStartEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2478,7 +2478,7 @@ namespace Urho.Physics {
              ObjectCallbackSignature callbackPhysicsCollision;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PhysicsCollision (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPhysicsCollision (Action<PhysicsCollisionEventArgs> handler)
+             internal Subscription SubscribeToPhysicsCollision (Action<PhysicsCollisionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2517,7 +2517,7 @@ namespace Urho.Physics {
              ObjectCallbackSignature callbackPhysicsCollisionEnd;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PhysicsCollisionEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPhysicsCollisionEnd (Action<PhysicsCollisionEndEventArgs> handler)
+             internal Subscription SubscribeToPhysicsCollisionEnd (Action<PhysicsCollisionEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2555,7 +2555,7 @@ namespace Urho {
              ObjectCallbackSignature callbackNodeCollisionStart;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NodeCollisionStart (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNodeCollisionStart (Action<NodeCollisionStartEventArgs> handler)
+             internal Subscription SubscribeToNodeCollisionStart (Action<NodeCollisionStartEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionStartEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2593,7 +2593,7 @@ namespace Urho {
              ObjectCallbackSignature callbackNodeCollision;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NodeCollision (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNodeCollision (Action<NodeCollisionEventArgs> handler)
+             internal Subscription SubscribeToNodeCollision (Action<NodeCollisionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2630,7 +2630,7 @@ namespace Urho {
              ObjectCallbackSignature callbackNodeCollisionEnd;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NodeCollisionEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNodeCollisionEnd (Action<NodeCollisionEndEventArgs> handler)
+             internal Subscription SubscribeToNodeCollisionEnd (Action<NodeCollisionEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2663,7 +2663,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackReloadStarted;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ReloadStarted (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToReloadStarted (Action<ReloadStartedEventArgs> handler)
+             internal Subscription SubscribeToReloadStarted (Action<ReloadStartedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2696,7 +2696,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackReloadFinished;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ReloadFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToReloadFinished (Action<ReloadFinishedEventArgs> handler)
+             internal Subscription SubscribeToReloadFinished (Action<ReloadFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2729,7 +2729,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackReloadFailed;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ReloadFailed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToReloadFailed (Action<ReloadFailedEventArgs> handler)
+             internal Subscription SubscribeToReloadFailed (Action<ReloadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2764,7 +2764,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackFileChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_FileChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToFileChanged (Action<FileChangedEventArgs> handler)
+             internal Subscription SubscribeToFileChanged (Action<FileChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FileChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2798,7 +2798,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackLoadFailed;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_LoadFailed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToLoadFailed (Action<LoadFailedEventArgs> handler)
+             internal Subscription SubscribeToLoadFailed (Action<LoadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LoadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2832,7 +2832,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackResourceNotFound;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ResourceNotFound (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToResourceNotFound (Action<ResourceNotFoundEventArgs> handler)
+             internal Subscription SubscribeToResourceNotFound (Action<ResourceNotFoundEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResourceNotFoundEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2866,7 +2866,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackUnknownResourceType;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_UnknownResourceType (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToUnknownResourceType (Action<UnknownResourceTypeEventArgs> handler)
+             internal Subscription SubscribeToUnknownResourceType (Action<UnknownResourceTypeEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnknownResourceTypeEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2902,7 +2902,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackResourceBackgroundLoaded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ResourceBackgroundLoaded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToResourceBackgroundLoaded (Action<ResourceBackgroundLoadedEventArgs> handler)
+             internal Subscription SubscribeToResourceBackgroundLoaded (Action<ResourceBackgroundLoadedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResourceBackgroundLoadedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2935,7 +2935,7 @@ namespace Urho.Resources {
              ObjectCallbackSignature callbackChangeLanguage;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ChangeLanguage (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToChangeLanguage (Action<ChangeLanguageEventArgs> handler)
+             internal Subscription SubscribeToChangeLanguage (Action<ChangeLanguageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ChangeLanguageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -2970,7 +2970,7 @@ namespace Urho {
              ObjectCallbackSignature callbackSceneUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_SceneUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToSceneUpdate (Action<SceneUpdateEventArgs> handler)
+             internal Subscription SubscribeToSceneUpdate (Action<SceneUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3005,7 +3005,7 @@ namespace Urho {
              ObjectCallbackSignature callbackSceneSubsystemUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_SceneSubsystemUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToSceneSubsystemUpdate (Action<SceneSubsystemUpdateEventArgs> handler)
+             internal Subscription SubscribeToSceneSubsystemUpdate (Action<SceneSubsystemUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneSubsystemUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3040,7 +3040,7 @@ namespace Urho {
              ObjectCallbackSignature callbackUpdateSmoothing;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_UpdateSmoothing (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToUpdateSmoothing (Action<UpdateSmoothingEventArgs> handler)
+             internal Subscription SubscribeToUpdateSmoothing (Action<UpdateSmoothingEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UpdateSmoothingEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3075,7 +3075,7 @@ namespace Urho {
              ObjectCallbackSignature callbackSceneDrawableUpdateFinished;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_SceneDrawableUpdateFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToSceneDrawableUpdateFinished (Action<SceneDrawableUpdateFinishedEventArgs> handler)
+             internal Subscription SubscribeToSceneDrawableUpdateFinished (Action<SceneDrawableUpdateFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneDrawableUpdateFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3108,7 +3108,7 @@ namespace Urho {
              ObjectCallbackSignature callbackTargetPositionChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TargetPositionChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTargetPositionChanged (Action<TargetPositionChangedEventArgs> handler)
+             internal Subscription SubscribeToTargetPositionChanged (Action<TargetPositionChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TargetPositionChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3141,7 +3141,7 @@ namespace Urho {
              ObjectCallbackSignature callbackTargetRotationChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TargetRotationChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTargetRotationChanged (Action<TargetRotationChangedEventArgs> handler)
+             internal Subscription SubscribeToTargetRotationChanged (Action<TargetRotationChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TargetRotationChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3176,7 +3176,7 @@ namespace Urho {
              ObjectCallbackSignature callbackAttributeAnimationUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_AttributeAnimationUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToAttributeAnimationUpdate (Action<AttributeAnimationUpdateEventArgs> handler)
+             internal Subscription SubscribeToAttributeAnimationUpdate (Action<AttributeAnimationUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3211,7 +3211,7 @@ namespace Urho {
              ObjectCallbackSignature callbackAttributeAnimationAdded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_AttributeAnimationAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToAttributeAnimationAdded (Action<AttributeAnimationAddedEventArgs> handler)
+             internal Subscription SubscribeToAttributeAnimationAdded (Action<AttributeAnimationAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3246,7 +3246,7 @@ namespace Urho {
              ObjectCallbackSignature callbackAttributeAnimationRemoved;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_AttributeAnimationRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToAttributeAnimationRemoved (Action<AttributeAnimationRemovedEventArgs> handler)
+             internal Subscription SubscribeToAttributeAnimationRemoved (Action<AttributeAnimationRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3281,7 +3281,7 @@ namespace Urho {
              ObjectCallbackSignature callbackScenePostUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ScenePostUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToScenePostUpdate (Action<ScenePostUpdateEventArgs> handler)
+             internal Subscription SubscribeToScenePostUpdate (Action<ScenePostUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ScenePostUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3320,7 +3320,7 @@ namespace Urho {
              ObjectCallbackSignature callbackAsyncLoadProgress;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_AsyncLoadProgress (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToAsyncLoadProgress (Action<AsyncLoadProgressEventArgs> handler)
+             internal Subscription SubscribeToAsyncLoadProgress (Action<AsyncLoadProgressEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadProgressEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3354,7 +3354,7 @@ namespace Urho {
              ObjectCallbackSignature callbackAsyncLoadFinished;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_AsyncLoadFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToAsyncLoadFinished (Action<AsyncLoadFinishedEventArgs> handler)
+             internal Subscription SubscribeToAsyncLoadFinished (Action<AsyncLoadFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3390,7 +3390,7 @@ namespace Urho {
              ObjectCallbackSignature callbackNodeAdded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NodeAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNodeAdded (Action<NodeAddedEventArgs> handler)
+             internal Subscription SubscribeToNodeAdded (Action<NodeAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3426,7 +3426,7 @@ namespace Urho {
              ObjectCallbackSignature callbackNodeRemoved;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NodeRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNodeRemoved (Action<NodeRemovedEventArgs> handler)
+             internal Subscription SubscribeToNodeRemoved (Action<NodeRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3462,7 +3462,7 @@ namespace Urho {
              ObjectCallbackSignature callbackComponentAdded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ComponentAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToComponentAdded (Action<ComponentAddedEventArgs> handler)
+             internal Subscription SubscribeToComponentAdded (Action<ComponentAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3498,7 +3498,7 @@ namespace Urho {
              ObjectCallbackSignature callbackComponentRemoved;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ComponentRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToComponentRemoved (Action<ComponentRemovedEventArgs> handler)
+             internal Subscription SubscribeToComponentRemoved (Action<ComponentRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3533,7 +3533,7 @@ namespace Urho {
              ObjectCallbackSignature callbackNodeNameChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NodeNameChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNodeNameChanged (Action<NodeNameChangedEventArgs> handler)
+             internal Subscription SubscribeToNodeNameChanged (Action<NodeNameChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeNameChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3568,7 +3568,7 @@ namespace Urho {
              ObjectCallbackSignature callbackNodeEnabledChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NodeEnabledChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNodeEnabledChanged (Action<NodeEnabledChangedEventArgs> handler)
+             internal Subscription SubscribeToNodeEnabledChanged (Action<NodeEnabledChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeEnabledChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3624,7 +3624,7 @@ namespace Urho {
              ObjectCallbackSignature callbackComponentEnabledChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ComponentEnabledChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToComponentEnabledChanged (Action<ComponentEnabledChangedEventArgs> handler)
+             internal Subscription SubscribeToComponentEnabledChanged (Action<ComponentEnabledChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentEnabledChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3658,7 +3658,7 @@ namespace Urho {
              ObjectCallbackSignature callbackTemporaryChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TemporaryChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTemporaryChanged (Action<TemporaryChangedEventArgs> handler)
+             internal Subscription SubscribeToTemporaryChanged (Action<TemporaryChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TemporaryChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3694,7 +3694,7 @@ namespace Urho {
              ObjectCallbackSignature callbackNodeCloned;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NodeCloned (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNodeCloned (Action<NodeClonedEventArgs> handler)
+             internal Subscription SubscribeToNodeCloned (Action<NodeClonedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeClonedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3730,7 +3730,7 @@ namespace Urho {
              ObjectCallbackSignature callbackComponentCloned;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ComponentCloned (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToComponentCloned (Action<ComponentClonedEventArgs> handler)
+             internal Subscription SubscribeToComponentCloned (Action<ComponentClonedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentClonedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3768,7 +3768,7 @@ namespace Urho {
              ObjectCallbackSignature callbackInterceptNetworkUpdate;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_InterceptNetworkUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToInterceptNetworkUpdate (Action<InterceptNetworkUpdateEventArgs> handler)
+             internal Subscription SubscribeToInterceptNetworkUpdate (Action<InterceptNetworkUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new InterceptNetworkUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3807,7 +3807,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackUIMouseClick;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_UIMouseClick (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToUIMouseClick (Action<UIMouseClickEventArgs> handler)
+             internal Subscription SubscribeToUIMouseClick (Action<UIMouseClickEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3847,7 +3847,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackUIMouseClickEnd;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_UIMouseClickEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToUIMouseClickEnd (Action<UIMouseClickEndEventArgs> handler)
+             internal Subscription SubscribeToUIMouseClickEnd (Action<UIMouseClickEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3936,7 +3936,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackDragDropTest;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_DragDropTest (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToDragDropTest (Action<DragDropTestEventArgs> handler)
+             internal Subscription SubscribeToDragDropTest (Action<DragDropTestEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragDropTestEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -3972,7 +3972,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackDragDropFinish;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_DragDropFinish (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToDragDropFinish (Action<DragDropFinishEventArgs> handler)
+             internal Subscription SubscribeToDragDropFinish (Action<DragDropFinishEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragDropFinishEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4007,7 +4007,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackFocusChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_FocusChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToFocusChanged (Action<FocusChangedEventArgs> handler)
+             internal Subscription SubscribeToFocusChanged (Action<FocusChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FocusChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4041,7 +4041,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackNameChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_NameChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToNameChanged (Action<NameChangedEventArgs> handler)
+             internal Subscription SubscribeToNameChanged (Action<NameChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NameChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4079,7 +4079,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackResized;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_Resized (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToResized (Action<ResizedEventArgs> handler)
+             internal Subscription SubscribeToResized (Action<ResizedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResizedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4115,7 +4115,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackPositioned;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_Positioned (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPositioned (Action<PositionedEventArgs> handler)
+             internal Subscription SubscribeToPositioned (Action<PositionedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PositionedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4150,7 +4150,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackVisibleChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_VisibleChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToVisibleChanged (Action<VisibleChangedEventArgs> handler)
+             internal Subscription SubscribeToVisibleChanged (Action<VisibleChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new VisibleChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4185,7 +4185,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackFocused;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_Focused (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToFocused (Action<FocusedEventArgs> handler)
+             internal Subscription SubscribeToFocused (Action<FocusedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FocusedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4219,7 +4219,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackDefocused;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_Defocused (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToDefocused (Action<DefocusedEventArgs> handler)
+             internal Subscription SubscribeToDefocused (Action<DefocusedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DefocusedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4253,7 +4253,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackLayoutUpdated;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_LayoutUpdated (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToLayoutUpdated (Action<LayoutUpdatedEventArgs> handler)
+             internal Subscription SubscribeToLayoutUpdated (Action<LayoutUpdatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LayoutUpdatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4287,7 +4287,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackPressed;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_Pressed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPressed (Action<PressedEventArgs> handler)
+             internal Subscription SubscribeToPressed (Action<PressedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PressedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4321,7 +4321,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackReleased;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_Released (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToReleased (Action<ReleasedEventArgs> handler)
+             internal Subscription SubscribeToReleased (Action<ReleasedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReleasedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4356,7 +4356,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackToggled;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_Toggled (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToToggled (Action<ToggledEventArgs> handler)
+             internal Subscription SubscribeToToggled (Action<ToggledEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ToggledEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4391,7 +4391,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackSliderChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_SliderChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToSliderChanged (Action<SliderChangedEventArgs> handler)
+             internal Subscription SubscribeToSliderChanged (Action<SliderChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SliderChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4427,7 +4427,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackSliderPaged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_SliderPaged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToSliderPaged (Action<SliderPagedEventArgs> handler)
+             internal Subscription SubscribeToSliderPaged (Action<SliderPagedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SliderPagedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4471,7 +4471,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackScrollBarChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ScrollBarChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToScrollBarChanged (Action<ScrollBarChangedEventArgs> handler)
+             internal Subscription SubscribeToScrollBarChanged (Action<ScrollBarChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ScrollBarChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4507,7 +4507,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackViewChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ViewChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToViewChanged (Action<ViewChangedEventArgs> handler)
+             internal Subscription SubscribeToViewChanged (Action<ViewChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ViewChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4542,7 +4542,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackModalChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ModalChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToModalChanged (Action<ModalChangedEventArgs> handler)
+             internal Subscription SubscribeToModalChanged (Action<ModalChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ModalChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4579,7 +4579,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackCharEntry;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_CharEntry (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToCharEntry (Action<CharEntryEventArgs> handler)
+             internal Subscription SubscribeToCharEntry (Action<CharEntryEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CharEntryEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4614,7 +4614,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackTextChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TextChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTextChanged (Action<TextChangedEventArgs> handler)
+             internal Subscription SubscribeToTextChanged (Action<TextChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4650,7 +4650,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackTextFinished;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_TextFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToTextFinished (Action<TextFinishedEventArgs> handler)
+             internal Subscription SubscribeToTextFinished (Action<TextFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4684,7 +4684,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackMenuSelected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MenuSelected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMenuSelected (Action<MenuSelectedEventArgs> handler)
+             internal Subscription SubscribeToMenuSelected (Action<MenuSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MenuSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4719,7 +4719,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackItemSelected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ItemSelected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
+             internal Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4745,7 +4745,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackItemSelected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ItemSelected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
+             internal Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4780,7 +4780,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackItemDeselected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ItemDeselected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToItemDeselected (Action<ItemDeselectedEventArgs> handler)
+             internal Subscription SubscribeToItemDeselected (Action<ItemDeselectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemDeselectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4814,7 +4814,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackSelectionChanged;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_SelectionChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToSelectionChanged (Action<SelectionChangedEventArgs> handler)
+             internal Subscription SubscribeToSelectionChanged (Action<SelectionChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SelectionChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4853,7 +4853,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackItemClicked;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ItemClicked (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToItemClicked (Action<ItemClickedEventArgs> handler)
+             internal Subscription SubscribeToItemClicked (Action<ItemClickedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemClickedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4892,7 +4892,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackItemDoubleClicked;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ItemDoubleClicked (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToItemDoubleClicked (Action<ItemDoubleClickedEventArgs> handler)
+             internal Subscription SubscribeToItemDoubleClicked (Action<ItemDoubleClickedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemDoubleClickedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4929,7 +4929,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackUnhandledKey;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_UnhandledKey (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
+             internal Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4955,7 +4955,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackUnhandledKey;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_UnhandledKey (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
+             internal Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -4991,7 +4991,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackFileSelected;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_FileSelected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToFileSelected (Action<FileSelectedEventArgs> handler)
+             internal Subscription SubscribeToFileSelected (Action<FileSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FileSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5025,7 +5025,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackMessageACK;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_MessageACK (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToMessageACK (Action<MessageACKEventArgs> handler)
+             internal Subscription SubscribeToMessageACK (Action<MessageACKEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MessageACKEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5061,7 +5061,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackElementAdded;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ElementAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToElementAdded (Action<ElementAddedEventArgs> handler)
+             internal Subscription SubscribeToElementAdded (Action<ElementAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ElementAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5097,7 +5097,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackElementRemoved;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_ElementRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToElementRemoved (Action<ElementRemovedEventArgs> handler)
+             internal Subscription SubscribeToElementRemoved (Action<ElementRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ElementRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5135,7 +5135,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackHoverBegin;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_HoverBegin (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToHoverBegin (Action<HoverBeginEventArgs> handler)
+             internal Subscription SubscribeToHoverBegin (Action<HoverBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new HoverBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5169,7 +5169,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackHoverEnd;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_HoverEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToHoverEnd (Action<HoverEndEventArgs> handler)
+             internal Subscription SubscribeToHoverEnd (Action<HoverEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new HoverEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5209,7 +5209,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackDragBegin;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_DragBegin (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToDragBegin (Action<DragBeginEventArgs> handler)
+             internal Subscription SubscribeToDragBegin (Action<DragBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5251,7 +5251,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackDragMove;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_DragMove (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToDragMove (Action<DragMoveEventArgs> handler)
+             internal Subscription SubscribeToDragMove (Action<DragMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5291,7 +5291,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackDragEnd;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_DragEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToDragEnd (Action<DragEndEventArgs> handler)
+             internal Subscription SubscribeToDragEnd (Action<DragEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5331,7 +5331,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackDragCancel;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_DragCancel (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToDragCancel (Action<DragCancelEventArgs> handler)
+             internal Subscription SubscribeToDragCancel (Action<DragCancelEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragCancelEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5370,7 +5370,7 @@ namespace Urho.Gui {
              ObjectCallbackSignature callbackUIDropFile;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_UIDropFile (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToUIDropFile (Action<UIDropFileEventArgs> handler)
+             internal Subscription SubscribeToUIDropFile (Action<UIDropFileEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIDropFileEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5409,7 +5409,7 @@ namespace Urho.Urho2D {
              ObjectCallbackSignature callbackPhysicsBeginContact2D;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PhysicsBeginContact2D (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPhysicsBeginContact2D (Action<PhysicsBeginContact2DEventArgs> handler)
+             internal Subscription SubscribeToPhysicsBeginContact2D (Action<PhysicsBeginContact2DEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsBeginContact2DEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5448,7 +5448,7 @@ namespace Urho.Urho2D {
              ObjectCallbackSignature callbackPhysicsEndContact2D;
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_PhysicsEndContact2D (IntPtr target, ObjectCallbackSignature act, IntPtr data);
-             public Subscription SubscribeToPhysicsEndContact2D (Action<PhysicsEndContact2DEventArgs> handler)
+             internal Subscription SubscribeToPhysicsEndContact2D (Action<PhysicsEndContact2DEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsEndContact2DEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -5497,29 +5497,14 @@ namespace Urho {
 // Hash Getters
 namespace Urho {    internal class UrhoHash {
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FULLSCREEN ();
-            static int _P_FULLSCREEN;
-            internal static int P_FULLSCREEN { get { if (_P_FULLSCREEN == 0){ _P_FULLSCREEN = urho_hash_get_P_FULLSCREEN (); } return _P_FULLSCREEN; }}
+            extern static int urho_hash_get_P_X ();
+            static int _P_X;
+            internal static int P_X { get { if (_P_X == 0){ _P_X = urho_hash_get_P_X (); } return _P_X; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_COMPONENT ();
-            static int _P_COMPONENT;
-            internal static int P_COMPONENT { get { if (_P_COMPONENT == 0){ _P_COMPONENT = urho_hash_get_P_COMPONENT (); } return _P_COMPONENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TRIGGER ();
-            static int _P_TRIGGER;
-            internal static int P_TRIGGER { get { if (_P_TRIGGER == 0){ _P_TRIGGER = urho_hash_get_P_TRIGGER (); } return _P_TRIGGER; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FILENAME ();
-            static int _P_FILENAME;
-            internal static int P_FILENAME { get { if (_P_FILENAME == 0){ _P_FILENAME = urho_hash_get_P_FILENAME (); } return _P_FILENAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SDLEVENT ();
-            static int _P_SDLEVENT;
-            internal static int P_SDLEVENT { get { if (_P_SDLEVENT == 0){ _P_SDLEVENT = urho_hash_get_P_SDLEVENT (); } return _P_SDLEVENT; }}
+            extern static int urho_hash_get_P_VIEW ();
+            static int _P_VIEW;
+            internal static int P_VIEW { get { if (_P_VIEW == 0){ _P_VIEW = urho_hash_get_P_VIEW (); } return _P_VIEW; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_RESOURCETYPE ();
@@ -5527,24 +5512,9 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_RESOURCETYPE { get { if (_P_RESOURCETYPE == 0){ _P_RESOURCETYPE = urho_hash_get_P_RESOURCETYPE (); } return _P_RESOURCETYPE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOUCHID ();
-            static int _P_TOUCHID;
-            internal static int P_TOUCHID { get { if (_P_TOUCHID == 0){ _P_TOUCHID = urho_hash_get_P_TOUCHID (); } return _P_TOUCHID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NUMBUTTONS ();
-            static int _P_NUMBUTTONS;
-            internal static int P_NUMBUTTONS { get { if (_P_NUMBUTTONS == 0){ _P_NUMBUTTONS = urho_hash_get_P_NUMBUTTONS (); } return _P_NUMBUTTONS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONNECTION ();
-            static int _P_CONNECTION;
-            internal static int P_CONNECTION { get { if (_P_CONNECTION == 0){ _P_CONNECTION = urho_hash_get_P_CONNECTION (); } return _P_CONNECTION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FILTER ();
-            static int _P_FILTER;
-            internal static int P_FILTER { get { if (_P_FILTER == 0){ _P_FILTER = urho_hash_get_P_FILTER (); } return _P_FILTER; }}
+            extern static int urho_hash_get_P_SIZE ();
+            static int _P_SIZE;
+            internal static int P_SIZE { get { if (_P_SIZE == 0){ _P_SIZE = urho_hash_get_P_SIZE (); } return _P_SIZE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_HAT ();
@@ -5552,44 +5522,9 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_HAT { get { if (_P_HAT == 0){ _P_HAT = urho_hash_get_P_HAT (); } return _P_HAT; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_EXITCODE ();
-            static int _P_EXITCODE;
-            internal static int P_EXITCODE { get { if (_P_EXITCODE == 0){ _P_EXITCODE = urho_hash_get_P_EXITCODE (); } return _P_EXITCODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PROGRESS ();
-            static int _P_PROGRESS;
-            internal static int P_PROGRESS { get { if (_P_PROGRESS == 0){ _P_PROGRESS = urho_hash_get_P_PROGRESS (); } return _P_PROGRESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DY ();
-            static int _P_DY;
-            internal static int P_DY { get { if (_P_DY == 0){ _P_DY = urho_hash_get_P_DY (); } return _P_DY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RADIUS ();
-            static int _P_RADIUS;
-            internal static int P_RADIUS { get { if (_P_RADIUS == 0){ _P_RADIUS = urho_hash_get_P_RADIUS (); } return _P_RADIUS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MOUSELOCKED ();
-            static int _P_MOUSELOCKED;
-            internal static int P_MOUSELOCKED { get { if (_P_MOUSELOCKED == 0){ _P_MOUSELOCKED = urho_hash_get_P_MOUSELOCKED (); } return _P_MOUSELOCKED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_POSITION ();
-            static int _P_POSITION;
-            internal static int P_POSITION { get { if (_P_POSITION == 0){ _P_POSITION = urho_hash_get_P_POSITION (); } return _P_POSITION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_COMMAND ();
-            static int _P_COMMAND;
-            internal static int P_COMMAND { get { if (_P_COMMAND == 0){ _P_COMMAND = urho_hash_get_P_COMMAND (); } return _P_COMMAND; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DDIST ();
-            static int _P_DDIST;
-            internal static int P_DDIST { get { if (_P_DDIST == 0){ _P_DDIST = urho_hash_get_P_DDIST (); } return _P_DDIST; }}
+            extern static int urho_hash_get_P_OTHERNODE ();
+            static int _P_OTHERNODE;
+            internal static int P_OTHERNODE { get { if (_P_OTHERNODE == 0){ _P_OTHERNODE = urho_hash_get_P_OTHERNODE (); } return _P_OTHERNODE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_SOUNDSOURCE ();
@@ -5597,14 +5532,149 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_SOUNDSOURCE { get { if (_P_SOUNDSOURCE == 0){ _P_SOUNDSOURCE = urho_hash_get_P_SOUNDSOURCE (); } return _P_SOUNDSOURCE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BUTTONS ();
-            static int _P_BUTTONS;
-            internal static int P_BUTTONS { get { if (_P_BUTTONS == 0){ _P_BUTTONS = urho_hash_get_P_BUTTONS (); } return _P_BUTTONS; }}
+            extern static int urho_hash_get_P_CROWD_TARGET_STATE ();
+            static int _P_CROWD_TARGET_STATE;
+            internal static int P_CROWD_TARGET_STATE { get { if (_P_CROWD_TARGET_STATE == 0){ _P_CROWD_TARGET_STATE = urho_hash_get_P_CROWD_TARGET_STATE (); } return _P_CROWD_TARGET_STATE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODYA ();
-            static int _P_BODYA;
-            internal static int P_BODYA { get { if (_P_BODYA == 0){ _P_BODYA = urho_hash_get_P_BODYA (); } return _P_BODYA; }}
+            extern static int urho_hash_get_P_MOUSELOCKED ();
+            static int _P_MOUSELOCKED;
+            internal static int P_MOUSELOCKED { get { if (_P_MOUSELOCKED == 0){ _P_MOUSELOCKED = urho_hash_get_P_MOUSELOCKED (); } return _P_MOUSELOCKED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SURFACE ();
+            static int _P_SURFACE;
+            internal static int P_SURFACE { get { if (_P_SURFACE == 0){ _P_SURFACE = urho_hash_get_P_SURFACE (); } return _P_SURFACE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SERIALIZABLE ();
+            static int _P_SERIALIZABLE;
+            internal static int P_SERIALIZABLE { get { if (_P_SERIALIZABLE == 0){ _P_SERIALIZABLE = urho_hash_get_P_SERIALIZABLE (); } return _P_SERIALIZABLE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_LEVEL ();
+            static int _P_LEVEL;
+            internal static int P_LEVEL { get { if (_P_LEVEL == 0){ _P_LEVEL = urho_hash_get_P_LEVEL (); } return _P_LEVEL; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NAME ();
+            static int _P_NAME;
+            internal static int P_NAME { get { if (_P_NAME == 0){ _P_NAME = urho_hash_get_P_NAME (); } return _P_NAME; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TRIGGER ();
+            static int _P_TRIGGER;
+            internal static int P_TRIGGER { get { if (_P_TRIGGER == 0){ _P_TRIGGER = urho_hash_get_P_TRIGGER (); } return _P_TRIGGER; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CLICKEDELEMENT ();
+            static int _P_CLICKEDELEMENT;
+            internal static int P_CLICKEDELEMENT { get { if (_P_CLICKEDELEMENT == 0){ _P_CLICKEDELEMENT = urho_hash_get_P_CLICKEDELEMENT (); } return _P_CLICKEDELEMENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_LOADEDRESOURCES ();
+            static int _P_LOADEDRESOURCES;
+            internal static int P_LOADEDRESOURCES { get { if (_P_LOADEDRESOURCES == 0){ _P_LOADEDRESOURCES = urho_hash_get_P_LOADEDRESOURCES (); } return _P_LOADEDRESOURCES; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OFFSET ();
+            static int _P_OFFSET;
+            internal static int P_OFFSET { get { if (_P_OFFSET == 0){ _P_OFFSET = urho_hash_get_P_OFFSET (); } return _P_OFFSET; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_POSITION ();
+            static int _P_POSITION;
+            internal static int P_POSITION { get { if (_P_POSITION == 0){ _P_POSITION = urho_hash_get_P_POSITION (); } return _P_POSITION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ATTRIBUTEANIMATIONNAME ();
+            static int _P_ATTRIBUTEANIMATIONNAME;
+            internal static int P_ATTRIBUTEANIMATIONNAME { get { if (_P_ATTRIBUTEANIMATIONNAME == 0){ _P_ATTRIBUTEANIMATIONNAME = urho_hash_get_P_ATTRIBUTEANIMATIONNAME (); } return _P_ATTRIBUTEANIMATIONNAME; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_WIDTH ();
+            static int _P_WIDTH;
+            internal static int P_WIDTH { get { if (_P_WIDTH == 0){ _P_WIDTH = urho_hash_get_P_WIDTH (); } return _P_WIDTH; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DY ();
+            static int _P_DY;
+            internal static int P_DY { get { if (_P_DY == 0){ _P_DY = urho_hash_get_P_DY (); } return _P_DY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONNECTION ();
+            static int _P_CONNECTION;
+            internal static int P_CONNECTION { get { if (_P_CONNECTION == 0){ _P_CONNECTION = urho_hash_get_P_CONNECTION (); } return _P_CONNECTION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NODE ();
+            static int _P_NODE;
+            internal static int P_NODE { get { if (_P_NODE == 0){ _P_NODE = urho_hash_get_P_NODE (); } return _P_NODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_WHEEL ();
+            static int _P_WHEEL;
+            internal static int P_WHEEL { get { if (_P_WHEEL == 0){ _P_WHEEL = urho_hash_get_P_WHEEL (); } return _P_WHEEL; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BEGINELEMENT ();
+            static int _P_BEGINELEMENT;
+            internal static int P_BEGINELEMENT { get { if (_P_BEGINELEMENT == 0){ _P_BEGINELEMENT = urho_hash_get_P_BEGINELEMENT (); } return _P_BEGINELEMENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SCENE ();
+            static int _P_SCENE;
+            internal static int P_SCENE { get { if (_P_SCENE == 0){ _P_SCENE = urho_hash_get_P_SCENE (); } return _P_SCENE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SELECTION ();
+            static int _P_SELECTION;
+            internal static int P_SELECTION { get { if (_P_SELECTION == 0){ _P_SELECTION = urho_hash_get_P_SELECTION (); } return _P_SELECTION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BORDERLESS ();
+            static int _P_BORDERLESS;
+            internal static int P_BORDERLESS { get { if (_P_BORDERLESS == 0){ _P_BORDERLESS = urho_hash_get_P_BORDERLESS (); } return _P_BORDERLESS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TOTALRESOURCES ();
+            static int _P_TOTALRESOURCES;
+            internal static int P_TOTALRESOURCES { get { if (_P_TOTALRESOURCES == 0){ _P_TOTALRESOURCES = urho_hash_get_P_TOTALRESOURCES (); } return _P_TOTALRESOURCES; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CENTERX ();
+            static int _P_CENTERX;
+            internal static int P_CENTERX { get { if (_P_CENTERX == 0){ _P_CENTERX = urho_hash_get_P_CENTERX (); } return _P_CENTERX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DTHETA ();
+            static int _P_DTHETA;
+            internal static int P_DTHETA { get { if (_P_DTHETA == 0){ _P_DTHETA = urho_hash_get_P_DTHETA (); } return _P_DTHETA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_REQUESTID ();
+            static int _P_REQUESTID;
+            internal static int P_REQUESTID { get { if (_P_REQUESTID == 0){ _P_REQUESTID = urho_hash_get_P_REQUESTID (); } return _P_REQUESTID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TIMESTEP ();
+            static int _P_TIMESTEP;
+            internal static int P_TIMESTEP { get { if (_P_TIMESTEP == 0){ _P_TIMESTEP = urho_hash_get_P_TIMESTEP (); } return _P_TIMESTEP; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ID ();
+            static int _P_ID;
+            internal static int P_ID { get { if (_P_ID == 0){ _P_ID = urho_hash_get_P_ID (); } return _P_ID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_RESOURCENAME ();
+            static int _P_RESOURCENAME;
+            internal static int P_RESOURCENAME { get { if (_P_RESOURCENAME == 0){ _P_RESOURCENAME = urho_hash_get_P_RESOURCENAME (); } return _P_RESOURCENAME; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OBSTACLE ();
+            static int _P_OBSTACLE;
+            internal static int P_OBSTACLE { get { if (_P_OBSTACLE == 0){ _P_OBSTACLE = urho_hash_get_P_OBSTACLE (); } return _P_OBSTACLE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_LOOPED ();
@@ -5612,14 +5682,314 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_LOOPED { get { if (_P_LOOPED == 0){ _P_LOOPED = urho_hash_get_P_LOOPED (); } return _P_LOOPED; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_RADIUS ();
+            static int _P_RADIUS;
+            internal static int P_RADIUS { get { if (_P_RADIUS == 0){ _P_RADIUS = urho_hash_get_P_RADIUS (); } return _P_RADIUS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BUTTONS ();
+            static int _P_BUTTONS;
+            internal static int P_BUTTONS { get { if (_P_BUTTONS == 0){ _P_BUTTONS = urho_hash_get_P_BUTTONS (); } return _P_BUTTONS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BYKEY ();
+            static int _P_BYKEY;
+            internal static int P_BYKEY { get { if (_P_BYKEY == 0){ _P_BYKEY = urho_hash_get_P_BYKEY (); } return _P_BYKEY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONTACTS ();
+            static int _P_CONTACTS;
+            internal static int P_CONTACTS { get { if (_P_CONTACTS == 0){ _P_CONTACTS = urho_hash_get_P_CONTACTS (); } return _P_CONTACTS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SOUND ();
+            static int _P_SOUND;
+            internal static int P_SOUND { get { if (_P_SOUND == 0){ _P_SOUND = urho_hash_get_P_SOUND (); } return _P_SOUND; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MESH ();
+            static int _P_MESH;
+            internal static int P_MESH { get { if (_P_MESH == 0){ _P_MESH = urho_hash_get_P_MESH (); } return _P_MESH; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DDIST ();
+            static int _P_DDIST;
+            internal static int P_DDIST { get { if (_P_DDIST == 0){ _P_DDIST = urho_hash_get_P_DDIST (); } return _P_DDIST; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MODE ();
+            static int _P_MODE;
+            internal static int P_MODE { get { if (_P_MODE == 0){ _P_MODE = urho_hash_get_P_MODE (); } return _P_MODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TOUCHID ();
+            static int _P_TOUCHID;
+            internal static int P_TOUCHID { get { if (_P_TOUCHID == 0){ _P_TOUCHID = urho_hash_get_P_TOUCHID (); } return _P_TOUCHID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DATA ();
+            static int _P_DATA;
+            internal static int P_DATA { get { if (_P_DATA == 0){ _P_DATA = urho_hash_get_P_DATA (); } return _P_DATA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FULLSCREEN ();
+            static int _P_FULLSCREEN;
+            internal static int P_FULLSCREEN { get { if (_P_FULLSCREEN == 0){ _P_FULLSCREEN = urho_hash_get_P_FULLSCREEN (); } return _P_FULLSCREEN; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BOUNDSMAX ();
+            static int _P_BOUNDSMAX;
+            internal static int P_BOUNDSMAX { get { if (_P_BOUNDSMAX == 0){ _P_BOUNDSMAX = urho_hash_get_P_BOUNDSMAX (); } return _P_BOUNDSMAX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SUCCESS ();
+            static int _P_SUCCESS;
+            internal static int P_SUCCESS { get { if (_P_SUCCESS == 0){ _P_SUCCESS = urho_hash_get_P_SUCCESS (); } return _P_SUCCESS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FILTER ();
+            static int _P_FILTER;
+            internal static int P_FILTER { get { if (_P_FILTER == 0){ _P_FILTER = urho_hash_get_P_FILTER (); } return _P_FILTER; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_PARENT ();
+            static int _P_PARENT;
+            internal static int P_PARENT { get { if (_P_PARENT == 0){ _P_PARENT = urho_hash_get_P_PARENT (); } return _P_PARENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CROWD_AGENT_STATE ();
+            static int _P_CROWD_AGENT_STATE;
+            internal static int P_CROWD_AGENT_STATE { get { if (_P_CROWD_AGENT_STATE == 0){ _P_CROWD_AGENT_STATE = urho_hash_get_P_CROWD_AGENT_STATE (); } return _P_CROWD_AGENT_STATE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_VALUE ();
+            static int _P_VALUE;
+            internal static int P_VALUE { get { if (_P_VALUE == 0){ _P_VALUE = urho_hash_get_P_VALUE (); } return _P_VALUE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SCANCODE ();
+            static int _P_SCANCODE;
+            internal static int P_SCANCODE { get { if (_P_SCANCODE == 0){ _P_SCANCODE = urho_hash_get_P_SCANCODE (); } return _P_SCANCODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FRAMENUMBER ();
+            static int _P_FRAMENUMBER;
+            internal static int P_FRAMENUMBER { get { if (_P_FRAMENUMBER == 0){ _P_FRAMENUMBER = urho_hash_get_P_FRAMENUMBER (); } return _P_FRAMENUMBER; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_Y ();
+            static int _P_Y;
+            internal static int P_Y { get { if (_P_Y == 0){ _P_Y = urho_hash_get_P_Y (); } return _P_Y; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ERROR ();
+            static int _P_ERROR;
+            internal static int P_ERROR { get { if (_P_ERROR == 0){ _P_ERROR = urho_hash_get_P_ERROR (); } return _P_ERROR; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ANIMATION ();
+            static int _P_ANIMATION;
+            internal static int P_ANIMATION { get { if (_P_ANIMATION == 0){ _P_ANIMATION = urho_hash_get_P_ANIMATION (); } return _P_ANIMATION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_VISIBLE ();
+            static int _P_VISIBLE;
+            internal static int P_VISIBLE { get { if (_P_VISIBLE == 0){ _P_VISIBLE = urho_hash_get_P_VISIBLE (); } return _P_VISIBLE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_COMPONENT ();
+            static int _P_COMPONENT;
+            internal static int P_COMPONENT { get { if (_P_COMPONENT == 0){ _P_COMPONENT = urho_hash_get_P_COMPONENT (); } return _P_COMPONENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ELEMENT ();
+            static int _P_ELEMENT;
+            internal static int P_ELEMENT { get { if (_P_ELEMENT == 0){ _P_ELEMENT = urho_hash_get_P_ELEMENT (); } return _P_ELEMENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_PRESSED ();
+            static int _P_PRESSED;
+            internal static int P_PRESSED { get { if (_P_PRESSED == 0){ _P_PRESSED = urho_hash_get_P_PRESSED (); } return _P_PRESSED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_RESOURCE ();
+            static int _P_RESOURCE;
+            internal static int P_RESOURCE { get { if (_P_RESOURCE == 0){ _P_RESOURCE = urho_hash_get_P_RESOURCE (); } return _P_RESOURCE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BUTTON ();
+            static int _P_BUTTON;
+            internal static int P_BUTTON { get { if (_P_BUTTON == 0){ _P_BUTTON = urho_hash_get_P_BUTTON (); } return _P_BUTTON; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ALLOW ();
+            static int _P_ALLOW;
+            internal static int P_ALLOW { get { if (_P_ALLOW == 0){ _P_ALLOW = urho_hash_get_P_ALLOW (); } return _P_ALLOW; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_COMMAND ();
+            static int _P_COMMAND;
+            internal static int P_COMMAND { get { if (_P_COMMAND == 0){ _P_COMMAND = urho_hash_get_P_COMMAND (); } return _P_COMMAND; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TIME ();
+            static int _P_TIME;
+            internal static int P_TIME { get { if (_P_TIME == 0){ _P_TIME = urho_hash_get_P_TIME (); } return _P_TIME; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DX ();
+            static int _P_DX;
+            internal static int P_DX { get { if (_P_DX == 0){ _P_DX = urho_hash_get_P_DX (); } return _P_DX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ARRIVED ();
+            static int _P_ARRIVED;
+            internal static int P_ARRIVED { get { if (_P_ARRIVED == 0){ _P_ARRIVED = urho_hash_get_P_ARRIVED (); } return _P_ARRIVED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BODY ();
+            static int _P_BODY;
+            internal static int P_BODY { get { if (_P_BODY == 0){ _P_BODY = urho_hash_get_P_BODY (); } return _P_BODY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_HEIGHT ();
+            static int _P_HEIGHT;
+            internal static int P_HEIGHT { get { if (_P_HEIGHT == 0){ _P_HEIGHT = urho_hash_get_P_HEIGHT (); } return _P_HEIGHT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SQUAREDSNAPTHRESHOLD ();
+            static int _P_SQUAREDSNAPTHRESHOLD;
+            internal static int P_SQUAREDSNAPTHRESHOLD { get { if (_P_SQUAREDSNAPTHRESHOLD == 0){ _P_SQUAREDSNAPTHRESHOLD = urho_hash_get_P_SQUAREDSNAPTHRESHOLD (); } return _P_SQUAREDSNAPTHRESHOLD; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_EFFECT ();
+            static int _P_EFFECT;
+            internal static int P_EFFECT { get { if (_P_EFFECT == 0){ _P_EFFECT = urho_hash_get_P_EFFECT (); } return _P_EFFECT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONTACT ();
+            static int _P_CONTACT;
+            internal static int P_CONTACT { get { if (_P_CONTACT == 0){ _P_CONTACT = urho_hash_get_P_CONTACT (); } return _P_CONTACT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BOUNDSMIN ();
+            static int _P_BOUNDSMIN;
+            internal static int P_BOUNDSMIN { get { if (_P_BOUNDSMIN == 0){ _P_BOUNDSMIN = urho_hash_get_P_BOUNDSMIN (); } return _P_BOUNDSMIN; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONSUMED ();
+            static int _P_CONSUMED;
+            internal static int P_CONSUMED { get { if (_P_CONSUMED == 0){ _P_CONSUMED = urho_hash_get_P_CONSUMED (); } return _P_CONSUMED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OK ();
+            static int _P_OK;
+            internal static int P_OK { get { if (_P_OK == 0){ _P_OK = urho_hash_get_P_OK (); } return _P_OK; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MODAL ();
+            static int _P_MODAL;
+            internal static int P_MODAL { get { if (_P_MODAL == 0){ _P_MODAL = urho_hash_get_P_MODAL (); } return _P_MODAL; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ACCEPT ();
+            static int _P_ACCEPT;
+            internal static int P_ACCEPT { get { if (_P_ACCEPT == 0){ _P_ACCEPT = urho_hash_get_P_ACCEPT (); } return _P_ACCEPT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FILENAME ();
+            static int _P_FILENAME;
+            internal static int P_FILENAME { get { if (_P_FILENAME == 0){ _P_FILENAME = urho_hash_get_P_FILENAME (); } return _P_FILENAME; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TARGET ();
+            static int _P_TARGET;
+            internal static int P_TARGET { get { if (_P_TARGET == 0){ _P_TARGET = urho_hash_get_P_TARGET (); } return _P_TARGET; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_QUALIFIERS ();
+            static int _P_QUALIFIERS;
+            internal static int P_QUALIFIERS { get { if (_P_QUALIFIERS == 0){ _P_QUALIFIERS = urho_hash_get_P_QUALIFIERS (); } return _P_QUALIFIERS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SDLEVENT ();
+            static int _P_SDLEVENT;
+            internal static int P_SDLEVENT { get { if (_P_SDLEVENT == 0){ _P_SDLEVENT = urho_hash_get_P_SDLEVENT (); } return _P_SDLEVENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TAG ();
+            static int _P_TAG;
+            internal static int P_TAG { get { if (_P_TAG == 0){ _P_TAG = urho_hash_get_P_TAG (); } return _P_TAG; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MESSAGE ();
+            static int _P_MESSAGE;
+            internal static int P_MESSAGE { get { if (_P_MESSAGE == 0){ _P_MESSAGE = urho_hash_get_P_MESSAGE (); } return _P_MESSAGE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_CONSTANT ();
             static int _P_CONSTANT;
             internal static int P_CONSTANT { get { if (_P_CONSTANT == 0){ _P_CONSTANT = urho_hash_get_P_CONSTANT (); } return _P_CONSTANT; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_TARGET_STATE ();
-            static int _P_CROWD_TARGET_STATE;
-            internal static int P_CROWD_TARGET_STATE { get { if (_P_CROWD_TARGET_STATE == 0){ _P_CROWD_TARGET_STATE = urho_hash_get_P_CROWD_TARGET_STATE (); } return _P_CROWD_TARGET_STATE; }}
+            extern static int urho_hash_get_P_JOYSTICKID ();
+            static int _P_JOYSTICKID;
+            internal static int P_JOYSTICKID { get { if (_P_JOYSTICKID == 0){ _P_JOYSTICKID = urho_hash_get_P_JOYSTICKID (); } return _P_JOYSTICKID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CROWD_AGENT ();
+            static int _P_CROWD_AGENT;
+            internal static int P_CROWD_AGENT { get { if (_P_CROWD_AGENT == 0){ _P_CROWD_AGENT = urho_hash_get_P_CROWD_AGENT (); } return _P_CROWD_AGENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_REPEAT ();
+            static int _P_REPEAT;
+            internal static int P_REPEAT { get { if (_P_REPEAT == 0){ _P_REPEAT = urho_hash_get_P_REPEAT (); } return _P_REPEAT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ELEMENTY ();
+            static int _P_ELEMENTY;
+            internal static int P_ELEMENTY { get { if (_P_ELEMENTY == 0){ _P_ELEMENTY = urho_hash_get_P_ELEMENTY (); } return _P_ELEMENTY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CAMERA ();
+            static int _P_CAMERA;
+            internal static int P_CAMERA { get { if (_P_CAMERA == 0){ _P_CAMERA = urho_hash_get_P_CAMERA (); } return _P_CAMERA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_EXITCODE ();
+            static int _P_EXITCODE;
+            internal static int P_EXITCODE { get { if (_P_EXITCODE == 0){ _P_EXITCODE = urho_hash_get_P_EXITCODE (); } return _P_EXITCODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NUMBUTTONS ();
+            static int _P_NUMBUTTONS;
+            internal static int P_NUMBUTTONS { get { if (_P_NUMBUTTONS == 0){ _P_NUMBUTTONS = urho_hash_get_P_NUMBUTTONS (); } return _P_NUMBUTTONS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TOTALNODES ();
+            static int _P_TOTALNODES;
+            internal static int P_TOTALNODES { get { if (_P_TOTALNODES == 0){ _P_TOTALNODES = urho_hash_get_P_TOTALNODES (); } return _P_TOTALNODES; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_GESTUREID ();
+            static int _P_GESTUREID;
+            internal static int P_GESTUREID { get { if (_P_GESTUREID == 0){ _P_GESTUREID = urho_hash_get_P_GESTUREID (); } return _P_GESTUREID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TEXT ();
+            static int _P_TEXT;
+            internal static int P_TEXT { get { if (_P_TEXT == 0){ _P_TEXT = urho_hash_get_P_TEXT (); } return _P_TEXT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NUMFINGERS ();
+            static int _P_NUMFINGERS;
+            internal static int P_NUMFINGERS { get { if (_P_NUMFINGERS == 0){ _P_NUMFINGERS = urho_hash_get_P_NUMFINGERS (); } return _P_NUMFINGERS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_WORLD ();
+            static int _P_WORLD;
+            internal static int P_WORLD { get { if (_P_WORLD == 0){ _P_WORLD = urho_hash_get_P_WORLD (); } return _P_WORLD; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_CLONENODE ();
@@ -5632,424 +6002,9 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_OBJECTANIMATION { get { if (_P_OBJECTANIMATION == 0){ _P_OBJECTANIMATION = urho_hash_get_P_OBJECTANIMATION (); } return _P_OBJECTANIMATION; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESSAGEID ();
-            static int _P_MESSAGEID;
-            internal static int P_MESSAGEID { get { if (_P_MESSAGEID == 0){ _P_MESSAGEID = urho_hash_get_P_MESSAGEID (); } return _P_MESSAGEID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_AGENT_STATE ();
-            static int _P_CROWD_AGENT_STATE;
-            internal static int P_CROWD_AGENT_STATE { get { if (_P_CROWD_AGENT_STATE == 0){ _P_CROWD_AGENT_STATE = urho_hash_get_P_CROWD_AGENT_STATE (); } return _P_CROWD_AGENT_STATE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ID ();
-            static int _P_ID;
-            internal static int P_ID { get { if (_P_ID == 0){ _P_ID = urho_hash_get_P_ID (); } return _P_ID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOTALNODES ();
-            static int _P_TOTALNODES;
-            internal static int P_TOTALNODES { get { if (_P_TOTALNODES == 0){ _P_TOTALNODES = urho_hash_get_P_TOTALNODES (); } return _P_TOTALNODES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FOCUS ();
-            static int _P_FOCUS;
-            internal static int P_FOCUS { get { if (_P_FOCUS == 0){ _P_FOCUS = urho_hash_get_P_FOCUS (); } return _P_FOCUS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FRAMENUMBER ();
-            static int _P_FRAMENUMBER;
-            internal static int P_FRAMENUMBER { get { if (_P_FRAMENUMBER == 0){ _P_FRAMENUMBER = urho_hash_get_P_FRAMENUMBER (); } return _P_FRAMENUMBER; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_X ();
-            static int _P_X;
-            internal static int P_X { get { if (_P_X == 0){ _P_X = urho_hash_get_P_X (); } return _P_X; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ROOT ();
-            static int _P_ROOT;
-            internal static int P_ROOT { get { if (_P_ROOT == 0){ _P_ROOT = urho_hash_get_P_ROOT (); } return _P_ROOT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOTALRESOURCES ();
-            static int _P_TOTALRESOURCES;
-            internal static int P_TOTALRESOURCES { get { if (_P_TOTALRESOURCES == 0){ _P_TOTALRESOURCES = urho_hash_get_P_TOTALRESOURCES (); } return _P_TOTALRESOURCES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DX ();
-            static int _P_DX;
-            internal static int P_DX { get { if (_P_DX == 0){ _P_DX = urho_hash_get_P_DX (); } return _P_DX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SCANCODE ();
-            static int _P_SCANCODE;
-            internal static int P_SCANCODE { get { if (_P_SCANCODE == 0){ _P_SCANCODE = urho_hash_get_P_SCANCODE (); } return _P_SCANCODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SUCCESS ();
-            static int _P_SUCCESS;
-            internal static int P_SUCCESS { get { if (_P_SUCCESS == 0){ _P_SUCCESS = urho_hash_get_P_SUCCESS (); } return _P_SUCCESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODEB ();
-            static int _P_NODEB;
-            internal static int P_NODEB { get { if (_P_NODEB == 0){ _P_NODEB = urho_hash_get_P_NODEB (); } return _P_NODEB; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VELOCITY ();
-            static int _P_VELOCITY;
-            internal static int P_VELOCITY { get { if (_P_VELOCITY == 0){ _P_VELOCITY = urho_hash_get_P_VELOCITY (); } return _P_VELOCITY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_Y ();
-            static int _P_Y;
-            internal static int P_Y { get { if (_P_Y == 0){ _P_Y = urho_hash_get_P_Y (); } return _P_Y; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PRESSED ();
-            static int _P_PRESSED;
-            internal static int P_PRESSED { get { if (_P_PRESSED == 0){ _P_PRESSED = urho_hash_get_P_PRESSED (); } return _P_PRESSED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LOADEDRESOURCES ();
-            static int _P_LOADEDRESOURCES;
-            internal static int P_LOADEDRESOURCES { get { if (_P_LOADEDRESOURCES == 0){ _P_LOADEDRESOURCES = urho_hash_get_P_LOADEDRESOURCES (); } return _P_LOADEDRESOURCES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_HIGHDPI ();
-            static int _P_HIGHDPI;
-            internal static int P_HIGHDPI { get { if (_P_HIGHDPI == 0){ _P_HIGHDPI = urho_hash_get_P_HIGHDPI (); } return _P_HIGHDPI; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MODAL ();
-            static int _P_MODAL;
-            internal static int P_MODAL { get { if (_P_MODAL == 0){ _P_MODAL = urho_hash_get_P_MODAL (); } return _P_MODAL; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DTHETA ();
-            static int _P_DTHETA;
-            internal static int P_DTHETA { get { if (_P_DTHETA == 0){ _P_DTHETA = urho_hash_get_P_DTHETA (); } return _P_DTHETA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_STATE ();
-            static int _P_STATE;
-            internal static int P_STATE { get { if (_P_STATE == 0){ _P_STATE = urho_hash_get_P_STATE (); } return _P_STATE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODEA ();
-            static int _P_NODEA;
-            internal static int P_NODEA { get { if (_P_NODEA == 0){ _P_NODEA = urho_hash_get_P_NODEA (); } return _P_NODEA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SIZE ();
-            static int _P_SIZE;
-            internal static int P_SIZE { get { if (_P_SIZE == 0){ _P_SIZE = urho_hash_get_P_SIZE (); } return _P_SIZE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SELECTION ();
-            static int _P_SELECTION;
-            internal static int P_SELECTION { get { if (_P_SELECTION == 0){ _P_SELECTION = urho_hash_get_P_SELECTION (); } return _P_SELECTION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WIDTH ();
-            static int _P_WIDTH;
-            internal static int P_WIDTH { get { if (_P_WIDTH == 0){ _P_WIDTH = urho_hash_get_P_WIDTH (); } return _P_WIDTH; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CAMERA ();
-            static int _P_CAMERA;
-            internal static int P_CAMERA { get { if (_P_CAMERA == 0){ _P_CAMERA = urho_hash_get_P_CAMERA (); } return _P_CAMERA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ARRIVED ();
-            static int _P_ARRIVED;
-            internal static int P_ARRIVED { get { if (_P_ARRIVED == 0){ _P_ARRIVED = urho_hash_get_P_ARRIVED (); } return _P_ARRIVED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BUTTON ();
-            static int _P_BUTTON;
-            internal static int P_BUTTON { get { if (_P_BUTTON == 0){ _P_BUTTON = urho_hash_get_P_BUTTON (); } return _P_BUTTON; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_REPEAT ();
-            static int _P_REPEAT;
-            internal static int P_REPEAT { get { if (_P_REPEAT == 0){ _P_REPEAT = urho_hash_get_P_REPEAT (); } return _P_REPEAT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_QUALIFIERS ();
-            static int _P_QUALIFIERS;
-            internal static int P_QUALIFIERS { get { if (_P_QUALIFIERS == 0){ _P_QUALIFIERS = urho_hash_get_P_QUALIFIERS (); } return _P_QUALIFIERS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIMESTEP ();
-            static int _P_TIMESTEP;
-            internal static int P_TIMESTEP { get { if (_P_TIMESTEP == 0){ _P_TIMESTEP = urho_hash_get_P_TIMESTEP (); } return _P_TIMESTEP; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SOURCE ();
-            static int _P_SOURCE;
-            internal static int P_SOURCE { get { if (_P_SOURCE == 0){ _P_SOURCE = urho_hash_get_P_SOURCE (); } return _P_SOURCE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ACCEPT ();
-            static int _P_ACCEPT;
-            internal static int P_ACCEPT { get { if (_P_ACCEPT == 0){ _P_ACCEPT = urho_hash_get_P_ACCEPT (); } return _P_ACCEPT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WORLD ();
-            static int _P_WORLD;
-            internal static int P_WORLD { get { if (_P_WORLD == 0){ _P_WORLD = urho_hash_get_P_WORLD (); } return _P_WORLD; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TAG ();
-            static int _P_TAG;
-            internal static int P_TAG { get { if (_P_TAG == 0){ _P_TAG = urho_hash_get_P_TAG (); } return _P_TAG; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VALUE ();
-            static int _P_VALUE;
-            internal static int P_VALUE { get { if (_P_VALUE == 0){ _P_VALUE = urho_hash_get_P_VALUE (); } return _P_VALUE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESOURCE ();
-            static int _P_RESOURCE;
-            internal static int P_RESOURCE { get { if (_P_RESOURCE == 0){ _P_RESOURCE = urho_hash_get_P_RESOURCE (); } return _P_RESOURCE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BOUNDSMAX ();
-            static int _P_BOUNDSMAX;
-            internal static int P_BOUNDSMAX { get { if (_P_BOUNDSMAX == 0){ _P_BOUNDSMAX = urho_hash_get_P_BOUNDSMAX (); } return _P_BOUNDSMAX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODY ();
-            static int _P_BODY;
-            internal static int P_BODY { get { if (_P_BODY == 0){ _P_BODY = urho_hash_get_P_BODY (); } return _P_BODY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VISIBLE ();
-            static int _P_VISIBLE;
-            internal static int P_VISIBLE { get { if (_P_VISIBLE == 0){ _P_VISIBLE = urho_hash_get_P_VISIBLE (); } return _P_VISIBLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESOURCENAME ();
-            static int _P_RESOURCENAME;
-            internal static int P_RESOURCENAME { get { if (_P_RESOURCENAME == 0){ _P_RESOURCENAME = urho_hash_get_P_RESOURCENAME (); } return _P_RESOURCENAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VIEW ();
-            static int _P_VIEW;
-            internal static int P_VIEW { get { if (_P_VIEW == 0){ _P_VIEW = urho_hash_get_P_VIEW (); } return _P_VIEW; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OTHERBODY ();
-            static int _P_OTHERBODY;
-            internal static int P_OTHERBODY { get { if (_P_OTHERBODY == 0){ _P_OTHERBODY = urho_hash_get_P_OTHERBODY (); } return _P_OTHERBODY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_AGENT ();
-            static int _P_CROWD_AGENT;
-            internal static int P_CROWD_AGENT { get { if (_P_CROWD_AGENT == 0){ _P_CROWD_AGENT = urho_hash_get_P_CROWD_AGENT (); } return _P_CROWD_AGENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONTACT ();
-            static int _P_CONTACT;
-            internal static int P_CONTACT { get { if (_P_CONTACT == 0){ _P_CONTACT = urho_hash_get_P_CONTACT (); } return _P_CONTACT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SQUAREDSNAPTHRESHOLD ();
-            static int _P_SQUAREDSNAPTHRESHOLD;
-            internal static int P_SQUAREDSNAPTHRESHOLD { get { if (_P_SQUAREDSNAPTHRESHOLD == 0){ _P_SQUAREDSNAPTHRESHOLD = urho_hash_get_P_SQUAREDSNAPTHRESHOLD (); } return _P_SQUAREDSNAPTHRESHOLD; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NAME ();
-            static int _P_NAME;
-            internal static int P_NAME { get { if (_P_NAME == 0){ _P_NAME = urho_hash_get_P_NAME (); } return _P_NAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_INDEX ();
-            static int _P_INDEX;
-            internal static int P_INDEX { get { if (_P_INDEX == 0){ _P_INDEX = urho_hash_get_P_INDEX (); } return _P_INDEX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODE ();
-            static int _P_NODE;
-            internal static int P_NODE { get { if (_P_NODE == 0){ _P_NODE = urho_hash_get_P_NODE (); } return _P_NODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DATA ();
-            static int _P_DATA;
-            internal static int P_DATA { get { if (_P_DATA == 0){ _P_DATA = urho_hash_get_P_DATA (); } return _P_DATA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PARENT ();
-            static int _P_PARENT;
-            internal static int P_PARENT { get { if (_P_PARENT == 0){ _P_PARENT = urho_hash_get_P_PARENT (); } return _P_PARENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONSUMED ();
-            static int _P_CONSUMED;
-            internal static int P_CONSUMED { get { if (_P_CONSUMED == 0){ _P_CONSUMED = urho_hash_get_P_CONSUMED (); } return _P_CONSUMED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CENTERY ();
-            static int _P_CENTERY;
-            internal static int P_CENTERY { get { if (_P_CENTERY == 0){ _P_CENTERY = urho_hash_get_P_CENTERY (); } return _P_CENTERY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CENTERX ();
-            static int _P_CENTERX;
-            internal static int P_CENTERX { get { if (_P_CENTERX == 0){ _P_CENTERX = urho_hash_get_P_CENTERX (); } return _P_CENTERX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIME ();
-            static int _P_TIME;
-            internal static int P_TIME { get { if (_P_TIME == 0){ _P_TIME = urho_hash_get_P_TIME (); } return _P_TIME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SOUND ();
-            static int _P_SOUND;
-            internal static int P_SOUND { get { if (_P_SOUND == 0){ _P_SOUND = urho_hash_get_P_SOUND (); } return _P_SOUND; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CLICKEDELEMENT ();
-            static int _P_CLICKEDELEMENT;
-            internal static int P_CLICKEDELEMENT { get { if (_P_CLICKEDELEMENT == 0){ _P_CLICKEDELEMENT = urho_hash_get_P_CLICKEDELEMENT (); } return _P_CLICKEDELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_KEY ();
-            static int _P_KEY;
-            internal static int P_KEY { get { if (_P_KEY == 0){ _P_KEY = urho_hash_get_P_KEY (); } return _P_KEY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OK ();
-            static int _P_OK;
-            internal static int P_OK { get { if (_P_OK == 0){ _P_OK = urho_hash_get_P_OK (); } return _P_OK; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TARGET ();
-            static int _P_TARGET;
-            internal static int P_TARGET { get { if (_P_TARGET == 0){ _P_TARGET = urho_hash_get_P_TARGET (); } return _P_TARGET; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ANIMATION ();
-            static int _P_ANIMATION;
-            internal static int P_ANIMATION { get { if (_P_ANIMATION == 0){ _P_ANIMATION = urho_hash_get_P_ANIMATION (); } return _P_ANIMATION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIMESTAMP ();
-            static int _P_TIMESTAMP;
-            internal static int P_TIMESTAMP { get { if (_P_TIMESTAMP == 0){ _P_TIMESTAMP = urho_hash_get_P_TIMESTAMP (); } return _P_TIMESTAMP; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TEXTURE ();
-            static int _P_TEXTURE;
-            internal static int P_TEXTURE { get { if (_P_TEXTURE == 0){ _P_TEXTURE = urho_hash_get_P_TEXTURE (); } return _P_TEXTURE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BORDERLESS ();
-            static int _P_BORDERLESS;
-            internal static int P_BORDERLESS { get { if (_P_BORDERLESS == 0){ _P_BORDERLESS = urho_hash_get_P_BORDERLESS (); } return _P_BORDERLESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LEVEL ();
-            static int _P_LEVEL;
-            internal static int P_LEVEL { get { if (_P_LEVEL == 0){ _P_LEVEL = urho_hash_get_P_LEVEL (); } return _P_LEVEL; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_GESTUREID ();
-            static int _P_GESTUREID;
-            internal static int P_GESTUREID { get { if (_P_GESTUREID == 0){ _P_GESTUREID = urho_hash_get_P_GESTUREID (); } return _P_GESTUREID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SERIALIZABLE ();
-            static int _P_SERIALIZABLE;
-            internal static int P_SERIALIZABLE { get { if (_P_SERIALIZABLE == 0){ _P_SERIALIZABLE = urho_hash_get_P_SERIALIZABLE (); } return _P_SERIALIZABLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TEXT ();
-            static int _P_TEXT;
-            internal static int P_TEXT { get { if (_P_TEXT == 0){ _P_TEXT = urho_hash_get_P_TEXT (); } return _P_TEXT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SCENE ();
-            static int _P_SCENE;
-            internal static int P_SCENE { get { if (_P_SCENE == 0){ _P_SCENE = urho_hash_get_P_SCENE (); } return _P_SCENE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NUMFINGERS ();
-            static int _P_NUMFINGERS;
-            internal static int P_NUMFINGERS { get { if (_P_NUMFINGERS == 0){ _P_NUMFINGERS = urho_hash_get_P_NUMFINGERS (); } return _P_NUMFINGERS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENTX ();
-            static int _P_ELEMENTX;
-            internal static int P_ELEMENTX { get { if (_P_ELEMENTX == 0){ _P_ELEMENTX = urho_hash_get_P_ELEMENTX (); } return _P_ELEMENTX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ALLOW ();
-            static int _P_ALLOW;
-            internal static int P_ALLOW { get { if (_P_ALLOW == 0){ _P_ALLOW = urho_hash_get_P_ALLOW (); } return _P_ALLOW; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SURFACE ();
-            static int _P_SURFACE;
-            internal static int P_SURFACE { get { if (_P_SURFACE == 0){ _P_SURFACE = urho_hash_get_P_SURFACE (); } return _P_SURFACE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODYB ();
-            static int _P_BODYB;
-            internal static int P_BODYB { get { if (_P_BODYB == 0){ _P_BODYB = urho_hash_get_P_BODYB (); } return _P_BODYB; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ERROR ();
-            static int _P_ERROR;
-            internal static int P_ERROR { get { if (_P_ERROR == 0){ _P_ERROR = urho_hash_get_P_ERROR (); } return _P_ERROR; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_HEIGHT ();
-            static int _P_HEIGHT;
-            internal static int P_HEIGHT { get { if (_P_HEIGHT == 0){ _P_HEIGHT = urho_hash_get_P_HEIGHT (); } return _P_HEIGHT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PRESSURE ();
-            static int _P_PRESSURE;
-            internal static int P_PRESSURE { get { if (_P_PRESSURE == 0){ _P_PRESSURE = urho_hash_get_P_PRESSURE (); } return _P_PRESSURE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CLONECOMPONENT ();
-            static int _P_CLONECOMPONENT;
-            internal static int P_CLONECOMPONENT { get { if (_P_CLONECOMPONENT == 0){ _P_CLONECOMPONENT = urho_hash_get_P_CLONECOMPONENT (); } return _P_CLONECOMPONENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ATTRIBUTEANIMATIONNAME ();
-            static int _P_ATTRIBUTEANIMATIONNAME;
-            internal static int P_ATTRIBUTEANIMATIONNAME { get { if (_P_ATTRIBUTEANIMATIONNAME == 0){ _P_ATTRIBUTEANIMATIONNAME = urho_hash_get_P_ATTRIBUTEANIMATIONNAME (); } return _P_ATTRIBUTEANIMATIONNAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OTHERNODE ();
-            static int _P_OTHERNODE;
-            internal static int P_OTHERNODE { get { if (_P_OTHERNODE == 0){ _P_OTHERNODE = urho_hash_get_P_OTHERNODE (); } return _P_OTHERNODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BYKEY ();
-            static int _P_BYKEY;
-            internal static int P_BYKEY { get { if (_P_BYKEY == 0){ _P_BYKEY = urho_hash_get_P_BYKEY (); } return _P_BYKEY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENT ();
-            static int _P_ELEMENT;
-            internal static int P_ELEMENT { get { if (_P_ELEMENT == 0){ _P_ELEMENT = urho_hash_get_P_ELEMENT (); } return _P_ELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_ITEM ();
             static int _P_ITEM;
             internal static int P_ITEM { get { if (_P_ITEM == 0){ _P_ITEM = urho_hash_get_P_ITEM (); } return _P_ITEM; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_REQUESTID ();
-            static int _P_REQUESTID;
-            internal static int P_REQUESTID { get { if (_P_REQUESTID == 0){ _P_REQUESTID = urho_hash_get_P_REQUESTID (); } return _P_REQUESTID; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_AXIS ();
@@ -6057,24 +6012,74 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_AXIS { get { if (_P_AXIS == 0){ _P_AXIS = urho_hash_get_P_AXIS (); } return _P_AXIS; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_JOYSTICKID ();
-            static int _P_JOYSTICKID;
-            internal static int P_JOYSTICKID { get { if (_P_JOYSTICKID == 0){ _P_JOYSTICKID = urho_hash_get_P_JOYSTICKID (); } return _P_JOYSTICKID; }}
+            extern static int urho_hash_get_P_VELOCITY ();
+            static int _P_VELOCITY;
+            internal static int P_VELOCITY { get { if (_P_VELOCITY == 0){ _P_VELOCITY = urho_hash_get_P_VELOCITY (); } return _P_VELOCITY; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BOUNDSMIN ();
-            static int _P_BOUNDSMIN;
-            internal static int P_BOUNDSMIN { get { if (_P_BOUNDSMIN == 0){ _P_BOUNDSMIN = urho_hash_get_P_BOUNDSMIN (); } return _P_BOUNDSMIN; }}
+            extern static int urho_hash_get_P_BODYB ();
+            static int _P_BODYB;
+            internal static int P_BODYB { get { if (_P_BODYB == 0){ _P_BODYB = urho_hash_get_P_BODYB (); } return _P_BODYB; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESSAGE ();
-            static int _P_MESSAGE;
-            internal static int P_MESSAGE { get { if (_P_MESSAGE == 0){ _P_MESSAGE = urho_hash_get_P_MESSAGE (); } return _P_MESSAGE; }}
+            extern static int urho_hash_get_P_MESSAGEID ();
+            static int _P_MESSAGEID;
+            internal static int P_MESSAGEID { get { if (_P_MESSAGEID == 0){ _P_MESSAGEID = urho_hash_get_P_MESSAGEID (); } return _P_MESSAGEID; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENTY ();
-            static int _P_ELEMENTY;
-            internal static int P_ELEMENTY { get { if (_P_ELEMENTY == 0){ _P_ELEMENTY = urho_hash_get_P_ELEMENTY (); } return _P_ELEMENTY; }}
+            extern static int urho_hash_get_P_INDEX ();
+            static int _P_INDEX;
+            internal static int P_INDEX { get { if (_P_INDEX == 0){ _P_INDEX = urho_hash_get_P_INDEX (); } return _P_INDEX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SOURCE ();
+            static int _P_SOURCE;
+            internal static int P_SOURCE { get { if (_P_SOURCE == 0){ _P_SOURCE = urho_hash_get_P_SOURCE (); } return _P_SOURCE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FOCUS ();
+            static int _P_FOCUS;
+            internal static int P_FOCUS { get { if (_P_FOCUS == 0){ _P_FOCUS = urho_hash_get_P_FOCUS (); } return _P_FOCUS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NODEA ();
+            static int _P_NODEA;
+            internal static int P_NODEA { get { if (_P_NODEA == 0){ _P_NODEA = urho_hash_get_P_NODEA (); } return _P_NODEA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CLONECOMPONENT ();
+            static int _P_CLONECOMPONENT;
+            internal static int P_CLONECOMPONENT { get { if (_P_CLONECOMPONENT == 0){ _P_CLONECOMPONENT = urho_hash_get_P_CLONECOMPONENT (); } return _P_CLONECOMPONENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BODYA ();
+            static int _P_BODYA;
+            internal static int P_BODYA { get { if (_P_BODYA == 0){ _P_BODYA = urho_hash_get_P_BODYA (); } return _P_BODYA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_HIGHDPI ();
+            static int _P_HIGHDPI;
+            internal static int P_HIGHDPI { get { if (_P_HIGHDPI == 0){ _P_HIGHDPI = urho_hash_get_P_HIGHDPI (); } return _P_HIGHDPI; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CENTERY ();
+            static int _P_CENTERY;
+            internal static int P_CENTERY { get { if (_P_CENTERY == 0){ _P_CENTERY = urho_hash_get_P_CENTERY (); } return _P_CENTERY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_PRESSURE ();
+            static int _P_PRESSURE;
+            internal static int P_PRESSURE { get { if (_P_PRESSURE == 0){ _P_PRESSURE = urho_hash_get_P_PRESSURE (); } return _P_PRESSURE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NODEB ();
+            static int _P_NODEB;
+            internal static int P_NODEB { get { if (_P_NODEB == 0){ _P_NODEB = urho_hash_get_P_NODEB (); } return _P_NODEB; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OTHERBODY ();
+            static int _P_OTHERBODY;
+            internal static int P_OTHERBODY { get { if (_P_OTHERBODY == 0){ _P_OTHERBODY = urho_hash_get_P_OTHERBODY (); } return _P_OTHERBODY; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_MINIMIZED ();
@@ -6082,44 +6087,29 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_MINIMIZED { get { if (_P_MINIMIZED == 0){ _P_MINIMIZED = urho_hash_get_P_MINIMIZED (); } return _P_MINIMIZED; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MODE ();
-            static int _P_MODE;
-            internal static int P_MODE { get { if (_P_MODE == 0){ _P_MODE = urho_hash_get_P_MODE (); } return _P_MODE; }}
+            extern static int urho_hash_get_P_ELEMENTX ();
+            static int _P_ELEMENTX;
+            internal static int P_ELEMENTX { get { if (_P_ELEMENTX == 0){ _P_ELEMENTX = urho_hash_get_P_ELEMENTX (); } return _P_ELEMENTX; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONTACTS ();
-            static int _P_CONTACTS;
-            internal static int P_CONTACTS { get { if (_P_CONTACTS == 0){ _P_CONTACTS = urho_hash_get_P_CONTACTS (); } return _P_CONTACTS; }}
+            extern static int urho_hash_get_P_TIMESTAMP ();
+            static int _P_TIMESTAMP;
+            internal static int P_TIMESTAMP { get { if (_P_TIMESTAMP == 0){ _P_TIMESTAMP = urho_hash_get_P_TIMESTAMP (); } return _P_TIMESTAMP; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_EFFECT ();
-            static int _P_EFFECT;
-            internal static int P_EFFECT { get { if (_P_EFFECT == 0){ _P_EFFECT = urho_hash_get_P_EFFECT (); } return _P_EFFECT; }}
+            extern static int urho_hash_get_P_RESIZABLE ();
+            static int _P_RESIZABLE;
+            internal static int P_RESIZABLE { get { if (_P_RESIZABLE == 0){ _P_RESIZABLE = urho_hash_get_P_RESIZABLE (); } return _P_RESIZABLE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WHEEL ();
-            static int _P_WHEEL;
-            internal static int P_WHEEL { get { if (_P_WHEEL == 0){ _P_WHEEL = urho_hash_get_P_WHEEL (); } return _P_WHEEL; }}
+            extern static int urho_hash_get_P_PROGRESS ();
+            static int _P_PROGRESS;
+            internal static int P_PROGRESS { get { if (_P_PROGRESS == 0){ _P_PROGRESS = urho_hash_get_P_PROGRESS (); } return _P_PROGRESS; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESH ();
-            static int _P_MESH;
-            internal static int P_MESH { get { if (_P_MESH == 0){ _P_MESH = urho_hash_get_P_MESH (); } return _P_MESH; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BEGINELEMENT ();
-            static int _P_BEGINELEMENT;
-            internal static int P_BEGINELEMENT { get { if (_P_BEGINELEMENT == 0){ _P_BEGINELEMENT = urho_hash_get_P_BEGINELEMENT (); } return _P_BEGINELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OFFSET ();
-            static int _P_OFFSET;
-            internal static int P_OFFSET { get { if (_P_OFFSET == 0){ _P_OFFSET = urho_hash_get_P_OFFSET (); } return _P_OFFSET; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OBSTACLE ();
-            static int _P_OBSTACLE;
-            internal static int P_OBSTACLE { get { if (_P_OBSTACLE == 0){ _P_OBSTACLE = urho_hash_get_P_OBSTACLE (); } return _P_OBSTACLE; }}
+            extern static int urho_hash_get_P_TEXTURE ();
+            static int _P_TEXTURE;
+            internal static int P_TEXTURE { get { if (_P_TEXTURE == 0){ _P_TEXTURE = urho_hash_get_P_TEXTURE (); } return _P_TEXTURE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_LOADEDNODES ();
@@ -6127,9 +6117,19 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_LOADEDNODES { get { if (_P_LOADEDNODES == 0){ _P_LOADEDNODES = urho_hash_get_P_LOADEDNODES (); } return _P_LOADEDNODES; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESIZABLE ();
-            static int _P_RESIZABLE;
-            internal static int P_RESIZABLE { get { if (_P_RESIZABLE == 0){ _P_RESIZABLE = urho_hash_get_P_RESIZABLE (); } return _P_RESIZABLE; }}
+            extern static int urho_hash_get_P_ROOT ();
+            static int _P_ROOT;
+            internal static int P_ROOT { get { if (_P_ROOT == 0){ _P_ROOT = urho_hash_get_P_ROOT (); } return _P_ROOT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_KEY ();
+            static int _P_KEY;
+            internal static int P_KEY { get { if (_P_KEY == 0){ _P_KEY = urho_hash_get_P_KEY (); } return _P_KEY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_STATE ();
+            static int _P_STATE;
+            internal static int P_STATE { get { if (_P_STATE == 0){ _P_STATE = urho_hash_get_P_STATE (); } return _P_STATE; }}
 
         }
     }
