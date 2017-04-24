@@ -197,7 +197,7 @@ while (<>){
 			print CS "             ObjectCallbackSignature callback${eventName};\n";
 			print CS "             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]\n";
 			print CS "             extern static IntPtr urho_subscribe_$eventName (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
-			print CS "             [Obsolete(\"SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# events instead (SubscribeToKeyDown -> KeyDown += ...).\")]\n";			
+			print CS "             [Obsolete(\"SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.${eventName} += ...' instead.\")]\n";			
 			print CS "             @{[$en eq 'Update' ? 'internal' : 'public']} Subscription SubscribeTo${eventName} (Action<${eventName}EventArgs> handler)\n";
 			print CS "             {\n";
 			print CS "                  Action<IntPtr> proxy = (x)=> { var d = new ${eventName}EventArgs () { handle = x }; handler (d); };\n";
