@@ -98,12 +98,14 @@
       <Name>Urho.Extensions.Cocoa</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="Exists('..\..\..\Bin\Desktop\libmono-urho.dylib')">
     <Content Include="..\..\..\Bin\Desktop\libmono-urho.dylib">
       <Link>libmono-urho.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\Urho3D\CoreData.pak">
       <Link>CoreData.pak</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
