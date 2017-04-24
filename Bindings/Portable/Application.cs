@@ -28,10 +28,12 @@ namespace Urho {
 		static ActionIntPtr stopCallback;
 
 		static TaskCompletionSource<bool> exitTask;
+		static TaskCompletionSource<bool> waitFrameEndTaskSource;
 		static int renderThreadId = -1;
-		List<Action> actionsToDispatch = new List<Action>();
+		static bool isExiting = false;
 		static List<Action> staticActionsToDispatch;
 		static List<DelayState> delayTasks;
+		List<Action> actionsToDispatch = new List<Action>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr (IntPtr value);
@@ -105,6 +107,11 @@ namespace Urho {
 		public ApplicationOptions Options { get; private set; }
 
 		/// <summary>
+		/// True means Urho3D is somewhere between E_BEGINFRAME and E_ENDFRAME in Engine::RunFrame()
+		/// </summary>
+		public bool IsFrameRendering { get; private set; }
+
+		/// <summary>
 		/// Frame update event
 		/// </summary>
 		public event Action<UpdateEventArgs> Update;
@@ -169,6 +176,18 @@ namespace Urho {
 
 		static Application GetApp(IntPtr h) => Runtime.LookupObject<Application>(h);
 
+		void Time_FrameStarted(FrameStartedEventArgs args)
+		{
+			IsFrameRendering = true;
+		}
+
+		void Time_FrameEnded(FrameEndedEventArgs args)
+		{
+			IsFrameRendering = false;
+			if (waitFrameEndTaskSource != null)
+				waitFrameEndTaskSource?.TrySetResult(true);
+		}
+
 		void HandleUpdate(UpdateEventArgs args)
 		{
 			var timeStep = args.TimeStep;
@@ -212,6 +231,7 @@ namespace Urho {
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
 		static void ProxySetup (IntPtr h)
 		{
+			isExiting = false;
 			Runtime.Setup();
 			Current = GetApp(h);
 			CurrentContext = Current.Context;
@@ -242,8 +262,9 @@ namespace Urho {
 		public static bool CancelActiveActionsOnStop { get; set; }
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
-		static async void ProxyStop (IntPtr h)
+		static void ProxyStop (IntPtr h)
 		{
+			isExiting = true;
 			if (CancelActiveActionsOnStop)
 				Current.ActionManager.CancelActiveActions();
 			LogSharp.Debug("ProxyStop");
@@ -251,33 +272,29 @@ namespace Urho {
 			var context = Current.Context;
 			var app = GetApp (h);
 			app.IsClosed = true;
-			app.UnsubscribeFromAppEvents();
 			app.Stop ();
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
 			LogSharp.Debug("ProxyStop: Disposing context");
 			context.Dispose();
 			Current = null;
-			Stoped?.Invoke();
+			Stopped?.Invoke();
 			LogSharp.Debug("ProxyStop: end");
 			exitTask?.TrySetResult(true);
 		}
 
-		Subscription updateSubscription = null;
 		void SubscribeToAppEvents()
 		{
-			updateSubscription = Engine.SubscribeToUpdate(HandleUpdate);
-		}
-
-		void UnsubscribeFromAppEvents()
-		{
-			updateSubscription?.Unsubscribe();
+			Engine.SubscribeToUpdate(HandleUpdate);
+			Time.FrameStarted += Time_FrameStarted;
+			Time.FrameEnded += Time_FrameEnded;
 		}
 
 		internal static async Task StopCurrent()
 		{
 			if (current == null)
 				return;
+			isExiting = true;
 
 #if WINDOWS_UWP && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
@@ -304,9 +321,17 @@ namespace Urho {
 				});
 			}
 #else
+			if (Current.IsFrameRendering)
+			{
+				waitFrameEndTaskSource = new TaskCompletionSource<bool>();
+				await waitFrameEndTaskSource.Task;
+			}
 			Current.Engine.Exit ();
 #endif
-#if IOS || WINDOWS_UWP || DESKTOP
+#if IOS || WINDOWS_UWP
+#if DESKTOP
+		if (Current.Options.DelayedStart)
+#endif
 			ProxyStop(Current.Handle);
 #endif
 			GC.Collect();
@@ -314,7 +339,7 @@ namespace Urho {
 			GC.Collect();
 		}
 
-		public bool IsExiting => Runtime.IsClosing || Engine.Exiting;
+		public bool IsExiting => isExiting || Runtime.IsClosing || Engine.Exiting;
 
 		public bool IsActive => !IsClosed && !IsDeleted && !Engine.IsDeleted && !IsExiting;
 
@@ -322,7 +347,6 @@ namespace Urho {
 		{
 			if (!IsActive)
 				return Task.FromResult<object>(null);
-			IsClosed = true;
 			return StopCurrent();
 		}
 
@@ -333,7 +357,7 @@ namespace Urho {
 		public static event Action Started;
 		protected virtual void Start () {}
 
-		public static event Action Stoped;
+		public static event Action Stopped;
 		protected virtual void Stop () {}
 
 		protected virtual void OnUpdate(float timeStep) { }

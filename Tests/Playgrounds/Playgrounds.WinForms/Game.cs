@@ -10,7 +10,7 @@ namespace Playgrounds.WinForms
 		public Game(ApplicationOptions opts) : base(opts) { }
 
 		Text helloText;
-		static int num = 0;
+		static int instanceId = 0;
 
 		public Viewport Viewport { get; private set; }
 		public Scene Scene { get; private set; }
@@ -20,11 +20,7 @@ namespace Playgrounds.WinForms
 
 		protected override void Start()
 		{
-			CreateScene();
-		}
-
-		async void CreateScene()
-		{
+			instanceId++;
 			Log.LogLevel = LogLevel.Debug;
 			// UI text 
 			helloText = new Text(Context);
@@ -108,7 +104,7 @@ namespace Playgrounds.WinForms
 		{
 			if (Input.GetMouseButtonDown(MouseButton.Left))
                 SimpleMoveCamera3D(timeStep);
-			helloText.Value = $"UrhoSharp Instance: {num++}\nResolution: {Graphics.Width}x{Graphics.Height}";
+			helloText.Value = $"UrhoSharp Instance: {instanceId}\nResolution: {Graphics.Width}x{Graphics.Height}";
 			base.OnUpdate(timeStep);
 		}
 	}
