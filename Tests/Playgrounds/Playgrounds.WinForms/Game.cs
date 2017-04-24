@@ -9,6 +9,7 @@ namespace Playgrounds.WinForms
 	{
 		public Game(ApplicationOptions opts) : base(opts) { }
 
+		Text helloText;
 		static int num = 0;
 
 		public Viewport Viewport { get; private set; }
@@ -24,9 +25,9 @@ namespace Playgrounds.WinForms
 
 		async void CreateScene()
 		{
+			Log.LogLevel = LogLevel.Debug;
 			// UI text 
-			var helloText = new Text(Context);
-			helloText.Value = "UrhoSharp Instance: " + num++;
+			helloText = new Text(Context);
 			helloText.HorizontalAlignment = HorizontalAlignment.Center;
 			helloText.VerticalAlignment = VerticalAlignment.Top;
 			helloText.SetColor(Color.Black);
@@ -106,7 +107,8 @@ namespace Playgrounds.WinForms
 		protected override void OnUpdate(float timeStep)
 		{
 			if (Input.GetMouseButtonDown(MouseButton.Left))
-				SimpleMoveCamera3D(timeStep);
+                SimpleMoveCamera3D(timeStep);
+			helloText.Value = $"UrhoSharp Instance: {num++}\nResolution: {Graphics.Width}x{Graphics.Height}";
 			base.OnUpdate(timeStep);
 		}
 	}

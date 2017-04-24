@@ -278,6 +278,7 @@ namespace Urho {
 		{
 			if (current == null)
 				return;
+
 #if WINDOWS_UWP && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
@@ -315,7 +316,7 @@ namespace Urho {
 
 		public bool IsExiting => Runtime.IsClosing || Engine.Exiting;
 
-		public bool IsActive => !IsClosed && !IsDeleted && !IsExiting;
+		public bool IsActive => !IsClosed && !IsDeleted && !Engine.IsDeleted && !IsExiting;
 
 		public Task Exit()
 		{
