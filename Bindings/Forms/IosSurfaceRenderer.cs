@@ -26,7 +26,6 @@ namespace Urho.Forms
 
 	public class IosUrhoSurface : UIView
 	{
-		static TaskCompletionSource<Application> applicationTaskSource;
 		static readonly SemaphoreSlim launcherSemaphore = new SemaphoreSlim(1);
 		static Urho.iOS.UrhoSurface surface;
 		static Urho.Application app;
@@ -34,33 +33,17 @@ namespace Urho.Forms
 		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
 		{
 			await launcherSemaphore.WaitAsync();
-			if (app != null)
-			{
-				app.Exit();
-			}
-
-			applicationTaskSource = new TaskCompletionSource<Application>();
-			Urho.Application.Started += UrhoApplicationStarted;
 			if (surface != null)
 			{
+				await surface.Stop();
 				surface.RemoveFromSuperview ();
 			}
 			surface = new Urho.iOS.UrhoSurface(this.Bounds);
 			surface.AutoresizingMask = UIViewAutoresizing.All;
 			this.Add(surface);
-
-			await surface.InitializeTask;
-			app = Urho.Application.CreateInstance(type, options);
-			app.Run();
-
-			return await applicationTaskSource.Task;
-		}
-
-		void UrhoApplicationStarted()
-		{
-			Urho.Application.Started -= UrhoApplicationStarted;
-			applicationTaskSource?.TrySetResult(app);
+			app = await surface.Show(type, options);
 			launcherSemaphore.Release();
+			return app;
 		}
 	}
 }

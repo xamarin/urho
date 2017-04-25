@@ -10,6 +10,18 @@ namespace Playgrounds.Forms
 		{
 			MainPage = new NavigationPage(new StartPage { });
 		}
+
+		protected override void OnResume()
+		{
+			UrhoSurface.OnResume();
+			base.OnResume();
+		}
+
+		protected override void OnSleep()
+		{
+			UrhoSurface.OnPause();
+			base.OnSleep();
+		}
 	}
 
 	public class StartPage : ContentPage
@@ -38,7 +50,11 @@ namespace Playgrounds.Forms
 			urhoSurface.VerticalOptions = LayoutOptions.FillAndExpand;
 
 			Slider rotationSlider = new Slider(0, 500, 250);
-			rotationSlider.ValueChanged += (s, e) => urhoApp?.Rotate((float)(e.NewValue - e.OldValue));
+			rotationSlider.ValueChanged += (s, e) =>
+				{
+					if (urhoApp?.IsActive == true)
+						Urho.Application.InvokeOnMain(() => urhoApp.Rotate((float)(e.NewValue - e.OldValue)));
+				};
 
 			selectedBarSlider = new Slider(0, 5, 2.5);
 			selectedBarSlider.ValueChanged += OnValuesSliderValueChanged;
@@ -68,7 +84,7 @@ namespace Playgrounds.Forms
 		void OnValuesSliderValueChanged(object sender, ValueChangedEventArgs e)
 		{
 			if (urhoApp?.SelectedBar != null)
-				urhoApp.SelectedBar.Value = (float)e.NewValue;
+				Urho.Application.InvokeOnMain(() => urhoApp.SelectedBar.Value = (float)e.NewValue);
 		}
 
 		private void OnBarSelection(Bar bar)

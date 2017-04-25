@@ -18,18 +18,18 @@ namespace Urho.Forms
 #if IOS
 		public static void OnPause()
 		{
-			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_LOST);
-			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_MINIMIZED);
+			Urho.iOS.UrhoSurface.Pause();
 		}
 
 		public static void OnResume()
 		{
-			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED);
-			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESTORED);
+			Urho.iOS.UrhoSurface.Resume();
 		}
 
 		public static void OnDestroy()
 		{
+			if (Urho.Application.HasCurrent && Urho.Application.Current.IsActive)
+				Urho.Application.Current.Exit();
 		}
 #elif ANDROID
 		public static void OnPause()

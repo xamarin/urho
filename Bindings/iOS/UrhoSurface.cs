@@ -19,6 +19,7 @@ namespace Urho.iOS
 		static extern void UIKit_StopRenderLoop(IntPtr window);
 
 		static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(1);
+		TaskCompletionSource<bool> waitWhileSuperviewIsNullTaskSource = new TaskCompletionSource<bool>();
 		bool paused;
 
 		public UrhoSurface() { }
@@ -74,14 +75,16 @@ namespace Urho.iOS
 
 		public async Task<Application> Show(Type appType, ApplicationOptions opts = null)
 		{
+			LogSharp.Debug("UrhoSurface: Show.");
+			await waitWhileSuperviewIsNullTaskSource.Task;
 			UrhoPlatformInitializer.DefaultInit();
 			await Task.Yield();
 			paused = false;
 			opts = opts ?? new ApplicationOptions();
+			LogSharp.Debug("UrhoSurface: Show. Wait semaphore.");
 			await Semaphore.WaitAsync();
-			if (Application.HasCurrent)
-				await Application.Current.Exit();
-			await Task.Yield();
+			await Stop();
+			//await Task.Yield();
 
 			SDL_SetExternalViewPlaceholder(Handle, Window.Handle);
 
@@ -91,38 +94,58 @@ namespace Urho.iOS
 			app.Run();
 			Semaphore.Release();
 			await Application.ToMainThreadAsync();
-			InvokeOnMainThread(() => Hidden = false);
+           	InvokeOnMainThread(() => Hidden = false);
+			LogSharp.Debug("UrhoSurface: Finished.");
 			return app;
 		}
 
 		public static void StopRendering(Application app)
 		{
-			Resume();
-			StartOrStopAnimationCallback(false);
-		}
-
-		static void StartOrStopAnimationCallback(bool start)
-		{
+			LogSharp.Debug("UrhoSurface: StopRendering.");
+            Resume();
 			if (Application.HasCurrent && Application.Current.Graphics?.IsDeleted != true)
 			{
 				var window = Application.Current.Graphics.SdlWindow;
 				if (window != IntPtr.Zero)
+				{
+					LogSharp.Debug("UrhoSurface: UIKit_StopRenderLoop.");
 					UIKit_StopRenderLoop(window);
+				}
 			}
+			LogSharp.Debug("UrhoSurface: Finished.");
 		}
 
 		public async Task Stop()
 		{
-			if (Application == null && Application.IsActive)
+			LogSharp.Debug("UrhoSurface: Stop.");
+			if (Application == null || !Application.IsActive)
 				return;
 
+			LogSharp.Debug("UrhoSurface: Stop. Wait semaphore.");
 			await Semaphore.WaitAsync();
-			Application.Exit();
+			LogSharp.Debug("UrhoSurface: Stop. Exiting...");
+			await Application.Exit();
+			LogSharp.Debug("UrhoSurface: Stop. Removing subviews...");
 			foreach (var view in Subviews)
 			{
 				view.RemoveFromSuperview();
 			}
 			Semaphore.Release();
+			LogSharp.Debug("UrhoSurface: Stop. Finished.");
 		}
+
+		public override void RemoveFromSuperview()
+		{
+			base.RemoveFromSuperview();
+			waitWhileSuperviewIsNullTaskSource = new TaskCompletionSource<bool>();
+		}
+
+		public override async void WillMoveToWindow(UIWindow window)
+		{
+			base.WillMoveToWindow(window);
+			await Task.Yield();
+			waitWhileSuperviewIsNullTaskSource.TrySetResult(true);
+		}
+		
 	}
 }
