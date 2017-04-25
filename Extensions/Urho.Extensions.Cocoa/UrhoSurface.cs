@@ -87,8 +87,12 @@ namespace Urho.Extensions.Cocoa
 			var app = Application.CreateInstance(appType, opts);
 			Application = app;
 			app.Run();
+			Hidden = true;
+
 			Semaphore.Release();
 			StartLoop(app);
+			await Task.Yield();
+			Hidden = false;
 			return app;
 		}
 

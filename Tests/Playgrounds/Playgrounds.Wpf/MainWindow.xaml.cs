@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using Playgrounds.WinForms;
 
 namespace Playgrounds.Wpf
 {

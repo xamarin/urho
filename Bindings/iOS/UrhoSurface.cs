@@ -3,58 +3,126 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using CoreGraphics;
 using UIKit;
+using Foundation;
+using System.ComponentModel;
+using System.Threading;
 
 namespace Urho.iOS
 {
+	[Register("UrhoSurface"), DesignTimeVisible(true)]
 	public class UrhoSurface : UIView
 	{
-		[DllImport("@rpath/Urho.framework/Urho", CallingConvention = CallingConvention.Cdecl)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetExternalViewPlaceholder(IntPtr viewPtr, IntPtr windowPtr);
 
-		TaskCompletionSource<bool> initTaskSource = new TaskCompletionSource<bool>();
+		[DllImport(Consts.NativeImport)]
+		static extern void UIKit_StopRenderLoop(IntPtr window);
 
-		public Task InitializeTask => initTaskSource.Task;
+		static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(1);
+		bool paused;
 
-		public UrhoSurface()
+		public UrhoSurface() { }
+		public UrhoSurface(IntPtr handle) : base(handle) { }
+
+		public override void AwakeFromNib()
 		{
-			UrhoPlatformInitializer.DefaultInit();
-			initTaskSource = new TaskCompletionSource<bool>();
-			BackgroundColor = UIColor.Black;
+			base.AwakeFromNib();
 		}
 
 		public UrhoSurface(CGRect frame) : base(frame)
 		{
 			UrhoPlatformInitializer.DefaultInit();
-			BackgroundColor = UIColor.Black;
-			initTaskSource = new TaskCompletionSource<bool>();
 		}
 
-		public void Pause()
+		public static void Pause()
 		{
-			if (!Urho.Application.HasCurrent) return;
-			Urho.Application.Current.Engine.PauseMinimized = true;
+			if (!Application.HasCurrent) return;
+			Application.Current.Input.Enabled = false;
+			Application.Current.Engine.PauseMinimized = true;
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_LOST);
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_MINIMIZED);
 		}
 
-		public void Resume()
+		public static void Resume()
 		{
-			if (!Urho.Application.HasCurrent) return;
-			Urho.Application.Current.Engine.PauseMinimized = false;
+			if (!Application.HasCurrent) return;
+			Application.Current.Input.Enabled = true;
+			Application.Current.Engine.PauseMinimized = false;
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED);
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESTORED);
 		}
-		
-		public override void MovedToWindow()
+
+		public Application Application { get; private set; }
+
+		public bool Paused
 		{
-			base.MovedToWindow();
-			var wndHandle = Window?.Handle;
-			SDL_SetExternalViewPlaceholder(Handle, wndHandle ?? IntPtr.Zero);
-			if (wndHandle != null) {
-				initTaskSource.TrySetResult (true);
-			} else {
-				initTaskSource = new TaskCompletionSource<bool> ();
+			get { return paused; }
+			set
+			{
+				if (!value)
+					Resume();
+				else
+					Pause();
+				paused = value;
 			}
+		}
+
+		public async Task<TApplication> Show<TApplication>(ApplicationOptions opts = null) where TApplication : Application
+		{
+			return (TApplication)(await Show(typeof(TApplication), opts));
+		}
+
+		public async Task<Application> Show(Type appType, ApplicationOptions opts = null)
+		{
+			UrhoPlatformInitializer.DefaultInit();
+			await Task.Yield();
+			paused = false;
+			opts = opts ?? new ApplicationOptions();
+			await Semaphore.WaitAsync();
+			if (Application.HasCurrent)
+				await Application.Current.Exit();
+			await Task.Yield();
+
+			SDL_SetExternalViewPlaceholder(Handle, Window.Handle);
+
+			Hidden = true;
+			var app = Application.CreateInstance(appType, opts);
+			Application = app;
+			app.Run();
+			Semaphore.Release();
+			await Application.ToMainThreadAsync();
+			InvokeOnMainThread(() => Hidden = false);
+			return app;
+		}
+
+		public static void StopRendering(Application app)
+		{
+			Resume();
+			StartOrStopAnimationCallback(false);
+		}
+
+		static void StartOrStopAnimationCallback(bool start)
+		{
+			if (Application.HasCurrent && Application.Current.Graphics?.IsDeleted != true)
+			{
+				var window = Application.Current.Graphics.SdlWindow;
+				if (window != IntPtr.Zero)
+					UIKit_StopRenderLoop(window);
+			}
+		}
+
+		public async Task Stop()
+		{
+			if (Application == null && Application.IsActive)
+				return;
+
+			await Semaphore.WaitAsync();
+			Application.Exit();
+			foreach (var view in Subviews)
+			{
+				view.RemoveFromSuperview();
+			}
+			Semaphore.Release();
 		}
 	}
 }

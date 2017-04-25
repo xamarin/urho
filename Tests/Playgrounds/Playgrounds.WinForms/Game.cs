@@ -3,7 +3,7 @@ using Urho.Actions;
 using Urho.Gui;
 using Urho.Shapes;
 
-namespace Playgrounds.WinForms
+namespace Playgrounds
 {
 	class Game : Application
 	{
@@ -17,6 +17,8 @@ namespace Playgrounds.WinForms
 		public Node CameraNode { get; private set; }
 		public float Yaw { get; private set; }
 		public float Pitch { get; private set; }
+
+		public static Urho.Color BackgroundColor { get; set; } = Color.White;
 
 		protected override void Start()
 		{
@@ -53,8 +55,8 @@ namespace Playgrounds.WinForms
 
 			// Viewport
 			Viewport = new Viewport(Context, Scene, camera, null);
-			Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA3);
-			Viewport.SetClearColor(Color.White);
+			//Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA2);
+			Viewport.SetClearColor(BackgroundColor);
 			Renderer.SetViewport(0, Viewport);
 
 			new MonoDebugHud(this).Show(Color.Red);
@@ -100,10 +102,31 @@ namespace Playgrounds.WinForms
 			if (Input.GetKeyDown(Key.D)) CameraNode.Translate(Vector3.UnitX * moveSpeed * timeStep);
 		}
 
+		protected void MoveCameraByTouches(float timeStep)
+		{
+			var input = Input;
+			for (uint i = 0, num = input.NumTouches; i < num; ++i)
+			{
+				TouchState state = input.GetTouch(i);
+				if (state.TouchedElement != null)
+					continue;
+
+				if (state.Delta.X != 0 || state.Delta.Y != 0)
+				{
+					var camera = CameraNode.GetComponent<Camera>();
+					Yaw += 2 * camera.Fov / Graphics.Height * state.Delta.X;
+					Pitch += 2 * camera.Fov / Graphics.Height * state.Delta.Y;
+					CameraNode.Rotation = new Quaternion(Pitch, Yaw, 0);
+				}
+			}
+		}
+
 		protected override void OnUpdate(float timeStep)
 		{
 			if (Input.GetMouseButtonDown(MouseButton.Left))
                 SimpleMoveCamera3D(timeStep);
+			MoveCameraByTouches(timeStep);
+
 			helloText.Value = $"UrhoSharp Instance: {instanceId}\nResolution: {Graphics.Width}x{Graphics.Height}";
 			base.OnUpdate(timeStep);
 		}

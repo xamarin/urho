@@ -1,9 +1,9 @@
 ﻿using System;
 using Urho;
 using Urho.Extensions.Cocoa;
-using Playgrounds.WinForms;
 using AppKit;
 using Foundation;
+using System.Threading.Tasks;
 
 namespace Playgrounds.Cocoa
 {
@@ -17,7 +17,6 @@ namespace Playgrounds.Cocoa
 		public override async void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-
 			urhoSurface = new UrhoSurface();
 			urhoSurface.Frame = UrhoSurfacePlaceholder.Bounds;
 
@@ -27,6 +26,7 @@ namespace Playgrounds.Cocoa
 
 		async partial void RestartClicked(NSObject sender)
 		{
+			await Task.Yield();
 			game = await urhoSurface.Show<Game>(new ApplicationOptions());
 		}
 

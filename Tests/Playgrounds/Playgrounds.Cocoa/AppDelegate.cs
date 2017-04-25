@@ -19,5 +19,15 @@ namespace Playgrounds.Cocoa
 		{
 			// Insert code here to tear down your application
 		}
+
+		public override NSApplicationTerminateReply ApplicationShouldTerminate(NSApplication sender)
+		{
+			return base.ApplicationShouldTerminate(sender);
+		}
+
+		public override bool ApplicationShouldTerminateAfterLastWindowClosed(NSApplication sender)
+		{
+			return true;
+		}
 	}
 }

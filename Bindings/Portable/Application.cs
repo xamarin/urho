@@ -17,7 +17,8 @@ using Urho.Resources;
 using Urho.Actions;
 using Urho.Gui;
 
-namespace Urho {
+namespace Urho
+{
 
 	[PreserveAttribute(AllMembers = true)]
 	public partial class Application
@@ -36,17 +37,17 @@ namespace Urho {
 		List<Action> actionsToDispatch = new List<Action>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		public delegate void ActionIntPtr (IntPtr value);
+		public delegate void ActionIntPtr(IntPtr value);
 
-		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-		static extern IntPtr ApplicationProxy_ApplicationProxy (IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args, IntPtr externalWindow);
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern IntPtr ApplicationProxy_ApplicationProxy(IntPtr contextHandle, ActionIntPtr setup, ActionIntPtr start, ActionIntPtr stop, string args, IntPtr externalWindow);
 
 		static Application current;
 		public static Application Current
 		{
 			get
 			{
-				if (current == null) 
+				if (current == null)
 					throw new InvalidOperationException("The application is not configured yet");
 				return current;
 			}
@@ -71,14 +72,14 @@ namespace Urho {
 		public const float PixelSize = 0.01f;
 
 		[Preserve]
-		public Application(ApplicationOptions options) : this(new Context(), options) {}
+		public Application(ApplicationOptions options) : this(new Context(), options) { }
 
-		Application (Context context, ApplicationOptions options = null) : base (UrhoObjectFlag.Empty)
+		Application(Context context, ApplicationOptions options = null) : base(UrhoObjectFlag.Empty)
 		{
 			//Workbooks specific:
 			CancelActiveActionsOnStop = this is SimpleApplication;
 			if (context == null)
-				throw new ArgumentNullException (nameof(context));
+				throw new ArgumentNullException(nameof(context));
 
 			//keep references to callbacks (supposed to be passed to native code) as long as the App is alive
 			setupCallback = ProxySetup;
@@ -91,8 +92,8 @@ namespace Urho {
 #endif
 
 			Options = options ?? new ApplicationOptions(assetsFolder: null);
-			handle = ApplicationProxy_ApplicationProxy (context.Handle, setupCallback, startCallback, stopCallback, Options.ToString(), Options.ExternalWindow);
-			Runtime.RegisterObject (this);
+			handle = ApplicationProxy_ApplicationProxy(context.Handle, setupCallback, startCallback, stopCallback, Options.ToString(), Options.ExternalWindow);
+			Runtime.RegisterObject(this);
 		}
 
 		public bool IsClosed { get; private set; }
@@ -115,7 +116,7 @@ namespace Urho {
 		/// Frame update event
 		/// </summary>
 		public event Action<UpdateEventArgs> Update;
-		
+
 		/// <summary>
 		/// Invoke actions in the Main Thread (the next Update call)
 		/// </summary>
@@ -123,14 +124,13 @@ namespace Urho {
 		{
 			if (!HasCurrent)
 			{
-				Urho.IO.Log.Write(LogLevel.Warning, "InvokeOnMain was invoked before an Application was initialized.");
 				if (staticActionsToDispatch == null)
 					staticActionsToDispatch = new List<Action>();
 				lock (staticActionsToDispatch)
 					staticActionsToDispatch.Add(action);
 
 				return;
-			} 
+			}
 
 			var actions = Current.actionsToDispatch;
 			lock (actions)
@@ -229,17 +229,17 @@ namespace Urho {
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
-		static void ProxySetup (IntPtr h)
+		static void ProxySetup(IntPtr h)
 		{
 			isExiting = false;
 			Runtime.Setup();
 			Current = GetApp(h);
 			CurrentContext = Current.Context;
-			Current.Setup ();
+			Current.Setup();
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
-		static void ProxyStart (IntPtr h)
+		static void ProxyStart(IntPtr h)
 		{
 			Runtime.Start();
 			Current = GetApp(h);
@@ -262,7 +262,7 @@ namespace Urho {
 		public static bool CancelActiveActionsOnStop { get; set; }
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
-		static void ProxyStop (IntPtr h)
+		static void ProxyStop(IntPtr h)
 		{
 			isExiting = true;
 			if (CancelActiveActionsOnStop)
@@ -270,9 +270,9 @@ namespace Urho {
 			LogSharp.Debug("ProxyStop");
 			UrhoPlatformInitializer.Initialized = false;
 			var context = Current.Context;
-			var app = GetApp (h);
+			var app = GetApp(h);
 			app.IsClosed = true;
-			app.Stop ();
+			app.Stop();
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
 			LogSharp.Debug("ProxyStop: Disposing context");
@@ -292,9 +292,16 @@ namespace Urho {
 
 		internal static async Task StopCurrent()
 		{
-			if (current == null)
+			if (current == null && !current.IsActive)
 				return;
+
+			//Current.Engine.PauseMinimized = true;
+			Current.Input.Enabled = false;
+
 			isExiting = true;
+#if IOS
+			iOS.UrhoSurface.StopRendering(current);
+#endif
 
 #if WINDOWS_UWP && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
@@ -321,10 +328,11 @@ namespace Urho {
 				});
 			}
 #else
-			if (Current.IsFrameRendering)
+			if (Current.IsFrameRendering)// && !Current.Engine.PauseMinimized)
 			{
 				waitFrameEndTaskSource = new TaskCompletionSource<bool>();
 				await waitFrameEndTaskSource.Task;
+				waitFrameEndTaskSource = null;
 			}
 			Current.Engine.Exit ();
 #endif
