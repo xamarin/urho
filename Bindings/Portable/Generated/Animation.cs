@@ -355,6 +355,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Animation_AddTrigger12 (IntPtr handle, float time, bool timeIsNormalized, bool data);
+
+		/// <summary>
+		/// Add a trigger point.
+		/// </summary>
+		public void AddTrigger (float time, bool timeIsNormalized, bool data)
+		{
+			Runtime.ValidateRefCounted (this);
+			Animation_AddTrigger12 (handle, time, timeIsNormalized, data);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Animation_RemoveTrigger (IntPtr handle, uint index);
 
 		/// <summary>

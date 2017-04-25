@@ -180,5 +180,17 @@ namespace Urho
 			Runtime.ValidateRefCounted (this);
 			AttributeAccessor_Set11 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
 		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void AttributeAccessor_Set12 (IntPtr handle, IntPtr ptr, bool src);
+
+		/// <summary>
+		/// Set the attribute.
+		/// </summary>
+		public void Set (Serializable ptr, bool src)
+		{
+			Runtime.ValidateRefCounted (this);
+			AttributeAccessor_Set12 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
+		}
 	}
 }

@@ -367,6 +367,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool ValueAnimation_SetKeyFrame12 (IntPtr handle, float time, bool value);
+
+		/// <summary>
+		/// Set key frame.
+		/// </summary>
+		public bool SetKeyFrame (float time, bool value)
+		{
+			Runtime.ValidateRefCounted (this);
+			return ValueAnimation_SetKeyFrame12 (handle, time, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool ValueAnimation_IsValid (IntPtr handle);
 
 		/// <summary>

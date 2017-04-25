@@ -379,6 +379,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Material_SetShaderParameter12 (IntPtr handle, string name, bool value);
+
+		/// <summary>
+		/// Set shader parameter.
+		/// </summary>
+		public void SetShaderParameter (string name, bool value)
+		{
+			Runtime.ValidateRefCounted (this);
+			Material_SetShaderParameter12 (handle, name, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Material_SetShaderParameterAnimation (IntPtr handle, string name, IntPtr animation, WrapMode wrapMode, float speed);
 
 		/// <summary>

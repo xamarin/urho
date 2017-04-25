@@ -1303,6 +1303,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Node_SetVar12 (IntPtr handle, int key, bool value);
+
+		/// <summary>
+		/// Set a user variable.
+		/// </summary>
+		public void SetVar (StringHash key, bool value)
+		{
+			Runtime.ValidateRefCounted (this);
+			Node_SetVar12 (handle, key.Code, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Node_AddListener (IntPtr handle, IntPtr component);
 
 		/// <summary>

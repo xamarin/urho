@@ -1478,6 +1478,7 @@ namespace SharpieBinder
 						{"int", "int"},
 						{"float", "float"},
 						{"const char *", "string"},
+						{"bool", "bool"},
 					};
 
 				pn("// Urho3D::Variant overloads begin:");

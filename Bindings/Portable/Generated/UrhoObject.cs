@@ -349,6 +349,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UrhoObject_SetGlobalVar12 (IntPtr handle, int key, bool value);
+
+		/// <summary>
+		/// Set global variable with the respective key and value
+		/// </summary>
+		public void SetGlobalVar (StringHash key, bool value)
+		{
+			Runtime.ValidateRefCounted (this);
+			UrhoObject_SetGlobalVar12 (handle, key.Code, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr UrhoObject_GetSubsystem (IntPtr handle, int type);
 
 		/// <summary>

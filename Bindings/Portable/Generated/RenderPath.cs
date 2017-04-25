@@ -350,6 +350,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RenderPath_SetShaderParameter12 (IntPtr handle, string name, bool value);
+
+		/// <summary>
+		/// Set a shader parameter in all commands that define it.
+		/// </summary>
+		public void SetShaderParameter (string name, bool value)
+		{
+			Runtime.ValidateRefCounted (this);
+			RenderPath_SetShaderParameter12 (handle, name, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint RenderPath_GetNumRenderTargets (IntPtr handle);
 
 		/// <summary>

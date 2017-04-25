@@ -426,6 +426,12 @@ AttributeAccessor_Set11 (Urho3D::AttributeAccessor *_target, Urho3D::Serializabl
 	_target->Set (ptr, Urho3D::String(src));
 }
 
+DllExport void
+AttributeAccessor_Set12 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, bool src)
+{
+	_target->Set (ptr, (src));
+}
+
 // Urho3D::Variant overloads end.
 DllExport int
 UrhoObject_GetType (Urho3D::Object *_target)
@@ -598,6 +604,12 @@ UrhoObject_GetGlobalVar11 (Urho3D::Object *_target, int key)
 	return stringdup(_target->GetGlobalVar (Urho3D::StringHash(key)).GetString().CString());
 }
 
+DllExport bool
+UrhoObject_GetGlobalVar12 (Urho3D::Object *_target, int key)
+{
+	return (_target->GetGlobalVar (Urho3D::StringHash(key)).GetBool());
+}
+
 // Urho3D::Variant overloads end.
 // Urho3D::Variant overloads begin:
 DllExport void
@@ -670,6 +682,12 @@ DllExport void
 UrhoObject_SetGlobalVar11 (Urho3D::Object *_target, int key, const char * value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), Urho3D::String(value));
+}
+
+DllExport void
+UrhoObject_SetGlobalVar12 (Urho3D::Object *_target, int key, bool value)
+{
+	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 // Urho3D::Variant overloads end.
@@ -932,6 +950,12 @@ Serializable_SetAttribute11 (Urho3D::Serializable *_target, unsigned int index, 
 	return _target->SetAttribute (index, Urho3D::String(value));
 }
 
+DllExport int
+Serializable_SetAttribute12 (Urho3D::Serializable *_target, unsigned int index, bool value)
+{
+	return _target->SetAttribute (index, (value));
+}
+
 // Urho3D::Variant overloads end.
 // Urho3D::Variant overloads begin:
 DllExport int
@@ -1004,6 +1028,12 @@ DllExport int
 Serializable_SetAttribute011 (Urho3D::Serializable *_target, const char * name, const char * value)
 {
 	return _target->SetAttribute (Urho3D::String(name), Urho3D::String(value));
+}
+
+DllExport int
+Serializable_SetAttribute012 (Urho3D::Serializable *_target, const char * name, bool value)
+{
+	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 // Urho3D::Variant overloads end.
@@ -3797,6 +3827,12 @@ Context_GetGlobalVar11 (Urho3D::Context *_target, int key)
 	return stringdup(_target->GetGlobalVar (Urho3D::StringHash(key)).GetString().CString());
 }
 
+DllExport bool
+Context_GetGlobalVar12 (Urho3D::Context *_target, int key)
+{
+	return (_target->GetGlobalVar (Urho3D::StringHash(key)).GetBool());
+}
+
 // Urho3D::Variant overloads end.
 // Urho3D::Variant overloads begin:
 DllExport void
@@ -3869,6 +3905,12 @@ DllExport void
 Context_SetGlobalVar11 (Urho3D::Context *_target, int key, const char * value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), Urho3D::String(value));
+}
+
+DllExport void
+Context_SetGlobalVar12 (Urho3D::Context *_target, int key, bool value)
+{
+	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 // Urho3D::Variant overloads end.
@@ -5496,6 +5538,12 @@ Node_SetVar11 (Urho3D::Node *_target, int key, const char * value)
 	_target->SetVar (Urho3D::StringHash(key), Urho3D::String(value));
 }
 
+DllExport void
+Node_SetVar12 (Urho3D::Node *_target, int key, bool value)
+{
+	_target->SetVar (Urho3D::StringHash(key), (value));
+}
+
 // Urho3D::Variant overloads end.
 DllExport void
 Node_AddListener (Urho3D::Node *_target, Urho3D::Component * component)
@@ -5911,6 +5959,12 @@ DllExport const char *
 Node_GetVar11 (Urho3D::Node *_target, int key)
 {
 	return stringdup(_target->GetVar (Urho3D::StringHash(key)).GetString().CString());
+}
+
+DllExport bool
+Node_GetVar12 (Urho3D::Node *_target, int key)
+{
+	return (_target->GetVar (Urho3D::StringHash(key)).GetBool());
 }
 
 // Urho3D::Variant overloads end.
@@ -7347,6 +7401,12 @@ DllExport void
 Animation_AddTrigger11 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const char * data)
 {
 	_target->AddTrigger (time, timeIsNormalized, Urho3D::String(data));
+}
+
+DllExport void
+Animation_AddTrigger12 (Urho3D::Animation *_target, float time, bool timeIsNormalized, bool data)
+{
+	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 // Urho3D::Variant overloads end.
@@ -9135,6 +9195,12 @@ Material_SetShaderParameter11 (Urho3D::Material *_target, const char * name, con
 	_target->SetShaderParameter (Urho3D::String(name), Urho3D::String(value));
 }
 
+DllExport void
+Material_SetShaderParameter12 (Urho3D::Material *_target, const char * name, bool value)
+{
+	_target->SetShaderParameter (Urho3D::String(name), (value));
+}
+
 // Urho3D::Variant overloads end.
 DllExport void
 Material_SetShaderParameterAnimation (Urho3D::Material *_target, const char * name, Urho3D::ValueAnimation * animation, enum Urho3D::WrapMode wrapMode, float speed)
@@ -9393,6 +9459,12 @@ DllExport const char *
 Material_GetShaderParameter11 (Urho3D::Material *_target, const char * name)
 {
 	return stringdup(_target->GetShaderParameter (Urho3D::String(name)).GetString().CString());
+}
+
+DllExport bool
+Material_GetShaderParameter12 (Urho3D::Material *_target, const char * name)
+{
+	return (_target->GetShaderParameter (Urho3D::String(name)).GetBool());
 }
 
 // Urho3D::Variant overloads end.
@@ -14659,6 +14731,12 @@ RenderPath_SetShaderParameter11 (Urho3D::RenderPath *_target, const char * name,
 	_target->SetShaderParameter (Urho3D::String(name), Urho3D::String(value));
 }
 
+DllExport void
+RenderPath_SetShaderParameter12 (Urho3D::RenderPath *_target, const char * name, bool value)
+{
+	_target->SetShaderParameter (Urho3D::String(name), (value));
+}
+
 // Urho3D::Variant overloads end.
 DllExport unsigned int
 RenderPath_GetNumRenderTargets (Urho3D::RenderPath *_target)
@@ -14752,6 +14830,12 @@ DllExport const char *
 RenderPath_GetShaderParameter11 (Urho3D::RenderPath *_target, const char * name)
 {
 	return stringdup(_target->GetShaderParameter (Urho3D::String(name)).GetString().CString());
+}
+
+DllExport bool
+RenderPath_GetShaderParameter12 (Urho3D::RenderPath *_target, const char * name)
+{
+	return (_target->GetShaderParameter (Urho3D::String(name)).GetBool());
 }
 
 // Urho3D::Variant overloads end.
@@ -16039,6 +16123,12 @@ XmlElement_SetVariant11 (Urho3D::XMLElement *_target, const char * value)
 	return _target->SetVariant (Urho3D::String(value));
 }
 
+DllExport int
+XmlElement_SetVariant12 (Urho3D::XMLElement *_target, bool value)
+{
+	return _target->SetVariant ((value));
+}
+
 // Urho3D::Variant overloads end.
 // Urho3D::Variant overloads begin:
 DllExport int
@@ -16111,6 +16201,12 @@ DllExport int
 XmlElement_SetVariantValue11 (Urho3D::XMLElement *_target, const char * value)
 {
 	return _target->SetVariantValue (Urho3D::String(value));
+}
+
+DllExport int
+XmlElement_SetVariantValue12 (Urho3D::XMLElement *_target, bool value)
+{
+	return _target->SetVariantValue ((value));
 }
 
 // Urho3D::Variant overloads end.
@@ -16206,6 +16302,12 @@ DllExport int
 XmlElement_SetVectorVariant11 (Urho3D::XMLElement *_target, const char * name, const char * value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), Urho3D::String(value));
+}
+
+DllExport int
+XmlElement_SetVectorVariant12 (Urho3D::XMLElement *_target, const char * name, bool value)
+{
+	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 // Urho3D::Variant overloads end.
@@ -20499,6 +20601,12 @@ DllExport void
 UIElement_SetVar11 (Urho3D::UIElement *_target, int key, const char * value)
 {
 	_target->SetVar (Urho3D::StringHash(key), Urho3D::String(value));
+}
+
+DllExport void
+UIElement_SetVar12 (Urho3D::UIElement *_target, int key, bool value)
+{
+	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 // Urho3D::Variant overloads end.
@@ -27308,6 +27416,12 @@ DllExport int
 ValueAnimation_SetKeyFrame11 (Urho3D::ValueAnimation *_target, float time, const char * value)
 {
 	return _target->SetKeyFrame (time, Urho3D::String(value));
+}
+
+DllExport int
+ValueAnimation_SetKeyFrame12 (Urho3D::ValueAnimation *_target, float time, bool value)
+{
+	return _target->SetKeyFrame (time, (value));
 }
 
 // Urho3D::Variant overloads end.
