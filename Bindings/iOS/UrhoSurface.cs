@@ -19,6 +19,7 @@ namespace Urho.iOS
 		static extern void UIKit_StopRenderLoop(IntPtr window);
 
 		static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(1);
+		static readonly SemaphoreSlim ExitSemaphore = new SemaphoreSlim(1);
 		TaskCompletionSource<bool> waitWhileSuperviewIsNullTaskSource = new TaskCompletionSource<bool>();
 		bool paused;
 
@@ -83,8 +84,10 @@ namespace Urho.iOS
 			opts = opts ?? new ApplicationOptions();
 			LogSharp.Debug("UrhoSurface: Show. Wait semaphore.");
 			await Semaphore.WaitAsync();
-			await Stop();
-			//await Task.Yield();
+			//await Stop();
+			if (Application.HasCurrent)
+				await Application.Current.Exit();
+			await Task.Yield();
 
 			SDL_SetExternalViewPlaceholder(Handle, Window.Handle);
 
@@ -122,7 +125,7 @@ namespace Urho.iOS
 				return;
 
 			LogSharp.Debug("UrhoSurface: Stop. Wait semaphore.");
-			await Semaphore.WaitAsync();
+			await ExitSemaphore.WaitAsync();
 			LogSharp.Debug("UrhoSurface: Stop. Exiting...");
 			await Application.Exit();
 			LogSharp.Debug("UrhoSurface: Stop. Removing subviews...");
@@ -130,7 +133,7 @@ namespace Urho.iOS
 			{
 				view.RemoveFromSuperview();
 			}
-			Semaphore.Release();
+			ExitSemaphore.Release();
 			LogSharp.Debug("UrhoSurface: Stop. Finished.");
 		}
 

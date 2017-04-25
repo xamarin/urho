@@ -46,6 +46,18 @@ namespace Playgrounds.Forms
 			var restartBtn = new Button { Text = "Restart" };
 			restartBtn.Clicked += (sender, e) => StartUrhoApp();
 
+			bool paused = false;
+			var pauseBtn = new Button { Text = "(Un)pause" };
+			pauseBtn.HorizontalOptions = LayoutOptions.EndAndExpand;
+			pauseBtn.Clicked += (sender, e) =>
+			{
+				paused = !paused;
+				if (paused)
+					UrhoSurface.OnPause();
+				else
+					UrhoSurface.OnResume();
+			};
+
 			urhoSurface = new UrhoSurface();
 			urhoSurface.VerticalOptions = LayoutOptions.FillAndExpand;
 
@@ -66,7 +78,14 @@ namespace Playgrounds.Forms
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Children = {
 					urhoSurface,
-					restartBtn,
+					new StackLayout {
+						Orientation = StackOrientation.Horizontal,
+						HorizontalOptions = LayoutOptions.FillAndExpand,
+						Children = {
+							restartBtn,
+							pauseBtn
+						}
+					},
 					new Label { Text = "ROTATION::" },
 					rotationSlider,
 					new Label { Text = "SELECTED VALUE:" },

@@ -16,6 +16,7 @@ using Urho.Audio;
 using Urho.Resources;
 using Urho.Actions;
 using Urho.Gui;
+using System.Threading;
 
 namespace Urho
 {
@@ -290,6 +291,8 @@ namespace Urho
 			Time.FrameEnded += Time_FrameEnded;
 		}
 
+		SemaphoreSlim stopSemaphore = new SemaphoreSlim(1);
+
 		internal static async Task StopCurrent()
 		{
 			if (current == null && !current.IsActive)
@@ -328,13 +331,16 @@ namespace Urho
 				});
 			}
 #else
+			LogSharp.Debug($"StopCurrent: Current.IsFrameRendering={Current.IsFrameRendering}");
 			if (Current.IsFrameRendering)// && !Current.Engine.PauseMinimized)
 			{
 				waitFrameEndTaskSource = new TaskCompletionSource<bool>();
 				await waitFrameEndTaskSource.Task;
+				LogSharp.Debug($"StopCurrent: waitFrameEndTaskSource awaited");
 				waitFrameEndTaskSource = null;
 			}
-			Current.Engine.Exit ();
+			LogSharp.Debug($"StopCurrent: Engine.Exit");
+			Current.Engine.Exit();
 #endif
 #if IOS || WINDOWS_UWP
 #if DESKTOP
@@ -351,22 +357,31 @@ namespace Urho
 
 		public bool IsActive => !IsClosed && !IsDeleted && !Engine.IsDeleted && !IsExiting;
 
-		public Task Exit()
+		public async Task Exit()
 		{
-			if (!IsActive)
-				return Task.FromResult<object>(null);
-			return StopCurrent();
+			try
+			{
+				await stopSemaphore.WaitAsync();
+				if (!IsActive)
+					return;
+
+				await StopCurrent();
+			}
+			finally
+			{
+				stopSemaphore.Release();
+			}
 		}
 
 		protected override bool AllowNativeDelete => false;
 
-		protected virtual void Setup () {}
+		protected virtual void Setup() { }
 
 		public static event Action Started;
-		protected virtual void Start () {}
+		protected virtual void Start() { }
 
 		public static event Action Stopped;
-		protected virtual void Stop () {}
+		protected virtual void Stop() { }
 
 		protected virtual void OnUpdate(float timeStep) { }
 
@@ -378,7 +393,8 @@ namespace Urho
 
 		static Platforms platform;
 
-		public static Platforms Platform {
+		public static Platforms Platform
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
@@ -392,164 +408,178 @@ namespace Urho
 		// GetSubsystem helpers
 		//
 		ResourceCache resourceCache;
-		public ResourceCache ResourceCache {
+		public ResourceCache ResourceCache
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (resourceCache == null)
-					resourceCache = new ResourceCache (UrhoObject_GetSubsystem (handle, ResourceCache.TypeStatic.Code));
+					resourceCache = new ResourceCache(UrhoObject_GetSubsystem(handle, ResourceCache.TypeStatic.Code));
 				return resourceCache;
 			}
 		}
 
 		UrhoConsole console;
-		public UrhoConsole Console {
+		public UrhoConsole Console
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (console == null)
-					console = new UrhoConsole (UrhoObject_GetSubsystem (handle, UrhoConsole.TypeStatic.Code));
+					console = new UrhoConsole(UrhoObject_GetSubsystem(handle, UrhoConsole.TypeStatic.Code));
 				return console;
 			}
 		}
-		
+
 		Urho.Network.Network network;
-		public Urho.Network.Network Network {
+		public Urho.Network.Network Network
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (network == null)
-					network = new Urho.Network.Network (UrhoObject_GetSubsystem (handle, Urho.Network.Network.TypeStatic.Code));
+					network = new Urho.Network.Network(UrhoObject_GetSubsystem(handle, Urho.Network.Network.TypeStatic.Code));
 				return network;
 			}
 		}
-		
+
 		Time time;
-		public Time Time {
+		public Time Time
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (time == null)
-					time = new Time (UrhoObject_GetSubsystem (handle, Time.TypeStatic.Code));
+					time = new Time(UrhoObject_GetSubsystem(handle, Time.TypeStatic.Code));
 				return time;
 			}
 		}
-		
+
 		WorkQueue workQueue;
-		public WorkQueue WorkQueue {
+		public WorkQueue WorkQueue
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (workQueue == null)
-					workQueue = new WorkQueue (UrhoObject_GetSubsystem (handle, WorkQueue.TypeStatic.Code));
+					workQueue = new WorkQueue(UrhoObject_GetSubsystem(handle, WorkQueue.TypeStatic.Code));
 				return workQueue;
 			}
 		}
-		
+
 		Profiler profiler;
-		public Profiler Profiler {
+		public Profiler Profiler
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (profiler == null)
-					profiler = new Profiler (UrhoObject_GetSubsystem (handle, Profiler.TypeStatic.Code));
+					profiler = new Profiler(UrhoObject_GetSubsystem(handle, Profiler.TypeStatic.Code));
 				return profiler;
 			}
 		}
-		
+
 		FileSystem fileSystem;
-		public FileSystem FileSystem {
+		public FileSystem FileSystem
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (fileSystem == null)
-					fileSystem = new FileSystem (UrhoObject_GetSubsystem (handle, FileSystem.TypeStatic.Code));
+					fileSystem = new FileSystem(UrhoObject_GetSubsystem(handle, FileSystem.TypeStatic.Code));
 				return fileSystem;
 			}
 		}
-		
+
 		Log log;
-		public Log Log {
+		public Log Log
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (log == null)
-					log = new Log (UrhoObject_GetSubsystem (handle, Log.TypeStatic.Code));
+					log = new Log(UrhoObject_GetSubsystem(handle, Log.TypeStatic.Code));
 				return log;
 			}
 		}
-		
+
 		Input input;
-		public Input Input {
+		public Input Input
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (input == null)
-					input = new Input (UrhoObject_GetSubsystem (handle, Input.TypeStatic.Code));
+					input = new Input(UrhoObject_GetSubsystem(handle, Input.TypeStatic.Code));
 				return input;
 			}
 		}
-		
+
 		Urho.Audio.Audio audio;
-		public Urho.Audio.Audio Audio {
+		public Urho.Audio.Audio Audio
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (audio == null)
-					audio = new Audio.Audio (UrhoObject_GetSubsystem (handle, Urho.Audio.Audio.TypeStatic.Code));
+					audio = new Audio.Audio(UrhoObject_GetSubsystem(handle, Urho.Audio.Audio.TypeStatic.Code));
 				return audio;
 			}
 		}
-		
+
 		UI uI;
-		public UI UI {
+		public UI UI
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (uI == null)
-					uI = new UI (UrhoObject_GetSubsystem (handle, UI.TypeStatic.Code));
+					uI = new UI(UrhoObject_GetSubsystem(handle, UI.TypeStatic.Code));
 				return uI;
 			}
 		}
-		
+
 		Graphics graphics;
-		public Graphics Graphics {
+		public Graphics Graphics
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (graphics == null)
-					graphics = new Graphics (UrhoObject_GetSubsystem (handle, Graphics.TypeStatic.Code));
+					graphics = new Graphics(UrhoObject_GetSubsystem(handle, Graphics.TypeStatic.Code));
 				return graphics;
 			}
 		}
-		
+
 		Renderer renderer;
-		public Renderer Renderer {
+		public Renderer Renderer
+		{
 			get
 			{
 				Runtime.Validate(typeof(Application));
 				if (renderer == null)
-					renderer = new Renderer (UrhoObject_GetSubsystem (handle, Renderer.TypeStatic.Code));
+					renderer = new Renderer(UrhoObject_GetSubsystem(handle, Renderer.TypeStatic.Code));
 				return renderer;
 			}
 		}
 
-		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-		extern static IntPtr Application_GetEngine (IntPtr handle);
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		extern static IntPtr Application_GetEngine(IntPtr handle);
 		Engine engine;
 
-		public Engine Engine {
+		public Engine Engine
+		{
 			get
 			{
 				if (engine == null)
-					engine = new Engine (Application_GetEngine (handle));
+					engine = new Engine(Application_GetEngine(handle));
 				return engine;
 			}
 		}
 
 		public static T CreateInstance<T>(ApplicationOptions options = null) where T : Application
 		{
-			return (T)CreateInstance(typeof (T), options);
+			return (T)CreateInstance(typeof(T), options);
 		}
 
 		public static Application CreateInstance(Type applicationType, ApplicationOptions options = null)
