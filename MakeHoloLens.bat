@@ -28,7 +28,7 @@ cd ..
 xcopy Urho3D_UWP\MonoUrho.UWP\SdlStub\SDL Urho3D_HoloLens\include\Urho3D\ThirdParty\SDL\* /Y
 cd Urho3D_HoloLens
 cmake --build . --target Urho3D --config %CONFIG%
-cp lib\Urho3D%LIB_PREFIX%.lib lib\Urho3D%LIB_PREFIX%_%PLATFORM%.lib
+copy lib\Urho3D%LIB_PREFIX%.lib lib\Urho3D%LIB_PREFIX%_%PLATFORM%.lib /Y
 cd ../..
 
 :: msbuild Urho3D\Urho3D_HoloLens\UrhoSharp.HoloLens\UrhoSharp.HoloLens.vcxproj /p:Configuration=%CONFIG% /p:Platform=%PLATFORM%

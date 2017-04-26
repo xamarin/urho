@@ -15,7 +15,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <TargetExt>.dll</TargetExt>
-    <OutDir>..\..\..\Bin\$(Platform)\HoloLens\</OutDir>
+    <OutDir>..\..\..\Bin\HoloLens\$(Platform)\</OutDir>
     <TargetName>mono-holourho</TargetName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
