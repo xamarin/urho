@@ -19,6 +19,7 @@ if "%VSVER%" == "2015" set "VS_VER=14"
 if "%VSVER%" == "2017" set "VS_VER=15"
 if "%PLATFORM%" == "x64" (set "TARGET=Visual Studio %VS_VER% Win64") else (set "TARGET=Visual Studio %VS_VER%")
 
+del Urho3D\Urho3D_HoloLens\CMakeCache.txt 2>NUL
 cd Urho3D/Source
 
 cmake -E make_directory ../Urho3D_HoloLens

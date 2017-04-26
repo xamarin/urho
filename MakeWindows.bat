@@ -18,6 +18,8 @@ if "%PLATFORM%" == "x64" (set "TARGET=Visual Studio %VS_VER% Win64") else (set "
 
 set "RENDERER_FLAGS="
 set "URHO3D_SRC_DIR=Urho3D/Source"
+
+del Urho3D\Urho3D_Windows\CMakeCache.txt 2>NUL
 cd %URHO3D_SRC_DIR% 
 
 @echo on
