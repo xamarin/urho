@@ -5,14 +5,14 @@
 	xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
 	IgnorableNamespaces="uap uap2 mp">
   <Identity Name="HoloUrhoSharp" Publisher="CN=Egor" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="bcaf243a-e17d-4aea-ab93-4bf965b64647" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <mp:PhoneIdentity PhoneProductId="fcaf243a-e17d-4aea-ab93-4bf965b64647" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>HoloUrhoSharp</DisplayName>
     <PublisherDisplayName>Egor</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Holographic" MinVersion="10.0.10240.0" MaxVersionTested="10.0.10586.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10586.0" MaxVersionTested="10.0.14393.0" />
   </Dependencies>
   <Resources>
     <Resource Language="x-generate" />

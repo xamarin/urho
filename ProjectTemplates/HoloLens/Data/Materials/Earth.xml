@@ -1,4 +1,16 @@
 ﻿<material>
-	<technique name="Techniques/Diff.xml" quality="0" />
+	<technique name="Techniques/EarthTechnique.xml" quality="0" />
 	<texture unit="diffuse" name="Textures/Earth.jpg" />
+	<texture unit="normal" name="Textures/Earth_NormalsMap.png" />
+	<texture unit="spec" name="Textures/Earth_SpecularMap.png" />
+	
+	<!--put Earth_Clouds and Earth_Night textures to the free texture units-->
+	<!--let us take the 'environment' and 'emissive' ones-->
+	<texture unit="environment" name="Textures/Earth_Clouds.jpg" />
+	<texture unit="emissive" name="Textures/Earth_Night.jpg" />
+	
+	<!--parameters-->
+	<parameter name="SpecColor" value="0.2 0.2 0.2 0.7" />
+	<parameter name="CloudsFactor" value="1" />
+	<parameter name="CloudsOffset" value="0 0" />
 </material>

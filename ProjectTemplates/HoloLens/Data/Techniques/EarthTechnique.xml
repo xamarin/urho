@@ -1,0 +1,3 @@
+﻿<technique vs="CustomLitSolid" ps="CustomLitSolid">
+	<pass name="litbase" vsdefines="NORMALMAP" psdefines="DIFFMAP AMBIENT NORMALMAP SPECMAP" />
+</technique>

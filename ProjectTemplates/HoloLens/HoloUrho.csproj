@@ -11,7 +11,7 @@
     <AssemblyName>$safeprojectname$</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -54,11 +54,27 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Materials\Moon.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Shaders\HLSL\CustomLitSolid.hlsl" />
+    <Content Include="Data\Techniques\EarthTechnique.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Textures\Earth_Night.jpg" />
     <Content Include="Data\Textures\Earth.jpg" />
     <Content Include="Data\Materials\Earth.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Data\Textures\Earth_Clouds.jpg" />
+    <Content Include="Data\Textures\Earth_NormalsMap.png" />
+    <Content Include="Data\Textures\Earth_SpecularMap.png" />
+    <Content Include="Data\Textures\License.txt" />
+    <Content Include="Data\Textures\Mars.jpg" />
+    <Content Include="Data\Models\TeaPot.mdl" />
     <Content Include="Data\Textures\Moon.jpg" />
+    <Content Include="Data\Textures\Moon_NormalsMap.png" />
+    <Content Include="Data\Textures\Space.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +89,30 @@
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -27,10 +27,30 @@
       <Folder Name="Data" TargetFolderName="Data">
         <Folder Name="Materials" TargetFolderName="Materials">
           <ProjectItem ReplaceParameters="true" TargetFileName="Earth.xml">Earth.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Moon.xml">Moon.xml</ProjectItem>
+        </Folder>
+        <Folder Name="Techniques" TargetFolderName="Techniques">
+          <ProjectItem ReplaceParameters="true" TargetFileName="EarthTechnique.xml">EarthTechnique.xml</ProjectItem>
+        </Folder>
+        <Folder Name="Models" TargetFolderName="Models">
+          <ProjectItem ReplaceParameters="true" TargetFileName="TeaPot.mdl">TeaPot.mdl</ProjectItem>
+        </Folder>
+        <Folder Name="Shaders" TargetFolderName="Shaders">
+			<Folder Name="HLSL" TargetFolderName="HLSL">
+			  <ProjectItem ReplaceParameters="true" TargetFileName="CustomLitSolid.hlsl">CustomLitSolid.hlsl</ProjectItem>
+			</Folder>
         </Folder>
         <Folder Name="Textures" TargetFolderName="Textures">
           <ProjectItem ReplaceParameters="false" TargetFileName="Earth.jpg">Earth.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Mars.jpg">Mars.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth_Clouds.jpg">Earth_Clouds.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth_Night.jpg">Earth_Night.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth_NormalsMap.png">Earth_NormalsMap.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth_SpecularMap.png">Earth_SpecularMap.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="License.txt">License.txt</ProjectItem>
           <ProjectItem ReplaceParameters="false" TargetFileName="Moon.jpg">Moon.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Moon_NormalsMap.png">Moon_NormalsMap.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Space.png">Space.png</ProjectItem>
         </Folder>
       </Folder>
       <ProjectItem ReplaceParameters="false" TargetFileName="Package.appxmanifest">Package.appxmanifest</ProjectItem>
