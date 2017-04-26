@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp.HoloLens</id>
-       <version>1.3</version>
+       <version>1.4.1-beta</version>
        <title>UrhoSharp.HoloLens</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
@@ -12,29 +12,7 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (This package contains extensions for HoloLens).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
-	   <releaseNotes>BUGFIXES:
-- #182 Polyhedron class missing
-- #181 IntRect marshalling
-- #151 missing XmlFile.GetRoot
-- #183 UwpSurfaceRenderer - NRE.
-- #172 Color and Material Anomalies
-- #193 NullReferenceException at Urho.Physics.CollisionData.FromContactData
-- FadeTo.ToOpacity return type (byte->float)
-- VS templates syntax error
-
-FEATURES:
-- Added Mulitsampling property in ApplicationOptions
-- Added SetData(byte[]) to Texture2D
-- HoloLens x64 support
-- Predefined structs for VertexBuffer::SetData
-- Node::RunActionsAsync throws OperationCanceledException if urho is closed.
-- AppOptions - set HighDpi to false for OSX by default
-- New ctors in Matrix3x4
-- Bound Localization component, ChangeLanguage event
-- Bound GPUObject. Close #176
-- Bound File::Size, MemoryBuffer::Size, add File.Read() method.
-- Bound methods accepting XMLElement
-- Bound Frustum type</releaseNotes>
+	   <releaseNotes>Windows Mixed Reality support</releaseNotes>
        <tags>HoloLens Urho UrhoSharp Urho3D Xamarin 2D 3D games engine</tags>
    </metadata>
    <files>
@@ -42,6 +20,7 @@ FEATURES:
      <file src="Nuget/HoloLens/UrhoSharp.HoloLens.targets" target="build/uap10.0" />
      <file src="docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
      <file src="Bin/HoloLens/Urho.dll" target="lib/uap10.0/Urho.dll" />
-     <file src="Bin/HoloLens/mono-holourho.dll" target="native/HoloLens32/mono-holourho.dll" />
+     <file src="Bin/HoloLens/Win32/UrhoSharp.HoloLens/mono-holourho.dll" target="native/HoloLens32/mono-holourho.dll" />
+     <file src="Bin/HoloLens/x64/UrhoSharp.HoloLens/mono-holourho.dll" target="native/HoloLens64/mono-holourho.dll" />
    </files>
 </package>

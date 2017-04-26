@@ -42,6 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="..\..\..\Bin\HoloLens\x64\UrhoSharp.HoloLens\mono-holourho.dll">
+      <Link>mono-holourho.dll</Link>
+    </Content>
     <Content Include="..\..\..\Urho3D\CoreData.pak">
       <Link>CoreData.pak</Link>
     </Content>
@@ -59,18 +62,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\Bin\HoloLens\mono-holourho.dll">
-      <Link>mono-holourho.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Bin\HoloLens\mono-holourho.pdb">
-      <Link>mono-holourho.pdb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="C:\Program Files (x86)\Windows Kits\10\bin\x86\ucrt\ucrtbased.dll">
-      <Link>ucrtbased.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
