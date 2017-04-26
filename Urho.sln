@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "bindings\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
 EndProject
@@ -38,9 +38,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.iOS", "bindings\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.UWP", "Bindings\UWP\Urho.UWP.csproj", "{3B881C69-A1AC-410A-A633-EA9FCA4A760C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonoUrho.UWP", "Urho3D\Urho3D_UWP\MonoUrho.UWP\MonoUrho.UWP.vcxproj", "{C97FD9F2-EC10-435C-BBFE-986F414E8ACD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.UWP", "Urho3D\Urho3D_UWP\MonoUrho.UWP\MonoUrho.UWP.vcxproj", "{C97FD9F2-EC10-435C-BBFE-986F414E8ACD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonoUrho.Windows", "Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows.vcxproj", "{6F1CB939-16E1-4753-91B1-A0B5C04D3121}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.Windows", "Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows.vcxproj", "{6F1CB939-16E1-4753-91B1-A0B5C04D3121}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.UWP", "Bindings\UWP\Forms\Urho.Forms.UWP.csproj", "{3AFDAB77-57CE-4FCE-8324-81D57556A4FA}"
 EndProject
@@ -64,7 +64,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playgrounds.HoloLens", "Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playgrounds.Console", "Tests\Playgrounds\Playgrounds.Console\Playgrounds.Console.csproj", "{605A6BB4-2D9E-4FAD-B443-E83286515095}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonoUrho.WindowsD3D", "Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.WindowsD3D.vcxproj", "{331CB939-16E1-4753-91B1-A0B5C04D3121}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.WindowsD3D", "Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.WindowsD3D.vcxproj", "{331CB939-16E1-4753-91B1-A0B5C04D3121}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playgrounds.UWP", "Tests\Playgrounds\Playgrounds.UWP\Playgrounds.UWP.csproj", "{58ACA3F0-33B5-46B9-9383-8FECD796475D}"
 EndProject
@@ -1078,7 +1078,7 @@ Global
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Debug|ARM.ActiveCfg = Debug|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Debug|iPhone.ActiveCfg = Debug|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Debug|iPhoneSimulator.ActiveCfg = Debug|Win32
-		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Debug|x64.ActiveCfg = Debug|Win32
+		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Debug|x64.ActiveCfg = Debug|x64
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Debug|x86.ActiveCfg = Debug|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Debug|x86.Build.0 = Debug|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Debug|x86.Deploy.0 = Debug|Win32
@@ -1103,7 +1103,7 @@ Global
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Release|ARM.ActiveCfg = Release|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Release|iPhone.ActiveCfg = Release|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Release|iPhoneSimulator.ActiveCfg = Release|Win32
-		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Release|x64.ActiveCfg = Release|Win32
+		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Release|x64.ActiveCfg = Release|x64
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Release|x86.ActiveCfg = Release|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Release|x86.Build.0 = Release|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Release|x86.Deploy.0 = Release|Win32
@@ -1236,7 +1236,7 @@ Global
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Debug|ARM.ActiveCfg = Debug|x86
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Debug|iPhone.ActiveCfg = Debug|x86
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
-		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Debug|x64.ActiveCfg = Debug|x86
+		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Debug|x64.ActiveCfg = Debug|x64
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Debug|x86.ActiveCfg = Debug|x86
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Debug|x86.Build.0 = Debug|x86
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Debug|x86.Deploy.0 = Debug|x86
@@ -1256,7 +1256,7 @@ Global
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Release|ARM.ActiveCfg = Release|x86
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Release|iPhone.ActiveCfg = Release|x86
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Release|iPhoneSimulator.ActiveCfg = Release|x86
-		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Release|x64.ActiveCfg = Release|x86
+		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Release|x64.ActiveCfg = Release|x64
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Release|x86.ActiveCfg = Release|x86
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Release|x86.Build.0 = Release|x86
 		{45531E74-AC4D-49D2-A899-CCC123BFE838}.Release|x86.Deploy.0 = Release|x86
@@ -2368,6 +2368,12 @@ Global
 		{AA325D2D-B242-4773-B303-A609C4DA5017}.Debug|x64.Build.0 = Debug|Any CPU
 		{AA325D2D-B242-4773-B303-A609C4DA5017}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{AA325D2D-B242-4773-B303-A609C4DA5017}.Debug|x86.Build.0 = Debug|Any CPU
+		{AA325D2D-B242-4773-B303-A609C4DA5017}.Package|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA325D2D-B242-4773-B303-A609C4DA5017}.Package|ARM.ActiveCfg = Debug|Any CPU
+		{AA325D2D-B242-4773-B303-A609C4DA5017}.Package|iPhone.ActiveCfg = Debug|Any CPU
+		{AA325D2D-B242-4773-B303-A609C4DA5017}.Package|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{AA325D2D-B242-4773-B303-A609C4DA5017}.Package|x64.ActiveCfg = Debug|Any CPU
+		{AA325D2D-B242-4773-B303-A609C4DA5017}.Package|x86.ActiveCfg = Debug|Any CPU
 		{AA325D2D-B242-4773-B303-A609C4DA5017}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA325D2D-B242-4773-B303-A609C4DA5017}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AA325D2D-B242-4773-B303-A609C4DA5017}.Release|ARM.ActiveCfg = Release|Any CPU
