@@ -61,10 +61,10 @@ UWP32:
 	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
 	
 HoloLens32:
-	make -j1 libUrho3D.a -f MakeHoloLens TARGET="Visual Studio 14" CONFIG=Release && make -j1 libUrho3D.a -f MakeHoloLens TARGET="Visual Studio 14" CONFIG=Debug
+	make -j1 libUrho3D.a -f MakeHoloLens ARCH=x86
 	
 HoloLens64:
-	make -j1 libUrho3D.a -f MakeHoloLens TARGET="Visual Studio 14 Win64" CONFIG=Release && make -j1 libUrho3D.a -f MakeHoloLens TARGET="Visual Studio 14 Win64" CONFIG=Debug
+	make -j1 libUrho3D.a -f MakeHoloLens ARCH=x64
 
 Windows: Windows32 Windows64
 Windows_D3D11: Windows32_D3D11 Windows64_D3D11

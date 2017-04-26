@@ -1,9 +1,16 @@
 URHO3D_SRC_DIR=Urho3D/Source
-TARGET=Visual Studio 14
+ARCH=x86
+VS_VER=14
 CONFIG=Release
 
+ifeq ($(ARCH), x64)
+TARGET=Visual Studio $(VS_VER) Win64
+else
+TARGET=Visual Studio $(VS_VER)
+endif
+
 Urho3D_HoloLens:
-	rm -rf Urho3D/Urho3D_HoloLens/CMakeFiles && rm -rf Urho3D/Urho3D_HoloLens/CMakeCache.txt && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_HoloLens && cmake -E chdir ../Urho3D_HoloLens cmake -G "$(TARGET)" ../Urho3D_HoloLens -DURHO3D_D3D11=1 -DUWP=1 -DUWP_HOLO=1 -DURHO3D_NEON=0 -DURHO3D_WIN32_CONSOLE=0 -DURHO3D_NETWORK=1 -DURHO3D_FILEWATCHER=0 -DURHO3D_PROFILING=0 -DURHO3D_THREADING=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=14 ../../$(URHO3D_SRC_DIR)/
+	rm -rf Urho3D/Urho3D_HoloLens/CMakeFiles && rm -rf Urho3D/Urho3D_HoloLens/CMakeCache.txt && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_HoloLens && cmake -E chdir ../Urho3D_HoloLens cmake -G "$(TARGET)" ../Urho3D_HoloLens -DURHO3D_D3D11=1 -DUWP=1 -DUWP_HOLO=1 -DURHO3D_NEON=0 -DURHO3D_WIN32_CONSOLE=0 -DURHO3D_NETWORK=1 -DURHO3D_FILEWATCHER=0 -DURHO3D_PROFILING=0 -DURHO3D_THREADING=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=$(VS_VER) ../../$(URHO3D_SRC_DIR)/
 
 libUrho3D.a: Urho3D_HoloLens
-	cp -r Urho3D/Urho3D_UWP/MonoUrho.UWP/SdlStub/SDL Urho3D/Urho3D_HoloLens/include/Urho3D/ThirdParty && cd Urho3D/Urho3D_HoloLens && cmake --build . --target Urho3D --config $(CONFIG)
+	cp -r Urho3D/Urho3D_UWP/MonoUrho.UWP/SdlStub/SDL Urho3D/Urho3D_HoloLens/include/Urho3D/ThirdParty && cd Urho3D/Urho3D_HoloLens && cmake --build . --target Urho3D --config $(CONFIG) && cp lib/Urho3D.lib lib/Urho3D_$(ARCH).lib && cp lib/Urho3D_d.lib lib/Urho3D_d_$(ARCH).lib

@@ -8,10 +8,13 @@ set "CONFIG=%~2"
 :: 2015 or 2017
 set "VSVER=%~3%"
 
+set "LIB_PREFIX=_d"
+
 if "%PLATFORM%" == "" echo ERROR: PLATFORM is not set, example of usage: "MakeHoloLens.bat x64 Release 2017" && pause && exit /b
 if "%CONFIG%" == "" echo ERROR: CONFIG is not set, example of usage: "MakeHoloLens.bat x64 Release 2017" && pause && exit /b
 if "%VSVER%" == "" echo ERROR: VS_VER is not set, example of usage: "MakeHoloLens.bat x64 Release 2017" && pause && exit /b
 
+if "%CONFIG%" == "Release" set "LIB_PREFIX="
 if "%VSVER%" == "2015" set "VS_VER=14"
 if "%VSVER%" == "2017" set "VS_VER=15"
 if "%PLATFORM%" == "x64" (set "TARGET=Visual Studio %VS_VER% Win64") else (set "TARGET=Visual Studio %VS_VER%")
@@ -25,6 +28,7 @@ cd ..
 xcopy Urho3D_UWP\MonoUrho.UWP\SdlStub\SDL Urho3D_HoloLens\include\Urho3D\ThirdParty\SDL\* /Y
 cd Urho3D_HoloLens
 cmake --build . --target Urho3D --config %CONFIG%
+cp lib\Urho3D%LIB_PREFIX%.lib lib\Urho3D%LIB_PREFIX%_%PLATFORM%.lib
 cd ../..
 
 :: msbuild Urho3D\Urho3D_HoloLens\UrhoSharp.HoloLens\UrhoSharp.HoloLens.vcxproj /p:Configuration=%CONFIG% /p:Platform=%PLATFORM%
