@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-	xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+	xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp uap2">
   <Identity Name="Playgrounds.HoloLens" Publisher="CN=Egor" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="daf805ed-c050-41b7-8bf2-6e9e9b0f7456" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
