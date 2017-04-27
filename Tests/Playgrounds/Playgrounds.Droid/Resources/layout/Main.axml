@@ -2,11 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
-	<Button
-			android:id="@+id/runButton"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="Run"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/restartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restart" />
+        <Button
+            android:id="@+id/stopBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop" />
+        <Button
+            android:id="@+id/spawnBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spawn" />
+        <Button
+            android:id="@+id/pauseBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Un(pause)" />
+    </LinearLayout>
+
+    <AbsoluteLayout
+        android:id="@+id/UrhoSurfacePlaceHolder"
+        android:background="#c96464"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </AbsoluteLayout>
 </LinearLayout>

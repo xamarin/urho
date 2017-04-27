@@ -1,6 +1,8 @@
 ﻿using Urho;
 using Urho.HoloLens;
 using Urho.Resources;
+using System.Collections.Generic;
+using System;
 using Urho.Shapes;
 
 namespace Playgrounds.HoloLens
@@ -13,7 +15,7 @@ namespace Playgrounds.HoloLens
 		{
 		}
 
-		protected override void Start()
+		protected override async void Start()
 		{
 			base.Start();
 			for (int i = 0; i < 5; i++)
@@ -38,6 +40,11 @@ namespace Playgrounds.HoloLens
 
 			hud = Engine.CreateDebugHud();
 			hud.ToggleAll();
+
+			await RegisterCortanaCommands(new Dictionary<string, Action>
+				{
+					{"hey!", () => { }}
+				});
 		}
 
 		private void Time_FrameEnded(FrameEndedEventArgs obj)

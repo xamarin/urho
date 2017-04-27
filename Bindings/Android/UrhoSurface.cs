@@ -8,6 +8,7 @@ using Android.Util;
 using Android.Views;
 using Java.Lang;
 using Org.Libsdl.App;
+using Urho;
 
 namespace Urho.Droid
 {
@@ -22,7 +23,7 @@ namespace Urho.Droid
 	/// - DispatchKeyEvent
 	/// - OnWindowFocusChanged
 	/// </summary>
-	public class UrhoSurface : IUrhoSurface
+	public class UrhoSurface
 	{
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate int SdlCallback(IntPtr context);
@@ -30,51 +31,12 @@ namespace Urho.Droid
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void RegisterSdlLauncher(SdlCallback callback);
 
-		public SDLSurface SdlSurface { get; set; }
-
-		UrhoSurface(SDLSurface sdlSurface)
-		{
-			SdlSurface = sdlSurface;
-		}
-
-		public void Remove()
-		{
-			var vg = SdlSurface?.Parent as ViewGroup;
-			if (SdlSurface != null && vg != null)
-			{
-				//vg.RemoveView(SdlSurface);
-				SdlSurface.Enabled = false;
-				SdlSurface.Visibility = ViewStates.Gone;
-			}
-		}
-
-		public bool IsAlive => SDLActivity.MIsSurfaceReady;
+		public static bool IsAlive => SDLActivity.MIsSurfaceReady;
 
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
-		public static SDLSurface CreateSurface<TApplication>(Activity activity, ApplicationOptions options = null, bool finishActivtiyOnExit = false) where TApplication : Application
-		{
-			return CreateSurface(activity, typeof (TApplication), options, finishActivtiyOnExit);
-		}
-
-		/// <summary>
-		/// Creates a view (SurfaceView) that can be added anywhere
-		/// </summary>
-		public static SDLSurface CreateSurface(Activity activity, Type appType, ApplicationOptions options = null, bool finishActivtiyOnExit = false)
-		{
-			return CreateSurface(activity, () => Application.CreateInstance(appType, options), finishActivtiyOnExit);
-		}
-
-		/// <summary>
-		/// Creates a view (SurfaceView) that can be added anywhere
-		/// </summary>
-		public static SDLSurface CreateSurface(Activity activity, Func<Application> applicationFactory, bool finishActivtiyOnExit = false)
-		{
-			var surface = SDLActivity.CreateSurface(activity);
-			SetSdlMain(applicationFactory, finishActivtiyOnExit, surface);
-			return surface;
-		}
+		public static SDLSurface CreateSurface(Activity activity) => SDLActivity.CreateSurface(activity);
 
 		public static void OnResume()
 		{
@@ -134,16 +96,62 @@ namespace Urho.Droid
 			context.StartActivity(intent);
 		}
 
-		static void SetSdlMain(Func<Application> applicationFactory, bool finishActivityOnExit, SDLSurface surface)
+		internal static void SetSdlMain(Func<Application> applicationFactory, bool finishActivityOnExit, SDLSurface surface)
 		{
 			SDLActivity.FinishActivityOnNativeExit = finishActivityOnExit;
 			RegisterSdlLauncher(_ => {
 					var app = applicationFactory();
-					app.UrhoSurface = new UrhoSurface(surface);
+					app.UrhoSurface = surface;
 					var code = app.Run();
 					Log.Warn("URHOSHARP", "App exited: " + code);
 					return code;
 				});
+		}
+	}
+
+	public static class SDLSurfaceExtensions
+	{
+		public static SemaphoreSlim semaphore = new SemaphoreSlim(1);
+
+		public static async Task<Application> Show(this SDLSurface surface, Type appType, ApplicationOptions options)
+		{
+			//await semaphore.WaitAsync();
+			await Stop(surface);
+			var tcs = new TaskCompletionSource<Application>();
+			Action startedHandler = null;
+			startedHandler = () =>
+				{
+					Application.Started -= startedHandler;
+					tcs.TrySetResult(Application.Current);
+					//semaphore.Release();
+				};
+
+			Application.Started += startedHandler;
+			UrhoSurface.SetSdlMain(() => Application.CreateInstance(appType, options), false, surface);
+			return await tcs.Task;
+		}
+
+		public static async Task<TApplication> Show<TApplication>(this SDLSurface surface, ApplicationOptions options = null)
+			where TApplication : Application
+		{
+			return (TApplication) await Show(surface, typeof(TApplication), options);
+		}
+
+		public static async Task Stop(this SDLSurface surface)
+		{
+			if (Application.HasCurrent && Application.Current.IsActive)
+				await Application.Current.Exit();
+		}
+
+		public static void Remove(this SDLSurface surface)
+		{
+			var vg = surface?.Parent as ViewGroup;
+			if (surface != null && vg != null)
+			{
+				//vg.RemoveView(SdlSurface);
+				surface.Enabled = false;
+				surface.Visibility = ViewStates.Gone;
+			}
 		}
 	}
 }

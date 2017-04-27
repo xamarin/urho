@@ -101,7 +101,7 @@ namespace Urho
 
 		public IntPtr Handle => handle;
 
-		public IUrhoSurface UrhoSurface { get; internal set; }
+		internal object UrhoSurface { get; set; }
 
 		/// <summary>
 		/// Application options
@@ -295,12 +295,10 @@ namespace Urho
 
 		internal static async Task StopCurrent()
 		{
-			if (current == null && !current.IsActive)
+			if (current == null || !current.IsActive)
 				return;
-
-			//Current.Engine.PauseMinimized = true;
+			
 			Current.Input.Enabled = false;
-
 			isExiting = true;
 #if IOS
 			iOS.UrhoSurface.StopRendering(current);
@@ -309,28 +307,6 @@ namespace Urho
 #if WINDOWS_UWP && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
-#if ANDROID
-			if (Current.UrhoSurface?.IsAlive == false)
-			{
-				Current.Engine.Exit();
-			}
-			else if (System.Threading.Thread.CurrentThread.ManagedThreadId != renderThreadId)
-			{
-				exitTask = new TaskCompletionSource<bool>();
-				InvokeOnMainAsync(() => Current.Engine.Exit()).Wait();
-				Current.UrhoSurface?.Remove();
-				Current.UrhoSurface = null;
-				await exitTask.Task;//.Wait();
-			}
-			else
-			{
-				Current.Engine.Exit();
-				new Android.OS.Handler(Android.OS.Looper.MainLooper).PostAtFrontOfQueue(() => {
-					Current.UrhoSurface?.Remove();
-					Current.UrhoSurface = null;
-				});
-			}
-#else
 			LogSharp.Debug($"StopCurrent: Current.IsFrameRendering={Current.IsFrameRendering}");
 			if (Current.IsFrameRendering)// && !Current.Engine.PauseMinimized)
 			{
@@ -340,8 +316,20 @@ namespace Urho
 				waitFrameEndTaskSource = null;
 			}
 			LogSharp.Debug($"StopCurrent: Engine.Exit");
+
+#if ANDROID
+			if (System.Threading.Thread.CurrentThread.ManagedThreadId != renderThreadId)
+			{
+				exitTask = new TaskCompletionSource<bool>();
+				InvokeOnMainAsync(() => Current.Engine.Exit()).Wait();
+				//Current.UrhoSurface?.Remove();
+				//Current.UrhoSurface = null;
+				await exitTask.Task;//.Wait();
+			}
+#else
 			Current.Engine.Exit();
 #endif
+
 #if IOS || WINDOWS_UWP
 #if DESKTOP
 		if (Current.Options.DelayedStart)
@@ -608,7 +596,7 @@ namespace Urho
 
 			var args = new UnhandledExceptionEventArgs(exc);
 			UnhandledException?.Invoke(null, args);
-			if (!args.Handled)
+			if (!args.Handled && !isExiting)
 				throw exc;
 		}
 
@@ -619,12 +607,6 @@ namespace Urho
 			public float Duration { get; set; }
 			public TaskCompletionSource<bool> Task { get; set; }
 		}
-	}
-
-	public interface IUrhoSurface
-	{
-		void Remove();
-		bool IsAlive { get; }
 	}
 
 	public class UnhandledExceptionEventArgs : EventArgs

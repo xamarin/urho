@@ -6,18 +6,23 @@ using Android.Views;
 using Android.Widget;
 using Org.Libsdl.App;
 using Urho.Forms;
+using Urho.Droid;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRendererAttribute(typeof(UrhoSurface), typeof(AndroidSurfaceRenderer))]
+[assembly: ExportRendererAttribute(typeof(Urho.Forms.UrhoSurface), typeof(AndroidSurfaceRenderer))]
 namespace Urho.Forms
 {
-	public class AndroidSurfaceRenderer : ViewRenderer<UrhoSurface, AndroidUrhoSurface>
+	public class AndroidSurfaceRenderer : ViewRenderer<Urho.Forms.UrhoSurface, AndroidUrhoSurface>
 	{
-		protected override void OnElementChanged(ElementChangedEventArgs<UrhoSurface> e)
+		protected override void OnElementChanged(ElementChangedEventArgs<Urho.Forms.UrhoSurface> e)
 		{
 			SDLActivity.OnResume();
 			var surface = new AndroidUrhoSurface(Context);
+			if (e.NewElement == null)
+				return;
+
 			e.NewElement.UrhoApplicationLauncher = surface.Launcher;
 			SetNativeControl(surface);
 			base.OnElementChanged(e);
@@ -26,7 +31,6 @@ namespace Urho.Forms
 
 	public class AndroidUrhoSurface : FrameLayout
 	{
-		static TaskCompletionSource<Application> applicationTaskSource; 
 		static readonly SemaphoreSlim launcherSemaphore = new SemaphoreSlim(1);
 		readonly FrameLayout surfaceViewPlaceholder;
 
@@ -48,18 +52,11 @@ namespace Urho.Forms
 			await launcherSemaphore.WaitAsync();
 			await Urho.Application.StopCurrent();
 			surfaceViewPlaceholder.RemoveAllViews();
-			applicationTaskSource = new TaskCompletionSource<Application>();
-			Urho.Application.Started += UrhoApplicationStarted;
-			var surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context, type, options);
+			var surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context);
 			surfaceViewPlaceholder.AddView(surfaceView);
-			return await applicationTaskSource.Task;
-		}
-
-		void UrhoApplicationStarted()
-		{
-			Urho.Application.Started -= UrhoApplicationStarted;
-			applicationTaskSource?.TrySetResult(Application.Current);
+			var app = await surfaceView.Show(type, options);
 			launcherSemaphore.Release();
+			return app;
 		}
 	}
 }
