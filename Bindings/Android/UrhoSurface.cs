@@ -113,7 +113,7 @@ namespace Urho.Droid
 	{
 		public static SemaphoreSlim semaphore = new SemaphoreSlim(1);
 
-		public static async Task<Application> Show(this SDLSurface surface, Type appType, ApplicationOptions options)
+		public static async Task<Application> Show(this SDLSurface surface, Type appType, ApplicationOptions options = null, bool finishActivityOnExit = false)
 		{
 			//await semaphore.WaitAsync();
 			await Stop(surface);
@@ -127,14 +127,14 @@ namespace Urho.Droid
 				};
 
 			Application.Started += startedHandler;
-			UrhoSurface.SetSdlMain(() => Application.CreateInstance(appType, options), false, surface);
+			UrhoSurface.SetSdlMain(() => Application.CreateInstance(appType, options), finishActivityOnExit, surface);
 			return await tcs.Task;
 		}
 
-		public static async Task<TApplication> Show<TApplication>(this SDLSurface surface, ApplicationOptions options = null)
+		public static async Task<TApplication> Show<TApplication>(this SDLSurface surface, ApplicationOptions options = null, bool finishActivityOnExit = false)
 			where TApplication : Application
 		{
-			return (TApplication) await Show(surface, typeof(TApplication), options);
+			return (TApplication) await Show(surface, typeof(TApplication), options, finishActivityOnExit);
 		}
 
 		public static async Task Stop(this SDLSurface surface)

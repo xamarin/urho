@@ -36,7 +36,7 @@ namespace Urho {
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_FrameStarted (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FrameStarted += ...' instead.")]
-             public Subscription SubscribeToFrameStarted (Action<FrameStartedEventArgs> handler)
+             internal Subscription SubscribeToFrameStarted (Action<FrameStartedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
@@ -210,7 +210,7 @@ namespace Urho {
              [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
              extern static IntPtr urho_subscribe_FrameEnded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FrameEnded += ...' instead.")]
-             public Subscription SubscribeToFrameEnded (Action<FrameEndedEventArgs> handler)
+             internal Subscription SubscribeToFrameEnded (Action<FrameEndedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameEndedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
