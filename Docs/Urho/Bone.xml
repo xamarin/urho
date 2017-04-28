@@ -11,7 +11,10 @@
   <Interfaces />
   <Docs>
     <summary>Bone in a skeleton</summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+      <para>Bones are important parts of the skeleton.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Animated">

@@ -11,8 +11,9 @@
   <Interfaces />
   <Docs>
     <summary>Base class for creating holographics applications for HoloLens.</summary>
-    <remarks>This is the bas class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
-	  <example><code lang="C#"><![CDATA[using System;
+    <remarks>This is the base class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
+	  <example>
+        <code lang="C#"><![CDATA[using System;
 using Urho;
 using Urho.HoloLens;
 
