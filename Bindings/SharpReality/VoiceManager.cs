@@ -41,27 +41,35 @@ namespace Urho
 
 		public async Task<bool> RegisterCortanaCommands(Dictionary<string, Action> commands)
 		{
-			cortanaCommands = commands;
-			SpeechRecognizer = new SpeechRecognizer();
-			var constraint = new SpeechRecognitionListConstraint(cortanaCommands.Keys);
-			SpeechRecognizer.Constraints.Clear();
-			SpeechRecognizer.Constraints.Add(constraint);
-			var result = await SpeechRecognizer.CompileConstraintsAsync();
-			if (result.Status == SpeechRecognitionResultStatus.Success)
+			try
 			{
-				SpeechRecognizer.ContinuousRecognitionSession.StartAsync();
-				SpeechRecognizer.ContinuousRecognitionSession.ResultGenerated += (s, e) =>
+				cortanaCommands = commands;
+				SpeechRecognizer = new SpeechRecognizer();
+				var constraint = new SpeechRecognitionListConstraint(cortanaCommands.Keys);
+				SpeechRecognizer.Constraints.Clear();
+				SpeechRecognizer.Constraints.Add(constraint);
+				var result = await SpeechRecognizer.CompileConstraintsAsync();
+				if (result.Status == SpeechRecognitionResultStatus.Success)
 				{
-					if (e.Result.RawConfidence >= 0.5f)
+					SpeechRecognizer.ContinuousRecognitionSession.StartAsync();
+					SpeechRecognizer.ContinuousRecognitionSession.ResultGenerated += (s, e) =>
 					{
-						Action handler;
-						if (cortanaCommands.TryGetValue(e.Result.Text, out handler))
-							Application.InvokeOnMain(handler);
-					}
-				};
-				return true;
+						if (e.Result.RawConfidence >= 0.5f)
+						{
+							Action handler;
+							if (cortanaCommands.TryGetValue(e.Result.Text, out handler))
+								Application.InvokeOnMain(handler);
+						}
+					};
+					return true;
+				}
+				return false;
 			}
-			return false;
+			catch (Exception exc)
+			{
+				LogSharp.Warn("RegisterCortanaCommands: " + exc);
+				return false;
+			}
 		}
 	}
 }

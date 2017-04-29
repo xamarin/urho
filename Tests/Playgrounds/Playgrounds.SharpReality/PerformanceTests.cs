@@ -41,10 +41,10 @@ namespace Playgrounds.SharpReality
 			hud = Engine.CreateDebugHud();
 			hud.ToggleAll();
 
-			await RegisterCortanaCommands(new Dictionary<string, Action>
+			/*await RegisterCortanaCommands(new Dictionary<string, Action>
 				{
 					{"hey!", () => { }}
-				});
+				});*/
 		}
 
 		private void Time_FrameEnded(FrameEndedEventArgs obj)
