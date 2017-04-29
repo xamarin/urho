@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Org.Libsdl.App;
 using Urho;
 using Urho.Droid;
 
@@ -14,13 +15,17 @@ namespace $safeprojectname$
         ScreenOrientation = ScreenOrientation.Landscape)]
     public class MainActivity : Activity
     {
-        protected override void OnCreate(Bundle bundle)
+		MyGame myGame;
+		
+        protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             var layout = new AbsoluteLayout(this);
-            var surface = UrhoSurface.CreateSurface<MyGame>(this, new ApplicationOptions("Data"));
+            var surface = UrhoSurface.CreateSurface<MyGame>(this);
             layout.AddView(surface);
             SetContentView(layout);
+			myGame = await surface.Show<MyGame>(new ApplicationOptions("Data"));
+			//to stop the game use await surface.Stop().
         }
 
         protected override void OnResume()
@@ -49,8 +54,12 @@ namespace $safeprojectname$
 
         public override bool DispatchKeyEvent(KeyEvent e)
         {
-            if (!UrhoSurface.DispatchKeyEvent(e))
-                return false;
+			if (e.KeyCode == Android.Views.Keycode.Back)
+			{
+				this.Finish();
+				return false;
+			}
+
             return base.DispatchKeyEvent(e);
         }
 
