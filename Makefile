@@ -56,11 +56,10 @@ Windows32_D3D11:
 	make -j1 libUrho3D.a -f MakeWindows ARCH="Win32" VS_VER=14 RENDERER=D3D11
 Windows64_D3D11:
 	make -j1 libUrho3D.a -f MakeWindows ARCH="Win64" VS_VER=14 RENDERER=D3D11
-	
+
 UWP32:
 	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
-	
-	
+
 SharpReality: SharpReality32 SharpReality64
 SharpReality32:
 	make -j1 libUrho3D.a -f MakeSharpReality ARCH=x86
@@ -79,7 +78,7 @@ All-Windows: Android Windows
 
 UpdateCoreDataPak:
 	make -j1 CoreData.pak -f MakeWindows
-	
+
 Tools:
 	make -j1 Tools -f Make$(OSNAME)
 
