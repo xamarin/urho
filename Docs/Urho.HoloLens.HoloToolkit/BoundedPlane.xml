@@ -1,4 +1,4 @@
-<Type Name="BoundedPlane" FullName="Urho.HoloLens.HoloToolkit.BoundedPlane">
+﻿<Type Name="BoundedPlane" FullName="Urho.SharpReality.HoloToolkit.BoundedPlane">
   <TypeSignature Language="C#" Value="public struct BoundedPlane" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit BoundedPlane extends System.ValueType" />
   <AssemblyInfo>
@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="Bounds">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.OrientedBoundingBox Bounds;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.OrientedBoundingBox Bounds" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.OrientedBoundingBox Bounds;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.OrientedBoundingBox Bounds" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.OrientedBoundingBox</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.OrientedBoundingBox</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,14 +45,14 @@
       </Docs>
     </Member>
     <Member MemberName="Plane">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Plane Plane;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Plane Plane" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Plane Plane;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Plane Plane" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Plane</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Plane</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

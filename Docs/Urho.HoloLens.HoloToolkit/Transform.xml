@@ -1,4 +1,4 @@
-<Type Name="Transform" FullName="Urho.HoloLens.HoloToolkit.Transform">
+﻿<Type Name="Transform" FullName="Urho.SharpReality.HoloToolkit.Transform">
   <TypeSignature Language="C#" Value="public struct Transform" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Transform extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="localToWorldMatrix">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Matrix4x4 localToWorldMatrix;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Matrix4x4 localToWorldMatrix" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Matrix4x4 localToWorldMatrix;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Matrix4x4 localToWorldMatrix" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Matrix4x4</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Matrix4x4</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="rotation">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Quaternion rotation;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Quaternion rotation" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Quaternion rotation;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Quaternion rotation" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Quaternion</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Quaternion</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,17 +45,17 @@
       </Docs>
     </Member>
     <Member MemberName="TransformPoint">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3 TransformPoint (Urho.HoloLens.HoloToolkit.Vector3 point);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.HoloLens.HoloToolkit.Vector3 TransformPoint(valuetype Urho.HoloLens.HoloToolkit.Vector3 point) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Vector3 TransformPoint (Urho.SharpReality.HoloToolkit.Vector3 point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.SharpReality.HoloToolkit.Vector3 TransformPoint(valuetype Urho.SharpReality.HoloToolkit.Vector3 point) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Vector3</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="point" Type="Urho.HoloLens.HoloToolkit.Vector3" />
+        <Parameter Name="point" Type="Urho.SharpReality.HoloToolkit.Vector3" />
       </Parameters>
       <Docs>
         <param name="point">To be added.</param>

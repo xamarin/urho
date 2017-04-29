@@ -1,11 +1,11 @@
 ﻿using Urho;
-using Urho.HoloLens;
+using Urho.SharpReality;
 using Urho.Resources;
 using System.Collections.Generic;
 using System;
 using Urho.Shapes;
 
-namespace Playgrounds.HoloLens
+namespace Playgrounds.SharpReality
 {
 	public class PerformanceTests : StereoApplication
 	{

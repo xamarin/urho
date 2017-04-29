@@ -1,4 +1,4 @@
-<Type Name="SpatialCursor" FullName="Urho.HoloLens.SpatialCursor">
+﻿<Type Name="SpatialCursor" FullName="Urho.SharpReality.SpatialCursor">
   <TypeSignature Language="C#" Value="public class SpatialCursor : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SpatialCursor extends Urho.Component" />
   <AssemblyInfo>
@@ -55,7 +55,7 @@
           <AttributeName>System.Diagnostics.DebuggerStepThrough</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.AsyncStateMachine(typeof(Urho.HoloLens.SpatialCursor/&lt;ClickAnimation&gt;c__async0))</AttributeName>
+          <AttributeName>System.Runtime.CompilerServices.AsyncStateMachine(typeof(Urho.SharpReality.SpatialCursor/&lt;ClickAnimation&gt;c__async0))</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>

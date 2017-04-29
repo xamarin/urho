@@ -1,4 +1,4 @@
-<Type Name="Mesh" FullName="Urho.HoloLens.HoloToolkit.Mesh">
+﻿<Type Name="Mesh" FullName="Urho.SharpReality.HoloToolkit.Mesh">
   <TypeSignature Language="C#" Value="public struct Mesh" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Mesh extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="bounds">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Bounds bounds;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Bounds bounds" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Bounds bounds;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Bounds bounds" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Bounds</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Bounds</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="normals">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3[] normals;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Vector3[] normals" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Vector3[] normals;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Vector3[] normals" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3[]</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Vector3[]</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -60,14 +60,14 @@
       </Docs>
     </Member>
     <Member MemberName="vertices">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3[] vertices;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Vector3[] vertices" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Vector3[] vertices;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Vector3[] vertices" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3[]</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Vector3[]</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

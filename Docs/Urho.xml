@@ -17912,7 +17912,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <member name="F:Urho.Platforms.Android">
             <summary>Running on Android.</summary>
         </member>
-        <member name="F:Urho.Platforms.HoloLens">
+        <member name="F:Urho.Platforms.SharpReality">
             <summary></summary>
         </member>
         <member name="F:Urho.Platforms.iOS">
@@ -44000,25 +44000,25 @@ public class MyInstantState : ActionInstantState
         <member name="F:Urho.Gui.WindowDragMode.ResizeTopright">
             <summary></summary>
         </member>
-        <member name="T:Urho.HoloLens.DebugGrid">
+        <member name="T:Urho.SharpReality.DebugGrid">
             <summary>Component that creates a 3D grid for debug purposes.</summary>
             <remarks>The DebugGrid creates a 3D geometry using <see cref="T:Urho.CustomGeometry" /> with a fixed step. It helps to align urho objects in a real world.</remarks>
         </member>
-        <member name="C:Urho.HoloLens.DebugGrid">
+        <member name="C:Urho.SharpReality.DebugGrid">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.DebugGrid.OnAttachedToNode(Urho.Node)">
+        <member name="M:Urho.SharpReality.DebugGrid.OnAttachedToNode(Urho.Node)">
             <param name="node"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.StereoApplication">
+        <member name="T:Urho.SharpReality.StereoApplication">
             <summary>Base class for creating holographics applications for HoloLens.</summary>
             <remarks>This is the bas class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
 	  <example><code lang="C#"><![CDATA[using System;
 using Urho;
-using Urho.HoloLens;
+using Urho.SharpReality;
 
 public class MyApplication : StereoApplication
 {
@@ -44037,17 +44037,17 @@ public class MyApplication : StereoApplication
 }
 ]]></code></example></remarks>
         </member>
-        <member name="C:Urho.HoloLens.StereoApplication(Urho.ApplicationOptions)">
+        <member name="C:Urho.SharpReality.StereoApplication(Urho.ApplicationOptions)">
             <param name="opts"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.CortanaCommands">
+        <member name="P:Urho.SharpReality.StereoApplication.CortanaCommands">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.CreateModelFromVertexData(Urho.HoloLens.SpatialVertex[],System.Int16[],Urho.Quaternion)">
+        <member name="M:Urho.SharpReality.StereoApplication.CreateModelFromVertexData(Urho.SharpReality.SpatialVertex[],System.Int16[],Urho.Quaternion)">
             <param name="vertexData"></param>
             <param name="indexData"></param>
             <param name="rotation"></param>
@@ -44055,144 +44055,144 @@ public class MyApplication : StereoApplication
             <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.CullingCamera">
+        <member name="P:Urho.SharpReality.StereoApplication.CullingCamera">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.DefaultRenderPath">
+        <member name="P:Urho.SharpReality.StereoApplication.DefaultRenderPath">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.DirectionalLight">
+        <member name="P:Urho.SharpReality.StereoApplication.DirectionalLight">
             <summary>Default directional <see cref="T:Urho.Light" /> in the basic scene.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.DistanceBetweenEyes">
+        <member name="P:Urho.SharpReality.StereoApplication.DistanceBetweenEyes">
             <summary>Distance between eyes.</summary>
             <value></value>
             <remarks>StereoApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.Emulator">
+        <member name="P:Urho.SharpReality.StereoApplication.Emulator">
             <summary>Emulator mode</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.EnableGestureHold">
+        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureHold">
             <summary>Enables or disables Hold gesture.</summary>
             <value></value>
             <remarks>See https://developer.microsoft.com/en-us/windows/holographic/gestures for details</remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.EnableGestureManipulation">
+        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureManipulation">
             <summary>Enables or disables Manipulation gesture.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.EnableGestureTapped">
+        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureTapped">
             <summary>Enables or disables Tapped and Double Tapped gestures.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.FocusWorldPoint">
+        <member name="P:Urho.SharpReality.StereoApplication.FocusWorldPoint">
             <summary>Focus point in World coordinates.</summary>
             <value></value>
             <remarks>Informs the system about a specific point in your scene to prioritize for image stabilization. You should set the focus point near the content that the user is looking at.</remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.GenerateModelFromSpatialSurface(Urho.HoloLens.SpatialMeshInfo)">
+        <member name="M:Urho.SharpReality.StereoApplication.GenerateModelFromSpatialSurface(Urho.SharpReality.SpatialMeshInfo)">
             <param name="surface">Creates Model from spatial surfaces.</param>
             <summary></summary>
             <returns></returns>
-            <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.StereoApplication.CreateModelFromVertexData" />.</remarks>
+            <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.SharpReality.StereoApplication.CreateModelFromVertexData" />.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.HeadPosition">
+        <member name="P:Urho.SharpReality.StereoApplication.HeadPosition">
             <summary>User's current position.</summary>
             <value></value>
             <remarks>The exact position will be between the cameras representing user's eyes.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.LeftCamera">
+        <member name="P:Urho.SharpReality.StereoApplication.LeftCamera">
             <summary>
                 <see cref="T:Urho.Camera" /> component that represents user's left eye.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.Octree">
+        <member name="P:Urho.SharpReality.StereoApplication.Octree">
             <summary>Fast access to <see cref="T:Urho.Octree" /> added to the basic scene.</summary>
             <value></value>
             <remarks>Can be used for ray casting.</remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureDoubleTapped">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureDoubleTapped">
             <summary>Invokes when user uses double tap gesture. Requires enabled EnableGestureTapped property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureHoldCanceled">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldCanceled">
             <summary>Invokes when user cancels Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureHoldCompleted">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldCompleted">
             <summary>Invokes when user completes Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureHoldStarted">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldStarted">
             <summary>Invokes when user starts Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureManipulationCanceled">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationCanceled">
             <summary>Invokes when user cancels Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureManipulationCompleted(Urho.Vector3)">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationCompleted(Urho.Vector3)">
             <param name="relativeHandPosition"></param>
             <summary>Invokes when user completes Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureManipulationStarted">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationStarted">
             <summary>Invokes when user starts Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureManipulationUpdated(Urho.Vector3)">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationUpdated(Urho.Vector3)">
             <param name="relativeHandPosition"></param>
             <summary>Invokes when user uses Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnGestureTapped">
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureTapped">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnSurfaceAddedOrUpdated(Urho.HoloLens.SpatialMeshInfo,Urho.Model)">
+        <member name="M:Urho.SharpReality.StereoApplication.OnSurfaceAddedOrUpdated(Urho.SharpReality.SpatialMeshInfo,Urho.Model)">
             <param name="surface"></param>
-            <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.StereoApplication.GenerateModelFromSpatialSurface" />.</param>
-            <summary>Invokes when HoloLens recognizes a new spatial surface or updates any existing..</summary>
+            <param name="generatedModel">Model created by <see href="M:Urho.SharpReality.StereoApplication.GenerateModelFromSpatialSurface" />.</param>
+            <summary>Invokes when SharpReality recognizes a new spatial surface or updates any existing..</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.OnUpdate(System.Single)">
+        <member name="M:Urho.SharpReality.StereoApplication.OnUpdate(System.Single)">
             <param name="timeStep"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.RegisterCortanaCommands(System.Collections.Generic.Dictionary{System.String,System.Action})">
+        <member name="M:Urho.SharpReality.StereoApplication.RegisterCortanaCommands(System.Collections.Generic.Dictionary{System.String,System.Action})">
             <param name="commands">Set of voice commands.</param>
             <summary>Registers set of voice commands with handlers.</summary>
             <returns>Returns false if 'Microphone' device capability was not enabled in the AppManifest.</returns>
             <remarks>You should enable 'Microphone' device capability in the AppManifest.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.RightCamera">
+        <member name="P:Urho.SharpReality.StereoApplication.RightCamera">
             <summary>
                 <see cref="T:Urho.Camera" /> component that represents user's right eye.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.Scene">
+        <member name="P:Urho.SharpReality.StereoApplication.Scene">
             <summary>Root node of the simple scene created in Start metod.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.Start">
+        <member name="M:Urho.SharpReality.StereoApplication.Start">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.StartSpatialMapping(Urho.Vector3,System.Int32,Urho.Color,System.Boolean,System.Boolean)">
+        <member name="M:Urho.SharpReality.StereoApplication.StartSpatialMapping(Urho.Vector3,System.Int32,Urho.Color,System.Boolean,System.Boolean)">
             <param name="extents">Bounding volume to observe. Vector3(20, 10, 5) means a box that is 20x10x5 meters.</param>
             <param name="trianglesPerCubicMeter">Desired accuracy.</param>
             <param name="color"></param>
@@ -44202,195 +44202,195 @@ public class MyApplication : StereoApplication
             <returns>Returns 'false' if spatialMapping device capability is not defined in the app's manifest. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> for more details.</returns>
             <remarks>Make sure 'spatialMapping' device capability is enabled. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> and <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.StopSpatialMapping">
+        <member name="M:Urho.SharpReality.StereoApplication.StopSpatialMapping">
             <summary>Stops spatial mapping process. You will stop receiving OnSurfaceAddedOrUpdated events.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.StereoApplication.TextToSpeech(System.String)">
+        <member name="M:Urho.SharpReality.StereoApplication.TextToSpeech(System.String)">
             <param name="text"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.StereoApplication.Zone">
+        <member name="P:Urho.SharpReality.StereoApplication.Zone">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.SpatialCursor">
+        <member name="T:Urho.SharpReality.SpatialCursor">
             <summary>Spatial cursor component.</summary>
             <remarks>Displays a small static model (<see cref="T:Urho.Shapes.Torus" /> by default) and updates its position each frame according to user's gaze. It sends a raycast each frame update and raises Raycasted event that can be used if you also need to send a raycast in order to avoid doing it twice. The model will be rotated according to a Normal of a geometry touched by the raycast.</remarks>
         </member>
-        <member name="C:Urho.HoloLens.SpatialCursor">
+        <member name="C:Urho.SharpReality.SpatialCursor">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="C:Urho.HoloLens.SpatialCursor(System.IntPtr)">
+        <member name="C:Urho.SharpReality.SpatialCursor(System.IntPtr)">
             <param name="handle"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.SpatialCursor.ClickAnimation">
+        <member name="M:Urho.SharpReality.SpatialCursor.ClickAnimation">
             <summary>Runs a quick click animation using SetShaderAnimation method.</summary>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialCursor.CursorEnabled">
+        <member name="P:Urho.SharpReality.SpatialCursor.CursorEnabled">
             <summary>Enables or disables cursor.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialCursor.CursorModelNode">
+        <member name="P:Urho.SharpReality.SpatialCursor.CursorModelNode">
             <summary>Node containing cursor's StaticModel.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialCursor.CursorNode">
+        <member name="P:Urho.SharpReality.SpatialCursor.CursorNode">
             <summary>Cursor's root node.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.SpatialCursor.OnAttachedToNode(Urho.Node)">
+        <member name="M:Urho.SharpReality.SpatialCursor.OnAttachedToNode(Urho.Node)">
             <param name="node"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.SpatialCursor.OnUpdate(System.Single)">
+        <member name="M:Urho.SharpReality.SpatialCursor.OnUpdate(System.Single)">
             <param name="timeStep"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="E:Urho.HoloLens.SpatialCursor.Raycasted">
+        <member name="E:Urho.SharpReality.SpatialCursor.Raycasted">
             <summary>Fired after each recast made by the cursor.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.SpatialCursor.RunIdleAnimation">
+        <member name="M:Urho.SharpReality.SpatialCursor.RunIdleAnimation">
             <summary>Runs a default 'Idle' animation.</summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.SpatialMeshInfo">
+        <member name="T:Urho.SharpReality.SpatialMeshInfo">
             <summary>Contains spatial mesh data.</summary>
-            <remarks>This structure contains all information that can be extracted from HoloLens Spatial Mapping API. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
+            <remarks>This structure contains all information that can be extracted from SharpReality Spatial Mapping API. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialMeshInfo.BoundsCenter">
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.BoundsCenter">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialMeshInfo.BoundsRotation">
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.BoundsRotation">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialMeshInfo.Date">
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.Date">
             <summary>Spatial surface timestamp.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialMeshInfo.Extents">
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.Extents">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialMeshInfo.IndexData">
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.IndexData">
             <summary>Array of indices (see IndexBuffer).</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialMeshInfo.SurfaceId">
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.SurfaceId">
             <summary>Spatial surface unique id (Guid).</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialMeshInfo.Transform">
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.Transform">
             <summary>Transform that can be applied to convert to world coordinates.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialMeshInfo.VertexData">
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.VertexData">
             <summary>Array of SpatialVertex (see VertexBuffer).</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.SpatialVertex">
+        <member name="T:Urho.SharpReality.SpatialVertex">
             <summary>Represents a vertex from a spatial mesh. Consists of a position, normal and a color.</summary>
             <remarks>This structure can be used directly in VertexBuffer in SetData in case if ElementMask is set to 'Position | Normal  | Color'.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialVertex.Color">
+        <member name="P:Urho.SharpReality.SpatialVertex.Color">
             <summary>Vertex color.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.SpatialVertex.ColorUint">
+        <member name="F:Urho.SharpReality.SpatialVertex.ColorUint">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialVertex.Normal">
+        <member name="P:Urho.SharpReality.SpatialVertex.Normal">
             <summary>Vertex Normal.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.SpatialVertex.NormalX">
+        <member name="F:Urho.SharpReality.SpatialVertex.NormalX">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.SpatialVertex.NormalY">
+        <member name="F:Urho.SharpReality.SpatialVertex.NormalY">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.SpatialVertex.NormalZ">
+        <member name="F:Urho.SharpReality.SpatialVertex.NormalZ">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.SpatialVertex.Position">
+        <member name="P:Urho.SharpReality.SpatialVertex.Position">
             <summary>Vertex position.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.SpatialVertex.PositionX">
+        <member name="F:Urho.SharpReality.SpatialVertex.PositionX">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.SpatialVertex.PositionY">
+        <member name="F:Urho.SharpReality.SpatialVertex.PositionY">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.SpatialVertex.PositionZ">
+        <member name="F:Urho.SharpReality.SpatialVertex.PositionZ">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.BoundedPlane">
+        <member name="T:Urho.SharpReality.HoloToolkit.BoundedPlane">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.BoundedPlane.Area">
+        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Area">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.BoundedPlane.Bounds">
+        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Bounds">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.BoundedPlane.Plane">
+        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Plane">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.Bounds">
+        <member name="T:Urho.SharpReality.HoloToolkit.Bounds">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Bounds.center">
+        <member name="F:Urho.SharpReality.HoloToolkit.Bounds.center">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Bounds.extents">
+        <member name="F:Urho.SharpReality.HoloToolkit.Bounds.extents">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.Matrix4x4">
+        <member name="T:Urho.SharpReality.HoloToolkit.Matrix4x4">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="C:Urho.HoloLens.HoloToolkit.Matrix4x4(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+        <member name="C:Urho.SharpReality.HoloToolkit.Matrix4x4(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
             <param name="m00"></param>
             <param name="m01"></param>
             <param name="m02"></param>
@@ -44410,155 +44410,155 @@ public class MyApplication : StereoApplication
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.identity">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.identity">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m00">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m00">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m01">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m01">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m02">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m02">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m03">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m03">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m10">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m10">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m11">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m11">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m12">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m12">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m13">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m13">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m20">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m20">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m21">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m21">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m22">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m22">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m23">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m23">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m30">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m30">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m31">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m31">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m32">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m32">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Matrix4x4.m33">
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m33">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.Matrix4x4.TransformDirection(Urho.HoloLens.HoloToolkit.Vector3)">
+        <member name="M:Urho.SharpReality.HoloToolkit.Matrix4x4.TransformDirection(Urho.SharpReality.HoloToolkit.Vector3)">
             <param name="v"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.Matrix4x4.TransformPoint(Urho.HoloLens.HoloToolkit.Vector3)">
+        <member name="M:Urho.SharpReality.HoloToolkit.Matrix4x4.TransformPoint(Urho.SharpReality.HoloToolkit.Vector3)">
             <param name="v"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.Mesh">
+        <member name="T:Urho.SharpReality.HoloToolkit.Mesh">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Mesh.bounds">
+        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.bounds">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Mesh.normals">
+        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.normals">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Mesh.triangles">
+        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.triangles">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Mesh.vertices">
+        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.vertices">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.MeshFilter">
+        <member name="T:Urho.SharpReality.HoloToolkit.MeshFilter">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.MeshFilter.sharedMesh">
+        <member name="F:Urho.SharpReality.HoloToolkit.MeshFilter.sharedMesh">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.MeshFilter.transform">
+        <member name="F:Urho.SharpReality.HoloToolkit.MeshFilter.transform">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.OrientedBoundingBox">
+        <member name="T:Urho.SharpReality.HoloToolkit.OrientedBoundingBox">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.OrientedBoundingBox.Center">
+        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Center">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.OrientedBoundingBox.Extents">
+        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Extents">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.OrientedBoundingBox.Rotation">
+        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Rotation">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.Plane">
+        <member name="T:Urho.SharpReality.HoloToolkit.Plane">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Plane.distance">
+        <member name="F:Urho.SharpReality.HoloToolkit.Plane.distance">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Plane.normal">
+        <member name="F:Urho.SharpReality.HoloToolkit.Plane.normal">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.PlaneFinding">
+        <member name="T:Urho.SharpReality.HoloToolkit.PlaneFinding">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="C:Urho.HoloLens.HoloToolkit.PlaneFinding">
+        <member name="C:Urho.SharpReality.HoloToolkit.PlaneFinding">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.PlaneFinding.FindPlanes(System.Collections.Generic.List{Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData},System.Single,System.Single)">
+        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.FindPlanes(System.Collections.Generic.List{Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData},System.Single,System.Single)">
             <param name="meshes"></param>
             <param name="snapToGravityThreshold"></param>
             <param name="minArea"></param>
@@ -44566,14 +44566,14 @@ public class MyApplication : StereoApplication
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.PlaneFinding.FindSubPlanes(System.Collections.Generic.List{Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData},System.Single)">
+        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.FindSubPlanes(System.Collections.Generic.List{Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData},System.Single)">
             <param name="meshes"></param>
             <param name="snapToGravityThreshold"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.PlaneFinding.MergeSubPlanes(Urho.HoloLens.HoloToolkit.BoundedPlane[],System.Single,System.Single)">
+        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.MergeSubPlanes(Urho.SharpReality.HoloToolkit.BoundedPlane[],System.Single,System.Single)">
             <param name="subPlanes"></param>
             <param name="snapToGravityThreshold"></param>
             <param name="minArea"></param>
@@ -44581,36 +44581,36 @@ public class MyApplication : StereoApplication
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData">
+        <member name="T:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="C:Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData(Urho.HoloLens.HoloToolkit.MeshFilter)">
+        <member name="C:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData(Urho.SharpReality.HoloToolkit.MeshFilter)">
             <param name="meshFilter"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData.Indices">
+        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Indices">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData.Normals">
+        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Normals">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData.Transform">
+        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Transform">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData.Verts">
+        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Verts">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.Quaternion">
+        <member name="T:Urho.SharpReality.HoloToolkit.Quaternion">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="C:Urho.HoloLens.HoloToolkit.Quaternion(System.Single,System.Single,System.Single,System.Single)">
+        <member name="C:Urho.SharpReality.HoloToolkit.Quaternion(System.Single,System.Single,System.Single,System.Single)">
             <param name="x"></param>
             <param name="y"></param>
             <param name="z"></param>
@@ -44618,95 +44618,95 @@ public class MyApplication : StereoApplication
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Quaternion.identity">
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.identity">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Quaternion.w">
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.w">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Quaternion.x">
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.x">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Quaternion.y">
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.y">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Quaternion.z">
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.z">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.Transform">
+        <member name="T:Urho.SharpReality.HoloToolkit.Transform">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Transform.localToWorldMatrix">
+        <member name="F:Urho.SharpReality.HoloToolkit.Transform.localToWorldMatrix">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Transform.rotation">
+        <member name="F:Urho.SharpReality.HoloToolkit.Transform.rotation">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.Transform.TransformPoint(Urho.HoloLens.HoloToolkit.Vector3)">
+        <member name="M:Urho.SharpReality.HoloToolkit.Transform.TransformPoint(Urho.SharpReality.HoloToolkit.Vector3)">
             <param name="point"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloToolkit.Vector3">
+        <member name="T:Urho.SharpReality.HoloToolkit.Vector3">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="C:Urho.HoloLens.HoloToolkit.Vector3(System.Single,System.Single,System.Single)">
+        <member name="C:Urho.SharpReality.HoloToolkit.Vector3(System.Single,System.Single,System.Single)">
             <param name="x"></param>
             <param name="y"></param>
             <param name="z"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.Vector3.Length">
+        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.Length">
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Vector3.one">
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.one">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.Vector3.op_Addition(Urho.HoloLens.HoloToolkit.Vector3,Urho.HoloLens.HoloToolkit.Vector3)">
+        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.op_Addition(Urho.SharpReality.HoloToolkit.Vector3,Urho.SharpReality.HoloToolkit.Vector3)">
             <param name="a"></param>
             <param name="b"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.Vector3.ToString">
+        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.ToString">
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloToolkit.Vector3.ToString(System.String)">
+        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.ToString(System.String)">
             <param name="format"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Vector3.x">
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.x">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Vector3.y">
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.y">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Vector3.z">
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.z">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="F:Urho.HoloLens.HoloToolkit.Vector3.zero">
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.zero">
             <summary></summary>
             <remarks></remarks>
         </member>

@@ -1,6 +1,6 @@
 ﻿using Windows.Perception.Spatial;
 using Windows.UI.Input.Spatial;
-using Urho.HoloLens;
+using Urho.SharpReality;
 
 namespace Urho
 {

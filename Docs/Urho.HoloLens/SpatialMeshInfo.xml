@@ -1,4 +1,4 @@
-<Type Name="SpatialMeshInfo" FullName="Urho.HoloLens.SpatialMeshInfo">
+﻿<Type Name="SpatialMeshInfo" FullName="Urho.SharpReality.SpatialMeshInfo">
   <TypeSignature Language="C#" Value="public struct SpatialMeshInfo" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit SpatialMeshInfo extends System.ValueType" />
   <AssemblyInfo>
@@ -11,7 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>Contains spatial mesh data.</summary>
-    <remarks>This structure contains all information that can be extracted from HoloLens Spatial Mapping API. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
+    <remarks>This structure contains all information that can be extracted from SharpReality Spatial Mapping API. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
   </Docs>
   <Members>
     <Member MemberName="BoundsCenter">
@@ -127,14 +127,14 @@
       </Docs>
     </Member>
     <Member MemberName="VertexData">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.SpatialVertex[] VertexData { get; set; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.HoloLens.SpatialVertex[] VertexData" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.SpatialVertex[] VertexData { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.SharpReality.SpatialVertex[] VertexData" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.SpatialVertex[]</ReturnType>
+        <ReturnType>Urho.SharpReality.SpatialVertex[]</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Array of SpatialVertex (see VertexBuffer).</summary>

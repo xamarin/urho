@@ -1,6 +1,6 @@
 ﻿using System;
 using Windows.ApplicationModel.Core;
-using Urho.HoloLens;
+using Urho.SharpReality;
 
 namespace Urho
 {

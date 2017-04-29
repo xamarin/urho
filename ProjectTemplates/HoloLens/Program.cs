@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Urho;
 using Urho.Actions;
-using Urho.HoloLens;
+using Urho.SharpReality;
 using Urho.Shapes;
 using Urho.Resources;
 

@@ -1,4 +1,4 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="CheckNonStoreApp" Condition="'$(WindowsAppContainer)' != 'true'" BeforeTargets="PrepareForBuild">
     <Error Text="Only Universal Windows Apps are supported." />
   </Target>
@@ -6,13 +6,13 @@
     <Error Text="The $(Platform) target platform is not supported." />
   </Target> 
   <ItemGroup Condition=" '$(Platform)' == 'x86' ">
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\native\HoloLens32\mono-holourho.dll">
+    <Content Include="$(MSBuildThisFileDirectory)\..\..\native\SharpReality32\mono-holourho.dll">
         <Link>mono-holourho.dll</Link>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'x64' ">
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\native\HoloLens64\mono-holourho.dll">
+    <Content Include="$(MSBuildThisFileDirectory)\..\..\native\SharpReality64\mono-holourho.dll">
       <Link>mono-holourho.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

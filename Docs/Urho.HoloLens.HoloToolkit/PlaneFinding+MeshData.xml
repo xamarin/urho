@@ -1,4 +1,4 @@
-<Type Name="PlaneFinding+MeshData" FullName="Urho.HoloLens.HoloToolkit.PlaneFinding+MeshData">
+﻿<Type Name="PlaneFinding+MeshData" FullName="Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData">
   <TypeSignature Language="C#" Value="public struct PlaneFinding.MeshData" />
   <TypeSignature Language="ILAsm" Value=".class nested public sequential ansi sealed beforefieldinit PlaneFinding/MeshData extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public MeshData (Urho.HoloLens.HoloToolkit.MeshFilter meshFilter);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.HoloLens.HoloToolkit.MeshFilter meshFilter) cil managed" />
+      <MemberSignature Language="C#" Value="public MeshData (Urho.SharpReality.HoloToolkit.MeshFilter meshFilter);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.SharpReality.HoloToolkit.MeshFilter meshFilter) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
-        <Parameter Name="meshFilter" Type="Urho.HoloLens.HoloToolkit.MeshFilter" />
+        <Parameter Name="meshFilter" Type="Urho.SharpReality.HoloToolkit.MeshFilter" />
       </Parameters>
       <Docs>
         <param name="meshFilter">To be added.</param>
@@ -46,14 +46,14 @@
       </Docs>
     </Member>
     <Member MemberName="Normals">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3[] Normals;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Vector3[] Normals" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Vector3[] Normals;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Vector3[] Normals" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3[]</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Vector3[]</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -61,14 +61,14 @@
       </Docs>
     </Member>
     <Member MemberName="Transform">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Matrix4x4 Transform;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Matrix4x4 Transform" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Matrix4x4 Transform;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Matrix4x4 Transform" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Matrix4x4</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Matrix4x4</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -76,14 +76,14 @@
       </Docs>
     </Member>
     <Member MemberName="Verts">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3[] Verts;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Vector3[] Verts" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Vector3[] Verts;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Vector3[] Verts" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3[]</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Vector3[]</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

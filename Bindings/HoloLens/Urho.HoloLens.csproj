@@ -32,7 +32,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Bin\HoloLens\</OutputPath>
+    <OutputPath>..\..\Bin\SharpReality\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;UWP_HOLO;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\Bin\HoloLens\</OutputPath>
+    <OutputPath>..\..\Bin\SharpReality\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;UWP_HOLO;</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
@@ -52,7 +52,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>..\..\Bin\HoloLens\</OutputPath>
+    <OutputPath>..\..\Bin\SharpReality\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;UWP_HOLO;</DefineConstants>
     <Optimize>true</Optimize>
     <NoWarn>;2008</NoWarn>
@@ -118,7 +118,7 @@
     <Compile Include="UrhoAppView.cs" />
     <Compile Include="UrhoAppViewSource.cs" />
     <Compile Include="VoiceManager.cs" />
-    <EmbeddedResource Include="Properties\HoloLens.rd.xml" />
+    <EmbeddedResource Include="Properties\SharpReality.rd.xml" />
   </ItemGroup>
   <Import Project="..\Urho.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

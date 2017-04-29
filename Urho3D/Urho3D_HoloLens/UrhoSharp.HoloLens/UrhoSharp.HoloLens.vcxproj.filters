@@ -272,7 +272,7 @@
     <ClInclude Include="PlaneFinding\Util.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="UrhoSharp.HoloLens_TemporaryKey.pfx" />
+    <None Include="UrhoSharp.SharpReality_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="SDL">

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Windows.Graphics.DirectX;
 using Windows.Perception.Spatial;
 using Windows.Perception.Spatial.Surfaces;
-using Urho.HoloLens;
+using Urho.SharpReality;
 
 namespace Urho
 {
@@ -174,7 +174,7 @@ namespace Urho
 				vertexData[i].ColorUint = vertexColor;
 			}
 
-			var surfaceInfo = new HoloLens.SpatialMeshInfo
+			var surfaceInfo = new SharpReality.SpatialMeshInfo
 			{
 					SurfaceId = surface.Id.ToString(),
 					Date = surface.UpdateTime,

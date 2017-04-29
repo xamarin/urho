@@ -10,7 +10,7 @@ using Windows.Perception.Spatial;
 using Windows.UI.Core;
 using Windows.UI.Input.Spatial;
 
-namespace Urho.HoloLens
+namespace Urho.SharpReality
 {
 	public class UrhoAppView : IFrameworkView, IDisposable 
 	{

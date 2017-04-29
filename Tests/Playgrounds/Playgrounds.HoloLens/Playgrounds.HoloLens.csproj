@@ -7,8 +7,8 @@
     <ProjectGuid>{45531E74-AC4D-49D2-A899-CCC123BFE838}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Playgrounds.HoloLens</RootNamespace>
-    <AssemblyName>Playgrounds.HoloLens</AssemblyName>
+    <RootNamespace>Playgrounds.SharpReality</RootNamespace>
+    <AssemblyName>Playgrounds.SharpReality</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
@@ -16,7 +16,7 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>Playgrounds.HoloLens_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Playgrounds.SharpReality_TemporaryKey.pfx</PackageCertificateKeyFile>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="..\..\..\Bin\HoloLens\x64\UrhoSharp.HoloLens\mono-holourho.dll">
+    <Content Include="..\..\..\Bin\SharpReality\x64\UrhoSharp.SharpReality\mono-holourho.dll">
       <Link>mono-holourho.dll</Link>
     </Content>
     <Content Include="..\..\..\Urho3D\CoreData.pak">
@@ -74,9 +74,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Bindings\HoloLens\Urho.HoloLens.csproj">
+    <ProjectReference Include="..\..\..\Bindings\SharpReality\Urho.SharpReality.csproj">
       <Project>{9c3a02c0-6776-438a-aaf7-9f95af55e243}</Project>
-      <Name>Urho.HoloLens</Name>
+      <Name>Urho.SharpReality</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

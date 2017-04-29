@@ -1,4 +1,4 @@
-<Type Name="SpatialVertex" FullName="Urho.HoloLens.SpatialVertex">
+﻿<Type Name="SpatialVertex" FullName="Urho.SharpReality.SpatialVertex">
   <TypeSignature Language="C#" Value="public struct SpatialVertex" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit SpatialVertex extends System.ValueType" />
   <AssemblyInfo>

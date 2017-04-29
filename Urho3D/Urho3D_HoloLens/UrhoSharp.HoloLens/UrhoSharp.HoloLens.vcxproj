@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{c0c58e2d-5719-4c57-8a3e-b746aa8c9eb6}</ProjectGuid>
     <Keyword>HolographicApp</Keyword>
-    <RootNamespace>UrhoSharp_HoloLens</RootNamespace>
+    <RootNamespace>UrhoSharp_SharpReality</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
@@ -15,7 +15,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <TargetExt>.dll</TargetExt>
-    <OutDir>..\..\..\Bin\HoloLens\$(Platform)\</OutDir>
+    <OutDir>..\..\..\Bin\SharpReality\$(Platform)\</OutDir>
     <TargetName>mono-holourho</TargetName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -57,7 +57,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <PackageCertificateKeyFile>UrhoSharp.HoloLens_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>UrhoSharp.SharpReality_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -426,7 +426,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="UrhoSharp.HoloLens_TemporaryKey.pfx" />
+    <None Include="UrhoSharp.SharpReality_TemporaryKey.pfx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <PropertyGroup>

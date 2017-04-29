@@ -1,4 +1,4 @@
-﻿<Namespace Name="Urho.HoloLens">
+﻿<Namespace Name="Urho.SharpReality">
   <Docs>
     <summary>Support for holographic applications, primary HoloLens.</summary>
     <remarks>Provides a basic support for HoloLens, however you can use some of this classes (including <see cref="T:Urho.HoloLens.StereoApplication" />) in Urho in other platforms such as Urho for WPF in order to debug holographic scenes without HoloLens device or HoloLens emulator.</remarks>

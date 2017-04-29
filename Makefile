@@ -1,4 +1,4 @@
-#download clang 3.7 from here: http://llvm.org/releases/download.html 
+﻿#download clang 3.7 from here: http://llvm.org/releases/download.html 
 #CUSTOM_CLANG=/tools/clang370/bin/clang
 LOCAL_CLANG=clang+llvm-3.7.0-x86_64-apple-darwin/bin/clang
 CUSTOM_CLANG=`pwd`/$(LOCAL_CLANG)
@@ -60,11 +60,11 @@ Windows64_D3D11:
 UWP32:
 	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
 	
-HoloLens32:
-	make -j1 libUrho3D.a -f MakeHoloLens ARCH=x86
+SharpReality32:
+	make -j1 libUrho3D.a -f MakeSharpReality ARCH=x86
 	
-HoloLens64:
-	make -j1 libUrho3D.a -f MakeHoloLens ARCH=x64
+SharpReality64:
+	make -j1 libUrho3D.a -f MakeSharpReality ARCH=x64
 
 Windows: Windows32 Windows64
 Windows_D3D11: Windows32_D3D11 Windows64_D3D11

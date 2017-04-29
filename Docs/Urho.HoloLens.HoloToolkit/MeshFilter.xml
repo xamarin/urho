@@ -1,4 +1,4 @@
-<Type Name="MeshFilter" FullName="Urho.HoloLens.HoloToolkit.MeshFilter">
+﻿<Type Name="MeshFilter" FullName="Urho.SharpReality.HoloToolkit.MeshFilter">
   <TypeSignature Language="C#" Value="public struct MeshFilter" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit MeshFilter extends System.ValueType" />
   <AssemblyInfo>
@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="sharedMesh">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Mesh sharedMesh;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Mesh sharedMesh" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Mesh sharedMesh;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Mesh sharedMesh" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Mesh</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Mesh</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="transform">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Transform transform;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Transform transform" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Transform transform;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Transform transform" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Transform</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Transform</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

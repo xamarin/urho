@@ -1,7 +1,7 @@
 ﻿using System;
 using Urho.Actions;
 
-namespace Urho.HoloLens
+namespace Urho.SharpReality
 {
 	public class SpatialCursor : Component
 	{

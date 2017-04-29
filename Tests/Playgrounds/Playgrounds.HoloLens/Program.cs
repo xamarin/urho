@@ -2,7 +2,7 @@
 using Windows.ApplicationModel.Core;
 using Urho;
 
-namespace Playgrounds.HoloLens
+namespace Playgrounds.SharpReality
 {
 	internal class Program
 	{

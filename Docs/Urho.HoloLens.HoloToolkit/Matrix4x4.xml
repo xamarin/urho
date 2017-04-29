@@ -1,4 +1,4 @@
-<Type Name="Matrix4x4" FullName="Urho.HoloLens.HoloToolkit.Matrix4x4">
+﻿<Type Name="Matrix4x4" FullName="Urho.SharpReality.HoloToolkit.Matrix4x4">
   <TypeSignature Language="C#" Value="public struct Matrix4x4" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Matrix4x4 extends System.ValueType" />
   <AssemblyInfo>
@@ -61,14 +61,14 @@
       </Docs>
     </Member>
     <Member MemberName="identity">
-      <MemberSignature Language="C#" Value="public static readonly Urho.HoloLens.HoloToolkit.Matrix4x4 identity;" />
-      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.HoloLens.HoloToolkit.Matrix4x4 identity" />
+      <MemberSignature Language="C#" Value="public static readonly Urho.SharpReality.HoloToolkit.Matrix4x4 identity;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.SharpReality.HoloToolkit.Matrix4x4 identity" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Matrix4x4</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Matrix4x4</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -316,17 +316,17 @@
       </Docs>
     </Member>
     <Member MemberName="TransformDirection">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3 TransformDirection (Urho.HoloLens.HoloToolkit.Vector3 v);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.HoloLens.HoloToolkit.Vector3 TransformDirection(valuetype Urho.HoloLens.HoloToolkit.Vector3 v) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Vector3 TransformDirection (Urho.SharpReality.HoloToolkit.Vector3 v);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.SharpReality.HoloToolkit.Vector3 TransformDirection(valuetype Urho.SharpReality.HoloToolkit.Vector3 v) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Vector3</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="v" Type="Urho.HoloLens.HoloToolkit.Vector3" />
+        <Parameter Name="v" Type="Urho.SharpReality.HoloToolkit.Vector3" />
       </Parameters>
       <Docs>
         <param name="v">To be added.</param>
@@ -336,17 +336,17 @@
       </Docs>
     </Member>
     <Member MemberName="TransformPoint">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3 TransformPoint (Urho.HoloLens.HoloToolkit.Vector3 v);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.HoloLens.HoloToolkit.Vector3 TransformPoint(valuetype Urho.HoloLens.HoloToolkit.Vector3 v) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Vector3 TransformPoint (Urho.SharpReality.HoloToolkit.Vector3 v);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.SharpReality.HoloToolkit.Vector3 TransformPoint(valuetype Urho.SharpReality.HoloToolkit.Vector3 v) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Vector3</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="v" Type="Urho.HoloLens.HoloToolkit.Vector3" />
+        <Parameter Name="v" Type="Urho.SharpReality.HoloToolkit.Vector3" />
       </Parameters>
       <Docs>
         <param name="v">To be added.</param>

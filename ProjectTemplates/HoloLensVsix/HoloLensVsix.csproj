@@ -18,8 +18,8 @@
     <ProjectGuid>{97B943BE-0541-45CA-A737-CCE0AF9A7BF0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HoloLensVsix</RootNamespace>
-    <AssemblyName>HoloLensVsix</AssemblyName>
+    <RootNamespace>SharpRealityVsix</RootNamespace>
+    <AssemblyName>SharpRealityVsix</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>

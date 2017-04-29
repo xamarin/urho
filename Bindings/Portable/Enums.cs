@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Urho {
 	[Flags]
@@ -61,7 +61,7 @@ namespace Urho {
 		MacOSX,
 		Linux, 
 		UWP,
-		HoloLens
+		SharpReality
 	}
 
 	internal static class PlatformsMap
@@ -78,7 +78,7 @@ namespace Urho {
 				case "Linux": return Platforms.Linux;
 			}
 #if UWP_HOLO
-			return Platforms.HoloLens;
+			return Platforms.SharpReality;
 #elif WINDOWS_UWP
 			return Platforms.UWP;
 #endif

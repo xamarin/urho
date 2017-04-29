@@ -1,4 +1,4 @@
-<Type Name="Plane" FullName="Urho.HoloLens.HoloToolkit.Plane">
+﻿<Type Name="Plane" FullName="Urho.SharpReality.HoloToolkit.Plane">
   <TypeSignature Language="C#" Value="public struct Plane" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Plane extends System.ValueType" />
   <AssemblyInfo>
@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="normal">
-      <MemberSignature Language="C#" Value="public Urho.HoloLens.HoloToolkit.Vector3 normal;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.HoloLens.HoloToolkit.Vector3 normal" />
+      <MemberSignature Language="C#" Value="public Urho.SharpReality.HoloToolkit.Vector3 normal;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.SharpReality.HoloToolkit.Vector3 normal" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.HoloLens.HoloToolkit.Vector3</ReturnType>
+        <ReturnType>Urho.SharpReality.HoloToolkit.Vector3</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

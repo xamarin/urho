@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{ED29FA71-9
 		Makefile = Makefile
 		MakeiOS = MakeiOS
 		MakeMac = MakeMac
-		Urho.HoloLens.nuspec = Urho.HoloLens.nuspec
+		Urho.SharpReality.nuspec = Urho.SharpReality.nuspec
 		Urho.nuspec = Urho.nuspec
-		Nuget\HoloLens\UrhoSharp.HoloLens.targets = Nuget\HoloLens\UrhoSharp.HoloLens.targets
+		Nuget\SharpReality\UrhoSharp.SharpReality.targets = Nuget\SharpReality\UrhoSharp.SharpReality.targets
 		Nuget\Android\UrhoSharp.targets = Nuget\Android\UrhoSharp.targets
 		Nuget\Desktop\UrhoSharp.targets = Nuget\Desktop\UrhoSharp.targets
 		Nuget\iOS\UrhoSharp.targets = Nuget\iOS\UrhoSharp.targets
@@ -54,13 +54,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Tests", "Tests\Urho.Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1958F8CC-E712-41FF-9C2C-3F7FD4B6C511}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.HoloLens", "Urho3D\Urho3D_HoloLens\UrhoSharp.HoloLens\UrhoSharp.HoloLens.vcxproj", "{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.SharpReality", "Urho3D\Urho3D_SharpReality\UrhoSharp.SharpReality\UrhoSharp.SharpReality.vcxproj", "{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.HoloLens", "Bindings\HoloLens\Urho.HoloLens.csproj", "{9C3A02C0-6776-438A-AAF7-9F95AF55E243}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.SharpReality", "Bindings\SharpReality\Urho.SharpReality.csproj", "{9C3A02C0-6776-438A-AAF7-9F95AF55E243}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Playgrounds", "Playgrounds", "{7B31BB67-CA12-41DD-8DDF-779B7E7561D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playgrounds.HoloLens", "Tests\Playgrounds\Playgrounds.HoloLens\Playgrounds.HoloLens.csproj", "{45531E74-AC4D-49D2-A899-CCC123BFE838}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playgrounds.SharpReality", "Tests\Playgrounds\Playgrounds.SharpReality\Playgrounds.SharpReality.csproj", "{45531E74-AC4D-49D2-A899-CCC123BFE838}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playgrounds.Console", "Tests\Playgrounds\Playgrounds.Console\Playgrounds.Console.csproj", "{605A6BB4-2D9E-4FAD-B443-E83286515095}"
 EndProject

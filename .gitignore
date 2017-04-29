@@ -1,4 +1,4 @@
-*.o
+﻿*.o
 *.a
 *.so
 *~
@@ -25,7 +25,7 @@ packages/
 /Urho3D/Urho3D_Android
 /Urho3D/Urho3D_Mac
 /Urho3D/Urho3D_IOS
-/Urho3D/Urho3D_HoloLens
+/Urho3D/Urho3D_SharpReality
 /Urho3D/Urho3D_UWP
 clang+llvm-3.7.0-x86_64-apple-darwin*
 /UpgradeLog.htm
@@ -33,5 +33,5 @@ clang+llvm-3.7.0-x86_64-apple-darwin*
 *.VC.opendb
 *.VC.db
 project.lock.json
-/ProjectTemplates/HoloLensVsix/ProjectTemplates
+/ProjectTemplates/SharpRealityVsix/ProjectTemplates
 /ProjectTemplates/VSIX/ProjectTemplates

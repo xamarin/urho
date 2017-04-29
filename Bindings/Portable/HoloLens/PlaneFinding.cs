@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace Urho.HoloLens.HoloToolkit
+namespace Urho.SharpReality.HoloToolkit
 {
 	[StructLayout(LayoutKind.Sequential)]
 	public struct OrientedBoundingBox

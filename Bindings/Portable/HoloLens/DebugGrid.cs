@@ -1,6 +1,6 @@
 ﻿using Urho.Shapes;
 
-namespace Urho.HoloLens
+namespace Urho.SharpReality
 {
 	public class DebugGrid : Component
 	{

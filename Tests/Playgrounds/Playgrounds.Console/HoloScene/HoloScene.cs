@@ -4,7 +4,7 @@ using System.IO.Compression;
 using System.Linq;
 using Newtonsoft.Json;
 using Urho;
-using Urho.HoloLens;
+using Urho.SharpReality;
 namespace Playgrounds.Console.HoloScene
 {
 	public class HoloScene : StereoApplication
@@ -33,7 +33,7 @@ namespace Playgrounds.Console.HoloScene
 			environmentNode = Scene.CreateChild();
 
 			environmentNode.SetScale(0.2f);
-			var surfs = JsonConvert.DeserializeObject<Dictionary<string, SurfaceDto>>(File.ReadAllText(@"HoloLens\SpatialData.txt"));
+			var surfs = JsonConvert.DeserializeObject<Dictionary<string, SurfaceDto>>(File.ReadAllText(@"SharpReality\SpatialData.txt"));
 
 			var randomMaterial = Material.FromColor(Color.Gray);
 			randomMaterial.CullMode = CullMode.Ccw;

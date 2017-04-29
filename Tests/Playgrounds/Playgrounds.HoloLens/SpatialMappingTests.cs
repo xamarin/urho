@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Urho;
 using Urho.Actions;
-using Urho.HoloLens;
+using Urho.SharpReality;
 
-namespace Playgrounds.HoloLens
+namespace Playgrounds.SharpReality
 {
 	public class SpatialMappingTests : StereoApplication
 	{

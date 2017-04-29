@@ -1,4 +1,4 @@
-﻿<Type Name="StereoApplication" FullName="Urho.HoloLens.StereoApplication">
+﻿<Type Name="StereoApplication" FullName="Urho.SharpReality.StereoApplication">
   <TypeSignature Language="C#" Value="public class StereoApplication : Urho.Application" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit StereoApplication extends Urho.Application" />
   <AssemblyInfo>
@@ -10,12 +10,12 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>Base class for creating holographics applications for HoloLens.</summary>
+    <summary>Base class for creating holographics applications for SharpReality.</summary>
     <remarks>This is the base class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
 	  <example>
         <code lang="C#"><![CDATA[using System;
 using Urho;
-using Urho.HoloLens;
+using Urho.SharpReality;
 
 public class MyApplication : StereoApplication
 {
@@ -68,8 +68,8 @@ public class MyApplication : StereoApplication
       </Docs>
     </Member>
     <Member MemberName="CreateModelFromVertexData">
-      <MemberSignature Language="C#" Value="protected Urho.Model CreateModelFromVertexData (Urho.HoloLens.SpatialVertex[] vertexData, short[] indexData, Urho.Quaternion rotation = null);" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance class Urho.Model CreateModelFromVertexData(valuetype Urho.HoloLens.SpatialVertex[] vertexData, int16[] indexData, valuetype Urho.Quaternion rotation) cil managed" />
+      <MemberSignature Language="C#" Value="protected Urho.Model CreateModelFromVertexData (Urho.SharpReality.SpatialVertex[] vertexData, short[] indexData, Urho.Quaternion rotation = null);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig instance class Urho.Model CreateModelFromVertexData(valuetype Urho.SharpReality.SpatialVertex[] vertexData, int16[] indexData, valuetype Urho.Quaternion rotation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -78,7 +78,7 @@ public class MyApplication : StereoApplication
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="vertexData" Type="Urho.HoloLens.SpatialVertex[]" />
+        <Parameter Name="vertexData" Type="Urho.SharpReality.SpatialVertex[]" />
         <Parameter Name="indexData" Type="System.Int16[]" />
         <Parameter Name="rotation" Type="Urho.Quaternion" />
       </Parameters>
@@ -152,7 +152,7 @@ public class MyApplication : StereoApplication
       <Docs>
         <summary>Distance between eyes.</summary>
         <value>To be added.</value>
-        <remarks>StereoApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
+        <remarks>StereoApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from SharpReality API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Emulator">
@@ -236,8 +236,8 @@ public class MyApplication : StereoApplication
       </Docs>
     </Member>
     <Member MemberName="GenerateModelFromSpatialSurface">
-      <MemberSignature Language="C#" Value="public virtual Urho.Model GenerateModelFromSpatialSurface (Urho.HoloLens.SpatialMeshInfo surface);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Urho.Model GenerateModelFromSpatialSurface(valuetype Urho.HoloLens.SpatialMeshInfo surface) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual Urho.Model GenerateModelFromSpatialSurface (Urho.SharpReality.SpatialMeshInfo surface);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Urho.Model GenerateModelFromSpatialSurface(valuetype Urho.SharpReality.SpatialMeshInfo surface) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -246,13 +246,13 @@ public class MyApplication : StereoApplication
         <ReturnType>Urho.Model</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="surface" Type="Urho.HoloLens.SpatialMeshInfo" />
+        <Parameter Name="surface" Type="Urho.SharpReality.SpatialMeshInfo" />
       </Parameters>
       <Docs>
         <param name="surface">Creates Model from spatial surfaces.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.StereoApplication.CreateModelFromVertexData" />.</remarks>
+        <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.SharpReality.StereoApplication.CreateModelFromVertexData" />.</remarks>
       </Docs>
     </Member>
     <Member MemberName="HeadPosition">
@@ -455,8 +455,8 @@ public class MyApplication : StereoApplication
       </Docs>
     </Member>
     <Member MemberName="OnSurfaceAddedOrUpdated">
-      <MemberSignature Language="C#" Value="public virtual void OnSurfaceAddedOrUpdated (Urho.HoloLens.SpatialMeshInfo surface, Urho.Model generatedModel);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSurfaceAddedOrUpdated(valuetype Urho.HoloLens.SpatialMeshInfo surface, class Urho.Model generatedModel) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual void OnSurfaceAddedOrUpdated (Urho.SharpReality.SpatialMeshInfo surface, Urho.Model generatedModel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSurfaceAddedOrUpdated(valuetype Urho.SharpReality.SpatialMeshInfo surface, class Urho.Model generatedModel) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -465,13 +465,13 @@ public class MyApplication : StereoApplication
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="surface" Type="Urho.HoloLens.SpatialMeshInfo" />
+        <Parameter Name="surface" Type="Urho.SharpReality.SpatialMeshInfo" />
         <Parameter Name="generatedModel" Type="Urho.Model" />
       </Parameters>
       <Docs>
         <param name="surface">To be added.</param>
-        <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.StereoApplication.GenerateModelFromSpatialSurface" />.</param>
-        <summary>Invokes when HoloLens recognizes a new spatial surface or updates any existing..</summary>
+        <param name="generatedModel">Model created by <see href="M:Urho.SharpReality.StereoApplication.GenerateModelFromSpatialSurface" />.</param>
+        <summary>Invokes when SharpReality recognizes a new spatial surface or updates any existing..</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrhoSharpVsix", "VSIX\UrhoS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrhoSharpTemplateWizard", "VSIX\UrhoSharpTemplateWizard\UrhoSharpTemplateWizard.csproj", "{743B2C05-97BF-416F-A512-B4D8FF3EEBD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloLensVsix", "HoloLensVsix\HoloLensVsix.csproj", "{97B943BE-0541-45CA-A737-CCE0AF9A7BF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRealityVsix", "SharpRealityVsix\SharpRealityVsix.csproj", "{97B943BE-0541-45CA-A737-CCE0AF9A7BF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

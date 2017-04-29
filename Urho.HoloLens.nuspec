@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>UrhoSharp.HoloLens</id>
+       <id>UrhoSharp.SharpReality</id>
        <version>1.4</version>
-       <title>UrhoSharp.HoloLens</title>
+       <title>UrhoSharp.SharpReality</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
        <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
        <projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
        <iconUrl>http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-       <summary>Cross Platform, 2D and 3D Game Engine for C# (This package contains extensions for HoloLens).</summary>
+       <summary>Cross Platform, 2D and 3D Game Engine for C# (This package contains extensions for SharpReality).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
 	   <releaseNotes>- Added Windows MixedReality platform support
 - Added ScriptInstance stub (in order to correctly load scenes with AngelScript/Lua scripts)
@@ -21,10 +21,10 @@
    </metadata>
    <files>
      <file src="Urho3D/CoreData.pak" target="native/CoreData.pak" />
-     <file src="Nuget/HoloLens/UrhoSharp.HoloLens.targets" target="build/uap10.0" />
+     <file src="Nuget/SharpReality/UrhoSharp.SharpReality.targets" target="build/uap10.0" />
      <file src="docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
-     <file src="Bin/HoloLens/Urho.dll" target="lib/uap10.0/Urho.dll" />
-     <file src="Bin/HoloLens/Win32/UrhoSharp.HoloLens/mono-holourho.dll" target="native/HoloLens32/mono-holourho.dll" />
-     <file src="Bin/HoloLens/x64/UrhoSharp.HoloLens/mono-holourho.dll" target="native/HoloLens64/mono-holourho.dll" />
+     <file src="Bin/SharpReality/Urho.dll" target="lib/uap10.0/Urho.dll" />
+     <file src="Bin/SharpReality/Win32/UrhoSharp.SharpReality/mono-holourho.dll" target="native/SharpReality32/mono-holourho.dll" />
+     <file src="Bin/SharpReality/x64/UrhoSharp.SharpReality/mono-holourho.dll" target="native/SharpReality64/mono-holourho.dll" />
    </files>
 </package>

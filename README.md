@@ -1,4 +1,4 @@
-# ![](http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png) UrhoSharp
+﻿# ![](http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png) UrhoSharp
 
 UrhoSharp is a lightweight Game Engine suitable for using with C# and
 F# to create games and 3D applications. The game engine is available 
@@ -145,7 +145,7 @@ All compiled binaries could be found in the Bin/{platform} folder.
 Execute:
 ```
 make UWP32
-make HoloLens
+make SharpReality
 ```
 
 And compile MonoUrho.UWP and MonoUrho.HoloLens projects in Release (x86 only) configuration.

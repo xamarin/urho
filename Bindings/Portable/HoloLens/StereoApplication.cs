@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Urho.Resources;
 
-namespace Urho.HoloLens
+namespace Urho.SharpReality
 {
 	public class StereoApplication : Application
 	{
@@ -176,7 +176,7 @@ namespace Urho.HoloLens
 		{
 			CortanaCommands = commands;
 #if UWP_HOLO
-			return Urho.HoloLens.UrhoAppView.Current.VoiceManager.RegisterCortanaCommands(commands);
+			return Urho.SharpReality.UrhoAppView.Current.VoiceManager.RegisterCortanaCommands(commands);
 #else
 			return Task.FromResult<bool>(false);
 #endif
@@ -185,7 +185,7 @@ namespace Urho.HoloLens
 		public Task TextToSpeech(string text)
 		{
 #if UWP_HOLO
-			return Urho.HoloLens.UrhoAppView.Current.VoiceManager.TextToSpeech(text);
+			return Urho.SharpReality.UrhoAppView.Current.VoiceManager.TextToSpeech(text);
 #else
 			return Task.FromResult<bool>(false);
 #endif
@@ -197,7 +197,7 @@ namespace Urho.HoloLens
 		protected Task<bool> StartSpatialMapping(Vector3 extents, int trianglesPerCubicMeter = 1000, Color color = default(Color), bool onlyAdd = false, bool convertToLeftHanded = true)
 		{
 #if UWP_HOLO
-			var appView = Urho.HoloLens.UrhoAppView.Current;
+			var appView = Urho.SharpReality.UrhoAppView.Current;
 			appView.SpatialMappingManager.DefaultColor = color;
 			return appView.SpatialMappingManager.Register(this, 
 				appView.ReferenceFrame.CoordinateSystem, 
@@ -211,7 +211,7 @@ namespace Urho.HoloLens
 		protected void StopSpatialMapping()
 		{
 #if UWP_HOLO
-			Urho.HoloLens.UrhoAppView.Current.SpatialMappingManager.Stop();
+			Urho.SharpReality.UrhoAppView.Current.SpatialMappingManager.Stop();
 #endif
 		}
 
