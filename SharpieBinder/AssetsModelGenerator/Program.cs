@@ -69,6 +69,44 @@ namespace Urho
 			code += $"{Tabs(node.Level)}}}\n";
 		}
 
+		static string GetShaderParameters(string file)
+		{
+			// file = @"..\..\..\..\Urho3D\CoreData\Shaders\GLSL\Uniforms.glsl";
+			string code = "";
+			var lines = File.ReadAllLines(file);
+
+			int lineIndex = -1;
+			code += "public static class ShaderParameters\n{\n";
+			foreach (var line in lines)
+			{
+				lineIndex++;
+				var paramName = line.Trim(';', ' ', '\t', '\n', '\r');
+				if (!paramName.StartsWith("uniform "))
+					continue;
+
+				paramName = paramName.Remove(0, "uniform ".Length);
+				if (!paramName.Contains(" "))
+					continue;
+
+				var paramType = paramName.Substring(0, paramName.IndexOf(' '));
+				paramName = paramName.Remove(0, paramType.Length + 1);
+				if (!paramName.StartsWith("c") || paramName.Contains("["))
+					continue;
+
+				paramName = paramName.Remove(0, 1);// remove 'c' prefix
+
+				string comment = $"Type: {paramType}, Defined in {Path.GetFileName(file)}:L{lineIndex}";
+
+				code += $"\t/// <summary>\n";
+				code += $"\t/// {comment}\n";
+				code += $"\t/// </summary>\n";
+				code += $"\tpublic const string {paramName} = \"{paramName}\";\n\n";
+			}
+			code += "}";
+
+			return code;
+		}
+
 		static string Tabs(int c) => new string('\t', c);
 
 		static void VisitFolder(string folder, Node currentNode)

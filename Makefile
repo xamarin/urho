@@ -60,11 +60,17 @@ Windows64_D3D11:
 UWP32:
 	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 14"
 	
+	
+SharpReality: SharpReality32 SharpReality64
 SharpReality32:
 	make -j1 libUrho3D.a -f MakeSharpReality ARCH=x86
-	
 SharpReality64:
 	make -j1 libUrho3D.a -f MakeSharpReality ARCH=x64
+
+HoloLens32: HoloLens
+HoloLens64: HoloLens
+HoloLens:
+	@echo "HoloLens was renamed to SharpReality"
 
 Windows: Windows32 Windows64
 Windows_D3D11: Windows32_D3D11 Windows64_D3D11

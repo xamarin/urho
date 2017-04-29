@@ -176,6 +176,272 @@ namespace Urho
 			public static Texture2D SpotWide => Cache.GetTexture2D("Textures/SpotWide.png");
 			public static Texture2D SpotWideXml => Cache.GetTexture2D("Textures/SpotWide.xml");
 		}
-	}
 
+		public static class ShaderParameters
+		{
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L10
+			/// </summary>
+			public const string AmbientStartColor = "AmbientStartColor";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L11
+			/// </summary>
+			public const string AmbientEndColor = "AmbientEndColor";
+
+			/// <summary>
+			/// Type: mat3, Defined in Uniforms.glsl:L12
+			/// </summary>
+			public const string BillboardRot = "BillboardRot";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L13
+			/// </summary>
+			public const string CameraPos = "CameraPos";
+
+			/// <summary>
+			/// Type: float, Defined in Uniforms.glsl:L14
+			/// </summary>
+			public const string NearClip = "NearClip";
+
+			/// <summary>
+			/// Type: float, Defined in Uniforms.glsl:L15
+			/// </summary>
+			public const string FarClip = "FarClip";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L16
+			/// </summary>
+			public const string DepthMode = "DepthMode";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L17
+			/// </summary>
+			public const string FrustumSize = "FrustumSize";
+
+			/// <summary>
+			/// Type: float, Defined in Uniforms.glsl:L18
+			/// </summary>
+			public const string DeltaTime = "DeltaTime";
+
+			/// <summary>
+			/// Type: float, Defined in Uniforms.glsl:L19
+			/// </summary>
+			public const string ElapsedTime = "ElapsedTime";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L20
+			/// </summary>
+			public const string GBufferOffsets = "GBufferOffsets";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L21
+			/// </summary>
+			public const string LightPos = "LightPos";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L22
+			/// </summary>
+			public const string LightDir = "LightDir";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L23
+			/// </summary>
+			public const string NormalOffsetScale = "NormalOffsetScale";
+
+			/// <summary>
+			/// Type: mat4, Defined in Uniforms.glsl:L24
+			/// </summary>
+			public const string Model = "Model";
+
+			/// <summary>
+			/// Type: mat4, Defined in Uniforms.glsl:L25
+			/// </summary>
+			public const string View = "View";
+
+			/// <summary>
+			/// Type: mat4, Defined in Uniforms.glsl:L26
+			/// </summary>
+			public const string ViewInv = "ViewInv";
+
+			/// <summary>
+			/// Type: mat4, Defined in Uniforms.glsl:L27
+			/// </summary>
+			public const string ViewProj = "ViewProj";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L28
+			/// </summary>
+			public const string UOffset = "UOffset";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L29
+			/// </summary>
+			public const string VOffset = "VOffset";
+
+			/// <summary>
+			/// Type: mat4, Defined in Uniforms.glsl:L30
+			/// </summary>
+			public const string Zone = "Zone";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L43
+			/// </summary>
+			public const string ClipPlane = "ClipPlane";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L54
+			/// </summary>
+			public const string AmbientColor = "AmbientColor";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L55
+			/// </summary>
+			public const string CameraPosPS = "CameraPosPS";
+
+			/// <summary>
+			/// Type: float, Defined in Uniforms.glsl:L56
+			/// </summary>
+			public const string DeltaTimePS = "DeltaTimePS";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L57
+			/// </summary>
+			public const string DepthReconstruct = "DepthReconstruct";
+
+			/// <summary>
+			/// Type: float, Defined in Uniforms.glsl:L58
+			/// </summary>
+			public const string ElapsedTimePS = "ElapsedTimePS";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L59
+			/// </summary>
+			public const string FogParams = "FogParams";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L60
+			/// </summary>
+			public const string FogColor = "FogColor";
+
+			/// <summary>
+			/// Type: vec2, Defined in Uniforms.glsl:L61
+			/// </summary>
+			public const string GBufferInvSize = "GBufferInvSize";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L62
+			/// </summary>
+			public const string LightColor = "LightColor";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L63
+			/// </summary>
+			public const string LightPosPS = "LightPosPS";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L64
+			/// </summary>
+			public const string LightDirPS = "LightDirPS";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L65
+			/// </summary>
+			public const string NormalOffsetScalePS = "NormalOffsetScalePS";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L66
+			/// </summary>
+			public const string MatDiffColor = "MatDiffColor";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L67
+			/// </summary>
+			public const string MatEmissiveColor = "MatEmissiveColor";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L68
+			/// </summary>
+			public const string MatEnvMapColor = "MatEnvMapColor";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L69
+			/// </summary>
+			public const string MatSpecColor = "MatSpecColor";
+
+			public static class PBR
+			{
+				/// <summary>
+				/// Type: float, Defined in Uniforms.glsl:L71
+				/// </summary>
+				public const string Roughness = "Roughness";
+
+				/// <summary>
+				/// Type: float, Defined in Uniforms.glsl:L72
+				/// </summary>
+				public const string Metallic = "Metallic";
+
+				/// <summary>
+				/// Type: float, Defined in Uniforms.glsl:L73
+				/// </summary>
+				public const string LightRad = "LightRad";
+
+				/// <summary>
+				/// Type: float, Defined in Uniforms.glsl:L74
+				/// </summary>
+				public const string LightLength = "LightLength";
+			}
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L76
+			/// </summary>
+			public const string ZoneMin = "ZoneMin";
+
+			/// <summary>
+			/// Type: vec3, Defined in Uniforms.glsl:L77
+			/// </summary>
+			public const string ZoneMax = "ZoneMax";
+
+			/// <summary>
+			/// Type: float, Defined in Uniforms.glsl:L78
+			/// </summary>
+			public const string NearClipPS = "NearClipPS";
+
+			/// <summary>
+			/// Type: float, Defined in Uniforms.glsl:L79
+			/// </summary>
+			public const string FarClipPS = "FarClipPS";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L80
+			/// </summary>
+			public const string ShadowCubeAdjust = "ShadowCubeAdjust";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L81
+			/// </summary>
+			public const string ShadowDepthFade = "ShadowDepthFade";
+
+			/// <summary>
+			/// Type: vec2, Defined in Uniforms.glsl:L82
+			/// </summary>
+			public const string ShadowIntensity = "ShadowIntensity";
+
+			/// <summary>
+			/// Type: vec2, Defined in Uniforms.glsl:L83
+			/// </summary>
+			public const string ShadowMapInvSize = "ShadowMapInvSize";
+
+			/// <summary>
+			/// Type: vec4, Defined in Uniforms.glsl:L84
+			/// </summary>
+			public const string ShadowSplits = "ShadowSplits";
+
+			/// <summary>
+			/// Type: vec2, Defined in Uniforms.glsl:L87
+			/// </summary>
+			public const string VSMShadowParams = "VSMShadowParams";
+
+		}
+	}
 }
