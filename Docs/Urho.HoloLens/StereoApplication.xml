@@ -1,6 +1,6 @@
-<Type Name="HoloApplication" FullName="Urho.HoloLens.HoloApplication">
-  <TypeSignature Language="C#" Value="public class HoloApplication : Urho.Application" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit HoloApplication extends Urho.Application" />
+﻿<Type Name="StereoApplication" FullName="Urho.HoloLens.StereoApplication">
+  <TypeSignature Language="C#" Value="public class StereoApplication : Urho.Application" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit StereoApplication extends Urho.Application" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -17,7 +17,7 @@
 using Urho;
 using Urho.HoloLens;
 
-public class MyApplication : HoloApplication
+public class MyApplication : StereoApplication
 {
     public MyApplication(string assets) : base(assets) { }
 
@@ -36,7 +36,7 @@ public class MyApplication : HoloApplication
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="protected HoloApplication (Urho.ApplicationOptions opts);" />
+      <MemberSignature Language="C#" Value="protected StereoApplication (Urho.ApplicationOptions opts);" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(class Urho.ApplicationOptions opts) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -152,7 +152,7 @@ public class MyApplication : HoloApplication
       <Docs>
         <summary>Distance between eyes.</summary>
         <value>To be added.</value>
-        <remarks>HoloApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
+        <remarks>StereoApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Emulator">
@@ -252,7 +252,7 @@ public class MyApplication : HoloApplication
         <param name="surface">Creates Model from spatial surfaces.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.HoloApplication.CreateModelFromVertexData" />.</remarks>
+        <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.StereoApplication.CreateModelFromVertexData" />.</remarks>
       </Docs>
     </Member>
     <Member MemberName="HeadPosition">
@@ -470,7 +470,7 @@ public class MyApplication : HoloApplication
       </Parameters>
       <Docs>
         <param name="surface">To be added.</param>
-        <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.HoloApplication.GenerateModelFromSpatialSurface" />.</param>
+        <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.StereoApplication.GenerateModelFromSpatialSurface" />.</param>
         <summary>Invokes when HoloLens recognizes a new spatial surface or updates any existing..</summary>
         <remarks>To be added.</remarks>
       </Docs>

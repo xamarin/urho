@@ -6,14 +6,14 @@ namespace Urho
 {
 	public class GesturesManager
 	{
-		readonly HoloApplication app;
+		readonly StereoApplication app;
 		readonly SpatialStationaryFrameOfReference referenceFrame;
 		readonly SpatialGestureRecognizer tap = new SpatialGestureRecognizer(SpatialGestureSettings.Tap | SpatialGestureSettings.DoubleTap);
 		readonly SpatialGestureRecognizer manipulationTranslate = new SpatialGestureRecognizer(SpatialGestureSettings.ManipulationTranslate);
 		readonly SpatialGestureRecognizer hold = new SpatialGestureRecognizer(SpatialGestureSettings.Hold);
 		//TODO: handle Navigation/Rails (SpatialGestureSettings)
 
-		public GesturesManager(HoloApplication app, SpatialStationaryFrameOfReference referenceFrame)
+		public GesturesManager(StereoApplication app, SpatialStationaryFrameOfReference referenceFrame)
 		{
 			this.app = app;
 			this.referenceFrame = referenceFrame;

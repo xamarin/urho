@@ -1,4 +1,4 @@
-<doc>
+﻿<doc>
     <assembly>
         <name>Urho</name>
     </assembly>
@@ -44013,14 +44013,14 @@ public class MyInstantState : ActionInstantState
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.HoloLens.HoloApplication">
+        <member name="T:Urho.HoloLens.StereoApplication">
             <summary>Base class for creating holographics applications for HoloLens.</summary>
             <remarks>This is the bas class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
 	  <example><code lang="C#"><![CDATA[using System;
 using Urho;
 using Urho.HoloLens;
 
-public class MyApplication : HoloApplication
+public class MyApplication : StereoApplication
 {
     public MyApplication(string assets) : base(assets) { }
 
@@ -44037,17 +44037,17 @@ public class MyApplication : HoloApplication
 }
 ]]></code></example></remarks>
         </member>
-        <member name="C:Urho.HoloLens.HoloApplication(Urho.ApplicationOptions)">
+        <member name="C:Urho.HoloLens.StereoApplication(Urho.ApplicationOptions)">
             <param name="opts"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.CortanaCommands">
+        <member name="P:Urho.HoloLens.StereoApplication.CortanaCommands">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.CreateModelFromVertexData(Urho.HoloLens.SpatialVertex[],System.Int16[],Urho.Quaternion)">
+        <member name="M:Urho.HoloLens.StereoApplication.CreateModelFromVertexData(Urho.HoloLens.SpatialVertex[],System.Int16[],Urho.Quaternion)">
             <param name="vertexData"></param>
             <param name="indexData"></param>
             <param name="rotation"></param>
@@ -44055,144 +44055,144 @@ public class MyApplication : HoloApplication
             <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.CullingCamera">
+        <member name="P:Urho.HoloLens.StereoApplication.CullingCamera">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.DefaultRenderPath">
+        <member name="P:Urho.HoloLens.StereoApplication.DefaultRenderPath">
             <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.DirectionalLight">
+        <member name="P:Urho.HoloLens.StereoApplication.DirectionalLight">
             <summary>Default directional <see cref="T:Urho.Light" /> in the basic scene.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.DistanceBetweenEyes">
+        <member name="P:Urho.HoloLens.StereoApplication.DistanceBetweenEyes">
             <summary>Distance between eyes.</summary>
             <value></value>
-            <remarks>HoloApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
+            <remarks>StereoApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.Emulator">
+        <member name="P:Urho.HoloLens.StereoApplication.Emulator">
             <summary>Emulator mode</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.EnableGestureHold">
+        <member name="P:Urho.HoloLens.StereoApplication.EnableGestureHold">
             <summary>Enables or disables Hold gesture.</summary>
             <value></value>
             <remarks>See https://developer.microsoft.com/en-us/windows/holographic/gestures for details</remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.EnableGestureManipulation">
+        <member name="P:Urho.HoloLens.StereoApplication.EnableGestureManipulation">
             <summary>Enables or disables Manipulation gesture.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.EnableGestureTapped">
+        <member name="P:Urho.HoloLens.StereoApplication.EnableGestureTapped">
             <summary>Enables or disables Tapped and Double Tapped gestures.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.FocusWorldPoint">
+        <member name="P:Urho.HoloLens.StereoApplication.FocusWorldPoint">
             <summary>Focus point in World coordinates.</summary>
             <value></value>
             <remarks>Informs the system about a specific point in your scene to prioritize for image stabilization. You should set the focus point near the content that the user is looking at.</remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.GenerateModelFromSpatialSurface(Urho.HoloLens.SpatialMeshInfo)">
+        <member name="M:Urho.HoloLens.StereoApplication.GenerateModelFromSpatialSurface(Urho.HoloLens.SpatialMeshInfo)">
             <param name="surface">Creates Model from spatial surfaces.</param>
             <summary></summary>
             <returns></returns>
-            <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.HoloApplication.CreateModelFromVertexData" />.</remarks>
+            <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.HoloLens.StereoApplication.CreateModelFromVertexData" />.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.HeadPosition">
+        <member name="P:Urho.HoloLens.StereoApplication.HeadPosition">
             <summary>User's current position.</summary>
             <value></value>
             <remarks>The exact position will be between the cameras representing user's eyes.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.LeftCamera">
+        <member name="P:Urho.HoloLens.StereoApplication.LeftCamera">
             <summary>
                 <see cref="T:Urho.Camera" /> component that represents user's left eye.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.Octree">
+        <member name="P:Urho.HoloLens.StereoApplication.Octree">
             <summary>Fast access to <see cref="T:Urho.Octree" /> added to the basic scene.</summary>
             <value></value>
             <remarks>Can be used for ray casting.</remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureDoubleTapped">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureDoubleTapped">
             <summary>Invokes when user uses double tap gesture. Requires enabled EnableGestureTapped property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureHoldCanceled">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureHoldCanceled">
             <summary>Invokes when user cancels Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureHoldCompleted">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureHoldCompleted">
             <summary>Invokes when user completes Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureHoldStarted">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureHoldStarted">
             <summary>Invokes when user starts Hold gesture. Requires enabled EnableGestureHold property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureManipulationCanceled">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureManipulationCanceled">
             <summary>Invokes when user cancels Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureManipulationCompleted(Urho.Vector3)">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureManipulationCompleted(Urho.Vector3)">
             <param name="relativeHandPosition"></param>
             <summary>Invokes when user completes Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureManipulationStarted">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureManipulationStarted">
             <summary>Invokes when user starts Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureManipulationUpdated(Urho.Vector3)">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureManipulationUpdated(Urho.Vector3)">
             <param name="relativeHandPosition"></param>
             <summary>Invokes when user uses Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnGestureTapped">
+        <member name="M:Urho.HoloLens.StereoApplication.OnGestureTapped">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnSurfaceAddedOrUpdated(Urho.HoloLens.SpatialMeshInfo,Urho.Model)">
+        <member name="M:Urho.HoloLens.StereoApplication.OnSurfaceAddedOrUpdated(Urho.HoloLens.SpatialMeshInfo,Urho.Model)">
             <param name="surface"></param>
-            <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.HoloApplication.GenerateModelFromSpatialSurface" />.</param>
+            <param name="generatedModel">Model created by <see href="M:Urho.HoloLens.StereoApplication.GenerateModelFromSpatialSurface" />.</param>
             <summary>Invokes when HoloLens recognizes a new spatial surface or updates any existing..</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.OnUpdate(System.Single)">
+        <member name="M:Urho.HoloLens.StereoApplication.OnUpdate(System.Single)">
             <param name="timeStep"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.RegisterCortanaCommands(System.Collections.Generic.Dictionary{System.String,System.Action})">
+        <member name="M:Urho.HoloLens.StereoApplication.RegisterCortanaCommands(System.Collections.Generic.Dictionary{System.String,System.Action})">
             <param name="commands">Set of voice commands.</param>
             <summary>Registers set of voice commands with handlers.</summary>
             <returns>Returns false if 'Microphone' device capability was not enabled in the AppManifest.</returns>
             <remarks>You should enable 'Microphone' device capability in the AppManifest.</remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.RightCamera">
+        <member name="P:Urho.HoloLens.StereoApplication.RightCamera">
             <summary>
                 <see cref="T:Urho.Camera" /> component that represents user's right eye.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.Scene">
+        <member name="P:Urho.HoloLens.StereoApplication.Scene">
             <summary>Root node of the simple scene created in Start metod.</summary>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.Start">
+        <member name="M:Urho.HoloLens.StereoApplication.Start">
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.StartSpatialMapping(Urho.Vector3,System.Int32,Urho.Color,System.Boolean,System.Boolean)">
+        <member name="M:Urho.HoloLens.StereoApplication.StartSpatialMapping(Urho.Vector3,System.Int32,Urho.Color,System.Boolean,System.Boolean)">
             <param name="extents">Bounding volume to observe. Vector3(20, 10, 5) means a box that is 20x10x5 meters.</param>
             <param name="trianglesPerCubicMeter">Desired accuracy.</param>
             <param name="color"></param>
@@ -44202,17 +44202,17 @@ public class MyApplication : HoloApplication
             <returns>Returns 'false' if spatialMapping device capability is not defined in the app's manifest. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> for more details.</returns>
             <remarks>Make sure 'spatialMapping' device capability is enabled. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> and <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.StopSpatialMapping">
+        <member name="M:Urho.HoloLens.StereoApplication.StopSpatialMapping">
             <summary>Stops spatial mapping process. You will stop receiving OnSurfaceAddedOrUpdated events.</summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.HoloLens.HoloApplication.TextToSpeech(System.String)">
+        <member name="M:Urho.HoloLens.StereoApplication.TextToSpeech(System.String)">
             <param name="text"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.HoloLens.HoloApplication.Zone">
+        <member name="P:Urho.HoloLens.StereoApplication.Zone">
             <summary></summary>
             <value></value>
             <remarks></remarks>

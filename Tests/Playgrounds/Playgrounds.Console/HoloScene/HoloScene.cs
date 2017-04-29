@@ -7,7 +7,7 @@ using Urho;
 using Urho.HoloLens;
 namespace Playgrounds.Console.HoloScene
 {
-	public class HoloScene : HoloApplication
+	public class HoloScene : StereoApplication
 	{
 		private Node environmentNode;
 

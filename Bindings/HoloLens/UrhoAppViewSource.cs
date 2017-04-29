@@ -4,7 +4,7 @@ using Urho.HoloLens;
 
 namespace Urho
 {
-	public class UrhoAppViewSource<T> : IFrameworkViewSource where T : HoloApplication
+	public class UrhoAppViewSource<T> : IFrameworkViewSource where T : StereoApplication
 	{
 		readonly ApplicationOptions opts;
 

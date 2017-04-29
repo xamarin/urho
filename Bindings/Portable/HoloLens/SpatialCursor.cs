@@ -5,7 +5,7 @@ namespace Urho.HoloLens
 {
 	public class SpatialCursor : Component
 	{
-		HoloApplication holoApp;
+		StereoApplication holoApp;
 		
 		public SpatialCursor(IntPtr handle) : base(handle)
 		{
@@ -36,7 +36,7 @@ namespace Urho.HoloLens
 			staticModel.SetMaterial(mat);
 			staticModel.ViewMask = 0x80000000; //hide from raycasts
 
-			holoApp = (HoloApplication) this.Application;
+			holoApp = (StereoApplication) this.Application;
 			base.OnAttachedToNode(node);
 			ReceiveSceneUpdates = true;
 		}

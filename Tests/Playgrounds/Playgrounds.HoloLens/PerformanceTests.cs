@@ -7,7 +7,7 @@ using Urho.Shapes;
 
 namespace Playgrounds.HoloLens
 {
-	public class PerformanceTests : HoloApplication
+	public class PerformanceTests : StereoApplication
 	{
 		private DebugHud hud;
 

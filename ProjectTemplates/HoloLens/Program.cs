@@ -22,7 +22,7 @@ namespace $safeprojectname$
 		static void OnViewCreated(UrhoAppView view) { }
 	}
 
-	public class HelloWorldApplication : HoloApplication
+	public class HelloWorldApplication : StereoApplication
 	{
 		Node earthNode;
 		Material earthMaterial;
@@ -32,7 +32,7 @@ namespace $safeprojectname$
 
 		protected override async void Start()
 		{
-			// Create a basic scene, see HoloApplication
+			// Create a basic scene, see StereoApplication
 			base.Start();
 
 			// Enable input

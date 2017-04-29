@@ -1,4 +1,4 @@
-<Overview>
+﻿<Overview>
   <Assemblies>
     <Assembly Name="Urho" Version="1.0.0.0">
       <Attributes>
@@ -613,7 +613,7 @@
     </Namespace>
     <Namespace Name="Urho.HoloLens">
       <Type Name="DebugGrid" Kind="Class" />
-      <Type Name="HoloApplication" Kind="Class" />
+      <Type Name="StereoApplication" Kind="Class" />
       <Type Name="SpatialCursor" Kind="Class" />
       <Type Name="SpatialMeshInfo" Kind="Structure" />
       <Type Name="SpatialVertex" Kind="Structure" />

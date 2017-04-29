@@ -18,7 +18,7 @@ namespace Urho
 		SpatialCoordinateSystem currentCoordinateSystem;
 		readonly SemaphoreSlim spatialObserverSemaphore = new SemaphoreSlim(1);
 		static readonly Dictionary<Guid, DateTimeOffset> UpdateCache = new Dictionary<Guid, DateTimeOffset>();
-		HoloApplication currentHoloApp;
+		StereoApplication currentHoloApp;
 		int trianglesPerCubicMeter;
 
 		public Color DefaultColor { get; set; } = Color.Transparent;
@@ -34,7 +34,7 @@ namespace Urho
 				IncludeVertexNormals = true,
 			};
 
-		public async Task<bool> Register(HoloApplication app, SpatialCoordinateSystem coordinateSystem, System.Numerics.Vector3 extents, int trianglesPerCubicMeter = 1000, bool onlyAdd = false, bool convertToLeftHanded = true)
+		public async Task<bool> Register(StereoApplication app, SpatialCoordinateSystem coordinateSystem, System.Numerics.Vector3 extents, int trianglesPerCubicMeter = 1000, bool onlyAdd = false, bool convertToLeftHanded = true)
 		{
 			this.currentHoloApp = app;
 			this.trianglesPerCubicMeter = trianglesPerCubicMeter;

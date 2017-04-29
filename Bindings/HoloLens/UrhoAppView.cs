@@ -23,7 +23,7 @@ namespace Urho.HoloLens
 
 		public HolographicFrame CurrentFrame { get; private set; }
 		public HolographicSpace HolographicSpace { get; private set; }
-		public HoloApplication Game { get; private set; }
+		public StereoApplication Game { get; private set; }
 		public SpatialInteractionManager InteractionManager { get; private set; }
 		public SpatialGestureRecognizer SpatialGerstureRecognizer { get; private set; }
 		public SpatialStationaryFrameOfReference ReferenceFrame { get; private set; }
@@ -41,7 +41,7 @@ namespace Urho.HoloLens
 			Current = this;
 		}
 
-		public static UrhoAppView Create<T>(ApplicationOptions opts) where T : HoloApplication
+		public static UrhoAppView Create<T>(ApplicationOptions opts) where T : StereoApplication
 		{
 			return new UrhoAppView(typeof(T), opts);
 		}
@@ -57,7 +57,7 @@ namespace Urho.HoloLens
 		public event Action<CoreWindow> WindowIsSet;
 		public event Action<string> Loaded;
 		public event Action AppStarting;
-		public event Action<HoloApplication> AppStarted;
+		public event Action<StereoApplication> AppStarted;
 
 		#region IFrameworkView Members
 
@@ -190,7 +190,7 @@ namespace Urho.HoloLens
 					options.Width = (int)args.Camera.RenderTargetSize.Width;
 					options.Height = (int)args.Camera.RenderTargetSize.Height;
 
-					Game = (HoloApplication)Activator.CreateInstance(holoAppType, options);
+					Game = (StereoApplication)Activator.CreateInstance(holoAppType, options);
 					Game.Run();
 					GesturesManager = new GesturesManager(Game, ReferenceFrame);
 					AppStarted?.Invoke(Game);

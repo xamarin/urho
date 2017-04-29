@@ -20,7 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\ScriptInstance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Texture2D.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\DebugGrid.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\HoloApplication.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\StereoApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\PlaneFinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\SpatialCursor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\HoloLens\SpatialMeshInfo.cs" />

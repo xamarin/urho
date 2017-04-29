@@ -6,7 +6,7 @@ using Urho.HoloLens;
 
 namespace Playgrounds.HoloLens
 {
-	public class SpatialMappingTests : HoloApplication
+	public class SpatialMappingTests : StereoApplication
 	{
 		bool wireframe;
 		bool mappingEnded;

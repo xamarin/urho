@@ -6,7 +6,7 @@ using Urho.Resources;
 
 namespace Urho.HoloLens
 {
-	public class HoloApplication : Application
+	public class StereoApplication : Application
 	{
 		Matrix4 leftView = Matrix4.Identity;
 		Matrix4 leftProj = Matrix4.Identity;
@@ -55,7 +55,7 @@ namespace Urho.HoloLens
 		public bool EnableGestureHold { get; set; }
 		public bool EnableGestureManipulation { get; set; }
 
-		protected HoloApplication(ApplicationOptions opts) : base(opts) { }
+		protected StereoApplication(ApplicationOptions opts) : base(opts) { }
 		
 		protected override void OnUpdate(float timeStep)
 		{
