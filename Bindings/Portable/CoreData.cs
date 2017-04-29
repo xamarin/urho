@@ -23,6 +23,21 @@ namespace Urho
 			public static Model Pyramid => Cache.GetModel("Models/Pyramid.mdl");
 			public static Model Sphere => Cache.GetModel("Models/Sphere.mdl");
 			public static Model Torus => Cache.GetModel("Models/Torus.mdl");
+
+			/// <summary>
+			/// Line primitives. Could be very useful models for debug, user interface etc.
+			/// </summary>
+			public static class LinePrimitives
+			{
+				public static Model Basis => Cache.GetModel("Models/LinePrimitives/Basis.mdl");
+				public static Model Box1x1x1 => Cache.GetModel("Models/LinePrimitives/Box1x1x1.mdl");
+				public static Model CubicBezier => Cache.GetModel("Models/LinePrimitives/CubicBezier.mdl");
+				public static Model LinearBezier => Cache.GetModel("Models/LinePrimitives/LinearBezier.mdl");
+				public static Model QuadraticBezier => Cache.GetModel("Models/LinePrimitives/QuadraticBezier.mdl");
+				public static Model UnitX => Cache.GetModel("Models/LinePrimitives/UnitX.mdl");
+				public static Model UnitY => Cache.GetModel("Models/LinePrimitives/UnitY.mdl");
+				public static Model UnitZ => Cache.GetModel("Models/LinePrimitives/UnitZ.mdl");
+			}
 		}
 
 		public static class Fonts
