@@ -102,7 +102,7 @@ namespace Urho
 		/// <summary>
 		/// Return the object pointer. Applicable only on Direct3D.
 		/// </summary>
-		private IntPtr GetGPUObject ()
+		public IntPtr GetGPUObject ()
 		{
 			Runtime.ValidateObject (this);
 			return GPUObject_GetGPUObject (handle);
