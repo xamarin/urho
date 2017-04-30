@@ -1,4 +1,4 @@
-﻿#download clang 3.7 from here: http://llvm.org/releases/download.html 
+#download clang 3.7 from here: http://llvm.org/releases/download.html 
 #CUSTOM_CLANG=/tools/clang370/bin/clang
 LOCAL_CLANG=clang+llvm-3.7.0-x86_64-apple-darwin/bin/clang
 CUSTOM_CLANG=`pwd`/$(LOCAL_CLANG)
