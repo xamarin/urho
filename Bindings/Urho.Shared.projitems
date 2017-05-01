@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Texture2DArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\TrailType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\ScriptInstance.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\StaticModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Texture2D.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\SharpReality\DebugGrid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\SharpReality\StereoApplication.cs" />

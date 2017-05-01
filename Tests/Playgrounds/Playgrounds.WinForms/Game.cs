@@ -124,7 +124,7 @@ namespace Playgrounds
 		protected override void OnUpdate(float timeStep)
 		{
 			if (Input.GetMouseButtonDown(MouseButton.Left))
-                SimpleMoveCamera3D(timeStep);
+				SimpleMoveCamera3D(timeStep);
 			MoveCameraByTouches(timeStep);
 
 			helloText.Value = $"UrhoSharp Instance: {instanceId}\nResolution: {Graphics.Width}x{Graphics.Height}";
