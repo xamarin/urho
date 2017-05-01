@@ -1,4 +1,4 @@
-﻿<Type Name="Bounds" FullName="Urho.SharpReality.HoloToolkit.Bounds">
+<Type Name="Bounds" FullName="Urho.SharpReality.HoloToolkit.Bounds">
   <TypeSignature Language="C#" Value="public struct Bounds" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Bounds extends System.ValueType" />
   <AssemblyInfo>

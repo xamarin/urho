@@ -16,8 +16,7 @@
     <remarks>
       <para>When you create a Scene, it is automatically attached to the specified context (or the default as exposed by <see cref="P:Urho.Application.CurrentContext)" />.   The Scene is just the toplevel <see cref="T:Urho.Node" /> and it holds the various nodes for your application.   </para>
       <para>In general, you will want to add an Octree component to your scene, without it, none of the visual components will be shown.  The default Octree component volume goes from (-1000,-1000,-1000) to (1000,1000,1000) in world coordinates.</para>
-      <para>
-      </para>
+      <para></para>
       <example>
         <code lang="C#"><![CDATA[scene.CreateComponent<Octree> ();
 
@@ -62,8 +61,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <summary>
           <para>Constructs a new instance of Urho.Scene which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -111,8 +109,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <summary>
           <para>Constructs a new instance of Urho.Scene linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -1298,22 +1295,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="OnDeleted">
-      <MemberSignature Language="C#" Value="protected override void OnDeleted ();" />
-      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void OnDeleted() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="PrepareNetworkUpdate">
       <MemberSignature Language="C#" Value="public override void PrepareNetworkUpdate ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void PrepareNetworkUpdate() cil managed" />
@@ -1477,7 +1458,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public bool SaveXml (string path, string indentation = &quot;	&quot;);" />
+      <MemberSignature Language="C#" Value="public bool SaveXml (string path, string indentation = &quot; &quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(string path, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1696,6 +1677,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncLoadFinished += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1720,6 +1706,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncLoadProgress += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1744,6 +1735,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationUpdate += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1768,6 +1764,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentAdded += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1792,6 +1793,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentCloned += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1799,10 +1805,14 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.ComponentClonedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the ComponentCloned event raised by the Urho.Scene (single subscriber).</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.ComponentCloned" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToComponentEnabledChanged">
@@ -1812,6 +1822,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentEnabledChanged += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1836,6 +1851,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentRemoved += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1860,6 +1880,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeAdded += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1884,6 +1909,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCloned += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1891,10 +1921,14 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <Parameter Name="handler" Type="System.Action&lt;Urho.NodeClonedEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the NodeCloned event raised by the Urho.Scene (single subscriber).</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Scene.NodeCloned" /> event.</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubscribeToNodeEnabledChanged">
@@ -1904,6 +1938,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeEnabledChanged += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1928,6 +1967,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeNameChanged += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1952,6 +1996,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeRemoved += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1976,6 +2025,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneDrawableUpdateFinished += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2000,6 +2054,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ScenePostUpdate += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2024,6 +2083,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneSubsystemUpdate += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2048,6 +2112,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneUpdate += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2072,6 +2141,11 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UpdateSmoothing += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -2154,8 +2228,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -2171,8 +2244,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -2193,8 +2265,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UnregisterAllVars">

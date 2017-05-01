@@ -1,4 +1,4 @@
-﻿<Type Name="Mesh" FullName="Urho.SharpReality.HoloToolkit.Mesh">
+<Type Name="Mesh" FullName="Urho.SharpReality.HoloToolkit.Mesh">
   <TypeSignature Language="C#" Value="public struct Mesh" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Mesh extends System.ValueType" />
   <AssemblyInfo>

@@ -1,4 +1,4 @@
-﻿<Type Name="DebugGrid" FullName="Urho.SharpReality.DebugGrid">
+<Type Name="DebugGrid" FullName="Urho.SharpReality.DebugGrid">
   <TypeSignature Language="C#" Value="public class DebugGrid : Urho.Component" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DebugGrid extends Urho.Component" />
   <AssemblyInfo>

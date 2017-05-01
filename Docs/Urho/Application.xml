@@ -20,8 +20,7 @@
             </summary>
     <remarks>
       <para>This is the base class that your application should subclass and provide at implementations for the <see cref="M:Urho.Application.Setup" /> and <see cref="M:Urho.Application.Start" /> methods.  You can use await asynchronous methods from the <see cref="M:Urho.Application.Start" /> methods.</para>
-      <para>
-      </para>
+      <para></para>
       <para>Access to various subsystems in Urho is available through the various properties in this class:</para>
       <list type="bullet">
         <item>
@@ -37,8 +36,7 @@
         <item>
           <term>
             <see cref="P:Urho.Application.FileSystem" />
-            <para>
-            </para>
+            <para></para>
           </term>
         </item>
         <item>
@@ -89,8 +87,7 @@
       </list>
       <para>An application is tied to a <see cref="T:Urho.Context" /> which should be passed on the initial constructor.</para>
       <para>This shows a minimal application:</para>
-      <para>
-      </para>
+      <para></para>
       <example>
         <code lang="C#"><![CDATA[public class HelloWorld : Application
 {
@@ -224,6 +221,22 @@
         <remarks>See the <see cref="T:Urho.Audio.Audio" /> class description for more information on how to use the Audio subsystem.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CancelActiveActionsOnStop">
+      <MemberSignature Language="C#" Value="public static bool CancelActiveActionsOnStop { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property bool CancelActiveActionsOnStop" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Console">
       <MemberSignature Language="C#" Value="public Urho.UrhoConsole Console { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.UrhoConsole Console" />
@@ -323,6 +336,46 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Delay">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task Delay (float seconds);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Threading.Tasks.Task Delay(float32 seconds) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="seconds" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="seconds">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Delay">
+      <MemberSignature Language="C#" Value="public System.Threading.Tasks.Task Delay (TimeSpan timeSpan);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Threading.Tasks.Task Delay(valuetype System.TimeSpan timeSpan) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Threading.Tasks.Task</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="timeSpan" Type="System.TimeSpan" />
+      </Parameters>
+      <Docs>
+        <param name="timeSpan">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Engine">
       <MemberSignature Language="C#" Value="public Urho.Engine Engine { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Engine Engine" />
@@ -367,6 +420,14 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerStepThrough</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.AsyncStateMachine(typeof(Urho.Application/&lt;Exit&gt;d__69))</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task</ReturnType>
       </ReturnValue>
@@ -501,6 +562,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="IsActive">
+      <MemberSignature Language="C#" Value="public bool IsActive { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsActive" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IsClosed">
       <MemberSignature Language="C#" Value="public bool IsClosed { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool IsClosed" />
@@ -520,6 +597,22 @@
     <Member MemberName="IsExiting">
       <MemberSignature Language="C#" Value="public bool IsExiting { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool IsExiting" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsFrameRendering">
+      <MemberSignature Language="C#" Value="public bool IsFrameRendering { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsFrameRendering" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -770,9 +863,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Stoped">
-      <MemberSignature Language="C#" Value="public static event Action Stoped;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action Stoped" />
+    <Member MemberName="Stopped">
+      <MemberSignature Language="C#" Value="public static event Action Stopped;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action Stopped" />
       <MemberType>Event</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -781,8 +874,8 @@
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>Event raised when your application has stopped.</summary>
-        <remarks>This event is invoked after the <see cref="M:Urho.Application.Stop" /> virtual method is invoked on your application.</remarks>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Time">
@@ -847,8 +940,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -864,8 +956,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -886,8 +977,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UI">
@@ -934,22 +1024,6 @@
       <Docs>
         <summary>Frame update event</summary>
         <remarks>This event is raised when the frame has been updated.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="UrhoSurface">
-      <MemberSignature Language="C#" Value="public Urho.IUrhoSurface UrhoSurface { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class Urho.IUrhoSurface UrhoSurface" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.IUrhoSurface</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkQueue">

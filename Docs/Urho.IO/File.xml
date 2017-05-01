@@ -39,8 +39,7 @@
         <summary>
           <para>Constructs a new instance of Urho.IO.File which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -88,8 +87,7 @@
         <summary>
           <para>Constructs a new instance of Urho.IO.File linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -365,6 +363,28 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
+      <MemberSignature Language="C#" Value="public uint Read (byte[] buffer, uint size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 Read(unsigned int8[] buffer, unsigned int32 size) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="buffer" Type="System.Byte[]" />
+        <Parameter Name="size" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="buffer">To be added.</param>
+        <param name="size">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public uint Read (IntPtr dest, uint size);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 Read(native int dest, unsigned int32 size) cil managed" />
       <MemberType>Method</MemberType>
@@ -410,6 +430,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Size">
+      <MemberSignature Language="C#" Value="public uint Size { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 Size" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Type">
       <MemberSignature Language="C#" Value="public override Urho.StringHash Type { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.StringHash Type" />
@@ -439,8 +475,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -456,8 +491,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -478,8 +512,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Write">

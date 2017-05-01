@@ -1,0 +1,146 @@
+<Type Name="CoreAssets+Models+LinePrimitives" FullName="Urho.CoreAssets+Models+LinePrimitives">
+  <TypeSignature Language="C#" Value="public static class CoreAssets.Models.LinePrimitives" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit CoreAssets/Models/LinePrimitives extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Basis">
+      <MemberSignature Language="C#" Value="public static Urho.Model Basis { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model Basis" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Box1x1x1">
+      <MemberSignature Language="C#" Value="public static Urho.Model Box1x1x1 { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model Box1x1x1" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CubicBezier">
+      <MemberSignature Language="C#" Value="public static Urho.Model CubicBezier { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model CubicBezier" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LinearBezier">
+      <MemberSignature Language="C#" Value="public static Urho.Model LinearBezier { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model LinearBezier" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QuadraticBezier">
+      <MemberSignature Language="C#" Value="public static Urho.Model QuadraticBezier { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model QuadraticBezier" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnitX">
+      <MemberSignature Language="C#" Value="public static Urho.Model UnitX { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model UnitX" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnitY">
+      <MemberSignature Language="C#" Value="public static Urho.Model UnitY { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model UnitY" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnitZ">
+      <MemberSignature Language="C#" Value="public static Urho.Model UnitZ { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Model UnitZ" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Model</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

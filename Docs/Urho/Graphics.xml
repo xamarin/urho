@@ -235,8 +235,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddGPUObject">
-      <MemberSignature Language="C#" Value="public void AddGPUObject (Urho.GPUObject* object);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddGPUObject(valuetype Urho.GPUObject* object) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddGPUObject (IntPtr object);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddGPUObject(native int object) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -245,13 +245,11 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="object" Type="Urho.GPUObject*" />
+        <Parameter Name="object" Type="System.IntPtr" />
       </Parameters>
       <Docs>
         <param name="object">To be added.</param>
-        <summary>
-            Add a GPU object to keep track of. Called by GPUObject.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1848,8 +1846,8 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveGPUObject">
-      <MemberSignature Language="C#" Value="public void RemoveGPUObject (Urho.GPUObject* object);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveGPUObject(valuetype Urho.GPUObject* object) cil managed" />
+      <MemberSignature Language="C#" Value="public void RemoveGPUObject (IntPtr object);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveGPUObject(native int object) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -1858,13 +1856,11 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="object" Type="Urho.GPUObject*" />
+        <Parameter Name="object" Type="System.IntPtr" />
       </Parameters>
       <Docs>
         <param name="object">To be added.</param>
-        <summary>
-            Remove a GPU object. Called by GPUObject.
-            </summary>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3249,8 +3245,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -3266,8 +3261,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -3288,8 +3282,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipPlane">

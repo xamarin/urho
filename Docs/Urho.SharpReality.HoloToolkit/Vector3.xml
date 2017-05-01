@@ -1,4 +1,4 @@
-﻿<Type Name="Vector3" FullName="Urho.SharpReality.HoloToolkit.Vector3">
+<Type Name="Vector3" FullName="Urho.SharpReality.HoloToolkit.Vector3">
   <TypeSignature Language="C#" Value="public struct Vector3" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Vector3 extends System.ValueType" />
   <AssemblyInfo>

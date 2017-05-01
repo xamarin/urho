@@ -1,17 +1,201 @@
 <Type Name="GPUObject" FullName="Urho.GPUObject">
-  <TypeSignature Language="C#" Value="public struct GPUObject" />
-  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit GPUObject extends System.ValueType" />
+  <TypeSignature Language="C#" Value="public class GPUObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GPUObject extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>System.ValueType</BaseTypeName>
+    <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
     <summary>To be added.</summary>
     <remarks>To be added.</remarks>
   </Docs>
-  <Members />
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GPUObject (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GPUObject (Urho.Graphics graphics);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Graphics graphics) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="graphics" Type="Urho.Graphics" />
+      </Parameters>
+      <Docs>
+        <param name="graphics">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClearDataLost">
+      <MemberSignature Language="C#" Value="public void ClearDataLost ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ClearDataLost() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DataLost">
+      <MemberSignature Language="C#" Value="public bool DataLost { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DataLost" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetGPUObject">
+      <MemberSignature Language="C#" Value="public IntPtr GetGPUObject ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance native int GetGPUObject() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GPUObjectName">
+      <MemberSignature Language="C#" Value="public uint GPUObjectName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 GPUObjectName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Graphics">
+      <MemberSignature Language="C#" Value="public Urho.Graphics Graphics { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Graphics Graphics" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Graphics</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasPendingData">
+      <MemberSignature Language="C#" Value="public bool HasPendingData ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasPendingData() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeviceLost">
+      <MemberSignature Language="C#" Value="public void OnDeviceLost ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OnDeviceLost() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeviceReset">
+      <MemberSignature Language="C#" Value="public void OnDeviceReset ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void OnDeviceReset() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Release">
+      <MemberSignature Language="C#" Value="public void Release ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Release() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
 </Type>

@@ -31,8 +31,7 @@
         <summary>
           <para>Constructs a new instance of Urho.DebugRenderer which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -80,8 +79,7 @@
         <summary>
           <para>Constructs a new instance of Urho.DebugRenderer linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -110,8 +108,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddBoundingBox">
-      <MemberSignature Language="C#" Value="public void AddBoundingBox (Urho.BoundingBox box, Urho.Color color, bool depthTest, bool solid);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddBoundingBox(valuetype Urho.BoundingBox box, valuetype Urho.Color color, bool depthTest, bool solid) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddBoundingBox (Urho.BoundingBox box, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddBoundingBox(valuetype Urho.BoundingBox box, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -123,20 +121,18 @@
         <Parameter Name="box" Type="Urho.BoundingBox" />
         <Parameter Name="color" Type="Urho.Color" />
         <Parameter Name="depthTest" Type="System.Boolean" />
-        <Parameter Name="solid" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="box">To be added.</param>
         <param name="color">To be added.</param>
         <param name="depthTest">To be added.</param>
-        <param name="solid">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="AddBoundingBox">
-      <MemberSignature Language="C#" Value="public void AddBoundingBox (Urho.BoundingBox box, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest, bool solid);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddBoundingBox(valuetype Urho.BoundingBox box, valuetype Urho.Matrix3x4 transform, valuetype Urho.Color color, bool depthTest, bool solid) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddBoundingBox (Urho.BoundingBox box, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddBoundingBox(valuetype Urho.BoundingBox box, valuetype Urho.Matrix3x4 transform, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -149,14 +145,12 @@
         <Parameter Name="transform" Type="Urho.Matrix3x4" />
         <Parameter Name="color" Type="Urho.Color" />
         <Parameter Name="depthTest" Type="System.Boolean" />
-        <Parameter Name="solid" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="box">To be added.</param>
         <param name="transform">To be added.</param>
         <param name="color">To be added.</param>
         <param name="depthTest">To be added.</param>
-        <param name="solid">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -248,6 +242,29 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AddFrustum">
+      <MemberSignature Language="C#" Value="public void AddFrustum (Urho.Frustum frustum, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddFrustum(class Urho.Frustum frustum, valuetype Urho.Color color, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="frustum" Type="Urho.Frustum" />
+        <Parameter Name="color" Type="Urho.Color" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="frustum">To be added.</param>
+        <param name="color">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AddLine">
       <MemberSignature Language="C#" Value="public void AddLine (Urho.Vector3 start, Urho.Vector3 end, uint color, bool depthTest);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddLine(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, unsigned int32 color, bool depthTest) cil managed" />
@@ -327,9 +344,9 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="AddPolygon">
-      <MemberSignature Language="C#" Value="public void AddPolygon (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Vector3 v4, uint color, bool depthTest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPolygon(valuetype Urho.Vector3 v1, valuetype Urho.Vector3 v2, valuetype Urho.Vector3 v3, valuetype Urho.Vector3 v4, unsigned int32 color, bool depthTest) cil managed" />
+    <Member MemberName="AddPolyhedron">
+      <MemberSignature Language="C#" Value="public void AddPolyhedron (Urho.Polyhedron poly, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPolyhedron(class Urho.Polyhedron poly, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -338,47 +355,12 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="v1" Type="Urho.Vector3" />
-        <Parameter Name="v2" Type="Urho.Vector3" />
-        <Parameter Name="v3" Type="Urho.Vector3" />
-        <Parameter Name="v4" Type="Urho.Vector3" />
-        <Parameter Name="color" Type="System.UInt32" />
-        <Parameter Name="depthTest" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="v1">To be added.</param>
-        <param name="v2">To be added.</param>
-        <param name="v3">To be added.</param>
-        <param name="v4">To be added.</param>
-        <param name="color">To be added.</param>
-        <param name="depthTest">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="AddPolygon">
-      <MemberSignature Language="C#" Value="public void AddPolygon (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Vector3 v4, Urho.Color color, bool depthTest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPolygon(valuetype Urho.Vector3 v1, valuetype Urho.Vector3 v2, valuetype Urho.Vector3 v3, valuetype Urho.Vector3 v4, valuetype Urho.Color color, bool depthTest) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="v1" Type="Urho.Vector3" />
-        <Parameter Name="v2" Type="Urho.Vector3" />
-        <Parameter Name="v3" Type="Urho.Vector3" />
-        <Parameter Name="v4" Type="Urho.Vector3" />
+        <Parameter Name="poly" Type="Urho.Polyhedron" />
         <Parameter Name="color" Type="Urho.Color" />
         <Parameter Name="depthTest" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="v1">To be added.</param>
-        <param name="v2">To be added.</param>
-        <param name="v3">To be added.</param>
-        <param name="v4">To be added.</param>
+        <param name="poly">To be added.</param>
         <param name="color">To be added.</param>
         <param name="depthTest">To be added.</param>
         <summary>To be added.</summary>
@@ -504,6 +486,22 @@
         <param name="color">To be added.</param>
         <param name="depthTest">To be added.</param>
         <summary>Add a triangle mesh.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Frustum">
+      <MemberSignature Language="C#" Value="public Urho.Frustum Frustum { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Frustum Frustum" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Frustum</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -669,8 +667,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -686,8 +683,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -708,8 +704,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="View">

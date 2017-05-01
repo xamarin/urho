@@ -33,8 +33,7 @@
         <summary>
           <para>Constructs a new instance of Urho.SmoothedTransform which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -82,8 +81,7 @@
         <summary>
           <para>Constructs a new instance of Urho.SmoothedTransform linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -197,6 +195,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TargetPositionChanged += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -221,6 +224,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TargetRotationChanged += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -377,8 +385,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -394,8 +401,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -416,8 +422,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

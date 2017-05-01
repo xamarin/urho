@@ -1,4 +1,4 @@
-﻿<Type Name="OrientedBoundingBox" FullName="Urho.SharpReality.HoloToolkit.OrientedBoundingBox">
+<Type Name="OrientedBoundingBox" FullName="Urho.SharpReality.HoloToolkit.OrientedBoundingBox">
   <TypeSignature Language="C#" Value="public struct OrientedBoundingBox" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit OrientedBoundingBox extends System.ValueType" />
   <AssemblyInfo>

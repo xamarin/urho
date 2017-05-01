@@ -14,16 +14,12 @@
             </summary>
     <remarks>
       <para>Provides support for playing back <see cref="T:Urho.Audio.Sound" />.</para>
-      <para>
-      </para>
-      <para>
-      </para>
+      <para></para>
+      <para></para>
       <format type="text/html" />
-      <para>
-      </para>
+      <para></para>
       <para>The <see cref="T:Urho.Audio.SoundSource" /> components support automatic removal from the node they belong to, once playback is finished. To use, set the <see cref="P:Urho.Audio.SoundSource.AutoRemove property" /> on them. This may be useful when a game object plays several "fire and forget" sound effects.</para>
-      <para>
-      </para>
+      <para></para>
     </remarks>
   </Docs>
   <Members>
@@ -44,8 +40,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Audio.SoundSource which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -93,8 +88,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Audio.SoundSource linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -623,8 +617,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -640,8 +633,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -662,8 +654,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

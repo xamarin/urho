@@ -1,9 +1,9 @@
-﻿<Overview>
+<Overview>
   <Assemblies>
     <Assembly Name="Urho" Version="1.0.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints)</AttributeName>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.Default | System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints | System.Diagnostics.DebuggableAttribute+DebuggingModes.EnableEditAndContinue)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
@@ -28,6 +28,9 @@
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.CompilationRelaxations(8)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -111,8 +114,11 @@
       <Type Name="CoreAssets+Fonts" Kind="Class" />
       <Type Name="CoreAssets+Materials" Kind="Class" />
       <Type Name="CoreAssets+Models" Kind="Class" />
+      <Type Name="CoreAssets+Models+LinePrimitives" Kind="Class" />
       <Type Name="CoreAssets+PostProcess" Kind="Class" />
       <Type Name="CoreAssets+RenderPaths" Kind="Class" />
+      <Type Name="CoreAssets+ShaderParameters" Kind="Class" />
+      <Type Name="CoreAssets+ShaderParameters+PBR" Kind="Class" />
       <Type Name="CoreAssets+Techniques" Kind="Class" />
       <Type Name="CoreAssets+Techniques+PBR" Kind="Class" />
       <Type Name="CoreAssets+Textures" Kind="Class" />
@@ -153,19 +159,20 @@
       <Type Name="FontGlyph" Kind="Structure" />
       <Type Name="FrameEndedEventArgs" Kind="Structure" />
       <Type Name="FrameStartedEventArgs" Kind="Structure" />
-      <Type Name="Frustum" Kind="Structure" />
+      <Type Name="Frustum" Kind="Class" />
       <Type Name="FrustumPlane" Kind="Enumeration" />
       <Type Name="Geometry" Kind="Class" />
       <Type Name="GeometryType" Kind="Enumeration" />
       <Type Name="GestureInputEventArgs" Kind="Structure" />
       <Type Name="GestureRecordedEventArgs" Kind="Structure" />
-      <Type Name="GPUObject" Kind="Structure" />
+      <Type Name="GPUObject" Kind="Class" />
       <Type Name="Graphics" Kind="Class" />
       <Type Name="GraphicsImpl" Kind="Structure" />
       <Type Name="HashBase" Kind="Structure" />
       <Type Name="HashIteratorBase" Kind="Structure" />
       <Type Name="HeightfieldData" Kind="Structure" />
       <Type Name="IDeserializer" Kind="Interface" />
+      <Type Name="IGPUObject" Kind="Interface" />
       <Type Name="IndexBuffer" Kind="Class" />
       <Type Name="Input" Kind="Class" />
       <Type Name="InputBeginEventArgs" Kind="Structure" />
@@ -179,7 +186,6 @@
       <Type Name="IntVector2" Kind="Structure" />
       <Type Name="ISerializer" Kind="Interface" />
       <Type Name="Iterator" Kind="Structure" />
-      <Type Name="IUrhoSurface" Kind="Interface" />
       <Type Name="JoystickAxisMoveEventArgs" Kind="Structure" />
       <Type Name="JoystickButtonDownEventArgs" Kind="Structure" />
       <Type Name="JoystickButtonUpEventArgs" Kind="Structure" />
@@ -201,7 +207,6 @@
       <Type Name="LockState" Kind="Enumeration" />
       <Type Name="LogicComponent" Kind="Class" />
       <Type Name="LogLevel" Kind="Enumeration" />
-      <Type Name="LogSharp" Kind="Class" />
       <Type Name="LogSharpLevel" Kind="Enumeration" />
       <Type Name="MarshalHelper" Kind="Class" />
       <Type Name="Material" Kind="Class" />
@@ -252,6 +257,7 @@
       <Type Name="Plane" Kind="Structure" />
       <Type Name="Platforms" Kind="Enumeration" />
       <Type Name="PodVector`1" DisplayName="PodVector&lt;T&gt;" Kind="Class" />
+      <Type Name="Polyhedron" Kind="Class" />
       <Type Name="PostRenderUpdateEventArgs" Kind="Structure" />
       <Type Name="PostUpdateEventArgs" Kind="Structure" />
       <Type Name="PrimitiveType" Kind="Enumeration" />
@@ -325,7 +331,6 @@
       <Type Name="Terrain" Kind="Class" />
       <Type Name="TerrainCreatedEventArgs" Kind="Structure" />
       <Type Name="TerrainPatch" Kind="Class" />
-      <Type Name="TextEditingEventArgs" Kind="Structure" />
       <Type Name="TextInputEventArgs" Kind="Structure" />
       <Type Name="Texture" Kind="Class" />
       <Type Name="Texture2DArray" Kind="Class" />
@@ -366,6 +371,10 @@
       <Type Name="Vector4" Kind="Structure" />
       <Type Name="VectorBase" Kind="Structure" />
       <Type Name="VertexBuffer" Kind="Class" />
+      <Type Name="VertexBuffer+PositionNormal" Kind="Structure" />
+      <Type Name="VertexBuffer+PositionNormalColor" Kind="Structure" />
+      <Type Name="VertexBuffer+PositionNormalColorTexcoord" Kind="Structure" />
+      <Type Name="VertexBuffer+PositionNormalColorTexcoordTangent" Kind="Structure" />
       <Type Name="VertexElement" Kind="Structure" />
       <Type Name="VertexElementSemantic" Kind="Enumeration" />
       <Type Name="VertexElementType" Kind="Enumeration" />
@@ -534,6 +543,7 @@
     <Namespace Name="Urho.Gui">
       <Type Name="BorderImage" Kind="Class" />
       <Type Name="Button" Kind="Class" />
+      <Type Name="CharEntryEventArgs" Kind="Structure" />
       <Type Name="CheckBox" Kind="Class" />
       <Type Name="Corner" Kind="Enumeration" />
       <Type Name="Cursor" Kind="Class" />
@@ -592,7 +602,6 @@
       <Type Name="Text3D" Kind="Class" />
       <Type Name="TextChangedEventArgs" Kind="Structure" />
       <Type Name="TextEffect" Kind="Enumeration" />
-      <Type Name="TextEntryEventArgs" Kind="Structure" />
       <Type Name="TextFinishedEventArgs" Kind="Structure" />
       <Type Name="ToggledEventArgs" Kind="Structure" />
       <Type Name="ToolTip" Kind="Class" />
@@ -610,27 +619,6 @@
       <Type Name="VisibleChangedEventArgs" Kind="Structure" />
       <Type Name="Window" Kind="Class" />
       <Type Name="WindowDragMode" Kind="Enumeration" />
-    </Namespace>
-    <Namespace Name="Urho.SharpReality">
-      <Type Name="DebugGrid" Kind="Class" />
-      <Type Name="StereoApplication" Kind="Class" />
-      <Type Name="SpatialCursor" Kind="Class" />
-      <Type Name="SpatialMeshInfo" Kind="Structure" />
-      <Type Name="SpatialVertex" Kind="Structure" />
-    </Namespace>
-    <Namespace Name="Urho.SharpReality.HoloToolkit">
-      <Type Name="BoundedPlane" Kind="Structure" />
-      <Type Name="Bounds" Kind="Structure" />
-      <Type Name="Matrix4x4" Kind="Structure" />
-      <Type Name="Mesh" Kind="Structure" />
-      <Type Name="MeshFilter" Kind="Structure" />
-      <Type Name="OrientedBoundingBox" Kind="Structure" />
-      <Type Name="Plane" Kind="Structure" />
-      <Type Name="PlaneFinding" Kind="Class" />
-      <Type Name="PlaneFinding+MeshData" Kind="Structure" />
-      <Type Name="Quaternion" Kind="Structure" />
-      <Type Name="Transform" Kind="Structure" />
-      <Type Name="Vector3" Kind="Structure" />
     </Namespace>
     <Namespace Name="Urho.IO">
       <Type Name="AsyncExecFinishedEventArgs" Kind="Structure" />
@@ -708,6 +696,9 @@
       <Type Name="RigidBody" Kind="Class" />
       <Type Name="ShapeType" Kind="Enumeration" />
     </Namespace>
+    <Namespace Name="Urho.Portable">
+      <Type Name="ScriptInstance" Kind="Class" />
+    </Namespace>
     <Namespace Name="Urho.Repl">
     </Namespace>
     <Namespace Name="Urho.Resources">
@@ -722,6 +713,7 @@
       <Type Name="JsonNumberType" Kind="Enumeration" />
       <Type Name="JsonValueType" Kind="Enumeration" />
       <Type Name="LoadFailedEventArgs" Kind="Structure" />
+      <Type Name="Localization" Kind="Class" />
       <Type Name="PListFile" Kind="Class" />
       <Type Name="PListValueType" Kind="Enumeration" />
       <Type Name="ReloadFailedEventArgs" Kind="Structure" />
@@ -747,6 +739,27 @@
       <Type Name="Shape" Kind="Class" />
       <Type Name="Sphere" Kind="Class" />
       <Type Name="Torus" Kind="Class" />
+    </Namespace>
+    <Namespace Name="Urho.SharpReality">
+      <Type Name="DebugGrid" Kind="Class" />
+      <Type Name="SpatialCursor" Kind="Class" />
+      <Type Name="SpatialMeshInfo" Kind="Structure" />
+      <Type Name="SpatialVertex" Kind="Structure" />
+      <Type Name="StereoApplication" Kind="Class" />
+    </Namespace>
+    <Namespace Name="Urho.SharpReality.HoloToolkit">
+      <Type Name="BoundedPlane" Kind="Structure" />
+      <Type Name="Bounds" Kind="Structure" />
+      <Type Name="Matrix4x4" Kind="Structure" />
+      <Type Name="Mesh" Kind="Structure" />
+      <Type Name="MeshFilter" Kind="Structure" />
+      <Type Name="OrientedBoundingBox" Kind="Structure" />
+      <Type Name="Plane" Kind="Structure" />
+      <Type Name="PlaneFinding" Kind="Class" />
+      <Type Name="PlaneFinding+MeshData" Kind="Structure" />
+      <Type Name="Quaternion" Kind="Structure" />
+      <Type Name="Transform" Kind="Structure" />
+      <Type Name="Vector3" Kind="Structure" />
     </Namespace>
     <Namespace Name="Urho.Urho2D">
       <Type Name="AnimatedSprite2D" Kind="Class" />

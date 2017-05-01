@@ -33,8 +33,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.LineEdit which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -82,8 +81,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.LineEdit linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -126,6 +124,21 @@
         <summary>
             Apply attribute changes that can not be applied immediately.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CharEntry">
+      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.CharEntryEventArgs&gt; CharEntry;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.CharEntryEventArgs&gt; CharEntry" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Action&lt;Urho.Gui.CharEntryEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -329,8 +342,8 @@
       </Docs>
     </Member>
     <Member MemberName="OnTextInput">
-      <MemberSignature Language="C#" Value="public override void OnTextInput (string text);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnTextInput(string text) cil managed" />
+      <MemberSignature Language="C#" Value="public override void OnTextInput (string text, int buttons, int qualifiers);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnTextInput(string text, int32 buttons, int32 qualifiers) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -340,9 +353,13 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="text" Type="System.String" />
+        <Parameter Name="buttons" Type="System.Int32" />
+        <Parameter Name="qualifiers" Type="System.Int32" />
       </Parameters>
       <Docs>
         <param name="text">To be added.</param>
+        <param name="buttons">To be added.</param>
+        <param name="qualifiers">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -368,6 +385,35 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SubscribeToCharEntry">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToCharEntry (Action&lt;Urho.Gui.CharEntryEventArgs&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToCharEntry(class System.Action`1&lt;valuetype Urho.Gui.CharEntryEventArgs&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CharEntry += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.CharEntryEventArgs&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="handler">The handler to invoke when this event is raised.</param>
+        <summary>Subscribes to the CharEntry event raised by the Urho.Gui.LineEdit (single subscriber).</summary>
+        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
+        <remarks>
+          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
+          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
+          <para>For a more event-like approach, use the <see cref="E:Urho.Gui.LineEdit.CharEntry" /> event.</para>
+        </remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SubscribeToTextChanged">
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextChanged (Action&lt;Urho.Gui.TextChangedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextChanged(class System.Action`1&lt;valuetype Urho.Gui.TextChangedEventArgs&gt; handler) cil managed" />
@@ -375,6 +421,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextChanged += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -392,26 +443,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="SubscribeToTextEntry">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextEntry (Action&lt;Urho.Gui.TextEntryEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextEntry(class System.Action`1&lt;valuetype Urho.Gui.TextEntryEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.Gui.TextEntryEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SubscribeToTextFinished">
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToTextFinished (Action&lt;Urho.Gui.TextFinishedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToTextFinished(class System.Action`1&lt;valuetype Urho.Gui.TextFinishedEventArgs&gt; handler) cil managed" />
@@ -419,6 +450,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextFinished += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -443,6 +479,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnhandledKey += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -531,21 +572,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="TextEntry">
-      <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.TextEntryEventArgs&gt; TextEntry;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.TextEntryEventArgs&gt; TextEntry" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Action&lt;Urho.Gui.TextEntryEventArgs&gt;</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="TextFinished">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.TextFinishedEventArgs&gt; TextFinished;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.TextFinishedEventArgs&gt; TextFinished" />
@@ -608,8 +634,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -625,8 +650,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -647,8 +671,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UnhandledKey">

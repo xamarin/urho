@@ -15,6 +15,54 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BoundingBox (Urho.Frustum frustum);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Frustum frustum) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="frustum" Type="Urho.Frustum" />
+      </Parameters>
+      <Docs>
+        <param name="frustum">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BoundingBox (Urho.Rect rect);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Rect rect) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="rect" Type="Urho.Rect" />
+      </Parameters>
+      <Docs>
+        <param name="rect">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BoundingBox (Urho.Vector3[] points);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Vector3[] points) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="points" Type="Urho.Vector3[]" />
+      </Parameters>
+      <Docs>
+        <param name="points">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public BoundingBox (float min, float max);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 min, float32 max) cil managed" />
       <MemberType>Constructor</MemberType>
@@ -65,6 +113,26 @@
       <Docs>
         <summary>Returns the center of the bounding box.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clip">
+      <MemberSignature Language="C#" Value="public Urho.BoundingBox Clip (Urho.BoundingBox box);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.BoundingBox Clip(valuetype Urho.BoundingBox box) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.BoundingBox</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="box" Type="Urho.BoundingBox" />
+      </Parameters>
+      <Docs>
+        <param name="box">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -152,8 +220,7 @@
         <returns>
           <para>
             <see cref="E:Urho.Intersection.Outside" /> if the specified <paramref name="box" /> is outside the current bounding box, or <see cref="E:Urho.Intersection.Inside" /> if the <paramref name="box" /> is fully contained within this bounding box, or <see cref="E:Urho.Intersection.Intersects" /> if the specified <paramref name="box" /> intersects this bounding box.</para>
-          <para>
-          </para>
+          <para></para>
         </returns>
         <remarks>If you are only interested on the Inside/Outside values and do not care about intersect, you can use the <see cref="M:Urho.BoundingBox.IsInsideFast" /> method which performs fewer tests.</remarks>
       </Docs>
@@ -235,6 +302,25 @@
       </Docs>
     </Member>
     <Member MemberName="Merge">
+      <MemberSignature Language="C#" Value="public void Merge (Urho.Frustum frustum);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Merge(class Urho.Frustum frustum) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="frustum" Type="Urho.Frustum" />
+      </Parameters>
+      <Docs>
+        <param name="frustum">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Merge">
       <MemberSignature Language="C#" Value="public void Merge (Urho.Vector3 point);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Merge(valuetype Urho.Vector3 point) cil managed" />
       <MemberType>Method</MemberType>
@@ -251,6 +337,25 @@
         <param name="point">To be added.</param>
         <summary>To be added.</summary>
         <remarks>The result of merging two bounding boxes is a bounding box that bounds both boxes.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Merge">
+      <MemberSignature Language="C#" Value="public void Merge (Urho.Vector3[] points);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Merge(valuetype Urho.Vector3[] points) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="points" Type="Urho.Vector3[]" />
+      </Parameters>
+      <Docs>
+        <param name="points">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Min">

@@ -315,6 +315,27 @@
       </Docs>
     </Member>
     <Member MemberName="SetGlobalVar">
+      <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="Urho.StringHash" />
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGlobalVar">
       <MemberSignature Language="C#" Value="public void SetGlobalVar (Urho.StringHash key, int value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGlobalVar(valuetype Urho.StringHash key, int32 value) cil managed" />
       <MemberType>Method</MemberType>

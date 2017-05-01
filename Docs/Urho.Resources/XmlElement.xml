@@ -41,6 +41,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
@@ -90,6 +95,26 @@
             Return bounding box attribute, or empty if missing.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateChild">
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement CreateChild (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.XmlElement CreateChild(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlElement</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -221,6 +246,26 @@
         <summary>
             Copy buffer attribute into a supplied buffer. Return true if buffer was large enough.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetChild">
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement GetChild (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.XmlElement GetChild(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlElement</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -423,6 +468,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetNext">
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement GetNext (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.XmlElement GetNext(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlElement</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetQuaternion">
       <MemberSignature Language="C#" Value="public Urho.Quaternion GetQuaternion (string name);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Quaternion GetQuaternion(string name) cil managed" />
@@ -621,6 +686,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Handle">
+      <MemberSignature Language="C#" Value="public IntPtr Handle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int Handle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="HasAttribute">
       <MemberSignature Language="C#" Value="public bool HasAttribute (string name);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasAttribute(string name) cil managed" />
@@ -683,6 +764,23 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="NextResult">
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement NextResult ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.XmlElement NextResult() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlElement</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NotNull">
       <MemberSignature Language="C#" Value="public bool NotNull ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool NotNull() cil managed" />
@@ -732,6 +830,22 @@
         <summary>
             Return number of attributes.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Parent">
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement Parent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.XmlElement Parent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlElement</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1261,6 +1375,26 @@
       </Docs>
     </Member>
     <Member MemberName="SetVariant">
+      <MemberSignature Language="C#" Value="public bool SetVariant (bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetVariant(bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVariant">
       <MemberSignature Language="C#" Value="public bool SetVariant (int value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetVariant(int32 value) cil managed" />
       <MemberType>Method</MemberType>
@@ -1516,6 +1650,26 @@
         <summary>
             Set a variant attribute.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVariantValue">
+      <MemberSignature Language="C#" Value="public bool SetVariantValue (bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetVariantValue(bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1848,6 +2002,28 @@
         <summary>
             Set a Vector4 attribute.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetVectorVariant">
+      <MemberSignature Language="C#" Value="public bool SetVectorVariant (string name, bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetVectorVariant(string name, bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

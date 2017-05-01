@@ -1,4 +1,4 @@
-﻿<Type Name="Matrix4x4" FullName="Urho.SharpReality.HoloToolkit.Matrix4x4">
+<Type Name="Matrix4x4" FullName="Urho.SharpReality.HoloToolkit.Matrix4x4">
   <TypeSignature Language="C#" Value="public struct Matrix4x4" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Matrix4x4 extends System.ValueType" />
   <AssemblyInfo>

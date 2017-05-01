@@ -1,4 +1,4 @@
-﻿<Type Name="Transform" FullName="Urho.SharpReality.HoloToolkit.Transform">
+<Type Name="Transform" FullName="Urho.SharpReality.HoloToolkit.Transform">
   <TypeSignature Language="C#" Value="public struct Transform" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Transform extends System.ValueType" />
   <AssemblyInfo>

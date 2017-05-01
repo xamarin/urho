@@ -33,8 +33,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Serializable which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -82,8 +81,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Serializable linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -608,6 +606,28 @@
       </Docs>
     </Member>
     <Member MemberName="SetAttribute">
+      <MemberSignature Language="C#" Value="public bool SetAttribute (string name, bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetAttribute(string name, bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAttribute">
       <MemberSignature Language="C#" Value="public bool SetAttribute (string name, int value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetAttribute(string name, int32 value) cil managed" />
       <MemberType>Method</MemberType>
@@ -887,6 +907,28 @@
         <summary>
             Set attribute by name. Return true if successfully set.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAttribute">
+      <MemberSignature Language="C#" Value="public bool SetAttribute (uint index, bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetAttribute(unsigned int32 index, bool value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1205,6 +1247,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.InterceptNetworkUpdate += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1229,6 +1276,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TemporaryChanged += ...' instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Urho.Subscription</ReturnType>
       </ReturnValue>
@@ -1308,8 +1360,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1325,8 +1376,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1347,8 +1397,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="WriteInitialDeltaUpdate">

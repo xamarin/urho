@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="Data">
-      <MemberSignature Language="C#" Value="public Urho.Network.DirtyBits.&lt;Data&gt;__FixedBuffer0 Data;" />
-      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Network.DirtyBits/&lt;Data&gt;__FixedBuffer0 Data" />
+      <MemberSignature Language="C#" Value="public Urho.Network.DirtyBits.&lt;Data&gt;e__FixedBuffer Data;" />
+      <MemberSignature Language="ILAsm" Value=".field public valuetype Urho.Network.DirtyBits/&lt;Data&gt;e__FixedBuffer Data" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.Network.DirtyBits+&lt;Data&gt;__FixedBuffer0</ReturnType>
+        <ReturnType>Urho.Network.DirtyBits+&lt;Data&gt;e__FixedBuffer</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -1,4 +1,4 @@
-﻿<Type Name="Quaternion" FullName="Urho.SharpReality.HoloToolkit.Quaternion">
+<Type Name="Quaternion" FullName="Urho.SharpReality.HoloToolkit.Quaternion">
   <TypeSignature Language="C#" Value="public struct Quaternion" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Quaternion extends System.ValueType" />
   <AssemblyInfo>

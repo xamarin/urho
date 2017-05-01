@@ -1,4 +1,4 @@
-﻿<doc>
+<doc>
     <assembly>
         <name>Urho</name>
     </assembly>
@@ -35,12 +35,12 @@
             </remarks>
         </member>
         <member name="C:Urho.Animatable(Urho.UrhoObjectFlag)">
-            <param name="emptyFlag">Pass UrhoObjectFlag.Empty.</param>
-            <summary>Empty constructor, chain to this constructor when you provide your own constructor that sets the handle field.</summary>
+            <param name="emptyFlag" />
+            <summary>Constructs a new instance of Urho.Animatable, given a raw pointer to an unmanaged object</summary>
             <remarks>
-                <para>This constructor should be invoked by your code if you provide your own constructor that sets the handle field.</para>
-                <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
-                <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
+                <para>This creates a new managed wrapper for the type using the raw pointer to an unmanaged object.</para>
+                <para>Objects that are created in this fashion get registered with the UrhoSharp runtime.</para>
+                <para>This is intended to be used by the UrhoSharp runtime, and is not intended to be used by users.</para>
             </remarks>
         </member>
         <member name="P:Urho.Animatable.AnimationEnabled">
@@ -536,6 +536,13 @@
                 <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
+        </member>
+        <member name="M:Urho.Animation.AddTrigger(System.Single,System.Boolean,System.Boolean)">
+            <param name="time"></param>
+            <param name="timeIsNormalized"></param>
+            <param name="data"></param>
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="M:Urho.Animation.AddTrigger(System.Single,System.Boolean,System.Int32)">
             <param name="time"></param>
@@ -1601,6 +1608,11 @@
             </value>
             <remarks>See the <see cref="T:Urho.Audio.Audio" /> class description for more information on how to use the Audio subsystem.</remarks>
         </member>
+        <member name="P:Urho.Application.CancelActiveActionsOnStop">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Application.Console">
             <summary>Returns the Console subsystem</summary>
             <value></value>
@@ -1629,6 +1641,18 @@
         <member name="P:Urho.Application.CurrentContext">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Application.Delay(System.Single)">
+            <param name="seconds"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Application.Delay(System.TimeSpan)">
+            <param name="timeSpan"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.Engine">
@@ -1689,12 +1713,22 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Application.IsActive">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Application.IsClosed">
             <summary>Determines if the application has been closed, and we are shutting down.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.IsExiting">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Application.IsFrameRendering">
             <summary></summary>
             <value></value>
             <remarks></remarks>
@@ -1774,9 +1808,9 @@
             <summary>Method invoked to terminate your application.</summary>
             <remarks></remarks>
         </member>
-        <member name="E:Urho.Application.Stoped">
-            <summary>Event raised when your application has stopped.</summary>
-            <remarks>This event is invoked after the <see cref="M:Urho.Application.Stop" /> virtual method is invoked on your application.</remarks>
+        <member name="E:Urho.Application.Stopped">
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.Application.Time">
             <summary>Returns the Time subsystem.</summary>
@@ -1820,11 +1854,6 @@
         <member name="E:Urho.Application.Update">
             <summary>Frame update event</summary>
             <remarks>This event is raised when the frame has been updated.</remarks>
-        </member>
-        <member name="P:Urho.Application.UrhoSurface">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
         </member>
         <member name="P:Urho.Application.WorkQueue">
             <summary>Returns the WorkQueue subsystem.</summary>
@@ -1907,6 +1936,11 @@ while (true){
         </member>
         <member name="P:Urho.ApplicationOptions.LimitFps">
             <summary>Determines whether we should limit the frames (defaults to true), the default is limit is 200 FPS for desktop, and 60 fps, despite of the flag settings.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.ApplicationOptions.Multisampling">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -2056,6 +2090,12 @@ while (true){
                 <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
+        </member>
+        <member name="M:Urho.AttributeAccessor.Set(Urho.Serializable,System.Boolean)">
+            <param name="ptr"></param>
+            <param name="src"></param>
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="M:Urho.AttributeAccessor.Set(Urho.Serializable,System.Int32)">
             <param name="ptr"></param>
@@ -2634,7 +2674,10 @@ while (true){
         </member>
         <member name="T:Urho.Bone">
             <summary>Bone in a skeleton</summary>
-            <remarks></remarks>
+            <remarks>
+                <para>Bones are important parts of the skeleton.</para>
+                <para />
+            </remarks>
         </member>
         <member name="P:Urho.Bone.Animated">
             <summary>Determines whether the bone is animated.</summary>
@@ -2759,6 +2802,21 @@ while (true){
             <summary>3D bounding box</summary>
             <remarks>A 3D-space bounding box with two 3D-vector properties, one for the minimal value (<see cref="P:Urho.BoundingBox.Min)" />, and one for the maximum value (<see cref="P:Urho.BoundingBox.Max)" />.</remarks>
         </member>
+        <member name="C:Urho.BoundingBox(Urho.Frustum)">
+            <param name="frustum"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.BoundingBox(Urho.Rect)">
+            <param name="rect"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.BoundingBox(Urho.Vector3[])">
+            <param name="points"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="C:Urho.BoundingBox(System.Single,System.Single)">
             <param name="min">Minimum value.</param>
             <param name="max">Maximum value.</param>
@@ -2776,6 +2834,12 @@ while (true){
         <member name="P:Urho.BoundingBox.Center">
             <summary>Returns the center of the bounding box.</summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.BoundingBox.Clip(Urho.BoundingBox)">
+            <param name="box"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.BoundingBox.Defined">
@@ -2831,10 +2895,20 @@ while (true){
             <summary>Merge another bounding box with this one.</summary>
             <remarks>The result of merging two bounding boxes is a bounding box that bounds both boxes.</remarks>
         </member>
+        <member name="M:Urho.BoundingBox.Merge(Urho.Frustum)">
+            <param name="frustum"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.BoundingBox.Merge(Urho.Vector3)">
             <param name="point"></param>
             <summary></summary>
             <remarks>The result of merging two bounding boxes is a bounding box that bounds both boxes.</remarks>
+        </member>
+        <member name="M:Urho.BoundingBox.Merge(Urho.Vector3[])">
+            <param name="points"></param>
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="F:Urho.BoundingBox.Min">
             <summary>Minimum vector.</summary>
@@ -2963,6 +3037,11 @@ while (true){
             Or
             Set vertical field of view in degrees.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Camera.Frustum">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -3417,8 +3496,40 @@ while (true){
             <summary>Opaque cyan color (RGB values are set to 0, 1, 1).</summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Color.Equals(System.Object)">
+            <param name="obj"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.Equals(Urho.Color)">
+            <param name="other"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.FromByteFormat(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="a"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.FromHex(System.String)">
+            <param name="hex"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="F:Urho.Color.G">
             <summary>Green component</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.GetHashCode">
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Color.Gray">
@@ -3434,6 +3545,44 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Color.op_Addition(Urho.Color,Urho.Color)">
+            <param name="left"></param>
+            <param name="right"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.op_Equality(Urho.Color,Urho.Color)">
+            <param name="left"></param>
+            <param name="right"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.op_Explicit(Urho.Color)~Urho.Vector3">
+            <param name="color"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.op_Explicit(Urho.Color)~Urho.Vector4">
+            <param name="color"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.op_Explicit(Urho.Vector3)~Urho.Color">
+            <param name="vector"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.op_Explicit(Urho.Vector4)~Urho.Color">
+            <param name="vector"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.op_Inequality(Urho.Color,Urho.Color)">
             <param name="left"></param>
             <param name="right"></param>
             <summary></summary>
@@ -3460,6 +3609,11 @@ while (true){
         </member>
         <member name="F:Urho.Color.Red">
             <summary>Opaque red color (RGB values are set to 1, 0, 0).</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Color.ToString">
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Color.ToUInt">
@@ -3928,6 +4082,11 @@ while (true){
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.ConstantBuffer.AsGPUObject">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.ConstantBuffer.Dirty">
             <summary>Return whether has unapplied data.</summary>
             <value></value>
@@ -4098,6 +4257,12 @@ while (true){
             <summary>
             Remove a subsystem.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,System.Boolean)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.SetGlobalVar(Urho.StringHash,System.Int32)">
@@ -4315,6 +4480,50 @@ while (true){
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.CoreAssets+Models+LinePrimitives">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models+LinePrimitives.Basis">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models+LinePrimitives.Box1x1x1">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models+LinePrimitives.CubicBezier">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models+LinePrimitives.LinearBezier">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models+LinePrimitives.QuadraticBezier">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models+LinePrimitives.UnitX">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models+LinePrimitives.UnitY">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.CoreAssets+Models+LinePrimitives.UnitZ">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.CoreAssets+PostProcess">
             <summary></summary>
             <remarks></remarks>
@@ -4386,6 +4595,222 @@ while (true){
         <member name="P:Urho.CoreAssets+RenderPaths.PrepassHWDepth">
             <summary></summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+ShaderParameters">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.AmbientColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.AmbientEndColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.AmbientStartColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.BillboardRot">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.CameraPos">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.CameraPosPS">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ClipPlane">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.DeltaTime">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.DeltaTimePS">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.DepthMode">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.DepthReconstruct">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ElapsedTime">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ElapsedTimePS">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.FarClip">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.FarClipPS">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.FogColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.FogParams">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.FrustumSize">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.GBufferInvSize">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.GBufferOffsets">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.LightColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.LightDir">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.LightDirPS">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.LightPos">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.LightPosPS">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.MatDiffColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.MatEmissiveColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.MatEnvMapColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.MatSpecColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.Model">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.NearClip">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.NearClipPS">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.NormalOffsetScale">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.NormalOffsetScalePS">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ShadowCubeAdjust">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ShadowDepthFade">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ShadowIntensity">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ShadowMapInvSize">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ShadowSplits">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.UOffset">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.View">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ViewInv">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ViewProj">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.VOffset">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.VSMShadowParams">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.Zone">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ZoneMax">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters.ZoneMin">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.CoreAssets+ShaderParameters+PBR">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters+PBR.LightLength">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters+PBR.LightRad">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters+PBR.Metallic">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.CoreAssets+ShaderParameters+PBR.Roughness">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.CoreAssets+Techniques">
@@ -5740,20 +6165,18 @@ while (true){
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
-        <member name="M:Urho.DebugRenderer.AddBoundingBox(Urho.BoundingBox,Urho.Color,System.Boolean,System.Boolean)">
+        <member name="M:Urho.DebugRenderer.AddBoundingBox(Urho.BoundingBox,Urho.Color,System.Boolean)">
             <param name="box"></param>
             <param name="color"></param>
             <param name="depthTest"></param>
-            <param name="solid"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.DebugRenderer.AddBoundingBox(Urho.BoundingBox,Urho.Matrix3x4,Urho.Color,System.Boolean,System.Boolean)">
+        <member name="M:Urho.DebugRenderer.AddBoundingBox(Urho.BoundingBox,Urho.Matrix3x4,Urho.Color,System.Boolean)">
             <param name="box"></param>
             <param name="transform"></param>
             <param name="color"></param>
             <param name="depthTest"></param>
-            <param name="solid"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -5790,6 +6213,13 @@ while (true){
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.DebugRenderer.AddFrustum(Urho.Frustum,Urho.Color,System.Boolean)">
+            <param name="frustum"></param>
+            <param name="color"></param>
+            <param name="depthTest"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.DebugRenderer.AddLine(Urho.Vector3,Urho.Vector3,System.UInt32,System.Boolean)">
             <param name="start"></param>
             <param name="end"></param>
@@ -5819,21 +6249,8 @@ while (true){
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.DebugRenderer.AddPolygon(Urho.Vector3,Urho.Vector3,Urho.Vector3,Urho.Vector3,System.UInt32,System.Boolean)">
-            <param name="v1"></param>
-            <param name="v2"></param>
-            <param name="v3"></param>
-            <param name="v4"></param>
-            <param name="color"></param>
-            <param name="depthTest"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.DebugRenderer.AddPolygon(Urho.Vector3,Urho.Vector3,Urho.Vector3,Urho.Vector3,Urho.Color,System.Boolean)">
-            <param name="v1"></param>
-            <param name="v2"></param>
-            <param name="v3"></param>
-            <param name="v4"></param>
+        <member name="M:Urho.DebugRenderer.AddPolyhedron(Urho.Polyhedron,Urho.Color,System.Boolean)">
+            <param name="poly"></param>
             <param name="color"></param>
             <param name="depthTest"></param>
             <summary></summary>
@@ -5883,6 +6300,11 @@ while (true){
             <param name="color"></param>
             <param name="depthTest"></param>
             <summary>Add a triangle mesh.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.DebugRenderer.Frustum">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.DebugRenderer.HasContent">
@@ -6977,9 +7399,8 @@ while (true){
             </remarks>
         </member>
         <member name="M:Urho.Engine.ApplyFrameLimit">
-            <summary>
-            Get the timestep for the next frame and sleep for frame limiting if necessary.
-            </summary>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Engine.AutoExit">
@@ -7104,9 +7525,8 @@ while (true){
                 <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.Gui.UI" /> generates render commands necessary to render the user interface.</remarks>
         </member>
         <member name="M:Urho.Engine.RunFrame">
-            <summary>
-            Run one frame.
-            </summary>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Engine.SubscribeToPostRenderUpdate(System.Action{Urho.PostRenderUpdateEventArgs})">
@@ -7364,6 +7784,129 @@ while (true){
         </member>
         <member name="T:Urho.Frustum">
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Frustum">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Frustum(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Frustum(Urho.Frustum)">
+            <param name="frustum"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Define(Urho.Matrix4)">
+            <param name="projection"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Define(Urho.BoundingBox,Urho.Matrix3x4)">
+            <param name="box"></param>
+            <param name="transform"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Define(Urho.Vector3,Urho.Vector3,Urho.Matrix3x4)">
+            <param name="nearValue"></param>
+            <param name="farValue"></param>
+            <param name="transform"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Define(System.Single,System.Single,System.Single,System.Single,System.Single,Urho.Matrix3x4)">
+            <param name="fov"></param>
+            <param name="aspectRatio"></param>
+            <param name="zoom"></param>
+            <param name="nearZ"></param>
+            <param name="farZ"></param>
+            <param name="transform"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.DefineOrtho(System.Single,System.Single,System.Single,System.Single,System.Single,Urho.Matrix3x4)">
+            <param name="orthoSize"></param>
+            <param name="aspectRatio"></param>
+            <param name="zoom"></param>
+            <param name="nearZ"></param>
+            <param name="farZ"></param>
+            <param name="transform"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.DefineSplit(Urho.Matrix4,System.Single,System.Single)">
+            <param name="projection"></param>
+            <param name="nearValue"></param>
+            <param name="farValue"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Dispose">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Distance(Urho.Vector3)">
+            <param name="point"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Frustum.Handle">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.IsInside(Urho.BoundingBox)">
+            <param name="box"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.IsInside(Urho.Vector3)">
+            <param name="point"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.IsInsideFast(Urho.BoundingBox)">
+            <param name="box"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Frustum.Planes">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Projected(Urho.Matrix4)">
+            <param name="transform"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Transform(Urho.Matrix3x4)">
+            <param name="transform"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.Transformed(Urho.Matrix3x4)">
+            <param name="transform"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Frustum.UpdatePlanes">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Frustum.Vertices">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="T:Urho.FrustumPlane">
@@ -7673,6 +8216,57 @@ while (true){
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="C:Urho.GPUObject(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.GPUObject(Urho.Graphics)">
+            <param name="graphics"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.GPUObject.ClearDataLost">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.GPUObject.DataLost">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.GPUObject.GetGPUObject">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.GPUObject.GPUObjectName">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.GPUObject.Graphics">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.GPUObject.HasPendingData">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.GPUObject.OnDeviceLost">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.GPUObject.OnDeviceReset">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.GPUObject.Release">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Graphics">
             <summary>Graphics subsystem. Manages the application window, rendering state and GPU resources.
             </summary>
@@ -7835,11 +8429,9 @@ while (true){
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
         </member>
-        <member name="M:Urho.Graphics.AddGPUObject(Urho.GPUObject*)">
+        <member name="M:Urho.Graphics.AddGPUObject(System.IntPtr)">
             <param name="object"></param>
-            <summary>
-            Add a GPU object to keep track of. Called by GPUObject.
-            </summary>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.AlphaFormat">
@@ -8438,11 +9030,9 @@ while (true){
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Graphics.RemoveGPUObject(Urho.GPUObject*)">
+        <member name="M:Urho.Graphics.RemoveGPUObject(System.IntPtr)">
             <param name="object"></param>
-            <summary>
-            Remove a GPU object. Called by GPUObject.
-            </summary>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.RenderTargetDimensions">
@@ -9055,6 +9645,15 @@ while (true){
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.IGPUObject">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.IGPUObject.AsGPUObject">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.IndexBuffer">
             <summary>
             Hardware index buffer.
@@ -9086,6 +9685,11 @@ while (true){
                 <para>Constructs a new instance of Urho.IndexBuffer linked to a specific <see cref="T:Urho.Context" />.</para>
             </summary>
             <remarks />
+        </member>
+        <member name="M:Urho.IndexBuffer.AsGPUObject">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.IndexBuffer.Dynamic">
             <summary>Return whether is dynamic.</summary>
@@ -10900,19 +11504,6 @@ while (true){
             <summary></summary>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.IUrhoSurface">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.IUrhoSurface.IsAlive">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.IUrhoSurface.Remove">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
         <member name="T:Urho.JoystickAxisMoveEventArgs">
             <summary>Event arguments for the Input's JoystickAxisMove event</summary>
             <remarks></remarks>
@@ -11647,11 +12238,6 @@ while (true){
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.Light.Length">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Light.LightQueue">
             <summary>
             Return light queue. Called by View.
@@ -11688,11 +12274,6 @@ while (true){
             Or
             Set vertex lighting mode.
             </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Light.Radius">
-            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -12145,36 +12726,6 @@ while (true){
         </member>
         <member name="F:Urho.LogLevel.Warning">
             <summary></summary>
-        </member>
-        <member name="T:Urho.LogSharp">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LogSharp.Debug(System.String)">
-            <param name="str"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LogSharp.Error(System.String,System.Exception)">
-            <param name="str"></param>
-            <param name="exc"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.LogSharp.LogLevel">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LogSharp.Trace(System.String)">
-            <param name="str"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.LogSharp.Warn(System.String)">
-            <param name="str"></param>
-            <summary></summary>
-            <remarks></remarks>
         </member>
         <member name="T:Urho.LogSharpLevel">
             <summary></summary>
@@ -12678,6 +13229,12 @@ while (true){
             Associate the material with a scene to ensure that shader parameter animation happens in sync with scene update, respecting the scene time scale. If no scene is set, the global update events will be used.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Material.SetShaderParameter(System.String,System.Boolean)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Material.SetShaderParameter(System.String,System.Int32)">
@@ -13421,6 +13978,34 @@ while (true){
             <summary>Represents a 3x4 Matrix.</summary>
             <remarks></remarks>
         </member>
+        <member name="C:Urho.Matrix3x4(Urho.Vector3,Urho.Vector3,Urho.Vector3,Urho.Vector3)">
+            <param name="row0"></param>
+            <param name="row1"></param>
+            <param name="row2"></param>
+            <param name="row3"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Matrix3x4(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <param name="v00"></param>
+            <param name="v01"></param>
+            <param name="v02"></param>
+            <param name="v03"></param>
+            <param name="v10"></param>
+            <param name="v11"></param>
+            <param name="v12"></param>
+            <param name="v13"></param>
+            <param name="v20"></param>
+            <param name="v21"></param>
+            <param name="v22"></param>
+            <param name="v23"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Matrix3x4.Identity">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Matrix3x4.Inverse">
             <summary></summary>
             <returns></returns>
@@ -13479,6 +14064,10 @@ while (true){
             <param name="rhs"></param>
             <summary></summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.Matrix3x4.Zero">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Matrix4">
@@ -14204,6 +14793,11 @@ while (true){
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.MemoryBuffer.Size">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Model">
             <summary>
             3D model resource.
@@ -14896,10 +15490,17 @@ model.SetMaterial(material);]]></code>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Node.CreateChild(System.UInt32,Urho.CreateMode,System.Boolean)">
+        <member name="M:Urho.Node.CreateChild(System.UInt32,Urho.CreateMode)">
             <param name="id"></param>
             <param name="mode"></param>
-            <param name="temporary"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Node.CreateChild(System.String,Urho.CreateMode,System.UInt32)">
+            <param name="name"></param>
+            <param name="mode"></param>
+            <param name="id"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -14908,15 +15509,6 @@ model.SetMaterial(material);]]></code>
             <param name="name"></param>
             <param name="id"></param>
             <param name="mode"></param>
-            <param name="temporary"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Node.CreateChild(System.String,Urho.CreateMode,System.UInt32,System.Boolean)">
-            <param name="name"></param>
-            <param name="mode"></param>
-            <param name="id"></param>
             <param name="temporary"></param>
             <summary></summary>
             <returns></returns>
@@ -14976,14 +15568,6 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
 ]]></code>
                 </example>
             </remarks>
-        </member>
-        <member name="M:Urho.Node.CreateTemporaryChild(System.String,Urho.CreateMode,System.UInt32)">
-            <param name="name"></param>
-            <param name="mode"></param>
-            <param name="id"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
         </member>
         <member name="P:Urho.Node.Direction">
             <summary>
@@ -15761,6 +16345,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <param name="rotation"></param>
             <param name="scale"></param>
             <summary>Sets the node transform but does not flag the node as dirty, nor as requiring a network update.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Node.SetVar(Urho.StringHash,System.Boolean)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Node.SetVar(Urho.StringHash,System.Int32)">
@@ -17912,9 +18502,6 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         <member name="F:Urho.Platforms.Android">
             <summary>Running on Android.</summary>
         </member>
-        <member name="F:Urho.Platforms.SharpReality">
-            <summary></summary>
-        </member>
         <member name="F:Urho.Platforms.iOS">
             <summary>Running on iOS.</summary>
         </member>
@@ -17923,6 +18510,9 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="F:Urho.Platforms.MacOSX">
             <summary>Running on MacOS X.</summary>
+        </member>
+        <member name="F:Urho.Platforms.SharpReality">
+            <summary></summary>
         </member>
         <member name="F:Urho.Platforms.Unknown">
             <summary>Running on an unknown platform.</summary>
@@ -17940,6 +18530,99 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
         </member>
         <member name="C:Urho.PodVector`1">
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Polyhedron">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Polyhedron">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Polyhedron(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Polyhedron(Urho.BoundingBox)">
+            <param name="box"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Polyhedron(Urho.Frustum)">
+            <param name="frustum"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Polyhedron(Urho.Polyhedron)">
+            <param name="polyhedron"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.AddFace(Urho.Vector3,Urho.Vector3,Urho.Vector3)">
+            <param name="v0"></param>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.AddFace(Urho.Vector3,Urho.Vector3,Urho.Vector3,Urho.Vector3)">
+            <param name="v0"></param>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <param name="v3"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Clear">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Clip(Urho.BoundingBox)">
+            <param name="box"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Clip(Urho.Frustum)">
+            <param name="box"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Clip(Urho.Plane)">
+            <param name="plane"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Define(Urho.BoundingBox)">
+            <param name="box"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Define(Urho.Frustum)">
+            <param name="frustum"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Empty">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Polyhedron.Handle">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Transform(Urho.Matrix3x4)">
+            <param name="transform"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Polyhedron.Transformed(Urho.Matrix3x4)">
+            <param name="transform"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="T:Urho.PostRenderUpdateEventArgs">
@@ -20045,6 +20728,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.RenderPath.SetShaderParameter(System.String,System.Boolean)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.RenderPath.SetShaderParameter(System.String,System.Int32)">
             <param name="name"></param>
             <param name="value"></param>
@@ -21204,10 +21893,6 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <member name="M:Urho.Scene.NodeTagRemoved(Urho.Node,System.String)">
             <param name="node"></param>
             <param name="tag"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Scene.OnDeleted">
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -22837,6 +23522,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Serializable.SetAttribute(System.String,System.Boolean)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Serializable.SetAttribute(System.String,System.Int32)">
             <param name="name"></param>
             <param name="value"></param>
@@ -22938,6 +23630,13 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary>
             Set attribute by name. Return true if successfully set.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Serializable.SetAttribute(System.UInt32,System.Boolean)">
+            <param name="index"></param>
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -23692,6 +24391,11 @@ uniform sampler2D sDetailMap3;]]></code>
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.ShaderProgram.AsGPUObject">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.ShaderType">
             <summary>
             Shader types.
@@ -23732,6 +24436,11 @@ uniform sampler2D sDetailMap3;]]></code>
             <param name="owner"></param>
             <param name="type"></param>
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ShaderVariation.AsGPUObject">
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.ShaderVariation.CompilerOutput">
@@ -24572,6 +25281,11 @@ uniform sampler2D sDetailMap3;]]></code>
             Determines if the given local space point is within the model geometry.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.StaticModel.Material">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.StaticModel.Model">
@@ -25848,27 +26562,18 @@ uniform sampler2D sDetailMap3;]]></code>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="T:Urho.TextEditingEventArgs">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.TextEditingEventArgs.Composition">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.TextEditingEventArgs.Cursor">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.TextEditingEventArgs.SelectionLength">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="T:Urho.TextInputEventArgs">
             <summary>Event arguments for the Input's TextInput event</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.TextInputEventArgs.Buttons">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.TextInputEventArgs.Qualifiers">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.TextInputEventArgs.Text">
@@ -25916,6 +26621,11 @@ uniform sampler2D sDetailMap3;]]></code>
         <member name="P:Urho.Texture.Anisotropy">
             <summary>Return texture max. anisotropy level. Value 0 means to use the default value from Renderer. Or Set texture max. anisotropy level. No effect if not using anisotropic filtering. Value 0 (default) uses the default setting from Renderer.</summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Texture.AsGPUObject">
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.AutoResolve">
@@ -26082,11 +26792,6 @@ uniform sampler2D sDetailMap3;]]></code>
             <value></value>
             <remarks></remarks>
         </member>
-        <member name="P:Urho.Texture.LevelsDirty">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Texture.MultiSample">
             <summary>Return texture multisampling level (1 = no multisampling).</summary>
             <value></value>
@@ -26097,10 +26802,6 @@ uniform sampler2D sDetailMap3;]]></code>
             Return whether parameters are dirty.
             </summary>
             <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Texture.RegenerateLevels">
-            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.ResolveDirty">
@@ -26124,10 +26825,6 @@ uniform sampler2D sDetailMap3;]]></code>
             <summary>
             Set addressing mode by texture coordinate.
             </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.Texture.SetLevelsDirty">
-            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Texture.SetMipsToSkip(System.Int32,System.Int32)">
@@ -26872,26 +27569,6 @@ uniform sampler2D sDetailMap3;]]></code>
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Time.SubscribeToFrameEnded(System.Action{Urho.FrameEndedEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the FrameEnded event raised by the Time.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks>
-                <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
-                <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-                <para>For a more event-like approach, use the <see cref="E:Urho.Time.FrameEnded" /> event.</para>
-            </remarks>
-        </member>
-        <member name="M:Urho.Time.SubscribeToFrameStarted(System.Action{Urho.FrameStartedEventArgs})">
-            <param name="handler">The handler to invoke when this event is raised.</param>
-            <summary>Subscribes to the FrameStarted event raised by the Time.</summary>
-            <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-            <remarks>
-                <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
-                <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-                <para>For a more event-like approach, use the <see cref="E:Urho.Time.FrameStarted" /> event.</para>
-            </remarks>
-        </member>
         <member name="P:Urho.Time.SystemTime">
             <summary>
             Get system time as milliseconds.
@@ -27595,6 +28272,12 @@ uniform sampler2D sDetailMap3;]]></code>
             </summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,System.Boolean)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.UrhoObject.SetGlobalVar(Urho.StringHash,System.Int32)">
             <param name="key"></param>
             <param name="value"></param>
@@ -27878,6 +28561,13 @@ uniform sampler2D sDetailMap3;]]></code>
         </member>
         <member name="M:Urho.ValueAnimation.SaveXml(Urho.Resources.XmlElement)">
             <param name="dest"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.ValueAnimation.SetKeyFrame(System.Single,System.Boolean)">
+            <param name="time"></param>
+            <param name="value"></param>
             <summary></summary>
             <returns></returns>
             <remarks></remarks>
@@ -28180,9 +28870,6 @@ uniform sampler2D sDetailMap3;]]></code>
             <summary></summary>
         </member>
         <member name="F:Urho.VariantType.Quaternion">
-            <summary></summary>
-        </member>
-        <member name="F:Urho.VariantType.Rect">
             <summary></summary>
         </member>
         <member name="F:Urho.VariantType.Resourceref">
@@ -30356,6 +31043,11 @@ uniform sampler2D sDetailMap3;]]></code>
             </summary>
             <remarks />
         </member>
+        <member name="M:Urho.VertexBuffer.AsGPUObject">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.VertexBuffer.Dynamic">
             <summary>Return whether is dynamic..</summary>
             <value></value>
@@ -30453,7 +31145,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.VertexBuffer.SetData(System.Single[])">
-            <param name="vertexData"></param>
+            <param name="data"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -30465,8 +31157,23 @@ uniform sampler2D sDetailMap3;]]></code>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.VertexBuffer.SetData(Urho.CustomGeometryVertex[])">
-            <param name="vertexData"></param>
+        <member name="M:Urho.VertexBuffer.SetData(Urho.VertexBuffer+PositionNormal[])">
+            <param name="data"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.VertexBuffer.SetData(Urho.VertexBuffer+PositionNormalColor[])">
+            <param name="data"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.VertexBuffer.SetData(Urho.VertexBuffer+PositionNormalColorTexcoord[])">
+            <param name="data"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.VertexBuffer.SetData(Urho.VertexBuffer+PositionNormalColorTexcoordTangent[])">
+            <param name="data"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -30541,6 +31248,78 @@ uniform sampler2D sDetailMap3;]]></code>
             Return vertex size.
             </summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.VertexBuffer+PositionNormal">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormal.Normal">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormal.Position">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.VertexBuffer+PositionNormalColor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColor.Color">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColor.Normal">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColor.Position">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.VertexBuffer+PositionNormalColorTexcoord">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoord.Color">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoord.Normal">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoord.Position">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoord.TexCoord">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.VertexBuffer+PositionNormalColorTexcoordTangent">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoordTangent.Color">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoordTangent.Normal">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoordTangent.Position">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoordTangent.Tangent">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.VertexBuffer+PositionNormalColorTexcoordTangent.TexCoord">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.VertexElement">
@@ -31832,6 +32611,10 @@ public class MyInstantState : ActionInstantState
             <param name="paused"></param>
             <summary>Low-level: adds the specified action to the node.</summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Actions.ActionManager.CancelActiveActions">
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Actions.ActionManager.Dispose">
@@ -33607,7 +34390,7 @@ public class MyInstantState : ActionInstantState
             <summary>Alters the alpha component of the <see cref="T:Urho.Urho2D.StaticSprite2D" /> component or <see cref="T:Urho.Shapes.Shape" /> component of a <see cref="T:Urho.Node" />.</summary>
             <remarks>This changes the alpha transparency to the specified opacity of an attached <see cref="T:Urho.Urho2D.StaticSprite2D" /> component of a node by altering the alpha component on the <see cref="P:Urho.Urho2D.StaticSprite2D.Color" /> property, or the attached <see cref="T:Urho.Shapes.Shape" /> component of a node by altering the alpha component on the <see cref="P:Urho.Shapes.Shape.Color" /> property.</remarks>
         </member>
-        <member name="C:Urho.Actions.FadeTo(System.Single,System.Byte)">
+        <member name="C:Urho.Actions.FadeTo(System.Single,System.Single)">
             <param name="duration"></param>
             <param name="opacity"></param>
             <summary></summary>
@@ -34792,6 +35575,11 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Actions.Sequence.Actions">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Actions.Sequence.CancelAction">
             <summary></summary>
             <value></value>
             <remarks></remarks>
@@ -36908,6 +37696,30 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
+        <member name="T:Urho.Gui.CharEntryEventArgs">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.CharEntryEventArgs.Buttons">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.CharEntryEventArgs.Element">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.CharEntryEventArgs.Qualifiers">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.CharEntryEventArgs.Text">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Gui.CheckBox">
             <summary>UI element that can be toggled between unchecked and checked state.
             </summary>
@@ -38569,6 +39381,10 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
+        <member name="E:Urho.Gui.LineEdit.CharEntry">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Gui.LineEdit.Cursor">
             <summary>
             Return cursor element.
@@ -38648,8 +39464,10 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.LineEdit.OnTextInput(System.String)">
+        <member name="M:Urho.Gui.LineEdit.OnTextInput(System.String,System.Int32,System.Int32)">
             <param name="text"></param>
+            <param name="buttons"></param>
+            <param name="qualifiers"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -38658,6 +39476,12 @@ public class MyInstantState : ActionInstantState
             <summary>
             Register object factory.
             </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.LineEdit.SubscribeToCharEntry(System.Action{Urho.Gui.CharEntryEventArgs})">
+            <param name="handler"></param>
+            <summary></summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.LineEdit.SubscribeToTextChanged(System.Action{Urho.Gui.TextChangedEventArgs})">
@@ -38669,12 +39493,6 @@ public class MyInstantState : ActionInstantState
                 <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
                 <para>For a more event-like approach, use the <see cref="E:Urho.Gui.LineEdit.TextChanged" /> event.</para>
             </remarks>
-        </member>
-        <member name="M:Urho.Gui.LineEdit.SubscribeToTextEntry(System.Action{Urho.Gui.TextEntryEventArgs})">
-            <param name="handler"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.LineEdit.SubscribeToTextFinished(System.Action{Urho.Gui.TextFinishedEventArgs})">
             <param name="handler">The handler to invoke when this event is raised.</param>
@@ -38721,10 +39539,6 @@ public class MyInstantState : ActionInstantState
             Return text element.
             </summary>
             <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="E:Urho.Gui.LineEdit.TextEntry">
-            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="E:Urho.Gui.LineEdit.TextFinished">
@@ -41190,20 +42004,6 @@ public class MyInstantState : ActionInstantState
         <member name="F:Urho.Gui.TextEffect.Stroke">
             <summary></summary>
         </member>
-        <member name="T:Urho.Gui.TextEntryEventArgs">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Gui.TextEntryEventArgs.Element">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Gui.TextEntryEventArgs.Text">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="T:Urho.Gui.TextFinishedEventArgs">
             <summary>Event arguments for the LineEdit's TextFinished event</summary>
             <remarks></remarks>
@@ -42768,8 +43568,10 @@ public class MyInstantState : ActionInstantState
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Urho.Gui.UIElement.OnTextInput(System.String)">
+        <member name="M:Urho.Gui.UIElement.OnTextInput(System.String,System.Int32,System.Int32)">
             <param name="text"></param>
+            <param name="buttons"></param>
+            <param name="qualifiers"></param>
             <summary></summary>
             <remarks></remarks>
         </member>
@@ -43100,6 +43902,12 @@ public class MyInstantState : ActionInstantState
             <param name="file"></param>
             <summary>Set style from an XML file. Find the style element automatically by using the element's typename. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.</summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,System.Boolean)">
+            <param name="key"></param>
+            <param name="value"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.UIElement.SetVar(Urho.StringHash,System.Int32)">
@@ -44000,716 +44808,6 @@ public class MyInstantState : ActionInstantState
         <member name="F:Urho.Gui.WindowDragMode.ResizeTopright">
             <summary></summary>
         </member>
-        <member name="T:Urho.SharpReality.DebugGrid">
-            <summary>Component that creates a 3D grid for debug purposes.</summary>
-            <remarks>The DebugGrid creates a 3D geometry using <see cref="T:Urho.CustomGeometry" /> with a fixed step. It helps to align urho objects in a real world.</remarks>
-        </member>
-        <member name="C:Urho.SharpReality.DebugGrid">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.DebugGrid.OnAttachedToNode(Urho.Node)">
-            <param name="node"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.StereoApplication">
-            <summary>Base class for creating holographics applications for HoloLens.</summary>
-            <remarks>This is the bas class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
-	  <example><code lang="C#"><![CDATA[using System;
-using Urho;
-using Urho.SharpReality;
-
-public class MyApplication : StereoApplication
-{
-    public MyApplication(string assets) : base(assets) { }
-
-    protected override void Start()
-    {
-        base.Start();
-
-        var boxNode = Scene.CreateChild();
-        boxNode.Position = new Vector3(0, 0, 1);
-        boxNode.SetScale(0.2f);
-
-        boxNode.CreateComponent<Urho.Shapes.Box>();
-    }
-}
-]]></code></example></remarks>
-        </member>
-        <member name="C:Urho.SharpReality.StereoApplication(Urho.ApplicationOptions)">
-            <param name="opts"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.CortanaCommands">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.CreateModelFromVertexData(Urho.SharpReality.SpatialVertex[],System.Int16[],Urho.Quaternion)">
-            <param name="vertexData"></param>
-            <param name="indexData"></param>
-            <param name="rotation"></param>
-            <summary>Creates <see cref="T:Urho.Model" /> from spatial geometry using <see cref="T:Urho.Geometry" /> with <see cref="T:Urho.IndexBuffer" /> and <see cref="T:Urho.VertexBuffer" />.</summary>
-            <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.CullingCamera">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.DefaultRenderPath">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.DirectionalLight">
-            <summary>Default directional <see cref="T:Urho.Light" /> in the basic scene.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.DistanceBetweenEyes">
-            <summary>Distance between eyes.</summary>
-            <value></value>
-            <remarks>StereoApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from HoloLens API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.Emulator">
-            <summary>Emulator mode</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureHold">
-            <summary>Enables or disables Hold gesture.</summary>
-            <value></value>
-            <remarks>See https://developer.microsoft.com/en-us/windows/holographic/gestures for details</remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureManipulation">
-            <summary>Enables or disables Manipulation gesture.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureTapped">
-            <summary>Enables or disables Tapped and Double Tapped gestures.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.FocusWorldPoint">
-            <summary>Focus point in World coordinates.</summary>
-            <value></value>
-            <remarks>Informs the system about a specific point in your scene to prioritize for image stabilization. You should set the focus point near the content that the user is looking at.</remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.GenerateModelFromSpatialSurface(Urho.SharpReality.SpatialMeshInfo)">
-            <param name="surface">Creates Model from spatial surfaces.</param>
-            <summary></summary>
-            <returns></returns>
-            <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.SharpReality.StereoApplication.CreateModelFromVertexData" />.</remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.HeadPosition">
-            <summary>User's current position.</summary>
-            <value></value>
-            <remarks>The exact position will be between the cameras representing user's eyes.</remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.LeftCamera">
-            <summary>
-                <see cref="T:Urho.Camera" /> component that represents user's left eye.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.Octree">
-            <summary>Fast access to <see cref="T:Urho.Octree" /> added to the basic scene.</summary>
-            <value></value>
-            <remarks>Can be used for ray casting.</remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureDoubleTapped">
-            <summary>Invokes when user uses double tap gesture. Requires enabled EnableGestureTapped property.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldCanceled">
-            <summary>Invokes when user cancels Hold gesture. Requires enabled EnableGestureHold property.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldCompleted">
-            <summary>Invokes when user completes Hold gesture. Requires enabled EnableGestureHold property.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldStarted">
-            <summary>Invokes when user starts Hold gesture. Requires enabled EnableGestureHold property.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationCanceled">
-            <summary>Invokes when user cancels Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationCompleted(Urho.Vector3)">
-            <param name="relativeHandPosition"></param>
-            <summary>Invokes when user completes Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationStarted">
-            <summary>Invokes when user starts Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationUpdated(Urho.Vector3)">
-            <param name="relativeHandPosition"></param>
-            <summary>Invokes when user uses Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnGestureTapped">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnSurfaceAddedOrUpdated(Urho.SharpReality.SpatialMeshInfo,Urho.Model)">
-            <param name="surface"></param>
-            <param name="generatedModel">Model created by <see href="M:Urho.SharpReality.StereoApplication.GenerateModelFromSpatialSurface" />.</param>
-            <summary>Invokes when SharpReality recognizes a new spatial surface or updates any existing..</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.OnUpdate(System.Single)">
-            <param name="timeStep"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.RegisterCortanaCommands(System.Collections.Generic.Dictionary{System.String,System.Action})">
-            <param name="commands">Set of voice commands.</param>
-            <summary>Registers set of voice commands with handlers.</summary>
-            <returns>Returns false if 'Microphone' device capability was not enabled in the AppManifest.</returns>
-            <remarks>You should enable 'Microphone' device capability in the AppManifest.</remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.RightCamera">
-            <summary>
-                <see cref="T:Urho.Camera" /> component that represents user's right eye.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.Scene">
-            <summary>Root node of the simple scene created in Start metod.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.Start">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.StartSpatialMapping(Urho.Vector3,System.Int32,Urho.Color,System.Boolean,System.Boolean)">
-            <param name="extents">Bounding volume to observe. Vector3(20, 10, 5) means a box that is 20x10x5 meters.</param>
-            <param name="trianglesPerCubicMeter">Desired accuracy.</param>
-            <param name="color"></param>
-            <param name="onlyAdd"></param>
-            <param name="convertToLeftHanded"></param>
-            <summary>Starts spatial mapping procedure. </summary>
-            <returns>Returns 'false' if spatialMapping device capability is not defined in the app's manifest. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> for more details.</returns>
-            <remarks>Make sure 'spatialMapping' device capability is enabled. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> and <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.StopSpatialMapping">
-            <summary>Stops spatial mapping process. You will stop receiving OnSurfaceAddedOrUpdated events.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.StereoApplication.TextToSpeech(System.String)">
-            <param name="text"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.StereoApplication.Zone">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.SpatialCursor">
-            <summary>Spatial cursor component.</summary>
-            <remarks>Displays a small static model (<see cref="T:Urho.Shapes.Torus" /> by default) and updates its position each frame according to user's gaze. It sends a raycast each frame update and raises Raycasted event that can be used if you also need to send a raycast in order to avoid doing it twice. The model will be rotated according to a Normal of a geometry touched by the raycast.</remarks>
-        </member>
-        <member name="C:Urho.SharpReality.SpatialCursor">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.SharpReality.SpatialCursor(System.IntPtr)">
-            <param name="handle"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.SpatialCursor.ClickAnimation">
-            <summary>Runs a quick click animation using SetShaderAnimation method.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialCursor.CursorEnabled">
-            <summary>Enables or disables cursor.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialCursor.CursorModelNode">
-            <summary>Node containing cursor's StaticModel.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialCursor.CursorNode">
-            <summary>Cursor's root node.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.SpatialCursor.OnAttachedToNode(Urho.Node)">
-            <param name="node"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.SpatialCursor.OnUpdate(System.Single)">
-            <param name="timeStep"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="E:Urho.SharpReality.SpatialCursor.Raycasted">
-            <summary>Fired after each recast made by the cursor.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.SpatialCursor.RunIdleAnimation">
-            <summary>Runs a default 'Idle' animation.</summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.SpatialMeshInfo">
-            <summary>Contains spatial mesh data.</summary>
-            <remarks>This structure contains all information that can be extracted from SharpReality Spatial Mapping API. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialMeshInfo.BoundsCenter">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialMeshInfo.BoundsRotation">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialMeshInfo.Date">
-            <summary>Spatial surface timestamp.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialMeshInfo.Extents">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialMeshInfo.IndexData">
-            <summary>Array of indices (see IndexBuffer).</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialMeshInfo.SurfaceId">
-            <summary>Spatial surface unique id (Guid).</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialMeshInfo.Transform">
-            <summary>Transform that can be applied to convert to world coordinates.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialMeshInfo.VertexData">
-            <summary>Array of SpatialVertex (see VertexBuffer).</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.SpatialVertex">
-            <summary>Represents a vertex from a spatial mesh. Consists of a position, normal and a color.</summary>
-            <remarks>This structure can be used directly in VertexBuffer in SetData in case if ElementMask is set to 'Position | Normal  | Color'.</remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialVertex.Color">
-            <summary>Vertex color.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.SpatialVertex.ColorUint">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialVertex.Normal">
-            <summary>Vertex Normal.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.SpatialVertex.NormalX">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.SpatialVertex.NormalY">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.SpatialVertex.NormalZ">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.SharpReality.SpatialVertex.Position">
-            <summary>Vertex position.</summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.SpatialVertex.PositionX">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.SpatialVertex.PositionY">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.SpatialVertex.PositionZ">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.BoundedPlane">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Area">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Bounds">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Plane">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.Bounds">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Bounds.center">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Bounds.extents">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.Matrix4x4">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.SharpReality.HoloToolkit.Matrix4x4(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
-            <param name="m00"></param>
-            <param name="m01"></param>
-            <param name="m02"></param>
-            <param name="m03"></param>
-            <param name="m10"></param>
-            <param name="m11"></param>
-            <param name="m12"></param>
-            <param name="m13"></param>
-            <param name="m20"></param>
-            <param name="m21"></param>
-            <param name="m22"></param>
-            <param name="m23"></param>
-            <param name="m30"></param>
-            <param name="m31"></param>
-            <param name="m32"></param>
-            <param name="m33"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.identity">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m00">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m01">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m02">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m03">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m10">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m11">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m12">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m13">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m20">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m21">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m22">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m23">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m30">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m31">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m32">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m33">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.Matrix4x4.TransformDirection(Urho.SharpReality.HoloToolkit.Vector3)">
-            <param name="v"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.Matrix4x4.TransformPoint(Urho.SharpReality.HoloToolkit.Vector3)">
-            <param name="v"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.Mesh">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.bounds">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.normals">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.triangles">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.vertices">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.MeshFilter">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.MeshFilter.sharedMesh">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.MeshFilter.transform">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.OrientedBoundingBox">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Center">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Extents">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Rotation">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.Plane">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Plane.distance">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Plane.normal">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.PlaneFinding">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.SharpReality.HoloToolkit.PlaneFinding">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.FindPlanes(System.Collections.Generic.List{Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData},System.Single,System.Single)">
-            <param name="meshes"></param>
-            <param name="snapToGravityThreshold"></param>
-            <param name="minArea"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.FindSubPlanes(System.Collections.Generic.List{Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData},System.Single)">
-            <param name="meshes"></param>
-            <param name="snapToGravityThreshold"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.MergeSubPlanes(Urho.SharpReality.HoloToolkit.BoundedPlane[],System.Single,System.Single)">
-            <param name="subPlanes"></param>
-            <param name="snapToGravityThreshold"></param>
-            <param name="minArea"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData(Urho.SharpReality.HoloToolkit.MeshFilter)">
-            <param name="meshFilter"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Indices">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Normals">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Transform">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Verts">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.Quaternion">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.SharpReality.HoloToolkit.Quaternion(System.Single,System.Single,System.Single,System.Single)">
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-            <param name="w"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.identity">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.w">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.x">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.y">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.z">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.Transform">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Transform.localToWorldMatrix">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Transform.rotation">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.Transform.TransformPoint(Urho.SharpReality.HoloToolkit.Vector3)">
-            <param name="point"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="T:Urho.SharpReality.HoloToolkit.Vector3">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="C:Urho.SharpReality.HoloToolkit.Vector3(System.Single,System.Single,System.Single)">
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.Length">
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.one">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.op_Addition(Urho.SharpReality.HoloToolkit.Vector3,Urho.SharpReality.HoloToolkit.Vector3)">
-            <param name="a"></param>
-            <param name="b"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.ToString">
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.ToString(System.String)">
-            <param name="format"></param>
-            <summary></summary>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.x">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.y">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.z">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.zero">
-            <summary></summary>
-            <remarks></remarks>
-        </member>
         <member name="T:Urho.IO.AsyncExecFinishedEventArgs">
             <summary>Event arguments for the FileSystem's AsyncExecFinished event</summary>
             <remarks></remarks>
@@ -44850,6 +44948,13 @@ public class MyApplication : StereoApplication
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.IO.File.Read(System.Byte[],System.UInt32)">
+            <param name="buffer"></param>
+            <param name="size"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.IO.File.Read(System.IntPtr,System.UInt32)">
             <param name="dest"></param>
             <param name="size"></param>
@@ -44865,6 +44970,11 @@ public class MyApplication : StereoApplication
             Set position from the beginning of the file.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.IO.File.Size">
+            <summary></summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.IO.File.Type">
@@ -48472,11 +48582,6 @@ public class MyApplication : StereoApplication
             <summary>Contains the information about a physics collision event.</summary>
             <remarks>The data in this structure is the result of a collision event between scene nodes and rigit bodies.</remarks>
         </member>
-        <member name="C:Urho.Physics.CollisionData(System.Byte*)">
-            <param name="p"></param>
-            <summary>Contructs a CollisionData structure from a low-level buffer containing the encoded collision event.</summary>
-            <remarks></remarks>
-        </member>
         <member name="F:Urho.Physics.CollisionData.ContactDistance">
             <summary>Distance, negative when interpenetrating</summary>
             <remarks></remarks>
@@ -50365,6 +50470,29 @@ public class MyApplication : StereoApplication
         <member name="F:Urho.Physics.ShapeType.Trianglemesh">
             <summary>Shape defined by a triangle mesh.</summary>
         </member>
+        <member name="T:Urho.Portable.ScriptInstance">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Portable.ScriptInstance">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Portable.ScriptInstance(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Portable.ScriptInstance(Urho.Context)">
+            <param name="context"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Portable.ScriptInstance(Urho.UrhoObjectFlag)">
+            <param name="emptyFlag"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="T:Urho.Resources.AsyncLoadState">
             <summary>
             Asynchronous loading state of a resource.
@@ -51039,6 +51167,111 @@ public class MyApplication : StereoApplication
             <remarks></remarks>
         </member>
         <member name="P:Urho.Resources.LoadFailedEventArgs.ResourceName">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.Resources.Localization">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Resources.Localization">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Resources.Localization(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Resources.Localization(Urho.Context)">
+            <param name="context"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.Resources.Localization(Urho.UrhoObjectFlag)">
+            <param name="emptyFlag"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.Resources.Localization.ChangeLanguage">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Localization.Get(System.String)">
+            <param name="id"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Localization.GetLanguage(System.Int32)">
+            <param name="index"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Localization.GetLanguageIndex(System.String)">
+            <param name="language"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Resources.Localization.Language">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Resources.Localization.LanguageIndex">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Localization.LoadJsonFile(System.String)">
+            <param name="name"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Resources.Localization.NumLanguages">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Localization.Reset">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Localization.SetLanguage(System.Int32)">
+            <param name="index"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Localization.SetLanguage(System.String)">
+            <param name="language"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Localization.SubscribeToChangeLanguage(System.Action{Urho.Resources.ChangeLanguageEventArgs})">
+            <param name="handler"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Resources.Localization.Type">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Resources.Localization.TypeName">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Resources.Localization.TypeNameStatic">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Resources.Localization.TypeStatic">
             <summary></summary>
             <value></value>
             <remarks></remarks>
@@ -52184,6 +52417,12 @@ public class MyApplication : StereoApplication
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlElement.CreateChild(System.String)">
+            <param name="name"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Resources.XmlElement.File">
             <summary>
             Return XML file.
@@ -52230,6 +52469,12 @@ public class MyApplication : StereoApplication
             <summary>
             Copy buffer attribute into a supplied buffer. Return true if buffer was large enough.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.GetChild(System.String)">
+            <param name="name"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -52305,6 +52550,12 @@ public class MyApplication : StereoApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlElement.GetNext(System.String)">
+            <param name="name"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlElement.GetQuaternion(System.String)">
             <param name="name"></param>
             <summary>
@@ -52377,6 +52628,11 @@ public class MyApplication : StereoApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Resources.XmlElement.Handle">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlElement.HasAttribute(System.String)">
             <param name="name"></param>
             <summary>
@@ -52400,6 +52656,11 @@ public class MyApplication : StereoApplication
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlElement.NextResult">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlElement.NotNull">
             <summary>
             Return whether refers to an element or an XPath node.
@@ -52416,6 +52677,11 @@ public class MyApplication : StereoApplication
             <summary>
             Return number of attributes.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Resources.XmlElement.Parent">
+            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -52612,6 +52878,12 @@ public class MyApplication : StereoApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlElement.SetVariant(System.Boolean)">
+            <param name="value"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlElement.SetVariant(System.Int32)">
             <param name="value"></param>
             <summary>
@@ -52701,6 +52973,12 @@ public class MyApplication : StereoApplication
             <summary>
             Set a variant attribute.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.SetVariantValue(System.Boolean)">
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -52820,6 +53098,13 @@ public class MyApplication : StereoApplication
             <summary>
             Set a Vector4 attribute.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.SetVectorVariant(System.String,System.Boolean)">
+            <param name="name"></param>
+            <param name="value"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -53005,12 +53290,29 @@ public class MyApplication : StereoApplication
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlFile.CreateRoot(System.String)">
+            <param name="name"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Resources.XmlFile.FromString(System.String)">
             <param name="source"></param>
             <summary>
             Deserialize from a string. Return true if successful.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlFile.GetRoot(System.String)">
+            <param name="name"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlFile.Patch(Urho.Resources.XmlElement)">
+            <param name="patchElement"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.XmlFile.Patch(Urho.Resources.XmlFile)">
@@ -53368,6 +53670,716 @@ public class MyApplication : StereoApplication
             <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
             <value></value>
             <remarks />
+        </member>
+        <member name="T:Urho.SharpReality.DebugGrid">
+            <summary>Component that creates a 3D grid for debug purposes.</summary>
+            <remarks>The DebugGrid creates a 3D geometry using <see cref="T:Urho.CustomGeometry" /> with a fixed step. It helps to align urho objects in a real world.</remarks>
+        </member>
+        <member name="C:Urho.SharpReality.DebugGrid">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.DebugGrid.OnAttachedToNode(Urho.Node)">
+            <param name="node"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.SpatialCursor">
+            <summary>Spatial cursor component.</summary>
+            <remarks>Displays a small static model (<see cref="T:Urho.Shapes.Torus" /> by default) and updates its position each frame according to user's gaze. It sends a raycast each frame update and raises Raycasted event that can be used if you also need to send a raycast in order to avoid doing it twice. The model will be rotated according to a Normal of a geometry touched by the raycast.</remarks>
+        </member>
+        <member name="C:Urho.SharpReality.SpatialCursor">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.SharpReality.SpatialCursor(System.IntPtr)">
+            <param name="handle"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.SpatialCursor.ClickAnimation">
+            <summary>Runs a quick click animation using SetShaderAnimation method.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialCursor.CursorEnabled">
+            <summary>Enables or disables cursor.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialCursor.CursorModelNode">
+            <summary>Node containing cursor's StaticModel.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialCursor.CursorNode">
+            <summary>Cursor's root node.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.SpatialCursor.OnAttachedToNode(Urho.Node)">
+            <param name="node"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.SpatialCursor.OnUpdate(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Urho.SharpReality.SpatialCursor.Raycasted">
+            <summary>Fired after each recast made by the cursor.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.SpatialCursor.RunIdleAnimation">
+            <summary>Runs a default 'Idle' animation.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.SpatialMeshInfo">
+            <summary>Contains spatial mesh data.</summary>
+            <remarks>This structure contains all information that can be extracted from SharpReality Spatial Mapping API. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.BoundsCenter">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.BoundsRotation">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.Date">
+            <summary>Spatial surface timestamp.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.Extents">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.IndexData">
+            <summary>Array of indices (see IndexBuffer).</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.SurfaceId">
+            <summary>Spatial surface unique id (Guid).</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.Transform">
+            <summary>Transform that can be applied to convert to world coordinates.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialMeshInfo.VertexData">
+            <summary>Array of SpatialVertex (see VertexBuffer).</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.SpatialVertex">
+            <summary>Represents a vertex from a spatial mesh. Consists of a position, normal and a color.</summary>
+            <remarks>This structure can be used directly in VertexBuffer in SetData in case if ElementMask is set to 'Position | Normal  | Color'.</remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialVertex.Color">
+            <summary>Vertex color.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.SpatialVertex.ColorUint">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialVertex.Normal">
+            <summary>Vertex Normal.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.SpatialVertex.NormalX">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.SpatialVertex.NormalY">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.SpatialVertex.NormalZ">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.SpatialVertex.Position">
+            <summary>Vertex position.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.SpatialVertex.PositionX">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.SpatialVertex.PositionY">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.SpatialVertex.PositionZ">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.StereoApplication">
+            <summary>Base class for creating holographics applications for SharpReality.</summary>
+            <remarks>This is the base class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
+	  <example><code lang="C#"><![CDATA[using System;
+using Urho;
+using Urho.SharpReality;
+
+public class MyApplication : StereoApplication
+{
+    public MyApplication(string assets) : base(assets) { }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        var boxNode = Scene.CreateChild();
+        boxNode.Position = new Vector3(0, 0, 1);
+        boxNode.SetScale(0.2f);
+
+        boxNode.CreateComponent<Urho.Shapes.Box>();
+    }
+}
+]]></code></example></remarks>
+        </member>
+        <member name="C:Urho.SharpReality.StereoApplication(Urho.ApplicationOptions)">
+            <param name="opts"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.CortanaCommands">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.CreateModelFromVertexData(Urho.SharpReality.SpatialVertex[],System.Int16[],Urho.Quaternion)">
+            <param name="vertexData"></param>
+            <param name="indexData"></param>
+            <param name="rotation"></param>
+            <summary>Creates <see cref="T:Urho.Model" /> from spatial geometry using <see cref="T:Urho.Geometry" /> with <see cref="T:Urho.IndexBuffer" /> and <see cref="T:Urho.VertexBuffer" />.</summary>
+            <returns>Instance of <see cref="T:Urho.Model" /> object that can be used in <see cref="T:Urho.StaticModel" /> or <see cref="T:Urho.Physics.CollisionShape" /> components.</returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.CullingCamera">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.DefaultRenderPath">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.DirectionalLight">
+            <summary>Default directional <see cref="T:Urho.Light" /> in the basic scene.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.DistanceBetweenEyes">
+            <summary>Distance between eyes.</summary>
+            <value></value>
+            <remarks>StereoApplication doesn't set any offset between cameras, instead of doing that it applies View and Projection matrices from SharpReality API for both eyes. With the given data we can calculate the real distance between eyes used by the system. This distance depends on system calibration. For an average person it would be 63mm or <see cref="T:Urho.Vector3" />(0.063, 0, 0) in Urho.</remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.Emulator">
+            <summary>Emulator mode</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureHold">
+            <summary>Enables or disables Hold gesture.</summary>
+            <value></value>
+            <remarks>See https://developer.microsoft.com/en-us/windows/holographic/gestures for details</remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureManipulation">
+            <summary>Enables or disables Manipulation gesture.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.EnableGestureTapped">
+            <summary>Enables or disables Tapped and Double Tapped gestures.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.FocusWorldPoint">
+            <summary>Focus point in World coordinates.</summary>
+            <value></value>
+            <remarks>Informs the system about a specific point in your scene to prioritize for image stabilization. You should set the focus point near the content that the user is looking at.</remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.GenerateModelFromSpatialSurface(Urho.SharpReality.SpatialMeshInfo)">
+            <param name="surface">Creates Model from spatial surfaces.</param>
+            <summary></summary>
+            <returns></returns>
+            <remarks>Can be overriden but most likely will be called in a background thread. The default implementation uses <see href="M:Urho.SharpReality.StereoApplication.CreateModelFromVertexData" />.</remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.HeadPosition">
+            <summary>User's current position.</summary>
+            <value></value>
+            <remarks>The exact position will be between the cameras representing user's eyes.</remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.LeftCamera">
+            <summary>
+                <see cref="T:Urho.Camera" /> component that represents user's left eye.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.Octree">
+            <summary>Fast access to <see cref="T:Urho.Octree" /> added to the basic scene.</summary>
+            <value></value>
+            <remarks>Can be used for ray casting.</remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureDoubleTapped">
+            <summary>Invokes when user uses double tap gesture. Requires enabled EnableGestureTapped property.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldCanceled">
+            <summary>Invokes when user cancels Hold gesture. Requires enabled EnableGestureHold property.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldCompleted">
+            <summary>Invokes when user completes Hold gesture. Requires enabled EnableGestureHold property.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureHoldStarted">
+            <summary>Invokes when user starts Hold gesture. Requires enabled EnableGestureHold property.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationCanceled">
+            <summary>Invokes when user cancels Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationCompleted(Urho.Vector3)">
+            <param name="relativeHandPosition"></param>
+            <summary>Invokes when user completes Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationStarted">
+            <summary>Invokes when user starts Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureManipulationUpdated(Urho.Vector3)">
+            <param name="relativeHandPosition"></param>
+            <summary>Invokes when user uses Manipulation gesture. Requires enabled EnableGestureManipulation property.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnGestureTapped">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnSurfaceAddedOrUpdated(Urho.SharpReality.SpatialMeshInfo,Urho.Model)">
+            <param name="surface"></param>
+            <param name="generatedModel">Model created by <see href="M:Urho.SharpReality.StereoApplication.GenerateModelFromSpatialSurface" />.</param>
+            <summary>Invokes when SharpReality recognizes a new spatial surface or updates any existing..</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.OnUpdate(System.Single)">
+            <param name="timeStep"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.RegisterCortanaCommands(System.Collections.Generic.Dictionary{System.String,System.Action})">
+            <param name="commands">Set of voice commands.</param>
+            <summary>Registers set of voice commands with handlers.</summary>
+            <returns>Returns false if 'Microphone' device capability was not enabled in the AppManifest.</returns>
+            <remarks>You should enable 'Microphone' device capability in the AppManifest.</remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.RightCamera">
+            <summary>
+                <see cref="T:Urho.Camera" /> component that represents user's right eye.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.Scene">
+            <summary>Root node of the simple scene created in Start metod.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.Start">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.StartSpatialMapping(Urho.Vector3,System.Int32,Urho.Color,System.Boolean,System.Boolean)">
+            <param name="extents">Bounding volume to observe. Vector3(20, 10, 5) means a box that is 20x10x5 meters.</param>
+            <param name="trianglesPerCubicMeter">Desired accuracy.</param>
+            <param name="color"></param>
+            <param name="onlyAdd"></param>
+            <param name="convertToLeftHanded"></param>
+            <summary>Starts spatial mapping procedure. </summary>
+            <returns>Returns 'false' if spatialMapping device capability is not defined in the app's manifest. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> for more details.</returns>
+            <remarks>Make sure 'spatialMapping' device capability is enabled. See <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping_in_directx" /> and <see cref="https://developer.microsoft.com/en-us/windows/holographic/spatial_mapping" /> for more details.</remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.StopSpatialMapping">
+            <summary>Stops spatial mapping process. You will stop receiving OnSurfaceAddedOrUpdated events.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.StereoApplication.TextToSpeech(System.String)">
+            <param name="text"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.SharpReality.StereoApplication.Zone">
+            <summary></summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.BoundedPlane">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Area">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Bounds">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.BoundedPlane.Plane">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.Bounds">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Bounds.center">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Bounds.extents">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.Matrix4x4">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.SharpReality.HoloToolkit.Matrix4x4(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <param name="m00"></param>
+            <param name="m01"></param>
+            <param name="m02"></param>
+            <param name="m03"></param>
+            <param name="m10"></param>
+            <param name="m11"></param>
+            <param name="m12"></param>
+            <param name="m13"></param>
+            <param name="m20"></param>
+            <param name="m21"></param>
+            <param name="m22"></param>
+            <param name="m23"></param>
+            <param name="m30"></param>
+            <param name="m31"></param>
+            <param name="m32"></param>
+            <param name="m33"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.identity">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m00">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m01">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m02">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m03">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m10">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m11">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m12">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m13">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m20">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m21">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m22">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m23">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m30">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m31">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m32">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Matrix4x4.m33">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.Matrix4x4.TransformDirection(Urho.SharpReality.HoloToolkit.Vector3)">
+            <param name="v"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.Matrix4x4.TransformPoint(Urho.SharpReality.HoloToolkit.Vector3)">
+            <param name="v"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.Mesh">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.bounds">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.normals">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.triangles">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Mesh.vertices">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.MeshFilter">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.MeshFilter.sharedMesh">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.MeshFilter.transform">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.OrientedBoundingBox">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Center">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Extents">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.OrientedBoundingBox.Rotation">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.Plane">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Plane.distance">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Plane.normal">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.PlaneFinding">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.SharpReality.HoloToolkit.PlaneFinding">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.FindPlanes(System.Collections.Generic.List{Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData},System.Single,System.Single)">
+            <param name="meshes"></param>
+            <param name="snapToGravityThreshold"></param>
+            <param name="minArea"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.FindSubPlanes(System.Collections.Generic.List{Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData},System.Single)">
+            <param name="meshes"></param>
+            <param name="snapToGravityThreshold"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.PlaneFinding.MergeSubPlanes(Urho.SharpReality.HoloToolkit.BoundedPlane[],System.Single,System.Single)">
+            <param name="subPlanes"></param>
+            <param name="snapToGravityThreshold"></param>
+            <param name="minArea"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData(Urho.SharpReality.HoloToolkit.MeshFilter)">
+            <param name="meshFilter"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Indices">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Normals">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Transform">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.PlaneFinding+MeshData.Verts">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.Quaternion">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.SharpReality.HoloToolkit.Quaternion(System.Single,System.Single,System.Single,System.Single)">
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="w"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.identity">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.w">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.x">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.y">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Quaternion.z">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.Transform">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Transform.localToWorldMatrix">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Transform.rotation">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.Transform.TransformPoint(Urho.SharpReality.HoloToolkit.Vector3)">
+            <param name="point"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:Urho.SharpReality.HoloToolkit.Vector3">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="C:Urho.SharpReality.HoloToolkit.Vector3(System.Single,System.Single,System.Single)">
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.Length">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.one">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.op_Addition(Urho.SharpReality.HoloToolkit.Vector3,Urho.SharpReality.HoloToolkit.Vector3)">
+            <param name="a"></param>
+            <param name="b"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.ToString">
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.SharpReality.HoloToolkit.Vector3.ToString(System.String)">
+            <param name="format"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.x">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.y">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.z">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Urho.SharpReality.HoloToolkit.Vector3.zero">
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="T:Urho.Urho2D.AnimatedSprite2D">
             <summary>
@@ -57603,22 +58615,12 @@ public class MyApplication : StereoApplication
             <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
             <remarks />
         </member>
-        <member name="P:Urho.Urho2D.StaticSprite2D.UseDrawRect">
-            <summary></summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
         <member name="P:Urho.Urho2D.StaticSprite2D.UseHotSpot">
             <summary>
             Return use hot spot.
             Or
             Set use hot spot.
             </summary>
-            <value></value>
-            <remarks></remarks>
-        </member>
-        <member name="P:Urho.Urho2D.StaticSprite2D.UseTextureRect">
-            <summary></summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -57716,6 +58718,17 @@ public class MyApplication : StereoApplication
             <param name="image"></param>
             <param name="useAlpha"></param>
             <summary>Set data from an image. Return true if successful. Optionally make a single channel image alpha-only.</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.Texture2D.SetData(System.UInt32,System.Int32,System.Int32,System.Int32,System.Int32,System.Byte[])">
+            <param name="level"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="data"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>

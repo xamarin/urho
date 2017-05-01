@@ -15,15 +15,15 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public FadeTo (float duration, byte opacity);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration, unsigned int8 opacity) cil managed" />
+      <MemberSignature Language="C#" Value="public FadeTo (float duration, float opacity);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration, float32 opacity) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="duration" Type="System.Single" />
-        <Parameter Name="opacity" Type="System.Byte" />
+        <Parameter Name="opacity" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="duration">To be added.</param>
@@ -72,14 +72,14 @@
       </Docs>
     </Member>
     <Member MemberName="ToOpacity">
-      <MemberSignature Language="C#" Value="public byte ToOpacity { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance unsigned int8 ToOpacity" />
+      <MemberSignature Language="C#" Value="public float ToOpacity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ToOpacity" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Byte</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

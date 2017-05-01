@@ -32,8 +32,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -81,8 +80,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -309,6 +307,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Frustum">
+      <MemberSignature Language="C#" Value="public Urho.Frustum Frustum { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Frustum Frustum" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Frustum</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetDistance">
       <MemberSignature Language="C#" Value="public float GetDistance (Urho.Vector3 worldPos);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetDistance(valuetype Urho.Vector3 worldPos) cil managed" />
@@ -431,7 +445,7 @@
     </Member>
     <Member MemberName="GetSplitFrustum">
       <MemberSignature Language="C#" Value="public Urho.Frustum GetSplitFrustum (float nearClip, float farClip);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Frustum GetSplitFrustum(float32 nearClip, float32 farClip) cil managed" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Frustum GetSplitFrustum(float32 nearClip, float32 farClip) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -455,7 +469,7 @@
     </Member>
     <Member MemberName="GetViewSpaceSplitFrustum">
       <MemberSignature Language="C#" Value="public Urho.Frustum GetViewSpaceSplitFrustum (float nearClip, float farClip);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Frustum GetViewSpaceSplitFrustum(float32 nearClip, float32 farClip) cil managed" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Frustum GetViewSpaceSplitFrustum(float32 nearClip, float32 farClip) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -907,8 +921,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -924,8 +937,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -946,8 +958,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipping">
@@ -1048,7 +1059,7 @@
     </Member>
     <Member MemberName="ViewSpaceFrustum">
       <MemberSignature Language="C#" Value="public Urho.Frustum ViewSpaceFrustum { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Frustum ViewSpaceFrustum" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Frustum ViewSpaceFrustum" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

@@ -33,8 +33,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Time which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -82,8 +81,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Time linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -240,54 +238,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SubscribeToFrameEnded">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFrameEnded (Action&lt;Urho.FrameEndedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFrameEnded(class System.Action`1&lt;valuetype Urho.FrameEndedEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.FrameEndedEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the FrameEnded event raised by the Time.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
-          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Time.FrameEnded" /> event.</para>
-        </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SubscribeToFrameStarted">
-      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToFrameStarted (Action&lt;Urho.FrameStartedEventArgs&gt; handler);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToFrameStarted(class System.Action`1&lt;valuetype Urho.FrameStartedEventArgs&gt; handler) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.Subscription</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="handler" Type="System.Action&lt;Urho.FrameStartedEventArgs&gt;" />
-      </Parameters>
-      <Docs>
-        <param name="handler">The handler to invoke when this event is raised.</param>
-        <summary>Subscribes to the FrameStarted event raised by the Time.</summary>
-        <returns>Returns an Urho.Subscription that can be used to cancel the subscription.</returns>
-        <remarks>
-          <para>This method will override any prior subscription, including those assigned to on event handlers.</para>
-          <para>This has the advantage that it does a straight connection and returns a handle that is easy to unsubscribe from.</para>
-          <para>For a more event-like approach, use the <see cref="E:Urho.Time.FrameStarted" /> event.</para>
-        </remarks>
-      </Docs>
-    </Member>
     <Member MemberName="SystemTime">
       <MemberSignature Language="C#" Value="public static uint SystemTime { get; }" />
       <MemberSignature Language="ILAsm" Value=".property unsigned int32 SystemTime" />
@@ -409,8 +359,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -426,8 +375,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -448,8 +396,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
   </Members>

@@ -1,6 +1,6 @@
 <Type Name="VertexBuffer" FullName="Urho.VertexBuffer">
-  <TypeSignature Language="C#" Value="public class VertexBuffer : Urho.UrhoObject" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit VertexBuffer extends Urho.UrhoObject" />
+  <TypeSignature Language="C#" Value="public class VertexBuffer : Urho.UrhoObject, Urho.IGPUObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit VertexBuffer extends Urho.UrhoObject implements class Urho.IGPUObject" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -8,7 +8,11 @@
   <Base>
     <BaseTypeName>Urho.UrhoObject</BaseTypeName>
   </Base>
-  <Interfaces />
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Urho.IGPUObject</InterfaceName>
+    </Interface>
+  </Interfaces>
   <Docs>
     <summary>
             Hardware vertex buffer.
@@ -88,8 +92,24 @@
         <summary>
           <para>Constructs a new instance of Urho.VertexBuffer linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AsGPUObject">
+      <MemberSignature Language="C#" Value="public Urho.GPUObject AsGPUObject ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Urho.GPUObject AsGPUObject() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.GPUObject</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Dynamic">
@@ -383,8 +403,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetData">
-      <MemberSignature Language="C#" Value="public void SetData (float[] vertexData);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(float32[] vertexData) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetData (float[] data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(float32[] data) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -396,7 +416,7 @@
         <Parameter Name="vertexData" Type="System.Single[]" />
       </Parameters>
       <Docs>
-        <param name="vertexData">To be added.</param>
+        <param name="data">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -424,8 +444,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetData">
-      <MemberSignature Language="C#" Value="public void SetData (Urho.CustomGeometryVertex[] vertexData);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(valuetype Urho.CustomGeometryVertex[] vertexData) cil managed" />
+      <MemberSignature Language="C#" Value="public void SetData (Urho.VertexBuffer.PositionNormal[] data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(valuetype Urho.VertexBuffer/PositionNormal[] data) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -434,10 +454,67 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="vertexData" Type="Urho.CustomGeometryVertex[]" />
+        <Parameter Name="data" Type="Urho.VertexBuffer+PositionNormal[]" />
       </Parameters>
       <Docs>
-        <param name="vertexData">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetData">
+      <MemberSignature Language="C#" Value="public void SetData (Urho.VertexBuffer.PositionNormalColor[] data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(valuetype Urho.VertexBuffer/PositionNormalColor[] data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="Urho.VertexBuffer+PositionNormalColor[]" />
+      </Parameters>
+      <Docs>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetData">
+      <MemberSignature Language="C#" Value="public void SetData (Urho.VertexBuffer.PositionNormalColorTexcoord[] data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(valuetype Urho.VertexBuffer/PositionNormalColorTexcoord[] data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="Urho.VertexBuffer+PositionNormalColorTexcoord[]" />
+      </Parameters>
+      <Docs>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetData">
+      <MemberSignature Language="C#" Value="public void SetData (Urho.VertexBuffer.PositionNormalColorTexcoordTangent[] data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(valuetype Urho.VertexBuffer/PositionNormalColorTexcoordTangent[] data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="data" Type="Urho.VertexBuffer+PositionNormalColorTexcoordTangent[]" />
+      </Parameters>
+      <Docs>
+        <param name="data">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -559,8 +636,7 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -576,8 +652,7 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -598,8 +673,7 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName="Unlock">

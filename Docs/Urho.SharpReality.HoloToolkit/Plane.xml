@@ -1,4 +1,4 @@
-﻿<Type Name="Plane" FullName="Urho.SharpReality.HoloToolkit.Plane">
+<Type Name="Plane" FullName="Urho.SharpReality.HoloToolkit.Plane">
   <TypeSignature Language="C#" Value="public struct Plane" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Plane extends System.ValueType" />
   <AssemblyInfo>

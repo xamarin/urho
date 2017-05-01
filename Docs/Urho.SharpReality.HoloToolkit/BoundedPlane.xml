@@ -1,4 +1,4 @@
-﻿<Type Name="BoundedPlane" FullName="Urho.SharpReality.HoloToolkit.BoundedPlane">
+<Type Name="BoundedPlane" FullName="Urho.SharpReality.HoloToolkit.BoundedPlane">
   <TypeSignature Language="C#" Value="public struct BoundedPlane" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit BoundedPlane extends System.ValueType" />
   <AssemblyInfo>

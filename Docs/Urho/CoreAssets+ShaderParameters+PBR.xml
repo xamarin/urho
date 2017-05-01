@@ -1,0 +1,78 @@
+<Type Name="CoreAssets+ShaderParameters+PBR" FullName="Urho.CoreAssets+ShaderParameters+PBR">
+  <TypeSignature Language="C#" Value="public static class CoreAssets.ShaderParameters.PBR" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit CoreAssets/ShaderParameters/PBR extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="LightLength">
+      <MemberSignature Language="C#" Value="public const string LightLength;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal string LightLength" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LightRad">
+      <MemberSignature Language="C#" Value="public const string LightRad;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal string LightRad" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Metallic">
+      <MemberSignature Language="C#" Value="public const string Metallic;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal string Metallic" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Roughness">
+      <MemberSignature Language="C#" Value="public const string Roughness;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal string Roughness" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

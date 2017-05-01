@@ -21,6 +21,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="code" Type="System.Int32" />
       </Parameters>
@@ -37,6 +42,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="str" Type="System.String" />
       </Parameters>

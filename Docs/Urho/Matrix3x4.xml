@@ -14,6 +14,81 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Matrix3x4 (Urho.Vector3 row0, Urho.Vector3 row1, Urho.Vector3 row2, Urho.Vector3 row3);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.Vector3 row0, valuetype Urho.Vector3 row1, valuetype Urho.Vector3 row2, valuetype Urho.Vector3 row3) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="row0" Type="Urho.Vector3" />
+        <Parameter Name="row1" Type="Urho.Vector3" />
+        <Parameter Name="row2" Type="Urho.Vector3" />
+        <Parameter Name="row3" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="row0">To be added.</param>
+        <param name="row1">To be added.</param>
+        <param name="row2">To be added.</param>
+        <param name="row3">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Matrix3x4 (float v00, float v01, float v02, float v03, float v10, float v11, float v12, float v13, float v20, float v21, float v22, float v23);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 v00, float32 v01, float32 v02, float32 v03, float32 v10, float32 v11, float32 v12, float32 v13, float32 v20, float32 v21, float32 v22, float32 v23) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="v00" Type="System.Single" />
+        <Parameter Name="v01" Type="System.Single" />
+        <Parameter Name="v02" Type="System.Single" />
+        <Parameter Name="v03" Type="System.Single" />
+        <Parameter Name="v10" Type="System.Single" />
+        <Parameter Name="v11" Type="System.Single" />
+        <Parameter Name="v12" Type="System.Single" />
+        <Parameter Name="v13" Type="System.Single" />
+        <Parameter Name="v20" Type="System.Single" />
+        <Parameter Name="v21" Type="System.Single" />
+        <Parameter Name="v22" Type="System.Single" />
+        <Parameter Name="v23" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="v00">To be added.</param>
+        <param name="v01">To be added.</param>
+        <param name="v02">To be added.</param>
+        <param name="v03">To be added.</param>
+        <param name="v10">To be added.</param>
+        <param name="v11">To be added.</param>
+        <param name="v12">To be added.</param>
+        <param name="v13">To be added.</param>
+        <param name="v20">To be added.</param>
+        <param name="v21">To be added.</param>
+        <param name="v22">To be added.</param>
+        <param name="v23">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Identity">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Matrix3x4 Identity;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Matrix3x4 Identity" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3x4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Inverse">
       <MemberSignature Language="C#" Value="public Urho.Matrix3x4 Inverse ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Matrix3x4 Inverse() cil managed" />
@@ -230,6 +305,21 @@
         <param name="rhs">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Zero">
+      <MemberSignature Language="C#" Value="public static readonly Urho.Matrix3x4 Zero;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Urho.Matrix3x4 Zero" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Matrix3x4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

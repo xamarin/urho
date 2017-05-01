@@ -1,4 +1,4 @@
-﻿<Type Name="MeshFilter" FullName="Urho.SharpReality.HoloToolkit.MeshFilter">
+<Type Name="MeshFilter" FullName="Urho.SharpReality.HoloToolkit.MeshFilter">
   <TypeSignature Language="C#" Value="public struct MeshFilter" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit MeshFilter extends System.ValueType" />
   <AssemblyInfo>

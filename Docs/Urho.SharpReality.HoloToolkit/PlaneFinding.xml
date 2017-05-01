@@ -1,4 +1,4 @@
-﻿<Type Name="PlaneFinding" FullName="Urho.SharpReality.HoloToolkit.PlaneFinding">
+<Type Name="PlaneFinding" FullName="Urho.SharpReality.HoloToolkit.PlaneFinding">
   <TypeSignature Language="C#" Value="public class PlaneFinding" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PlaneFinding extends System.Object" />
   <AssemblyInfo>

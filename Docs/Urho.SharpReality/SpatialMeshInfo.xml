@@ -1,4 +1,4 @@
-﻿<Type Name="SpatialMeshInfo" FullName="Urho.SharpReality.SpatialMeshInfo">
+<Type Name="SpatialMeshInfo" FullName="Urho.SharpReality.SpatialMeshInfo">
   <TypeSignature Language="C#" Value="public struct SpatialMeshInfo" />
   <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit SpatialMeshInfo extends System.ValueType" />
   <AssemblyInfo>

@@ -14,22 +14,6 @@
     <remarks>The data in this structure is the result of a collision event between scene nodes and rigit bodies.</remarks>
   </Docs>
   <Members>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CollisionData (byte* p);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(unsigned int8* p) cil managed" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="p" Type="System.Byte*" />
-      </Parameters>
-      <Docs>
-        <param name="p">To be added.</param>
-        <summary>Contructs a CollisionData structure from a low-level buffer containing the encoded collision event.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="ContactDistance">
       <MemberSignature Language="C#" Value="public float ContactDistance;" />
       <MemberSignature Language="ILAsm" Value=".field public float32 ContactDistance" />

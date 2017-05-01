@@ -145,6 +145,92 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object obj) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obj" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="obj">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public bool Equals (Urho.Color other);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Equals(valuetype Urho.Color other) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="other" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="other">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromByteFormat">
+      <MemberSignature Language="C#" Value="public static Urho.Color FromByteFormat (byte r, byte g, byte b, byte a);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Color FromByteFormat(unsigned int8 r, unsigned int8 g, unsigned int8 b, unsigned int8 a) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="r" Type="System.Byte" />
+        <Parameter Name="g" Type="System.Byte" />
+        <Parameter Name="b" Type="System.Byte" />
+        <Parameter Name="a" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="r">To be added.</param>
+        <param name="g">To be added.</param>
+        <param name="b">To be added.</param>
+        <param name="a">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromHex">
+      <MemberSignature Language="C#" Value="public static Urho.Color FromHex (string hex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Color FromHex(string hex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="hex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="hex">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="G">
       <MemberSignature Language="C#" Value="public float G;" />
       <MemberSignature Language="ILAsm" Value=".field public float32 G" />
@@ -157,6 +243,23 @@
       </ReturnValue>
       <Docs>
         <summary>Green component</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -214,6 +317,130 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Color" />
+        <Parameter Name="right" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="left">To be added.</param>
+        <param name="right">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Equality">
+      <MemberSignature Language="C#" Value="public static bool op_Equality (Urho.Color left, Urho.Color right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Equality(valuetype Urho.Color left, valuetype Urho.Color right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="left" Type="Urho.Color" />
+        <Parameter Name="right" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="left">To be added.</param>
+        <param name="right">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Explicit">
+      <MemberSignature Language="C#" Value="public static Urho.Vector3 op_Explicit (Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Vector3 op_Explicit(valuetype Urho.Color color) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="color" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="color">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Explicit">
+      <MemberSignature Language="C#" Value="public static Urho.Vector4 op_Explicit (Urho.Color color);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Vector4 op_Explicit(valuetype Urho.Color color) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector4</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="color" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="color">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Explicit">
+      <MemberSignature Language="C#" Value="public static Urho.Color op_Explicit (Urho.Vector3 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Color op_Explicit(valuetype Urho.Vector3 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="vector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Explicit">
+      <MemberSignature Language="C#" Value="public static Urho.Color op_Explicit (Urho.Vector4 vector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname valuetype Urho.Color op_Explicit(valuetype Urho.Vector4 vector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vector" Type="Urho.Vector4" />
+      </Parameters>
+      <Docs>
+        <param name="vector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Inequality">
+      <MemberSignature Language="C#" Value="public static bool op_Inequality (Urho.Color left, Urho.Color right);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Inequality(valuetype Urho.Color left, valuetype Urho.Color right) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="left" Type="Urho.Color" />
@@ -298,6 +525,23 @@
       </ReturnValue>
       <Docs>
         <summary>Opaque red color (RGB values are set to 1, 0, 0).</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance string ToString() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

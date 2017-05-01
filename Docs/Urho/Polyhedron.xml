@@ -1,0 +1,351 @@
+<Type Name="Polyhedron" FullName="Urho.Polyhedron">
+  <TypeSignature Language="C#" Value="public class Polyhedron" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Polyhedron extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Polyhedron ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Polyhedron (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Polyhedron (Urho.BoundingBox box);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Urho.BoundingBox box) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="box" Type="Urho.BoundingBox" />
+      </Parameters>
+      <Docs>
+        <param name="box">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Polyhedron (Urho.Frustum frustum);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Frustum frustum) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="frustum" Type="Urho.Frustum" />
+      </Parameters>
+      <Docs>
+        <param name="frustum">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Polyhedron (Urho.Polyhedron polyhedron);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Polyhedron polyhedron) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="polyhedron" Type="Urho.Polyhedron" />
+      </Parameters>
+      <Docs>
+        <param name="polyhedron">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddFace">
+      <MemberSignature Language="C#" Value="public void AddFace (Urho.Vector3 v0, Urho.Vector3 v1, Urho.Vector3 v2);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddFace(valuetype Urho.Vector3 v0, valuetype Urho.Vector3 v1, valuetype Urho.Vector3 v2) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="v0" Type="Urho.Vector3" />
+        <Parameter Name="v1" Type="Urho.Vector3" />
+        <Parameter Name="v2" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="v0">To be added.</param>
+        <param name="v1">To be added.</param>
+        <param name="v2">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddFace">
+      <MemberSignature Language="C#" Value="public void AddFace (Urho.Vector3 v0, Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddFace(valuetype Urho.Vector3 v0, valuetype Urho.Vector3 v1, valuetype Urho.Vector3 v2, valuetype Urho.Vector3 v3) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="v0" Type="Urho.Vector3" />
+        <Parameter Name="v1" Type="Urho.Vector3" />
+        <Parameter Name="v2" Type="Urho.Vector3" />
+        <Parameter Name="v3" Type="Urho.Vector3" />
+      </Parameters>
+      <Docs>
+        <param name="v0">To be added.</param>
+        <param name="v1">To be added.</param>
+        <param name="v2">To be added.</param>
+        <param name="v3">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clear">
+      <MemberSignature Language="C#" Value="public void Clear ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Clear() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clip">
+      <MemberSignature Language="C#" Value="public void Clip (Urho.BoundingBox box);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Clip(valuetype Urho.BoundingBox box) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="box" Type="Urho.BoundingBox" />
+      </Parameters>
+      <Docs>
+        <param name="box">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clip">
+      <MemberSignature Language="C#" Value="public void Clip (Urho.Frustum box);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Clip(class Urho.Frustum box) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="box" Type="Urho.Frustum" />
+      </Parameters>
+      <Docs>
+        <param name="box">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clip">
+      <MemberSignature Language="C#" Value="public void Clip (Urho.Plane plane);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Clip(valuetype Urho.Plane plane) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plane" Type="Urho.Plane" />
+      </Parameters>
+      <Docs>
+        <param name="plane">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Define">
+      <MemberSignature Language="C#" Value="public void Define (Urho.BoundingBox box);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Define(valuetype Urho.BoundingBox box) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="box" Type="Urho.BoundingBox" />
+      </Parameters>
+      <Docs>
+        <param name="box">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Define">
+      <MemberSignature Language="C#" Value="public void Define (Urho.Frustum frustum);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Define(class Urho.Frustum frustum) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="frustum" Type="Urho.Frustum" />
+      </Parameters>
+      <Docs>
+        <param name="frustum">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Empty">
+      <MemberSignature Language="C#" Value="public bool Empty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Empty() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Handle">
+      <MemberSignature Language="C#" Value="public IntPtr Handle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int Handle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transform">
+      <MemberSignature Language="C#" Value="public void Transform (Urho.Matrix3x4 transform);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Transform(valuetype Urho.Matrix3x4 transform) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="transform" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="transform">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Transformed">
+      <MemberSignature Language="C#" Value="public Urho.Polyhedron Transformed (Urho.Matrix3x4 transform);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Polyhedron Transformed(valuetype Urho.Matrix3x4 transform) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Polyhedron</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="transform" Type="Urho.Matrix3x4" />
+      </Parameters>
+      <Docs>
+        <param name="transform">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

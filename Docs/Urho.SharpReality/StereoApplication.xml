@@ -1,4 +1,4 @@
-﻿<Type Name="StereoApplication" FullName="Urho.SharpReality.StereoApplication">
+<Type Name="StereoApplication" FullName="Urho.SharpReality.StereoApplication">
   <TypeSignature Language="C#" Value="public class StereoApplication : Urho.Application" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit StereoApplication extends Urho.Application" />
   <AssemblyInfo>
@@ -12,8 +12,7 @@
   <Docs>
     <summary>Base class for creating holographics applications for SharpReality.</summary>
     <remarks>This is the base class that your holographics application should subclass and provide an implementation for the Application.Start. It is important to not that your implementation should start with base.Start() that creates a basic scene for you. The minimal holographics application looks like the following:
-	  <example>
-        <code lang="C#"><![CDATA[using System;
+	  <example><code lang="C#"><![CDATA[using System;
 using Urho;
 using Urho.SharpReality;
 

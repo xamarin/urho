@@ -1,6 +1,6 @@
 <Type Name="Texture" FullName="Urho.Texture">
-  <TypeSignature Language="C#" Value="public class Texture : Urho.Resources.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Texture extends Urho.Resources.Resource" />
+  <TypeSignature Language="C#" Value="public class Texture : Urho.Resources.Resource, Urho.IGPUObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Texture extends Urho.Resources.Resource implements class Urho.IGPUObject" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -8,7 +8,11 @@
   <Base>
     <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
   </Base>
-  <Interfaces />
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Urho.IGPUObject</InterfaceName>
+    </Interface>
+  </Interfaces>
   <Docs>
     <summary>
             Base class for texture resources.
@@ -33,8 +37,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Texture which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -82,8 +85,7 @@
         <summary>
           <para>Constructs a new instance of Urho.Texture linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks>
-        </remarks>
+        <remarks></remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -124,6 +126,23 @@
       <Docs>
         <summary>Return texture max. anisotropy level. Value 0 means to use the default value from Renderer. Or Set texture max. anisotropy level. No effect if not using anisotropic filtering. Value 0 (default) uses the default setting from Renderer.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AsGPUObject">
+      <MemberSignature Language="C#" Value="public Urho.GPUObject AsGPUObject ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Urho.GPUObject AsGPUObject() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.GPUObject</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -563,22 +582,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LevelsDirty">
-      <MemberSignature Language="C#" Value="public bool LevelsDirty { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance bool LevelsDirty" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="MultiSample">
       <MemberSignature Language="C#" Value="public int MultiSample { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 MultiSample" />
@@ -610,22 +613,6 @@
             Return whether parameters are dirty.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="RegenerateLevels">
-      <MemberSignature Language="C#" Value="public void RegenerateLevels ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RegenerateLevels() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -697,22 +684,6 @@
         <summary>
             Set addressing mode by texture coordinate.
             </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetLevelsDirty">
-      <MemberSignature Language="C#" Value="public void SetLevelsDirty ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetLevelsDirty() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
