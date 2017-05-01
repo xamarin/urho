@@ -153,6 +153,18 @@ namespace Urho {
 		public Vector3 Max;
 		public float DummyMax;
 
+		internal BoundingBox (bool x)
+		{
+			DummyMax = 0;
+			DummyMin = 0;
+			Min.X = float.PositiveInfinity;
+			Min.Y = float.PositiveInfinity;
+			Min.Z = float.PositiveInfinity;
+			Max.X = float.NegativeInfinity;
+			Max.Y = float.NegativeInfinity;
+			Max.Z = float.NegativeInfinity;
+		}
+		
 		public BoundingBox (float min, float max)
 		{
 			DummyMax = 0;
@@ -201,6 +213,38 @@ namespace Urho {
 				Max.Z = box.Max.Z;			
 		}
 
+		public void Merge (Vector3 [] points)
+		{
+			if (points == null)
+				throw new ArgumentNullException (nameof (points));
+
+			foreach (var p in points)
+				Merge (p);
+		}
+
+		public void Merge (Frustum frustum)
+		{
+			if (frustum == null)
+				throw new ArgumentNullException (nameof (frustum));
+			foreach (var p in frustum.Vertices)
+				Merge (p);
+		}
+		
+		public BoundingBox (Vector3 [] points) : this (true)
+		{
+			Merge (points);
+		}
+
+		public BoundingBox (Rect rect) : this (new Vector3 (rect.Min.X, rect.Min.Y, 0), new Vector3 (rect.Max.X, rect.Max.Y, 0))
+		{
+		}
+
+		public BoundingBox (Frustum frustum) : this (true)
+		{
+			Merge (frustum);
+		}
+		
+		     
 		public bool Defined ()
 		{
 			return Min.X != float.PositiveInfinity;
@@ -254,6 +298,16 @@ namespace Urho {
 				return Intersection.Outside;
 			else
 				return Intersection.Inside;
+		}
+
+		public BoundingBox Clip (BoundingBox box)
+		{
+			return new BoundingBox (new Vector3 (Math.Max (box.Min.X, Min.X),
+							     Math.Max (box.Min.Y, Min.Y),
+							     Math.Max (box.Min.Z, Min.Z)),
+						new Vector3 (Math.Min (box.Max.X, Max.X),
+							     Math.Min (box.Max.Y, Max.Y),
+							     Math.Min (box.Max.Z, Max.Z)));
 		}
 	}
 
