@@ -25,9 +25,9 @@
         <Parameter Name="frustum" Type="Urho.Frustum" />
       </Parameters>
       <Docs>
-        <param name="frustum">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="frustum">The frustum containing the vertices</param>
+        <summary>Constructs a bounding box from the vertices of a frustum</summary>
+        <remarks>This creates a bounding box that encompasses the frustum vertices.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -41,9 +41,11 @@
         <Parameter Name="rect" Type="Urho.Rect" />
       </Parameters>
       <Docs>
-        <param name="rect">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="rect">Rectangle to use as the reference for the bounding box.</param>
+        <summary>Constructs from a rectangle, setting the Z coordinate as zero.</summary>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -57,9 +59,9 @@
         <Parameter Name="points" Type="Urho.Vector3[]" />
       </Parameters>
       <Docs>
-        <param name="points">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="points">Array of vectors.</param>
+        <summary>Constructs from an array of vectors</summary>
+        <remarks>This constructs a bounding box that encompasses all the vectors provided.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -130,10 +132,12 @@
         <Parameter Name="box" Type="Urho.BoundingBox" />
       </Parameters>
       <Docs>
-        <param name="box">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="box">The bounding box to clip this instance of the bounding box with.</param>
+        <summary>Clips the bounding box with the provided box and returns the new result</summary>
+        <returns>The new clipped value.   The original bounding box remains unmodified.</returns>
+        <remarks>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Defined">
@@ -315,9 +319,12 @@
         <Parameter Name="frustum" Type="Urho.Frustum" />
       </Parameters>
       <Docs>
-        <param name="frustum">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="frustum">The frustum containing the vertices.</param>
+        <summary>Merge the vertices of the provided frustum with the bounding box.</summary>
+        <remarks>
+          <para>Merges the frustum vertices with the bounding box, extending the bounding box if needed.</para>
+          <para></para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Merge">
@@ -335,7 +342,7 @@
       </Parameters>
       <Docs>
         <param name="point">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Merges the point with the bounding box, extending the bounding box if needed.</summary>
         <remarks>The result of merging two bounding boxes is a bounding box that bounds both boxes.</remarks>
       </Docs>
     </Member>
@@ -353,9 +360,9 @@
         <Parameter Name="points" Type="Urho.Vector3[]" />
       </Parameters>
       <Docs>
-        <param name="points">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="points">Array of vectors.</param>
+        <summary>Merge the vertices  with the bounding box.</summary>
+        <remarks>Merges the vector point with the bounding box, extending the bounding box if needed.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Min">
