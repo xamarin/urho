@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Randoms.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Runtime\IntPtrEqualityComparer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Runtime\PreserveAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\WirePlane.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\ActionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\Base\Action.cs" />

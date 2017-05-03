@@ -125,5 +125,14 @@ namespace Urho {
 				return CreateComponent<T>();
 			return component;
 		}
+
+		public bool LoadXml(string prefab)
+		{
+			var file = Application.Current.ResourceCache.GetXmlFile(prefab, true);
+			var element = file.GetRoot("node");
+			if (element == null || element.Null)
+				throw new Exception("'node' root element was not found");
+			return LoadXml(element, true);
+		}
 	}
 }

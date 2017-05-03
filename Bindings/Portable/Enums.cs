@@ -64,6 +64,17 @@ namespace Urho {
 		SharpReality
 	}
 
+	public static class PlatformsExtensions
+	{
+		public static bool IsMobile(this Platforms platform)
+		{
+			return 
+				platform != Platforms.Windows && 
+				platform != Platforms.Linux && 
+				platform != Platforms.MacOSX;
+		}
+	}
+
 	internal static class PlatformsMap
 	{
 		public static Platforms FromString(string str)

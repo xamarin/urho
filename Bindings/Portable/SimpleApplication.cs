@@ -22,6 +22,7 @@ namespace Urho
 			return RunAsync(new ApplicationOptions(assetsFolder: null));
 		}
 
+		[Obsolete("RunAsync is Obsolete. Use Show() instead.")]
 		public static Task<SimpleApplication> RunAsync(ApplicationOptions options)
 		{
 #if DESKTOP
@@ -37,7 +38,6 @@ namespace Urho
 				Directory.CreateDirectory("Data");
 #endif
 #if !IOS && !UWP
-
 			var taskSource = new TaskCompletionSource<SimpleApplication>();
 			Action callback = null;
 			callback = () => {
@@ -58,6 +58,50 @@ namespace Urho
 #endif
 		}
 
+		public static SimpleApplication Show(ApplicationOptions opts = null)
+		{
+#if !DESKTOP
+			throw new NotSupportedException();
+#else
+			opts = opts ?? new ApplicationOptions();
+			var dataDir = opts.ResourcePaths?.FirstOrDefault();
+			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(SimpleApplication).Assembly.Location);
+
+			if (!File.Exists("CoreData.pak")) {
+				using (Stream input = typeof(SimpleApplication).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
+				using (Stream output = File.Create(Path.Combine("CoreData.pak")))
+					input.CopyTo(output);
+			}
+			if (!string.IsNullOrEmpty(dataDir))
+				Directory.CreateDirectory("Data");
+
+
+			opts.DelayedStart = true;
+			SimpleApplication app = new SimpleApplication(opts);
+			app.Run();
+			StartGameCycle(app);
+			return app;
+#endif
+		}
+
+		static async void StartGameCycle(SimpleApplication app)
+		{
+			await Task.Yield();
+			const int FpsLimit = 60;
+			while (app.IsActive)
+			{
+				var elapsed = app.Engine.RunFrame();
+				var targetMax = 1000000L / FpsLimit;
+				if (elapsed >= targetMax)
+					await Task.Yield();
+				else
+				{
+					var ts = TimeSpan.FromMilliseconds((targetMax - elapsed) / 1000d);
+					await Task.Delay(ts);
+				}
+			}
+		}
+
 		public Node CameraNode { get; private set; }
 
 		public Camera Camera { get; private set; }
@@ -65,6 +109,8 @@ namespace Urho
 		public Scene Scene { get; private set; }
 
 		public Octree Octree { get; private set; }
+
+		public Zone Zone { get; private set; }
 
 		public Node RootNode { get; private set; }
 
@@ -74,7 +120,7 @@ namespace Urho
 
 		public Viewport Viewport { get; private set; }
 
-		public bool MoveCamera { get; set; }
+		public bool MoveCamera { get; set; } = true;
 
 		public float Yaw { get; set; }
 
@@ -85,30 +131,33 @@ namespace Urho
 			// 3D scene with Octree
 			Scene = new Scene(Context);
 			Octree = Scene.CreateComponent<Octree>();
+			Zone = Scene.CreateComponent<Zone>();
+			Zone.AmbientColor = new Color(0.6f, 0.6f, 0.6f);
 			RootNode = Scene.CreateChild("RootNode");
-			RootNode.Position = new Vector3(x: 0, y: 0, z: 8);
-
-			LightNode = Scene.CreateChild("DirectionalLight");
-			LightNode.SetDirection(new Vector3(0.5f, 0.0f, 0.8f));
-			Light = LightNode.CreateComponent<Light>();
-			Light.LightType = LightType.Directional;
-			Light.CastShadows = true;
-			Light.ShadowBias = new BiasParameters(0.00025f, 0.5f);
-			Light.ShadowCascade = new CascadeParameters(10.0f, 50.0f, 200.0f, 0.0f, 0.8f);
-			Light.SpecularIntensity = 0.5f;
-			Light.Color = new Color(1.2f, 1.2f, 1.2f);
+			RootNode.Position = new Vector3(x: 0, y: -3, z: 8);
 
 			// Camera
 			CameraNode = Scene.CreateChild(name: "Camera");
+			CameraNode.Rotation = new Quaternion(Pitch = 20, 0, 0);
 			Camera = CameraNode.CreateComponent<Camera>();
+
+			// Light
+			LightNode = CameraNode.CreateChild();
+			LightNode.Position = new Vector3(-5, 10, 0);
+			Light = LightNode.CreateComponent<Light>();
+			Light.Range = 100;
+			Light.Brightness = 1.1f;
+			Light.SpecularIntensity = 1.3f;
 
 			// Viewport
 			Viewport = new Viewport(Context, Scene, Camera, null);
 			Renderer.SetViewport(0, Viewport);
 			Viewport.SetClearColor(Color.White);
-			Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA2);
+			Viewport.RenderPath.Append(Platform.IsMobile() ? CoreAssets.PostProcess.FXAA2 : CoreAssets.PostProcess.FXAA3);
 
-			// Subscribe to Esc key:
+			ResourceCache.AutoReloadResources = true;
+
+			Input.SetMouseVisible(true, true);
 			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Exit(); });
 		}
 
@@ -118,7 +167,7 @@ namespace Urho
 		{
 			if (MoveCamera)
 			{
-				if (!Options.TouchEmulation && Platform != Platforms.Android && Platform != Platforms.iOS)
+				if (Input.GetMouseButtonDown(MouseButton.Left))
 					MoveCameraMouse(timeStep);
 				else
 					MoveCameraTouches(timeStep);
