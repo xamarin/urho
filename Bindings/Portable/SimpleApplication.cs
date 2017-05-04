@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using Urho.Actions;
 using Urho.Gui;
 using System.IO;
 using System.Linq;
+using System.Diagnostics;
 using Urho.Shapes;
 
 namespace Urho
@@ -58,6 +61,9 @@ namespace Urho
 #endif
 		}
 
+		[DllImport("user32.dll", SetLastError = true)]
+		static extern bool SetForegroundWindow(IntPtr windowHandle);
+
 		public static SimpleApplication Show(ApplicationOptions opts = null)
 		{
 #if !DESKTOP
@@ -80,13 +86,15 @@ namespace Urho
 			SimpleApplication app = new SimpleApplication(opts);
 			app.Run();
 			StartGameCycle(app);
+			if (Platform == Platforms.Windows)
+				SetForegroundWindow(Process.GetCurrentProcess().MainWindowHandle);
 			return app;
 #endif
 		}
 
 		static async void StartGameCycle(SimpleApplication app)
 		{
-			await Task.Yield();
+			//await Task.Yield();
 			const int FpsLimit = 60;
 			while (app.IsActive)
 			{

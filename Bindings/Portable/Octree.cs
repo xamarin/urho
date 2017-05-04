@@ -31,13 +31,13 @@ namespace Urho
 			return result;
 		}
 
-		public List<RayQueryResult> Raycast(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, uint viewMask = UInt32.MaxValue)
+		public List<RayQueryResult> Raycast(Ray ray, RayQueryLevel level = RayQueryLevel.Triangle, float maxDistance = 10000, DrawableFlags drawableFlags = DrawableFlags.Geometry, uint viewMask = UInt32.MaxValue)
 		{
 			Runtime.ValidateRefCounted(this);
 			return Raycast(ray, level, maxDistance, drawableFlags, false, viewMask);
 		}
 
-		public RayQueryResult? RaycastSingle(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, uint viewMask = UInt32.MaxValue)
+		public RayQueryResult? RaycastSingle(Ray ray, RayQueryLevel level = RayQueryLevel.Triangle, float maxDistance = 10000, DrawableFlags drawableFlags = DrawableFlags.Geometry, uint viewMask = UInt32.MaxValue)
 		{
 			Runtime.ValidateRefCounted(this);
 			var result = Raycast(ray, level, maxDistance, drawableFlags, true, viewMask);
