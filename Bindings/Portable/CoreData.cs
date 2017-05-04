@@ -64,6 +64,13 @@ namespace Urho
 			public static XmlFile FXAA2 => Cache.GetXmlFile("PostProcess/FXAA2.xml");
 			public static XmlFile FXAA3 => Cache.GetXmlFile("PostProcess/FXAA3.xml");
 			public static XmlFile Blur => Cache.GetXmlFile("PostProcess/Blur.xml");
+			public static XmlFile AutoExposure => Cache.GetXmlFile("PostProcess/AutoExposure.xml");
+			public static XmlFile Bloom => Cache.GetXmlFile("PostProcess/Bloom.xml");
+			public static XmlFile BloomHDR => Cache.GetXmlFile("PostProcess/BloomHDR.xml");
+			public static XmlFile ColorCorrection => Cache.GetXmlFile("PostProcess/ColorCorrection.xml");
+			public static XmlFile GammaCorrection => Cache.GetXmlFile("PostProcess/GammaCorrection.xml");
+			public static XmlFile GreyScale => Cache.GetXmlFile("PostProcess/GreyScale.xml");
+			public static XmlFile Tonemap => Cache.GetXmlFile("PostProcess/Tonemap.xml");
 		}
 
 		public static class UIs
