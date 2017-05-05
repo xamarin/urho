@@ -161,12 +161,22 @@ namespace Urho
 			Viewport = new Viewport(Context, Scene, Camera, null);
 			Renderer.SetViewport(0, Viewport);
 			Viewport.SetClearColor(Color.White);
-			Viewport.RenderPath.Append(Platform.IsMobile() ? CoreAssets.PostProcess.FXAA2 : CoreAssets.PostProcess.FXAA3);
 
-			ResourceCache.AutoReloadResources = true;
+			if (Platform.IsMobile())
+			{
+				Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA2);
+			}
+			else
+			{
+				ResourceCache.AutoReloadResources = true;
+				Renderer.HDRRendering = true;
+				Viewport.RenderPath.Append(CoreAssets.PostProcess.BloomHDR);
+				Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA3);
+			}
 
+			Input.MouseWheel += args => CameraNode.Translate(-Vector3.UnitZ * 1f * args.Wheel * -1);
 			Input.SetMouseVisible(true, true);
-			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Exit(); });
+			Input.KeyDown += args => { if (args.Key == Key.Esc) Exit(); };
 		}
 
 		public float MoveSpeed { get; set; } = 10f;
