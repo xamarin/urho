@@ -61,14 +61,15 @@ namespace Urho
 #endif
 		}
 
-		[DllImport("user32.dll", SetLastError = true)]
-		static extern bool SetForegroundWindow(IntPtr windowHandle);
+		[DllImport("user32")]
+		static extern bool SetWindowPos(IntPtr hwnd, IntPtr hwnd2, int x, int y, int cx, int cy, int flags);
 
 		public static SimpleApplication Show(ApplicationOptions opts = null)
 		{
 #if !DESKTOP
 			throw new NotSupportedException();
 #else
+			StopCurrent().Wait();
 			opts = opts ?? new ApplicationOptions();
 			var dataDir = opts.ResourcePaths?.FirstOrDefault();
 			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(SimpleApplication).Assembly.Location);
@@ -81,20 +82,24 @@ namespace Urho
 			if (!string.IsNullOrEmpty(dataDir))
 				Directory.CreateDirectory("Data");
 
-
+			opts.ResizableWindow = true;
 			opts.DelayedStart = true;
 			SimpleApplication app = new SimpleApplication(opts);
 			app.Run();
 			StartGameCycle(app);
+
 			if (Platform == Platforms.Windows)
-				SetForegroundWindow(Process.GetCurrentProcess().MainWindowHandle);
+			{
+				var handle = Process.GetCurrentProcess().MainWindowHandle;
+				SetWindowPos(handle, new IntPtr(-1), 0, 0, 0, 0, 0x1 | 0x2 /*SWP_NOMOVE | SWP_NOSIZE */);
+			}
+
 			return app;
 #endif
 		}
 
 		static async void StartGameCycle(SimpleApplication app)
 		{
-			//await Task.Yield();
 			const int FpsLimit = 60;
 			while (app.IsActive)
 			{
@@ -174,9 +179,9 @@ namespace Urho
 				Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA3);
 			}
 
-			Input.MouseWheel += args => CameraNode.Translate(-Vector3.UnitZ * 1f * args.Wheel * -1);
+			Input.SubscribeToMouseWheel(args => CameraNode.Translate(-Vector3.UnitZ * 1f * args.Wheel * -1));
 			Input.SetMouseVisible(true, true);
-			Input.KeyDown += args => { if (args.Key == Key.Esc) Exit(); };
+			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Exit(); });
 		}
 
 		public float MoveSpeed { get; set; } = 10f;
