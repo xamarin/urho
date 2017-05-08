@@ -99,8 +99,6 @@ namespace Urho
 
 		public bool IsClosed { get; private set; }
 
-		public IntPtr Handle => handle;
-
 		internal object UrhoSurface { get; set; }
 
 		/// <summary>

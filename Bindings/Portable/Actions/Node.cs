@@ -12,6 +12,9 @@ namespace Urho
 		/// <param name="action">A FiniteTimeAction.</param>
 		public Task<ActionState> RunActionsAsync(FiniteTimeAction action)
 		{
+			if (!EnsureAppIsActive())
+				return Task.FromResult<ActionState>(null);
+
 			var tcs = new TaskCompletionSource<ActionState>();
 			var asyncAction = new Sequence(action, new TaskSource(tcs)) { CancelAction = s => tcs.TrySetCanceled() };
 			Application.Current.ActionManager.AddAction(asyncAction, this);
@@ -27,8 +30,10 @@ namespace Urho
 			if (actions.Length == 0)
 				return Task.FromResult<ActionState>(null);
 
-			var tcs = new TaskCompletionSource<ActionState>();
+			if (!EnsureAppIsActive())
+				return Task.FromResult<ActionState>(null);
 
+			var tcs = new TaskCompletionSource<ActionState>();
 			FiniteTimeAction completion = new TaskSource(tcs);
 			var asyncAction = actions.Length > 0 ? new Sequence(actions, completion) { CancelAction = s => tcs.TrySetCanceled() } : completion;
 
@@ -66,5 +71,16 @@ namespace Urho
 		{
 			Application.Current.ActionManager.ResumeTarget(this);
 		}
+
+		bool EnsureAppIsActive()
+		{
+			if (IsDeleted || !Application.HasCurrent || !Application.Current.IsActive)
+			{
+				if (Application.CancelActiveActionsOnStop)
+					throw new OperationCanceledException("Urho.Application is not created or was closed.");
+				return false;
+			}
+			return true;
+		} 
 	}
 }

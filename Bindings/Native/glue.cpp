@@ -361,5 +361,11 @@ extern "C" {
 		*count = size;
 		return results;
 	}
+
+	DllExport Interop::Color
+	Material_GetShaderParameterColor(Urho3D::Material *_target, const char* paramName)
+	{
+		return *((Interop::Color *) &(_target->GetShaderParameter(Urho3D::String(paramName)).GetColor()));
+	}
 }
 

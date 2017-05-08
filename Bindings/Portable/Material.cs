@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using Urho.Resources;
 using Urho.Urho2D;
 
@@ -92,6 +93,14 @@ namespace Urho
 		public static Material SkyboxFromImage(string image)
 		{
 			return SkyboxFromImages(image, image, image, image, image, image);
+		}
+
+		//TODO: Surface Variant& GetShaderParameter
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern Color Material_GetShaderParameterColor(IntPtr target, string paramName);
+		public Color GetShaderParameter(string parameterName)
+		{
+			return Material_GetShaderParameterColor(Handle, parameterName);
 		}
 	}
 }
