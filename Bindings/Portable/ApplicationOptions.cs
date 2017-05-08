@@ -142,6 +142,19 @@ namespace Urho
 				resourcePathes = ResourcePaths ?? new string[0];
 			builder.AppendFormat(" -p \"{0}\"", string.Join(";", resourcePathes.Distinct()));
 
+#if DESKTOP
+			var urhoDllFolder = System.IO.Path.GetDirectoryName(typeof(SimpleApplication).Assembly.Location);
+			var possibleCoreDataDirectories = new[]
+				{
+					Environment.CurrentDirectory,
+					System.IO.Path.Combine(urhoDllFolder, "../../native"), //in case if Urho.dll is loaded from the nuget directory directly (see UrhoSharp.targets)
+					urhoDllFolder,
+				};
+			if (ResourcePrefixPaths?.Length > 0)
+				possibleCoreDataDirectories = ResourcePrefixPaths.Concat(possibleCoreDataDirectories).ToArray();
+			ResourcePrefixPaths = possibleCoreDataDirectories;
+#endif
+
 			if (ResourcePackagesPaths?.Length > 0)
 				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
 

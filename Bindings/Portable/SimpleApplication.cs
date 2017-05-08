@@ -69,23 +69,22 @@ namespace Urho
 #if !DESKTOP
 			throw new NotSupportedException();
 #else
+			if (SynchronizationContext.Current == null)
+				throw new NotSupportedException("SynchronizationContext.Current should not be null.");
+
+			//Close active UrhoSharp instances=windows if any
 			StopCurrent().Wait();
+
 			opts = opts ?? new ApplicationOptions();
-			var dataDir = opts.ResourcePaths?.FirstOrDefault();
-			Environment.CurrentDirectory = Path.GetDirectoryName(typeof(SimpleApplication).Assembly.Location);
-
-			if (!File.Exists("CoreData.pak")) {
-				using (Stream input = typeof(SimpleApplication).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
-				using (Stream output = File.Create(Path.Combine("CoreData.pak")))
-					input.CopyTo(output);
-			}
-			if (!string.IsNullOrEmpty(dataDir))
-				Directory.CreateDirectory("Data");
-
 			opts.ResizableWindow = true;
 			opts.DelayedStart = true;
-			SimpleApplication app = new SimpleApplication(opts);
-			app.Run();
+
+			if (opts.Width < 1)
+				opts.Width = 900;
+			if (opts.Height < 1)
+				opts.Height = 800;
+
+			var app = new SimpleApplication(opts);
 			StartGameCycle(app);
 
 			if (Platform == Platforms.Windows)
@@ -93,6 +92,7 @@ namespace Urho
 				var handle = Process.GetCurrentProcess().MainWindowHandle;
 				SetWindowPos(handle, new IntPtr(-1), 0, 0, 0, 0, 0x1 | 0x2 /*SWP_NOMOVE | SWP_NOSIZE */);
 			}
+			//on macOS it does [window setLevel:CGWindowLevelForKey(kCGMaximumWindowLevelKey)];
 
 			return app;
 #endif
@@ -100,6 +100,7 @@ namespace Urho
 
 		static async void StartGameCycle(SimpleApplication app)
 		{
+			app.Run();
 			const int FpsLimit = 60;
 			while (app.IsActive)
 			{
@@ -147,11 +148,11 @@ namespace Urho
 			Zone = Scene.CreateComponent<Zone>();
 			Zone.AmbientColor = new Color(0.6f, 0.6f, 0.6f);
 			RootNode = Scene.CreateChild("RootNode");
-			RootNode.Position = new Vector3(x: 0, y: -3, z: 8);
+			RootNode.Position = new Vector3(x: 0, y: -2, z: 8);
 
 			// Camera
 			CameraNode = Scene.CreateChild(name: "Camera");
-			CameraNode.Rotation = new Quaternion(Pitch = 20, 0, 0);
+			CameraNode.Rotation = new Quaternion(Pitch = 0, 0, 0);
 			Camera = CameraNode.CreateComponent<Camera>();
 
 			// Light
@@ -159,13 +160,13 @@ namespace Urho
 			LightNode.Position = new Vector3(-5, 10, 0);
 			Light = LightNode.CreateComponent<Light>();
 			Light.Range = 100;
-			Light.Brightness = 1.1f;
-			Light.SpecularIntensity = 1.3f;
+			Light.Brightness = 0.5f;
+			Light.LightType = LightType.Point;
 
 			// Viewport
 			Viewport = new Viewport(Context, Scene, Camera, null);
 			Renderer.SetViewport(0, Viewport);
-			Viewport.SetClearColor(Color.White);
+			Viewport.SetClearColor(new Color(0.88f, 0.88f, 0.88f));
 
 			if (Platform.IsMobile())
 			{

@@ -41,11 +41,6 @@
     <Compile Include="Desktop\DesktopUrhoInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\Urho3D\CoreData.pak">
-      <Link>CoreData.pak</Link>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="Urho.Shared.projitems" Label="Shared" />

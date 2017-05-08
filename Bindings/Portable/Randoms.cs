@@ -41,5 +41,10 @@ namespace Urho
 		{
 			return new Color(NextNormal(), NextNormal(), NextNormal());
 		}
+
+		public static Quaternion NextRotation(float maxAngle = 360)
+		{
+			return new Quaternion(Next(0, maxAngle), Next(0, maxAngle), Next(0, maxAngle));
+		}
 	}
 }

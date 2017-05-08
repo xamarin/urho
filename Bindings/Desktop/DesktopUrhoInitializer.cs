@@ -50,13 +50,6 @@ namespace Urho.Desktop
 				throw new NotSupportedException("mono-urho.dll is 64bit, but current process is x86 (change target platform from Any CPU/x86 to x64). Or rename mono-urho_32bit.dll to mono-urho.dll in the output dir.");
 		}
 
-		public static void CopyEmbeddedCoreDataTo(string destinationFolder)
-		{
-			using (Stream input = typeof(SimpleApplication).Assembly.GetManifestResourceStream("Urho.CoreData.pak"))
-			using (Stream output = File.Create(Path.Combine(destinationFolder, "CoreData.pak")))
-				input.CopyTo(output);
-		}
-
 		static bool Is64Bit(string file)
 		{
 			using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
