@@ -134,5 +134,7 @@ namespace Urho {
 				throw new Exception("'node' root element was not found");
 			return LoadXml(element, true);
 		}
+
+		public Node GetChild(string name) => GetChild(name, true);
 	}
 }
