@@ -142,6 +142,10 @@ namespace Urho
 				resourcePathes = ResourcePaths ?? new string[0];
 			builder.AppendFormat(" -p \"{0}\"", string.Join(";", resourcePathes.Distinct()));
 
+			if (ResourcePackagesPaths?.Length > 0)
+				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
+
+			string[] resourcePrefixPaths = ResourcePrefixPaths;
 #if DESKTOP
 			var urhoDllFolder = System.IO.Path.GetDirectoryName(typeof(SimpleApplication).Assembly.Location);
 			var possibleCoreDataDirectories = new[]
@@ -151,15 +155,12 @@ namespace Urho
 					urhoDllFolder,
 				};
 			if (ResourcePrefixPaths?.Length > 0)
-				possibleCoreDataDirectories = ResourcePrefixPaths.Concat(possibleCoreDataDirectories).ToArray();
-			ResourcePrefixPaths = possibleCoreDataDirectories;
+				possibleCoreDataDirectories = ResourcePrefixPaths.Concat(possibleCoreDataDirectories).Distinct().ToArray();
+			resourcePrefixPaths = possibleCoreDataDirectories;
 #endif
 
-			if (ResourcePackagesPaths?.Length > 0)
-				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
-
-			if (ResourcePrefixPaths?.Length > 0)
-				builder.AppendFormat(" -pp \"{0}\"", string.Join(";", ResourcePrefixPaths));
+			if (resourcePrefixPaths?.Length > 0)
+				builder.AppendFormat(" -pp \"{0}\"", string.Join(";", resourcePrefixPaths));
 
 #if !WINDOWS_UWP
 			if (TouchEmulation)

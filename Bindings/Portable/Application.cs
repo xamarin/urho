@@ -99,6 +99,8 @@ namespace Urho
 
 		public bool IsClosed { get; private set; }
 
+		internal static ApplicationOptions CurrentOptions => current?.Options;
+
 		internal object UrhoSurface { get; set; }
 
 		/// <summary>

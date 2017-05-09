@@ -28,18 +28,22 @@ namespace Urho
 
 		// ReSharper disable once NotAccessedField.Local
 		static NativeCallback nativeCallback; //keep references to native callbacks (protect from GC)
+		static bool isStarted;
 
 		internal static RefCountedCache RefCountedCache { get; private set; } = new RefCountedCache();
 		internal static bool IsClosing { get; private set; }
+		
 
 		internal static void Start()
 		{
 			IsClosing = false;
-			RegisterMonoNativeCallbacks(nativeCallback = OnNativeCallback);
+			isStarted = true;
 		}
 
 		internal static void Setup()
 		{
+			isStarted = false;
+			RegisterMonoNativeCallbacks(nativeCallback = OnNativeCallback);
 		}
 
 		/// <summary>
@@ -49,6 +53,10 @@ namespace Urho
 		static void OnNativeCallback(CallbackType type, IntPtr target, IntPtr param1, int param2, string param3)
 		{
 			const string typeNameKey = "SharpTypeName";
+
+			// while app is not started - accept only Log callbacks
+			if (!isStarted && type != CallbackType.Log_Write)
+				return;
 
 			switch (type)
 			{
@@ -140,7 +148,7 @@ namespace Urho
 
 				case CallbackType.Log_Write:
 					Urho.Application.ThrowUnhandledException(
-						new Exception(param3 + ". You can omit this exception by subscribing to Urho.Application.UnhandledException event and set Handled property to True."));
+						new Exception(param3 + ". You can omit this exception by subscribing to Urho.Application.UnhandledException event and set Handled property to True.\nApplicationOptions: " + Application.CurrentOptions));
 					break;
 			}
 		}
