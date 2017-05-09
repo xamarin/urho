@@ -22,7 +22,6 @@
    <files>
      <!--CoreData-->
      <file src="Urho3D/CoreData.pak" target="native/CoreData.pak" />
-     <file src="Urho3D/CoreData/**" target="native" />
 
      <!--PCL-->
      <file src="Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
