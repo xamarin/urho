@@ -594,6 +594,25 @@ namespace Urho
 				if (exc.Message.StartsWith(item))
 					return;
 
+			if (exc.Message.StartsWith("Failed to add resource path") ||
+				exc.Message.StartsWith("Failed to add resource package"))
+			{
+				string msg = exc.Message.Remove(exc.Message.IndexOf("',") + 1);
+				string assetDir = msg.Remove(0, msg.IndexOf('\'') + 1);
+
+				msg +=
+#if ANDROID
+							$"\n Assets must be located in '/Assets/{assetDir}' with 'AndroidAsset' Build Action." +
+#elif iOS
+							$"\n Assets must be located in '/Resources/{assetDir}' with 'BundleResource' Build Action." +
+#elif UWP || UWP_HOLO
+							$"\n Assets must be located in '/{assetDir}' with 'Resource' Build Action" + 
+#else
+							$"\n Assets must be located in '/{assetDir}'";
+#endif
+				exc = new Exception(msg);
+			}
+
 			var args = new UnhandledExceptionEventArgs(exc);
 			UnhandledException?.Invoke(null, args);
 			if (!args.Handled && !isExiting)
