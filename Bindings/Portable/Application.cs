@@ -330,9 +330,9 @@ namespace Urho
 			Current.Engine.Exit();
 #endif
 
-#if IOS || WINDOWS_UWP
+#if !ANDROID
 #if DESKTOP
-		if (Current.Options.DelayedStart)
+			if (Current.Options.DelayedStart)
 #endif
 			ProxyStop(Current.Handle);
 #endif
@@ -605,7 +605,7 @@ namespace Urho
 							$"\n Assets must be located in '/Assets/{assetDir}' with 'AndroidAsset' Build Action.";
 #elif iOS
 							$"\n Assets must be located in '/Resources/{assetDir}' with 'BundleResource' Build Action.";
-#elif UWP || UWP_HOLO
+#elif WINDOWS_UWP || UWP_HOLO
 							$"\n Assets must be located in '/{assetDir}' with 'Resource' Build Action"; 
 #else
 							$"\n Assets must be located in '/{assetDir}'";
