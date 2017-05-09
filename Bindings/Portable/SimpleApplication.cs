@@ -61,8 +61,10 @@ namespace Urho
 #endif
 		}
 
+#if DESKTOP
 		[DllImport("user32")]
 		static extern bool SetWindowPos(IntPtr hwnd, IntPtr hwnd2, int x, int y, int cx, int cy, int flags);
+#endif
 
 		public static SimpleApplication Show(ApplicationOptions opts = null)
 		{

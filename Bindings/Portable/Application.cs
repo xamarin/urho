@@ -602,11 +602,11 @@ namespace Urho
 
 				msg +=
 #if ANDROID
-							$"\n Assets must be located in '/Assets/{assetDir}' with 'AndroidAsset' Build Action." +
+							$"\n Assets must be located in '/Assets/{assetDir}' with 'AndroidAsset' Build Action.";
 #elif iOS
-							$"\n Assets must be located in '/Resources/{assetDir}' with 'BundleResource' Build Action." +
+							$"\n Assets must be located in '/Resources/{assetDir}' with 'BundleResource' Build Action.";
 #elif UWP || UWP_HOLO
-							$"\n Assets must be located in '/{assetDir}' with 'Resource' Build Action" + 
+							$"\n Assets must be located in '/{assetDir}' with 'Resource' Build Action"; 
 #else
 							$"\n Assets must be located in '/{assetDir}'";
 #endif
