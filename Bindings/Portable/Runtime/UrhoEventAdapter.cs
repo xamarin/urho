@@ -23,9 +23,11 @@ namespace Urho
 				managedSubscribersByObjects[handle] = listOfManagedSubscribers;
 				nativeSubscriptionsForObjects[handle] = nativeSubscriber(args => 
 					{
-						foreach (var managedSubscriber in listOfManagedSubscribers)
+						var count = listOfManagedSubscribers.Count;
+						for (int i = 0; i < count; i++)
 						{
-							managedSubscriber(args);
+							if (i < listOfManagedSubscribers.Count)
+								listOfManagedSubscribers[i](args);
 						}
 					});
 			}
