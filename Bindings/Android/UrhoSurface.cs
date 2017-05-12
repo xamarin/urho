@@ -4,8 +4,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Runtime;
 using Android.Util;
 using Android.Views;
+using Android.Widget;
 using Java.Lang;
 using Org.Libsdl.App;
 using Urho;
@@ -36,7 +38,15 @@ namespace Urho.Droid
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
-		public static SDLSurface CreateSurface(Activity activity) => SDLActivity.CreateSurface(activity);
+		public static UrhoSurfacePlaceholder CreateSurface(Activity activity)
+		{
+			var placeholder = new UrhoSurfacePlaceholder(activity) {
+					LayoutParameters = new ViewGroup.LayoutParams (
+						ViewGroup.LayoutParams.MatchParent,
+						ViewGroup.LayoutParams.MatchParent)
+				};
+			return placeholder;
+		}
 
 		public static void OnResume()
 		{
@@ -109,49 +119,52 @@ namespace Urho.Droid
 		}
 	}
 
-	public static class SDLSurfaceExtensions
+	public class UrhoSurfacePlaceholder : FrameLayout
 	{
-		public static SemaphoreSlim semaphore = new SemaphoreSlim(1);
+		public SDLSurface SDLSurface;
 
-		public static async Task<Application> Show(this SDLSurface surface, Type appType, ApplicationOptions options = null, bool finishActivityOnExit = false)
+		public UrhoSurfacePlaceholder(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) {}
+		public UrhoSurfacePlaceholder(Android.Content.Context context) : base(context) {}
+		public UrhoSurfacePlaceholder(Android.Content.Context context, IAttributeSet attrs) : base(context, attrs) {}
+		public UrhoSurfacePlaceholder(Android.Content.Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr) {}
+		public UrhoSurfacePlaceholder(Android.Content.Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context, attrs, defStyleAttr, defStyleRes) {}
+
+		public async Task<Application> Show(Type appType, ApplicationOptions options = null, bool finishActivityOnExit = false)
 		{
-			//await semaphore.WaitAsync();
-			await Stop(surface);
+			await Stop();
+			if (SDLSurface != null)
+			{
+				RemoveView(SDLSurface);
+			}
+
+			SDLSurface = SDLActivity.CreateSurface(Context as Activity);
+			AddView(SDLSurface, ViewGroup.LayoutParams.MatchParent);
+
 			var tcs = new TaskCompletionSource<Application>();
 			Action startedHandler = null;
 			startedHandler = () =>
 				{
 					Application.Started -= startedHandler;
 					tcs.TrySetResult(Application.Current);
-					//semaphore.Release();
 				};
 
 			Application.Started += startedHandler;
-			UrhoSurface.SetSdlMain(() => Application.CreateInstance(appType, options), finishActivityOnExit, surface);
+			UrhoSurface.SetSdlMain(() => Application.CreateInstance(appType, options), finishActivityOnExit, SDLSurface);
 			return await tcs.Task;
 		}
 
-		public static async Task<TApplication> Show<TApplication>(this SDLSurface surface, ApplicationOptions options = null, bool finishActivityOnExit = false)
+		public async Task<TApplication> Show<TApplication>(ApplicationOptions options = null,
+			bool finishActivityOnExit = false)
 			where TApplication : Application
 		{
-			return (TApplication) await Show(surface, typeof(TApplication), options, finishActivityOnExit);
+			var app = await Show(typeof(TApplication), options, finishActivityOnExit);
+			return (TApplication)app;
 		}
 
-		public static async Task Stop(this SDLSurface surface)
+		public async Task Stop()
 		{
 			if (Application.HasCurrent && Application.Current.IsActive)
 				await Application.Current.Exit();
-		}
-
-		public static void Remove(this SDLSurface surface)
-		{
-			var vg = surface?.Parent as ViewGroup;
-			if (surface != null && vg != null)
-			{
-				//vg.RemoveView(SdlSurface);
-				surface.Enabled = false;
-				surface.Visibility = ViewStates.Gone;
-			}
 		}
 	}
 }
