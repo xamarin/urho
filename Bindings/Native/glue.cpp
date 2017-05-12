@@ -369,6 +369,13 @@ extern "C" {
 	}
 
 	DllExport unsigned char*
+	Image_GetDataBytes(Urho3D::Image *_target, int* len)
+	{
+		*len = _target->GetWidth() * _target->GetHeight() * _target->GetDepth() * _target->GetComponents();
+		return _target->GetData();
+	}
+
+	DllExport unsigned char*
 	Image_SavePNG2(Urho3D::Image *_target, int* len)
 	{
 		return _target->SavePNG(len);
