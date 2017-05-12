@@ -367,5 +367,16 @@ extern "C" {
 	{
 		return *((Interop::Color *) &(_target->GetShaderParameter(Urho3D::String(paramName)).GetColor()));
 	}
-}
 
+	DllExport unsigned char*
+	Image_SavePNG2(Urho3D::Image *_target, int* len)
+	{
+		return _target->SavePNG(len);
+	}
+
+	DllExport
+	void FreeBuffer(unsigned char* myBuffer)
+	{
+		delete myBuffer;
+	}
+}

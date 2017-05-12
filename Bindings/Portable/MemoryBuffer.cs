@@ -38,6 +38,8 @@ namespace Urho
 		{
 			int size;
 			var bytesPtr = MemoryBuffer_GetData(Handle, out size);
+			if (bytesPtr == IntPtr.Zero)
+				return new byte[0];
 			byte[] result = new byte[size];
 			Marshal.Copy(bytesPtr, result, 0, size);
 			return result;

@@ -21,5 +21,8 @@ namespace Urho {
 			Action<IntPtr> a = (Action<IntPtr>)gch.Target;
 			a(variantMap);
 		}
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void FreeBuffer(IntPtr buffer);
 	}
 }
