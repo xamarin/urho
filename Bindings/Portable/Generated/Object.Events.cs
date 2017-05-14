@@ -51,7 +51,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForFrameStarted == null)
-                          eventAdapterForFrameStarted = new UrhoEventAdapter<FrameStartedEventArgs>();
+                          eventAdapterForFrameStarted = new UrhoEventAdapter<FrameStartedEventArgs>(typeof(Time));
                       eventAdapterForFrameStarted.AddManagedSubscriber(handle, value, SubscribeToFrameStarted);
                  }
                  remove { eventAdapterForFrameStarted.RemoveManagedSubscriber(handle, value); }
@@ -86,7 +86,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForUpdate == null)
-                          eventAdapterForUpdate = new UrhoEventAdapter<UpdateEventArgs>();
+                          eventAdapterForUpdate = new UrhoEventAdapter<UpdateEventArgs>(typeof(Engine));
                       eventAdapterForUpdate.AddManagedSubscriber(handle, value, SubscribeToUpdate);
                  }
                  remove { eventAdapterForUpdate.RemoveManagedSubscriber(handle, value); }
@@ -121,7 +121,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForPostUpdate == null)
-                          eventAdapterForPostUpdate = new UrhoEventAdapter<PostUpdateEventArgs>();
+                          eventAdapterForPostUpdate = new UrhoEventAdapter<PostUpdateEventArgs>(typeof(Engine));
                       eventAdapterForPostUpdate.AddManagedSubscriber(handle, value, SubscribeToPostUpdate);
                  }
                  remove { eventAdapterForPostUpdate.RemoveManagedSubscriber(handle, value); }
@@ -156,7 +156,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForRenderUpdate == null)
-                          eventAdapterForRenderUpdate = new UrhoEventAdapter<RenderUpdateEventArgs>();
+                          eventAdapterForRenderUpdate = new UrhoEventAdapter<RenderUpdateEventArgs>(typeof(Engine));
                       eventAdapterForRenderUpdate.AddManagedSubscriber(handle, value, SubscribeToRenderUpdate);
                  }
                  remove { eventAdapterForRenderUpdate.RemoveManagedSubscriber(handle, value); }
@@ -191,7 +191,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForPostRenderUpdate == null)
-                          eventAdapterForPostRenderUpdate = new UrhoEventAdapter<PostRenderUpdateEventArgs>();
+                          eventAdapterForPostRenderUpdate = new UrhoEventAdapter<PostRenderUpdateEventArgs>(typeof(Engine));
                       eventAdapterForPostRenderUpdate.AddManagedSubscriber(handle, value, SubscribeToPostRenderUpdate);
                  }
                  remove { eventAdapterForPostRenderUpdate.RemoveManagedSubscriber(handle, value); }
@@ -225,7 +225,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForFrameEnded == null)
-                          eventAdapterForFrameEnded = new UrhoEventAdapter<FrameEndedEventArgs>();
+                          eventAdapterForFrameEnded = new UrhoEventAdapter<FrameEndedEventArgs>(typeof(Time));
                       eventAdapterForFrameEnded.AddManagedSubscriber(handle, value, SubscribeToFrameEnded);
                  }
                  remove { eventAdapterForFrameEnded.RemoveManagedSubscriber(handle, value); }
@@ -260,7 +260,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForWorkItemCompleted == null)
-                          eventAdapterForWorkItemCompleted = new UrhoEventAdapter<WorkItemCompletedEventArgs>();
+                          eventAdapterForWorkItemCompleted = new UrhoEventAdapter<WorkItemCompletedEventArgs>(typeof(WorkQueue));
                       eventAdapterForWorkItemCompleted.AddManagedSubscriber(handle, value, SubscribeToWorkItemCompleted);
                  }
                  remove { eventAdapterForWorkItemCompleted.RemoveManagedSubscriber(handle, value); }
@@ -296,7 +296,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForConsoleCommand == null)
-                          eventAdapterForConsoleCommand = new UrhoEventAdapter<ConsoleCommandEventArgs>();
+                          eventAdapterForConsoleCommand = new UrhoEventAdapter<ConsoleCommandEventArgs>(typeof(UrhoConsole));
                       eventAdapterForConsoleCommand.AddManagedSubscriber(handle, value, SubscribeToConsoleCommand);
                  }
                  remove { eventAdapterForConsoleCommand.RemoveManagedSubscriber(handle, value); }
@@ -331,7 +331,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForBoneHierarchyCreated == null)
-                          eventAdapterForBoneHierarchyCreated = new UrhoEventAdapter<BoneHierarchyCreatedEventArgs>();
+                          eventAdapterForBoneHierarchyCreated = new UrhoEventAdapter<BoneHierarchyCreatedEventArgs>(typeof(Node));
                       eventAdapterForBoneHierarchyCreated.AddManagedSubscriber(handle, value, SubscribeToBoneHierarchyCreated);
                  }
                  remove { eventAdapterForBoneHierarchyCreated.RemoveManagedSubscriber(handle, value); }
@@ -370,7 +370,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForAnimationTrigger == null)
-                          eventAdapterForAnimationTrigger = new UrhoEventAdapter<AnimationTriggerEventArgs>();
+                          eventAdapterForAnimationTrigger = new UrhoEventAdapter<AnimationTriggerEventArgs>(typeof(Node));
                       eventAdapterForAnimationTrigger.AddManagedSubscriber(handle, value, SubscribeToAnimationTrigger);
                  }
                  remove { eventAdapterForAnimationTrigger.RemoveManagedSubscriber(handle, value); }
@@ -425,7 +425,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForTerrainCreated == null)
-                          eventAdapterForTerrainCreated = new UrhoEventAdapter<TerrainCreatedEventArgs>();
+                          eventAdapterForTerrainCreated = new UrhoEventAdapter<TerrainCreatedEventArgs>(typeof(Terrain));
                       eventAdapterForTerrainCreated.AddManagedSubscriber(handle, value, SubscribeToTerrainCreated);
                  }
                  remove { eventAdapterForTerrainCreated.RemoveManagedSubscriber(handle, value); }
@@ -481,7 +481,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForRenderSurfaceUpdate == null)
-                          eventAdapterForRenderSurfaceUpdate = new UrhoEventAdapter<RenderSurfaceUpdateEventArgs>();
+                          eventAdapterForRenderSurfaceUpdate = new UrhoEventAdapter<RenderSurfaceUpdateEventArgs>(typeof(Renderer));
                       eventAdapterForRenderSurfaceUpdate.AddManagedSubscriber(handle, value, SubscribeToRenderSurfaceUpdate);
                  }
                  remove { eventAdapterForRenderSurfaceUpdate.RemoveManagedSubscriber(handle, value); }
@@ -534,7 +534,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForBeginViewUpdate == null)
-                          eventAdapterForBeginViewUpdate = new UrhoEventAdapter<BeginViewUpdateEventArgs>();
+                          eventAdapterForBeginViewUpdate = new UrhoEventAdapter<BeginViewUpdateEventArgs>(typeof(View));
                       eventAdapterForBeginViewUpdate.AddManagedSubscriber(handle, value, SubscribeToBeginViewUpdate);
                  }
                  remove { eventAdapterForBeginViewUpdate.RemoveManagedSubscriber(handle, value); }
@@ -573,7 +573,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForEndViewUpdate == null)
-                          eventAdapterForEndViewUpdate = new UrhoEventAdapter<EndViewUpdateEventArgs>();
+                          eventAdapterForEndViewUpdate = new UrhoEventAdapter<EndViewUpdateEventArgs>(typeof(View));
                       eventAdapterForEndViewUpdate.AddManagedSubscriber(handle, value, SubscribeToEndViewUpdate);
                  }
                  remove { eventAdapterForEndViewUpdate.RemoveManagedSubscriber(handle, value); }
@@ -612,7 +612,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForBeginViewRender == null)
-                          eventAdapterForBeginViewRender = new UrhoEventAdapter<BeginViewRenderEventArgs>();
+                          eventAdapterForBeginViewRender = new UrhoEventAdapter<BeginViewRenderEventArgs>(typeof(Renderer));
                       eventAdapterForBeginViewRender.AddManagedSubscriber(handle, value, SubscribeToBeginViewRender);
                  }
                  remove { eventAdapterForBeginViewRender.RemoveManagedSubscriber(handle, value); }
@@ -675,7 +675,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForEndViewRender == null)
-                          eventAdapterForEndViewRender = new UrhoEventAdapter<EndViewRenderEventArgs>();
+                          eventAdapterForEndViewRender = new UrhoEventAdapter<EndViewRenderEventArgs>(typeof(Renderer));
                       eventAdapterForEndViewRender.AddManagedSubscriber(handle, value, SubscribeToEndViewRender);
                  }
                  remove { eventAdapterForEndViewRender.RemoveManagedSubscriber(handle, value); }
@@ -733,7 +733,7 @@ namespace Urho.IO {
                  add
                  {
                       if (eventAdapterForLogMessage == null)
-                          eventAdapterForLogMessage = new UrhoEventAdapter<LogMessageEventArgs>();
+                          eventAdapterForLogMessage = new UrhoEventAdapter<LogMessageEventArgs>(typeof(Log));
                       eventAdapterForLogMessage.AddManagedSubscriber(handle, value, SubscribeToLogMessage);
                  }
                  remove { eventAdapterForLogMessage.RemoveManagedSubscriber(handle, value); }
@@ -769,7 +769,7 @@ namespace Urho.IO {
                  add
                  {
                       if (eventAdapterForAsyncExecFinished == null)
-                          eventAdapterForAsyncExecFinished = new UrhoEventAdapter<AsyncExecFinishedEventArgs>();
+                          eventAdapterForAsyncExecFinished = new UrhoEventAdapter<AsyncExecFinishedEventArgs>(typeof(FileSystem));
                       eventAdapterForAsyncExecFinished.AddManagedSubscriber(handle, value, SubscribeToAsyncExecFinished);
                  }
                  remove { eventAdapterForAsyncExecFinished.RemoveManagedSubscriber(handle, value); }
@@ -806,7 +806,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForMouseButtonDown == null)
-                          eventAdapterForMouseButtonDown = new UrhoEventAdapter<MouseButtonDownEventArgs>();
+                          eventAdapterForMouseButtonDown = new UrhoEventAdapter<MouseButtonDownEventArgs>(typeof(Input));
                       eventAdapterForMouseButtonDown.AddManagedSubscriber(handle, value, SubscribeToMouseButtonDown);
                  }
                  remove { eventAdapterForMouseButtonDown.RemoveManagedSubscriber(handle, value); }
@@ -843,7 +843,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForMouseButtonUp == null)
-                          eventAdapterForMouseButtonUp = new UrhoEventAdapter<MouseButtonUpEventArgs>();
+                          eventAdapterForMouseButtonUp = new UrhoEventAdapter<MouseButtonUpEventArgs>(typeof(Input));
                       eventAdapterForMouseButtonUp.AddManagedSubscriber(handle, value, SubscribeToMouseButtonUp);
                  }
                  remove { eventAdapterForMouseButtonUp.RemoveManagedSubscriber(handle, value); }
@@ -883,7 +883,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForMouseMoved == null)
-                          eventAdapterForMouseMoved = new UrhoEventAdapter<MouseMovedEventArgs>();
+                          eventAdapterForMouseMoved = new UrhoEventAdapter<MouseMovedEventArgs>(typeof(Input));
                       eventAdapterForMouseMoved.AddManagedSubscriber(handle, value, SubscribeToMouseMoved);
                  }
                  remove { eventAdapterForMouseMoved.RemoveManagedSubscriber(handle, value); }
@@ -920,7 +920,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForMouseWheel == null)
-                          eventAdapterForMouseWheel = new UrhoEventAdapter<MouseWheelEventArgs>();
+                          eventAdapterForMouseWheel = new UrhoEventAdapter<MouseWheelEventArgs>(typeof(Input));
                       eventAdapterForMouseWheel.AddManagedSubscriber(handle, value, SubscribeToMouseWheel);
                  }
                  remove { eventAdapterForMouseWheel.RemoveManagedSubscriber(handle, value); }
@@ -959,7 +959,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForKeyDown == null)
-                          eventAdapterForKeyDown = new UrhoEventAdapter<KeyDownEventArgs>();
+                          eventAdapterForKeyDown = new UrhoEventAdapter<KeyDownEventArgs>(typeof(Input));
                       eventAdapterForKeyDown.AddManagedSubscriber(handle, value, SubscribeToKeyDown);
                  }
                  remove { eventAdapterForKeyDown.RemoveManagedSubscriber(handle, value); }
@@ -997,7 +997,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForKeyUp == null)
-                          eventAdapterForKeyUp = new UrhoEventAdapter<KeyUpEventArgs>();
+                          eventAdapterForKeyUp = new UrhoEventAdapter<KeyUpEventArgs>(typeof(Input));
                       eventAdapterForKeyUp.AddManagedSubscriber(handle, value, SubscribeToKeyUp);
                  }
                  remove { eventAdapterForKeyUp.RemoveManagedSubscriber(handle, value); }
@@ -1034,7 +1034,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForTextInput == null)
-                          eventAdapterForTextInput = new UrhoEventAdapter<TextInputEventArgs>();
+                          eventAdapterForTextInput = new UrhoEventAdapter<TextInputEventArgs>(typeof(Input));
                       eventAdapterForTextInput.AddManagedSubscriber(handle, value, SubscribeToTextInput);
                  }
                  remove { eventAdapterForTextInput.RemoveManagedSubscriber(handle, value); }
@@ -1069,7 +1069,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForJoystickConnected == null)
-                          eventAdapterForJoystickConnected = new UrhoEventAdapter<JoystickConnectedEventArgs>();
+                          eventAdapterForJoystickConnected = new UrhoEventAdapter<JoystickConnectedEventArgs>(typeof(Input));
                       eventAdapterForJoystickConnected.AddManagedSubscriber(handle, value, SubscribeToJoystickConnected);
                  }
                  remove { eventAdapterForJoystickConnected.RemoveManagedSubscriber(handle, value); }
@@ -1104,7 +1104,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForJoystickDisconnected == null)
-                          eventAdapterForJoystickDisconnected = new UrhoEventAdapter<JoystickDisconnectedEventArgs>();
+                          eventAdapterForJoystickDisconnected = new UrhoEventAdapter<JoystickDisconnectedEventArgs>(typeof(Input));
                       eventAdapterForJoystickDisconnected.AddManagedSubscriber(handle, value, SubscribeToJoystickDisconnected);
                  }
                  remove { eventAdapterForJoystickDisconnected.RemoveManagedSubscriber(handle, value); }
@@ -1140,7 +1140,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForJoystickButtonDown == null)
-                          eventAdapterForJoystickButtonDown = new UrhoEventAdapter<JoystickButtonDownEventArgs>();
+                          eventAdapterForJoystickButtonDown = new UrhoEventAdapter<JoystickButtonDownEventArgs>(typeof(Input));
                       eventAdapterForJoystickButtonDown.AddManagedSubscriber(handle, value, SubscribeToJoystickButtonDown);
                  }
                  remove { eventAdapterForJoystickButtonDown.RemoveManagedSubscriber(handle, value); }
@@ -1176,7 +1176,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForJoystickButtonUp == null)
-                          eventAdapterForJoystickButtonUp = new UrhoEventAdapter<JoystickButtonUpEventArgs>();
+                          eventAdapterForJoystickButtonUp = new UrhoEventAdapter<JoystickButtonUpEventArgs>(typeof(Input));
                       eventAdapterForJoystickButtonUp.AddManagedSubscriber(handle, value, SubscribeToJoystickButtonUp);
                  }
                  remove { eventAdapterForJoystickButtonUp.RemoveManagedSubscriber(handle, value); }
@@ -1213,7 +1213,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForJoystickAxisMove == null)
-                          eventAdapterForJoystickAxisMove = new UrhoEventAdapter<JoystickAxisMoveEventArgs>();
+                          eventAdapterForJoystickAxisMove = new UrhoEventAdapter<JoystickAxisMoveEventArgs>(typeof(Input));
                       eventAdapterForJoystickAxisMove.AddManagedSubscriber(handle, value, SubscribeToJoystickAxisMove);
                  }
                  remove { eventAdapterForJoystickAxisMove.RemoveManagedSubscriber(handle, value); }
@@ -1250,7 +1250,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForJoystickHatMove == null)
-                          eventAdapterForJoystickHatMove = new UrhoEventAdapter<JoystickHatMoveEventArgs>();
+                          eventAdapterForJoystickHatMove = new UrhoEventAdapter<JoystickHatMoveEventArgs>(typeof(Input));
                       eventAdapterForJoystickHatMove.AddManagedSubscriber(handle, value, SubscribeToJoystickHatMove);
                  }
                  remove { eventAdapterForJoystickHatMove.RemoveManagedSubscriber(handle, value); }
@@ -1288,7 +1288,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForTouchBegin == null)
-                          eventAdapterForTouchBegin = new UrhoEventAdapter<TouchBeginEventArgs>();
+                          eventAdapterForTouchBegin = new UrhoEventAdapter<TouchBeginEventArgs>(typeof(Input));
                       eventAdapterForTouchBegin.AddManagedSubscriber(handle, value, SubscribeToTouchBegin);
                  }
                  remove { eventAdapterForTouchBegin.RemoveManagedSubscriber(handle, value); }
@@ -1325,7 +1325,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForTouchEnd == null)
-                          eventAdapterForTouchEnd = new UrhoEventAdapter<TouchEndEventArgs>();
+                          eventAdapterForTouchEnd = new UrhoEventAdapter<TouchEndEventArgs>(typeof(Input));
                       eventAdapterForTouchEnd.AddManagedSubscriber(handle, value, SubscribeToTouchEnd);
                  }
                  remove { eventAdapterForTouchEnd.RemoveManagedSubscriber(handle, value); }
@@ -1365,7 +1365,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForTouchMove == null)
-                          eventAdapterForTouchMove = new UrhoEventAdapter<TouchMoveEventArgs>();
+                          eventAdapterForTouchMove = new UrhoEventAdapter<TouchMoveEventArgs>(typeof(Input));
                       eventAdapterForTouchMove.AddManagedSubscriber(handle, value, SubscribeToTouchMove);
                  }
                  remove { eventAdapterForTouchMove.RemoveManagedSubscriber(handle, value); }
@@ -1400,7 +1400,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForGestureRecorded == null)
-                          eventAdapterForGestureRecorded = new UrhoEventAdapter<GestureRecordedEventArgs>();
+                          eventAdapterForGestureRecorded = new UrhoEventAdapter<GestureRecordedEventArgs>(typeof(Input));
                       eventAdapterForGestureRecorded.AddManagedSubscriber(handle, value, SubscribeToGestureRecorded);
                  }
                  remove { eventAdapterForGestureRecorded.RemoveManagedSubscriber(handle, value); }
@@ -1439,7 +1439,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForGestureInput == null)
-                          eventAdapterForGestureInput = new UrhoEventAdapter<GestureInputEventArgs>();
+                          eventAdapterForGestureInput = new UrhoEventAdapter<GestureInputEventArgs>(typeof(Input));
                       eventAdapterForGestureInput.AddManagedSubscriber(handle, value, SubscribeToGestureInput);
                  }
                  remove { eventAdapterForGestureInput.RemoveManagedSubscriber(handle, value); }
@@ -1478,7 +1478,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForMultiGesture == null)
-                          eventAdapterForMultiGesture = new UrhoEventAdapter<MultiGestureEventArgs>();
+                          eventAdapterForMultiGesture = new UrhoEventAdapter<MultiGestureEventArgs>(typeof(Input));
                       eventAdapterForMultiGesture.AddManagedSubscriber(handle, value, SubscribeToMultiGesture);
                  }
                  remove { eventAdapterForMultiGesture.RemoveManagedSubscriber(handle, value); }
@@ -1513,7 +1513,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForDropFile == null)
-                          eventAdapterForDropFile = new UrhoEventAdapter<DropFileEventArgs>();
+                          eventAdapterForDropFile = new UrhoEventAdapter<DropFileEventArgs>(typeof(Input));
                       eventAdapterForDropFile.AddManagedSubscriber(handle, value, SubscribeToDropFile);
                  }
                  remove { eventAdapterForDropFile.RemoveManagedSubscriber(handle, value); }
@@ -1549,7 +1549,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForInputFocus == null)
-                          eventAdapterForInputFocus = new UrhoEventAdapter<InputFocusEventArgs>();
+                          eventAdapterForInputFocus = new UrhoEventAdapter<InputFocusEventArgs>(typeof(Input));
                       eventAdapterForInputFocus.AddManagedSubscriber(handle, value, SubscribeToInputFocus);
                  }
                  remove { eventAdapterForInputFocus.RemoveManagedSubscriber(handle, value); }
@@ -1584,7 +1584,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForMouseVisibleChanged == null)
-                          eventAdapterForMouseVisibleChanged = new UrhoEventAdapter<MouseVisibleChangedEventArgs>();
+                          eventAdapterForMouseVisibleChanged = new UrhoEventAdapter<MouseVisibleChangedEventArgs>(typeof(Input));
                       eventAdapterForMouseVisibleChanged.AddManagedSubscriber(handle, value, SubscribeToMouseVisibleChanged);
                  }
                  remove { eventAdapterForMouseVisibleChanged.RemoveManagedSubscriber(handle, value); }
@@ -1620,7 +1620,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForMouseModeChanged == null)
-                          eventAdapterForMouseModeChanged = new UrhoEventAdapter<MouseModeChangedEventArgs>();
+                          eventAdapterForMouseModeChanged = new UrhoEventAdapter<MouseModeChangedEventArgs>(typeof(Input));
                       eventAdapterForMouseModeChanged.AddManagedSubscriber(handle, value, SubscribeToMouseModeChanged);
                  }
                  remove { eventAdapterForMouseModeChanged.RemoveManagedSubscriber(handle, value); }
@@ -1654,7 +1654,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForExitRequested == null)
-                          eventAdapterForExitRequested = new UrhoEventAdapter<ExitRequestedEventArgs>();
+                          eventAdapterForExitRequested = new UrhoEventAdapter<ExitRequestedEventArgs>(typeof(Input));
                       eventAdapterForExitRequested.AddManagedSubscriber(handle, value, SubscribeToExitRequested);
                  }
                  remove { eventAdapterForExitRequested.RemoveManagedSubscriber(handle, value); }
@@ -1713,7 +1713,7 @@ namespace Urho.Navigation {
                  add
                  {
                       if (eventAdapterForNavigationMeshRebuilt == null)
-                          eventAdapterForNavigationMeshRebuilt = new UrhoEventAdapter<NavigationMeshRebuiltEventArgs>();
+                          eventAdapterForNavigationMeshRebuilt = new UrhoEventAdapter<NavigationMeshRebuiltEventArgs>(typeof(NavigationMesh));
                       eventAdapterForNavigationMeshRebuilt.AddManagedSubscriber(handle, value, SubscribeToNavigationMeshRebuilt);
                  }
                  remove { eventAdapterForNavigationMeshRebuilt.RemoveManagedSubscriber(handle, value); }
@@ -1751,7 +1751,7 @@ namespace Urho.Navigation {
                  add
                  {
                       if (eventAdapterForNavigationAreaRebuilt == null)
-                          eventAdapterForNavigationAreaRebuilt = new UrhoEventAdapter<NavigationAreaRebuiltEventArgs>();
+                          eventAdapterForNavigationAreaRebuilt = new UrhoEventAdapter<NavigationAreaRebuiltEventArgs>(typeof(NavigationMesh));
                       eventAdapterForNavigationAreaRebuilt.AddManagedSubscriber(handle, value, SubscribeToNavigationAreaRebuilt);
                  }
                  remove { eventAdapterForNavigationAreaRebuilt.RemoveManagedSubscriber(handle, value); }
@@ -1815,7 +1815,7 @@ namespace Urho.Navigation {
                  add
                  {
                       if (eventAdapterForCrowdAgentReposition == null)
-                          eventAdapterForCrowdAgentReposition = new UrhoEventAdapter<CrowdAgentRepositionEventArgs>();
+                          eventAdapterForCrowdAgentReposition = new UrhoEventAdapter<CrowdAgentRepositionEventArgs>(typeof(CrowdManager));
                       eventAdapterForCrowdAgentReposition.AddManagedSubscriber(handle, value, SubscribeToCrowdAgentReposition);
                  }
                  remove { eventAdapterForCrowdAgentReposition.RemoveManagedSubscriber(handle, value); }
@@ -1868,7 +1868,7 @@ namespace Urho.Navigation {
                  add
                  {
                       if (eventAdapterForCrowdAgentFailure == null)
-                          eventAdapterForCrowdAgentFailure = new UrhoEventAdapter<CrowdAgentFailureEventArgs>();
+                          eventAdapterForCrowdAgentFailure = new UrhoEventAdapter<CrowdAgentFailureEventArgs>(typeof(CrowdManager));
                       eventAdapterForCrowdAgentFailure.AddManagedSubscriber(handle, value, SubscribeToCrowdAgentFailure);
                  }
                  remove { eventAdapterForCrowdAgentFailure.RemoveManagedSubscriber(handle, value); }
@@ -1921,7 +1921,7 @@ namespace Urho.Navigation {
                  add
                  {
                       if (eventAdapterForCrowdAgentStateChanged == null)
-                          eventAdapterForCrowdAgentStateChanged = new UrhoEventAdapter<CrowdAgentStateChangedEventArgs>();
+                          eventAdapterForCrowdAgentStateChanged = new UrhoEventAdapter<CrowdAgentStateChangedEventArgs>(typeof(CrowdManager));
                       eventAdapterForCrowdAgentStateChanged.AddManagedSubscriber(handle, value, SubscribeToCrowdAgentStateChanged);
                  }
                  remove { eventAdapterForCrowdAgentStateChanged.RemoveManagedSubscriber(handle, value); }
@@ -1973,7 +1973,7 @@ namespace Urho.Navigation {
                  add
                  {
                       if (eventAdapterForNavigationObstacleAdded == null)
-                          eventAdapterForNavigationObstacleAdded = new UrhoEventAdapter<NavigationObstacleAddedEventArgs>();
+                          eventAdapterForNavigationObstacleAdded = new UrhoEventAdapter<NavigationObstacleAddedEventArgs>(typeof(DynamicNavigationMesh));
                       eventAdapterForNavigationObstacleAdded.AddManagedSubscriber(handle, value, SubscribeToNavigationObstacleAdded);
                  }
                  remove { eventAdapterForNavigationObstacleAdded.RemoveManagedSubscriber(handle, value); }
@@ -2012,7 +2012,7 @@ namespace Urho.Navigation {
                  add
                  {
                       if (eventAdapterForNavigationObstacleRemoved == null)
-                          eventAdapterForNavigationObstacleRemoved = new UrhoEventAdapter<NavigationObstacleRemovedEventArgs>();
+                          eventAdapterForNavigationObstacleRemoved = new UrhoEventAdapter<NavigationObstacleRemovedEventArgs>(typeof(DynamicNavigationMesh));
                       eventAdapterForNavigationObstacleRemoved.AddManagedSubscriber(handle, value, SubscribeToNavigationObstacleRemoved);
                  }
                  remove { eventAdapterForNavigationObstacleRemoved.RemoveManagedSubscriber(handle, value); }
@@ -2046,7 +2046,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForServerConnected == null)
-                          eventAdapterForServerConnected = new UrhoEventAdapter<ServerConnectedEventArgs>();
+                          eventAdapterForServerConnected = new UrhoEventAdapter<ServerConnectedEventArgs>(typeof(Network));
                       eventAdapterForServerConnected.AddManagedSubscriber(handle, value, SubscribeToServerConnected);
                  }
                  remove { eventAdapterForServerConnected.RemoveManagedSubscriber(handle, value); }
@@ -2080,7 +2080,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForServerDisconnected == null)
-                          eventAdapterForServerDisconnected = new UrhoEventAdapter<ServerDisconnectedEventArgs>();
+                          eventAdapterForServerDisconnected = new UrhoEventAdapter<ServerDisconnectedEventArgs>(typeof(Network));
                       eventAdapterForServerDisconnected.AddManagedSubscriber(handle, value, SubscribeToServerDisconnected);
                  }
                  remove { eventAdapterForServerDisconnected.RemoveManagedSubscriber(handle, value); }
@@ -2114,7 +2114,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForConnectFailed == null)
-                          eventAdapterForConnectFailed = new UrhoEventAdapter<ConnectFailedEventArgs>();
+                          eventAdapterForConnectFailed = new UrhoEventAdapter<ConnectFailedEventArgs>(typeof(Network));
                       eventAdapterForConnectFailed.AddManagedSubscriber(handle, value, SubscribeToConnectFailed);
                  }
                  remove { eventAdapterForConnectFailed.RemoveManagedSubscriber(handle, value); }
@@ -2149,7 +2149,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForClientConnected == null)
-                          eventAdapterForClientConnected = new UrhoEventAdapter<ClientConnectedEventArgs>();
+                          eventAdapterForClientConnected = new UrhoEventAdapter<ClientConnectedEventArgs>(typeof(Network));
                       eventAdapterForClientConnected.AddManagedSubscriber(handle, value, SubscribeToClientConnected);
                  }
                  remove { eventAdapterForClientConnected.RemoveManagedSubscriber(handle, value); }
@@ -2184,7 +2184,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForClientDisconnected == null)
-                          eventAdapterForClientDisconnected = new UrhoEventAdapter<ClientDisconnectedEventArgs>();
+                          eventAdapterForClientDisconnected = new UrhoEventAdapter<ClientDisconnectedEventArgs>(typeof(Network));
                       eventAdapterForClientDisconnected.AddManagedSubscriber(handle, value, SubscribeToClientDisconnected);
                  }
                  remove { eventAdapterForClientDisconnected.RemoveManagedSubscriber(handle, value); }
@@ -2220,7 +2220,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForClientIdentity == null)
-                          eventAdapterForClientIdentity = new UrhoEventAdapter<ClientIdentityEventArgs>();
+                          eventAdapterForClientIdentity = new UrhoEventAdapter<ClientIdentityEventArgs>(typeof(Connection));
                       eventAdapterForClientIdentity.AddManagedSubscriber(handle, value, SubscribeToClientIdentity);
                  }
                  remove { eventAdapterForClientIdentity.RemoveManagedSubscriber(handle, value); }
@@ -2255,7 +2255,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForClientSceneLoaded == null)
-                          eventAdapterForClientSceneLoaded = new UrhoEventAdapter<ClientSceneLoadedEventArgs>();
+                          eventAdapterForClientSceneLoaded = new UrhoEventAdapter<ClientSceneLoadedEventArgs>(typeof(Connection));
                       eventAdapterForClientSceneLoaded.AddManagedSubscriber(handle, value, SubscribeToClientSceneLoaded);
                  }
                  remove { eventAdapterForClientSceneLoaded.RemoveManagedSubscriber(handle, value); }
@@ -2292,7 +2292,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForNetworkMessage == null)
-                          eventAdapterForNetworkMessage = new UrhoEventAdapter<NetworkMessageEventArgs>();
+                          eventAdapterForNetworkMessage = new UrhoEventAdapter<NetworkMessageEventArgs>(typeof(Network));
                       eventAdapterForNetworkMessage.AddManagedSubscriber(handle, value, SubscribeToNetworkMessage);
                  }
                  remove { eventAdapterForNetworkMessage.RemoveManagedSubscriber(handle, value); }
@@ -2326,7 +2326,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForNetworkUpdate == null)
-                          eventAdapterForNetworkUpdate = new UrhoEventAdapter<NetworkUpdateEventArgs>();
+                          eventAdapterForNetworkUpdate = new UrhoEventAdapter<NetworkUpdateEventArgs>(typeof(Network));
                       eventAdapterForNetworkUpdate.AddManagedSubscriber(handle, value, SubscribeToNetworkUpdate);
                  }
                  remove { eventAdapterForNetworkUpdate.RemoveManagedSubscriber(handle, value); }
@@ -2360,7 +2360,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForNetworkUpdateSent == null)
-                          eventAdapterForNetworkUpdateSent = new UrhoEventAdapter<NetworkUpdateSentEventArgs>();
+                          eventAdapterForNetworkUpdateSent = new UrhoEventAdapter<NetworkUpdateSentEventArgs>(typeof(Network));
                       eventAdapterForNetworkUpdateSent.AddManagedSubscriber(handle, value, SubscribeToNetworkUpdateSent);
                  }
                  remove { eventAdapterForNetworkUpdateSent.RemoveManagedSubscriber(handle, value); }
@@ -2395,7 +2395,7 @@ namespace Urho.Network {
                  add
                  {
                       if (eventAdapterForNetworkSceneLoadFailed == null)
-                          eventAdapterForNetworkSceneLoadFailed = new UrhoEventAdapter<NetworkSceneLoadFailedEventArgs>();
+                          eventAdapterForNetworkSceneLoadFailed = new UrhoEventAdapter<NetworkSceneLoadFailedEventArgs>(typeof(Network));
                       eventAdapterForNetworkSceneLoadFailed.AddManagedSubscriber(handle, value, SubscribeToNetworkSceneLoadFailed);
                  }
                  remove { eventAdapterForNetworkSceneLoadFailed.RemoveManagedSubscriber(handle, value); }
@@ -2439,7 +2439,7 @@ namespace Urho.Physics {
                  add
                  {
                       if (eventAdapterForPhysicsPreStep == null)
-                          eventAdapterForPhysicsPreStep = new UrhoEventAdapter<PhysicsPreStepEventArgs>();
+                          eventAdapterForPhysicsPreStep = new UrhoEventAdapter<PhysicsPreStepEventArgs>(typeof(PhysicsWorld));
                       eventAdapterForPhysicsPreStep.AddManagedSubscriber(handle, value, SubscribeToPhysicsPreStep);
                  }
                  remove { eventAdapterForPhysicsPreStep.RemoveManagedSubscriber(handle, value); }
@@ -2475,7 +2475,7 @@ namespace Urho.Physics {
                  add
                  {
                       if (eventAdapterForPhysicsPostStep == null)
-                          eventAdapterForPhysicsPostStep = new UrhoEventAdapter<PhysicsPostStepEventArgs>();
+                          eventAdapterForPhysicsPostStep = new UrhoEventAdapter<PhysicsPostStepEventArgs>(typeof(PhysicsWorld));
                       eventAdapterForPhysicsPostStep.AddManagedSubscriber(handle, value, SubscribeToPhysicsPostStep);
                  }
                  remove { eventAdapterForPhysicsPostStep.RemoveManagedSubscriber(handle, value); }
@@ -2516,7 +2516,7 @@ namespace Urho.Physics {
                  add
                  {
                       if (eventAdapterForPhysicsCollisionStart == null)
-                          eventAdapterForPhysicsCollisionStart = new UrhoEventAdapter<PhysicsCollisionStartEventArgs>();
+                          eventAdapterForPhysicsCollisionStart = new UrhoEventAdapter<PhysicsCollisionStartEventArgs>(typeof(PhysicsWorld));
                       eventAdapterForPhysicsCollisionStart.AddManagedSubscriber(handle, value, SubscribeToPhysicsCollisionStart);
                  }
                  remove { eventAdapterForPhysicsCollisionStart.RemoveManagedSubscriber(handle, value); }
@@ -2557,7 +2557,7 @@ namespace Urho.Physics {
                  add
                  {
                       if (eventAdapterForPhysicsCollision == null)
-                          eventAdapterForPhysicsCollision = new UrhoEventAdapter<PhysicsCollisionEventArgs>();
+                          eventAdapterForPhysicsCollision = new UrhoEventAdapter<PhysicsCollisionEventArgs>(typeof(PhysicsWorld));
                       eventAdapterForPhysicsCollision.AddManagedSubscriber(handle, value, SubscribeToPhysicsCollision);
                  }
                  remove { eventAdapterForPhysicsCollision.RemoveManagedSubscriber(handle, value); }
@@ -2597,7 +2597,7 @@ namespace Urho.Physics {
                  add
                  {
                       if (eventAdapterForPhysicsCollisionEnd == null)
-                          eventAdapterForPhysicsCollisionEnd = new UrhoEventAdapter<PhysicsCollisionEndEventArgs>();
+                          eventAdapterForPhysicsCollisionEnd = new UrhoEventAdapter<PhysicsCollisionEndEventArgs>(typeof(PhysicsWorld));
                       eventAdapterForPhysicsCollisionEnd.AddManagedSubscriber(handle, value, SubscribeToPhysicsCollisionEnd);
                  }
                  remove { eventAdapterForPhysicsCollisionEnd.RemoveManagedSubscriber(handle, value); }
@@ -2636,7 +2636,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForNodeCollisionStart == null)
-                          eventAdapterForNodeCollisionStart = new UrhoEventAdapter<NodeCollisionStartEventArgs>();
+                          eventAdapterForNodeCollisionStart = new UrhoEventAdapter<NodeCollisionStartEventArgs>(typeof(Node));
                       eventAdapterForNodeCollisionStart.AddManagedSubscriber(handle, value, SubscribeToNodeCollisionStart);
                  }
                  remove { eventAdapterForNodeCollisionStart.RemoveManagedSubscriber(handle, value); }
@@ -2675,7 +2675,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForNodeCollision == null)
-                          eventAdapterForNodeCollision = new UrhoEventAdapter<NodeCollisionEventArgs>();
+                          eventAdapterForNodeCollision = new UrhoEventAdapter<NodeCollisionEventArgs>(typeof(Node));
                       eventAdapterForNodeCollision.AddManagedSubscriber(handle, value, SubscribeToNodeCollision);
                  }
                  remove { eventAdapterForNodeCollision.RemoveManagedSubscriber(handle, value); }
@@ -2713,7 +2713,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForNodeCollisionEnd == null)
-                          eventAdapterForNodeCollisionEnd = new UrhoEventAdapter<NodeCollisionEndEventArgs>();
+                          eventAdapterForNodeCollisionEnd = new UrhoEventAdapter<NodeCollisionEndEventArgs>(typeof(Node));
                       eventAdapterForNodeCollisionEnd.AddManagedSubscriber(handle, value, SubscribeToNodeCollisionEnd);
                  }
                  remove { eventAdapterForNodeCollisionEnd.RemoveManagedSubscriber(handle, value); }
@@ -2747,7 +2747,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForReloadStarted == null)
-                          eventAdapterForReloadStarted = new UrhoEventAdapter<ReloadStartedEventArgs>();
+                          eventAdapterForReloadStarted = new UrhoEventAdapter<ReloadStartedEventArgs>(typeof(Resource));
                       eventAdapterForReloadStarted.AddManagedSubscriber(handle, value, SubscribeToReloadStarted);
                  }
                  remove { eventAdapterForReloadStarted.RemoveManagedSubscriber(handle, value); }
@@ -2781,7 +2781,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForReloadFinished == null)
-                          eventAdapterForReloadFinished = new UrhoEventAdapter<ReloadFinishedEventArgs>();
+                          eventAdapterForReloadFinished = new UrhoEventAdapter<ReloadFinishedEventArgs>(typeof(Resource));
                       eventAdapterForReloadFinished.AddManagedSubscriber(handle, value, SubscribeToReloadFinished);
                  }
                  remove { eventAdapterForReloadFinished.RemoveManagedSubscriber(handle, value); }
@@ -2815,7 +2815,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForReloadFailed == null)
-                          eventAdapterForReloadFailed = new UrhoEventAdapter<ReloadFailedEventArgs>();
+                          eventAdapterForReloadFailed = new UrhoEventAdapter<ReloadFailedEventArgs>(typeof(Resource));
                       eventAdapterForReloadFailed.AddManagedSubscriber(handle, value, SubscribeToReloadFailed);
                  }
                  remove { eventAdapterForReloadFailed.RemoveManagedSubscriber(handle, value); }
@@ -2851,7 +2851,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForFileChanged == null)
-                          eventAdapterForFileChanged = new UrhoEventAdapter<FileChangedEventArgs>();
+                          eventAdapterForFileChanged = new UrhoEventAdapter<FileChangedEventArgs>(typeof(ResourceCache));
                       eventAdapterForFileChanged.AddManagedSubscriber(handle, value, SubscribeToFileChanged);
                  }
                  remove { eventAdapterForFileChanged.RemoveManagedSubscriber(handle, value); }
@@ -2886,7 +2886,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForLoadFailed == null)
-                          eventAdapterForLoadFailed = new UrhoEventAdapter<LoadFailedEventArgs>();
+                          eventAdapterForLoadFailed = new UrhoEventAdapter<LoadFailedEventArgs>(typeof(ResourceCache));
                       eventAdapterForLoadFailed.AddManagedSubscriber(handle, value, SubscribeToLoadFailed);
                  }
                  remove { eventAdapterForLoadFailed.RemoveManagedSubscriber(handle, value); }
@@ -2921,7 +2921,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForResourceNotFound == null)
-                          eventAdapterForResourceNotFound = new UrhoEventAdapter<ResourceNotFoundEventArgs>();
+                          eventAdapterForResourceNotFound = new UrhoEventAdapter<ResourceNotFoundEventArgs>(typeof(ResourceCache));
                       eventAdapterForResourceNotFound.AddManagedSubscriber(handle, value, SubscribeToResourceNotFound);
                  }
                  remove { eventAdapterForResourceNotFound.RemoveManagedSubscriber(handle, value); }
@@ -2956,7 +2956,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForUnknownResourceType == null)
-                          eventAdapterForUnknownResourceType = new UrhoEventAdapter<UnknownResourceTypeEventArgs>();
+                          eventAdapterForUnknownResourceType = new UrhoEventAdapter<UnknownResourceTypeEventArgs>(typeof(ResourceCache));
                       eventAdapterForUnknownResourceType.AddManagedSubscriber(handle, value, SubscribeToUnknownResourceType);
                  }
                  remove { eventAdapterForUnknownResourceType.RemoveManagedSubscriber(handle, value); }
@@ -2993,7 +2993,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForResourceBackgroundLoaded == null)
-                          eventAdapterForResourceBackgroundLoaded = new UrhoEventAdapter<ResourceBackgroundLoadedEventArgs>();
+                          eventAdapterForResourceBackgroundLoaded = new UrhoEventAdapter<ResourceBackgroundLoadedEventArgs>(typeof(ResourceCache));
                       eventAdapterForResourceBackgroundLoaded.AddManagedSubscriber(handle, value, SubscribeToResourceBackgroundLoaded);
                  }
                  remove { eventAdapterForResourceBackgroundLoaded.RemoveManagedSubscriber(handle, value); }
@@ -3027,7 +3027,7 @@ namespace Urho.Resources {
                  add
                  {
                       if (eventAdapterForChangeLanguage == null)
-                          eventAdapterForChangeLanguage = new UrhoEventAdapter<ChangeLanguageEventArgs>();
+                          eventAdapterForChangeLanguage = new UrhoEventAdapter<ChangeLanguageEventArgs>(typeof(Localization));
                       eventAdapterForChangeLanguage.AddManagedSubscriber(handle, value, SubscribeToChangeLanguage);
                  }
                  remove { eventAdapterForChangeLanguage.RemoveManagedSubscriber(handle, value); }
@@ -3063,7 +3063,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForSceneUpdate == null)
-                          eventAdapterForSceneUpdate = new UrhoEventAdapter<SceneUpdateEventArgs>();
+                          eventAdapterForSceneUpdate = new UrhoEventAdapter<SceneUpdateEventArgs>(typeof(Scene));
                       eventAdapterForSceneUpdate.AddManagedSubscriber(handle, value, SubscribeToSceneUpdate);
                  }
                  remove { eventAdapterForSceneUpdate.RemoveManagedSubscriber(handle, value); }
@@ -3099,7 +3099,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForSceneSubsystemUpdate == null)
-                          eventAdapterForSceneSubsystemUpdate = new UrhoEventAdapter<SceneSubsystemUpdateEventArgs>();
+                          eventAdapterForSceneSubsystemUpdate = new UrhoEventAdapter<SceneSubsystemUpdateEventArgs>(typeof(Scene));
                       eventAdapterForSceneSubsystemUpdate.AddManagedSubscriber(handle, value, SubscribeToSceneSubsystemUpdate);
                  }
                  remove { eventAdapterForSceneSubsystemUpdate.RemoveManagedSubscriber(handle, value); }
@@ -3135,7 +3135,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForUpdateSmoothing == null)
-                          eventAdapterForUpdateSmoothing = new UrhoEventAdapter<UpdateSmoothingEventArgs>();
+                          eventAdapterForUpdateSmoothing = new UrhoEventAdapter<UpdateSmoothingEventArgs>(typeof(Scene));
                       eventAdapterForUpdateSmoothing.AddManagedSubscriber(handle, value, SubscribeToUpdateSmoothing);
                  }
                  remove { eventAdapterForUpdateSmoothing.RemoveManagedSubscriber(handle, value); }
@@ -3171,7 +3171,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForSceneDrawableUpdateFinished == null)
-                          eventAdapterForSceneDrawableUpdateFinished = new UrhoEventAdapter<SceneDrawableUpdateFinishedEventArgs>();
+                          eventAdapterForSceneDrawableUpdateFinished = new UrhoEventAdapter<SceneDrawableUpdateFinishedEventArgs>(typeof(Scene));
                       eventAdapterForSceneDrawableUpdateFinished.AddManagedSubscriber(handle, value, SubscribeToSceneDrawableUpdateFinished);
                  }
                  remove { eventAdapterForSceneDrawableUpdateFinished.RemoveManagedSubscriber(handle, value); }
@@ -3205,7 +3205,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForTargetPositionChanged == null)
-                          eventAdapterForTargetPositionChanged = new UrhoEventAdapter<TargetPositionChangedEventArgs>();
+                          eventAdapterForTargetPositionChanged = new UrhoEventAdapter<TargetPositionChangedEventArgs>(typeof(SmoothedTransform));
                       eventAdapterForTargetPositionChanged.AddManagedSubscriber(handle, value, SubscribeToTargetPositionChanged);
                  }
                  remove { eventAdapterForTargetPositionChanged.RemoveManagedSubscriber(handle, value); }
@@ -3239,7 +3239,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForTargetRotationChanged == null)
-                          eventAdapterForTargetRotationChanged = new UrhoEventAdapter<TargetRotationChangedEventArgs>();
+                          eventAdapterForTargetRotationChanged = new UrhoEventAdapter<TargetRotationChangedEventArgs>(typeof(SmoothedTransform));
                       eventAdapterForTargetRotationChanged.AddManagedSubscriber(handle, value, SubscribeToTargetRotationChanged);
                  }
                  remove { eventAdapterForTargetRotationChanged.RemoveManagedSubscriber(handle, value); }
@@ -3275,7 +3275,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForAttributeAnimationUpdate == null)
-                          eventAdapterForAttributeAnimationUpdate = new UrhoEventAdapter<AttributeAnimationUpdateEventArgs>();
+                          eventAdapterForAttributeAnimationUpdate = new UrhoEventAdapter<AttributeAnimationUpdateEventArgs>(typeof(Scene));
                       eventAdapterForAttributeAnimationUpdate.AddManagedSubscriber(handle, value, SubscribeToAttributeAnimationUpdate);
                  }
                  remove { eventAdapterForAttributeAnimationUpdate.RemoveManagedSubscriber(handle, value); }
@@ -3311,7 +3311,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForAttributeAnimationAdded == null)
-                          eventAdapterForAttributeAnimationAdded = new UrhoEventAdapter<AttributeAnimationAddedEventArgs>();
+                          eventAdapterForAttributeAnimationAdded = new UrhoEventAdapter<AttributeAnimationAddedEventArgs>(typeof(ObjectAnimation));
                       eventAdapterForAttributeAnimationAdded.AddManagedSubscriber(handle, value, SubscribeToAttributeAnimationAdded);
                  }
                  remove { eventAdapterForAttributeAnimationAdded.RemoveManagedSubscriber(handle, value); }
@@ -3347,7 +3347,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForAttributeAnimationRemoved == null)
-                          eventAdapterForAttributeAnimationRemoved = new UrhoEventAdapter<AttributeAnimationRemovedEventArgs>();
+                          eventAdapterForAttributeAnimationRemoved = new UrhoEventAdapter<AttributeAnimationRemovedEventArgs>(typeof(ObjectAnimation));
                       eventAdapterForAttributeAnimationRemoved.AddManagedSubscriber(handle, value, SubscribeToAttributeAnimationRemoved);
                  }
                  remove { eventAdapterForAttributeAnimationRemoved.RemoveManagedSubscriber(handle, value); }
@@ -3383,7 +3383,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForScenePostUpdate == null)
-                          eventAdapterForScenePostUpdate = new UrhoEventAdapter<ScenePostUpdateEventArgs>();
+                          eventAdapterForScenePostUpdate = new UrhoEventAdapter<ScenePostUpdateEventArgs>(typeof(Scene));
                       eventAdapterForScenePostUpdate.AddManagedSubscriber(handle, value, SubscribeToScenePostUpdate);
                  }
                  remove { eventAdapterForScenePostUpdate.RemoveManagedSubscriber(handle, value); }
@@ -3423,7 +3423,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForAsyncLoadProgress == null)
-                          eventAdapterForAsyncLoadProgress = new UrhoEventAdapter<AsyncLoadProgressEventArgs>();
+                          eventAdapterForAsyncLoadProgress = new UrhoEventAdapter<AsyncLoadProgressEventArgs>(typeof(Scene));
                       eventAdapterForAsyncLoadProgress.AddManagedSubscriber(handle, value, SubscribeToAsyncLoadProgress);
                  }
                  remove { eventAdapterForAsyncLoadProgress.RemoveManagedSubscriber(handle, value); }
@@ -3458,7 +3458,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForAsyncLoadFinished == null)
-                          eventAdapterForAsyncLoadFinished = new UrhoEventAdapter<AsyncLoadFinishedEventArgs>();
+                          eventAdapterForAsyncLoadFinished = new UrhoEventAdapter<AsyncLoadFinishedEventArgs>(typeof(Scene));
                       eventAdapterForAsyncLoadFinished.AddManagedSubscriber(handle, value, SubscribeToAsyncLoadFinished);
                  }
                  remove { eventAdapterForAsyncLoadFinished.RemoveManagedSubscriber(handle, value); }
@@ -3495,7 +3495,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForNodeAdded == null)
-                          eventAdapterForNodeAdded = new UrhoEventAdapter<NodeAddedEventArgs>();
+                          eventAdapterForNodeAdded = new UrhoEventAdapter<NodeAddedEventArgs>(typeof(Scene));
                       eventAdapterForNodeAdded.AddManagedSubscriber(handle, value, SubscribeToNodeAdded);
                  }
                  remove { eventAdapterForNodeAdded.RemoveManagedSubscriber(handle, value); }
@@ -3532,7 +3532,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForNodeRemoved == null)
-                          eventAdapterForNodeRemoved = new UrhoEventAdapter<NodeRemovedEventArgs>();
+                          eventAdapterForNodeRemoved = new UrhoEventAdapter<NodeRemovedEventArgs>(typeof(Scene));
                       eventAdapterForNodeRemoved.AddManagedSubscriber(handle, value, SubscribeToNodeRemoved);
                  }
                  remove { eventAdapterForNodeRemoved.RemoveManagedSubscriber(handle, value); }
@@ -3569,7 +3569,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForComponentAdded == null)
-                          eventAdapterForComponentAdded = new UrhoEventAdapter<ComponentAddedEventArgs>();
+                          eventAdapterForComponentAdded = new UrhoEventAdapter<ComponentAddedEventArgs>(typeof(Scene));
                       eventAdapterForComponentAdded.AddManagedSubscriber(handle, value, SubscribeToComponentAdded);
                  }
                  remove { eventAdapterForComponentAdded.RemoveManagedSubscriber(handle, value); }
@@ -3606,7 +3606,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForComponentRemoved == null)
-                          eventAdapterForComponentRemoved = new UrhoEventAdapter<ComponentRemovedEventArgs>();
+                          eventAdapterForComponentRemoved = new UrhoEventAdapter<ComponentRemovedEventArgs>(typeof(Scene));
                       eventAdapterForComponentRemoved.AddManagedSubscriber(handle, value, SubscribeToComponentRemoved);
                  }
                  remove { eventAdapterForComponentRemoved.RemoveManagedSubscriber(handle, value); }
@@ -3642,7 +3642,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForNodeNameChanged == null)
-                          eventAdapterForNodeNameChanged = new UrhoEventAdapter<NodeNameChangedEventArgs>();
+                          eventAdapterForNodeNameChanged = new UrhoEventAdapter<NodeNameChangedEventArgs>(typeof(Scene));
                       eventAdapterForNodeNameChanged.AddManagedSubscriber(handle, value, SubscribeToNodeNameChanged);
                  }
                  remove { eventAdapterForNodeNameChanged.RemoveManagedSubscriber(handle, value); }
@@ -3678,7 +3678,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForNodeEnabledChanged == null)
-                          eventAdapterForNodeEnabledChanged = new UrhoEventAdapter<NodeEnabledChangedEventArgs>();
+                          eventAdapterForNodeEnabledChanged = new UrhoEventAdapter<NodeEnabledChangedEventArgs>(typeof(Scene));
                       eventAdapterForNodeEnabledChanged.AddManagedSubscriber(handle, value, SubscribeToNodeEnabledChanged);
                  }
                  remove { eventAdapterForNodeEnabledChanged.RemoveManagedSubscriber(handle, value); }
@@ -3735,7 +3735,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForComponentEnabledChanged == null)
-                          eventAdapterForComponentEnabledChanged = new UrhoEventAdapter<ComponentEnabledChangedEventArgs>();
+                          eventAdapterForComponentEnabledChanged = new UrhoEventAdapter<ComponentEnabledChangedEventArgs>(typeof(Scene));
                       eventAdapterForComponentEnabledChanged.AddManagedSubscriber(handle, value, SubscribeToComponentEnabledChanged);
                  }
                  remove { eventAdapterForComponentEnabledChanged.RemoveManagedSubscriber(handle, value); }
@@ -3770,7 +3770,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForTemporaryChanged == null)
-                          eventAdapterForTemporaryChanged = new UrhoEventAdapter<TemporaryChangedEventArgs>();
+                          eventAdapterForTemporaryChanged = new UrhoEventAdapter<TemporaryChangedEventArgs>(typeof(Serializable));
                       eventAdapterForTemporaryChanged.AddManagedSubscriber(handle, value, SubscribeToTemporaryChanged);
                  }
                  remove { eventAdapterForTemporaryChanged.RemoveManagedSubscriber(handle, value); }
@@ -3807,7 +3807,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForNodeCloned == null)
-                          eventAdapterForNodeCloned = new UrhoEventAdapter<NodeClonedEventArgs>();
+                          eventAdapterForNodeCloned = new UrhoEventAdapter<NodeClonedEventArgs>(typeof(Scene));
                       eventAdapterForNodeCloned.AddManagedSubscriber(handle, value, SubscribeToNodeCloned);
                  }
                  remove { eventAdapterForNodeCloned.RemoveManagedSubscriber(handle, value); }
@@ -3844,7 +3844,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForComponentCloned == null)
-                          eventAdapterForComponentCloned = new UrhoEventAdapter<ComponentClonedEventArgs>();
+                          eventAdapterForComponentCloned = new UrhoEventAdapter<ComponentClonedEventArgs>(typeof(Scene));
                       eventAdapterForComponentCloned.AddManagedSubscriber(handle, value, SubscribeToComponentCloned);
                  }
                  remove { eventAdapterForComponentCloned.RemoveManagedSubscriber(handle, value); }
@@ -3883,7 +3883,7 @@ namespace Urho {
                  add
                  {
                       if (eventAdapterForInterceptNetworkUpdate == null)
-                          eventAdapterForInterceptNetworkUpdate = new UrhoEventAdapter<InterceptNetworkUpdateEventArgs>();
+                          eventAdapterForInterceptNetworkUpdate = new UrhoEventAdapter<InterceptNetworkUpdateEventArgs>(typeof(Serializable));
                       eventAdapterForInterceptNetworkUpdate.AddManagedSubscriber(handle, value, SubscribeToInterceptNetworkUpdate);
                  }
                  remove { eventAdapterForInterceptNetworkUpdate.RemoveManagedSubscriber(handle, value); }
@@ -3923,7 +3923,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForUIMouseClick == null)
-                          eventAdapterForUIMouseClick = new UrhoEventAdapter<UIMouseClickEventArgs>();
+                          eventAdapterForUIMouseClick = new UrhoEventAdapter<UIMouseClickEventArgs>(typeof(UI));
                       eventAdapterForUIMouseClick.AddManagedSubscriber(handle, value, SubscribeToUIMouseClick);
                  }
                  remove { eventAdapterForUIMouseClick.RemoveManagedSubscriber(handle, value); }
@@ -3964,7 +3964,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForUIMouseClickEnd == null)
-                          eventAdapterForUIMouseClickEnd = new UrhoEventAdapter<UIMouseClickEndEventArgs>();
+                          eventAdapterForUIMouseClickEnd = new UrhoEventAdapter<UIMouseClickEndEventArgs>(typeof(UI));
                       eventAdapterForUIMouseClickEnd.AddManagedSubscriber(handle, value, SubscribeToUIMouseClickEnd);
                  }
                  remove { eventAdapterForUIMouseClickEnd.RemoveManagedSubscriber(handle, value); }
@@ -4054,7 +4054,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForDragDropTest == null)
-                          eventAdapterForDragDropTest = new UrhoEventAdapter<DragDropTestEventArgs>();
+                          eventAdapterForDragDropTest = new UrhoEventAdapter<DragDropTestEventArgs>(typeof(UIElement));
                       eventAdapterForDragDropTest.AddManagedSubscriber(handle, value, SubscribeToDragDropTest);
                  }
                  remove { eventAdapterForDragDropTest.RemoveManagedSubscriber(handle, value); }
@@ -4091,7 +4091,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForDragDropFinish == null)
-                          eventAdapterForDragDropFinish = new UrhoEventAdapter<DragDropFinishEventArgs>();
+                          eventAdapterForDragDropFinish = new UrhoEventAdapter<DragDropFinishEventArgs>(typeof(UIElement));
                       eventAdapterForDragDropFinish.AddManagedSubscriber(handle, value, SubscribeToDragDropFinish);
                  }
                  remove { eventAdapterForDragDropFinish.RemoveManagedSubscriber(handle, value); }
@@ -4127,7 +4127,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForFocusChanged == null)
-                          eventAdapterForFocusChanged = new UrhoEventAdapter<FocusChangedEventArgs>();
+                          eventAdapterForFocusChanged = new UrhoEventAdapter<FocusChangedEventArgs>(typeof(UI));
                       eventAdapterForFocusChanged.AddManagedSubscriber(handle, value, SubscribeToFocusChanged);
                  }
                  remove { eventAdapterForFocusChanged.RemoveManagedSubscriber(handle, value); }
@@ -4162,7 +4162,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForNameChanged == null)
-                          eventAdapterForNameChanged = new UrhoEventAdapter<NameChangedEventArgs>();
+                          eventAdapterForNameChanged = new UrhoEventAdapter<NameChangedEventArgs>(typeof(UIElement));
                       eventAdapterForNameChanged.AddManagedSubscriber(handle, value, SubscribeToNameChanged);
                  }
                  remove { eventAdapterForNameChanged.RemoveManagedSubscriber(handle, value); }
@@ -4201,7 +4201,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForResized == null)
-                          eventAdapterForResized = new UrhoEventAdapter<ResizedEventArgs>();
+                          eventAdapterForResized = new UrhoEventAdapter<ResizedEventArgs>(typeof(UIElement));
                       eventAdapterForResized.AddManagedSubscriber(handle, value, SubscribeToResized);
                  }
                  remove { eventAdapterForResized.RemoveManagedSubscriber(handle, value); }
@@ -4238,7 +4238,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForPositioned == null)
-                          eventAdapterForPositioned = new UrhoEventAdapter<PositionedEventArgs>();
+                          eventAdapterForPositioned = new UrhoEventAdapter<PositionedEventArgs>(typeof(UIElement));
                       eventAdapterForPositioned.AddManagedSubscriber(handle, value, SubscribeToPositioned);
                  }
                  remove { eventAdapterForPositioned.RemoveManagedSubscriber(handle, value); }
@@ -4274,7 +4274,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForVisibleChanged == null)
-                          eventAdapterForVisibleChanged = new UrhoEventAdapter<VisibleChangedEventArgs>();
+                          eventAdapterForVisibleChanged = new UrhoEventAdapter<VisibleChangedEventArgs>(typeof(UIElement));
                       eventAdapterForVisibleChanged.AddManagedSubscriber(handle, value, SubscribeToVisibleChanged);
                  }
                  remove { eventAdapterForVisibleChanged.RemoveManagedSubscriber(handle, value); }
@@ -4310,7 +4310,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForFocused == null)
-                          eventAdapterForFocused = new UrhoEventAdapter<FocusedEventArgs>();
+                          eventAdapterForFocused = new UrhoEventAdapter<FocusedEventArgs>(typeof(UIElement));
                       eventAdapterForFocused.AddManagedSubscriber(handle, value, SubscribeToFocused);
                  }
                  remove { eventAdapterForFocused.RemoveManagedSubscriber(handle, value); }
@@ -4345,7 +4345,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForDefocused == null)
-                          eventAdapterForDefocused = new UrhoEventAdapter<DefocusedEventArgs>();
+                          eventAdapterForDefocused = new UrhoEventAdapter<DefocusedEventArgs>(typeof(UIElement));
                       eventAdapterForDefocused.AddManagedSubscriber(handle, value, SubscribeToDefocused);
                  }
                  remove { eventAdapterForDefocused.RemoveManagedSubscriber(handle, value); }
@@ -4380,7 +4380,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForLayoutUpdated == null)
-                          eventAdapterForLayoutUpdated = new UrhoEventAdapter<LayoutUpdatedEventArgs>();
+                          eventAdapterForLayoutUpdated = new UrhoEventAdapter<LayoutUpdatedEventArgs>(typeof(UIElement));
                       eventAdapterForLayoutUpdated.AddManagedSubscriber(handle, value, SubscribeToLayoutUpdated);
                  }
                  remove { eventAdapterForLayoutUpdated.RemoveManagedSubscriber(handle, value); }
@@ -4415,7 +4415,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForPressed == null)
-                          eventAdapterForPressed = new UrhoEventAdapter<PressedEventArgs>();
+                          eventAdapterForPressed = new UrhoEventAdapter<PressedEventArgs>(typeof(Button));
                       eventAdapterForPressed.AddManagedSubscriber(handle, value, SubscribeToPressed);
                  }
                  remove { eventAdapterForPressed.RemoveManagedSubscriber(handle, value); }
@@ -4450,7 +4450,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForReleased == null)
-                          eventAdapterForReleased = new UrhoEventAdapter<ReleasedEventArgs>();
+                          eventAdapterForReleased = new UrhoEventAdapter<ReleasedEventArgs>(typeof(Button));
                       eventAdapterForReleased.AddManagedSubscriber(handle, value, SubscribeToReleased);
                  }
                  remove { eventAdapterForReleased.RemoveManagedSubscriber(handle, value); }
@@ -4486,7 +4486,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForToggled == null)
-                          eventAdapterForToggled = new UrhoEventAdapter<ToggledEventArgs>();
+                          eventAdapterForToggled = new UrhoEventAdapter<ToggledEventArgs>(typeof(CheckBox));
                       eventAdapterForToggled.AddManagedSubscriber(handle, value, SubscribeToToggled);
                  }
                  remove { eventAdapterForToggled.RemoveManagedSubscriber(handle, value); }
@@ -4522,7 +4522,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForSliderChanged == null)
-                          eventAdapterForSliderChanged = new UrhoEventAdapter<SliderChangedEventArgs>();
+                          eventAdapterForSliderChanged = new UrhoEventAdapter<SliderChangedEventArgs>(typeof(Slider));
                       eventAdapterForSliderChanged.AddManagedSubscriber(handle, value, SubscribeToSliderChanged);
                  }
                  remove { eventAdapterForSliderChanged.RemoveManagedSubscriber(handle, value); }
@@ -4559,7 +4559,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForSliderPaged == null)
-                          eventAdapterForSliderPaged = new UrhoEventAdapter<SliderPagedEventArgs>();
+                          eventAdapterForSliderPaged = new UrhoEventAdapter<SliderPagedEventArgs>(typeof(Slider));
                       eventAdapterForSliderPaged.AddManagedSubscriber(handle, value, SubscribeToSliderPaged);
                  }
                  remove { eventAdapterForSliderPaged.RemoveManagedSubscriber(handle, value); }
@@ -4604,7 +4604,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForScrollBarChanged == null)
-                          eventAdapterForScrollBarChanged = new UrhoEventAdapter<ScrollBarChangedEventArgs>();
+                          eventAdapterForScrollBarChanged = new UrhoEventAdapter<ScrollBarChangedEventArgs>(typeof(ScrollBar));
                       eventAdapterForScrollBarChanged.AddManagedSubscriber(handle, value, SubscribeToScrollBarChanged);
                  }
                  remove { eventAdapterForScrollBarChanged.RemoveManagedSubscriber(handle, value); }
@@ -4641,7 +4641,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForViewChanged == null)
-                          eventAdapterForViewChanged = new UrhoEventAdapter<ViewChangedEventArgs>();
+                          eventAdapterForViewChanged = new UrhoEventAdapter<ViewChangedEventArgs>(typeof(ScrollView));
                       eventAdapterForViewChanged.AddManagedSubscriber(handle, value, SubscribeToViewChanged);
                  }
                  remove { eventAdapterForViewChanged.RemoveManagedSubscriber(handle, value); }
@@ -4677,7 +4677,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForModalChanged == null)
-                          eventAdapterForModalChanged = new UrhoEventAdapter<ModalChangedEventArgs>();
+                          eventAdapterForModalChanged = new UrhoEventAdapter<ModalChangedEventArgs>(typeof(Window));
                       eventAdapterForModalChanged.AddManagedSubscriber(handle, value, SubscribeToModalChanged);
                  }
                  remove { eventAdapterForModalChanged.RemoveManagedSubscriber(handle, value); }
@@ -4715,7 +4715,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForCharEntry == null)
-                          eventAdapterForCharEntry = new UrhoEventAdapter<CharEntryEventArgs>();
+                          eventAdapterForCharEntry = new UrhoEventAdapter<CharEntryEventArgs>(typeof(LineEdit));
                       eventAdapterForCharEntry.AddManagedSubscriber(handle, value, SubscribeToCharEntry);
                  }
                  remove { eventAdapterForCharEntry.RemoveManagedSubscriber(handle, value); }
@@ -4751,7 +4751,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForTextChanged == null)
-                          eventAdapterForTextChanged = new UrhoEventAdapter<TextChangedEventArgs>();
+                          eventAdapterForTextChanged = new UrhoEventAdapter<TextChangedEventArgs>(typeof(LineEdit));
                       eventAdapterForTextChanged.AddManagedSubscriber(handle, value, SubscribeToTextChanged);
                  }
                  remove { eventAdapterForTextChanged.RemoveManagedSubscriber(handle, value); }
@@ -4788,7 +4788,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForTextFinished == null)
-                          eventAdapterForTextFinished = new UrhoEventAdapter<TextFinishedEventArgs>();
+                          eventAdapterForTextFinished = new UrhoEventAdapter<TextFinishedEventArgs>(typeof(LineEdit));
                       eventAdapterForTextFinished.AddManagedSubscriber(handle, value, SubscribeToTextFinished);
                  }
                  remove { eventAdapterForTextFinished.RemoveManagedSubscriber(handle, value); }
@@ -4823,7 +4823,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForMenuSelected == null)
-                          eventAdapterForMenuSelected = new UrhoEventAdapter<MenuSelectedEventArgs>();
+                          eventAdapterForMenuSelected = new UrhoEventAdapter<MenuSelectedEventArgs>(typeof(Menu));
                       eventAdapterForMenuSelected.AddManagedSubscriber(handle, value, SubscribeToMenuSelected);
                  }
                  remove { eventAdapterForMenuSelected.RemoveManagedSubscriber(handle, value); }
@@ -4859,7 +4859,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForItemSelected == null)
-                          eventAdapterForItemSelected = new UrhoEventAdapter<ItemSelectedEventArgs>();
+                          eventAdapterForItemSelected = new UrhoEventAdapter<ItemSelectedEventArgs>(typeof(DropDownList));
                       eventAdapterForItemSelected.AddManagedSubscriber(handle, value, SubscribeToItemSelected);
                  }
                  remove { eventAdapterForItemSelected.RemoveManagedSubscriber(handle, value); }
@@ -4886,7 +4886,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForItemSelected == null)
-                          eventAdapterForItemSelected = new UrhoEventAdapter<ItemSelectedEventArgs>();
+                          eventAdapterForItemSelected = new UrhoEventAdapter<ItemSelectedEventArgs>(typeof(ListView));
                       eventAdapterForItemSelected.AddManagedSubscriber(handle, value, SubscribeToItemSelected);
                  }
                  remove { eventAdapterForItemSelected.RemoveManagedSubscriber(handle, value); }
@@ -4922,7 +4922,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForItemDeselected == null)
-                          eventAdapterForItemDeselected = new UrhoEventAdapter<ItemDeselectedEventArgs>();
+                          eventAdapterForItemDeselected = new UrhoEventAdapter<ItemDeselectedEventArgs>(typeof(ListView));
                       eventAdapterForItemDeselected.AddManagedSubscriber(handle, value, SubscribeToItemDeselected);
                  }
                  remove { eventAdapterForItemDeselected.RemoveManagedSubscriber(handle, value); }
@@ -4957,7 +4957,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForSelectionChanged == null)
-                          eventAdapterForSelectionChanged = new UrhoEventAdapter<SelectionChangedEventArgs>();
+                          eventAdapterForSelectionChanged = new UrhoEventAdapter<SelectionChangedEventArgs>(typeof(ListView));
                       eventAdapterForSelectionChanged.AddManagedSubscriber(handle, value, SubscribeToSelectionChanged);
                  }
                  remove { eventAdapterForSelectionChanged.RemoveManagedSubscriber(handle, value); }
@@ -4997,7 +4997,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForItemClicked == null)
-                          eventAdapterForItemClicked = new UrhoEventAdapter<ItemClickedEventArgs>();
+                          eventAdapterForItemClicked = new UrhoEventAdapter<ItemClickedEventArgs>(typeof(ListView));
                       eventAdapterForItemClicked.AddManagedSubscriber(handle, value, SubscribeToItemClicked);
                  }
                  remove { eventAdapterForItemClicked.RemoveManagedSubscriber(handle, value); }
@@ -5037,7 +5037,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForItemDoubleClicked == null)
-                          eventAdapterForItemDoubleClicked = new UrhoEventAdapter<ItemDoubleClickedEventArgs>();
+                          eventAdapterForItemDoubleClicked = new UrhoEventAdapter<ItemDoubleClickedEventArgs>(typeof(ListView));
                       eventAdapterForItemDoubleClicked.AddManagedSubscriber(handle, value, SubscribeToItemDoubleClicked);
                  }
                  remove { eventAdapterForItemDoubleClicked.RemoveManagedSubscriber(handle, value); }
@@ -5075,7 +5075,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForUnhandledKey == null)
-                          eventAdapterForUnhandledKey = new UrhoEventAdapter<UnhandledKeyEventArgs>();
+                          eventAdapterForUnhandledKey = new UrhoEventAdapter<UnhandledKeyEventArgs>(typeof(LineEdit));
                       eventAdapterForUnhandledKey.AddManagedSubscriber(handle, value, SubscribeToUnhandledKey);
                  }
                  remove { eventAdapterForUnhandledKey.RemoveManagedSubscriber(handle, value); }
@@ -5102,7 +5102,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForUnhandledKey == null)
-                          eventAdapterForUnhandledKey = new UrhoEventAdapter<UnhandledKeyEventArgs>();
+                          eventAdapterForUnhandledKey = new UrhoEventAdapter<UnhandledKeyEventArgs>(typeof(ListView));
                       eventAdapterForUnhandledKey.AddManagedSubscriber(handle, value, SubscribeToUnhandledKey);
                  }
                  remove { eventAdapterForUnhandledKey.RemoveManagedSubscriber(handle, value); }
@@ -5139,7 +5139,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForFileSelected == null)
-                          eventAdapterForFileSelected = new UrhoEventAdapter<FileSelectedEventArgs>();
+                          eventAdapterForFileSelected = new UrhoEventAdapter<FileSelectedEventArgs>(typeof(FileSelector));
                       eventAdapterForFileSelected.AddManagedSubscriber(handle, value, SubscribeToFileSelected);
                  }
                  remove { eventAdapterForFileSelected.RemoveManagedSubscriber(handle, value); }
@@ -5174,7 +5174,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForMessageACK == null)
-                          eventAdapterForMessageACK = new UrhoEventAdapter<MessageACKEventArgs>();
+                          eventAdapterForMessageACK = new UrhoEventAdapter<MessageACKEventArgs>(typeof(MessageBox));
                       eventAdapterForMessageACK.AddManagedSubscriber(handle, value, SubscribeToMessageACK);
                  }
                  remove { eventAdapterForMessageACK.RemoveManagedSubscriber(handle, value); }
@@ -5211,7 +5211,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForElementAdded == null)
-                          eventAdapterForElementAdded = new UrhoEventAdapter<ElementAddedEventArgs>();
+                          eventAdapterForElementAdded = new UrhoEventAdapter<ElementAddedEventArgs>(typeof(UIElement));
                       eventAdapterForElementAdded.AddManagedSubscriber(handle, value, SubscribeToElementAdded);
                  }
                  remove { eventAdapterForElementAdded.RemoveManagedSubscriber(handle, value); }
@@ -5248,7 +5248,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForElementRemoved == null)
-                          eventAdapterForElementRemoved = new UrhoEventAdapter<ElementRemovedEventArgs>();
+                          eventAdapterForElementRemoved = new UrhoEventAdapter<ElementRemovedEventArgs>(typeof(UIElement));
                       eventAdapterForElementRemoved.AddManagedSubscriber(handle, value, SubscribeToElementRemoved);
                  }
                  remove { eventAdapterForElementRemoved.RemoveManagedSubscriber(handle, value); }
@@ -5287,7 +5287,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForHoverBegin == null)
-                          eventAdapterForHoverBegin = new UrhoEventAdapter<HoverBeginEventArgs>();
+                          eventAdapterForHoverBegin = new UrhoEventAdapter<HoverBeginEventArgs>(typeof(UIElement));
                       eventAdapterForHoverBegin.AddManagedSubscriber(handle, value, SubscribeToHoverBegin);
                  }
                  remove { eventAdapterForHoverBegin.RemoveManagedSubscriber(handle, value); }
@@ -5322,7 +5322,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForHoverEnd == null)
-                          eventAdapterForHoverEnd = new UrhoEventAdapter<HoverEndEventArgs>();
+                          eventAdapterForHoverEnd = new UrhoEventAdapter<HoverEndEventArgs>(typeof(UIElement));
                       eventAdapterForHoverEnd.AddManagedSubscriber(handle, value, SubscribeToHoverEnd);
                  }
                  remove { eventAdapterForHoverEnd.RemoveManagedSubscriber(handle, value); }
@@ -5363,7 +5363,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForDragBegin == null)
-                          eventAdapterForDragBegin = new UrhoEventAdapter<DragBeginEventArgs>();
+                          eventAdapterForDragBegin = new UrhoEventAdapter<DragBeginEventArgs>(typeof(UIElement));
                       eventAdapterForDragBegin.AddManagedSubscriber(handle, value, SubscribeToDragBegin);
                  }
                  remove { eventAdapterForDragBegin.RemoveManagedSubscriber(handle, value); }
@@ -5406,7 +5406,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForDragMove == null)
-                          eventAdapterForDragMove = new UrhoEventAdapter<DragMoveEventArgs>();
+                          eventAdapterForDragMove = new UrhoEventAdapter<DragMoveEventArgs>(typeof(UIElement));
                       eventAdapterForDragMove.AddManagedSubscriber(handle, value, SubscribeToDragMove);
                  }
                  remove { eventAdapterForDragMove.RemoveManagedSubscriber(handle, value); }
@@ -5447,7 +5447,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForDragEnd == null)
-                          eventAdapterForDragEnd = new UrhoEventAdapter<DragEndEventArgs>();
+                          eventAdapterForDragEnd = new UrhoEventAdapter<DragEndEventArgs>(typeof(UIElement));
                       eventAdapterForDragEnd.AddManagedSubscriber(handle, value, SubscribeToDragEnd);
                  }
                  remove { eventAdapterForDragEnd.RemoveManagedSubscriber(handle, value); }
@@ -5488,7 +5488,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForDragCancel == null)
-                          eventAdapterForDragCancel = new UrhoEventAdapter<DragCancelEventArgs>();
+                          eventAdapterForDragCancel = new UrhoEventAdapter<DragCancelEventArgs>(typeof(UIElement));
                       eventAdapterForDragCancel.AddManagedSubscriber(handle, value, SubscribeToDragCancel);
                  }
                  remove { eventAdapterForDragCancel.RemoveManagedSubscriber(handle, value); }
@@ -5528,7 +5528,7 @@ namespace Urho.Gui {
                  add
                  {
                       if (eventAdapterForUIDropFile == null)
-                          eventAdapterForUIDropFile = new UrhoEventAdapter<UIDropFileEventArgs>();
+                          eventAdapterForUIDropFile = new UrhoEventAdapter<UIDropFileEventArgs>(typeof(UI));
                       eventAdapterForUIDropFile.AddManagedSubscriber(handle, value, SubscribeToUIDropFile);
                  }
                  remove { eventAdapterForUIDropFile.RemoveManagedSubscriber(handle, value); }
@@ -5568,7 +5568,7 @@ namespace Urho.Urho2D {
                  add
                  {
                       if (eventAdapterForPhysicsBeginContact2D == null)
-                          eventAdapterForPhysicsBeginContact2D = new UrhoEventAdapter<PhysicsBeginContact2DEventArgs>();
+                          eventAdapterForPhysicsBeginContact2D = new UrhoEventAdapter<PhysicsBeginContact2DEventArgs>(typeof(PhysicsWorld2D));
                       eventAdapterForPhysicsBeginContact2D.AddManagedSubscriber(handle, value, SubscribeToPhysicsBeginContact2D);
                  }
                  remove { eventAdapterForPhysicsBeginContact2D.RemoveManagedSubscriber(handle, value); }
@@ -5608,7 +5608,7 @@ namespace Urho.Urho2D {
                  add
                  {
                       if (eventAdapterForPhysicsEndContact2D == null)
-                          eventAdapterForPhysicsEndContact2D = new UrhoEventAdapter<PhysicsEndContact2DEventArgs>();
+                          eventAdapterForPhysicsEndContact2D = new UrhoEventAdapter<PhysicsEndContact2DEventArgs>(typeof(PhysicsWorld2D));
                       eventAdapterForPhysicsEndContact2D.AddManagedSubscriber(handle, value, SubscribeToPhysicsEndContact2D);
                  }
                  remove { eventAdapterForPhysicsEndContact2D.RemoveManagedSubscriber(handle, value); }
@@ -5642,589 +5642,9 @@ namespace Urho {
 // Hash Getters
 namespace Urho {    internal class UrhoHash {
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SDLEVENT ();
-            static int _P_SDLEVENT;
-            internal static int P_SDLEVENT { get { if (_P_SDLEVENT == 0){ _P_SDLEVENT = urho_hash_get_P_SDLEVENT (); } return _P_SDLEVENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SURFACE ();
-            static int _P_SURFACE;
-            internal static int P_SURFACE { get { if (_P_SURFACE == 0){ _P_SURFACE = urho_hash_get_P_SURFACE (); } return _P_SURFACE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BOUNDSMAX ();
-            static int _P_BOUNDSMAX;
-            internal static int P_BOUNDSMAX { get { if (_P_BOUNDSMAX == 0){ _P_BOUNDSMAX = urho_hash_get_P_BOUNDSMAX (); } return _P_BOUNDSMAX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODY ();
-            static int _P_BODY;
-            internal static int P_BODY { get { if (_P_BODY == 0){ _P_BODY = urho_hash_get_P_BODY (); } return _P_BODY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODEB ();
-            static int _P_NODEB;
-            internal static int P_NODEB { get { if (_P_NODEB == 0){ _P_NODEB = urho_hash_get_P_NODEB (); } return _P_NODEB; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DTHETA ();
-            static int _P_DTHETA;
-            internal static int P_DTHETA { get { if (_P_DTHETA == 0){ _P_DTHETA = urho_hash_get_P_DTHETA (); } return _P_DTHETA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ROOT ();
-            static int _P_ROOT;
-            internal static int P_ROOT { get { if (_P_ROOT == 0){ _P_ROOT = urho_hash_get_P_ROOT (); } return _P_ROOT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MINIMIZED ();
-            static int _P_MINIMIZED;
-            internal static int P_MINIMIZED { get { if (_P_MINIMIZED == 0){ _P_MINIMIZED = urho_hash_get_P_MINIMIZED (); } return _P_MINIMIZED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESOURCETYPE ();
-            static int _P_RESOURCETYPE;
-            internal static int P_RESOURCETYPE { get { if (_P_RESOURCETYPE == 0){ _P_RESOURCETYPE = urho_hash_get_P_RESOURCETYPE (); } return _P_RESOURCETYPE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESSAGE ();
-            static int _P_MESSAGE;
-            internal static int P_MESSAGE { get { if (_P_MESSAGE == 0){ _P_MESSAGE = urho_hash_get_P_MESSAGE (); } return _P_MESSAGE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BORDERLESS ();
-            static int _P_BORDERLESS;
-            internal static int P_BORDERLESS { get { if (_P_BORDERLESS == 0){ _P_BORDERLESS = urho_hash_get_P_BORDERLESS (); } return _P_BORDERLESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESSAGEID ();
-            static int _P_MESSAGEID;
-            internal static int P_MESSAGEID { get { if (_P_MESSAGEID == 0){ _P_MESSAGEID = urho_hash_get_P_MESSAGEID (); } return _P_MESSAGEID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ITEM ();
-            static int _P_ITEM;
-            internal static int P_ITEM { get { if (_P_ITEM == 0){ _P_ITEM = urho_hash_get_P_ITEM (); } return _P_ITEM; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FILTER ();
-            static int _P_FILTER;
-            internal static int P_FILTER { get { if (_P_FILTER == 0){ _P_FILTER = urho_hash_get_P_FILTER (); } return _P_FILTER; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LOADEDRESOURCES ();
-            static int _P_LOADEDRESOURCES;
-            internal static int P_LOADEDRESOURCES { get { if (_P_LOADEDRESOURCES == 0){ _P_LOADEDRESOURCES = urho_hash_get_P_LOADEDRESOURCES (); } return _P_LOADEDRESOURCES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_GESTUREID ();
-            static int _P_GESTUREID;
-            internal static int P_GESTUREID { get { if (_P_GESTUREID == 0){ _P_GESTUREID = urho_hash_get_P_GESTUREID (); } return _P_GESTUREID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOTALNODES ();
-            static int _P_TOTALNODES;
-            internal static int P_TOTALNODES { get { if (_P_TOTALNODES == 0){ _P_TOTALNODES = urho_hash_get_P_TOTALNODES (); } return _P_TOTALNODES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_HIGHDPI ();
-            static int _P_HIGHDPI;
-            internal static int P_HIGHDPI { get { if (_P_HIGHDPI == 0){ _P_HIGHDPI = urho_hash_get_P_HIGHDPI (); } return _P_HIGHDPI; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SIZE ();
-            static int _P_SIZE;
-            internal static int P_SIZE { get { if (_P_SIZE == 0){ _P_SIZE = urho_hash_get_P_SIZE (); } return _P_SIZE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VALUE ();
-            static int _P_VALUE;
-            internal static int P_VALUE { get { if (_P_VALUE == 0){ _P_VALUE = urho_hash_get_P_VALUE (); } return _P_VALUE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BEGINELEMENT ();
-            static int _P_BEGINELEMENT;
-            internal static int P_BEGINELEMENT { get { if (_P_BEGINELEMENT == 0){ _P_BEGINELEMENT = urho_hash_get_P_BEGINELEMENT (); } return _P_BEGINELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENT ();
-            static int _P_ELEMENT;
-            internal static int P_ELEMENT { get { if (_P_ELEMENT == 0){ _P_ELEMENT = urho_hash_get_P_ELEMENT (); } return _P_ELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CENTERY ();
-            static int _P_CENTERY;
-            internal static int P_CENTERY { get { if (_P_CENTERY == 0){ _P_CENTERY = urho_hash_get_P_CENTERY (); } return _P_CENTERY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ARRIVED ();
-            static int _P_ARRIVED;
-            internal static int P_ARRIVED { get { if (_P_ARRIVED == 0){ _P_ARRIVED = urho_hash_get_P_ARRIVED (); } return _P_ARRIVED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NUMFINGERS ();
-            static int _P_NUMFINGERS;
-            internal static int P_NUMFINGERS { get { if (_P_NUMFINGERS == 0){ _P_NUMFINGERS = urho_hash_get_P_NUMFINGERS (); } return _P_NUMFINGERS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ANIMATION ();
-            static int _P_ANIMATION;
-            internal static int P_ANIMATION { get { if (_P_ANIMATION == 0){ _P_ANIMATION = urho_hash_get_P_ANIMATION (); } return _P_ANIMATION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIMESTAMP ();
-            static int _P_TIMESTAMP;
-            internal static int P_TIMESTAMP { get { if (_P_TIMESTAMP == 0){ _P_TIMESTAMP = urho_hash_get_P_TIMESTAMP (); } return _P_TIMESTAMP; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_KEY ();
-            static int _P_KEY;
-            internal static int P_KEY { get { if (_P_KEY == 0){ _P_KEY = urho_hash_get_P_KEY (); } return _P_KEY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DATA ();
-            static int _P_DATA;
-            internal static int P_DATA { get { if (_P_DATA == 0){ _P_DATA = urho_hash_get_P_DATA (); } return _P_DATA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TEXT ();
-            static int _P_TEXT;
-            internal static int P_TEXT { get { if (_P_TEXT == 0){ _P_TEXT = urho_hash_get_P_TEXT (); } return _P_TEXT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TAG ();
-            static int _P_TAG;
-            internal static int P_TAG { get { if (_P_TAG == 0){ _P_TAG = urho_hash_get_P_TAG (); } return _P_TAG; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WORLD ();
-            static int _P_WORLD;
-            internal static int P_WORLD { get { if (_P_WORLD == 0){ _P_WORLD = urho_hash_get_P_WORLD (); } return _P_WORLD; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BUTTON ();
-            static int _P_BUTTON;
-            internal static int P_BUTTON { get { if (_P_BUTTON == 0){ _P_BUTTON = urho_hash_get_P_BUTTON (); } return _P_BUTTON; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_X ();
-            static int _P_X;
-            internal static int P_X { get { if (_P_X == 0){ _P_X = urho_hash_get_P_X (); } return _P_X; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_EFFECT ();
-            static int _P_EFFECT;
-            internal static int P_EFFECT { get { if (_P_EFFECT == 0){ _P_EFFECT = urho_hash_get_P_EFFECT (); } return _P_EFFECT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ACCEPT ();
-            static int _P_ACCEPT;
-            internal static int P_ACCEPT { get { if (_P_ACCEPT == 0){ _P_ACCEPT = urho_hash_get_P_ACCEPT (); } return _P_ACCEPT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONSTANT ();
-            static int _P_CONSTANT;
-            internal static int P_CONSTANT { get { if (_P_CONSTANT == 0){ _P_CONSTANT = urho_hash_get_P_CONSTANT (); } return _P_CONSTANT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DX ();
-            static int _P_DX;
-            internal static int P_DX { get { if (_P_DX == 0){ _P_DX = urho_hash_get_P_DX (); } return _P_DX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BUTTONS ();
-            static int _P_BUTTONS;
-            internal static int P_BUTTONS { get { if (_P_BUTTONS == 0){ _P_BUTTONS = urho_hash_get_P_BUTTONS (); } return _P_BUTTONS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CLONECOMPONENT ();
-            static int _P_CLONECOMPONENT;
-            internal static int P_CLONECOMPONENT { get { if (_P_CLONECOMPONENT == 0){ _P_CLONECOMPONENT = urho_hash_get_P_CLONECOMPONENT (); } return _P_CLONECOMPONENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_Y ();
-            static int _P_Y;
-            internal static int P_Y { get { if (_P_Y == 0){ _P_Y = urho_hash_get_P_Y (); } return _P_Y; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FOCUS ();
-            static int _P_FOCUS;
-            internal static int P_FOCUS { get { if (_P_FOCUS == 0){ _P_FOCUS = urho_hash_get_P_FOCUS (); } return _P_FOCUS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TRIGGER ();
-            static int _P_TRIGGER;
-            internal static int P_TRIGGER { get { if (_P_TRIGGER == 0){ _P_TRIGGER = urho_hash_get_P_TRIGGER (); } return _P_TRIGGER; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_HAT ();
-            static int _P_HAT;
-            internal static int P_HAT { get { if (_P_HAT == 0){ _P_HAT = urho_hash_get_P_HAT (); } return _P_HAT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CENTERX ();
-            static int _P_CENTERX;
-            internal static int P_CENTERX { get { if (_P_CENTERX == 0){ _P_CENTERX = urho_hash_get_P_CENTERX (); } return _P_CENTERX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WHEEL ();
-            static int _P_WHEEL;
-            internal static int P_WHEEL { get { if (_P_WHEEL == 0){ _P_WHEEL = urho_hash_get_P_WHEEL (); } return _P_WHEEL; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FRAMENUMBER ();
-            static int _P_FRAMENUMBER;
-            internal static int P_FRAMENUMBER { get { if (_P_FRAMENUMBER == 0){ _P_FRAMENUMBER = urho_hash_get_P_FRAMENUMBER (); } return _P_FRAMENUMBER; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PRESSURE ();
-            static int _P_PRESSURE;
-            internal static int P_PRESSURE { get { if (_P_PRESSURE == 0){ _P_PRESSURE = urho_hash_get_P_PRESSURE (); } return _P_PRESSURE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_INDEX ();
-            static int _P_INDEX;
-            internal static int P_INDEX { get { if (_P_INDEX == 0){ _P_INDEX = urho_hash_get_P_INDEX (); } return _P_INDEX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OTHERNODE ();
-            static int _P_OTHERNODE;
-            internal static int P_OTHERNODE { get { if (_P_OTHERNODE == 0){ _P_OTHERNODE = urho_hash_get_P_OTHERNODE (); } return _P_OTHERNODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ATTRIBUTEANIMATIONNAME ();
-            static int _P_ATTRIBUTEANIMATIONNAME;
-            internal static int P_ATTRIBUTEANIMATIONNAME { get { if (_P_ATTRIBUTEANIMATIONNAME == 0){ _P_ATTRIBUTEANIMATIONNAME = urho_hash_get_P_ATTRIBUTEANIMATIONNAME (); } return _P_ATTRIBUTEANIMATIONNAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NAME ();
-            static int _P_NAME;
-            internal static int P_NAME { get { if (_P_NAME == 0){ _P_NAME = urho_hash_get_P_NAME (); } return _P_NAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LOOPED ();
-            static int _P_LOOPED;
-            internal static int P_LOOPED { get { if (_P_LOOPED == 0){ _P_LOOPED = urho_hash_get_P_LOOPED (); } return _P_LOOPED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VELOCITY ();
-            static int _P_VELOCITY;
-            internal static int P_VELOCITY { get { if (_P_VELOCITY == 0){ _P_VELOCITY = urho_hash_get_P_VELOCITY (); } return _P_VELOCITY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENTX ();
-            static int _P_ELEMENTX;
-            internal static int P_ELEMENTX { get { if (_P_ELEMENTX == 0){ _P_ELEMENTX = urho_hash_get_P_ELEMENTX (); } return _P_ELEMENTX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_HEIGHT ();
-            static int _P_HEIGHT;
-            internal static int P_HEIGHT { get { if (_P_HEIGHT == 0){ _P_HEIGHT = urho_hash_get_P_HEIGHT (); } return _P_HEIGHT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VISIBLE ();
-            static int _P_VISIBLE;
-            internal static int P_VISIBLE { get { if (_P_VISIBLE == 0){ _P_VISIBLE = urho_hash_get_P_VISIBLE (); } return _P_VISIBLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VIEW ();
-            static int _P_VIEW;
-            internal static int P_VIEW { get { if (_P_VIEW == 0){ _P_VIEW = urho_hash_get_P_VIEW (); } return _P_VIEW; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OTHERBODY ();
-            static int _P_OTHERBODY;
-            internal static int P_OTHERBODY { get { if (_P_OTHERBODY == 0){ _P_OTHERBODY = urho_hash_get_P_OTHERBODY (); } return _P_OTHERBODY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OBSTACLE ();
-            static int _P_OBSTACLE;
-            internal static int P_OBSTACLE { get { if (_P_OBSTACLE == 0){ _P_OBSTACLE = urho_hash_get_P_OBSTACLE (); } return _P_OBSTACLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_EXITCODE ();
-            static int _P_EXITCODE;
-            internal static int P_EXITCODE { get { if (_P_EXITCODE == 0){ _P_EXITCODE = urho_hash_get_P_EXITCODE (); } return _P_EXITCODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESOURCE ();
-            static int _P_RESOURCE;
-            internal static int P_RESOURCE { get { if (_P_RESOURCE == 0){ _P_RESOURCE = urho_hash_get_P_RESOURCE (); } return _P_RESOURCE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OK ();
-            static int _P_OK;
-            internal static int P_OK { get { if (_P_OK == 0){ _P_OK = urho_hash_get_P_OK (); } return _P_OK; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODYA ();
-            static int _P_BODYA;
-            internal static int P_BODYA { get { if (_P_BODYA == 0){ _P_BODYA = urho_hash_get_P_BODYA (); } return _P_BODYA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENTY ();
-            static int _P_ELEMENTY;
-            internal static int P_ELEMENTY { get { if (_P_ELEMENTY == 0){ _P_ELEMENTY = urho_hash_get_P_ELEMENTY (); } return _P_ELEMENTY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SELECTION ();
-            static int _P_SELECTION;
-            internal static int P_SELECTION { get { if (_P_SELECTION == 0){ _P_SELECTION = urho_hash_get_P_SELECTION (); } return _P_SELECTION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOTALRESOURCES ();
-            static int _P_TOTALRESOURCES;
-            internal static int P_TOTALRESOURCES { get { if (_P_TOTALRESOURCES == 0){ _P_TOTALRESOURCES = urho_hash_get_P_TOTALRESOURCES (); } return _P_TOTALRESOURCES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESH ();
-            static int _P_MESH;
-            internal static int P_MESH { get { if (_P_MESH == 0){ _P_MESH = urho_hash_get_P_MESH (); } return _P_MESH; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ALLOW ();
-            static int _P_ALLOW;
-            internal static int P_ALLOW { get { if (_P_ALLOW == 0){ _P_ALLOW = urho_hash_get_P_ALLOW (); } return _P_ALLOW; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RADIUS ();
-            static int _P_RADIUS;
-            internal static int P_RADIUS { get { if (_P_RADIUS == 0){ _P_RADIUS = urho_hash_get_P_RADIUS (); } return _P_RADIUS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PROGRESS ();
-            static int _P_PROGRESS;
-            internal static int P_PROGRESS { get { if (_P_PROGRESS == 0){ _P_PROGRESS = urho_hash_get_P_PROGRESS (); } return _P_PROGRESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FULLSCREEN ();
-            static int _P_FULLSCREEN;
-            internal static int P_FULLSCREEN { get { if (_P_FULLSCREEN == 0){ _P_FULLSCREEN = urho_hash_get_P_FULLSCREEN (); } return _P_FULLSCREEN; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MODE ();
-            static int _P_MODE;
-            internal static int P_MODE { get { if (_P_MODE == 0){ _P_MODE = urho_hash_get_P_MODE (); } return _P_MODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BOUNDSMIN ();
-            static int _P_BOUNDSMIN;
-            internal static int P_BOUNDSMIN { get { if (_P_BOUNDSMIN == 0){ _P_BOUNDSMIN = urho_hash_get_P_BOUNDSMIN (); } return _P_BOUNDSMIN; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DY ();
-            static int _P_DY;
-            internal static int P_DY { get { if (_P_DY == 0){ _P_DY = urho_hash_get_P_DY (); } return _P_DY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESIZABLE ();
-            static int _P_RESIZABLE;
-            internal static int P_RESIZABLE { get { if (_P_RESIZABLE == 0){ _P_RESIZABLE = urho_hash_get_P_RESIZABLE (); } return _P_RESIZABLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SERIALIZABLE ();
-            static int _P_SERIALIZABLE;
-            internal static int P_SERIALIZABLE { get { if (_P_SERIALIZABLE == 0){ _P_SERIALIZABLE = urho_hash_get_P_SERIALIZABLE (); } return _P_SERIALIZABLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SOURCE ();
-            static int _P_SOURCE;
-            internal static int P_SOURCE { get { if (_P_SOURCE == 0){ _P_SOURCE = urho_hash_get_P_SOURCE (); } return _P_SOURCE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TEXTURE ();
-            static int _P_TEXTURE;
-            internal static int P_TEXTURE { get { if (_P_TEXTURE == 0){ _P_TEXTURE = urho_hash_get_P_TEXTURE (); } return _P_TEXTURE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DDIST ();
-            static int _P_DDIST;
-            internal static int P_DDIST { get { if (_P_DDIST == 0){ _P_DDIST = urho_hash_get_P_DDIST (); } return _P_DDIST; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SCENE ();
-            static int _P_SCENE;
-            internal static int P_SCENE { get { if (_P_SCENE == 0){ _P_SCENE = urho_hash_get_P_SCENE (); } return _P_SCENE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ERROR ();
-            static int _P_ERROR;
-            internal static int P_ERROR { get { if (_P_ERROR == 0){ _P_ERROR = urho_hash_get_P_ERROR (); } return _P_ERROR; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BYKEY ();
-            static int _P_BYKEY;
-            internal static int P_BYKEY { get { if (_P_BYKEY == 0){ _P_BYKEY = urho_hash_get_P_BYKEY (); } return _P_BYKEY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PRESSED ();
-            static int _P_PRESSED;
-            internal static int P_PRESSED { get { if (_P_PRESSED == 0){ _P_PRESSED = urho_hash_get_P_PRESSED (); } return _P_PRESSED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SCANCODE ();
-            static int _P_SCANCODE;
-            internal static int P_SCANCODE { get { if (_P_SCANCODE == 0){ _P_SCANCODE = urho_hash_get_P_SCANCODE (); } return _P_SCANCODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SOUNDSOURCE ();
-            static int _P_SOUNDSOURCE;
-            internal static int P_SOUNDSOURCE { get { if (_P_SOUNDSOURCE == 0){ _P_SOUNDSOURCE = urho_hash_get_P_SOUNDSOURCE (); } return _P_SOUNDSOURCE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ID ();
-            static int _P_ID;
-            internal static int P_ID { get { if (_P_ID == 0){ _P_ID = urho_hash_get_P_ID (); } return _P_ID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_REPEAT ();
-            static int _P_REPEAT;
-            internal static int P_REPEAT { get { if (_P_REPEAT == 0){ _P_REPEAT = urho_hash_get_P_REPEAT (); } return _P_REPEAT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_TARGET_STATE ();
-            static int _P_CROWD_TARGET_STATE;
-            internal static int P_CROWD_TARGET_STATE { get { if (_P_CROWD_TARGET_STATE == 0){ _P_CROWD_TARGET_STATE = urho_hash_get_P_CROWD_TARGET_STATE (); } return _P_CROWD_TARGET_STATE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NUMBUTTONS ();
-            static int _P_NUMBUTTONS;
-            internal static int P_NUMBUTTONS { get { if (_P_NUMBUTTONS == 0){ _P_NUMBUTTONS = urho_hash_get_P_NUMBUTTONS (); } return _P_NUMBUTTONS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SUCCESS ();
-            static int _P_SUCCESS;
-            internal static int P_SUCCESS { get { if (_P_SUCCESS == 0){ _P_SUCCESS = urho_hash_get_P_SUCCESS (); } return _P_SUCCESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OFFSET ();
-            static int _P_OFFSET;
-            internal static int P_OFFSET { get { if (_P_OFFSET == 0){ _P_OFFSET = urho_hash_get_P_OFFSET (); } return _P_OFFSET; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONSUMED ();
-            static int _P_CONSUMED;
-            internal static int P_CONSUMED { get { if (_P_CONSUMED == 0){ _P_CONSUMED = urho_hash_get_P_CONSUMED (); } return _P_CONSUMED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CAMERA ();
-            static int _P_CAMERA;
-            internal static int P_CAMERA { get { if (_P_CAMERA == 0){ _P_CAMERA = urho_hash_get_P_CAMERA (); } return _P_CAMERA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODE ();
-            static int _P_NODE;
-            internal static int P_NODE { get { if (_P_NODE == 0){ _P_NODE = urho_hash_get_P_NODE (); } return _P_NODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_REQUESTID ();
-            static int _P_REQUESTID;
-            internal static int P_REQUESTID { get { if (_P_REQUESTID == 0){ _P_REQUESTID = urho_hash_get_P_REQUESTID (); } return _P_REQUESTID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONNECTION ();
-            static int _P_CONNECTION;
-            internal static int P_CONNECTION { get { if (_P_CONNECTION == 0){ _P_CONNECTION = urho_hash_get_P_CONNECTION (); } return _P_CONNECTION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODYB ();
-            static int _P_BODYB;
-            internal static int P_BODYB { get { if (_P_BODYB == 0){ _P_BODYB = urho_hash_get_P_BODYB (); } return _P_BODYB; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WIDTH ();
-            static int _P_WIDTH;
-            internal static int P_WIDTH { get { if (_P_WIDTH == 0){ _P_WIDTH = urho_hash_get_P_WIDTH (); } return _P_WIDTH; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODEA ();
-            static int _P_NODEA;
-            internal static int P_NODEA { get { if (_P_NODEA == 0){ _P_NODEA = urho_hash_get_P_NODEA (); } return _P_NODEA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_COMPONENT ();
-            static int _P_COMPONENT;
-            internal static int P_COMPONENT { get { if (_P_COMPONENT == 0){ _P_COMPONENT = urho_hash_get_P_COMPONENT (); } return _P_COMPONENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_AGENT ();
-            static int _P_CROWD_AGENT;
-            internal static int P_CROWD_AGENT { get { if (_P_CROWD_AGENT == 0){ _P_CROWD_AGENT = urho_hash_get_P_CROWD_AGENT (); } return _P_CROWD_AGENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CLONENODE ();
-            static int _P_CLONENODE;
-            internal static int P_CLONENODE { get { if (_P_CLONENODE == 0){ _P_CLONENODE = urho_hash_get_P_CLONENODE (); } return _P_CLONENODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LOADEDNODES ();
-            static int _P_LOADEDNODES;
-            internal static int P_LOADEDNODES { get { if (_P_LOADEDNODES == 0){ _P_LOADEDNODES = urho_hash_get_P_LOADEDNODES (); } return _P_LOADEDNODES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_RESOURCENAME ();
             static int _P_RESOURCENAME;
             internal static int P_RESOURCENAME { get { if (_P_RESOURCENAME == 0){ _P_RESOURCENAME = urho_hash_get_P_RESOURCENAME (); } return _P_RESOURCENAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONTACT ();
-            static int _P_CONTACT;
-            internal static int P_CONTACT { get { if (_P_CONTACT == 0){ _P_CONTACT = urho_hash_get_P_CONTACT (); } return _P_CONTACT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PARENT ();
-            static int _P_PARENT;
-            internal static int P_PARENT { get { if (_P_PARENT == 0){ _P_PARENT = urho_hash_get_P_PARENT (); } return _P_PARENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_STATE ();
-            static int _P_STATE;
-            internal static int P_STATE { get { if (_P_STATE == 0){ _P_STATE = urho_hash_get_P_STATE (); } return _P_STATE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OBJECTANIMATION ();
-            static int _P_OBJECTANIMATION;
-            internal static int P_OBJECTANIMATION { get { if (_P_OBJECTANIMATION == 0){ _P_OBJECTANIMATION = urho_hash_get_P_OBJECTANIMATION (); } return _P_OBJECTANIMATION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONTACTS ();
-            static int _P_CONTACTS;
-            internal static int P_CONTACTS { get { if (_P_CONTACTS == 0){ _P_CONTACTS = urho_hash_get_P_CONTACTS (); } return _P_CONTACTS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIME ();
-            static int _P_TIME;
-            internal static int P_TIME { get { if (_P_TIME == 0){ _P_TIME = urho_hash_get_P_TIME (); } return _P_TIME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_AGENT_STATE ();
-            static int _P_CROWD_AGENT_STATE;
-            internal static int P_CROWD_AGENT_STATE { get { if (_P_CROWD_AGENT_STATE == 0){ _P_CROWD_AGENT_STATE = urho_hash_get_P_CROWD_AGENT_STATE (); } return _P_CROWD_AGENT_STATE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LEVEL ();
-            static int _P_LEVEL;
-            internal static int P_LEVEL { get { if (_P_LEVEL == 0){ _P_LEVEL = urho_hash_get_P_LEVEL (); } return _P_LEVEL; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOUCHID ();
-            static int _P_TOUCHID;
-            internal static int P_TOUCHID { get { if (_P_TOUCHID == 0){ _P_TOUCHID = urho_hash_get_P_TOUCHID (); } return _P_TOUCHID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CLICKEDELEMENT ();
-            static int _P_CLICKEDELEMENT;
-            internal static int P_CLICKEDELEMENT { get { if (_P_CLICKEDELEMENT == 0){ _P_CLICKEDELEMENT = urho_hash_get_P_CLICKEDELEMENT (); } return _P_CLICKEDELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FILENAME ();
-            static int _P_FILENAME;
-            internal static int P_FILENAME { get { if (_P_FILENAME == 0){ _P_FILENAME = urho_hash_get_P_FILENAME (); } return _P_FILENAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIMESTEP ();
-            static int _P_TIMESTEP;
-            internal static int P_TIMESTEP { get { if (_P_TIMESTEP == 0){ _P_TIMESTEP = urho_hash_get_P_TIMESTEP (); } return _P_TIMESTEP; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_TARGET ();
@@ -6232,9 +5652,129 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_TARGET { get { if (_P_TARGET == 0){ _P_TARGET = urho_hash_get_P_TARGET (); } return _P_TARGET; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MODAL ();
-            static int _P_MODAL;
-            internal static int P_MODAL { get { if (_P_MODAL == 0){ _P_MODAL = urho_hash_get_P_MODAL (); } return _P_MODAL; }}
+            extern static int urho_hash_get_P_HEIGHT ();
+            static int _P_HEIGHT;
+            internal static int P_HEIGHT { get { if (_P_HEIGHT == 0){ _P_HEIGHT = urho_hash_get_P_HEIGHT (); } return _P_HEIGHT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SIZE ();
+            static int _P_SIZE;
+            internal static int P_SIZE { get { if (_P_SIZE == 0){ _P_SIZE = urho_hash_get_P_SIZE (); } return _P_SIZE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SCENE ();
+            static int _P_SCENE;
+            internal static int P_SCENE { get { if (_P_SCENE == 0){ _P_SCENE = urho_hash_get_P_SCENE (); } return _P_SCENE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_LOOPED ();
+            static int _P_LOOPED;
+            internal static int P_LOOPED { get { if (_P_LOOPED == 0){ _P_LOOPED = urho_hash_get_P_LOOPED (); } return _P_LOOPED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ELEMENT ();
+            static int _P_ELEMENT;
+            internal static int P_ELEMENT { get { if (_P_ELEMENT == 0){ _P_ELEMENT = urho_hash_get_P_ELEMENT (); } return _P_ELEMENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_VALUE ();
+            static int _P_VALUE;
+            internal static int P_VALUE { get { if (_P_VALUE == 0){ _P_VALUE = urho_hash_get_P_VALUE (); } return _P_VALUE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TEXT ();
+            static int _P_TEXT;
+            internal static int P_TEXT { get { if (_P_TEXT == 0){ _P_TEXT = urho_hash_get_P_TEXT (); } return _P_TEXT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FRAMENUMBER ();
+            static int _P_FRAMENUMBER;
+            internal static int P_FRAMENUMBER { get { if (_P_FRAMENUMBER == 0){ _P_FRAMENUMBER = urho_hash_get_P_FRAMENUMBER (); } return _P_FRAMENUMBER; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONSUMED ();
+            static int _P_CONSUMED;
+            internal static int P_CONSUMED { get { if (_P_CONSUMED == 0){ _P_CONSUMED = urho_hash_get_P_CONSUMED (); } return _P_CONSUMED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DATA ();
+            static int _P_DATA;
+            internal static int P_DATA { get { if (_P_DATA == 0){ _P_DATA = urho_hash_get_P_DATA (); } return _P_DATA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CLONENODE ();
+            static int _P_CLONENODE;
+            internal static int P_CLONENODE { get { if (_P_CLONENODE == 0){ _P_CLONENODE = urho_hash_get_P_CLONENODE (); } return _P_CLONENODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BODYB ();
+            static int _P_BODYB;
+            internal static int P_BODYB { get { if (_P_BODYB == 0){ _P_BODYB = urho_hash_get_P_BODYB (); } return _P_BODYB; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OFFSET ();
+            static int _P_OFFSET;
+            internal static int P_OFFSET { get { if (_P_OFFSET == 0){ _P_OFFSET = urho_hash_get_P_OFFSET (); } return _P_OFFSET; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TOTALRESOURCES ();
+            static int _P_TOTALRESOURCES;
+            internal static int P_TOTALRESOURCES { get { if (_P_TOTALRESOURCES == 0){ _P_TOTALRESOURCES = urho_hash_get_P_TOTALRESOURCES (); } return _P_TOTALRESOURCES; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_COMPONENT ();
+            static int _P_COMPONENT;
+            internal static int P_COMPONENT { get { if (_P_COMPONENT == 0){ _P_COMPONENT = urho_hash_get_P_COMPONENT (); } return _P_COMPONENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FOCUS ();
+            static int _P_FOCUS;
+            internal static int P_FOCUS { get { if (_P_FOCUS == 0){ _P_FOCUS = urho_hash_get_P_FOCUS (); } return _P_FOCUS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FULLSCREEN ();
+            static int _P_FULLSCREEN;
+            internal static int P_FULLSCREEN { get { if (_P_FULLSCREEN == 0){ _P_FULLSCREEN = urho_hash_get_P_FULLSCREEN (); } return _P_FULLSCREEN; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_VISIBLE ();
+            static int _P_VISIBLE;
+            internal static int P_VISIBLE { get { if (_P_VISIBLE == 0){ _P_VISIBLE = urho_hash_get_P_VISIBLE (); } return _P_VISIBLE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TAG ();
+            static int _P_TAG;
+            internal static int P_TAG { get { if (_P_TAG == 0){ _P_TAG = urho_hash_get_P_TAG (); } return _P_TAG; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SCANCODE ();
+            static int _P_SCANCODE;
+            internal static int P_SCANCODE { get { if (_P_SCANCODE == 0){ _P_SCANCODE = urho_hash_get_P_SCANCODE (); } return _P_SCANCODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_PRESSURE ();
+            static int _P_PRESSURE;
+            internal static int P_PRESSURE { get { if (_P_PRESSURE == 0){ _P_PRESSURE = urho_hash_get_P_PRESSURE (); } return _P_PRESSURE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_RESOURCETYPE ();
+            static int _P_RESOURCETYPE;
+            internal static int P_RESOURCETYPE { get { if (_P_RESOURCETYPE == 0){ _P_RESOURCETYPE = urho_hash_get_P_RESOURCETYPE (); } return _P_RESOURCETYPE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_STATE ();
+            static int _P_STATE;
+            internal static int P_STATE { get { if (_P_STATE == 0){ _P_STATE = urho_hash_get_P_STATE (); } return _P_STATE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SERIALIZABLE ();
+            static int _P_SERIALIZABLE;
+            internal static int P_SERIALIZABLE { get { if (_P_SERIALIZABLE == 0){ _P_SERIALIZABLE = urho_hash_get_P_SERIALIZABLE (); } return _P_SERIALIZABLE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NAME ();
+            static int _P_NAME;
+            internal static int P_NAME { get { if (_P_NAME == 0){ _P_NAME = urho_hash_get_P_NAME (); } return _P_NAME; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_JOYSTICKID ();
@@ -6242,24 +5782,9 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_JOYSTICKID { get { if (_P_JOYSTICKID == 0){ _P_JOYSTICKID = urho_hash_get_P_JOYSTICKID (); } return _P_JOYSTICKID; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_COMMAND ();
-            static int _P_COMMAND;
-            internal static int P_COMMAND { get { if (_P_COMMAND == 0){ _P_COMMAND = urho_hash_get_P_COMMAND (); } return _P_COMMAND; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_AXIS ();
-            static int _P_AXIS;
-            internal static int P_AXIS { get { if (_P_AXIS == 0){ _P_AXIS = urho_hash_get_P_AXIS (); } return _P_AXIS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_QUALIFIERS ();
-            static int _P_QUALIFIERS;
-            internal static int P_QUALIFIERS { get { if (_P_QUALIFIERS == 0){ _P_QUALIFIERS = urho_hash_get_P_QUALIFIERS (); } return _P_QUALIFIERS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MOUSELOCKED ();
-            static int _P_MOUSELOCKED;
-            internal static int P_MOUSELOCKED { get { if (_P_MOUSELOCKED == 0){ _P_MOUSELOCKED = urho_hash_get_P_MOUSELOCKED (); } return _P_MOUSELOCKED; }}
+            extern static int urho_hash_get_P_SOUND ();
+            static int _P_SOUND;
+            internal static int P_SOUND { get { if (_P_SOUND == 0){ _P_SOUND = urho_hash_get_P_SOUND (); } return _P_SOUND; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_SQUAREDSNAPTHRESHOLD ();
@@ -6267,14 +5792,489 @@ namespace Urho {    internal class UrhoHash {
             internal static int P_SQUAREDSNAPTHRESHOLD { get { if (_P_SQUAREDSNAPTHRESHOLD == 0){ _P_SQUAREDSNAPTHRESHOLD = urho_hash_get_P_SQUAREDSNAPTHRESHOLD (); } return _P_SQUAREDSNAPTHRESHOLD; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SOUND ();
-            static int _P_SOUND;
-            internal static int P_SOUND { get { if (_P_SOUND == 0){ _P_SOUND = urho_hash_get_P_SOUND (); } return _P_SOUND; }}
+            extern static int urho_hash_get_P_NUMFINGERS ();
+            static int _P_NUMFINGERS;
+            internal static int P_NUMFINGERS { get { if (_P_NUMFINGERS == 0){ _P_NUMFINGERS = urho_hash_get_P_NUMFINGERS (); } return _P_NUMFINGERS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DX ();
+            static int _P_DX;
+            internal static int P_DX { get { if (_P_DX == 0){ _P_DX = urho_hash_get_P_DX (); } return _P_DX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_LOADEDNODES ();
+            static int _P_LOADEDNODES;
+            internal static int P_LOADEDNODES { get { if (_P_LOADEDNODES == 0){ _P_LOADEDNODES = urho_hash_get_P_LOADEDNODES (); } return _P_LOADEDNODES; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OBSTACLE ();
+            static int _P_OBSTACLE;
+            internal static int P_OBSTACLE { get { if (_P_OBSTACLE == 0){ _P_OBSTACLE = urho_hash_get_P_OBSTACLE (); } return _P_OBSTACLE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_COMMAND ();
+            static int _P_COMMAND;
+            internal static int P_COMMAND { get { if (_P_COMMAND == 0){ _P_COMMAND = urho_hash_get_P_COMMAND (); } return _P_COMMAND; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TEXTURE ();
+            static int _P_TEXTURE;
+            internal static int P_TEXTURE { get { if (_P_TEXTURE == 0){ _P_TEXTURE = urho_hash_get_P_TEXTURE (); } return _P_TEXTURE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_WHEEL ();
+            static int _P_WHEEL;
+            internal static int P_WHEEL { get { if (_P_WHEEL == 0){ _P_WHEEL = urho_hash_get_P_WHEEL (); } return _P_WHEEL; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONNECTION ();
+            static int _P_CONNECTION;
+            internal static int P_CONNECTION { get { if (_P_CONNECTION == 0){ _P_CONNECTION = urho_hash_get_P_CONNECTION (); } return _P_CONNECTION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SOUNDSOURCE ();
+            static int _P_SOUNDSOURCE;
+            internal static int P_SOUNDSOURCE { get { if (_P_SOUNDSOURCE == 0){ _P_SOUNDSOURCE = urho_hash_get_P_SOUNDSOURCE (); } return _P_SOUNDSOURCE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CENTERX ();
+            static int _P_CENTERX;
+            internal static int P_CENTERX { get { if (_P_CENTERX == 0){ _P_CENTERX = urho_hash_get_P_CENTERX (); } return _P_CENTERX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TIME ();
+            static int _P_TIME;
+            internal static int P_TIME { get { if (_P_TIME == 0){ _P_TIME = urho_hash_get_P_TIME (); } return _P_TIME; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_PRESSED ();
+            static int _P_PRESSED;
+            internal static int P_PRESSED { get { if (_P_PRESSED == 0){ _P_PRESSED = urho_hash_get_P_PRESSED (); } return _P_PRESSED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CROWD_TARGET_STATE ();
+            static int _P_CROWD_TARGET_STATE;
+            internal static int P_CROWD_TARGET_STATE { get { if (_P_CROWD_TARGET_STATE == 0){ _P_CROWD_TARGET_STATE = urho_hash_get_P_CROWD_TARGET_STATE (); } return _P_CROWD_TARGET_STATE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BUTTONS ();
+            static int _P_BUTTONS;
+            internal static int P_BUTTONS { get { if (_P_BUTTONS == 0){ _P_BUTTONS = urho_hash_get_P_BUTTONS (); } return _P_BUTTONS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CENTERY ();
+            static int _P_CENTERY;
+            internal static int P_CENTERY { get { if (_P_CENTERY == 0){ _P_CENTERY = urho_hash_get_P_CENTERY (); } return _P_CENTERY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_QUALIFIERS ();
+            static int _P_QUALIFIERS;
+            internal static int P_QUALIFIERS { get { if (_P_QUALIFIERS == 0){ _P_QUALIFIERS = urho_hash_get_P_QUALIFIERS (); } return _P_QUALIFIERS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ERROR ();
+            static int _P_ERROR;
+            internal static int P_ERROR { get { if (_P_ERROR == 0){ _P_ERROR = urho_hash_get_P_ERROR (); } return _P_ERROR; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DTHETA ();
+            static int _P_DTHETA;
+            internal static int P_DTHETA { get { if (_P_DTHETA == 0){ _P_DTHETA = urho_hash_get_P_DTHETA (); } return _P_DTHETA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MODAL ();
+            static int _P_MODAL;
+            internal static int P_MODAL { get { if (_P_MODAL == 0){ _P_MODAL = urho_hash_get_P_MODAL (); } return _P_MODAL; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FILENAME ();
+            static int _P_FILENAME;
+            internal static int P_FILENAME { get { if (_P_FILENAME == 0){ _P_FILENAME = urho_hash_get_P_FILENAME (); } return _P_FILENAME; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ATTRIBUTEANIMATIONNAME ();
+            static int _P_ATTRIBUTEANIMATIONNAME;
+            internal static int P_ATTRIBUTEANIMATIONNAME { get { if (_P_ATTRIBUTEANIMATIONNAME == 0){ _P_ATTRIBUTEANIMATIONNAME = urho_hash_get_P_ATTRIBUTEANIMATIONNAME (); } return _P_ATTRIBUTEANIMATIONNAME; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CLICKEDELEMENT ();
+            static int _P_CLICKEDELEMENT;
+            internal static int P_CLICKEDELEMENT { get { if (_P_CLICKEDELEMENT == 0){ _P_CLICKEDELEMENT = urho_hash_get_P_CLICKEDELEMENT (); } return _P_CLICKEDELEMENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BOUNDSMIN ();
+            static int _P_BOUNDSMIN;
+            internal static int P_BOUNDSMIN { get { if (_P_BOUNDSMIN == 0){ _P_BOUNDSMIN = urho_hash_get_P_BOUNDSMIN (); } return _P_BOUNDSMIN; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BODYA ();
+            static int _P_BODYA;
+            internal static int P_BODYA { get { if (_P_BODYA == 0){ _P_BODYA = urho_hash_get_P_BODYA (); } return _P_BODYA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BYKEY ();
+            static int _P_BYKEY;
+            internal static int P_BYKEY { get { if (_P_BYKEY == 0){ _P_BYKEY = urho_hash_get_P_BYKEY (); } return _P_BYKEY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CROWD_AGENT_STATE ();
+            static int _P_CROWD_AGENT_STATE;
+            internal static int P_CROWD_AGENT_STATE { get { if (_P_CROWD_AGENT_STATE == 0){ _P_CROWD_AGENT_STATE = urho_hash_get_P_CROWD_AGENT_STATE (); } return _P_CROWD_AGENT_STATE; }}
 
             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
             extern static int urho_hash_get_P_POSITION ();
             static int _P_POSITION;
             internal static int P_POSITION { get { if (_P_POSITION == 0){ _P_POSITION = urho_hash_get_P_POSITION (); } return _P_POSITION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_VELOCITY ();
+            static int _P_VELOCITY;
+            internal static int P_VELOCITY { get { if (_P_VELOCITY == 0){ _P_VELOCITY = urho_hash_get_P_VELOCITY (); } return _P_VELOCITY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_LEVEL ();
+            static int _P_LEVEL;
+            internal static int P_LEVEL { get { if (_P_LEVEL == 0){ _P_LEVEL = urho_hash_get_P_LEVEL (); } return _P_LEVEL; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONTACTS ();
+            static int _P_CONTACTS;
+            internal static int P_CONTACTS { get { if (_P_CONTACTS == 0){ _P_CONTACTS = urho_hash_get_P_CONTACTS (); } return _P_CONTACTS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BUTTON ();
+            static int _P_BUTTON;
+            internal static int P_BUTTON { get { if (_P_BUTTON == 0){ _P_BUTTON = urho_hash_get_P_BUTTON (); } return _P_BUTTON; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_EXITCODE ();
+            static int _P_EXITCODE;
+            internal static int P_EXITCODE { get { if (_P_EXITCODE == 0){ _P_EXITCODE = urho_hash_get_P_EXITCODE (); } return _P_EXITCODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_RESIZABLE ();
+            static int _P_RESIZABLE;
+            internal static int P_RESIZABLE { get { if (_P_RESIZABLE == 0){ _P_RESIZABLE = urho_hash_get_P_RESIZABLE (); } return _P_RESIZABLE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TIMESTAMP ();
+            static int _P_TIMESTAMP;
+            internal static int P_TIMESTAMP { get { if (_P_TIMESTAMP == 0){ _P_TIMESTAMP = urho_hash_get_P_TIMESTAMP (); } return _P_TIMESTAMP; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OBJECTANIMATION ();
+            static int _P_OBJECTANIMATION;
+            internal static int P_OBJECTANIMATION { get { if (_P_OBJECTANIMATION == 0){ _P_OBJECTANIMATION = urho_hash_get_P_OBJECTANIMATION (); } return _P_OBJECTANIMATION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_REPEAT ();
+            static int _P_REPEAT;
+            internal static int P_REPEAT { get { if (_P_REPEAT == 0){ _P_REPEAT = urho_hash_get_P_REPEAT (); } return _P_REPEAT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_REQUESTID ();
+            static int _P_REQUESTID;
+            internal static int P_REQUESTID { get { if (_P_REQUESTID == 0){ _P_REQUESTID = urho_hash_get_P_REQUESTID (); } return _P_REQUESTID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_PROGRESS ();
+            static int _P_PROGRESS;
+            internal static int P_PROGRESS { get { if (_P_PROGRESS == 0){ _P_PROGRESS = urho_hash_get_P_PROGRESS (); } return _P_PROGRESS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_WIDTH ();
+            static int _P_WIDTH;
+            internal static int P_WIDTH { get { if (_P_WIDTH == 0){ _P_WIDTH = urho_hash_get_P_WIDTH (); } return _P_WIDTH; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ELEMENTY ();
+            static int _P_ELEMENTY;
+            internal static int P_ELEMENTY { get { if (_P_ELEMENTY == 0){ _P_ELEMENTY = urho_hash_get_P_ELEMENTY (); } return _P_ELEMENTY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_X ();
+            static int _P_X;
+            internal static int P_X { get { if (_P_X == 0){ _P_X = urho_hash_get_P_X (); } return _P_X; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_WORLD ();
+            static int _P_WORLD;
+            internal static int P_WORLD { get { if (_P_WORLD == 0){ _P_WORLD = urho_hash_get_P_WORLD (); } return _P_WORLD; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TIMESTEP ();
+            static int _P_TIMESTEP;
+            internal static int P_TIMESTEP { get { if (_P_TIMESTEP == 0){ _P_TIMESTEP = urho_hash_get_P_TIMESTEP (); } return _P_TIMESTEP; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NODE ();
+            static int _P_NODE;
+            internal static int P_NODE { get { if (_P_NODE == 0){ _P_NODE = urho_hash_get_P_NODE (); } return _P_NODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_PARENT ();
+            static int _P_PARENT;
+            internal static int P_PARENT { get { if (_P_PARENT == 0){ _P_PARENT = urho_hash_get_P_PARENT (); } return _P_PARENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ITEM ();
+            static int _P_ITEM;
+            internal static int P_ITEM { get { if (_P_ITEM == 0){ _P_ITEM = urho_hash_get_P_ITEM (); } return _P_ITEM; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_VIEW ();
+            static int _P_VIEW;
+            internal static int P_VIEW { get { if (_P_VIEW == 0){ _P_VIEW = urho_hash_get_P_VIEW (); } return _P_VIEW; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NUMBUTTONS ();
+            static int _P_NUMBUTTONS;
+            internal static int P_NUMBUTTONS { get { if (_P_NUMBUTTONS == 0){ _P_NUMBUTTONS = urho_hash_get_P_NUMBUTTONS (); } return _P_NUMBUTTONS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONSTANT ();
+            static int _P_CONSTANT;
+            internal static int P_CONSTANT { get { if (_P_CONSTANT == 0){ _P_CONSTANT = urho_hash_get_P_CONSTANT (); } return _P_CONSTANT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_AXIS ();
+            static int _P_AXIS;
+            internal static int P_AXIS { get { if (_P_AXIS == 0){ _P_AXIS = urho_hash_get_P_AXIS (); } return _P_AXIS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_KEY ();
+            static int _P_KEY;
+            internal static int P_KEY { get { if (_P_KEY == 0){ _P_KEY = urho_hash_get_P_KEY (); } return _P_KEY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ANIMATION ();
+            static int _P_ANIMATION;
+            internal static int P_ANIMATION { get { if (_P_ANIMATION == 0){ _P_ANIMATION = urho_hash_get_P_ANIMATION (); } return _P_ANIMATION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MESH ();
+            static int _P_MESH;
+            internal static int P_MESH { get { if (_P_MESH == 0){ _P_MESH = urho_hash_get_P_MESH (); } return _P_MESH; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TRIGGER ();
+            static int _P_TRIGGER;
+            internal static int P_TRIGGER { get { if (_P_TRIGGER == 0){ _P_TRIGGER = urho_hash_get_P_TRIGGER (); } return _P_TRIGGER; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SOURCE ();
+            static int _P_SOURCE;
+            internal static int P_SOURCE { get { if (_P_SOURCE == 0){ _P_SOURCE = urho_hash_get_P_SOURCE (); } return _P_SOURCE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CLONECOMPONENT ();
+            static int _P_CLONECOMPONENT;
+            internal static int P_CLONECOMPONENT { get { if (_P_CLONECOMPONENT == 0){ _P_CLONECOMPONENT = urho_hash_get_P_CLONECOMPONENT (); } return _P_CLONECOMPONENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TOTALNODES ();
+            static int _P_TOTALNODES;
+            internal static int P_TOTALNODES { get { if (_P_TOTALNODES == 0){ _P_TOTALNODES = urho_hash_get_P_TOTALNODES (); } return _P_TOTALNODES; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SURFACE ();
+            static int _P_SURFACE;
+            internal static int P_SURFACE { get { if (_P_SURFACE == 0){ _P_SURFACE = urho_hash_get_P_SURFACE (); } return _P_SURFACE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OTHERNODE ();
+            static int _P_OTHERNODE;
+            internal static int P_OTHERNODE { get { if (_P_OTHERNODE == 0){ _P_OTHERNODE = urho_hash_get_P_OTHERNODE (); } return _P_OTHERNODE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MESSAGEID ();
+            static int _P_MESSAGEID;
+            internal static int P_MESSAGEID { get { if (_P_MESSAGEID == 0){ _P_MESSAGEID = urho_hash_get_P_MESSAGEID (); } return _P_MESSAGEID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_HIGHDPI ();
+            static int _P_HIGHDPI;
+            internal static int P_HIGHDPI { get { if (_P_HIGHDPI == 0){ _P_HIGHDPI = urho_hash_get_P_HIGHDPI (); } return _P_HIGHDPI; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CROWD_AGENT ();
+            static int _P_CROWD_AGENT;
+            internal static int P_CROWD_AGENT { get { if (_P_CROWD_AGENT == 0){ _P_CROWD_AGENT = urho_hash_get_P_CROWD_AGENT (); } return _P_CROWD_AGENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_FILTER ();
+            static int _P_FILTER;
+            internal static int P_FILTER { get { if (_P_FILTER == 0){ _P_FILTER = urho_hash_get_P_FILTER (); } return _P_FILTER; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MESSAGE ();
+            static int _P_MESSAGE;
+            internal static int P_MESSAGE { get { if (_P_MESSAGE == 0){ _P_MESSAGE = urho_hash_get_P_MESSAGE (); } return _P_MESSAGE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OTHERBODY ();
+            static int _P_OTHERBODY;
+            internal static int P_OTHERBODY { get { if (_P_OTHERBODY == 0){ _P_OTHERBODY = urho_hash_get_P_OTHERBODY (); } return _P_OTHERBODY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ELEMENTX ();
+            static int _P_ELEMENTX;
+            internal static int P_ELEMENTX { get { if (_P_ELEMENTX == 0){ _P_ELEMENTX = urho_hash_get_P_ELEMENTX (); } return _P_ELEMENTX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_RESOURCE ();
+            static int _P_RESOURCE;
+            internal static int P_RESOURCE { get { if (_P_RESOURCE == 0){ _P_RESOURCE = urho_hash_get_P_RESOURCE (); } return _P_RESOURCE; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NODEA ();
+            static int _P_NODEA;
+            internal static int P_NODEA { get { if (_P_NODEA == 0){ _P_NODEA = urho_hash_get_P_NODEA (); } return _P_NODEA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_LOADEDRESOURCES ();
+            static int _P_LOADEDRESOURCES;
+            internal static int P_LOADEDRESOURCES { get { if (_P_LOADEDRESOURCES == 0){ _P_LOADEDRESOURCES = urho_hash_get_P_LOADEDRESOURCES (); } return _P_LOADEDRESOURCES; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_TOUCHID ();
+            static int _P_TOUCHID;
+            internal static int P_TOUCHID { get { if (_P_TOUCHID == 0){ _P_TOUCHID = urho_hash_get_P_TOUCHID (); } return _P_TOUCHID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ARRIVED ();
+            static int _P_ARRIVED;
+            internal static int P_ARRIVED { get { if (_P_ARRIVED == 0){ _P_ARRIVED = urho_hash_get_P_ARRIVED (); } return _P_ARRIVED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_GESTUREID ();
+            static int _P_GESTUREID;
+            internal static int P_GESTUREID { get { if (_P_GESTUREID == 0){ _P_GESTUREID = urho_hash_get_P_GESTUREID (); } return _P_GESTUREID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DDIST ();
+            static int _P_DDIST;
+            internal static int P_DDIST { get { if (_P_DDIST == 0){ _P_DDIST = urho_hash_get_P_DDIST (); } return _P_DDIST; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_Y ();
+            static int _P_Y;
+            internal static int P_Y { get { if (_P_Y == 0){ _P_Y = urho_hash_get_P_Y (); } return _P_Y; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BOUNDSMAX ();
+            static int _P_BOUNDSMAX;
+            internal static int P_BOUNDSMAX { get { if (_P_BOUNDSMAX == 0){ _P_BOUNDSMAX = urho_hash_get_P_BOUNDSMAX (); } return _P_BOUNDSMAX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CONTACT ();
+            static int _P_CONTACT;
+            internal static int P_CONTACT { get { if (_P_CONTACT == 0){ _P_CONTACT = urho_hash_get_P_CONTACT (); } return _P_CONTACT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BORDERLESS ();
+            static int _P_BORDERLESS;
+            internal static int P_BORDERLESS { get { if (_P_BORDERLESS == 0){ _P_BORDERLESS = urho_hash_get_P_BORDERLESS (); } return _P_BORDERLESS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SUCCESS ();
+            static int _P_SUCCESS;
+            internal static int P_SUCCESS { get { if (_P_SUCCESS == 0){ _P_SUCCESS = urho_hash_get_P_SUCCESS (); } return _P_SUCCESS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_NODEB ();
+            static int _P_NODEB;
+            internal static int P_NODEB { get { if (_P_NODEB == 0){ _P_NODEB = urho_hash_get_P_NODEB (); } return _P_NODEB; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_OK ();
+            static int _P_OK;
+            internal static int P_OK { get { if (_P_OK == 0){ _P_OK = urho_hash_get_P_OK (); } return _P_OK; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_INDEX ();
+            static int _P_INDEX;
+            internal static int P_INDEX { get { if (_P_INDEX == 0){ _P_INDEX = urho_hash_get_P_INDEX (); } return _P_INDEX; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BEGINELEMENT ();
+            static int _P_BEGINELEMENT;
+            internal static int P_BEGINELEMENT { get { if (_P_BEGINELEMENT == 0){ _P_BEGINELEMENT = urho_hash_get_P_BEGINELEMENT (); } return _P_BEGINELEMENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ACCEPT ();
+            static int _P_ACCEPT;
+            internal static int P_ACCEPT { get { if (_P_ACCEPT == 0){ _P_ACCEPT = urho_hash_get_P_ACCEPT (); } return _P_ACCEPT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_DY ();
+            static int _P_DY;
+            internal static int P_DY { get { if (_P_DY == 0){ _P_DY = urho_hash_get_P_DY (); } return _P_DY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SELECTION ();
+            static int _P_SELECTION;
+            internal static int P_SELECTION { get { if (_P_SELECTION == 0){ _P_SELECTION = urho_hash_get_P_SELECTION (); } return _P_SELECTION; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_EFFECT ();
+            static int _P_EFFECT;
+            internal static int P_EFFECT { get { if (_P_EFFECT == 0){ _P_EFFECT = urho_hash_get_P_EFFECT (); } return _P_EFFECT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_CAMERA ();
+            static int _P_CAMERA;
+            internal static int P_CAMERA { get { if (_P_CAMERA == 0){ _P_CAMERA = urho_hash_get_P_CAMERA (); } return _P_CAMERA; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_HAT ();
+            static int _P_HAT;
+            internal static int P_HAT { get { if (_P_HAT == 0){ _P_HAT = urho_hash_get_P_HAT (); } return _P_HAT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MINIMIZED ();
+            static int _P_MINIMIZED;
+            internal static int P_MINIMIZED { get { if (_P_MINIMIZED == 0){ _P_MINIMIZED = urho_hash_get_P_MINIMIZED (); } return _P_MINIMIZED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ALLOW ();
+            static int _P_ALLOW;
+            internal static int P_ALLOW { get { if (_P_ALLOW == 0){ _P_ALLOW = urho_hash_get_P_ALLOW (); } return _P_ALLOW; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MOUSELOCKED ();
+            static int _P_MOUSELOCKED;
+            internal static int P_MOUSELOCKED { get { if (_P_MOUSELOCKED == 0){ _P_MOUSELOCKED = urho_hash_get_P_MOUSELOCKED (); } return _P_MOUSELOCKED; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ID ();
+            static int _P_ID;
+            internal static int P_ID { get { if (_P_ID == 0){ _P_ID = urho_hash_get_P_ID (); } return _P_ID; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_RADIUS ();
+            static int _P_RADIUS;
+            internal static int P_RADIUS { get { if (_P_RADIUS == 0){ _P_RADIUS = urho_hash_get_P_RADIUS (); } return _P_RADIUS; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_SDLEVENT ();
+            static int _P_SDLEVENT;
+            internal static int P_SDLEVENT { get { if (_P_SDLEVENT == 0){ _P_SDLEVENT = urho_hash_get_P_SDLEVENT (); } return _P_SDLEVENT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_ROOT ();
+            static int _P_ROOT;
+            internal static int P_ROOT { get { if (_P_ROOT == 0){ _P_ROOT = urho_hash_get_P_ROOT (); } return _P_ROOT; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_BODY ();
+            static int _P_BODY;
+            internal static int P_BODY { get { if (_P_BODY == 0){ _P_BODY = urho_hash_get_P_BODY (); } return _P_BODY; }}
+
+            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+            extern static int urho_hash_get_P_MODE ();
+            static int _P_MODE;
+            internal static int P_MODE { get { if (_P_MODE == 0){ _P_MODE = urho_hash_get_P_MODE (); } return _P_MODE; }}
 
         }
     }
