@@ -156,7 +156,7 @@ namespace Urho
 		/// <summary>
 		/// Set size, format and usage. Zero size will follow application window size. Return true if successful.
 		/// </summary>
-		public bool SetSize (int width, int height, int depth, uint format, TextureUsage usage)
+		public bool SetSize (int width, int height, int depth, uint format, TextureUsage usage = TextureUsage.Static)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture3D_SetSize (handle, width, height, depth, format, usage);
@@ -180,7 +180,7 @@ namespace Urho
 		/// <summary>
 		/// Set data from an image. Return true if successful. Optionally make a single channel image alpha-only.
 		/// </summary>
-		public bool SetData (Image image, bool useAlpha)
+		public bool SetData (Image image, bool useAlpha = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture3D_SetData0 (handle, (object)image == null ? IntPtr.Zero : image.Handle, useAlpha);

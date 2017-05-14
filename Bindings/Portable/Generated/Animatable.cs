@@ -91,7 +91,7 @@ namespace Urho
 		/// <summary>
 		/// Load from XML data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Animatable_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -151,7 +151,7 @@ namespace Urho
 		/// <summary>
 		/// Set attribute animation.
 		/// </summary>
-		public void SetAttributeAnimation (string name, ValueAnimation attributeAnimation, WrapMode wrapMode, float speed)
+		public void SetAttributeAnimation (string name, ValueAnimation attributeAnimation, WrapMode wrapMode = WrapMode.Loop, float speed = 1f)
 		{
 			Runtime.ValidateRefCounted (this);
 			Animatable_SetAttributeAnimation (handle, name, (object)attributeAnimation == null ? IntPtr.Zero : attributeAnimation.Handle, wrapMode, speed);

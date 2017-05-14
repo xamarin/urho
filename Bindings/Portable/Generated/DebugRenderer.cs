@@ -132,7 +132,7 @@ namespace Urho
 		/// <summary>
 		/// Add a line.
 		/// </summary>
-		public void AddLine (Urho.Vector3 start, Urho.Vector3 end, Urho.Color color, bool depthTest)
+		public void AddLine (Urho.Vector3 start, Urho.Vector3 end, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddLine (handle, ref start, ref end, ref color, depthTest);
@@ -144,7 +144,7 @@ namespace Urho
 		/// <summary>
 		/// Add a line with color already converted to unsigned.
 		/// </summary>
-		public void AddLine (Urho.Vector3 start, Urho.Vector3 end, uint color, bool depthTest)
+		public void AddLine (Urho.Vector3 start, Urho.Vector3 end, uint color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddLine0 (handle, ref start, ref end, color, depthTest);
@@ -156,7 +156,7 @@ namespace Urho
 		/// <summary>
 		/// Add a triangle.
 		/// </summary>
-		public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Color color, bool depthTest)
+		public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddTriangle (handle, ref v1, ref v2, ref v3, ref color, depthTest);
@@ -168,7 +168,7 @@ namespace Urho
 		/// <summary>
 		/// Add a triangle with color already converted to unsigned.
 		/// </summary>
-		public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, uint color, bool depthTest)
+		public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, uint color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddTriangle1 (handle, ref v1, ref v2, ref v3, color, depthTest);
@@ -180,7 +180,7 @@ namespace Urho
 		/// <summary>
 		/// Add a scene node represented as its coordinate axes.
 		/// </summary>
-		public void AddNode (Node node, float scale, bool depthTest)
+		public void AddNode (Node node, float scale = 1f, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddNode (handle, (object)node == null ? IntPtr.Zero : node.Handle, scale, depthTest);
@@ -192,7 +192,7 @@ namespace Urho
 		/// <summary>
 		/// Add a bounding box.
 		/// </summary>
-		public void AddBoundingBox (Urho.BoundingBox box, Urho.Color color, bool depthTest)
+		public void AddBoundingBox (Urho.BoundingBox box, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddBoundingBox (handle, ref box, ref color, depthTest);
@@ -204,7 +204,7 @@ namespace Urho
 		/// <summary>
 		/// Add a bounding box with transform.
 		/// </summary>
-		public void AddBoundingBox (Urho.BoundingBox box, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest)
+		public void AddBoundingBox (Urho.BoundingBox box, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddBoundingBox2 (handle, ref box, ref transform, ref color, depthTest);
@@ -216,7 +216,7 @@ namespace Urho
 		/// <summary>
 		/// Add a frustum.
 		/// </summary>
-		public void AddFrustum (Frustum frustum, Urho.Color color, bool depthTest)
+		public void AddFrustum (Frustum frustum, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddFrustum (handle, (object)frustum == null ? IntPtr.Zero : frustum.Handle, ref color, depthTest);
@@ -228,7 +228,7 @@ namespace Urho
 		/// <summary>
 		/// Add a polyhedron.
 		/// </summary>
-		public void AddPolyhedron (Polyhedron poly, Urho.Color color, bool depthTest)
+		public void AddPolyhedron (Polyhedron poly, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddPolyhedron (handle, (object)poly == null ? IntPtr.Zero : poly.Handle, ref color, depthTest);
@@ -240,7 +240,7 @@ namespace Urho
 		/// <summary>
 		/// Add a cylinder
 		/// </summary>
-		public void AddCylinder (Urho.Vector3 position, float radius, float height, Urho.Color color, bool depthTest)
+		public void AddCylinder (Urho.Vector3 position, float radius, float height, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddCylinder (handle, ref position, radius, height, ref color, depthTest);
@@ -252,7 +252,7 @@ namespace Urho
 		/// <summary>
 		/// Add a triangle mesh.
 		/// </summary>
-		public void AddTriangleMesh (void* vertexData, uint vertexSize, void* indexData, uint indexSize, uint indexStart, uint indexCount, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest)
+		public void AddTriangleMesh (void* vertexData, uint vertexSize, void* indexData, uint indexSize, uint indexStart, uint indexCount, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddTriangleMesh (handle, vertexData, vertexSize, indexData, indexSize, indexStart, indexCount, ref transform, ref color, depthTest);
@@ -264,7 +264,7 @@ namespace Urho
 		/// <summary>
 		/// Add a circle.
 		/// </summary>
-		public void AddCircle (Urho.Vector3 center, Urho.Vector3 normal, float radius, Urho.Color color, int steps, bool depthTest)
+		public void AddCircle (Urho.Vector3 center, Urho.Vector3 normal, float radius, Urho.Color color, int steps = 64, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddCircle (handle, ref center, ref normal, radius, ref color, steps, depthTest);
@@ -276,7 +276,7 @@ namespace Urho
 		/// <summary>
 		/// Add a cross.
 		/// </summary>
-		public void AddCross (Urho.Vector3 center, float size, Urho.Color color, bool depthTest)
+		public void AddCross (Urho.Vector3 center, float size, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddCross (handle, ref center, size, ref color, depthTest);
@@ -288,7 +288,7 @@ namespace Urho
 		/// <summary>
 		/// Add a quad on the XZ plane.
 		/// </summary>
-		public void AddQuad (Urho.Vector3 center, float width, float height, Urho.Color color, bool depthTest)
+		public void AddQuad (Urho.Vector3 center, float width, float height, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddQuad (handle, ref center, width, height, ref color, depthTest);

@@ -204,7 +204,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Return the root element, with optionally specified name. Return null element if not found.
 		/// </summary>
-		public XmlElement GetRoot (string name)
+		public XmlElement GetRoot (string name = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return new XmlElement (XmlFile_GetRoot (handle, name));
@@ -216,7 +216,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Serialize the XML content to a string.
 		/// </summary>
-		public string ToDebugString (string indentation)
+		public string ToDebugString (string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Marshal.PtrToStringAnsi (XmlFile_ToString (handle, indentation));

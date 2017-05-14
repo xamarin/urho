@@ -96,7 +96,7 @@ namespace Urho.Audio
 		/// <summary>
 		/// Initialize sound output with specified buffer length and output mode.
 		/// </summary>
-		public bool SetMode (int bufferLengthMSec, int mixRate, bool stereo, bool interpolation)
+		public bool SetMode (int bufferLengthMSec, int mixRate, bool stereo, bool interpolation = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Audio_SetMode (handle, bufferLengthMSec, mixRate, stereo, interpolation);

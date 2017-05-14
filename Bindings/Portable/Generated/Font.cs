@@ -132,7 +132,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Save resource as a new bitmap font type in XML format. Return true if successful.
 		/// </summary>
-		public bool SaveXml (File dest, int pointSize, bool usedGlyphs, string indentation)
+		public bool SaveXml (File dest, int pointSize, bool usedGlyphs = false, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Font_SaveXML_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, usedGlyphs, indentation);
@@ -144,7 +144,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Save resource as a new bitmap font type in XML format. Return true if successful.
 		/// </summary>
-		public bool SaveXml (MemoryBuffer dest, int pointSize, bool usedGlyphs, string indentation)
+		public bool SaveXml (MemoryBuffer dest, int pointSize, bool usedGlyphs = false, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Font_SaveXML_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, usedGlyphs, indentation);

@@ -96,7 +96,7 @@ namespace Urho
 		/// <summary>
 		/// Load from binary data. Return true if successful.
 		/// </summary>
-		public override bool Load (File source, bool setInstanceDefault)
+		public override bool Load (File source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UnknownComponent_Load_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -108,7 +108,7 @@ namespace Urho
 		/// <summary>
 		/// Load from binary data. Return true if successful.
 		/// </summary>
-		public override bool Load (MemoryBuffer source, bool setInstanceDefault)
+		public override bool Load (MemoryBuffer source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UnknownComponent_Load_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -120,7 +120,7 @@ namespace Urho
 		/// <summary>
 		/// Load from XML data. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UnknownComponent_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);

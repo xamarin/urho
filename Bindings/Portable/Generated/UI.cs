@@ -108,7 +108,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Set focused UI element.
 		/// </summary>
-		public void SetFocusElement (UIElement element, bool byKey)
+		public void SetFocusElement (UIElement element, bool byKey = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			UI_SetFocusElement (handle, (object)element == null ? IntPtr.Zero : element.Handle, byKey);
@@ -169,7 +169,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Render the UI. If resetRenderTargets is true, is assumed to be the default UI render to backbuffer called by Engine, and will be performed only once. Additional UI renders to a different rendertarget may be triggered from the renderpath.
 		/// </summary>
-		public void Render (bool resetRenderTargets)
+		public void Render (bool resetRenderTargets = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			UI_Render (handle, resetRenderTargets);
@@ -193,7 +193,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Load a UI layout from an XML file. Optionally specify another XML file for element style. Return the root element.
 		/// </summary>
-		public UIElement LoadLayout (File source, Urho.Resources.XmlFile styleFile)
+		public UIElement LoadLayout (File source, Urho.Resources.XmlFile styleFile = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<UIElement> (UI_LoadLayout_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle));
@@ -205,7 +205,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Load a UI layout from an XML file. Optionally specify another XML file for element style. Return the root element.
 		/// </summary>
-		public UIElement LoadLayout (MemoryBuffer source, Urho.Resources.XmlFile styleFile)
+		public UIElement LoadLayout (MemoryBuffer source, Urho.Resources.XmlFile styleFile = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<UIElement> (UI_LoadLayout_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle));
@@ -217,7 +217,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Load a UI layout from an XML file. Optionally specify another XML file for element style. Return the root element.
 		/// </summary>
-		public UIElement LoadLayout (Urho.Resources.XmlFile file, Urho.Resources.XmlFile styleFile)
+		public UIElement LoadLayout (Urho.Resources.XmlFile file, Urho.Resources.XmlFile styleFile = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<UIElement> (UI_LoadLayout0 (handle, (object)file == null ? IntPtr.Zero : file.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle));
@@ -493,7 +493,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return UI element at screen coordinates. By default returns only input-enabled elements.
 		/// </summary>
-		public UIElement GetElementAt (Urho.IntVector2 position, bool enabledOnly)
+		public UIElement GetElementAt (Urho.IntVector2 position, bool enabledOnly = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<UIElement> (UI_GetElementAt (handle, ref position, enabledOnly));
@@ -505,7 +505,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return UI element at screen coordinates. By default returns only input-enabled elements.
 		/// </summary>
-		public UIElement GetElementAt (int x, int y, bool enabledOnly)
+		public UIElement GetElementAt (int x, int y, bool enabledOnly = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<UIElement> (UI_GetElementAt2 (handle, x, y, enabledOnly));

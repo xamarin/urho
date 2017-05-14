@@ -499,7 +499,7 @@ namespace Urho
 		/// <summary>
 		/// Set new zone. Zone assignment may optionally be temporary, meaning it needs to be re-evaluated on the next frame.
 		/// </summary>
-		public void SetZone (Zone zone, bool temporary)
+		public void SetZone (Zone zone, bool temporary = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			Drawable_SetZone (handle, (object)zone == null ? IntPtr.Zero : zone.Handle, temporary);

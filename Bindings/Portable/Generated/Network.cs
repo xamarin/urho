@@ -96,7 +96,7 @@ namespace Urho.Network
 		/// <summary>
 		/// Disconnect the connection to the server. If wait time is non-zero, will block while waiting for disconnect to finish.
 		/// </summary>
-		public void Disconnect (int waitMSec)
+		public void Disconnect (int waitMSec = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			Network_Disconnect (handle, waitMSec);
@@ -132,7 +132,7 @@ namespace Urho.Network
 		/// <summary>
 		/// Broadcast a message with content ID to all client connections.
 		/// </summary>
-		public void BroadcastMessage (int msgID, bool reliable, bool inOrder, byte* data, uint numBytes, uint contentID)
+		public void BroadcastMessage (int msgID, bool reliable, bool inOrder, byte* data, uint numBytes, uint contentID = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			Network_BroadcastMessage (handle, msgID, reliable, inOrder, data, numBytes, contentID);

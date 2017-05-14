@@ -132,7 +132,7 @@ namespace Urho
 		/// <summary>
 		/// Play an animation and set full target weight. Name must be the full resource name. Return true on success.
 		/// </summary>
-		public bool Play (string name, byte layer, bool looped, float fadeInTime)
+		public bool Play (string name, byte layer, bool looped, float fadeInTime = 0f)
 		{
 			Runtime.ValidateRefCounted (this);
 			return AnimationController_Play (handle, name, layer, looped, fadeInTime);
@@ -144,7 +144,7 @@ namespace Urho
 		/// <summary>
 		/// Play an animation, set full target weight and fade out all other animations on the same layer. Name must be the full resource name. Return true on success.
 		/// </summary>
-		public bool PlayExclusive (string name, byte layer, bool looped, float fadeTime)
+		public bool PlayExclusive (string name, byte layer, bool looped, float fadeTime = 0f)
 		{
 			Runtime.ValidateRefCounted (this);
 			return AnimationController_PlayExclusive (handle, name, layer, looped, fadeTime);
@@ -156,7 +156,7 @@ namespace Urho
 		/// <summary>
 		/// Stop an animation. Zero fadetime is instant. Return true on success.
 		/// </summary>
-		public bool Stop (string name, float fadeOutTime)
+		public bool Stop (string name, float fadeOutTime = 0f)
 		{
 			Runtime.ValidateRefCounted (this);
 			return AnimationController_Stop (handle, name, fadeOutTime);
@@ -168,7 +168,7 @@ namespace Urho
 		/// <summary>
 		/// Stop all animations on a specific layer. Zero fadetime is instant.
 		/// </summary>
-		public void StopLayer (byte layer, float fadeOutTime)
+		public void StopLayer (byte layer, float fadeOutTime = 0f)
 		{
 			Runtime.ValidateRefCounted (this);
 			AnimationController_StopLayer (handle, layer, fadeOutTime);
@@ -180,7 +180,7 @@ namespace Urho
 		/// <summary>
 		/// Stop all animations. Zero fadetime is instant.
 		/// </summary>
-		public void StopAll (float fadeTime)
+		public void StopAll (float fadeTime = 0f)
 		{
 			Runtime.ValidateRefCounted (this);
 			AnimationController_StopAll (handle, fadeTime);

@@ -192,7 +192,7 @@ namespace Urho
 		/// <summary>
 		/// Apply default materials from a material list file. If filename is empty (default), the model's resource name with extension .txt will be used.
 		/// </summary>
-		public void ApplyMaterialList (string fileName)
+		public void ApplyMaterialList (string fileName = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			StaticModel_ApplyMaterialList (handle, fileName);
@@ -228,7 +228,7 @@ namespace Urho
 		/// <summary>
 		/// Return material by geometry index.
 		/// </summary>
-		public Material GetMaterial (uint index)
+		public Material GetMaterial (uint index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Material> (StaticModel_GetMaterial (handle, index));

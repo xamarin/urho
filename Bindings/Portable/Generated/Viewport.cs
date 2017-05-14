@@ -94,7 +94,7 @@ namespace Urho
 		internal static extern IntPtr Viewport_Viewport0 (IntPtr context, IntPtr scene, IntPtr camera, IntPtr renderPath);
 
 		[Preserve]
-		public Viewport (Context context, Scene scene, Camera camera, RenderPath renderPath) : base (UrhoObjectFlag.Empty)
+		public Viewport (Context context, Scene scene, Camera camera, RenderPath renderPath = null) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Viewport));
 			handle = Viewport_Viewport0 ((object)context == null ? IntPtr.Zero : context.Handle, (object)scene == null ? IntPtr.Zero : scene.Handle, (object)camera == null ? IntPtr.Zero : camera.Handle, (object)renderPath == null ? IntPtr.Zero : renderPath.Handle);
@@ -106,7 +106,7 @@ namespace Urho
 		internal static extern IntPtr Viewport_Viewport1 (IntPtr context, IntPtr scene, IntPtr camera, ref Urho.IntRect rect, IntPtr renderPath);
 
 		[Preserve]
-		public Viewport (Context context, Scene scene, Camera camera, Urho.IntRect rect, RenderPath renderPath) : base (UrhoObjectFlag.Empty)
+		public Viewport (Context context, Scene scene, Camera camera, Urho.IntRect rect, RenderPath renderPath = null) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(Viewport));
 			handle = Viewport_Viewport1 ((object)context == null ? IntPtr.Zero : context.Handle, (object)scene == null ? IntPtr.Zero : scene.Handle, (object)camera == null ? IntPtr.Zero : camera.Handle, ref rect, (object)renderPath == null ? IntPtr.Zero : renderPath.Handle);

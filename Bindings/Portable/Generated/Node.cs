@@ -108,7 +108,7 @@ namespace Urho
 		/// <summary>
 		/// Load from binary data. Return true if successful.
 		/// </summary>
-		public override bool Load (File source, bool setInstanceDefault)
+		public override bool Load (File source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_Load_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -120,7 +120,7 @@ namespace Urho
 		/// <summary>
 		/// Load from binary data. Return true if successful.
 		/// </summary>
-		public override bool Load (MemoryBuffer source, bool setInstanceDefault)
+		public override bool Load (MemoryBuffer source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_Load_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -132,7 +132,7 @@ namespace Urho
 		/// <summary>
 		/// Load from XML data. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -228,7 +228,7 @@ namespace Urho
 		/// <summary>
 		/// Save to an XML file. Return true if successful.
 		/// </summary>
-		public virtual bool SaveXml (File dest, string indentation)
+		public virtual bool SaveXml (File dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_SaveXML0_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -240,7 +240,7 @@ namespace Urho
 		/// <summary>
 		/// Save to an XML file. Return true if successful.
 		/// </summary>
-		public virtual bool SaveXml (MemoryBuffer dest, string indentation)
+		public virtual bool SaveXml (MemoryBuffer dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_SaveXML0_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -252,7 +252,7 @@ namespace Urho
 		/// <summary>
 		/// Save to a JSON file. Return true if successful.
 		/// </summary>
-		public virtual bool SaveJson (File dest, string indentation)
+		public virtual bool SaveJson (File dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_SaveJSON_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -264,7 +264,7 @@ namespace Urho
 		/// <summary>
 		/// Save to a JSON file. Return true if successful.
 		/// </summary>
-		public virtual bool SaveJson (MemoryBuffer dest, string indentation)
+		public virtual bool SaveJson (MemoryBuffer dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_SaveJSON_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -720,7 +720,7 @@ namespace Urho
 		/// <summary>
 		/// Move the scene node in the chosen transform space.
 		/// </summary>
-		public void Translate (Urho.Vector3 delta, TransformSpace space)
+		public void Translate (Urho.Vector3 delta, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_Translate (handle, ref delta, space);
@@ -732,7 +732,7 @@ namespace Urho
 		/// <summary>
 		/// Move the scene node in the chosen transform space (for Urho2D).
 		/// </summary>
-		public void Translate2D (Urho.Vector2 delta, TransformSpace space)
+		public void Translate2D (Urho.Vector2 delta, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_Translate2D (handle, ref delta, space);
@@ -744,7 +744,7 @@ namespace Urho
 		/// <summary>
 		/// Rotate the scene node in the chosen transform space.
 		/// </summary>
-		public void Rotate (Urho.Quaternion delta, TransformSpace space)
+		public void Rotate (Urho.Quaternion delta, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_Rotate (handle, ref delta, space);
@@ -756,7 +756,7 @@ namespace Urho
 		/// <summary>
 		/// Rotate the scene node in the chosen transform space (for Urho2D).
 		/// </summary>
-		public void Rotate2D (float delta, TransformSpace space)
+		public void Rotate2D (float delta, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_Rotate2D (handle, delta, space);
@@ -768,7 +768,7 @@ namespace Urho
 		/// <summary>
 		/// Rotate around a point in the chosen transform space.
 		/// </summary>
-		public void RotateAround (Urho.Vector3 point, Urho.Quaternion delta, TransformSpace space)
+		public void RotateAround (Urho.Vector3 point, Urho.Quaternion delta, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_RotateAround (handle, ref point, ref delta, space);
@@ -780,7 +780,7 @@ namespace Urho
 		/// <summary>
 		/// Rotate around a point in the chosen transform space (for Urho2D).
 		/// </summary>
-		public void RotateAround2D (Urho.Vector2 point, float delta, TransformSpace space)
+		public void RotateAround2D (Urho.Vector2 point, float delta, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_RotateAround2D (handle, ref point, delta, space);
@@ -792,7 +792,7 @@ namespace Urho
 		/// <summary>
 		/// Rotate around the X axis.
 		/// </summary>
-		public void Pitch (float angle, TransformSpace space)
+		public void Pitch (float angle, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_Pitch (handle, angle, space);
@@ -804,7 +804,7 @@ namespace Urho
 		/// <summary>
 		/// Rotate around the Y axis.
 		/// </summary>
-		public void Yaw (float angle, TransformSpace space)
+		public void Yaw (float angle, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_Yaw (handle, angle, space);
@@ -816,7 +816,7 @@ namespace Urho
 		/// <summary>
 		/// Rotate around the Z axis.
 		/// </summary>
-		public void Roll (float angle, TransformSpace space)
+		public void Roll (float angle, TransformSpace space = TransformSpace.Local)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_Roll (handle, angle, space);
@@ -828,7 +828,7 @@ namespace Urho
 		/// <summary>
 		/// Look at a target position in the chosen transform space. Note that the up vector is always specified in world space. Return true if successful, or false if resulted in an illegal rotation, in which case the current rotation remains.
 		/// </summary>
-		public bool LookAt (Urho.Vector3 target, Urho.Vector3 up, TransformSpace space)
+		public bool LookAt (Urho.Vector3 target, Urho.Vector3 up, TransformSpace space = TransformSpace.World)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_LookAt (handle, ref target, ref up, space);
@@ -948,7 +948,7 @@ namespace Urho
 		/// <summary>
 		/// Create a child scene node (with specified ID if provided).
 		/// </summary>
-		public Node CreateChild (string name, CreateMode mode, uint id)
+		public Node CreateChild (string name = "", CreateMode mode = CreateMode.Replicated, uint id = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Node_CreateChild (handle, name, mode, id));
@@ -960,7 +960,7 @@ namespace Urho
 		/// <summary>
 		/// Add a child scene node at a specific index. If index is not explicitly specified or is greater than current children size, append the new child at the end.
 		/// </summary>
-		public void AddChild (Node node, uint index)
+		public void AddChild (Node node, uint index = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			Node_AddChild (handle, (object)node == null ? IntPtr.Zero : node.Handle, index);
@@ -1008,7 +1008,7 @@ namespace Urho
 		/// <summary>
 		/// Create a component to this node (with specified ID if provided).
 		/// </summary>
-		public Component CreateComponent (StringHash type, CreateMode mode, uint id)
+		public Component CreateComponent (StringHash type, CreateMode mode = CreateMode.Replicated, uint id = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Component> (Node_CreateComponent (handle, type.Code, mode, id));
@@ -1020,7 +1020,7 @@ namespace Urho
 		/// <summary>
 		/// Create a component to this node if it does not exist already.
 		/// </summary>
-		public Component GetOrCreateComponent (StringHash type, CreateMode mode, uint id)
+		public Component GetOrCreateComponent (StringHash type, CreateMode mode = CreateMode.Replicated, uint id = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Component> (Node_GetOrCreateComponent (handle, type.Code, mode, id));
@@ -1032,7 +1032,7 @@ namespace Urho
 		/// <summary>
 		/// Clone a component from another node using its create mode. Return the clone if successful or null on failure.
 		/// </summary>
-		public Component CloneComponent (Component component, uint id)
+		public Component CloneComponent (Component component, uint id = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Component> (Node_CloneComponent (handle, (object)component == null ? IntPtr.Zero : component.Handle, id));
@@ -1044,7 +1044,7 @@ namespace Urho
 		/// <summary>
 		/// Clone a component from another node and specify the create mode. Return the clone if successful or null on failure.
 		/// </summary>
-		public Component CloneComponent (Component component, CreateMode mode, uint id)
+		public Component CloneComponent (Component component, CreateMode mode, uint id = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Component> (Node_CloneComponent17 (handle, (object)component == null ? IntPtr.Zero : component.Handle, mode, id));
@@ -1128,7 +1128,7 @@ namespace Urho
 		/// <summary>
 		/// Clone scene node, components and child nodes. Return the clone.
 		/// </summary>
-		public Node Clone (CreateMode mode)
+		public Node Clone (CreateMode mode = CreateMode.Replicated)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Node_Clone (handle, mode));
@@ -1776,7 +1776,7 @@ namespace Urho
 		/// <summary>
 		/// Return number of child scene nodes.
 		/// </summary>
-		public uint GetNumChildren (bool recursive)
+		public uint GetNumChildren (bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_GetNumChildren (handle, recursive);
@@ -1814,7 +1814,7 @@ namespace Urho
 		/// <summary>
 		/// Return child scene node by name.
 		/// </summary>
-		public Node GetChild (string name, bool recursive)
+		public Node GetChild (string name, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Node_GetChild22 (handle, name, recursive));
@@ -1826,7 +1826,7 @@ namespace Urho
 		/// <summary>
 		/// Return child scene node by name hash.
 		/// </summary>
-		public Node GetChild (StringHash nameHash, bool recursive)
+		public Node GetChild (StringHash nameHash, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Node_GetChild23 (handle, nameHash.Code, recursive));
@@ -1876,7 +1876,7 @@ namespace Urho
 		/// <summary>
 		/// Return component by type. If there are several, returns the first.
 		/// </summary>
-		public Component GetComponent (StringHash type, bool recursive)
+		public Component GetComponent (StringHash type, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Component> (Node_GetComponent (handle, type.Code, recursive));
@@ -1888,7 +1888,7 @@ namespace Urho
 		/// <summary>
 		/// Return component in parent node. If there are several, returns the first. May optional traverse up to the root node.
 		/// </summary>
-		public Component GetParentComponent (StringHash type, bool fullTraversal)
+		public Component GetParentComponent (StringHash type, bool fullTraversal = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Component> (Node_GetParentComponent (handle, type.Code, fullTraversal));

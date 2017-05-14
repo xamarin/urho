@@ -94,7 +94,7 @@ namespace Urho.IO
 		internal static extern IntPtr PackageFile_PackageFile0 (IntPtr context, string fileName, uint startOffset);
 
 		[Preserve]
-		public PackageFile (Context context, string fileName, uint startOffset) : base (UrhoObjectFlag.Empty)
+		public PackageFile (Context context, string fileName, uint startOffset = 0) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(PackageFile));
 			handle = PackageFile_PackageFile0 ((object)context == null ? IntPtr.Zero : context.Handle, fileName, startOffset);
@@ -108,7 +108,7 @@ namespace Urho.IO
 		/// <summary>
 		/// Open the package file. Return true if successful.
 		/// </summary>
-		public bool Open (string fileName, uint startOffset)
+		public bool Open (string fileName, uint startOffset = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return PackageFile_Open (handle, fileName, startOffset);

@@ -79,7 +79,7 @@ namespace Urho.Network
 		/// <summary>
 		/// Send a message.
 		/// </summary>
-		public void SendMessage (int msgID, bool reliable, bool inOrder, byte* data, uint numBytes, uint contentID)
+		public void SendMessage (int msgID, bool reliable, bool inOrder, byte* data, uint numBytes, uint contentID = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			Connection_SendMessage (handle, msgID, reliable, inOrder, data, numBytes, contentID);
@@ -151,7 +151,7 @@ namespace Urho.Network
 		/// <summary>
 		/// Disconnect. If wait time is non-zero, will block while waiting for disconnect to finish.
 		/// </summary>
-		public void Disconnect (int waitMSec)
+		public void Disconnect (int waitMSec = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			Connection_Disconnect (handle, waitMSec);

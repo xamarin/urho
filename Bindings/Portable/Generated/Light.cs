@@ -768,7 +768,7 @@ namespace Urho
 		/// <summary>
 		/// Return a divisor value based on intensity for calculating the sort value.
 		/// </summary>
-		public float GetIntensityDivisor (float attenuation)
+		public float GetIntensityDivisor (float attenuation = 1f)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Light_GetIntensityDivisor (handle, attenuation);

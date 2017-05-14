@@ -276,7 +276,7 @@ namespace Urho.Physics
 		/// <summary>
 		/// Perform a physics world raycast and return the closest hit.
 		/// </summary>
-		public void RaycastSingle (ref PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, uint collisionMask)
+		public void RaycastSingle (ref PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, uint collisionMask = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			PhysicsWorld_RaycastSingle (handle, ref result, ref ray, maxDistance, collisionMask);
@@ -288,7 +288,7 @@ namespace Urho.Physics
 		/// <summary>
 		/// Perform a physics world segmented raycast and return the closest hit. Useful for big scenes with many bodies.
 		/// </summary>
-		public void RaycastSingleSegmented (ref PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, float segmentDistance, uint collisionMask)
+		public void RaycastSingleSegmented (ref PhysicsRaycastResult result, Urho.Ray ray, float maxDistance, float segmentDistance, uint collisionMask = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			PhysicsWorld_RaycastSingleSegmented (handle, ref result, ref ray, maxDistance, segmentDistance, collisionMask);
@@ -300,7 +300,7 @@ namespace Urho.Physics
 		/// <summary>
 		/// Perform a physics world swept sphere test and return the closest hit.
 		/// </summary>
-		public void SphereCast (ref PhysicsRaycastResult result, Urho.Ray ray, float radius, float maxDistance, uint collisionMask)
+		public void SphereCast (ref PhysicsRaycastResult result, Urho.Ray ray, float radius, float maxDistance, uint collisionMask = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			PhysicsWorld_SphereCast (handle, ref result, ref ray, radius, maxDistance, collisionMask);
@@ -312,7 +312,7 @@ namespace Urho.Physics
 		/// <summary>
 		/// Perform a physics world swept convex test using a user-supplied collision shape and return the first hit.
 		/// </summary>
-		public void ConvexCast (ref PhysicsRaycastResult result, CollisionShape shape, Urho.Vector3 startPos, Urho.Quaternion startRot, Urho.Vector3 endPos, Urho.Quaternion endRot, uint collisionMask)
+		public void ConvexCast (ref PhysicsRaycastResult result, CollisionShape shape, Urho.Vector3 startPos, Urho.Quaternion startRot, Urho.Vector3 endPos, Urho.Quaternion endRot, uint collisionMask = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			PhysicsWorld_ConvexCast (handle, ref result, (object)shape == null ? IntPtr.Zero : shape.Handle, ref startPos, ref startRot, ref endPos, ref endRot, collisionMask);

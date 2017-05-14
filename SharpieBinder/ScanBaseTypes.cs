@@ -121,14 +121,10 @@ namespace SharpieBinder
 			}
 
 			if (name.StartsWith("Get") || name.StartsWith("Is")) {
-				Console.WriteLine($"Getter exists for {name}");
 				if (propName != decl.Parent.Name || propName == "Text")
 					// do not generate Getter if propertyName equals to typename (Text type already has a workaround for this case)
 					gs.Getter = decl;
 			} else {
-				if (gs.Setter != null) {
-					Console.WriteLine($"Setter exists for {name}");
-				}
 				gs.Setter = decl;
 			}
 			property[type] = gs;

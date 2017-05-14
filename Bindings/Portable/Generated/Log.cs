@@ -216,7 +216,7 @@ namespace Urho.IO
 		/// <summary>
 		/// Write raw output to the log.
 		/// </summary>
-		public static void WriteRaw (string message, bool error)
+		public static void WriteRaw (string message, bool error = false)
 		{
 			Runtime.Validate (typeof(Log));
 			Log_WriteRaw (message, error);

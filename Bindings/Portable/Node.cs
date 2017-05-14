@@ -72,24 +72,6 @@ namespace Urho {
 			Runtime.ValidateRefCounted(this);
 			AddComponent (component, id, CreateMode.Replicated);
 		}
-
-		/// <summary>
-		/// Create a child scene node (with specified ID if provided).
-		/// </summary>
-		public Node CreateChild (string name = "", uint id = 0, CreateMode mode = CreateMode.Replicated, bool temporary = false)
-		{
-			Runtime.ValidateRefCounted(this);
-			return CreateChild (name, mode, id);
-		}
-
-		/// <summary>
-		/// Add a child scene node at a specific index. If index is not explicitly specified or is greater than current children size, append the new child at the end.
-		/// </summary>
-		public void AddChild(Node node)
-		{
-			Runtime.ValidateRefCounted(this);
-			AddChild(node, uint.MaxValue);
-		}
 		
 		/// <summary>
 		/// Changes Parent for the node
@@ -100,15 +82,6 @@ namespace Urho {
 			Remove(); //without AddRef "Delete" will completly delete the node and the next operation will throw AccessViolationException
 			newParent.AddChild(this);
 			ReleaseRef();
-		}
-		
-		/// <summary>
-		/// Move the scene node in the chosen transform space.
-		/// </summary>
-		public void Translate(Vector3 delta)
-		{
-			Runtime.ValidateRefCounted(this);
-			Translate(delta, TransformSpace.Local);
 		}
 
 		public T GetComponent<T> (bool recursive = false) where T : Component
@@ -134,7 +107,5 @@ namespace Urho {
 				throw new Exception("'node' root element was not found");
 			return LoadXml(element, true);
 		}
-
-		public Node GetChild(string name) => GetChild(name, true);
 	}
 }

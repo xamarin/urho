@@ -864,7 +864,7 @@ namespace Urho
 		/// <summary>
 		/// Return number of geometries rendered.
 		/// </summary>
-		public uint GetNumGeometries (bool allViews)
+		public uint GetNumGeometries (bool allViews = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Renderer_GetNumGeometries (handle, allViews);
@@ -876,7 +876,7 @@ namespace Urho
 		/// <summary>
 		/// Return number of lights rendered.
 		/// </summary>
-		public uint GetNumLights (bool allViews)
+		public uint GetNumLights (bool allViews = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Renderer_GetNumLights (handle, allViews);
@@ -888,7 +888,7 @@ namespace Urho
 		/// <summary>
 		/// Return number of shadow maps rendered.
 		/// </summary>
-		public uint GetNumShadowMaps (bool allViews)
+		public uint GetNumShadowMaps (bool allViews = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Renderer_GetNumShadowMaps (handle, allViews);
@@ -900,7 +900,7 @@ namespace Urho
 		/// <summary>
 		/// Return number of occluders rendered.
 		/// </summary>
-		public uint GetNumOccluders (bool allViews)
+		public uint GetNumOccluders (bool allViews = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Renderer_GetNumOccluders (handle, allViews);
@@ -1092,7 +1092,7 @@ namespace Urho
 		/// <summary>
 		/// Allocate a rendertarget or depth-stencil texture for deferred rendering or postprocessing. Should only be called during actual rendering, not before.
 		/// </summary>
-		public Texture GetScreenBuffer (int width, int height, uint format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, uint persistentKey)
+		public Texture GetScreenBuffer (int width, int height, uint format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, uint persistentKey = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Texture> (Renderer_GetScreenBuffer (handle, width, height, format, multiSample, autoResolve, cubemap, filtered, srgb, persistentKey));

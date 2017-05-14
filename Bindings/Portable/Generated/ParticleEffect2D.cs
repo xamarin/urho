@@ -588,7 +588,7 @@ namespace Urho.Urho2D
 		/// <summary>
 		/// Clone the 2D particle effect.
 		/// </summary>
-		public ParticleEffect2D Clone (string cloneName)
+		public ParticleEffect2D Clone (string cloneName = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<ParticleEffect2D> (ParticleEffect2D_Clone (handle, cloneName));

@@ -336,7 +336,7 @@ namespace Urho
 		/// <summary>
 		/// Draw a fullscreen quad. Shaders and renderstates must have been set beforehand. Quad will be drawn to the middle of depth range, similarly to deferred directional lights.
 		/// </summary>
-		public void DrawFullscreenQuad (bool setIdentityProjection)
+		public void DrawFullscreenQuad (bool setIdentityProjection = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			View_DrawFullscreenQuad (handle, setIdentityProjection);
@@ -348,7 +348,7 @@ namespace Urho
 		/// <summary>
 		/// Get a named texture from the rendertarget list or from the resource cache, to be either used as a rendertarget or texture binding.
 		/// </summary>
-		public Texture FindNamedTexture (string name, bool isRenderTarget, bool isVolumeMap)
+		public Texture FindNamedTexture (string name, bool isRenderTarget, bool isVolumeMap = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Texture> (View_FindNamedTexture (handle, name, isRenderTarget, isVolumeMap));

@@ -108,7 +108,7 @@ namespace Urho
 		/// <summary>
 		/// Load from binary data. Removes all existing child nodes and components first. Return true if successful.
 		/// </summary>
-		public override bool Load (File source, bool setInstanceDefault)
+		public override bool Load (File source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_Load_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -120,7 +120,7 @@ namespace Urho
 		/// <summary>
 		/// Load from binary data. Removes all existing child nodes and components first. Return true if successful.
 		/// </summary>
-		public override bool Load (MemoryBuffer source, bool setInstanceDefault)
+		public override bool Load (MemoryBuffer source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_Load_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -156,7 +156,7 @@ namespace Urho
 		/// <summary>
 		/// Load from XML data. Removes all existing child nodes and components first. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -240,7 +240,7 @@ namespace Urho
 		/// <summary>
 		/// Save to an XML file. Return true if successful.
 		/// </summary>
-		public override bool SaveXml (File dest, string indentation)
+		public override bool SaveXml (File dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_SaveXML_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -252,7 +252,7 @@ namespace Urho
 		/// <summary>
 		/// Save to an XML file. Return true if successful.
 		/// </summary>
-		public override bool SaveXml (MemoryBuffer dest, string indentation)
+		public override bool SaveXml (MemoryBuffer dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_SaveXML_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -264,7 +264,7 @@ namespace Urho
 		/// <summary>
 		/// Save to a JSON file. Return true if successful.
 		/// </summary>
-		public override bool SaveJson (File dest, string indentation)
+		public override bool SaveJson (File dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_SaveJSON_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -276,7 +276,7 @@ namespace Urho
 		/// <summary>
 		/// Save to a JSON file. Return true if successful.
 		/// </summary>
-		public override bool SaveJson (MemoryBuffer dest, string indentation)
+		public override bool SaveJson (MemoryBuffer dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_SaveJSON_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -288,7 +288,7 @@ namespace Urho
 		/// <summary>
 		/// Load from a binary file asynchronously. Return true if started successfully. The LOAD_RESOURCES_ONLY mode can also be used to preload resources from object prefab files.
 		/// </summary>
-		public bool LoadAsync (File file, LoadMode mode)
+		public bool LoadAsync (File file, LoadMode mode = LoadMode.SceneAndResources)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_LoadAsync (handle, (object)file == null ? IntPtr.Zero : file.Handle, mode);
@@ -300,7 +300,7 @@ namespace Urho
 		/// <summary>
 		/// Load from an XML file asynchronously. Return true if started successfully. The LOAD_RESOURCES_ONLY mode can also be used to preload resources from object prefab files.
 		/// </summary>
-		public bool LoadAsyncXml (File file, LoadMode mode)
+		public bool LoadAsyncXml (File file, LoadMode mode = LoadMode.SceneAndResources)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_LoadAsyncXML (handle, (object)file == null ? IntPtr.Zero : file.Handle, mode);
@@ -312,7 +312,7 @@ namespace Urho
 		/// <summary>
 		/// Load from a JSON file asynchronously. Return true if started successfully. The LOAD_RESOURCES_ONLY mode can also be used to preload resources from object prefab files.
 		/// </summary>
-		public bool LoadAsyncJson (File file, LoadMode mode)
+		public bool LoadAsyncJson (File file, LoadMode mode = LoadMode.SceneAndResources)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Scene_LoadAsyncJSON (handle, (object)file == null ? IntPtr.Zero : file.Handle, mode);
@@ -336,7 +336,7 @@ namespace Urho
 		/// <summary>
 		/// Instantiate scene content from binary data. Return root node if successful.
 		/// </summary>
-		public Node Instantiate (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		public Node Instantiate (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode = CreateMode.Replicated)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Scene_Instantiate_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
@@ -348,7 +348,7 @@ namespace Urho
 		/// <summary>
 		/// Instantiate scene content from binary data. Return root node if successful.
 		/// </summary>
-		public Node Instantiate (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		public Node Instantiate (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode = CreateMode.Replicated)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Scene_Instantiate_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
@@ -360,7 +360,7 @@ namespace Urho
 		/// <summary>
 		/// Instantiate scene content from XML data. Return root node if successful.
 		/// </summary>
-		public Node InstantiateXml (XmlElement source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		public Node InstantiateXml (XmlElement source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode = CreateMode.Replicated)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Scene_InstantiateXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
@@ -372,7 +372,7 @@ namespace Urho
 		/// <summary>
 		/// Instantiate scene content from XML data. Return root node if successful.
 		/// </summary>
-		public Node InstantiateXml (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		public Node InstantiateXml (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode = CreateMode.Replicated)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Scene_InstantiateXML1_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
@@ -384,7 +384,7 @@ namespace Urho
 		/// <summary>
 		/// Instantiate scene content from XML data. Return root node if successful.
 		/// </summary>
-		public Node InstantiateXml (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		public Node InstantiateXml (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode = CreateMode.Replicated)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Scene_InstantiateXML1_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
@@ -396,7 +396,7 @@ namespace Urho
 		/// <summary>
 		/// Instantiate scene content from JSON data. Return root node if successful.
 		/// </summary>
-		public Node InstantiateJson (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		public Node InstantiateJson (File source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode = CreateMode.Replicated)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Scene_InstantiateJSON_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
@@ -408,7 +408,7 @@ namespace Urho
 		/// <summary>
 		/// Instantiate scene content from JSON data. Return root node if successful.
 		/// </summary>
-		public Node InstantiateJson (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode)
+		public Node InstantiateJson (MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, CreateMode mode = CreateMode.Replicated)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (Scene_InstantiateJSON_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, ref position, ref rotation, mode));
@@ -420,7 +420,7 @@ namespace Urho
 		/// <summary>
 		/// Clear scene completely of either replicated, local or all nodes and components.
 		/// </summary>
-		public void Clear (bool clearReplicated, bool clearLocal)
+		public void Clear (bool clearReplicated = true, bool clearLocal = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			Scene_Clear (handle, clearReplicated, clearLocal);

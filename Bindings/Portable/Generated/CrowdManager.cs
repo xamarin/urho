@@ -144,7 +144,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Set the crowd target position. The target position is set to all crowd agents found in the specified node. Defaulted to scene node.
 		/// </summary>
-		public void SetCrowdTarget (Urho.Vector3 position, Node node)
+		public void SetCrowdTarget (Urho.Vector3 position, Node node = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			CrowdManager_SetCrowdTarget (handle, ref position, (object)node == null ? IntPtr.Zero : node.Handle);
@@ -156,7 +156,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Set the crowd move velocity. The move velocity is applied to all crowd agents found in the specified node. Defaulted to scene node.
 		/// </summary>
-		public void SetCrowdVelocity (Urho.Vector3 velocity, Node node)
+		public void SetCrowdVelocity (Urho.Vector3 velocity, Node node = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			CrowdManager_SetCrowdVelocity (handle, ref velocity, (object)node == null ? IntPtr.Zero : node.Handle);
@@ -168,7 +168,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Reset any crowd target for all crowd agents found in the specified node. Defaulted to scene node.
 		/// </summary>
-		public void ResetCrowdTarget (Node node)
+		public void ResetCrowdTarget (Node node = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			CrowdManager_ResetCrowdTarget (handle, (object)node == null ? IntPtr.Zero : node.Handle);
@@ -264,7 +264,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Find the nearest point on the navigation mesh to a given point using the crowd initialized query extent (based on maxAgentRadius) and the specified query filter type.
 		/// </summary>
-		public Vector3 FindNearestPoint (Urho.Vector3 point, int queryFilterType, uint* nearestRef)
+		public Vector3 FindNearestPoint (Urho.Vector3 point, int queryFilterType, uint* nearestRef = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return CrowdManager_FindNearestPoint (handle, ref point, queryFilterType, nearestRef);
@@ -276,7 +276,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Try to move along the surface from one point to another using the crowd initialized query extent (based on maxAgentRadius) and the specified query filter type.
 		/// </summary>
-		public Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, int queryFilterType, int maxVisited)
+		public Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, int queryFilterType, int maxVisited = 3)
 		{
 			Runtime.ValidateRefCounted (this);
 			return CrowdManager_MoveAlongSurface (handle, ref start, ref end, queryFilterType, maxVisited);
@@ -288,7 +288,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Return a random point on the navigation mesh using the crowd initialized query extent (based on maxAgentRadius) and the specified query filter type.
 		/// </summary>
-		public Vector3 GetRandomPoint (int queryFilterType, uint* randomRef)
+		public Vector3 GetRandomPoint (int queryFilterType, uint* randomRef = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return CrowdManager_GetRandomPoint (handle, queryFilterType, randomRef);
@@ -300,7 +300,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Return a random point on the navigation mesh within a circle using the crowd initialized query extent (based on maxAgentRadius) and the specified query filter type. The circle radius is only a guideline and in practice the returned point may be further away.
 		/// </summary>
-		public Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, int queryFilterType, uint* randomRef)
+		public Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, int queryFilterType, uint* randomRef = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return CrowdManager_GetRandomPointInCircle (handle, ref center, radius, queryFilterType, randomRef);
@@ -312,7 +312,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Return distance to wall from a point using the crowd initialized query extent (based on maxAgentRadius) and the specified query filter type. Maximum search radius must be specified.
 		/// </summary>
-		public float GetDistanceToWall (Urho.Vector3 point, float radius, int queryFilterType, Vector3* hitPos, Vector3* hitNormal)
+		public float GetDistanceToWall (Urho.Vector3 point, float radius, int queryFilterType, Vector3* hitPos = null, Vector3* hitNormal = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return CrowdManager_GetDistanceToWall (handle, ref point, radius, queryFilterType, hitPos, hitNormal);
@@ -324,7 +324,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Perform a walkability raycast on the navigation mesh between start and end using the crowd initialized query extent (based on maxAgentRadius) and the specified query filter type. Return the point where a wall was hit, or the end point if no walls.
 		/// </summary>
-		public Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, int queryFilterType, Vector3* hitNormal)
+		public Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, int queryFilterType, Vector3* hitNormal = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return CrowdManager_Raycast (handle, ref start, ref end, queryFilterType, hitNormal);

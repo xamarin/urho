@@ -240,7 +240,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Set selection. When length is not provided, select until the text ends.
 		/// </summary>
-		public void SetSelection (uint start, uint length)
+		public void SetSelection (uint start, uint length = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			Text_SetSelection (handle, start, length);

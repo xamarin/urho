@@ -132,7 +132,7 @@ namespace Urho
 		/// <summary>
 		/// Add a Node to the SplinePath as a Control Point.
 		/// </summary>
-		public void AddControlPoint (Node point, uint index)
+		public void AddControlPoint (Node point, uint index = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			SplinePath_AddControlPoint (handle, (object)point == null ? IntPtr.Zero : point.Handle, index);

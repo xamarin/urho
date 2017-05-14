@@ -204,7 +204,7 @@ namespace Urho
 		/// <summary>
 		/// Set technique.
 		/// </summary>
-		public void SetTechnique (uint index, Technique tech, uint qualityLevel, float lodDistance)
+		public void SetTechnique (uint index, Technique tech, uint qualityLevel = 0, float lodDistance = 0f)
 		{
 			Runtime.ValidateRefCounted (this);
 			Material_SetTechnique (handle, index, (object)tech == null ? IntPtr.Zero : tech.Handle, qualityLevel, lodDistance);
@@ -396,7 +396,7 @@ namespace Urho
 		/// <summary>
 		/// Set shader parameter animation.
 		/// </summary>
-		public void SetShaderParameterAnimation (string name, ValueAnimation animation, WrapMode wrapMode, float speed)
+		public void SetShaderParameterAnimation (string name, ValueAnimation animation, WrapMode wrapMode = WrapMode.Loop, float speed = 1f)
 		{
 			Runtime.ValidateRefCounted (this);
 			Material_SetShaderParameterAnimation (handle, name, (object)animation == null ? IntPtr.Zero : animation.Handle, wrapMode, speed);
@@ -600,7 +600,7 @@ namespace Urho
 		/// <summary>
 		/// Clone the material.
 		/// </summary>
-		public Material Clone (string cloneName)
+		public Material Clone (string cloneName = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<Material> (Material_Clone (handle, cloneName));

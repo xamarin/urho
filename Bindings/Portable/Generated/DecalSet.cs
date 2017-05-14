@@ -192,7 +192,7 @@ namespace Urho
 		/// <summary>
 		/// Add a decal at world coordinates, using a target drawable's geometry for reference. If the decal needs to move with the target, the decal component should be created to the target's node. Return true if successful.
 		/// </summary>
-		public bool AddDecal (Drawable target, Urho.Vector3 worldPosition, Urho.Quaternion worldRotation, float size, float aspectRatio, float depth, Urho.Vector2 topLeftUV, Urho.Vector2 bottomRightUV, float timeToLive, float normalCutoff, uint subGeometry)
+		public bool AddDecal (Drawable target, Urho.Vector3 worldPosition, Urho.Quaternion worldRotation, float size, float aspectRatio, float depth, Urho.Vector2 topLeftUV, Urho.Vector2 bottomRightUV, float timeToLive = 0f, float normalCutoff = 0.1f, uint subGeometry = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			return DecalSet_AddDecal (handle, (object)target == null ? IntPtr.Zero : target.Handle, ref worldPosition, ref worldRotation, size, aspectRatio, depth, ref topLeftUV, ref bottomRightUV, timeToLive, normalCutoff, subGeometry);

@@ -127,7 +127,7 @@ namespace Urho
 		/// <summary>
 		/// Set per-bone blending weight by track index. Default is 1.0 (full), is multiplied  with the state's blending weight when applying the animation. Optionally recurses to child bones.
 		/// </summary>
-		public void SetBoneWeight (uint index, float weight, bool recursive)
+		public void SetBoneWeight (uint index, float weight, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			AnimationState_SetBoneWeight (handle, index, weight, recursive);
@@ -139,7 +139,7 @@ namespace Urho
 		/// <summary>
 		/// Set per-bone blending weight by name.
 		/// </summary>
-		public void SetBoneWeight (string name, float weight, bool recursive)
+		public void SetBoneWeight (string name, float weight, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			AnimationState_SetBoneWeight1 (handle, name, weight, recursive);
@@ -151,7 +151,7 @@ namespace Urho
 		/// <summary>
 		/// Set per-bone blending weight by name hash.
 		/// </summary>
-		public void SetBoneWeight (StringHash nameHash, float weight, bool recursive)
+		public void SetBoneWeight (StringHash nameHash, float weight, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			AnimationState_SetBoneWeight2 (handle, nameHash.Code, weight, recursive);

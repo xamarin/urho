@@ -79,7 +79,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Save as a new bitmap font type in XML format. Return true if successful.
 		/// </summary>
-		public bool Save (File dest, int pointSize, string indentation)
+		public bool Save (File dest, int pointSize, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return FontFaceBitmap_Save_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, indentation);
@@ -91,7 +91,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Save as a new bitmap font type in XML format. Return true if successful.
 		/// </summary>
-		public bool Save (MemoryBuffer dest, int pointSize, string indentation)
+		public bool Save (MemoryBuffer dest, int pointSize, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return FontFaceBitmap_Save_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, pointSize, indentation);

@@ -156,7 +156,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Remove a package file. Optionally release the resources loaded from it.
 		/// </summary>
-		public void RemovePackageFile (PackageFile package, bool releaseResources, bool forceRelease)
+		public void RemovePackageFile (PackageFile package, bool releaseResources = true, bool forceRelease = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ResourceCache_RemovePackageFile (handle, (object)package == null ? IntPtr.Zero : package.Handle, releaseResources, forceRelease);
@@ -168,7 +168,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Remove a package file by name. Optionally release the resources loaded from it.
 		/// </summary>
-		public void RemovePackageFile (string fileName, bool releaseResources, bool forceRelease)
+		public void RemovePackageFile (string fileName, bool releaseResources = true, bool forceRelease = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ResourceCache_RemovePackageFile1 (handle, fileName, releaseResources, forceRelease);
@@ -180,7 +180,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Release a resource by name.
 		/// </summary>
-		public void ReleaseResource (StringHash type, string name, bool force)
+		public void ReleaseResource (StringHash type, string name, bool force = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ResourceCache_ReleaseResource (handle, type.Code, name, force);
@@ -192,7 +192,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Release all resources of a specific type.
 		/// </summary>
-		public void ReleaseResources (StringHash type, bool force)
+		public void ReleaseResources (StringHash type, bool force = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ResourceCache_ReleaseResources (handle, type.Code, force);
@@ -204,7 +204,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Release resources of a specific type and partial name.
 		/// </summary>
-		public void ReleaseResources (StringHash type, string partialName, bool force)
+		public void ReleaseResources (StringHash type, string partialName, bool force = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ResourceCache_ReleaseResources2 (handle, type.Code, partialName, force);
@@ -216,7 +216,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Release resources of all types by partial name.
 		/// </summary>
-		public void ReleaseResources (string partialName, bool force)
+		public void ReleaseResources (string partialName, bool force = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ResourceCache_ReleaseResources3 (handle, partialName, force);
@@ -228,7 +228,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Release all resources. When called with the force flag false, releases all currently unused resources.
 		/// </summary>
-		public void ReleaseAllResources (bool force)
+		public void ReleaseAllResources (bool force = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ResourceCache_ReleaseAllResources (handle, force);
@@ -324,7 +324,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Add a resource router object. By default there is none, so the routing process is skipped.
 		/// </summary>
-		public void AddResourceRouter (ResourceRouter router, bool addAsFirst)
+		public void AddResourceRouter (ResourceRouter router, bool addAsFirst = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ResourceCache_AddResourceRouter (handle, (object)router == null ? IntPtr.Zero : router.Handle, addAsFirst);
@@ -348,7 +348,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Open and return a file from the resource load paths or from inside a package file. If not found, use a fallback search with absolute path. Return null if fails. Can be called from outside the main thread.
 		/// </summary>
-		public File GetFile (string name, bool sendEventOnFailure)
+		public File GetFile (string name, bool sendEventOnFailure = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<File> (ResourceCache_GetFile (handle, name, sendEventOnFailure));
@@ -360,7 +360,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Return a resource by type and name. Load if not loaded yet. Return null if not found or if fails, unless SetReturnFailedResources(true) has been called. Can be called only from the main thread.
 		/// </summary>
-		public Resource GetResource (StringHash type, string name, bool sendEventOnFailure)
+		public Resource GetResource (StringHash type, string name, bool sendEventOnFailure = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Resource> (ResourceCache_GetResource (handle, type.Code, name, sendEventOnFailure));
@@ -372,7 +372,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Load a resource without storing it in the resource cache. Return null if not found or if fails. Can be called from outside the main thread if the resource itself is safe to load completely (it does not possess for example GPU data.)
 		/// </summary>
-		public Resource GetTempResource (StringHash type, string name, bool sendEventOnFailure)
+		public Resource GetTempResource (StringHash type, string name, bool sendEventOnFailure = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<Resource> (ResourceCache_GetTempResource (handle, type.Code, name, sendEventOnFailure));
@@ -384,7 +384,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Background load a resource. An event will be sent when complete. Return true if successfully stored to the load queue, false if eg. already exists. Can be called from outside the main thread.
 		/// </summary>
-		public bool BackgroundLoadResource (StringHash type, string name, bool sendEventOnFailure, Resource caller)
+		public bool BackgroundLoadResource (StringHash type, string name, bool sendEventOnFailure = true, Resource caller = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return ResourceCache_BackgroundLoadResource (handle, type.Code, name, sendEventOnFailure, (object)caller == null ? IntPtr.Zero : caller.Handle);

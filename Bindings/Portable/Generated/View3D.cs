@@ -120,7 +120,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Define the scene and camera to use in rendering. When ownScene is true the View3D will take ownership of them with shared pointers.
 		/// </summary>
-		public void SetView (Scene scene, Camera camera, bool ownScene)
+		public void SetView (Scene scene, Camera camera, bool ownScene = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			View3D_SetView (handle, (object)scene == null ? IntPtr.Zero : scene.Handle, (object)camera == null ? IntPtr.Zero : camera.Handle, ownScene);

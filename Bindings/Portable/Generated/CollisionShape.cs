@@ -264,7 +264,7 @@ namespace Urho.Physics
 		/// <summary>
 		/// Set as a terrain. Only works if the same scene node contains a Terrain component.
 		/// </summary>
-		public void SetTerrain (uint lodLevel)
+		public void SetTerrain (uint lodLevel = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			CollisionShape_SetTerrain (handle, lodLevel);
@@ -480,7 +480,7 @@ namespace Urho.Physics
 		/// <summary>
 		/// Update the new collision shape to the RigidBody.
 		/// </summary>
-		public void NotifyRigidBody (bool updateMass)
+		public void NotifyRigidBody (bool updateMass = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			CollisionShape_NotifyRigidBody (handle, updateMass);

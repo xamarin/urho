@@ -240,7 +240,7 @@ namespace Urho
 		/// <summary>
 		/// Dump information of all resources to the log.
 		/// </summary>
-		public void DumpResources (bool dumpFileName)
+		public void DumpResources (bool dumpFileName = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			Engine_DumpResources (handle, dumpFileName);

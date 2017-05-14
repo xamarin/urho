@@ -90,7 +90,7 @@ namespace Urho
 		/// <summary>
 		/// Show an error message (last log message if empty), terminate the main loop, and set failure exit code.
 		/// </summary>
-		public void ErrorExit (string message)
+		public void ErrorExit (string message = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			Application_ErrorExit (handle, message);

@@ -174,7 +174,7 @@ namespace Urho
 		/// <summary>
 		/// Replace all occurrences of a string.
 		/// </summary>
-		public void Replace (string replaceThis, string replaceWith, bool caseSensitive)
+		public void Replace (string replaceThis, string replaceWith, bool caseSensitive = true)
 		{
 			Runtime.ValidateObject (this);
 			UrhoString_Replace (handle, replaceThis, replaceWith, caseSensitive);
@@ -198,7 +198,7 @@ namespace Urho
 		/// <summary>
 		/// Return a string with all occurrences of a string replaced.
 		/// </summary>
-		public string Replaced (string replaceThis, string replaceWith, bool caseSensitive)
+		public string Replaced (string replaceThis, string replaceWith, bool caseSensitive = true)
 		{
 			Runtime.ValidateObject (this);
 			return Marshal.PtrToStringAnsi (UrhoString_Replaced (handle, replaceThis, replaceWith, caseSensitive));
@@ -222,7 +222,7 @@ namespace Urho
 		/// <summary>
 		/// Erase a substring.
 		/// </summary>
-		public void Erase (uint pos, uint length)
+		public void Erase (uint pos, uint length = 1)
 		{
 			Runtime.ValidateObject (this);
 			UrhoString_Erase (handle, pos, length);
@@ -342,7 +342,7 @@ namespace Urho
 		/// <summary>
 		/// Return index to the first occurrence of a string, or NPOS if not found.
 		/// </summary>
-		public uint Find (string str, uint startPos, bool caseSensitive)
+		public uint Find (string str, uint startPos = 0, bool caseSensitive = true)
 		{
 			Runtime.ValidateObject (this);
 			return UrhoString_Find (handle, str, startPos, caseSensitive);
@@ -354,7 +354,7 @@ namespace Urho
 		/// <summary>
 		/// Return index to the last occurrence of a string, or NPOS if not found.
 		/// </summary>
-		public uint FindLast (string str, uint startPos, bool caseSensitive)
+		public uint FindLast (string str, uint startPos, bool caseSensitive = true)
 		{
 			Runtime.ValidateObject (this);
 			return UrhoString_FindLast (handle, str, startPos, caseSensitive);
@@ -366,7 +366,7 @@ namespace Urho
 		/// <summary>
 		/// Return whether starts with a string.
 		/// </summary>
-		public bool StartsWith (string str, bool caseSensitive)
+		public bool StartsWith (string str, bool caseSensitive = true)
 		{
 			Runtime.ValidateObject (this);
 			return UrhoString_StartsWith (handle, str, caseSensitive);
@@ -378,7 +378,7 @@ namespace Urho
 		/// <summary>
 		/// Return whether ends with a string.
 		/// </summary>
-		public bool EndsWith (string str, bool caseSensitive)
+		public bool EndsWith (string str, bool caseSensitive = true)
 		{
 			Runtime.ValidateObject (this);
 			return UrhoString_EndsWith (handle, str, caseSensitive);
@@ -426,7 +426,7 @@ namespace Urho
 		/// <summary>
 		/// Return comparison result with a string.
 		/// </summary>
-		public int Compare (string str, bool caseSensitive)
+		public int Compare (string str, bool caseSensitive = true)
 		{
 			Runtime.ValidateObject (this);
 			return UrhoString_Compare (handle, str, caseSensitive);
@@ -438,7 +438,7 @@ namespace Urho
 		/// <summary>
 		/// Return whether contains a specific occurrence of a string.
 		/// </summary>
-		public bool Contains (string str, bool caseSensitive)
+		public bool Contains (string str, bool caseSensitive = true)
 		{
 			Runtime.ValidateObject (this);
 			return UrhoString_Contains (handle, str, caseSensitive);

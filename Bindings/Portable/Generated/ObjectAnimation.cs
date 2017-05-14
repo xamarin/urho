@@ -181,7 +181,7 @@ namespace Urho
 		/// Add attribute animation, attribute name can in following format: "attribute" or "#0/#1/attribute" or ""#0/#1/
 		/// #1/attribute.
 		/// </summary>
-		public void AddAttributeAnimation (string name, ValueAnimation attributeAnimation, WrapMode wrapMode, float speed)
+		public void AddAttributeAnimation (string name, ValueAnimation attributeAnimation, WrapMode wrapMode = WrapMode.Loop, float speed = 1f)
 		{
 			Runtime.ValidateRefCounted (this);
 			ObjectAnimation_AddAttributeAnimation (handle, name, (object)attributeAnimation == null ? IntPtr.Zero : attributeAnimation.Handle, wrapMode, speed);

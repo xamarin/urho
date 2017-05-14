@@ -288,7 +288,7 @@ namespace Urho
 		/// <summary>
 		/// Clear any or all of rendertarget, depth buffer and stencil buffer.
 		/// </summary>
-		public void Clear (uint flags, Urho.Color color, float depth, uint stencil)
+		public void Clear (uint flags, Urho.Color color = default(Urho.Color), float depth = 1f, uint stencil = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			Graphics_Clear (handle, flags, ref color, depth, stencil);
@@ -768,7 +768,7 @@ namespace Urho
 		/// <summary>
 		/// Set blending and alpha-to-coverage modes. Alpha-to-coverage is not supported on Direct3D9.
 		/// </summary>
-		public void SetBlendMode (BlendMode mode, bool alphaToCoverage)
+		public void SetBlendMode (BlendMode mode, bool alphaToCoverage = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			Graphics_SetBlendMode (handle, mode, alphaToCoverage);
@@ -888,7 +888,7 @@ namespace Urho
 		/// <summary>
 		/// Set stencil test.
 		/// </summary>
-		public void SetStencilTest (bool enable, CompareMode mode, StencilOp pass, StencilOp fail, StencilOp zFail, uint stencilRef, uint compareMask, uint writeMask)
+		public void SetStencilTest (bool enable, CompareMode mode = CompareMode.Always, StencilOp pass = StencilOp.Keep, StencilOp fail = StencilOp.Keep, StencilOp zFail = StencilOp.Keep, uint stencilRef = 0, uint compareMask = uint.MaxValue, uint writeMask = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			Graphics_SetStencilTest (handle, enable, mode, pass, fail, zFail, stencilRef, compareMask, writeMask);
@@ -1380,7 +1380,7 @@ namespace Urho
 		/// <summary>
 		/// Return a shader variation by name and defines.
 		/// </summary>
-		public ShaderVariation GetShader (ShaderType type, string name, string defines)
+		public ShaderVariation GetShader (ShaderType type, string name, string defines = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<ShaderVariation> (Graphics_GetShader (handle, type, name, defines));

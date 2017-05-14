@@ -120,7 +120,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Load from XML data. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (XmlElement source, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -132,7 +132,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Load from XML data with style. Return true if successful.
 		/// </summary>
-		public virtual bool LoadXml (XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
+		public virtual bool LoadXml (XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_LoadXML0 (handle, (object)source == null ? IntPtr.Zero : source.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault);
@@ -144,7 +144,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Create a child by loading from XML data with style. Returns the child element if successful, null if otherwise.
 		/// </summary>
-		public UIElement LoadChildXml (XmlElement childElem, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
+		public UIElement LoadChildXml (XmlElement childElem, Urho.Resources.XmlFile styleFile = null, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<UIElement> (UIElement_LoadChildXML (handle, (object)childElem == null ? IntPtr.Zero : childElem.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault));
@@ -384,7 +384,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Save to an XML file. Return true if successful.
 		/// </summary>
-		public bool SaveXml (File dest, string indentation)
+		public bool SaveXml (File dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_SaveXML2_File (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -396,7 +396,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Save to an XML file. Return true if successful.
 		/// </summary>
-		public bool SaveXml (MemoryBuffer dest, string indentation)
+		public bool SaveXml (MemoryBuffer dest, string indentation = "\t")
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_SaveXML2_MemoryBuffer (handle, (object)dest == null ? IntPtr.Zero : dest.Handle, indentation);
@@ -1038,7 +1038,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Set style from an XML file. Find the style element by name. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.
 		/// </summary>
-		public bool SetStyle (string styleName, Urho.Resources.XmlFile file)
+		public bool SetStyle (string styleName, Urho.Resources.XmlFile file = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_SetStyle (handle, styleName, (object)file == null ? IntPtr.Zero : file.Handle);
@@ -1062,7 +1062,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Set style from an XML file. Find the style element automatically by using the element's typename. If the style file is not explicitly provided, use the default style from parental chain. Return true if the style is applied successfully.
 		/// </summary>
-		public bool SetStyleAuto (Urho.Resources.XmlFile file)
+		public bool SetStyleAuto (Urho.Resources.XmlFile file = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_SetStyleAuto (handle, (object)file == null ? IntPtr.Zero : file.Handle);
@@ -1218,7 +1218,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Create and add a child element and return it.
 		/// </summary>
-		public UIElement CreateChild (StringHash type, string name, uint index)
+		public UIElement CreateChild (StringHash type, string name = "", uint index = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<UIElement> (UIElement_CreateChild (handle, type.Code, name, index));
@@ -1254,7 +1254,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Remove a child element. Starting search at specified index if provided.
 		/// </summary>
-		public void RemoveChild (UIElement element, uint index)
+		public void RemoveChild (UIElement element, uint index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			UIElement_RemoveChild (handle, (object)element == null ? IntPtr.Zero : element.Handle, index);
@@ -1314,7 +1314,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Set parent element. Same as parent->InsertChild(index, this).
 		/// </summary>
-		public void SetParent (UIElement parent, uint index)
+		public void SetParent (UIElement parent, uint index = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			UIElement_SetParent (handle, (object)parent == null ? IntPtr.Zero : parent.Handle, index);
@@ -2102,7 +2102,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return default style.
 		/// </summary>
-		public Urho.Resources.XmlFile GetDefaultStyle (bool recursiveUp)
+		public Urho.Resources.XmlFile GetDefaultStyle (bool recursiveUp = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Urho.Resources.XmlFile> (UIElement_GetDefaultStyle (handle, recursiveUp));
@@ -2162,7 +2162,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return number of child elements.
 		/// </summary>
-		public uint GetNumChildren (bool recursive)
+		public uint GetNumChildren (bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_GetNumChildren (handle, recursive);
@@ -2186,7 +2186,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return child element by name.
 		/// </summary>
-		public UIElement GetChild (string name, bool recursive)
+		public UIElement GetChild (string name, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<UIElement> (UIElement_GetChild13 (handle, name, recursive));

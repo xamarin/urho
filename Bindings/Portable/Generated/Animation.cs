@@ -408,7 +408,7 @@ namespace Urho
 		/// <summary>
 		/// Clone the animation.
 		/// </summary>
-		public Animation Clone (string cloneName)
+		public Animation Clone (string cloneName = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<Animation> (Animation_Clone (handle, cloneName));

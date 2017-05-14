@@ -108,7 +108,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Load from XML data with style. Return true if successful.
 		/// </summary>
-		public override bool LoadXml (XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault)
+		public override bool LoadXml (XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Menu_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle, setInstanceDefault);

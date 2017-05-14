@@ -96,7 +96,7 @@ namespace Urho
 		/// <summary>
 		/// Load from binary data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
 		/// </summary>
-		public virtual bool Load (File source, bool setInstanceDefault)
+		public virtual bool Load (File source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Serializable_Load_File (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -108,7 +108,7 @@ namespace Urho
 		/// <summary>
 		/// Load from binary data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
 		/// </summary>
-		public virtual bool Load (MemoryBuffer source, bool setInstanceDefault)
+		public virtual bool Load (MemoryBuffer source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Serializable_Load_MemoryBuffer (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);
@@ -144,7 +144,7 @@ namespace Urho
 		/// <summary>
 		/// Load from XML data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
 		/// </summary>
-		public virtual bool LoadXml (XmlElement source, bool setInstanceDefault)
+		public virtual bool LoadXml (XmlElement source, bool setInstanceDefault = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Serializable_LoadXML (handle, (object)source == null ? IntPtr.Zero : source.Handle, setInstanceDefault);

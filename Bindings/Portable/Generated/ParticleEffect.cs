@@ -648,7 +648,7 @@ namespace Urho
 		/// <summary>
 		/// Clone the particle effect.
 		/// </summary>
-		public ParticleEffect Clone (string cloneName)
+		public ParticleEffect Clone (string cloneName = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<ParticleEffect> (ParticleEffect_Clone (handle, cloneName));

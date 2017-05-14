@@ -783,7 +783,7 @@ namespace Urho
 		/// <summary>
 		/// Return a world rotation for facing a camera on certain axes based on the existing world rotation.
 		/// </summary>
-		public Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, FaceCameraMode mode, float minAngle)
+		public Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, FaceCameraMode mode, float minAngle = 0f)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Camera_GetFaceCameraRotation (handle, ref position, ref rotation, mode, minAngle);

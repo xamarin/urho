@@ -144,7 +144,7 @@ namespace Urho.Urho2D
 		/// <summary>
 		/// Set animation by name and loop mode.
 		/// </summary>
-		public void SetAnimation (string name, LoopMode2D loopMode)
+		public void SetAnimation (string name, LoopMode2D loopMode = LoopMode2D.Default)
 		{
 			Runtime.ValidateRefCounted (this);
 			AnimatedSprite2D_SetAnimation (handle, name, loopMode);

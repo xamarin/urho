@@ -336,7 +336,7 @@ namespace Urho.Urho2D
 		/// <summary>
 		/// Return rigid body at point.
 		/// </summary>
-		public RigidBody2D GetRigidBody (Urho.Vector2 point, uint collisionMask)
+		public RigidBody2D GetRigidBody (Urho.Vector2 point, uint collisionMask = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<RigidBody2D> (PhysicsWorld2D_GetRigidBody (handle, ref point, collisionMask));
@@ -348,7 +348,7 @@ namespace Urho.Urho2D
 		/// <summary>
 		/// Return rigid body at screen point.
 		/// </summary>
-		public RigidBody2D GetRigidBody (int screenX, int screenY, uint collisionMask)
+		public RigidBody2D GetRigidBody (int screenX, int screenY, uint collisionMask = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<RigidBody2D> (PhysicsWorld2D_GetRigidBody1 (handle, screenX, screenY, collisionMask));

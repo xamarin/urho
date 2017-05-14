@@ -148,7 +148,7 @@ namespace Urho.Gui
 		/// In hierarchy mode, if index is greater than the index of last children of the specified parent item then the new item is inserted next to the last children.
 		/// And if the index is lesser than the index of the parent item itself then the new item is inserted before the first child item.
 		/// </summary>
-		public void InsertItem (uint index, UIElement item, UIElement parentItem)
+		public void InsertItem (uint index, UIElement item, UIElement parentItem = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			ListView_InsertItem (handle, index, (object)item == null ? IntPtr.Zero : item.Handle, (object)parentItem == null ? IntPtr.Zero : parentItem.Handle);
@@ -160,7 +160,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Remove specific item, starting search at the specified index if provided. In hierarchy mode will also remove any children.
 		/// </summary>
-		public void RemoveItem (UIElement item, uint index)
+		public void RemoveItem (UIElement item, uint index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			ListView_RemoveItem (handle, (object)item == null ? IntPtr.Zero : item.Handle, index);
@@ -244,7 +244,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Move selection by a delta and clamp at list ends. If additive (multiselect only), will add to the existing selection.
 		/// </summary>
-		public void ChangeSelection (int delta, bool additive)
+		public void ChangeSelection (int delta, bool additive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ListView_ChangeSelection (handle, delta, additive);
@@ -342,7 +342,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Expand item at index. Only has effect in hierarchy mode.
 		/// </summary>
-		public void Expand (uint index, bool enable, bool recursive)
+		public void Expand (uint index, bool enable, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ListView_Expand (handle, index, enable, recursive);
@@ -354,7 +354,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Toggle item's expanded flag at index. Only has effect in hierarchy mode.
 		/// </summary>
-		public void ToggleExpand (uint index, bool recursive)
+		public void ToggleExpand (uint index, bool recursive = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			ListView_ToggleExpand (handle, index, recursive);

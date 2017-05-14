@@ -180,7 +180,7 @@ namespace Urho
 		/// <summary>
 		/// Clone the technique. Passes will be deep copied to allow independent modification.
 		/// </summary>
-		public Technique Clone (string cloneName)
+		public Technique Clone (string cloneName = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<Technique> (Technique_Clone (handle, cloneName));

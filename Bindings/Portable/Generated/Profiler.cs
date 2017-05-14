@@ -144,7 +144,7 @@ namespace Urho
 		/// <summary>
 		/// Return profiling data as text output. This method is not thread-safe.
 		/// </summary>
-		public string PrintData (bool showUnused, bool showTotal, uint maxDepth)
+		public string PrintData (bool showUnused = false, bool showTotal = false, uint maxDepth = uint.MaxValue)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Marshal.PtrToStringAnsi (Profiler_PrintData (handle, showUnused, showTotal, maxDepth));

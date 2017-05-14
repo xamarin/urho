@@ -156,7 +156,7 @@ namespace Urho
 		/// <summary>
 		/// Set size, format, usage and multisampling parameter for rendertargets. Note that cube textures always use autoresolve when multisampled due to lacking support (on all APIs) to multisample them in a shader. Return true if successful.
 		/// </summary>
-		public bool SetSize (int size, uint format, TextureUsage usage, int multiSample)
+		public bool SetSize (int size, uint format, TextureUsage usage = TextureUsage.Static, int multiSample = 1)
 		{
 			Runtime.ValidateRefCounted (this);
 			return TextureCube_SetSize (handle, size, format, usage, multiSample);
@@ -204,7 +204,7 @@ namespace Urho
 		/// <summary>
 		/// Set data of one face from an image. Return true if successful. Optionally make a single channel image alpha-only.
 		/// </summary>
-		public bool SetData (CubeMapFace face, Image image, bool useAlpha)
+		public bool SetData (CubeMapFace face, Image image, bool useAlpha = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return TextureCube_SetData1 (handle, face, (object)image == null ? IntPtr.Zero : image.Handle, useAlpha);

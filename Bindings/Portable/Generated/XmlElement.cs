@@ -89,7 +89,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Remove child elements of certain name, or all child elements if name is empty. Return true if successful.
 		/// </summary>
-		public bool RemoveChildren (string name)
+		public bool RemoveChildren (string name = "")
 		{
 			Runtime.ValidateObject (this);
 			return XmlElement_RemoveChildren (handle, name);
@@ -101,7 +101,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Remove an attribute by name. Return true if successful.
 		/// </summary>
-		public bool RemoveAttribute (string name)
+		public bool RemoveAttribute (string name = "")
 		{
 			Runtime.ValidateObject (this);
 			return XmlElement_RemoveAttribute (handle, name);
@@ -873,7 +873,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Return child element, or null if missing.
 		/// </summary>
-		public XmlElement GetChild (string name)
+		public XmlElement GetChild (string name = "")
 		{
 			Runtime.ValidateObject (this);
 			return new XmlElement (XmlElement_GetChild (handle, name));
@@ -885,7 +885,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Return next sibling element.
 		/// </summary>
-		public XmlElement GetNext (string name)
+		public XmlElement GetNext (string name = "")
 		{
 			Runtime.ValidateObject (this);
 			return new XmlElement (XmlElement_GetNext (handle, name));
@@ -949,7 +949,7 @@ namespace Urho.Resources
 		/// <summary>
 		/// Return attribute, or empty if missing.
 		/// </summary>
-		public string GetAttribute (string name)
+		public string GetAttribute (string name = "")
 		{
 			Runtime.ValidateObject (this);
 			return Marshal.PtrToStringAnsi (XmlElement_GetAttribute (handle, name));

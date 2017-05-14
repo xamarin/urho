@@ -336,7 +336,7 @@ namespace Urho
 		/// <summary>
 		/// Return material by geometry index.
 		/// </summary>
-		public Material GetMaterial (uint index)
+		public Material GetMaterial (uint index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Material> (CustomGeometry_GetMaterial (handle, index));

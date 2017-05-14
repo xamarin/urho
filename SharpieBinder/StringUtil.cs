@@ -54,6 +54,8 @@ namespace SharpieBinder
 		{
 			if (str.StartsWith("class "))
 				return str.Substring("class ".Length);
+			if (str.StartsWith("enum "))
+				return str.Substring("enum ".Length);
 			if (str.StartsWith("struct "))
 				return str.Substring("struct ".Length);
 			return str;
@@ -113,6 +115,35 @@ namespace SharpieBinder
 					return "VerticalCross";
 			}
 			return source;
+		}
+
+
+		public static string RemapEnumName(string type, string value)
+		{
+			if (value.StartsWith("MAX_"))
+				return value.PascalCase();
+
+			switch (type)
+			{
+				case "InterpolationMode":
+					return value.PascalCase();
+				case "PrimitiveType":
+					return value.Replace("Prim_", "").PascalCase(); //there are more than one enum with this name
+				case "Orientation2D":
+				case "Orientation":
+					return value.Replace("O_", "").PascalCase(); //there are more than one enum with this name
+				case "EmitterTypeGravity":
+				case "EmitterType2D":
+				case "CrowdAgentTargetState":
+				case "NavmeshPartitionType":
+					return value.DropPrefix().DropPrefix().PascalCase();
+				case "ShaderType":
+					if (value.Length < 3)
+						return value.ToUpper();
+					goto default;
+				default:
+					return value.DropPrefix().PascalCase();
+			}
 		}
 
 		public static string RemapAcronyms(this string source)

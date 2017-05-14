@@ -228,7 +228,7 @@ namespace Urho
 		/// <summary>
 		/// Clone the model. The geometry data is deep-copied and can be modified in the clone without affecting the original.
 		/// </summary>
-		public Model Clone (string cloneName)
+		public Model Clone (string cloneName = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<Model> (Model_Clone (handle, cloneName));

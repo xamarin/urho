@@ -324,7 +324,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Find the nearest point on the navigation mesh to a given point. Extents specifies how far out from the specified point to check along each axis.
 		/// </summary>
-		public Vector3 FindNearestPoint (Urho.Vector3 point, Urho.Vector3 extents, dtQueryFilter* filter, uint* nearestRef)
+		public Vector3 FindNearestPoint (Urho.Vector3 point, Urho.Vector3 extents, dtQueryFilter* filter = null, uint* nearestRef = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return NavigationMesh_FindNearestPoint (handle, ref point, ref extents, filter, nearestRef);
@@ -336,7 +336,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Try to move along the surface from one point to another.
 		/// </summary>
-		public Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, int maxVisited, dtQueryFilter* filter)
+		public Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, int maxVisited = 3, dtQueryFilter* filter = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return NavigationMesh_MoveAlongSurface (handle, ref start, ref end, ref extents, maxVisited, filter);
@@ -348,7 +348,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Return a random point on the navigation mesh.
 		/// </summary>
-		public Vector3 GetRandomPoint (dtQueryFilter* filter, uint* randomRef)
+		public Vector3 GetRandomPoint (dtQueryFilter* filter = null, uint* randomRef = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return NavigationMesh_GetRandomPoint (handle, filter, randomRef);
@@ -360,7 +360,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Return a random point on the navigation mesh within a circle. The circle radius is only a guideline and in practice the returned point may be further away.
 		/// </summary>
-		public Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, Urho.Vector3 extents, dtQueryFilter* filter, uint* randomRef)
+		public Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, Urho.Vector3 extents, dtQueryFilter* filter = null, uint* randomRef = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return NavigationMesh_GetRandomPointInCircle (handle, ref center, radius, ref extents, filter, randomRef);
@@ -372,7 +372,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Return distance to wall from a point. Maximum search radius must be specified.
 		/// </summary>
-		public float GetDistanceToWall (Urho.Vector3 point, float radius, Urho.Vector3 extents, dtQueryFilter* filter, Vector3* hitPos, Vector3* hitNormal)
+		public float GetDistanceToWall (Urho.Vector3 point, float radius, Urho.Vector3 extents, dtQueryFilter* filter = null, Vector3* hitPos = null, Vector3* hitNormal = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return NavigationMesh_GetDistanceToWall (handle, ref point, radius, ref extents, filter, hitPos, hitNormal);
@@ -384,7 +384,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Perform a walkability raycast on the navigation mesh between start and end and return the point where a wall was hit, or the end point if no walls.
 		/// </summary>
-		public Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, dtQueryFilter* filter, Vector3* hitNormal)
+		public Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, Urho.Vector3 extents, dtQueryFilter* filter = null, Vector3* hitNormal = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return NavigationMesh_Raycast (handle, ref start, ref end, ref extents, filter, hitNormal);

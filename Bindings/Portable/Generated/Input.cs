@@ -120,7 +120,7 @@ namespace Urho
 		/// <summary>
 		/// Set whether the operating system mouse cursor is visible. When not visible (default), is kept centered to prevent leaving the window. Mouse visibility event can be suppressed-- this also recalls any unsuppressed SetMouseVisible which can be returned by ResetMouseVisible().
 		/// </summary>
-		public void SetMouseVisible (bool enable, bool suppressEvent)
+		public void SetMouseVisible (bool enable, bool suppressEvent = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			Input_SetMouseVisible (handle, enable, suppressEvent);
@@ -144,7 +144,7 @@ namespace Urho
 		/// <summary>
 		/// Set whether the mouse is currently being grabbed by an operation.
 		/// </summary>
-		public void SetMouseGrabbed (bool grab, bool suppressEvent)
+		public void SetMouseGrabbed (bool grab, bool suppressEvent = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			Input_SetMouseGrabbed (handle, grab, suppressEvent);
@@ -181,7 +181,7 @@ namespace Urho
 		/// MM_FREE does not grab/confine the mouse cursor even when it is hidden. This can be used for cases where the cursor should render using the operating system
 		/// outside the window, and perform custom rendering (with SetMouseVisible(false)) inside.
 		/// </summary>
-		public void SetMouseMode (MouseMode mode, bool suppressEvent)
+		public void SetMouseMode (MouseMode mode, bool suppressEvent = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			Input_SetMouseMode (handle, mode, suppressEvent);
@@ -209,7 +209,7 @@ namespace Urho
 		/// If style file is not given, use the default style file from root UI element.
 		/// This method should only be called in main thread.
 		/// </summary>
-		public int AddScreenJoystick (Urho.Resources.XmlFile layoutFile, Urho.Resources.XmlFile styleFile)
+		public int AddScreenJoystick (Urho.Resources.XmlFile layoutFile = null, Urho.Resources.XmlFile styleFile = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Input_AddScreenJoystick (handle, (object)layoutFile == null ? IntPtr.Zero : layoutFile.Handle, (object)styleFile == null ? IntPtr.Zero : styleFile.Handle);

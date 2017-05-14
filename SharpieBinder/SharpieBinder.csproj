@@ -61,6 +61,7 @@
     <Compile Include="CxxBinder.cs" />
     <Compile Include="ScanBaseTypes.cs" />
     <Compile Include="StringUtil.cs" />
+    <Compile Include="OptionalParametersParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

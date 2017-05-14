@@ -82,7 +82,7 @@ namespace Urho
 		internal static extern IntPtr IndexBuffer_IndexBuffer (IntPtr context, bool forceHeadless);
 
 		[Preserve]
-		public IndexBuffer (Context context, bool forceHeadless) : base (UrhoObjectFlag.Empty)
+		public IndexBuffer (Context context, bool forceHeadless = false) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(IndexBuffer));
 			handle = IndexBuffer_IndexBuffer ((object)context == null ? IntPtr.Zero : context.Handle, forceHeadless);
@@ -132,7 +132,7 @@ namespace Urho
 		/// <summary>
 		/// Set size and vertex elements and dynamic mode. Previous data will be lost.
 		/// </summary>
-		public bool SetSize (uint indexCount, bool largeIndices, bool dynamic)
+		public bool SetSize (uint indexCount, bool largeIndices, bool dynamic = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return IndexBuffer_SetSize (handle, indexCount, largeIndices, dynamic);
@@ -156,7 +156,7 @@ namespace Urho
 		/// <summary>
 		/// Set a data range in the buffer. Optionally discard data outside the range.
 		/// </summary>
-		public bool SetDataRange (void* data, uint start, uint count, bool discard)
+		public bool SetDataRange (void* data, uint start, uint count, bool discard = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return IndexBuffer_SetDataRange (handle, data, start, count, discard);
@@ -168,7 +168,7 @@ namespace Urho
 		/// <summary>
 		/// Lock the buffer for write-only editing. Return data pointer if successful. Optionally discard data outside the range.
 		/// </summary>
-		public IntPtr Lock (uint start, uint count, bool discard)
+		public IntPtr Lock (uint start, uint count, bool discard = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return IndexBuffer_Lock (handle, start, count, discard);

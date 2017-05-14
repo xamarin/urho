@@ -132,7 +132,7 @@ namespace Urho.IO
 		/// <summary>
 		/// Run a program using the command interpreter, block until it exits and return the exit code. Will fail if any allowed paths are defined.
 		/// </summary>
-		public int SystemCommand (string commandLine, bool redirectStdOutToLog)
+		public int SystemCommand (string commandLine, bool redirectStdOutToLog = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return FileSystem_SystemCommand (handle, commandLine, redirectStdOutToLog);
@@ -156,7 +156,7 @@ namespace Urho.IO
 		/// <summary>
 		/// Open a file in an external program, with mode such as "edit" optionally specified. Will fail if any allowed paths are defined.
 		/// </summary>
-		public bool SystemOpen (string fileName, string mode)
+		public bool SystemOpen (string fileName, string mode = "")
 		{
 			Runtime.ValidateRefCounted (this);
 			return FileSystem_SystemOpen (handle, fileName, mode);

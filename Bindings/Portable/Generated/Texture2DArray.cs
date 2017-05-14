@@ -192,7 +192,7 @@ namespace Urho
 		/// <summary>
 		/// Set layers, size, format and usage. Set layers to zero to leave them unchanged. Return true if successful.
 		/// </summary>
-		public bool SetSize (uint layers, int width, int height, uint format, TextureUsage usage)
+		public bool SetSize (uint layers, int width, int height, uint format, TextureUsage usage = TextureUsage.Static)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture2DArray_SetSize (handle, layers, width, height, format, usage);
@@ -240,7 +240,7 @@ namespace Urho
 		/// <summary>
 		/// Set data of one layer from an image. Return true if successful. Optionally make a single channel image alpha-only.
 		/// </summary>
-		public bool SetData (uint layer, Image image, bool useAlpha)
+		public bool SetData (uint layer, Image image, bool useAlpha = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture2DArray_SetData1 (handle, layer, (object)image == null ? IntPtr.Zero : image.Handle, useAlpha);

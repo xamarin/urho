@@ -158,7 +158,7 @@ namespace Urho.Urho2D
 		/// Autoresolve true means the multisampled texture will be automatically resolved to 1-sample after being rendered to and before being sampled as a texture.
 		/// Autoresolve false means the multisampled texture will be read as individual samples in the shader and is not supported on Direct3D9.
 		/// </summary>
-		public bool SetSize (int width, int height, uint format, TextureUsage usage, int multiSample, bool autoResolve)
+		public bool SetSize (int width, int height, uint format, TextureUsage usage = TextureUsage.Static, int multiSample = 1, bool autoResolve = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture2D_SetSize (handle, width, height, format, usage, multiSample, autoResolve);
@@ -182,7 +182,7 @@ namespace Urho.Urho2D
 		/// <summary>
 		/// Set data from an image. Return true if successful. Optionally make a single channel image alpha-only.
 		/// </summary>
-		public bool SetData (Image image, bool useAlpha)
+		public bool SetData (Image image, bool useAlpha = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture2D_SetData0 (handle, (object)image == null ? IntPtr.Zero : image.Handle, useAlpha);

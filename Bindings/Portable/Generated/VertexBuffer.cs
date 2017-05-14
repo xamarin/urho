@@ -82,7 +82,7 @@ namespace Urho
 		internal static extern IntPtr VertexBuffer_VertexBuffer (IntPtr context, bool forceHeadless);
 
 		[Preserve]
-		public VertexBuffer (Context context, bool forceHeadless) : base (UrhoObjectFlag.Empty)
+		public VertexBuffer (Context context, bool forceHeadless = false) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(VertexBuffer));
 			handle = VertexBuffer_VertexBuffer ((object)context == null ? IntPtr.Zero : context.Handle, forceHeadless);
@@ -132,7 +132,7 @@ namespace Urho
 		/// <summary>
 		/// Set size and vertex elements and dynamic mode using legacy element bitmask. Previous data will be lost.
 		/// </summary>
-		public bool SetSize (uint vertexCount, ElementMask elementMask, bool dynamic)
+		public bool SetSize (uint vertexCount, ElementMask elementMask, bool dynamic = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_SetSize (handle, vertexCount, (uint)elementMask, dynamic);
@@ -156,7 +156,7 @@ namespace Urho
 		/// <summary>
 		/// Set a data range in the buffer. Optionally discard data outside the range.
 		/// </summary>
-		public bool SetDataRange (void* data, uint start, uint count, bool discard)
+		public bool SetDataRange (void* data, uint start, uint count, bool discard = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_SetDataRange (handle, data, start, count, discard);
@@ -168,7 +168,7 @@ namespace Urho
 		/// <summary>
 		/// Lock the buffer for write-only editing. Return data pointer if successful. Optionally discard data outside the range.
 		/// </summary>
-		public IntPtr Lock (uint start, uint count, bool discard)
+		public IntPtr Lock (uint start, uint count, bool discard = false)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_Lock (handle, start, count, discard);
@@ -252,7 +252,7 @@ namespace Urho
 		/// <summary>
 		/// Return vertex element, or null if does not exist.
 		/// </summary>
-		public VertexElement* GetElement (VertexElementSemantic semantic, byte index)
+		public VertexElement* GetElement (VertexElementSemantic semantic, byte index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_GetElement (handle, semantic, index);
@@ -264,7 +264,7 @@ namespace Urho
 		/// <summary>
 		/// Return vertex element with specific type, or null if does not exist.
 		/// </summary>
-		public VertexElement* GetElement (VertexElementType type, VertexElementSemantic semantic, byte index)
+		public VertexElement* GetElement (VertexElementType type, VertexElementSemantic semantic, byte index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_GetElement0 (handle, type, semantic, index);
@@ -276,7 +276,7 @@ namespace Urho
 		/// <summary>
 		/// Return whether has a specified element semantic.
 		/// </summary>
-		public bool HasElement (VertexElementSemantic semantic, byte index)
+		public bool HasElement (VertexElementSemantic semantic, byte index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_HasElement (handle, semantic, index);
@@ -288,7 +288,7 @@ namespace Urho
 		/// <summary>
 		/// Return whether has an element semantic with specific type.
 		/// </summary>
-		public bool HasElement (VertexElementType type, VertexElementSemantic semantic, byte index)
+		public bool HasElement (VertexElementType type, VertexElementSemantic semantic, byte index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_HasElement1 (handle, type, semantic, index);
@@ -300,7 +300,7 @@ namespace Urho
 		/// <summary>
 		/// Return offset of a element within vertex, or M_MAX_UNSIGNED if does not exist.
 		/// </summary>
-		public uint GetElementOffset (VertexElementSemantic semantic, byte index)
+		public uint GetElementOffset (VertexElementSemantic semantic, byte index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_GetElementOffset (handle, semantic, index);
@@ -312,7 +312,7 @@ namespace Urho
 		/// <summary>
 		/// Return offset of a element with specific type within vertex, or M_MAX_UNSIGNED if element does not exist.
 		/// </summary>
-		public uint GetElementOffset (VertexElementType type, VertexElementSemantic semantic, byte index)
+		public uint GetElementOffset (VertexElementType type, VertexElementSemantic semantic, byte index = 0)
 		{
 			Runtime.ValidateRefCounted (this);
 			return VertexBuffer_GetElementOffset2 (handle, type, semantic, index);

@@ -132,7 +132,7 @@ namespace Urho
 		/// <summary>
 		/// Set the draw range.
 		/// </summary>
-		public bool SetDrawRange (PrimitiveType type, uint indexStart, uint indexCount, bool getUsedVertexRange)
+		public bool SetDrawRange (PrimitiveType type, uint indexStart, uint indexCount, bool getUsedVertexRange = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Geometry_SetDrawRange (handle, type, indexStart, indexCount, getUsedVertexRange);
@@ -144,7 +144,7 @@ namespace Urho
 		/// <summary>
 		/// Set the draw range.
 		/// </summary>
-		public bool SetDrawRange (PrimitiveType type, uint indexStart, uint indexCount, uint vertexStart, uint vertexCount, bool checkIllegal)
+		public bool SetDrawRange (PrimitiveType type, uint indexStart, uint indexCount, uint vertexStart, uint vertexCount, bool checkIllegal = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Geometry_SetDrawRange0 (handle, type, indexStart, indexCount, vertexStart, vertexCount, checkIllegal);
@@ -314,7 +314,7 @@ namespace Urho
 		/// <summary>
 		/// Return ray hit distance or infinity if no hit. Requires raw data to be set. Optionally return hit normal and hit uv coordinates at intersect point.
 		/// </summary>
-		public float GetHitDistance (Urho.Ray ray, Vector3* outNormal, Vector2* outUV)
+		public float GetHitDistance (Urho.Ray ray, Vector3* outNormal = null, Vector2* outUV = null)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Geometry_GetHitDistance (handle, ref ray, outNormal, outUV);

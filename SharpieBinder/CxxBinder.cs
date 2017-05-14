@@ -158,34 +158,6 @@ namespace SharpieBinder
 		Dictionary<string, TypeDeclaration> allTypes = new Dictionary<string, TypeDeclaration>();
 		public HashSet<string> unhandledEnums = new HashSet<string> ();
 
-		string RemapEnumName (string type, string value)
-		{
-			if (value.StartsWith ("MAX_"))
-				return value.PascalCase();
-
-			switch (type)
-			{
-				case "InterpolationMode":
-					return value.PascalCase();
-				case "PrimitiveType":
-					return value.Replace("Prim_", "").PascalCase(); //there are more than one enum with this name
-				case "Orientation2D":
-				case "Orientation":
-					return value.Replace("O_", "").PascalCase(); //there are more than one enum with this name
-				case "EmitterTypeGravity":
-				case "EmitterType2D":
-				case "CrowdAgentTargetState":
-				case "NavmeshPartitionType":
-					return value.DropPrefix().DropPrefix().PascalCase();
-				case "ShaderType":
-					if (value.Length < 3)
-						return value.ToUpper ();
-					goto default;
-				default:
-					return value.DropPrefix().PascalCase();
-			}
-		}
-
 		public override void VisitEnumDecl(EnumDecl decl, VisitKind visitKind)
 		{
 			if (visitKind != VisitKind.Enter || !decl.IsCompleteDefinition || decl.QualifiedName == null)
@@ -207,7 +179,7 @@ namespace SharpieBinder
 			}, StringUtil.GetTypeComments(decl));
 
 			foreach (var constantDecl in decl.Decls<EnumConstantDecl>()) {
-				var valueName = RemapEnumName (typeName, constantDecl.Name);
+				var valueName = StringUtil. RemapEnumName (typeName, constantDecl.Name);
 				var enumValue = new EnumMemberDeclaration { Name = valueName };
 				if (constantDecl.InitExpr != null) {
 					APSInt v;
@@ -859,6 +831,10 @@ namespace SharpieBinder
 				if (decl.Name == "GetChild")
 					return decl.Parameters.First ().QualType.ToString () == "const char *";
 				break;
+			case "Image":
+				if (decl.Name == "SavePNG")
+					return decl.Parameters.FirstOrDefault()?.QualType.ToString() == "int *";
+				break;
 			case "Shader":
 				if (decl.Name == "GetVariation")
 					return decl.Parameters.Skip (1).First ().QualType.ToString () == "const char *";
@@ -1270,10 +1246,13 @@ namespace SharpieBinder
 					break;
 				}
 
+				var parameterDeclaration = new ParameterDeclaration(parameter, paramName, methodMod);
+				parameterDeclaration.DefaultExpression = OptionalParametersParser.Parse(param, csParser);
+
 				if (constructor == null)
-					method.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
+					method.Parameters.Add(parameterDeclaration);
 				else
-					constructor.Parameters.Add(new ParameterDeclaration(parameter, paramName, methodMod));
+					constructor.Parameters.Add(parameterDeclaration);
 
 				pinvoke.Parameters.Add(new ParameterDeclaration(pinvokeParameter, paramName, pinvokeMod));
 				switch (wrapKind) {

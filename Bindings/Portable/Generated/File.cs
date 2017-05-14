@@ -94,7 +94,7 @@ namespace Urho.IO
 		internal static extern IntPtr File_File0 (IntPtr context, string fileName, FileMode mode);
 
 		[Preserve]
-		public File (Context context, string fileName, FileMode mode) : base (UrhoObjectFlag.Empty)
+		public File (Context context, string fileName, FileMode mode = FileMode.Read) : base (UrhoObjectFlag.Empty)
 		{
 			Runtime.Validate (typeof(File));
 			handle = File_File0 ((object)context == null ? IntPtr.Zero : context.Handle, fileName, mode);
@@ -180,7 +180,7 @@ namespace Urho.IO
 		/// <summary>
 		/// Open a filesystem file. Return true if successful.
 		/// </summary>
-		public bool Open (string fileName, FileMode mode)
+		public bool Open (string fileName, FileMode mode = FileMode.Read)
 		{
 			Runtime.ValidateRefCounted (this);
 			return File_Open (handle, fileName, mode);
