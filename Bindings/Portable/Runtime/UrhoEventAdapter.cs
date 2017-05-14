@@ -7,11 +7,23 @@ namespace Urho
 	{
 		readonly Dictionary<IntPtr, List<Action<TEventArgs>>> managedSubscribersByObjects;
 		readonly Dictionary<IntPtr, Subscription> nativeSubscriptionsForObjects;
+		readonly Type objectType;
 
-		public UrhoEventAdapter()
+		public UrhoEventAdapter(Type objectType)
 		{
+			this.objectType = objectType;
 			managedSubscribersByObjects = new Dictionary<IntPtr, List<Action<TEventArgs>>>(IntPtrEqualityComparer.Instance);
 			nativeSubscriptionsForObjects = new Dictionary<IntPtr, Subscription>(IntPtrEqualityComparer.Instance);
+			Runtime.KnownObjectDeleted += OnObjectDeleted;
+		}
+
+		void OnObjectDeleted(RefCounted refCounted, IntPtr handle)
+		{
+			if (refCounted.GetType() != objectType)
+				return;
+
+			managedSubscribersByObjects.Remove(handle);
+			nativeSubscriptionsForObjects.Remove(handle);
 		}
 
 		public void AddManagedSubscriber(IntPtr handle, Action<TEventArgs> action, Func<Action<TEventArgs>, Subscription> nativeSubscriber)

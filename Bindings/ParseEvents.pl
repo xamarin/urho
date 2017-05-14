@@ -212,7 +212,7 @@ while (<>){
 			print CS "                 add\n";
 			print CS "                 {\n";
 			print CS "                      if (eventAdapterFor${eventName} == null)\n";
-			print CS "                          eventAdapterFor${eventName} = new UrhoEventAdapter<${eventName}EventArgs>();\n";
+			print CS "                          eventAdapterFor${eventName} = new UrhoEventAdapter<${eventName}EventArgs>(typeof($type));\n";
 			print CS "                      eventAdapterFor${eventName}.AddManagedSubscriber(handle, value, SubscribeTo${eventName});\n";
 			print CS "                 }\n";
 			print CS "                 remove { eventAdapterFor${eventName}.RemoveManagedSubscriber(handle, value); }\n";

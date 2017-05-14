@@ -32,7 +32,8 @@ namespace Urho
 
 		internal static RefCountedCache RefCountedCache { get; private set; } = new RefCountedCache();
 		internal static bool IsClosing { get; private set; }
-		
+
+		internal static Action<RefCounted, IntPtr> KnownObjectDeleted;
 
 		internal static void Start()
 		{
@@ -142,7 +143,10 @@ namespace Urho
 							// seems like the reference was Weak and GC has removed it - remove item from the dictionary
 							RefCountedCache.Remove(target);
 						else
+						{
 							reference.HandleNativeDelete();
+							KnownObjectDeleted(reference, target);
+						}
 					}
 					break;
 
