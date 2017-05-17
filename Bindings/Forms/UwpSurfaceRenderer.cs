@@ -16,7 +16,7 @@ namespace Urho.Forms
 			if (e.NewElement != null)
 			{
 				urhoSurface = new Urho.UWP.UrhoSurface();
-				e.NewElement.UrhoApplicationLauncher = UrhoLauncher;
+				e.NewElement.RegisterRunner(UrhoLauncher);
 				SetNativeControl(urhoSurface);
 			}
 			base.OnElementChanged(e);

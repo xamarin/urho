@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using UrhoRunner = System.Func<System.Type, Urho.ApplicationOptions, System.Threading.Tasks.Task<Urho.Application>>;
 
 namespace Urho.Forms
 {
 	public class UrhoSurface : Xamarin.Forms.View
 	{
-		internal Func<Type, ApplicationOptions, Task<Urho.Application>> UrhoApplicationLauncher { get; set; }
+		readonly TaskCompletionSource<UrhoRunner> runnerInitTaskSource = new TaskCompletionSource<UrhoRunner>();
+
+		internal void RegisterRunner(UrhoRunner runner)
+		{
+			runnerInitTaskSource.TrySetResult(runner);
+		}
 
 		public async Task<TUrhoApplication> Show<TUrhoApplication>(ApplicationOptions options) where TUrhoApplication : Urho.Application
 		{
-			if (UrhoApplicationLauncher == null)
-				throw new InvalidOperationException("Platform implementation is not referenced");
-			return (TUrhoApplication)await UrhoApplicationLauncher(typeof (TUrhoApplication), options);
+			var runner = await runnerInitTaskSource.Task;
+			if (runner == null)
+				throw new InvalidOperationException("UrhoRunner should not be null.");
+			return (TUrhoApplication)await runner(typeof (TUrhoApplication), options);
 		}
 
 #if IOS

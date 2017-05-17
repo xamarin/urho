@@ -18,7 +18,7 @@ namespace Urho.Forms
 			if (e.NewElement != null) {
 				var surface = new IosUrhoSurface();
 				surface.BackgroundColor = UIColor.Black;
-				e.NewElement.UrhoApplicationLauncher = surface.Launcher;
+				e.NewElement.RegisterRunner(surface.Launcher);
 				SetNativeControl(surface);
 			}
 		}

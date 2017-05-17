@@ -23,7 +23,7 @@ namespace Urho.Forms
 			if (e.NewElement == null)
 				return;
 
-			e.NewElement.UrhoApplicationLauncher = surface.Launcher;
+			e.NewElement.RegisterRunner(surface.Launcher);
 			SetNativeControl(surface);
 			base.OnElementChanged(e);
 		}
