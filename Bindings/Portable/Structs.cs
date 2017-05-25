@@ -93,7 +93,7 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct IntRect {
+	public struct IntRect : IEquatable<IntRect> {
 		public int Left, Top, Right, Bottom;
 		public IntRect (int left, int top, int right, int bottom)
 		{
@@ -101,6 +101,40 @@ namespace Urho {
 			Top = top;
 			Right = right;
 			Bottom = bottom;
+		}
+
+		public static bool operator ==(IntRect left, IntRect right)
+		{
+			return left.Equals(right);
+		}
+
+		public static bool operator !=(IntRect left, IntRect right)
+		{
+			return !left.Equals(right);
+		}
+
+		public bool Equals(IntRect other)
+		{
+			return Left == other.Left
+				&& Top == other.Top
+				&& Right == other.Right
+				&& Bottom == other.Bottom;
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj)) return false;
+			return obj is IntRect && Equals((IntRect)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			int hash = 37;
+			hash = hash * 43 + Left;
+			hash = hash * 43 + Top;
+			hash = hash * 43 + Bottom;
+			hash = hash * 43 + Right;
+			return hash;
 		}
 	}
 
@@ -112,7 +146,7 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct Rect {
+	public struct Rect : IEquatable<Rect> {
 		public Vector2 Min, Max;
 
 		public Rect (int left, int top, int right, int bottom)
@@ -125,6 +159,35 @@ namespace Urho {
 		{
 			Min = min;
 			Max = max;
+		}
+
+		public static bool operator ==(Rect left, Rect right)
+		{
+			return left.Equals(right);
+		}
+
+		public static bool operator !=(Rect left, Rect right)
+		{
+			return !left.Equals(right);
+		}
+
+		public bool Equals(Rect other)
+		{
+			return Min.Equals(other.Min) && Max.Equals(other.Max);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj)) return false;
+			return obj is Rect && Equals((Rect)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			int hash = 37;
+			hash = hash * 43 + Min.GetHashCode();
+			hash = hash * 43 + Max.GetHashCode();
+			return hash;
 		}
 	}
 
