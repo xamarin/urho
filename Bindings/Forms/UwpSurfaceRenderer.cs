@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms.Platform.UWP;
 
@@ -9,23 +10,34 @@ namespace Urho.Forms
 
 	public class UwpSurfaceRenderer : ViewRenderer<Urho.Forms.UrhoSurface, Urho.UWP.UrhoSurface>
 	{
-		Urho.UWP.UrhoSurface urhoSurface = null;
+		TaskCompletionSource<Urho.UWP.UrhoSurface> surfaceTask = new TaskCompletionSource<UWP.UrhoSurface>();
+		SemaphoreSlim semaphore = new SemaphoreSlim(1);
 
 		protected override void OnElementChanged(ElementChangedEventArgs<UrhoSurface> e)
 		{
 			if (e.NewElement != null)
 			{
-				urhoSurface = new Urho.UWP.UrhoSurface();
+				var urhoSurface = new Urho.UWP.UrhoSurface();
 				e.NewElement.RegisterRunner(UrhoLauncher);
 				SetNativeControl(urhoSurface);
+				surfaceTask.TrySetResult(urhoSurface);
 			}
 			base.OnElementChanged(e);
 		}
 
-		Task<Application> UrhoLauncher(Type type, ApplicationOptions opts)
+		async Task<Application> UrhoLauncher(Type type, ApplicationOptions opts)
 		{
-			var app = urhoSurface.Run(type, opts);
-			return Task.FromResult(app);
+			try
+			{
+				await semaphore.WaitAsync();
+				var urhoSurface = await surfaceTask.Task;
+				await urhoSurface.WaitLoadedAsync();
+				return urhoSurface.Run(type, opts);
+			}
+			finally
+			{
+				semaphore.Release();
+			}
 		}
 	}
 }

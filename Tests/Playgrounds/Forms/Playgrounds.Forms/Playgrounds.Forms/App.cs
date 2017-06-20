@@ -1,4 +1,5 @@
-﻿using Urho;
+﻿using System.Threading.Tasks;
+using Urho;
 using Urho.Forms;
 using Xamarin.Forms;
 
@@ -58,6 +59,11 @@ namespace Playgrounds.Forms
 					UrhoSurface.OnResume();
 			};
 
+
+			var newpageBtn = new Button { Text = "New page" };
+			newpageBtn.HorizontalOptions = LayoutOptions.CenterAndExpand;
+			newpageBtn.Clicked += (sender, e) => Navigation.PushAsync(new UrhoPage());
+
 			urhoSurface = new UrhoSurface();
 			urhoSurface.VerticalOptions = LayoutOptions.FillAndExpand;
 
@@ -83,6 +89,7 @@ namespace Playgrounds.Forms
 						HorizontalOptions = LayoutOptions.FillAndExpand,
 						Children = {
 							restartBtn,
+							newpageBtn,
 							pauseBtn
 						}
 					},
@@ -121,7 +128,10 @@ namespace Playgrounds.Forms
 
 		async void StartUrhoApp()
 		{
-			urhoApp = await urhoSurface.Show<Charts>(new ApplicationOptions(assetsFolder: null) { Orientation = ApplicationOptions.OrientationType.LandscapeAndPortrait });
+			urhoApp = await urhoSurface.Show<Charts>(new ApplicationOptions()
+				{
+					Orientation = ApplicationOptions.OrientationType.LandscapeAndPortrait
+				});
 		}
 	}
 }

@@ -98,17 +98,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playgrounds.Cocoa", "Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playgrounds.iOS", "Tests\Playgrounds\Playgrounds.iOS\Playgrounds.iOS.csproj", "{8C12B028-853C-4E51-AB9D-FD4CE4C50FBF}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Playgrounds.Forms.Shared", "Tests\Playgrounds\Forms\Playgrounds.Forms\Playgrounds.Forms\Playgrounds.Forms.Shared.shproj", "{507FEED7-F317-4DE5-BF4A-147FA35123EE}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Bindings\Urho.Shared.projitems*{048373c2-b60a-4f61-b095-287c57437efb}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{05693742-16e4-45ad-b7dd-b5f3de51bc11}*SharedItemsImports = 13
+		Tests\Playgrounds\Forms\Playgrounds.Forms\Playgrounds.Forms\Playgrounds.Forms.Shared.projitems*{258f64d6-bdfb-48e7-93cc-b96c57fec2fe}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{3afdab77-57ce-4fce-8324-81d57556a4fa}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{3b881c69-a1ac-410a-a633-ea9fca4a760c}*SharedItemsImports = 4
+		Tests\Playgrounds\Forms\Playgrounds.Forms\Playgrounds.Forms\Playgrounds.Forms.Shared.projitems*{507feed7-f317-4de5-bf4a-147fa35123ee}*SharedItemsImports = 13
 		Bindings\Urho.Shared.projitems*{641886db-2c6c-4d33-88da-97bec0ec5f86}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{8bae491b-46f0-4a51-a456-d7a3b332bdc4}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{8f3352ba-bf6a-49f8-81d6-58d54b3ea72b}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{9c3a02c0-6776-438a-aaf7-9f95af55e243}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{d599c47f-b9e0-4a58-82e8-6286e0442e8f}*SharedItemsImports = 4
+		Tests\Playgrounds\Forms\Playgrounds.Forms\Playgrounds.Forms\Playgrounds.Forms.Shared.projitems*{d9b42fa2-9b80-4be4-9bee-45c53fd43ffc}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{f0359d5e-d6d4-47d3-a9f0-5a97c31dc476}*SharedItemsImports = 4
 		Bindings\Urho.Shared.projitems*{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}*SharedItemsImports = 4
 	EndGlobalSection
@@ -2506,5 +2511,6 @@ Global
 		{0703D797-E1A2-48A9-AB21-ABCDC46D4E7F} = {F150367D-92FD-4017-80DA-10058DA8414F}
 		{AA325D2D-B242-4773-B303-A609C4DA5017} = {7B31BB67-CA12-41DD-8DDF-779B7E7561D3}
 		{8C12B028-853C-4E51-AB9D-FD4CE4C50FBF} = {7B31BB67-CA12-41DD-8DDF-779B7E7561D3}
+		{507FEED7-F317-4DE5-BF4A-147FA35123EE} = {D26E6130-7AF0-4559-8A9A-0C8B0A638C14}
 	EndGlobalSection
 EndGlobal

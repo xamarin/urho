@@ -9,7 +9,7 @@ namespace Playgrounds.UWP
 
 		protected override async void Start()
 		{
-			Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.ForwardHWDepth);
+			//Renderer.SetDefaultRenderPath(CoreAssets.RenderPaths.ForwardHWDepth);
 			var scene = new Scene();
 			scene.CreateComponent<Octree>();
 
@@ -20,7 +20,6 @@ namespace Playgrounds.UWP
 			boxNode.SetScale(1f);
 			var modelObject = boxNode.CreateComponent<StaticModel>();
 			modelObject.Model = ResourceCache.GetModel("Models/Box.mdl");
-			modelObject.SetMaterial(ResourceCache.GetMaterial("Materials/StoneSmall.xml"));
 
 			await Task.Delay(1000);
 			await ToMainThreadAsync();

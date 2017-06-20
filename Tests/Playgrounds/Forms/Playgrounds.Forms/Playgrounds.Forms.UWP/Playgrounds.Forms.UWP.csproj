@@ -90,6 +90,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="..\..\..\..\..\Bin\UWP\mono-urho.dll">
+      <Link>mono-urho.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\..\..\..\Urho3D\CoreData.pak">
       <Link>CoreData.pak</Link>
     </Content>
@@ -135,11 +139,8 @@
       <Project>{3afdab77-57ce-4fce-8324-81d57556a4fa}</Project>
       <Name>Urho.Forms.UWP</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Playgrounds.Forms\Playgrounds.Forms.csproj">
-      <Project>{258f64d6-bdfb-48e7-93cc-b96c57fec2fe}</Project>
-      <Name>Playgrounds.Forms</Name>
-    </ProjectReference>
   </ItemGroup>
+  <Import Project="..\Playgrounds.Forms\Playgrounds.Forms.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
