@@ -561,6 +561,7 @@ namespace SharpieBinder
 			case "BoundingBox &":
 			case "Color &":
 			case "IntVector2 &":
+			case "IntVector2":
 			case "IntRect &":
 			case "TileMapInfo2D &":
 			case "RenderPathCommand &":
@@ -1287,6 +1288,9 @@ namespace SharpieBinder
 				case "Urho3D::Image &":
 					ctype = "Image *";
 					paramInvoke = $"*{paramInvoke}";
+					break;
+				case "Urho3D::IntVector2":
+					ctype = "const class Urho3D::IntVector2 &";
 					break;
 				case "Urho3D::Deserializer &":
 				case "Urho3D::Serializer &":
