@@ -223,12 +223,12 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Font_GetTotalGlyphOffset (IntPtr handle, int pointSize);
+		internal static extern Urho.IntVector2 Font_GetTotalGlyphOffset (IntPtr handle, int pointSize);
 
 		/// <summary>
 		/// Return the total effective offset for a point size.
 		/// </summary>
-		public IntVector2 GetTotalGlyphOffset (int pointSize)
+		public Urho.IntVector2 GetTotalGlyphOffset (int pointSize)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Font_GetTotalGlyphOffset (handle, pointSize);

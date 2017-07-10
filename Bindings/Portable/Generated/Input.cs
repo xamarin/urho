@@ -590,12 +590,12 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Input_GetMousePosition (IntPtr handle);
+		internal static extern Urho.IntVector2 Input_GetMousePosition (IntPtr handle);
 
 		/// <summary>
 		/// Return mouse position within window. Should only be used with a visible mouse cursor.
 		/// </summary>
-		private IntVector2 GetMousePosition ()
+		private Urho.IntVector2 GetMousePosition ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return Input_GetMousePosition (handle);
@@ -949,7 +949,7 @@ namespace Urho
 		/// <summary>
 		/// Return mouse position within window. Should only be used with a visible mouse cursor.
 		/// </summary>
-		public IntVector2 MousePosition {
+		public Urho.IntVector2 MousePosition {
 			get {
 				return GetMousePosition ();
 			}

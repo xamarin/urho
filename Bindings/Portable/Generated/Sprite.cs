@@ -139,24 +139,24 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Sprite_ScreenToElement (IntPtr handle, ref Urho.IntVector2 screenPosition);
+		internal static extern Urho.IntVector2 Sprite_ScreenToElement (IntPtr handle, ref Urho.IntVector2 screenPosition);
 
 		/// <summary>
 		/// Convert screen coordinates to element coordinates.
 		/// </summary>
-		public override IntVector2 ScreenToElement (Urho.IntVector2 screenPosition)
+		public override Urho.IntVector2 ScreenToElement (Urho.IntVector2 screenPosition)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Sprite_ScreenToElement (handle, ref screenPosition);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Sprite_ElementToScreen (IntPtr handle, ref Urho.IntVector2 position);
+		internal static extern Urho.IntVector2 Sprite_ElementToScreen (IntPtr handle, ref Urho.IntVector2 position);
 
 		/// <summary>
 		/// Convert element coordinates to screen coordinates.
 		/// </summary>
-		public override IntVector2 ElementToScreen (Urho.IntVector2 position)
+		public override Urho.IntVector2 ElementToScreen (Urho.IntVector2 position)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Sprite_ElementToScreen (handle, ref position);

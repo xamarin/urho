@@ -1088,12 +1088,12 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 XmlElement_GetIntVector2 (IntPtr handle, string name);
+		internal static extern Urho.IntVector2 XmlElement_GetIntVector2 (IntPtr handle, string name);
 
 		/// <summary>
 		/// Return an IntVector2 attribute, or default if missing.
 		/// </summary>
-		public IntVector2 GetIntVector2 (string name)
+		public Urho.IntVector2 GetIntVector2 (string name)
 		{
 			Runtime.ValidateObject (this);
 			return XmlElement_GetIntVector2 (handle, name);

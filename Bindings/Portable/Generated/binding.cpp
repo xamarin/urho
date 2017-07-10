@@ -21080,14 +21080,14 @@ UIElement_GetDragButtonCount (Urho3D::UIElement *_target)
 
 
 DllExport int
-UIElement_IsInside (Urho3D::UIElement *_target, Urho3D::IntVector2 position, bool isScreen)
+UIElement_IsInside (Urho3D::UIElement *_target, const class Urho3D::IntVector2 & position, bool isScreen)
 {
 	return _target->IsInside (position, isScreen);
 }
 
 
 DllExport int
-UIElement_IsInsideCombined (Urho3D::UIElement *_target, Urho3D::IntVector2 position, bool isScreen)
+UIElement_IsInsideCombined (Urho3D::UIElement *_target, const class Urho3D::IntVector2 & position, bool isScreen)
 {
 	return _target->IsInsideCombined (position, isScreen);
 }

@@ -331,24 +331,24 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 UIElement_ScreenToElement (IntPtr handle, ref Urho.IntVector2 screenPosition);
+		internal static extern Urho.IntVector2 UIElement_ScreenToElement (IntPtr handle, ref Urho.IntVector2 screenPosition);
 
 		/// <summary>
 		/// Convert screen coordinates to element coordinates.
 		/// </summary>
-		public virtual IntVector2 ScreenToElement (Urho.IntVector2 screenPosition)
+		public virtual Urho.IntVector2 ScreenToElement (Urho.IntVector2 screenPosition)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_ScreenToElement (handle, ref screenPosition);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 UIElement_ElementToScreen (IntPtr handle, ref Urho.IntVector2 position);
+		internal static extern Urho.IntVector2 UIElement_ElementToScreen (IntPtr handle, ref Urho.IntVector2 position);
 
 		/// <summary>
 		/// Convert element coordinates to screen coordinates.
 		/// </summary>
-		public virtual IntVector2 ElementToScreen (Urho.IntVector2 position)
+		public virtual Urho.IntVector2 ElementToScreen (Urho.IntVector2 position)
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_ElementToScreen (handle, ref position);
@@ -2279,27 +2279,27 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_IsInside (IntPtr handle, IntVector2 position, bool isScreen);
+		internal static extern bool UIElement_IsInside (IntPtr handle, ref Urho.IntVector2 position, bool isScreen);
 
 		/// <summary>
 		/// Return whether a point (either in element or screen coordinates) is inside the element.
 		/// </summary>
-		public bool IsInside (IntVector2 position, bool isScreen)
+		public bool IsInside (Urho.IntVector2 position, bool isScreen)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_IsInside (handle, position, isScreen);
+			return UIElement_IsInside (handle, ref position, isScreen);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool UIElement_IsInsideCombined (IntPtr handle, IntVector2 position, bool isScreen);
+		internal static extern bool UIElement_IsInsideCombined (IntPtr handle, ref Urho.IntVector2 position, bool isScreen);
 
 		/// <summary>
 		/// Return whether a point (either in element or screen coordinates) is inside the combined rect of the element and its children.
 		/// </summary>
-		public bool IsInsideCombined (IntVector2 position, bool isScreen)
+		public bool IsInsideCombined (Urho.IntVector2 position, bool isScreen)
 		{
 			Runtime.ValidateRefCounted (this);
-			return UIElement_IsInsideCombined (handle, position, isScreen);
+			return UIElement_IsInsideCombined (handle, ref position, isScreen);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -2447,12 +2447,12 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 UIElement_GetEffectiveMinSize (IntPtr handle);
+		internal static extern Urho.IntVector2 UIElement_GetEffectiveMinSize (IntPtr handle);
 
 		/// <summary>
 		/// Return effective minimum size, also considering layout. Used internally.
 		/// </summary>
-		private IntVector2 GetEffectiveMinSize ()
+		private Urho.IntVector2 GetEffectiveMinSize ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return UIElement_GetEffectiveMinSize (handle);
@@ -3263,7 +3263,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return effective minimum size, also considering layout. Used internally.
 		/// </summary>
-		public IntVector2 EffectiveMinSize {
+		public Urho.IntVector2 EffectiveMinSize {
 			get {
 				return GetEffectiveMinSize ();
 			}

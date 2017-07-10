@@ -307,12 +307,12 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Viewport_WorldToScreenPoint (IntPtr handle, ref Urho.Vector3 worldPos);
+		internal static extern Urho.IntVector2 Viewport_WorldToScreenPoint (IntPtr handle, ref Urho.Vector3 worldPos);
 
 		/// <summary>
 		/// Convert a world space point to normalized screen coordinates.
 		/// </summary>
-		public IntVector2 WorldToScreenPoint (Urho.Vector3 worldPos)
+		public Urho.IntVector2 WorldToScreenPoint (Urho.Vector3 worldPos)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Viewport_WorldToScreenPoint (handle, ref worldPos);

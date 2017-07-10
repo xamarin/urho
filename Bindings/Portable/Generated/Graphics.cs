@@ -1027,12 +1027,12 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Graphics_GetWindowPosition (IntPtr handle);
+		internal static extern Urho.IntVector2 Graphics_GetWindowPosition (IntPtr handle);
 
 		/// <summary>
 		/// Return window position.
 		/// </summary>
-		private IntVector2 GetWindowPosition ()
+		private Urho.IntVector2 GetWindowPosition ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return Graphics_GetWindowPosition (handle);
@@ -1351,12 +1351,12 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Graphics_GetDesktopResolution (IntPtr handle);
+		internal static extern Urho.IntVector2 Graphics_GetDesktopResolution (IntPtr handle);
 
 		/// <summary>
 		/// Return the desktop resolution.
 		/// </summary>
-		private IntVector2 GetDesktopResolution ()
+		private Urho.IntVector2 GetDesktopResolution ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return Graphics_GetDesktopResolution (handle);
@@ -1795,12 +1795,12 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Graphics_GetRenderTargetDimensions (IntPtr handle);
+		internal static extern Urho.IntVector2 Graphics_GetRenderTargetDimensions (IntPtr handle);
 
 		/// <summary>
 		/// Return current rendertarget width and height.
 		/// </summary>
-		private IntVector2 GetRenderTargetDimensions ()
+		private Urho.IntVector2 GetRenderTargetDimensions ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return Graphics_GetRenderTargetDimensions (handle);
@@ -2198,7 +2198,7 @@ namespace Urho
 		/// <summary>
 		/// Return window position.
 		/// </summary>
-		public IntVector2 WindowPosition {
+		public Urho.IntVector2 WindowPosition {
 			get {
 				return GetWindowPosition ();
 			}
@@ -2651,7 +2651,7 @@ namespace Urho
 		/// <summary>
 		/// Return the desktop resolution.
 		/// </summary>
-		public IntVector2 DesktopResolution {
+		public Urho.IntVector2 DesktopResolution {
 			get {
 				return GetDesktopResolution ();
 			}
@@ -2813,7 +2813,7 @@ namespace Urho
 		/// <summary>
 		/// Return current rendertarget width and height.
 		/// </summary>
-		public IntVector2 RenderTargetDimensions {
+		public Urho.IntVector2 RenderTargetDimensions {
 			get {
 				return GetRenderTargetDimensions ();
 			}

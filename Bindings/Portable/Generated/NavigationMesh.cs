@@ -643,12 +643,12 @@ namespace Urho.Navigation
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 NavigationMesh_GetNumTiles (IntPtr handle);
+		internal static extern Urho.IntVector2 NavigationMesh_GetNumTiles (IntPtr handle);
 
 		/// <summary>
 		/// Return number of tiles.
 		/// </summary>
-		private IntVector2 GetNumTiles ()
+		private Urho.IntVector2 GetNumTiles ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return NavigationMesh_GetNumTiles (handle);
@@ -986,7 +986,7 @@ namespace Urho.Navigation
 		/// <summary>
 		/// Return number of tiles.
 		/// </summary>
-		public IntVector2 NumTiles {
+		public Urho.IntVector2 NumTiles {
 			get {
 				return GetNumTiles ();
 			}

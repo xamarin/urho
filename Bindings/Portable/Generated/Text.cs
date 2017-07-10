@@ -583,24 +583,24 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Text_GetCharPosition (IntPtr handle, uint index);
+		internal static extern Urho.IntVector2 Text_GetCharPosition (IntPtr handle, uint index);
 
 		/// <summary>
 		/// Return position of character by index relative to the text element origin.
 		/// </summary>
-		public IntVector2 GetCharPosition (uint index)
+		public Urho.IntVector2 GetCharPosition (uint index)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Text_GetCharPosition (handle, index);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Text_GetCharSize (IntPtr handle, uint index);
+		internal static extern Urho.IntVector2 Text_GetCharSize (IntPtr handle, uint index);
 
 		/// <summary>
 		/// Return size of character by index.
 		/// </summary>
-		public IntVector2 GetCharSize (uint index)
+		public Urho.IntVector2 GetCharSize (uint index)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Text_GetCharSize (handle, index);

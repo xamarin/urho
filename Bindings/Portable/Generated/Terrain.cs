@@ -583,12 +583,12 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 Terrain_WorldToHeightMap (IntPtr handle, ref Urho.Vector3 worldPosition);
+		internal static extern Urho.IntVector2 Terrain_WorldToHeightMap (IntPtr handle, ref Urho.Vector3 worldPosition);
 
 		/// <summary>
 		/// Convert world position to heightmap pixel position. Note that the internal height data representation is reversed vertically, but in the heightmap image north is at the top.
 		/// </summary>
-		public IntVector2 WorldToHeightMap (Urho.Vector3 worldPosition)
+		public Urho.IntVector2 WorldToHeightMap (Urho.Vector3 worldPosition)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Terrain_WorldToHeightMap (handle, ref worldPosition);

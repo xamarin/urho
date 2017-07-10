@@ -476,12 +476,12 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntVector2 UI_GetCursorPosition (IntPtr handle);
+		internal static extern Urho.IntVector2 UI_GetCursorPosition (IntPtr handle);
 
 		/// <summary>
 		/// Return cursor position.
 		/// </summary>
-		private IntVector2 GetCursorPosition ()
+		private Urho.IntVector2 GetCursorPosition ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return UI_GetCursorPosition (handle);
@@ -981,7 +981,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return cursor position.
 		/// </summary>
-		public IntVector2 CursorPosition {
+		public Urho.IntVector2 CursorPosition {
 			get {
 				return GetCursorPosition ();
 			}
