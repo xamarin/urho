@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bug219.cs" />
+    <Compile Include="Bug222.cs" />
     <Compile Include="HoloScene\DTO.cs" />
     <Compile Include="HoloScene\HoloScene.cs" />
     <Compile Include="Program.cs" />

@@ -11,10 +11,7 @@ namespace Playgrounds.Console
 	{
 		static void Main(string[] args)
 		{
-			SimpleApplicationTests.RunApp();
-			//SimpleApp.RunApp();
-			//StereoModePerformance.RunApp();
-			//HoloScene.HoloScene.RunApp();
+			Bug219.RunApp();
 			System.Console.ReadKey();
 		}
 	}
