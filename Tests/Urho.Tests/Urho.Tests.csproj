@@ -18,6 +18,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -34,7 +35,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\ActionManager.cs" />
+    <Compile Include="Bootstrap\TestApp.cs" />
     <Compile Include="ColorTests.cs" />
+    <Compile Include="Issue222.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\bindings\Urho.Desktop.csproj">
@@ -42,15 +45,18 @@
       <Name>Urho.Desktop</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup Condition="Exists('..\..\Bin\Desktop\Win32\mono-urho.dll')">
+    <Content Include="..\..\Bin\Desktop\Win32\mono-urho.dll">
+      <Link>mono-urho.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Urho3D\CoreData.pak">
+      <Link>CoreData.pak</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
-    <None Include="..\..\Bin\Desktop\*">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\Bin\Desktop\Win64\*">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
