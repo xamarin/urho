@@ -46,16 +46,14 @@ namespace Urho
 		/// </summary>
 		public bool LimitFps { get; set; } = true;
 
-#if XFORMS
 		/// <summary>
-		/// iOS only
+		/// iOS & Android only
 		/// </summary>
-		public OrientationType Orientation { get; set; } = OrientationType.LandscapeAndPortrait;
+		public OrientationType Orientation { get; set; }
+#if IOS && !XFORMS
+			= OrientationType.Landscape;
 #else
-		/// <summary>
-		/// iOS only
-		/// </summary>
-		public OrientationType Orientation { get; set; } = OrientationType.Landscape;
+			= OrientationType.LandscapeAndPortrait;
 #endif
 		/// <summary>
 		/// Resource path(s) to use (default: Data, CoreData)

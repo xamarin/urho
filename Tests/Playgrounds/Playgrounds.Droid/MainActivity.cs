@@ -16,7 +16,7 @@ namespace Playgrounds.Droid
 	{
 		AbsoluteLayout placeholder;
 		Game game;
-		SDLSurface surface;
+		UrhoSurfacePlaceholder surface;
 
 		protected override void OnCreate(Bundle bundle)
 		{
@@ -80,6 +80,8 @@ namespace Playgrounds.Droid
 
 		async void OnRestart(object sender, EventArgs e)
 		{
+			//UrhoSurface.RunInActivity<Game>(new ApplicationOptions(null));
+			//return;
 			if (surface != null)
 			{
 				await surface.Stop();

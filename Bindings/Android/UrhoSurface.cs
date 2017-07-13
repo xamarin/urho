@@ -91,18 +91,19 @@ namespace Urho.Droid
 		/// </summary>
 		public static void RunInActivity(Type appType, ApplicationOptions options = null)
 		{
-			RunInActivity(() => Application.CreateInstance(appType, options));
+			RunInActivity(() => Application.CreateInstance(appType, options), options);
 		}
 
 		/// <summary>
 		/// The simpliest way to launch a game. It opens a special full-screen activity
 		/// </summary>
-		public static void RunInActivity(Func<Application> applicationFactory)
+		public static void RunInActivity(Func<Application> applicationFactory, ApplicationOptions opts)
 		{
 			SetSdlMain(applicationFactory, true, null);
 			var context = Android.App.Application.Context;
-			var intent = new Intent(context, typeof(Org.Libsdl.App.UrhoActivity));
+			var intent = new Intent(context, typeof(Urho.Droid.FullscreenUrhoActivity));
 			intent.AddFlags(ActivityFlags.NewTask);
+			intent.PutExtra(nameof(ApplicationOptions.OrientationType), (int)(opts?.Orientation ?? ApplicationOptions.OrientationType.Landscape));
 			context.StartActivity(intent);
 		}
 

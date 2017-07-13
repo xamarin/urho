@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Android\DroidPlatformInitializer.cs" />
+    <Compile Include="Android\FullscreenUrhoActivity.cs" />
     <Compile Include="Android\UrhoSurface.cs" />
   </ItemGroup>
   <ItemGroup>
