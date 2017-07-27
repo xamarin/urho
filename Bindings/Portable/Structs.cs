@@ -842,6 +842,8 @@ namespace Urho {
 				case TextureUnit.Custom2:
 					TextureName7 = nameStr;
 					break;
+
+#if !IOS && !ANDROID
 				case TextureUnit.Lightramp:
 					TextureName8 = nameStr;
 					break;
@@ -866,7 +868,8 @@ namespace Urho {
 				case TextureUnit.Zone:
 					TextureName15 = nameStr;
 					break;
-				case TextureUnit.MaxTextureUnits:
+#endif
+
 				default:
 					throw new InvalidOperationException("Invalid texture unit");
 			}
