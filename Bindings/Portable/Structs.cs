@@ -813,6 +813,65 @@ namespace Urho {
 		public UrhoString TextureName15;
 #endif
 
+		public void SetTextureName(TextureUnit unit, string name)
+		{
+			UrhoString nameStr = new UrhoString(name);
+			switch (unit)
+			{
+				case TextureUnit.Diffuse:
+					TextureName0 = nameStr;
+					break;
+				case TextureUnit.Normal:
+					TextureName1 = nameStr;
+					break;
+				case TextureUnit.Specular:
+					TextureName2 = nameStr;
+					break;
+				case TextureUnit.Emissive:
+					TextureName3 = nameStr;
+					break;
+				case TextureUnit.Environment:
+					TextureName4 = nameStr;
+					break;
+				case TextureUnit.Volumemap:
+					TextureName5 = nameStr;
+					break;
+				case TextureUnit.Custom1:
+					TextureName6 = nameStr;
+					break;
+				case TextureUnit.Custom2:
+					TextureName7 = nameStr;
+					break;
+				case TextureUnit.Lightramp:
+					TextureName8 = nameStr;
+					break;
+				case TextureUnit.Lightshape:
+					TextureName9 = nameStr;
+					break;
+				case TextureUnit.Shadowmap:
+					TextureName10 = nameStr;
+					break;
+				case TextureUnit.Faceselect:
+					TextureName11 = nameStr;
+					break;
+				case TextureUnit.Indirection:
+					TextureName12 = nameStr;
+					break;
+				case TextureUnit.Depthbuffer:
+					TextureName13 = nameStr;
+					break;
+				case TextureUnit.Lightbuffer:
+					TextureName14 = nameStr;
+					break;
+				case TextureUnit.Zone:
+					TextureName15 = nameStr;
+					break;
+				case TextureUnit.MaxTextureUnits:
+				default:
+					throw new InvalidOperationException("Invalid texture unit");
+			}
+		}
+
 		public HashBase ShaderParameters;
 		public VectorBase Outputs;
 		public UrhoString DepthStencilName;
@@ -969,6 +1028,30 @@ namespace Urho {
 		public uint Length;
 		public uint Capacity;
 		public IntPtr Buffer;
+
+		public UrhoString(string str)
+		{
+			Buffer = Marshal.StringToHGlobalAnsi(str);
+			Length = (uint)str.Length;
+			Capacity = (uint)Math.Max(8, str.Length) + 1;
+		}
+
+		public override string ToString()
+		{
+			if (Length > 0 && Buffer != IntPtr.Zero)
+				return Marshal.PtrToStringAnsi(Buffer, (int)Length);
+			return string.Empty;
+		}
+
+		public static implicit operator string(UrhoString s)  // implicit digit to byte conversion operator
+		{
+			return s.ToString();
+		}
+
+		public static explicit operator UrhoString(string s)  // explicit byte to digit conversion operator
+		{
+			return new UrhoString(s);
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
