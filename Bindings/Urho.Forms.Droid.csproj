@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Android\DroidPlatformInitializer.cs" />
+    <Compile Include="Android\FullscreenUrhoActivity.cs" />
     <Compile Include="Android\UrhoSurface.cs" />
     <Compile Include="Forms\AndroidSurfaceRenderer.cs" />
     <Compile Include="Forms\UrhoSurface.cs" />
