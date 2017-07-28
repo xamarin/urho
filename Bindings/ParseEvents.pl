@@ -105,6 +105,7 @@ print CS "using Urho.Audio;\n";
 print CS "using Urho.Resources;\n";
 print CS "using Urho.IO;\n";
 
+print CS "#pragma warning disable CS0618, CS0649\n";
 print CS "namespace Urho {\n\n";
 print CS "\t[UnmanagedFunctionPointer(CallingConvention.Cdecl)]";
 print CS "\tpublic delegate void ObjectCallbackSignature (IntPtr data, int stringhash, IntPtr variantMap);\n";
@@ -135,6 +136,17 @@ sub mapType {
     return $t;
 }
 
+sub stringHash {
+    my ($str) = @_;
+	$str = lc $str;
+	$hash = 0;
+	foreach $char (split //, $str) {
+		$hash = ord($char) + ($hash << 6) + ($hash << 16) - $hash;
+		$hash = $hash & 0xffffffff;
+	}
+	return $hash;
+}
+
 open EVENTS, "events.txt" || die "Need the file events.txt to figure out where to generate events";
 while (<EVENTS>){
     ($event, $classes) = split;
@@ -162,13 +174,6 @@ while (<>){
 	    
 	    print CS "        public partial struct ${eventName}EventArgs {\n";
 	    print CS "            internal IntPtr handle;\n";
-	    print CPP "DllExport void *urho_subscribe_$eventName (void *_receiver, HandlerFunctionPtr callback, void *data)\n";
-	    print CPP "{\n";
-	    print CPP "\tUrho3D::Object *receiver = (Urho3D::Object *) _receiver;\n";
-	    print CPP "\tNotificationProxy *proxy = new NotificationProxy (receiver, callback, data, Urho3D::$ec);\n";
-	    print CPP "\treceiver->SubscribeToEvent (receiver, Urho3D::$ec, proxy);\n";
-	    print CPP "\treturn proxy;\n";
-	    print CPP "}\n\n";
 
 	    while (<>){
 		chop;
@@ -185,25 +190,24 @@ while (<>){
 			$plain = "Buffer";
 		    }
 		    $hashgetters{$pc} = $en;
-		    
-		    print CS "            public $cspt $pn =>$cast UrhoMap.get_$plain (handle, UrhoHash.$pc);\n";
+			$pccode = &stringHash($pc);
+		    print CS "            public $cspt $pn =>$cast UrhoMap.get_$plain (handle, unchecked((int)$pccode) /* $pc */);\n";
 		}
 		if (/}/){
 		    print CS "        } /* struct ${eventName}EventArgs */\n\n";
 
 		    for $type (split /,/,$events{$ec}){
+			$eccode = &stringHash($ec);
 
 			print CS "        public partial class $type {\n"; 
 			print CS "             ObjectCallbackSignature callback${eventName};\n";
-			print CS "             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]\n";
-			print CS "             extern static IntPtr urho_subscribe_$eventName (IntPtr target, ObjectCallbackSignature act, IntPtr data);\n";
 			print CS "             [Obsolete(\"SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.${eventName} += ...' instead.\")]\n";			
 			print CS "             @{[$en eq 'Update' ? 'internal' : 'public']} Subscription SubscribeTo${eventName} (Action<${eventName}EventArgs> handler)\n";
 			print CS "             {\n";
 			print CS "                  Action<IntPtr> proxy = (x)=> { var d = new ${eventName}EventArgs () { handle = x }; handler (d); };\n";
 			print CS "                  var s = new Subscription (proxy);\n";
 			print CS "                  callback${eventName} = ObjectCallback;\n";
-			print CS "                  s.UnmanagedProxy = urho_subscribe_$eventName (handle, callback${eventName}, GCHandle.ToIntPtr (s.gch));\n";
+			print CS "                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callback${eventName}, GCHandle.ToIntPtr (s.gch), $eccode /* new StringHash(\"$ec\").Code */);\n";
 			print CS "                  return s;\n";
 			print CS "             }\n\n";
 			print CS "             static UrhoEventAdapter<${eventName}EventArgs> eventAdapterFor${eventName};\n";
@@ -228,20 +232,8 @@ while (<>){
 	}
     }
 }
-print CPP "// Hash Getters\n";
-print CS "// Hash Getters\n";
-print CS "namespace Urho {";
-print CS "    internal class UrhoHash {\n";
-foreach $pc (keys %hashgetters){
-    $en = $hashgetters{$pc};
-    print CPP "DllExport int urho_hash_get_$pc ()\n{\n";
-    print CPP "\treturn Urho3D::$en::$pc.Value ();\n}\n\n";
-    print CS "            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]\n";
-    print CS "            extern static int urho_hash_get_$pc ();\n";
-    print CS "            static int _$pc;\n";
-    print CS "            internal static int $pc { get { if (_$pc == 0){ _$pc = urho_hash_get_$pc (); } return _$pc; }}\n\n";
-}
+print CPP "// TODO: remove this file.\n";
 print CPP "}\n";
-print CS "        }\n    }";
+print CS "#pragma warning restore CS0618, CS0649";
 close CS;
 close CPP;

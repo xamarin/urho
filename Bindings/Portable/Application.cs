@@ -63,7 +63,7 @@ namespace Urho
 			get
 			{
 				if (currentContext == null)
-					throw new InvalidOperationException("Urho.Application is not started yet. All urho objects should be initialized after app.Run() since they need an active Context.\n" + Environment.StackTrace);
+					throw new InvalidOperationException("Urho.Application is not started yet. All urho objects should be initialized after app.Run() since they need an active Context.\n");
 				return currentContext;
 			}
 			private set { currentContext = value; }

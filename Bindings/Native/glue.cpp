@@ -16,7 +16,7 @@ using namespace Urho3D;
 
 extern "C" {
 
-	DllExport void *urho_subscribe_event(void *_receiver, HandlerFunctionPtr callback, void *data, int eventNameHash)
+	DllExport void *urho_subscribe_event(void *_receiver, HandlerFunctionPtr callback, void *data, uint eventNameHash)
 	{
 		StringHash h(eventNameHash);
 		Urho3D::Object *receiver = (Urho3D::Object *) _receiver;

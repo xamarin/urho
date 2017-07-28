@@ -9,6 +9,7 @@ using Urho.Actions;
 using Urho.Audio;
 using Urho.Resources;
 using Urho.IO;
+#pragma warning disable CS0618, CS0649
 namespace Urho {
 
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]	public delegate void ObjectCallbackSignature (IntPtr data, int stringhash, IntPtr variantMap);
@@ -17,9 +18,9 @@ namespace Urho {
 namespace Urho {
         public partial struct SoundFinishedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public SoundSource SoundSource => UrhoMap.get_SoundSource (handle, UrhoHash.P_SOUNDSOURCE);
-            public Sound Sound => UrhoMap.get_Sound (handle, UrhoHash.P_SOUND);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public SoundSource SoundSource => UrhoMap.get_SoundSource (handle, unchecked((int)1857968315) /* P_SOUNDSOURCE */);
+            public Sound Sound => UrhoMap.get_Sound (handle, unchecked((int)3605975168) /* P_SOUND */);
         } /* struct SoundFinishedEventArgs */
 
 } /* namespace */
@@ -27,21 +28,19 @@ namespace Urho {
 namespace Urho {
         public partial struct FrameStartedEventArgs {
             internal IntPtr handle;
-            public uint FrameNumber => UrhoMap.get_uint (handle, UrhoHash.P_FRAMENUMBER);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public uint FrameNumber => UrhoMap.get_uint (handle, unchecked((int)2930600679) /* P_FRAMENUMBER */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct FrameStartedEventArgs */
 
         public partial class Time {
              ObjectCallbackSignature callbackFrameStarted;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_FrameStarted (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FrameStarted += ...' instead.")]
-             internal Subscription SubscribeToFrameStarted (Action<FrameStartedEventArgs> handler)
+             public Subscription SubscribeToFrameStarted (Action<FrameStartedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackFrameStarted = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_FrameStarted (handle, callbackFrameStarted, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFrameStarted, GCHandle.ToIntPtr (s.gch), 1579640094 /* new StringHash("E_BEGINFRAME").Code */);
                   return s;
              }
 
@@ -63,20 +62,18 @@ namespace Urho {
 namespace Urho {
         public partial struct UpdateEventArgs {
             internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct UpdateEventArgs */
 
         public partial class Engine {
              ObjectCallbackSignature callbackUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_Update (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Update += ...' instead.")]
              internal Subscription SubscribeToUpdate (Action<UpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_Update (handle, callbackUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUpdate, GCHandle.ToIntPtr (s.gch), 108866531 /* new StringHash("E_UPDATE").Code */);
                   return s;
              }
 
@@ -98,20 +95,18 @@ namespace Urho {
 namespace Urho {
         public partial struct PostUpdateEventArgs {
             internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct PostUpdateEventArgs */
 
         public partial class Engine {
              ObjectCallbackSignature callbackPostUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PostUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PostUpdate += ...' instead.")]
              public Subscription SubscribeToPostUpdate (Action<PostUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PostUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPostUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PostUpdate (handle, callbackPostUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPostUpdate, GCHandle.ToIntPtr (s.gch), 3752721187 /* new StringHash("E_POSTUPDATE").Code */);
                   return s;
              }
 
@@ -133,20 +128,18 @@ namespace Urho {
 namespace Urho {
         public partial struct RenderUpdateEventArgs {
             internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct RenderUpdateEventArgs */
 
         public partial class Engine {
              ObjectCallbackSignature callbackRenderUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_RenderUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.RenderUpdate += ...' instead.")]
              public Subscription SubscribeToRenderUpdate (Action<RenderUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new RenderUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackRenderUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_RenderUpdate (handle, callbackRenderUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackRenderUpdate, GCHandle.ToIntPtr (s.gch), 4171474713 /* new StringHash("E_RENDERUPDATE").Code */);
                   return s;
              }
 
@@ -168,20 +161,18 @@ namespace Urho {
 namespace Urho {
         public partial struct PostRenderUpdateEventArgs {
             internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct PostRenderUpdateEventArgs */
 
         public partial class Engine {
              ObjectCallbackSignature callbackPostRenderUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PostRenderUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PostRenderUpdate += ...' instead.")]
              public Subscription SubscribeToPostRenderUpdate (Action<PostRenderUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PostRenderUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPostRenderUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PostRenderUpdate (handle, callbackPostRenderUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPostRenderUpdate, GCHandle.ToIntPtr (s.gch), 1265210969 /* new StringHash("E_POSTRENDERUPDATE").Code */);
                   return s;
              }
 
@@ -207,15 +198,13 @@ namespace Urho {
 
         public partial class Time {
              ObjectCallbackSignature callbackFrameEnded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_FrameEnded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FrameEnded += ...' instead.")]
-             internal Subscription SubscribeToFrameEnded (Action<FrameEndedEventArgs> handler)
+             public Subscription SubscribeToFrameEnded (Action<FrameEndedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameEndedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackFrameEnded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_FrameEnded (handle, callbackFrameEnded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFrameEnded, GCHandle.ToIntPtr (s.gch), 1274251308 /* new StringHash("E_ENDFRAME").Code */);
                   return s;
              }
 
@@ -237,20 +226,18 @@ namespace Urho {
 namespace Urho {
         public partial struct WorkItemCompletedEventArgs {
             internal IntPtr handle;
-            public WorkItem Item => UrhoMap.get_WorkItem (handle, UrhoHash.P_ITEM);
+            public WorkItem Item => UrhoMap.get_WorkItem (handle, unchecked((int)921799426) /* P_ITEM */);
         } /* struct WorkItemCompletedEventArgs */
 
         public partial class WorkQueue {
              ObjectCallbackSignature callbackWorkItemCompleted;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_WorkItemCompleted (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.WorkItemCompleted += ...' instead.")]
              public Subscription SubscribeToWorkItemCompleted (Action<WorkItemCompletedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new WorkItemCompletedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackWorkItemCompleted = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_WorkItemCompleted (handle, callbackWorkItemCompleted, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackWorkItemCompleted, GCHandle.ToIntPtr (s.gch), 3318800173 /* new StringHash("E_WORKITEMCOMPLETED").Code */);
                   return s;
              }
 
@@ -272,21 +259,19 @@ namespace Urho {
 namespace Urho {
         public partial struct ConsoleCommandEventArgs {
             internal IntPtr handle;
-            public String Command => UrhoMap.get_String (handle, UrhoHash.P_COMMAND);
-            public String Id => UrhoMap.get_String (handle, UrhoHash.P_ID);
+            public String Command => UrhoMap.get_String (handle, unchecked((int)971623580) /* P_COMMAND */);
+            public String Id => UrhoMap.get_String (handle, unchecked((int)2318151338) /* P_ID */);
         } /* struct ConsoleCommandEventArgs */
 
         public partial class UrhoConsole {
              ObjectCallbackSignature callbackConsoleCommand;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ConsoleCommand (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ConsoleCommand += ...' instead.")]
              public Subscription SubscribeToConsoleCommand (Action<ConsoleCommandEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ConsoleCommandEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackConsoleCommand = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ConsoleCommand (handle, callbackConsoleCommand, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackConsoleCommand, GCHandle.ToIntPtr (s.gch), 798325358 /* new StringHash("E_CONSOLECOMMAND").Code */);
                   return s;
              }
 
@@ -308,20 +293,18 @@ namespace Urho {
 namespace Urho {
         public partial struct BoneHierarchyCreatedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
         } /* struct BoneHierarchyCreatedEventArgs */
 
         public partial class Node {
              ObjectCallbackSignature callbackBoneHierarchyCreated;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_BoneHierarchyCreated (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BoneHierarchyCreated += ...' instead.")]
              public Subscription SubscribeToBoneHierarchyCreated (Action<BoneHierarchyCreatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BoneHierarchyCreatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackBoneHierarchyCreated = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_BoneHierarchyCreated (handle, callbackBoneHierarchyCreated, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackBoneHierarchyCreated, GCHandle.ToIntPtr (s.gch), 1604299473 /* new StringHash("E_BONEHIERARCHYCREATED").Code */);
                   return s;
              }
 
@@ -343,24 +326,22 @@ namespace Urho {
 namespace Urho {
         public partial struct AnimationTriggerEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public Animation Animation => UrhoMap.get_Animation (handle, UrhoHash.P_ANIMATION);
-            public String Name => UrhoMap.get_String (handle, UrhoHash.P_NAME);
-            public float Time => UrhoMap.get_float (handle, UrhoHash.P_TIME);
-            public IntPtr Data => UrhoMap.get_IntPtr (handle, UrhoHash.P_DATA);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Animation Animation => UrhoMap.get_Animation (handle, unchecked((int)246588565) /* P_ANIMATION */);
+            public String Name => UrhoMap.get_String (handle, unchecked((int)373324314) /* P_NAME */);
+            public float Time => UrhoMap.get_float (handle, unchecked((int)827972252) /* P_TIME */);
+            public IntPtr Data => UrhoMap.get_IntPtr (handle, unchecked((int)1157846105) /* P_DATA */);
         } /* struct AnimationTriggerEventArgs */
 
         public partial class Node {
              ObjectCallbackSignature callbackAnimationTrigger;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_AnimationTrigger (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AnimationTrigger += ...' instead.")]
              public Subscription SubscribeToAnimationTrigger (Action<AnimationTriggerEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AnimationTriggerEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackAnimationTrigger = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_AnimationTrigger (handle, callbackAnimationTrigger, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAnimationTrigger, GCHandle.ToIntPtr (s.gch), 893439086 /* new StringHash("E_ANIMATIONTRIGGER").Code */);
                   return s;
              }
 
@@ -382,10 +363,10 @@ namespace Urho {
 namespace Urho {
         public partial struct AnimationFinishedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public Animation Animation => UrhoMap.get_Animation (handle, UrhoHash.P_ANIMATION);
-            public String Name => UrhoMap.get_String (handle, UrhoHash.P_NAME);
-            public bool Looped => UrhoMap.get_bool (handle, UrhoHash.P_LOOPED);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Animation Animation => UrhoMap.get_Animation (handle, unchecked((int)246588565) /* P_ANIMATION */);
+            public String Name => UrhoMap.get_String (handle, unchecked((int)373324314) /* P_NAME */);
+            public bool Looped => UrhoMap.get_bool (handle, unchecked((int)65200626) /* P_LOOPED */);
         } /* struct AnimationFinishedEventArgs */
 
 } /* namespace */
@@ -393,8 +374,8 @@ namespace Urho {
 namespace Urho {
         public partial struct ParticleEffectFinishedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public ParticleEffect Effect => UrhoMap.get_ParticleEffect (handle, UrhoHash.P_EFFECT);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public ParticleEffect Effect => UrhoMap.get_ParticleEffect (handle, unchecked((int)1563615360) /* P_EFFECT */);
         } /* struct ParticleEffectFinishedEventArgs */
 
 } /* namespace */
@@ -402,20 +383,18 @@ namespace Urho {
 namespace Urho {
         public partial struct TerrainCreatedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
         } /* struct TerrainCreatedEventArgs */
 
         public partial class Terrain {
              ObjectCallbackSignature callbackTerrainCreated;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TerrainCreated (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TerrainCreated += ...' instead.")]
              public Subscription SubscribeToTerrainCreated (Action<TerrainCreatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TerrainCreatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTerrainCreated = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TerrainCreated (handle, callbackTerrainCreated, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTerrainCreated, GCHandle.ToIntPtr (s.gch), 676469357 /* new StringHash("E_TERRAINCREATED").Code */);
                   return s;
              }
 
@@ -437,12 +416,12 @@ namespace Urho {
 namespace Urho {
         public partial struct ScreenModeEventArgs {
             internal IntPtr handle;
-            public int Width => UrhoMap.get_int (handle, UrhoHash.P_WIDTH);
-            public int Height => UrhoMap.get_int (handle, UrhoHash.P_HEIGHT);
-            public bool Fullscreen => UrhoMap.get_bool (handle, UrhoHash.P_FULLSCREEN);
-            public bool Borderless => UrhoMap.get_bool (handle, UrhoHash.P_BORDERLESS);
-            public bool Resizable => UrhoMap.get_bool (handle, UrhoHash.P_RESIZABLE);
-            public bool HighDPI => UrhoMap.get_bool (handle, UrhoHash.P_HIGHDPI);
+            public int Width => UrhoMap.get_int (handle, unchecked((int)3340657143) /* P_WIDTH */);
+            public int Height => UrhoMap.get_int (handle, unchecked((int)3898685366) /* P_HEIGHT */);
+            public bool Fullscreen => UrhoMap.get_bool (handle, unchecked((int)1009772010) /* P_FULLSCREEN */);
+            public bool Borderless => UrhoMap.get_bool (handle, unchecked((int)1386118644) /* P_BORDERLESS */);
+            public bool Resizable => UrhoMap.get_bool (handle, unchecked((int)2271423132) /* P_RESIZABLE */);
+            public bool HighDPI => UrhoMap.get_bool (handle, unchecked((int)1694895852) /* P_HIGHDPI */);
         } /* struct ScreenModeEventArgs */
 
 } /* namespace */
@@ -450,8 +429,8 @@ namespace Urho {
 namespace Urho {
         public partial struct WindowPosEventArgs {
             internal IntPtr handle;
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
         } /* struct WindowPosEventArgs */
 
 } /* namespace */
@@ -463,15 +442,13 @@ namespace Urho {
 
         public partial class Renderer {
              ObjectCallbackSignature callbackRenderSurfaceUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_RenderSurfaceUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.RenderSurfaceUpdate += ...' instead.")]
              public Subscription SubscribeToRenderSurfaceUpdate (Action<RenderSurfaceUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new RenderSurfaceUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackRenderSurfaceUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_RenderSurfaceUpdate (handle, callbackRenderSurfaceUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackRenderSurfaceUpdate, GCHandle.ToIntPtr (s.gch), 742966694 /* new StringHash("E_RENDERSURFACEUPDATE").Code */);
                   return s;
              }
 
@@ -507,24 +484,22 @@ namespace Urho {
 namespace Urho {
         public partial struct BeginViewUpdateEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, UrhoHash.P_VIEW);
-            public Texture Texture => UrhoMap.get_Texture (handle, UrhoHash.P_TEXTURE);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, UrhoHash.P_SURFACE);
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Camera Camera => UrhoMap.get_Camera (handle, UrhoHash.P_CAMERA);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
         } /* struct BeginViewUpdateEventArgs */
 
         public partial class View {
              ObjectCallbackSignature callbackBeginViewUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_BeginViewUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BeginViewUpdate += ...' instead.")]
              public Subscription SubscribeToBeginViewUpdate (Action<BeginViewUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BeginViewUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackBeginViewUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_BeginViewUpdate (handle, callbackBeginViewUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackBeginViewUpdate, GCHandle.ToIntPtr (s.gch), 414448157 /* new StringHash("E_BEGINVIEWUPDATE").Code */);
                   return s;
              }
 
@@ -546,24 +521,22 @@ namespace Urho {
 namespace Urho {
         public partial struct EndViewUpdateEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, UrhoHash.P_VIEW);
-            public Texture Texture => UrhoMap.get_Texture (handle, UrhoHash.P_TEXTURE);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, UrhoHash.P_SURFACE);
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Camera Camera => UrhoMap.get_Camera (handle, UrhoHash.P_CAMERA);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
         } /* struct EndViewUpdateEventArgs */
 
         public partial class View {
              ObjectCallbackSignature callbackEndViewUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_EndViewUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.EndViewUpdate += ...' instead.")]
              public Subscription SubscribeToEndViewUpdate (Action<EndViewUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new EndViewUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackEndViewUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_EndViewUpdate (handle, callbackEndViewUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackEndViewUpdate, GCHandle.ToIntPtr (s.gch), 832628879 /* new StringHash("E_ENDVIEWUPDATE").Code */);
                   return s;
              }
 
@@ -585,24 +558,22 @@ namespace Urho {
 namespace Urho {
         public partial struct BeginViewRenderEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, UrhoHash.P_VIEW);
-            public Texture Texture => UrhoMap.get_Texture (handle, UrhoHash.P_TEXTURE);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, UrhoHash.P_SURFACE);
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Camera Camera => UrhoMap.get_Camera (handle, UrhoHash.P_CAMERA);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
         } /* struct BeginViewRenderEventArgs */
 
         public partial class Renderer {
              ObjectCallbackSignature callbackBeginViewRender;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_BeginViewRender (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BeginViewRender += ...' instead.")]
              public Subscription SubscribeToBeginViewRender (Action<BeginViewRenderEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BeginViewRenderEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackBeginViewRender = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_BeginViewRender (handle, callbackBeginViewRender, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackBeginViewRender, GCHandle.ToIntPtr (s.gch), 3182826410 /* new StringHash("E_BEGINVIEWRENDER").Code */);
                   return s;
              }
 
@@ -624,11 +595,11 @@ namespace Urho {
 namespace Urho {
         public partial struct ViewBuffersReadyEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, UrhoHash.P_VIEW);
-            public Texture Texture => UrhoMap.get_Texture (handle, UrhoHash.P_TEXTURE);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, UrhoHash.P_SURFACE);
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Camera Camera => UrhoMap.get_Camera (handle, UrhoHash.P_CAMERA);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
         } /* struct ViewBuffersReadyEventArgs */
 
 } /* namespace */
@@ -636,11 +607,11 @@ namespace Urho {
 namespace Urho {
         public partial struct ViewGlobalShaderParametersEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, UrhoHash.P_VIEW);
-            public Texture Texture => UrhoMap.get_Texture (handle, UrhoHash.P_TEXTURE);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, UrhoHash.P_SURFACE);
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Camera Camera => UrhoMap.get_Camera (handle, UrhoHash.P_CAMERA);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
         } /* struct ViewGlobalShaderParametersEventArgs */
 
 } /* namespace */
@@ -648,24 +619,22 @@ namespace Urho {
 namespace Urho {
         public partial struct EndViewRenderEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, UrhoHash.P_VIEW);
-            public Texture Texture => UrhoMap.get_Texture (handle, UrhoHash.P_TEXTURE);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, UrhoHash.P_SURFACE);
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Camera Camera => UrhoMap.get_Camera (handle, UrhoHash.P_CAMERA);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
         } /* struct EndViewRenderEventArgs */
 
         public partial class Renderer {
              ObjectCallbackSignature callbackEndViewRender;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_EndViewRender (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.EndViewRender += ...' instead.")]
              public Subscription SubscribeToEndViewRender (Action<EndViewRenderEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new EndViewRenderEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackEndViewRender = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_EndViewRender (handle, callbackEndViewRender, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackEndViewRender, GCHandle.ToIntPtr (s.gch), 3601007132 /* new StringHash("E_ENDVIEWRENDER").Code */);
                   return s;
              }
 
@@ -687,7 +656,7 @@ namespace Urho {
 namespace Urho {
         public partial struct RenderPathEventEventArgs {
             internal IntPtr handle;
-            public String Name => UrhoMap.get_String (handle, UrhoHash.P_NAME);
+            public String Name => UrhoMap.get_String (handle, unchecked((int)373324314) /* P_NAME */);
         } /* struct RenderPathEventEventArgs */
 
 } /* namespace */
@@ -709,21 +678,19 @@ namespace Urho {
 namespace Urho.IO {
         public partial struct LogMessageEventArgs {
             internal IntPtr handle;
-            public String Message => UrhoMap.get_String (handle, UrhoHash.P_MESSAGE);
-            public int Level => UrhoMap.get_int (handle, UrhoHash.P_LEVEL);
+            public String Message => UrhoMap.get_String (handle, unchecked((int)1753705976) /* P_MESSAGE */);
+            public int Level => UrhoMap.get_int (handle, unchecked((int)715726165) /* P_LEVEL */);
         } /* struct LogMessageEventArgs */
 
         public partial class Log {
              ObjectCallbackSignature callbackLogMessage;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_LogMessage (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LogMessage += ...' instead.")]
              public Subscription SubscribeToLogMessage (Action<LogMessageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LogMessageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackLogMessage = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_LogMessage (handle, callbackLogMessage, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackLogMessage, GCHandle.ToIntPtr (s.gch), 3173669053 /* new StringHash("E_LOGMESSAGE").Code */);
                   return s;
              }
 
@@ -745,21 +712,19 @@ namespace Urho.IO {
 namespace Urho.IO {
         public partial struct AsyncExecFinishedEventArgs {
             internal IntPtr handle;
-            public uint RequestID => UrhoMap.get_uint (handle, UrhoHash.P_REQUESTID);
-            public int ExitCode => UrhoMap.get_int (handle, UrhoHash.P_EXITCODE);
+            public uint RequestID => UrhoMap.get_uint (handle, unchecked((int)2702366011) /* P_REQUESTID */);
+            public int ExitCode => UrhoMap.get_int (handle, unchecked((int)3139167706) /* P_EXITCODE */);
         } /* struct AsyncExecFinishedEventArgs */
 
         public partial class FileSystem {
              ObjectCallbackSignature callbackAsyncExecFinished;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_AsyncExecFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncExecFinished += ...' instead.")]
              public Subscription SubscribeToAsyncExecFinished (Action<AsyncExecFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncExecFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackAsyncExecFinished = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_AsyncExecFinished (handle, callbackAsyncExecFinished, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAsyncExecFinished, GCHandle.ToIntPtr (s.gch), 3061114341 /* new StringHash("E_ASYNCEXECFINISHED").Code */);
                   return s;
              }
 
@@ -781,22 +746,20 @@ namespace Urho.IO {
 namespace Urho {
         public partial struct MouseButtonDownEventArgs {
             internal IntPtr handle;
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct MouseButtonDownEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackMouseButtonDown;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MouseButtonDown (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseButtonDown += ...' instead.")]
              public Subscription SubscribeToMouseButtonDown (Action<MouseButtonDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseButtonDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMouseButtonDown = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MouseButtonDown (handle, callbackMouseButtonDown, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseButtonDown, GCHandle.ToIntPtr (s.gch), 829098559 /* new StringHash("E_MOUSEBUTTONDOWN").Code */);
                   return s;
              }
 
@@ -818,22 +781,20 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseButtonUpEventArgs {
             internal IntPtr handle;
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct MouseButtonUpEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackMouseButtonUp;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MouseButtonUp (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseButtonUp += ...' instead.")]
              public Subscription SubscribeToMouseButtonUp (Action<MouseButtonUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseButtonUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMouseButtonUp = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MouseButtonUp (handle, callbackMouseButtonUp, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseButtonUp, GCHandle.ToIntPtr (s.gch), 2095363256 /* new StringHash("E_MOUSEBUTTONUP").Code */);
                   return s;
              }
 
@@ -855,25 +816,23 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseMovedEventArgs {
             internal IntPtr handle;
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int DX => UrhoMap.get_int (handle, UrhoHash.P_DX);
-            public int DY => UrhoMap.get_int (handle, UrhoHash.P_DY);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int DX => UrhoMap.get_int (handle, unchecked((int)2317823363) /* P_DX */);
+            public int DY => UrhoMap.get_int (handle, unchecked((int)2317823364) /* P_DY */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct MouseMovedEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackMouseMoved;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MouseMoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseMoved += ...' instead.")]
              public Subscription SubscribeToMouseMoved (Action<MouseMovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseMovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMouseMoved = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MouseMoved (handle, callbackMouseMoved, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseMoved, GCHandle.ToIntPtr (s.gch), 2322793692 /* new StringHash("E_MOUSEMOVE").Code */);
                   return s;
              }
 
@@ -895,22 +854,20 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseWheelEventArgs {
             internal IntPtr handle;
-            public int Wheel => UrhoMap.get_int (handle, UrhoHash.P_WHEEL);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public int Wheel => UrhoMap.get_int (handle, unchecked((int)2567347468) /* P_WHEEL */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct MouseWheelEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackMouseWheel;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MouseWheel (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseWheel += ...' instead.")]
              public Subscription SubscribeToMouseWheel (Action<MouseWheelEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseWheelEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMouseWheel = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MouseWheel (handle, callbackMouseWheel, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseWheel, GCHandle.ToIntPtr (s.gch), 1884761040 /* new StringHash("E_MOUSEWHEEL").Code */);
                   return s;
              }
 
@@ -932,24 +889,22 @@ namespace Urho {
 namespace Urho {
         public partial struct KeyDownEventArgs {
             internal IntPtr handle;
-            public Key Key =>(Key) UrhoMap.get_int (handle, UrhoHash.P_KEY);
-            public int Scancode => UrhoMap.get_int (handle, UrhoHash.P_SCANCODE);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
-            public bool Repeat => UrhoMap.get_bool (handle, UrhoHash.P_REPEAT);
+            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)814128016) /* P_KEY */);
+            public int Scancode => UrhoMap.get_int (handle, unchecked((int)3416312249) /* P_SCANCODE */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public bool Repeat => UrhoMap.get_bool (handle, unchecked((int)180983978) /* P_REPEAT */);
         } /* struct KeyDownEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackKeyDown;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_KeyDown (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.KeyDown += ...' instead.")]
              public Subscription SubscribeToKeyDown (Action<KeyDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new KeyDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackKeyDown = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_KeyDown (handle, callbackKeyDown, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackKeyDown, GCHandle.ToIntPtr (s.gch), 2393850567 /* new StringHash("E_KEYDOWN").Code */);
                   return s;
              }
 
@@ -971,23 +926,21 @@ namespace Urho {
 namespace Urho {
         public partial struct KeyUpEventArgs {
             internal IntPtr handle;
-            public Key Key =>(Key) UrhoMap.get_int (handle, UrhoHash.P_KEY);
-            public int Scancode => UrhoMap.get_int (handle, UrhoHash.P_SCANCODE);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)814128016) /* P_KEY */);
+            public int Scancode => UrhoMap.get_int (handle, unchecked((int)3416312249) /* P_SCANCODE */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct KeyUpEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackKeyUp;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_KeyUp (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.KeyUp += ...' instead.")]
              public Subscription SubscribeToKeyUp (Action<KeyUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new KeyUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackKeyUp = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_KeyUp (handle, callbackKeyUp, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackKeyUp, GCHandle.ToIntPtr (s.gch), 3027153216 /* new StringHash("E_KEYUP").Code */);
                   return s;
              }
 
@@ -1009,22 +962,20 @@ namespace Urho {
 namespace Urho {
         public partial struct TextInputEventArgs {
             internal IntPtr handle;
-            public String Text => UrhoMap.get_String (handle, UrhoHash.P_TEXT);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public String Text => UrhoMap.get_String (handle, unchecked((int)795647836) /* P_TEXT */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct TextInputEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackTextInput;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TextInput (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextInput += ...' instead.")]
              public Subscription SubscribeToTextInput (Action<TextInputEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextInputEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTextInput = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TextInput (handle, callbackTextInput, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTextInput, GCHandle.ToIntPtr (s.gch), 3369651779 /* new StringHash("E_TEXTINPUT").Code */);
                   return s;
              }
 
@@ -1046,20 +997,18 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickConnectedEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, UrhoHash.P_JOYSTICKID);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
         } /* struct JoystickConnectedEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackJoystickConnected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_JoystickConnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickConnected += ...' instead.")]
              public Subscription SubscribeToJoystickConnected (Action<JoystickConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackJoystickConnected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_JoystickConnected (handle, callbackJoystickConnected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickConnected, GCHandle.ToIntPtr (s.gch), 76490611 /* new StringHash("E_JOYSTICKCONNECTED").Code */);
                   return s;
              }
 
@@ -1081,20 +1030,18 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickDisconnectedEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, UrhoHash.P_JOYSTICKID);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
         } /* struct JoystickDisconnectedEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackJoystickDisconnected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_JoystickDisconnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickDisconnected += ...' instead.")]
              public Subscription SubscribeToJoystickDisconnected (Action<JoystickDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackJoystickDisconnected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_JoystickDisconnected (handle, callbackJoystickDisconnected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickDisconnected, GCHandle.ToIntPtr (s.gch), 698841649 /* new StringHash("E_JOYSTICKDISCONNECTED").Code */);
                   return s;
              }
 
@@ -1116,21 +1063,19 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickButtonDownEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, UrhoHash.P_JOYSTICKID);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
         } /* struct JoystickButtonDownEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackJoystickButtonDown;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_JoystickButtonDown (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickButtonDown += ...' instead.")]
              public Subscription SubscribeToJoystickButtonDown (Action<JoystickButtonDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackJoystickButtonDown = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_JoystickButtonDown (handle, callbackJoystickButtonDown, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickButtonDown, GCHandle.ToIntPtr (s.gch), 1154719306 /* new StringHash("E_JOYSTICKBUTTONDOWN").Code */);
                   return s;
              }
 
@@ -1152,21 +1097,19 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickButtonUpEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, UrhoHash.P_JOYSTICKID);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
         } /* struct JoystickButtonUpEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackJoystickButtonUp;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_JoystickButtonUp (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickButtonUp += ...' instead.")]
              public Subscription SubscribeToJoystickButtonUp (Action<JoystickButtonUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackJoystickButtonUp = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_JoystickButtonUp (handle, callbackJoystickButtonUp, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickButtonUp, GCHandle.ToIntPtr (s.gch), 1352621635 /* new StringHash("E_JOYSTICKBUTTONUP").Code */);
                   return s;
              }
 
@@ -1188,22 +1131,20 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickAxisMoveEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, UrhoHash.P_JOYSTICKID);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_AXIS);
-            public float Position => UrhoMap.get_float (handle, UrhoHash.P_POSITION);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3300344848) /* P_AXIS */);
+            public float Position => UrhoMap.get_float (handle, unchecked((int)1006264408) /* P_POSITION */);
         } /* struct JoystickAxisMoveEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackJoystickAxisMove;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_JoystickAxisMove (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickAxisMove += ...' instead.")]
              public Subscription SubscribeToJoystickAxisMove (Action<JoystickAxisMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickAxisMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackJoystickAxisMove = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_JoystickAxisMove (handle, callbackJoystickAxisMove, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickAxisMove, GCHandle.ToIntPtr (s.gch), 2611698056 /* new StringHash("E_JOYSTICKAXISMOVE").Code */);
                   return s;
              }
 
@@ -1225,22 +1166,20 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickHatMoveEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, UrhoHash.P_JOYSTICKID);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_HAT);
-            public int Position => UrhoMap.get_int (handle, UrhoHash.P_POSITION);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)789081100) /* P_HAT */);
+            public int Position => UrhoMap.get_int (handle, unchecked((int)1006264408) /* P_POSITION */);
         } /* struct JoystickHatMoveEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackJoystickHatMove;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_JoystickHatMove (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickHatMove += ...' instead.")]
              public Subscription SubscribeToJoystickHatMove (Action<JoystickHatMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickHatMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackJoystickHatMove = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_JoystickHatMove (handle, callbackJoystickHatMove, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickHatMove, GCHandle.ToIntPtr (s.gch), 3018803254 /* new StringHash("E_JOYSTICKHATMOVE").Code */);
                   return s;
              }
 
@@ -1262,23 +1201,21 @@ namespace Urho {
 namespace Urho {
         public partial struct TouchBeginEventArgs {
             internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, UrhoHash.P_TOUCHID);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public float Pressure => UrhoMap.get_float (handle, UrhoHash.P_PRESSURE);
+            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3293568779) /* P_TOUCHID */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public float Pressure => UrhoMap.get_float (handle, unchecked((int)112097908) /* P_PRESSURE */);
         } /* struct TouchBeginEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackTouchBegin;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TouchBegin (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchBegin += ...' instead.")]
              public Subscription SubscribeToTouchBegin (Action<TouchBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTouchBegin = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TouchBegin (handle, callbackTouchBegin, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTouchBegin, GCHandle.ToIntPtr (s.gch), 211065316 /* new StringHash("E_TOUCHBEGIN").Code */);
                   return s;
              }
 
@@ -1300,22 +1237,20 @@ namespace Urho {
 namespace Urho {
         public partial struct TouchEndEventArgs {
             internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, UrhoHash.P_TOUCHID);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
+            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3293568779) /* P_TOUCHID */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
         } /* struct TouchEndEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackTouchEnd;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TouchEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchEnd += ...' instead.")]
              public Subscription SubscribeToTouchEnd (Action<TouchEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTouchEnd = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TouchEnd (handle, callbackTouchEnd, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTouchEnd, GCHandle.ToIntPtr (s.gch), 2383040470 /* new StringHash("E_TOUCHEND").Code */);
                   return s;
              }
 
@@ -1337,25 +1272,23 @@ namespace Urho {
 namespace Urho {
         public partial struct TouchMoveEventArgs {
             internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, UrhoHash.P_TOUCHID);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int DX => UrhoMap.get_int (handle, UrhoHash.P_DX);
-            public int DY => UrhoMap.get_int (handle, UrhoHash.P_DY);
-            public float Pressure => UrhoMap.get_float (handle, UrhoHash.P_PRESSURE);
+            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3293568779) /* P_TOUCHID */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int DX => UrhoMap.get_int (handle, unchecked((int)2317823363) /* P_DX */);
+            public int DY => UrhoMap.get_int (handle, unchecked((int)2317823364) /* P_DY */);
+            public float Pressure => UrhoMap.get_float (handle, unchecked((int)112097908) /* P_PRESSURE */);
         } /* struct TouchMoveEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackTouchMove;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TouchMove (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchMove += ...' instead.")]
              public Subscription SubscribeToTouchMove (Action<TouchMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTouchMove = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TouchMove (handle, callbackTouchMove, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTouchMove, GCHandle.ToIntPtr (s.gch), 3106291702 /* new StringHash("E_TOUCHMOVE").Code */);
                   return s;
              }
 
@@ -1377,20 +1310,18 @@ namespace Urho {
 namespace Urho {
         public partial struct GestureRecordedEventArgs {
             internal IntPtr handle;
-            public uint GestureID => UrhoMap.get_uint (handle, UrhoHash.P_GESTUREID);
+            public uint GestureID => UrhoMap.get_uint (handle, unchecked((int)771579317) /* P_GESTUREID */);
         } /* struct GestureRecordedEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackGestureRecorded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_GestureRecorded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.GestureRecorded += ...' instead.")]
              public Subscription SubscribeToGestureRecorded (Action<GestureRecordedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new GestureRecordedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackGestureRecorded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_GestureRecorded (handle, callbackGestureRecorded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackGestureRecorded, GCHandle.ToIntPtr (s.gch), 2184659423 /* new StringHash("E_GESTURERECORDED").Code */);
                   return s;
              }
 
@@ -1412,24 +1343,22 @@ namespace Urho {
 namespace Urho {
         public partial struct GestureInputEventArgs {
             internal IntPtr handle;
-            public uint GestureID => UrhoMap.get_uint (handle, UrhoHash.P_GESTUREID);
-            public int CenterX => UrhoMap.get_int (handle, UrhoHash.P_CENTERX);
-            public int CenterY => UrhoMap.get_int (handle, UrhoHash.P_CENTERY);
-            public int NumFingers => UrhoMap.get_int (handle, UrhoHash.P_NUMFINGERS);
-            public float Error => UrhoMap.get_float (handle, UrhoHash.P_ERROR);
+            public uint GestureID => UrhoMap.get_uint (handle, unchecked((int)771579317) /* P_GESTUREID */);
+            public int CenterX => UrhoMap.get_int (handle, unchecked((int)3888534388) /* P_CENTERX */);
+            public int CenterY => UrhoMap.get_int (handle, unchecked((int)3888534389) /* P_CENTERY */);
+            public int NumFingers => UrhoMap.get_int (handle, unchecked((int)1923376691) /* P_NUMFINGERS */);
+            public float Error => UrhoMap.get_float (handle, unchecked((int)2854019705) /* P_ERROR */);
         } /* struct GestureInputEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackGestureInput;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_GestureInput (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.GestureInput += ...' instead.")]
              public Subscription SubscribeToGestureInput (Action<GestureInputEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new GestureInputEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackGestureInput = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_GestureInput (handle, callbackGestureInput, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackGestureInput, GCHandle.ToIntPtr (s.gch), 3695739771 /* new StringHash("E_GESTUREINPUT").Code */);
                   return s;
              }
 
@@ -1451,24 +1380,22 @@ namespace Urho {
 namespace Urho {
         public partial struct MultiGestureEventArgs {
             internal IntPtr handle;
-            public int CenterX => UrhoMap.get_int (handle, UrhoHash.P_CENTERX);
-            public int CenterY => UrhoMap.get_int (handle, UrhoHash.P_CENTERY);
-            public int NumFingers => UrhoMap.get_int (handle, UrhoHash.P_NUMFINGERS);
-            public float DTheta => UrhoMap.get_float (handle, UrhoHash.P_DTHETA);
-            public float DDist => UrhoMap.get_float (handle, UrhoHash.P_DDIST);
+            public int CenterX => UrhoMap.get_int (handle, unchecked((int)3888534388) /* P_CENTERX */);
+            public int CenterY => UrhoMap.get_int (handle, unchecked((int)3888534389) /* P_CENTERY */);
+            public int NumFingers => UrhoMap.get_int (handle, unchecked((int)1923376691) /* P_NUMFINGERS */);
+            public float DTheta => UrhoMap.get_float (handle, unchecked((int)1527928553) /* P_DTHETA */);
+            public float DDist => UrhoMap.get_float (handle, unchecked((int)3597045371) /* P_DDIST */);
         } /* struct MultiGestureEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackMultiGesture;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MultiGesture (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MultiGesture += ...' instead.")]
              public Subscription SubscribeToMultiGesture (Action<MultiGestureEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MultiGestureEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMultiGesture = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MultiGesture (handle, callbackMultiGesture, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMultiGesture, GCHandle.ToIntPtr (s.gch), 2739326730 /* new StringHash("E_MULTIGESTURE").Code */);
                   return s;
              }
 
@@ -1490,20 +1417,18 @@ namespace Urho {
 namespace Urho {
         public partial struct DropFileEventArgs {
             internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, UrhoHash.P_FILENAME);
+            public String FileName => UrhoMap.get_String (handle, unchecked((int)306467350) /* P_FILENAME */);
         } /* struct DropFileEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackDropFile;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_DropFile (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DropFile += ...' instead.")]
              public Subscription SubscribeToDropFile (Action<DropFileEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DropFileEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackDropFile = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_DropFile (handle, callbackDropFile, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDropFile, GCHandle.ToIntPtr (s.gch), 1917789957 /* new StringHash("E_DROPFILE").Code */);
                   return s;
              }
 
@@ -1525,21 +1450,19 @@ namespace Urho {
 namespace Urho {
         public partial struct InputFocusEventArgs {
             internal IntPtr handle;
-            public bool Focus => UrhoMap.get_bool (handle, UrhoHash.P_FOCUS);
-            public bool Minimized => UrhoMap.get_bool (handle, UrhoHash.P_MINIMIZED);
+            public bool Focus => UrhoMap.get_bool (handle, unchecked((int)1528293417) /* P_FOCUS */);
+            public bool Minimized => UrhoMap.get_bool (handle, unchecked((int)3528636503) /* P_MINIMIZED */);
         } /* struct InputFocusEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackInputFocus;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_InputFocus (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.InputFocus += ...' instead.")]
              public Subscription SubscribeToInputFocus (Action<InputFocusEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new InputFocusEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackInputFocus = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_InputFocus (handle, callbackInputFocus, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackInputFocus, GCHandle.ToIntPtr (s.gch), 1670039272 /* new StringHash("E_INPUTFOCUS").Code */);
                   return s;
              }
 
@@ -1561,20 +1484,18 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseVisibleChangedEventArgs {
             internal IntPtr handle;
-            public bool Visible => UrhoMap.get_bool (handle, UrhoHash.P_VISIBLE);
+            public bool Visible => UrhoMap.get_bool (handle, unchecked((int)2012888771) /* P_VISIBLE */);
         } /* struct MouseVisibleChangedEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackMouseVisibleChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MouseVisibleChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseVisibleChanged += ...' instead.")]
              public Subscription SubscribeToMouseVisibleChanged (Action<MouseVisibleChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseVisibleChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMouseVisibleChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MouseVisibleChanged (handle, callbackMouseVisibleChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseVisibleChanged, GCHandle.ToIntPtr (s.gch), 572855757 /* new StringHash("E_MOUSEVISIBLECHANGED").Code */);
                   return s;
              }
 
@@ -1596,21 +1517,19 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseModeChangedEventArgs {
             internal IntPtr handle;
-            public MouseMode Mode => UrhoMap.get_MouseMode (handle, UrhoHash.P_MODE);
-            public bool MouseLocked => UrhoMap.get_bool (handle, UrhoHash.P_MOUSELOCKED);
+            public MouseMode Mode => UrhoMap.get_MouseMode (handle, unchecked((int)4002775090) /* P_MODE */);
+            public bool MouseLocked => UrhoMap.get_bool (handle, unchecked((int)680209600) /* P_MOUSELOCKED */);
         } /* struct MouseModeChangedEventArgs */
 
         public partial class Input {
              ObjectCallbackSignature callbackMouseModeChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MouseModeChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseModeChanged += ...' instead.")]
              public Subscription SubscribeToMouseModeChanged (Action<MouseModeChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseModeChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMouseModeChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MouseModeChanged (handle, callbackMouseModeChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseModeChanged, GCHandle.ToIntPtr (s.gch), 590751014 /* new StringHash("E_MOUSEMODECHANGED").Code */);
                   return s;
              }
 
@@ -1636,15 +1555,13 @@ namespace Urho {
 
         public partial class Input {
              ObjectCallbackSignature callbackExitRequested;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ExitRequested (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ExitRequested += ...' instead.")]
              public Subscription SubscribeToExitRequested (Action<ExitRequestedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ExitRequestedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackExitRequested = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ExitRequested (handle, callbackExitRequested, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackExitRequested, GCHandle.ToIntPtr (s.gch), 2448655126 /* new StringHash("E_EXITREQUESTED").Code */);
                   return s;
              }
 
@@ -1666,8 +1583,8 @@ namespace Urho {
 namespace Urho {
         public partial struct SDLRawInputEventArgs {
             internal IntPtr handle;
-            public IntPtr SDLEvent => UrhoMap.get_IntPtr (handle, UrhoHash.P_SDLEVENT);
-            public bool Consumed => UrhoMap.get_bool (handle, UrhoHash.P_CONSUMED);
+            public IntPtr SDLEvent => UrhoMap.get_IntPtr (handle, unchecked((int)2709746830) /* P_SDLEVENT */);
+            public bool Consumed => UrhoMap.get_bool (handle, unchecked((int)1558656439) /* P_CONSUMED */);
         } /* struct SDLRawInputEventArgs */
 
 } /* namespace */
@@ -1689,21 +1606,19 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct NavigationMeshRebuiltEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, UrhoHash.P_MESH);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, unchecked((int)3921144028) /* P_MESH */);
         } /* struct NavigationMeshRebuiltEventArgs */
 
         public partial class NavigationMesh {
              ObjectCallbackSignature callbackNavigationMeshRebuilt;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NavigationMeshRebuilt (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationMeshRebuilt += ...' instead.")]
              public Subscription SubscribeToNavigationMeshRebuilt (Action<NavigationMeshRebuiltEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationMeshRebuiltEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNavigationMeshRebuilt = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NavigationMeshRebuilt (handle, callbackNavigationMeshRebuilt, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNavigationMeshRebuilt, GCHandle.ToIntPtr (s.gch), 70749194 /* new StringHash("E_NAVIGATION_MESH_REBUILT").Code */);
                   return s;
              }
 
@@ -1725,23 +1640,21 @@ namespace Urho.Navigation {
 namespace Urho.Navigation {
         public partial struct NavigationAreaRebuiltEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, UrhoHash.P_MESH);
-            public Vector3 BoundsMin => UrhoMap.get_Vector3 (handle, UrhoHash.P_BOUNDSMIN);
-            public Vector3 BoundsMax => UrhoMap.get_Vector3 (handle, UrhoHash.P_BOUNDSMAX);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, unchecked((int)3921144028) /* P_MESH */);
+            public Vector3 BoundsMin => UrhoMap.get_Vector3 (handle, unchecked((int)1144925294) /* P_BOUNDSMIN */);
+            public Vector3 BoundsMax => UrhoMap.get_Vector3 (handle, unchecked((int)1144400512) /* P_BOUNDSMAX */);
         } /* struct NavigationAreaRebuiltEventArgs */
 
         public partial class NavigationMesh {
              ObjectCallbackSignature callbackNavigationAreaRebuilt;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NavigationAreaRebuilt (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationAreaRebuilt += ...' instead.")]
              public Subscription SubscribeToNavigationAreaRebuilt (Action<NavigationAreaRebuiltEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationAreaRebuiltEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNavigationAreaRebuilt = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NavigationAreaRebuilt (handle, callbackNavigationAreaRebuilt, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNavigationAreaRebuilt, GCHandle.ToIntPtr (s.gch), 607930666 /* new StringHash("E_NAVIGATION_AREA_REBUILT").Code */);
                   return s;
              }
 
@@ -1763,11 +1676,11 @@ namespace Urho.Navigation {
 namespace Urho.Navigation {
         public partial struct CrowdAgentFormationEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, UrhoHash.P_CROWD_AGENT);
-            public uint Index => UrhoMap.get_uint (handle, UrhoHash.P_INDEX);
-            public uint Size => UrhoMap.get_uint (handle, UrhoHash.P_SIZE);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
+            public uint Index => UrhoMap.get_uint (handle, unchecked((int)4173611011) /* P_INDEX */);
+            public uint Size => UrhoMap.get_uint (handle, unchecked((int)48237840) /* P_SIZE */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
         } /* struct CrowdAgentFormationEventArgs */
 
 } /* namespace */
@@ -1775,11 +1688,11 @@ namespace Urho.Navigation {
 namespace Urho {
         public partial struct CrowdAgentNodeFormationEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, UrhoHash.P_CROWD_AGENT);
-            public uint Index => UrhoMap.get_uint (handle, UrhoHash.P_INDEX);
-            public uint Size => UrhoMap.get_uint (handle, UrhoHash.P_SIZE);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
+            public uint Index => UrhoMap.get_uint (handle, unchecked((int)4173611011) /* P_INDEX */);
+            public uint Size => UrhoMap.get_uint (handle, unchecked((int)48237840) /* P_SIZE */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
         } /* struct CrowdAgentNodeFormationEventArgs */
 
 } /* namespace */
@@ -1787,25 +1700,23 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct CrowdAgentRepositionEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, UrhoHash.P_CROWD_AGENT);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, UrhoHash.P_VELOCITY);
-            public bool Arrived => UrhoMap.get_bool (handle, UrhoHash.P_ARRIVED);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
+            public bool Arrived => UrhoMap.get_bool (handle, unchecked((int)1944710846) /* P_ARRIVED */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct CrowdAgentRepositionEventArgs */
 
         public partial class CrowdManager {
              ObjectCallbackSignature callbackCrowdAgentReposition;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_CrowdAgentReposition (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentReposition += ...' instead.")]
              public Subscription SubscribeToCrowdAgentReposition (Action<CrowdAgentRepositionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentRepositionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackCrowdAgentReposition = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_CrowdAgentReposition (handle, callbackCrowdAgentReposition, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackCrowdAgentReposition, GCHandle.ToIntPtr (s.gch), 1303636130 /* new StringHash("E_CROWD_AGENT_REPOSITION").Code */);
                   return s;
              }
 
@@ -1827,12 +1738,12 @@ namespace Urho.Navigation {
 namespace Urho {
         public partial struct CrowdAgentNodeRepositionEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, UrhoHash.P_CROWD_AGENT);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, UrhoHash.P_VELOCITY);
-            public bool Arrived => UrhoMap.get_bool (handle, UrhoHash.P_ARRIVED);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
+            public bool Arrived => UrhoMap.get_bool (handle, unchecked((int)1944710846) /* P_ARRIVED */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct CrowdAgentNodeRepositionEventArgs */
 
 } /* namespace */
@@ -1840,25 +1751,23 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct CrowdAgentFailureEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, UrhoHash.P_CROWD_AGENT);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, UrhoHash.P_VELOCITY);
-            public int CrowdAgentState => UrhoMap.get_int (handle, UrhoHash.P_CROWD_AGENT_STATE);
-            public int CrowdTargetState => UrhoMap.get_int (handle, UrhoHash.P_CROWD_TARGET_STATE);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
+            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)743446) /* P_CROWD_AGENT_STATE */);
+            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)2530801124) /* P_CROWD_TARGET_STATE */);
         } /* struct CrowdAgentFailureEventArgs */
 
         public partial class CrowdManager {
              ObjectCallbackSignature callbackCrowdAgentFailure;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_CrowdAgentFailure (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentFailure += ...' instead.")]
              public Subscription SubscribeToCrowdAgentFailure (Action<CrowdAgentFailureEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentFailureEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackCrowdAgentFailure = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_CrowdAgentFailure (handle, callbackCrowdAgentFailure, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackCrowdAgentFailure, GCHandle.ToIntPtr (s.gch), 4177819236 /* new StringHash("E_CROWD_AGENT_FAILURE").Code */);
                   return s;
              }
 
@@ -1880,12 +1789,12 @@ namespace Urho.Navigation {
 namespace Urho {
         public partial struct CrowdAgentNodeFailureEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, UrhoHash.P_CROWD_AGENT);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, UrhoHash.P_VELOCITY);
-            public int CrowdAgentState => UrhoMap.get_int (handle, UrhoHash.P_CROWD_AGENT_STATE);
-            public int CrowdTargetState => UrhoMap.get_int (handle, UrhoHash.P_CROWD_TARGET_STATE);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
+            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)743446) /* P_CROWD_AGENT_STATE */);
+            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)2530801124) /* P_CROWD_TARGET_STATE */);
         } /* struct CrowdAgentNodeFailureEventArgs */
 
 } /* namespace */
@@ -1893,25 +1802,23 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct CrowdAgentStateChangedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, UrhoHash.P_CROWD_AGENT);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, UrhoHash.P_VELOCITY);
-            public int CrowdAgentState => UrhoMap.get_int (handle, UrhoHash.P_CROWD_AGENT_STATE);
-            public int CrowdTargetState => UrhoMap.get_int (handle, UrhoHash.P_CROWD_TARGET_STATE);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
+            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)743446) /* P_CROWD_AGENT_STATE */);
+            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)2530801124) /* P_CROWD_TARGET_STATE */);
         } /* struct CrowdAgentStateChangedEventArgs */
 
         public partial class CrowdManager {
              ObjectCallbackSignature callbackCrowdAgentStateChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_CrowdAgentStateChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentStateChanged += ...' instead.")]
              public Subscription SubscribeToCrowdAgentStateChanged (Action<CrowdAgentStateChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentStateChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackCrowdAgentStateChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_CrowdAgentStateChanged (handle, callbackCrowdAgentStateChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackCrowdAgentStateChanged, GCHandle.ToIntPtr (s.gch), 1325284992 /* new StringHash("E_CROWD_AGENT_STATE_CHANGED").Code */);
                   return s;
              }
 
@@ -1933,12 +1840,12 @@ namespace Urho.Navigation {
 namespace Urho {
         public partial struct CrowdAgentNodeStateChangedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, UrhoHash.P_CROWD_AGENT);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, UrhoHash.P_VELOCITY);
-            public int CrowdAgentState => UrhoMap.get_int (handle, UrhoHash.P_CROWD_AGENT_STATE);
-            public int CrowdTargetState => UrhoMap.get_int (handle, UrhoHash.P_CROWD_TARGET_STATE);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
+            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)743446) /* P_CROWD_AGENT_STATE */);
+            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)2530801124) /* P_CROWD_TARGET_STATE */);
         } /* struct CrowdAgentNodeStateChangedEventArgs */
 
 } /* namespace */
@@ -1946,24 +1853,22 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct NavigationObstacleAddedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, UrhoHash.P_OBSTACLE);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
-            public float Radius => UrhoMap.get_float (handle, UrhoHash.P_RADIUS);
-            public float Height => UrhoMap.get_float (handle, UrhoHash.P_HEIGHT);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, unchecked((int)753519390) /* P_OBSTACLE */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public float Radius => UrhoMap.get_float (handle, unchecked((int)3469907617) /* P_RADIUS */);
+            public float Height => UrhoMap.get_float (handle, unchecked((int)3898685366) /* P_HEIGHT */);
         } /* struct NavigationObstacleAddedEventArgs */
 
         public partial class DynamicNavigationMesh {
              ObjectCallbackSignature callbackNavigationObstacleAdded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NavigationObstacleAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationObstacleAdded += ...' instead.")]
              public Subscription SubscribeToNavigationObstacleAdded (Action<NavigationObstacleAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNavigationObstacleAdded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NavigationObstacleAdded (handle, callbackNavigationObstacleAdded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNavigationObstacleAdded, GCHandle.ToIntPtr (s.gch), 368183937 /* new StringHash("E_NAVIGATION_OBSTACLE_ADDED").Code */);
                   return s;
              }
 
@@ -1985,24 +1890,22 @@ namespace Urho.Navigation {
 namespace Urho.Navigation {
         public partial struct NavigationObstacleRemovedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, UrhoHash.P_OBSTACLE);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, UrhoHash.P_POSITION);
-            public float Radius => UrhoMap.get_float (handle, UrhoHash.P_RADIUS);
-            public float Height => UrhoMap.get_float (handle, UrhoHash.P_HEIGHT);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, unchecked((int)753519390) /* P_OBSTACLE */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public float Radius => UrhoMap.get_float (handle, unchecked((int)3469907617) /* P_RADIUS */);
+            public float Height => UrhoMap.get_float (handle, unchecked((int)3898685366) /* P_HEIGHT */);
         } /* struct NavigationObstacleRemovedEventArgs */
 
         public partial class DynamicNavigationMesh {
              ObjectCallbackSignature callbackNavigationObstacleRemoved;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NavigationObstacleRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationObstacleRemoved += ...' instead.")]
              public Subscription SubscribeToNavigationObstacleRemoved (Action<NavigationObstacleRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNavigationObstacleRemoved = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NavigationObstacleRemoved (handle, callbackNavigationObstacleRemoved, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNavigationObstacleRemoved, GCHandle.ToIntPtr (s.gch), 4126064801 /* new StringHash("E_NAVIGATION_OBSTACLE_REMOVED").Code */);
                   return s;
              }
 
@@ -2028,15 +1931,13 @@ namespace Urho.Network {
 
         public partial class Network {
              ObjectCallbackSignature callbackServerConnected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ServerConnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ServerConnected += ...' instead.")]
              public Subscription SubscribeToServerConnected (Action<ServerConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ServerConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackServerConnected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ServerConnected (handle, callbackServerConnected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackServerConnected, GCHandle.ToIntPtr (s.gch), 3262549548 /* new StringHash("E_SERVERCONNECTED").Code */);
                   return s;
              }
 
@@ -2062,15 +1963,13 @@ namespace Urho.Network {
 
         public partial class Network {
              ObjectCallbackSignature callbackServerDisconnected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ServerDisconnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ServerDisconnected += ...' instead.")]
              public Subscription SubscribeToServerDisconnected (Action<ServerDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ServerDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackServerDisconnected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ServerDisconnected (handle, callbackServerDisconnected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackServerDisconnected, GCHandle.ToIntPtr (s.gch), 3751374392 /* new StringHash("E_SERVERDISCONNECTED").Code */);
                   return s;
              }
 
@@ -2096,15 +1995,13 @@ namespace Urho.Network {
 
         public partial class Network {
              ObjectCallbackSignature callbackConnectFailed;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ConnectFailed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ConnectFailed += ...' instead.")]
              public Subscription SubscribeToConnectFailed (Action<ConnectFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ConnectFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackConnectFailed = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ConnectFailed (handle, callbackConnectFailed, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackConnectFailed, GCHandle.ToIntPtr (s.gch), 2926413357 /* new StringHash("E_CONNECTFAILED").Code */);
                   return s;
              }
 
@@ -2126,20 +2023,18 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct ClientConnectedEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, UrhoHash.P_CONNECTION);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
         } /* struct ClientConnectedEventArgs */
 
         public partial class Network {
              ObjectCallbackSignature callbackClientConnected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ClientConnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientConnected += ...' instead.")]
              public Subscription SubscribeToClientConnected (Action<ClientConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackClientConnected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ClientConnected (handle, callbackClientConnected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackClientConnected, GCHandle.ToIntPtr (s.gch), 3320559396 /* new StringHash("E_CLIENTCONNECTED").Code */);
                   return s;
              }
 
@@ -2161,20 +2056,18 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct ClientDisconnectedEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, UrhoHash.P_CONNECTION);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
         } /* struct ClientDisconnectedEventArgs */
 
         public partial class Network {
              ObjectCallbackSignature callbackClientDisconnected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ClientDisconnected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientDisconnected += ...' instead.")]
              public Subscription SubscribeToClientDisconnected (Action<ClientDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackClientDisconnected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ClientDisconnected (handle, callbackClientDisconnected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackClientDisconnected, GCHandle.ToIntPtr (s.gch), 2803662656 /* new StringHash("E_CLIENTDISCONNECTED").Code */);
                   return s;
              }
 
@@ -2196,21 +2089,19 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct ClientIdentityEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, UrhoHash.P_CONNECTION);
-            public bool Allow => UrhoMap.get_bool (handle, UrhoHash.P_ALLOW);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
+            public bool Allow => UrhoMap.get_bool (handle, unchecked((int)2152604922) /* P_ALLOW */);
         } /* struct ClientIdentityEventArgs */
 
         public partial class Connection {
              ObjectCallbackSignature callbackClientIdentity;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ClientIdentity (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientIdentity += ...' instead.")]
              public Subscription SubscribeToClientIdentity (Action<ClientIdentityEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientIdentityEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackClientIdentity = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ClientIdentity (handle, callbackClientIdentity, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackClientIdentity, GCHandle.ToIntPtr (s.gch), 3856118083 /* new StringHash("E_CLIENTIDENTITY").Code */);
                   return s;
              }
 
@@ -2232,20 +2123,18 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct ClientSceneLoadedEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, UrhoHash.P_CONNECTION);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
         } /* struct ClientSceneLoadedEventArgs */
 
         public partial class Connection {
              ObjectCallbackSignature callbackClientSceneLoaded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ClientSceneLoaded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientSceneLoaded += ...' instead.")]
              public Subscription SubscribeToClientSceneLoaded (Action<ClientSceneLoadedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientSceneLoadedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackClientSceneLoaded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ClientSceneLoaded (handle, callbackClientSceneLoaded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackClientSceneLoaded, GCHandle.ToIntPtr (s.gch), 386521772 /* new StringHash("E_CLIENTSCENELOADED").Code */);
                   return s;
              }
 
@@ -2267,22 +2156,20 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct NetworkMessageEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, UrhoHash.P_CONNECTION);
-            public int MessageID => UrhoMap.get_int (handle, UrhoHash.P_MESSAGEID);
-            public byte [] Data => UrhoMap.get_Buffer (handle, UrhoHash.P_DATA);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
+            public int MessageID => UrhoMap.get_int (handle, unchecked((int)3156806707) /* P_MESSAGEID */);
+            public byte [] Data => UrhoMap.get_Buffer (handle, unchecked((int)1157846105) /* P_DATA */);
         } /* struct NetworkMessageEventArgs */
 
         public partial class Network {
              ObjectCallbackSignature callbackNetworkMessage;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NetworkMessage (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkMessage += ...' instead.")]
              public Subscription SubscribeToNetworkMessage (Action<NetworkMessageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkMessageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNetworkMessage = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NetworkMessage (handle, callbackNetworkMessage, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNetworkMessage, GCHandle.ToIntPtr (s.gch), 4201693811 /* new StringHash("E_NETWORKMESSAGE").Code */);
                   return s;
              }
 
@@ -2308,15 +2195,13 @@ namespace Urho.Network {
 
         public partial class Network {
              ObjectCallbackSignature callbackNetworkUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NetworkUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkUpdate += ...' instead.")]
              public Subscription SubscribeToNetworkUpdate (Action<NetworkUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNetworkUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NetworkUpdate (handle, callbackNetworkUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNetworkUpdate, GCHandle.ToIntPtr (s.gch), 936553437 /* new StringHash("E_NETWORKUPDATE").Code */);
                   return s;
              }
 
@@ -2342,15 +2227,13 @@ namespace Urho.Network {
 
         public partial class Network {
              ObjectCallbackSignature callbackNetworkUpdateSent;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NetworkUpdateSent (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkUpdateSent += ...' instead.")]
              public Subscription SubscribeToNetworkUpdateSent (Action<NetworkUpdateSentEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateSentEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNetworkUpdateSent = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NetworkUpdateSent (handle, callbackNetworkUpdateSent, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNetworkUpdateSent, GCHandle.ToIntPtr (s.gch), 3306139157 /* new StringHash("E_NETWORKUPDATESENT").Code */);
                   return s;
              }
 
@@ -2372,20 +2255,18 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct NetworkSceneLoadFailedEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, UrhoHash.P_CONNECTION);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
         } /* struct NetworkSceneLoadFailedEventArgs */
 
         public partial class Network {
              ObjectCallbackSignature callbackNetworkSceneLoadFailed;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NetworkSceneLoadFailed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkSceneLoadFailed += ...' instead.")]
              public Subscription SubscribeToNetworkSceneLoadFailed (Action<NetworkSceneLoadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkSceneLoadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNetworkSceneLoadFailed = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NetworkSceneLoadFailed (handle, callbackNetworkSceneLoadFailed, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNetworkSceneLoadFailed, GCHandle.ToIntPtr (s.gch), 2673696443 /* new StringHash("E_NETWORKSCENELOADFAILED").Code */);
                   return s;
              }
 
@@ -2407,7 +2288,7 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct RemoteEventDataEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, UrhoHash.P_CONNECTION);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
         } /* struct RemoteEventDataEventArgs */
 
 } /* namespace */
@@ -2415,21 +2296,19 @@ namespace Urho.Network {
 namespace Urho.Physics {
         public partial struct PhysicsPreStepEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, UrhoHash.P_WORLD);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct PhysicsPreStepEventArgs */
 
         public partial class PhysicsWorld {
              ObjectCallbackSignature callbackPhysicsPreStep;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PhysicsPreStep (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsPreStep += ...' instead.")]
              public Subscription SubscribeToPhysicsPreStep (Action<PhysicsPreStepEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsPreStepEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPhysicsPreStep = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PhysicsPreStep (handle, callbackPhysicsPreStep, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsPreStep, GCHandle.ToIntPtr (s.gch), 1935709666 /* new StringHash("E_PHYSICSPRESTEP").Code */);
                   return s;
              }
 
@@ -2451,21 +2330,19 @@ namespace Urho.Physics {
 namespace Urho.Physics {
         public partial struct PhysicsPostStepEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, UrhoHash.P_WORLD);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct PhysicsPostStepEventArgs */
 
         public partial class PhysicsWorld {
              ObjectCallbackSignature callbackPhysicsPostStep;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PhysicsPostStep (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsPostStep += ...' instead.")]
              public Subscription SubscribeToPhysicsPostStep (Action<PhysicsPostStepEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsPostStepEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPhysicsPostStep = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PhysicsPostStep (handle, callbackPhysicsPostStep, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsPostStep, GCHandle.ToIntPtr (s.gch), 3411074329 /* new StringHash("E_PHYSICSPOSTSTEP").Code */);
                   return s;
              }
 
@@ -2487,26 +2364,24 @@ namespace Urho.Physics {
 namespace Urho.Physics {
         public partial struct PhysicsCollisionStartEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, UrhoHash.P_WORLD);
-            public Node NodeA => UrhoMap.get_Node (handle, UrhoHash.P_NODEA);
-            public Node NodeB => UrhoMap.get_Node (handle, UrhoHash.P_NODEB);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODYA);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODYB);
-            public bool Trigger => UrhoMap.get_bool (handle, UrhoHash.P_TRIGGER);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, UrhoHash.P_CONTACTS);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
+            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1273527440) /* P_BODYA */);
+            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1273527441) /* P_BODYB */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
+            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)4184714882) /* P_CONTACTS */);
         } /* struct PhysicsCollisionStartEventArgs */
 
         public partial class PhysicsWorld {
              ObjectCallbackSignature callbackPhysicsCollisionStart;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PhysicsCollisionStart (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollisionStart += ...' instead.")]
              public Subscription SubscribeToPhysicsCollisionStart (Action<PhysicsCollisionStartEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionStartEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPhysicsCollisionStart = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PhysicsCollisionStart (handle, callbackPhysicsCollisionStart, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsCollisionStart, GCHandle.ToIntPtr (s.gch), 2978544541 /* new StringHash("E_PHYSICSCOLLISIONSTART").Code */);
                   return s;
              }
 
@@ -2528,26 +2403,24 @@ namespace Urho.Physics {
 namespace Urho.Physics {
         public partial struct PhysicsCollisionEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, UrhoHash.P_WORLD);
-            public Node NodeA => UrhoMap.get_Node (handle, UrhoHash.P_NODEA);
-            public Node NodeB => UrhoMap.get_Node (handle, UrhoHash.P_NODEB);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODYA);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODYB);
-            public bool Trigger => UrhoMap.get_bool (handle, UrhoHash.P_TRIGGER);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, UrhoHash.P_CONTACTS);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
+            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1273527440) /* P_BODYA */);
+            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1273527441) /* P_BODYB */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
+            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)4184714882) /* P_CONTACTS */);
         } /* struct PhysicsCollisionEventArgs */
 
         public partial class PhysicsWorld {
              ObjectCallbackSignature callbackPhysicsCollision;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PhysicsCollision (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollision += ...' instead.")]
              public Subscription SubscribeToPhysicsCollision (Action<PhysicsCollisionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPhysicsCollision = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PhysicsCollision (handle, callbackPhysicsCollision, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsCollision, GCHandle.ToIntPtr (s.gch), 3444960005 /* new StringHash("E_PHYSICSCOLLISION").Code */);
                   return s;
              }
 
@@ -2569,25 +2442,23 @@ namespace Urho.Physics {
 namespace Urho.Physics {
         public partial struct PhysicsCollisionEndEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, UrhoHash.P_WORLD);
-            public Node NodeA => UrhoMap.get_Node (handle, UrhoHash.P_NODEA);
-            public Node NodeB => UrhoMap.get_Node (handle, UrhoHash.P_NODEB);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODYA);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODYB);
-            public bool Trigger => UrhoMap.get_bool (handle, UrhoHash.P_TRIGGER);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
+            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1273527440) /* P_BODYA */);
+            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1273527441) /* P_BODYB */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
         } /* struct PhysicsCollisionEndEventArgs */
 
         public partial class PhysicsWorld {
              ObjectCallbackSignature callbackPhysicsCollisionEnd;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PhysicsCollisionEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollisionEnd += ...' instead.")]
              public Subscription SubscribeToPhysicsCollisionEnd (Action<PhysicsCollisionEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPhysicsCollisionEnd = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PhysicsCollisionEnd (handle, callbackPhysicsCollisionEnd, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsCollisionEnd, GCHandle.ToIntPtr (s.gch), 517382678 /* new StringHash("E_PHYSICSCOLLISIONEND").Code */);
                   return s;
              }
 
@@ -2609,24 +2480,22 @@ namespace Urho.Physics {
 namespace Urho {
         public partial struct NodeCollisionStartEventArgs {
             internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODY);
-            public Node OtherNode => UrhoMap.get_Node (handle, UrhoHash.P_OTHERNODE);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, UrhoHash.P_OTHERBODY);
-            public bool Trigger => UrhoMap.get_bool (handle, UrhoHash.P_TRIGGER);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, UrhoHash.P_CONTACTS);
+            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)4006250513) /* P_BODY */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
+            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)622343843) /* P_OTHERBODY */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
+            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)4184714882) /* P_CONTACTS */);
         } /* struct NodeCollisionStartEventArgs */
 
         public partial class Node {
              ObjectCallbackSignature callbackNodeCollisionStart;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NodeCollisionStart (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollisionStart += ...' instead.")]
              public Subscription SubscribeToNodeCollisionStart (Action<NodeCollisionStartEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionStartEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNodeCollisionStart = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NodeCollisionStart (handle, callbackNodeCollisionStart, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeCollisionStart, GCHandle.ToIntPtr (s.gch), 1423131148 /* new StringHash("E_NODECOLLISIONSTART").Code */);
                   return s;
              }
 
@@ -2648,24 +2517,22 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeCollisionEventArgs {
             internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODY);
-            public Node OtherNode => UrhoMap.get_Node (handle, UrhoHash.P_OTHERNODE);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, UrhoHash.P_OTHERBODY);
-            public bool Trigger => UrhoMap.get_bool (handle, UrhoHash.P_TRIGGER);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, UrhoHash.P_CONTACTS);
+            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)4006250513) /* P_BODY */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
+            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)622343843) /* P_OTHERBODY */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
+            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)4184714882) /* P_CONTACTS */);
         } /* struct NodeCollisionEventArgs */
 
         public partial class Node {
              ObjectCallbackSignature callbackNodeCollision;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NodeCollision (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollision += ...' instead.")]
              public Subscription SubscribeToNodeCollision (Action<NodeCollisionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNodeCollision = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NodeCollision (handle, callbackNodeCollision, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeCollision, GCHandle.ToIntPtr (s.gch), 4224485846 /* new StringHash("E_NODECOLLISION").Code */);
                   return s;
              }
 
@@ -2687,23 +2554,21 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeCollisionEndEventArgs {
             internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, UrhoHash.P_BODY);
-            public Node OtherNode => UrhoMap.get_Node (handle, UrhoHash.P_OTHERNODE);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, UrhoHash.P_OTHERBODY);
-            public bool Trigger => UrhoMap.get_bool (handle, UrhoHash.P_TRIGGER);
+            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)4006250513) /* P_BODY */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
+            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)622343843) /* P_OTHERBODY */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
         } /* struct NodeCollisionEndEventArgs */
 
         public partial class Node {
              ObjectCallbackSignature callbackNodeCollisionEnd;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NodeCollisionEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollisionEnd += ...' instead.")]
              public Subscription SubscribeToNodeCollisionEnd (Action<NodeCollisionEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNodeCollisionEnd = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NodeCollisionEnd (handle, callbackNodeCollisionEnd, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeCollisionEnd, GCHandle.ToIntPtr (s.gch), 3653693445 /* new StringHash("E_NODECOLLISIONEND").Code */);
                   return s;
              }
 
@@ -2729,15 +2594,13 @@ namespace Urho.Resources {
 
         public partial class Resource {
              ObjectCallbackSignature callbackReloadStarted;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ReloadStarted (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadStarted += ...' instead.")]
              public Subscription SubscribeToReloadStarted (Action<ReloadStartedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackReloadStarted = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ReloadStarted (handle, callbackReloadStarted, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackReloadStarted, GCHandle.ToIntPtr (s.gch), 1762890862 /* new StringHash("E_RELOADSTARTED").Code */);
                   return s;
              }
 
@@ -2763,15 +2626,13 @@ namespace Urho.Resources {
 
         public partial class Resource {
              ObjectCallbackSignature callbackReloadFinished;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ReloadFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadFinished += ...' instead.")]
              public Subscription SubscribeToReloadFinished (Action<ReloadFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackReloadFinished = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ReloadFinished (handle, callbackReloadFinished, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackReloadFinished, GCHandle.ToIntPtr (s.gch), 2221357157 /* new StringHash("E_RELOADFINISHED").Code */);
                   return s;
              }
 
@@ -2797,15 +2658,13 @@ namespace Urho.Resources {
 
         public partial class Resource {
              ObjectCallbackSignature callbackReloadFailed;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ReloadFailed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadFailed += ...' instead.")]
              public Subscription SubscribeToReloadFailed (Action<ReloadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackReloadFailed = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ReloadFailed (handle, callbackReloadFailed, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackReloadFailed, GCHandle.ToIntPtr (s.gch), 201060720 /* new StringHash("E_RELOADFAILED").Code */);
                   return s;
              }
 
@@ -2827,21 +2686,19 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct FileChangedEventArgs {
             internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, UrhoHash.P_FILENAME);
-            public String ResourceName => UrhoMap.get_String (handle, UrhoHash.P_RESOURCENAME);
+            public String FileName => UrhoMap.get_String (handle, unchecked((int)306467350) /* P_FILENAME */);
+            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4110644808) /* P_RESOURCENAME */);
         } /* struct FileChangedEventArgs */
 
         public partial class ResourceCache {
              ObjectCallbackSignature callbackFileChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_FileChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FileChanged += ...' instead.")]
              public Subscription SubscribeToFileChanged (Action<FileChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FileChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackFileChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_FileChanged (handle, callbackFileChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFileChanged, GCHandle.ToIntPtr (s.gch), 1400537438 /* new StringHash("E_FILECHANGED").Code */);
                   return s;
              }
 
@@ -2863,20 +2720,18 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct LoadFailedEventArgs {
             internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, UrhoHash.P_RESOURCENAME);
+            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4110644808) /* P_RESOURCENAME */);
         } /* struct LoadFailedEventArgs */
 
         public partial class ResourceCache {
              ObjectCallbackSignature callbackLoadFailed;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_LoadFailed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LoadFailed += ...' instead.")]
              public Subscription SubscribeToLoadFailed (Action<LoadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LoadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackLoadFailed = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_LoadFailed (handle, callbackLoadFailed, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackLoadFailed, GCHandle.ToIntPtr (s.gch), 3874488701 /* new StringHash("E_LOADFAILED").Code */);
                   return s;
              }
 
@@ -2898,20 +2753,18 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct ResourceNotFoundEventArgs {
             internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, UrhoHash.P_RESOURCENAME);
+            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4110644808) /* P_RESOURCENAME */);
         } /* struct ResourceNotFoundEventArgs */
 
         public partial class ResourceCache {
              ObjectCallbackSignature callbackResourceNotFound;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ResourceNotFound (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ResourceNotFound += ...' instead.")]
              public Subscription SubscribeToResourceNotFound (Action<ResourceNotFoundEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResourceNotFoundEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackResourceNotFound = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ResourceNotFound (handle, callbackResourceNotFound, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackResourceNotFound, GCHandle.ToIntPtr (s.gch), 1460029079 /* new StringHash("E_RESOURCENOTFOUND").Code */);
                   return s;
              }
 
@@ -2933,20 +2786,18 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct UnknownResourceTypeEventArgs {
             internal IntPtr handle;
-            public StringHash ResourceType => UrhoMap.get_StringHash (handle, UrhoHash.P_RESOURCETYPE);
+            public StringHash ResourceType => UrhoMap.get_StringHash (handle, unchecked((int)402706327) /* P_RESOURCETYPE */);
         } /* struct UnknownResourceTypeEventArgs */
 
         public partial class ResourceCache {
              ObjectCallbackSignature callbackUnknownResourceType;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_UnknownResourceType (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnknownResourceType += ...' instead.")]
              public Subscription SubscribeToUnknownResourceType (Action<UnknownResourceTypeEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnknownResourceTypeEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackUnknownResourceType = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_UnknownResourceType (handle, callbackUnknownResourceType, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUnknownResourceType, GCHandle.ToIntPtr (s.gch), 2564965656 /* new StringHash("E_UNKNOWNRESOURCETYPE").Code */);
                   return s;
              }
 
@@ -2968,22 +2819,20 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct ResourceBackgroundLoadedEventArgs {
             internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, UrhoHash.P_RESOURCENAME);
-            public bool Success => UrhoMap.get_bool (handle, UrhoHash.P_SUCCESS);
-            public Resource Resource => UrhoMap.get_Resource (handle, UrhoHash.P_RESOURCE);
+            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4110644808) /* P_RESOURCENAME */);
+            public bool Success => UrhoMap.get_bool (handle, unchecked((int)2871025140) /* P_SUCCESS */);
+            public Resource Resource => UrhoMap.get_Resource (handle, unchecked((int)4007921181) /* P_RESOURCE */);
         } /* struct ResourceBackgroundLoadedEventArgs */
 
         public partial class ResourceCache {
              ObjectCallbackSignature callbackResourceBackgroundLoaded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ResourceBackgroundLoaded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ResourceBackgroundLoaded += ...' instead.")]
              public Subscription SubscribeToResourceBackgroundLoaded (Action<ResourceBackgroundLoadedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResourceBackgroundLoadedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackResourceBackgroundLoaded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ResourceBackgroundLoaded (handle, callbackResourceBackgroundLoaded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackResourceBackgroundLoaded, GCHandle.ToIntPtr (s.gch), 593631931 /* new StringHash("E_RESOURCEBACKGROUNDLOADED").Code */);
                   return s;
              }
 
@@ -3009,15 +2858,13 @@ namespace Urho.Resources {
 
         public partial class Localization {
              ObjectCallbackSignature callbackChangeLanguage;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ChangeLanguage (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ChangeLanguage += ...' instead.")]
              public Subscription SubscribeToChangeLanguage (Action<ChangeLanguageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ChangeLanguageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackChangeLanguage = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ChangeLanguage (handle, callbackChangeLanguage, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackChangeLanguage, GCHandle.ToIntPtr (s.gch), 732879970 /* new StringHash("E_CHANGELANGUAGE").Code */);
                   return s;
              }
 
@@ -3039,21 +2886,19 @@ namespace Urho.Resources {
 namespace Urho {
         public partial struct SceneUpdateEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct SceneUpdateEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackSceneUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_SceneUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneUpdate += ...' instead.")]
              public Subscription SubscribeToSceneUpdate (Action<SceneUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackSceneUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_SceneUpdate (handle, callbackSceneUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSceneUpdate, GCHandle.ToIntPtr (s.gch), 1248218779 /* new StringHash("E_SCENEUPDATE").Code */);
                   return s;
              }
 
@@ -3075,21 +2920,19 @@ namespace Urho {
 namespace Urho {
         public partial struct SceneSubsystemUpdateEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct SceneSubsystemUpdateEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackSceneSubsystemUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_SceneSubsystemUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneSubsystemUpdate += ...' instead.")]
              public Subscription SubscribeToSceneSubsystemUpdate (Action<SceneSubsystemUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneSubsystemUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackSceneSubsystemUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_SceneSubsystemUpdate (handle, callbackSceneSubsystemUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSceneSubsystemUpdate, GCHandle.ToIntPtr (s.gch), 1876766502 /* new StringHash("E_SCENESUBSYSTEMUPDATE").Code */);
                   return s;
              }
 
@@ -3111,21 +2954,19 @@ namespace Urho {
 namespace Urho {
         public partial struct UpdateSmoothingEventArgs {
             internal IntPtr handle;
-            public float Constant => UrhoMap.get_float (handle, UrhoHash.P_CONSTANT);
-            public float SquaredSnapThreshold => UrhoMap.get_float (handle, UrhoHash.P_SQUAREDSNAPTHRESHOLD);
+            public float Constant => UrhoMap.get_float (handle, unchecked((int)679521587) /* P_CONSTANT */);
+            public float SquaredSnapThreshold => UrhoMap.get_float (handle, unchecked((int)245637545) /* P_SQUAREDSNAPTHRESHOLD */);
         } /* struct UpdateSmoothingEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackUpdateSmoothing;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_UpdateSmoothing (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UpdateSmoothing += ...' instead.")]
              public Subscription SubscribeToUpdateSmoothing (Action<UpdateSmoothingEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UpdateSmoothingEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackUpdateSmoothing = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_UpdateSmoothing (handle, callbackUpdateSmoothing, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUpdateSmoothing, GCHandle.ToIntPtr (s.gch), 3293102417 /* new StringHash("E_UPDATESMOOTHING").Code */);
                   return s;
              }
 
@@ -3147,21 +2988,19 @@ namespace Urho {
 namespace Urho {
         public partial struct SceneDrawableUpdateFinishedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct SceneDrawableUpdateFinishedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackSceneDrawableUpdateFinished;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_SceneDrawableUpdateFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneDrawableUpdateFinished += ...' instead.")]
              public Subscription SubscribeToSceneDrawableUpdateFinished (Action<SceneDrawableUpdateFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneDrawableUpdateFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackSceneDrawableUpdateFinished = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_SceneDrawableUpdateFinished (handle, callbackSceneDrawableUpdateFinished, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSceneDrawableUpdateFinished, GCHandle.ToIntPtr (s.gch), 1730217387 /* new StringHash("E_SCENEDRAWABLEUPDATEFINISHED").Code */);
                   return s;
              }
 
@@ -3187,15 +3026,13 @@ namespace Urho {
 
         public partial class SmoothedTransform {
              ObjectCallbackSignature callbackTargetPositionChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TargetPositionChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TargetPositionChanged += ...' instead.")]
              public Subscription SubscribeToTargetPositionChanged (Action<TargetPositionChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TargetPositionChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTargetPositionChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TargetPositionChanged (handle, callbackTargetPositionChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTargetPositionChanged, GCHandle.ToIntPtr (s.gch), 1237076436 /* new StringHash("E_TARGETPOSITION").Code */);
                   return s;
              }
 
@@ -3221,15 +3058,13 @@ namespace Urho {
 
         public partial class SmoothedTransform {
              ObjectCallbackSignature callbackTargetRotationChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TargetRotationChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TargetRotationChanged += ...' instead.")]
              public Subscription SubscribeToTargetRotationChanged (Action<TargetRotationChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TargetRotationChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTargetRotationChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TargetRotationChanged (handle, callbackTargetRotationChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTargetRotationChanged, GCHandle.ToIntPtr (s.gch), 2259228297 /* new StringHash("E_TARGETROTATION").Code */);
                   return s;
              }
 
@@ -3251,21 +3086,19 @@ namespace Urho {
 namespace Urho {
         public partial struct AttributeAnimationUpdateEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct AttributeAnimationUpdateEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackAttributeAnimationUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_AttributeAnimationUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationUpdate += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationUpdate (Action<AttributeAnimationUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackAttributeAnimationUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_AttributeAnimationUpdate (handle, callbackAttributeAnimationUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAttributeAnimationUpdate, GCHandle.ToIntPtr (s.gch), 1638761419 /* new StringHash("E_ATTRIBUTEANIMATIONUPDATE").Code */);
                   return s;
              }
 
@@ -3287,21 +3120,19 @@ namespace Urho {
 namespace Urho {
         public partial struct AttributeAnimationAddedEventArgs {
             internal IntPtr handle;
-            public Object ObjectAnimation => UrhoMap.get_Object (handle, UrhoHash.P_OBJECTANIMATION);
-            public String AttributeAnimationName => UrhoMap.get_String (handle, UrhoHash.P_ATTRIBUTEANIMATIONNAME);
+            public Object ObjectAnimation => UrhoMap.get_Object (handle, unchecked((int)1429834326) /* P_OBJECTANIMATION */);
+            public String AttributeAnimationName => UrhoMap.get_String (handle, unchecked((int)1823696770) /* P_ATTRIBUTEANIMATIONNAME */);
         } /* struct AttributeAnimationAddedEventArgs */
 
         public partial class ObjectAnimation {
              ObjectCallbackSignature callbackAttributeAnimationAdded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_AttributeAnimationAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationAdded += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationAdded (Action<AttributeAnimationAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackAttributeAnimationAdded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_AttributeAnimationAdded (handle, callbackAttributeAnimationAdded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAttributeAnimationAdded, GCHandle.ToIntPtr (s.gch), 2482507518 /* new StringHash("E_ATTRIBUTEANIMATIONADDED").Code */);
                   return s;
              }
 
@@ -3323,21 +3154,19 @@ namespace Urho {
 namespace Urho {
         public partial struct AttributeAnimationRemovedEventArgs {
             internal IntPtr handle;
-            public Object ObjectAnimation => UrhoMap.get_Object (handle, UrhoHash.P_OBJECTANIMATION);
-            public String AttributeAnimationName => UrhoMap.get_String (handle, UrhoHash.P_ATTRIBUTEANIMATIONNAME);
+            public Object ObjectAnimation => UrhoMap.get_Object (handle, unchecked((int)1429834326) /* P_OBJECTANIMATION */);
+            public String AttributeAnimationName => UrhoMap.get_String (handle, unchecked((int)1823696770) /* P_ATTRIBUTEANIMATIONNAME */);
         } /* struct AttributeAnimationRemovedEventArgs */
 
         public partial class ObjectAnimation {
              ObjectCallbackSignature callbackAttributeAnimationRemoved;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_AttributeAnimationRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationRemoved += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationRemoved (Action<AttributeAnimationRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackAttributeAnimationRemoved = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_AttributeAnimationRemoved (handle, callbackAttributeAnimationRemoved, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAttributeAnimationRemoved, GCHandle.ToIntPtr (s.gch), 113268382 /* new StringHash("E_ATTRIBUTEANIMATIONREMOVED").Code */);
                   return s;
              }
 
@@ -3359,21 +3188,19 @@ namespace Urho {
 namespace Urho {
         public partial struct ScenePostUpdateEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public float TimeStep => UrhoMap.get_float (handle, UrhoHash.P_TIMESTEP);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
         } /* struct ScenePostUpdateEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackScenePostUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ScenePostUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ScenePostUpdate += ...' instead.")]
              public Subscription SubscribeToScenePostUpdate (Action<ScenePostUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ScenePostUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackScenePostUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ScenePostUpdate (handle, callbackScenePostUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackScenePostUpdate, GCHandle.ToIntPtr (s.gch), 3508102619 /* new StringHash("E_SCENEPOSTUPDATE").Code */);
                   return s;
              }
 
@@ -3395,25 +3222,23 @@ namespace Urho {
 namespace Urho {
         public partial struct AsyncLoadProgressEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public float Progress => UrhoMap.get_float (handle, UrhoHash.P_PROGRESS);
-            public int LoadedNodes => UrhoMap.get_int (handle, UrhoHash.P_LOADEDNODES);
-            public int TotalNodes => UrhoMap.get_int (handle, UrhoHash.P_TOTALNODES);
-            public int LoadedResources => UrhoMap.get_int (handle, UrhoHash.P_LOADEDRESOURCES);
-            public int TotalResources => UrhoMap.get_int (handle, UrhoHash.P_TOTALRESOURCES);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public float Progress => UrhoMap.get_float (handle, unchecked((int)2129594972) /* P_PROGRESS */);
+            public int LoadedNodes => UrhoMap.get_int (handle, unchecked((int)3950383229) /* P_LOADEDNODES */);
+            public int TotalNodes => UrhoMap.get_int (handle, unchecked((int)2766686812) /* P_TOTALNODES */);
+            public int LoadedResources => UrhoMap.get_int (handle, unchecked((int)1858931537) /* P_LOADEDRESOURCES */);
+            public int TotalResources => UrhoMap.get_int (handle, unchecked((int)1112344112) /* P_TOTALRESOURCES */);
         } /* struct AsyncLoadProgressEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackAsyncLoadProgress;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_AsyncLoadProgress (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncLoadProgress += ...' instead.")]
              public Subscription SubscribeToAsyncLoadProgress (Action<AsyncLoadProgressEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadProgressEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackAsyncLoadProgress = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_AsyncLoadProgress (handle, callbackAsyncLoadProgress, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAsyncLoadProgress, GCHandle.ToIntPtr (s.gch), 3374931989 /* new StringHash("E_ASYNCLOADPROGRESS").Code */);
                   return s;
              }
 
@@ -3435,20 +3260,18 @@ namespace Urho {
 namespace Urho {
         public partial struct AsyncLoadFinishedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
         } /* struct AsyncLoadFinishedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackAsyncLoadFinished;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_AsyncLoadFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncLoadFinished += ...' instead.")]
              public Subscription SubscribeToAsyncLoadFinished (Action<AsyncLoadFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackAsyncLoadFinished = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_AsyncLoadFinished (handle, callbackAsyncLoadFinished, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAsyncLoadFinished, GCHandle.ToIntPtr (s.gch), 2224383130 /* new StringHash("E_ASYNCLOADFINISHED").Code */);
                   return s;
              }
 
@@ -3470,22 +3293,20 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeAddedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Parent => UrhoMap.get_Node (handle, UrhoHash.P_PARENT);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Parent => UrhoMap.get_Node (handle, unchecked((int)735706841) /* P_PARENT */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
         } /* struct NodeAddedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackNodeAdded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NodeAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeAdded += ...' instead.")]
              public Subscription SubscribeToNodeAdded (Action<NodeAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNodeAdded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NodeAdded (handle, callbackNodeAdded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeAdded, GCHandle.ToIntPtr (s.gch), 911939940 /* new StringHash("E_NODEADDED").Code */);
                   return s;
              }
 
@@ -3507,22 +3328,20 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeRemovedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Parent => UrhoMap.get_Node (handle, UrhoHash.P_PARENT);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Parent => UrhoMap.get_Node (handle, unchecked((int)735706841) /* P_PARENT */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
         } /* struct NodeRemovedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackNodeRemoved;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NodeRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeRemoved += ...' instead.")]
              public Subscription SubscribeToNodeRemoved (Action<NodeRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNodeRemoved = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NodeRemoved (handle, callbackNodeRemoved, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeRemoved, GCHandle.ToIntPtr (s.gch), 3329789444 /* new StringHash("E_NODEREMOVED").Code */);
                   return s;
              }
 
@@ -3544,22 +3363,20 @@ namespace Urho {
 namespace Urho {
         public partial struct ComponentAddedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public Component Component => UrhoMap.get_Component (handle, UrhoHash.P_COMPONENT);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Component Component => UrhoMap.get_Component (handle, unchecked((int)2431893358) /* P_COMPONENT */);
         } /* struct ComponentAddedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackComponentAdded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ComponentAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentAdded += ...' instead.")]
              public Subscription SubscribeToComponentAdded (Action<ComponentAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackComponentAdded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ComponentAdded (handle, callbackComponentAdded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackComponentAdded, GCHandle.ToIntPtr (s.gch), 1731756669 /* new StringHash("E_COMPONENTADDED").Code */);
                   return s;
              }
 
@@ -3581,22 +3398,20 @@ namespace Urho {
 namespace Urho {
         public partial struct ComponentRemovedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public Component Component => UrhoMap.get_Component (handle, UrhoHash.P_COMPONENT);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Component Component => UrhoMap.get_Component (handle, unchecked((int)2431893358) /* P_COMPONENT */);
         } /* struct ComponentRemovedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackComponentRemoved;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ComponentRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentRemoved += ...' instead.")]
              public Subscription SubscribeToComponentRemoved (Action<ComponentRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackComponentRemoved = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ComponentRemoved (handle, callbackComponentRemoved, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackComponentRemoved, GCHandle.ToIntPtr (s.gch), 427883165 /* new StringHash("E_COMPONENTREMOVED").Code */);
                   return s;
              }
 
@@ -3618,21 +3433,19 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeNameChangedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
         } /* struct NodeNameChangedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackNodeNameChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NodeNameChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeNameChanged += ...' instead.")]
              public Subscription SubscribeToNodeNameChanged (Action<NodeNameChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeNameChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNodeNameChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NodeNameChanged (handle, callbackNodeNameChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeNameChanged, GCHandle.ToIntPtr (s.gch), 2131244269 /* new StringHash("E_NODENAMECHANGED").Code */);
                   return s;
              }
 
@@ -3654,21 +3467,19 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeEnabledChangedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
         } /* struct NodeEnabledChangedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackNodeEnabledChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NodeEnabledChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeEnabledChanged += ...' instead.")]
              public Subscription SubscribeToNodeEnabledChanged (Action<NodeEnabledChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeEnabledChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNodeEnabledChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NodeEnabledChanged (handle, callbackNodeEnabledChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeEnabledChanged, GCHandle.ToIntPtr (s.gch), 3396981231 /* new StringHash("E_NODEENABLEDCHANGED").Code */);
                   return s;
              }
 
@@ -3690,9 +3501,9 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeTagAddedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public String Tag => UrhoMap.get_String (handle, UrhoHash.P_TAG);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public String Tag => UrhoMap.get_String (handle, unchecked((int)888219147) /* P_TAG */);
         } /* struct NodeTagAddedEventArgs */
 
 } /* namespace */
@@ -3700,9 +3511,9 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeTagRemovedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public String Tag => UrhoMap.get_String (handle, UrhoHash.P_TAG);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public String Tag => UrhoMap.get_String (handle, unchecked((int)888219147) /* P_TAG */);
         } /* struct NodeTagRemovedEventArgs */
 
 } /* namespace */
@@ -3710,22 +3521,20 @@ namespace Urho {
 namespace Urho {
         public partial struct ComponentEnabledChangedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public Component Component => UrhoMap.get_Component (handle, UrhoHash.P_COMPONENT);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Component Component => UrhoMap.get_Component (handle, unchecked((int)2431893358) /* P_COMPONENT */);
         } /* struct ComponentEnabledChangedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackComponentEnabledChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ComponentEnabledChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentEnabledChanged += ...' instead.")]
              public Subscription SubscribeToComponentEnabledChanged (Action<ComponentEnabledChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentEnabledChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackComponentEnabledChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ComponentEnabledChanged (handle, callbackComponentEnabledChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackComponentEnabledChanged, GCHandle.ToIntPtr (s.gch), 838967574 /* new StringHash("E_COMPONENTENABLEDCHANGED").Code */);
                   return s;
              }
 
@@ -3747,20 +3556,18 @@ namespace Urho {
 namespace Urho {
         public partial struct TemporaryChangedEventArgs {
             internal IntPtr handle;
-            public Serializable Serializable => UrhoMap.get_Serializable (handle, UrhoHash.P_SERIALIZABLE);
+            public Serializable Serializable => UrhoMap.get_Serializable (handle, unchecked((int)1457316078) /* P_SERIALIZABLE */);
         } /* struct TemporaryChangedEventArgs */
 
         public partial class Serializable {
              ObjectCallbackSignature callbackTemporaryChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TemporaryChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TemporaryChanged += ...' instead.")]
              public Subscription SubscribeToTemporaryChanged (Action<TemporaryChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TemporaryChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTemporaryChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TemporaryChanged (handle, callbackTemporaryChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTemporaryChanged, GCHandle.ToIntPtr (s.gch), 4218062813 /* new StringHash("E_TEMPORARYCHANGED").Code */);
                   return s;
              }
 
@@ -3782,22 +3589,20 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeClonedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Node Node => UrhoMap.get_Node (handle, UrhoHash.P_NODE);
-            public Node CloneNode => UrhoMap.get_Node (handle, UrhoHash.P_CLONENODE);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Node CloneNode => UrhoMap.get_Node (handle, unchecked((int)2237835056) /* P_CLONENODE */);
         } /* struct NodeClonedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackNodeCloned;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NodeCloned (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCloned += ...' instead.")]
              public Subscription SubscribeToNodeCloned (Action<NodeClonedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeClonedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNodeCloned = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NodeCloned (handle, callbackNodeCloned, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeCloned, GCHandle.ToIntPtr (s.gch), 3385163395 /* new StringHash("E_NODECLONED").Code */);
                   return s;
              }
 
@@ -3819,22 +3624,20 @@ namespace Urho {
 namespace Urho {
         public partial struct ComponentClonedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, UrhoHash.P_SCENE);
-            public Component Component => UrhoMap.get_Component (handle, UrhoHash.P_COMPONENT);
-            public Component CloneComponent => UrhoMap.get_Component (handle, UrhoHash.P_CLONECOMPONENT);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Component Component => UrhoMap.get_Component (handle, unchecked((int)2431893358) /* P_COMPONENT */);
+            public Component CloneComponent => UrhoMap.get_Component (handle, unchecked((int)499439599) /* P_CLONECOMPONENT */);
         } /* struct ComponentClonedEventArgs */
 
         public partial class Scene {
              ObjectCallbackSignature callbackComponentCloned;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ComponentCloned (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentCloned += ...' instead.")]
              public Subscription SubscribeToComponentCloned (Action<ComponentClonedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentClonedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackComponentCloned = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ComponentCloned (handle, callbackComponentCloned, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackComponentCloned, GCHandle.ToIntPtr (s.gch), 962288554 /* new StringHash("E_COMPONENTCLONED").Code */);
                   return s;
              }
 
@@ -3856,24 +3659,22 @@ namespace Urho {
 namespace Urho {
         public partial struct InterceptNetworkUpdateEventArgs {
             internal IntPtr handle;
-            public Serializable Serializable => UrhoMap.get_Serializable (handle, UrhoHash.P_SERIALIZABLE);
-            public uint TimeStamp => UrhoMap.get_uint (handle, UrhoHash.P_TIMESTAMP);
-            public uint Index => UrhoMap.get_uint (handle, UrhoHash.P_INDEX);
-            public String Name => UrhoMap.get_String (handle, UrhoHash.P_NAME);
-            public Variant Value => UrhoMap.get_Variant (handle, UrhoHash.P_VALUE);
+            public Serializable Serializable => UrhoMap.get_Serializable (handle, unchecked((int)1457316078) /* P_SERIALIZABLE */);
+            public uint TimeStamp => UrhoMap.get_uint (handle, unchecked((int)4097320839) /* P_TIMESTAMP */);
+            public uint Index => UrhoMap.get_uint (handle, unchecked((int)4173611011) /* P_INDEX */);
+            public String Name => UrhoMap.get_String (handle, unchecked((int)373324314) /* P_NAME */);
+            public Variant Value => UrhoMap.get_Variant (handle, unchecked((int)317520194) /* P_VALUE */);
         } /* struct InterceptNetworkUpdateEventArgs */
 
         public partial class Serializable {
              ObjectCallbackSignature callbackInterceptNetworkUpdate;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_InterceptNetworkUpdate (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.InterceptNetworkUpdate += ...' instead.")]
              public Subscription SubscribeToInterceptNetworkUpdate (Action<InterceptNetworkUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new InterceptNetworkUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackInterceptNetworkUpdate = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_InterceptNetworkUpdate (handle, callbackInterceptNetworkUpdate, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackInterceptNetworkUpdate, GCHandle.ToIntPtr (s.gch), 3106195535 /* new StringHash("E_INTERCEPTNETWORKUPDATE").Code */);
                   return s;
              }
 
@@ -3895,25 +3696,23 @@ namespace Urho {
 namespace Urho.Gui {
         public partial struct UIMouseClickEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct UIMouseClickEventArgs */
 
         public partial class UI {
              ObjectCallbackSignature callbackUIMouseClick;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_UIMouseClick (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIMouseClick += ...' instead.")]
              public Subscription SubscribeToUIMouseClick (Action<UIMouseClickEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackUIMouseClick = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_UIMouseClick (handle, callbackUIMouseClick, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUIMouseClick, GCHandle.ToIntPtr (s.gch), 3300073073 /* new StringHash("E_UIMOUSECLICK").Code */);
                   return s;
              }
 
@@ -3935,26 +3734,24 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct UIMouseClickEndEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public UIElement BeginElement => UrhoMap.get_UIElement (handle, UrhoHash.P_BEGINELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement BeginElement => UrhoMap.get_UIElement (handle, unchecked((int)636918626) /* P_BEGINELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct UIMouseClickEndEventArgs */
 
         public partial class UI {
              ObjectCallbackSignature callbackUIMouseClickEnd;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_UIMouseClickEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIMouseClickEnd += ...' instead.")]
              public Subscription SubscribeToUIMouseClickEnd (Action<UIMouseClickEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackUIMouseClickEnd = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_UIMouseClickEnd (handle, callbackUIMouseClickEnd, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUIMouseClickEnd, GCHandle.ToIntPtr (s.gch), 3115302826 /* new StringHash("E_UIMOUSECLICKEND").Code */);
                   return s;
              }
 
@@ -3976,12 +3773,12 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct UIMouseDoubleClickEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct UIMouseDoubleClickEventArgs */
 
 } /* namespace */
@@ -3989,12 +3786,12 @@ namespace Urho.Gui {
 namespace Urho {
         public partial struct ClickEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct ClickEventArgs */
 
 } /* namespace */
@@ -4002,13 +3799,13 @@ namespace Urho {
 namespace Urho {
         public partial struct ClickEndEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public UIElement BeginElement => UrhoMap.get_UIElement (handle, UrhoHash.P_BEGINELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement BeginElement => UrhoMap.get_UIElement (handle, unchecked((int)636918626) /* P_BEGINELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct ClickEndEventArgs */
 
 } /* namespace */
@@ -4016,12 +3813,12 @@ namespace Urho {
 namespace Urho {
         public partial struct DoubleClickEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct DoubleClickEventArgs */
 
 } /* namespace */
@@ -4029,22 +3826,20 @@ namespace Urho {
 namespace Urho.Gui {
         public partial struct DragDropTestEventArgs {
             internal IntPtr handle;
-            public UIElement Source => UrhoMap.get_UIElement (handle, UrhoHash.P_SOURCE);
-            public UIElement Target => UrhoMap.get_UIElement (handle, UrhoHash.P_TARGET);
-            public bool Accept => UrhoMap.get_bool (handle, UrhoHash.P_ACCEPT);
+            public UIElement Source => UrhoMap.get_UIElement (handle, unchecked((int)3074198954) /* P_SOURCE */);
+            public UIElement Target => UrhoMap.get_UIElement (handle, unchecked((int)2239668384) /* P_TARGET */);
+            public bool Accept => UrhoMap.get_bool (handle, unchecked((int)2905919351) /* P_ACCEPT */);
         } /* struct DragDropTestEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackDragDropTest;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_DragDropTest (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragDropTest += ...' instead.")]
              public Subscription SubscribeToDragDropTest (Action<DragDropTestEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragDropTestEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackDragDropTest = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_DragDropTest (handle, callbackDragDropTest, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragDropTest, GCHandle.ToIntPtr (s.gch), 2970729871 /* new StringHash("E_DRAGDROPTEST").Code */);
                   return s;
              }
 
@@ -4066,22 +3861,20 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragDropFinishEventArgs {
             internal IntPtr handle;
-            public UIElement Source => UrhoMap.get_UIElement (handle, UrhoHash.P_SOURCE);
-            public UIElement Target => UrhoMap.get_UIElement (handle, UrhoHash.P_TARGET);
-            public bool Accept => UrhoMap.get_bool (handle, UrhoHash.P_ACCEPT);
+            public UIElement Source => UrhoMap.get_UIElement (handle, unchecked((int)3074198954) /* P_SOURCE */);
+            public UIElement Target => UrhoMap.get_UIElement (handle, unchecked((int)2239668384) /* P_TARGET */);
+            public bool Accept => UrhoMap.get_bool (handle, unchecked((int)2905919351) /* P_ACCEPT */);
         } /* struct DragDropFinishEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackDragDropFinish;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_DragDropFinish (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragDropFinish += ...' instead.")]
              public Subscription SubscribeToDragDropFinish (Action<DragDropFinishEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragDropFinishEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackDragDropFinish = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_DragDropFinish (handle, callbackDragDropFinish, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragDropFinish, GCHandle.ToIntPtr (s.gch), 2081976080 /* new StringHash("E_DRAGDROPFINISH").Code */);
                   return s;
              }
 
@@ -4103,21 +3896,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct FocusChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public UIElement ClickedElement => UrhoMap.get_UIElement (handle, UrhoHash.P_CLICKEDELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement ClickedElement => UrhoMap.get_UIElement (handle, unchecked((int)1396472164) /* P_CLICKEDELEMENT */);
         } /* struct FocusChangedEventArgs */
 
         public partial class UI {
              ObjectCallbackSignature callbackFocusChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_FocusChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FocusChanged += ...' instead.")]
              public Subscription SubscribeToFocusChanged (Action<FocusChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FocusChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackFocusChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_FocusChanged (handle, callbackFocusChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFocusChanged, GCHandle.ToIntPtr (s.gch), 3670986998 /* new StringHash("E_FOCUSCHANGED").Code */);
                   return s;
              }
 
@@ -4139,20 +3930,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct NameChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct NameChangedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackNameChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_NameChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NameChanged += ...' instead.")]
              public Subscription SubscribeToNameChanged (Action<NameChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NameChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackNameChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_NameChanged (handle, callbackNameChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNameChanged, GCHandle.ToIntPtr (s.gch), 3500448111 /* new StringHash("E_NAMECHANGED").Code */);
                   return s;
              }
 
@@ -4174,24 +3963,22 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ResizedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int Width => UrhoMap.get_int (handle, UrhoHash.P_WIDTH);
-            public int Height => UrhoMap.get_int (handle, UrhoHash.P_HEIGHT);
-            public int DX => UrhoMap.get_int (handle, UrhoHash.P_DX);
-            public int DY => UrhoMap.get_int (handle, UrhoHash.P_DY);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int Width => UrhoMap.get_int (handle, unchecked((int)3340657143) /* P_WIDTH */);
+            public int Height => UrhoMap.get_int (handle, unchecked((int)3898685366) /* P_HEIGHT */);
+            public int DX => UrhoMap.get_int (handle, unchecked((int)2317823363) /* P_DX */);
+            public int DY => UrhoMap.get_int (handle, unchecked((int)2317823364) /* P_DY */);
         } /* struct ResizedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackResized;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_Resized (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Resized += ...' instead.")]
              public Subscription SubscribeToResized (Action<ResizedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResizedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackResized = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_Resized (handle, callbackResized, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackResized, GCHandle.ToIntPtr (s.gch), 3226224662 /* new StringHash("E_RESIZED").Code */);
                   return s;
              }
 
@@ -4213,22 +4000,20 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct PositionedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
         } /* struct PositionedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackPositioned;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_Positioned (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Positioned += ...' instead.")]
              public Subscription SubscribeToPositioned (Action<PositionedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PositionedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPositioned = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_Positioned (handle, callbackPositioned, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPositioned, GCHandle.ToIntPtr (s.gch), 3226828642 /* new StringHash("E_POSITIONED").Code */);
                   return s;
              }
 
@@ -4250,21 +4035,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct VisibleChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public bool Visible => UrhoMap.get_bool (handle, UrhoHash.P_VISIBLE);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public bool Visible => UrhoMap.get_bool (handle, unchecked((int)2012888771) /* P_VISIBLE */);
         } /* struct VisibleChangedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackVisibleChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_VisibleChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.VisibleChanged += ...' instead.")]
              public Subscription SubscribeToVisibleChanged (Action<VisibleChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new VisibleChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackVisibleChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_VisibleChanged (handle, callbackVisibleChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackVisibleChanged, GCHandle.ToIntPtr (s.gch), 2302177884 /* new StringHash("E_VISIBLECHANGED").Code */);
                   return s;
              }
 
@@ -4286,21 +4069,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct FocusedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public bool ByKey => UrhoMap.get_bool (handle, UrhoHash.P_BYKEY);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public bool ByKey => UrhoMap.get_bool (handle, unchecked((int)545983417) /* P_BYKEY */);
         } /* struct FocusedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackFocused;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_Focused (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Focused += ...' instead.")]
              public Subscription SubscribeToFocused (Action<FocusedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FocusedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackFocused = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_Focused (handle, callbackFocused, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFocused, GCHandle.ToIntPtr (s.gch), 2149470941 /* new StringHash("E_FOCUSED").Code */);
                   return s;
              }
 
@@ -4322,20 +4103,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DefocusedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct DefocusedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackDefocused;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_Defocused (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Defocused += ...' instead.")]
              public Subscription SubscribeToDefocused (Action<DefocusedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DefocusedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackDefocused = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_Defocused (handle, callbackDefocused, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDefocused, GCHandle.ToIntPtr (s.gch), 3370772636 /* new StringHash("E_DEFOCUSED").Code */);
                   return s;
              }
 
@@ -4357,20 +4136,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct LayoutUpdatedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct LayoutUpdatedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackLayoutUpdated;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_LayoutUpdated (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LayoutUpdated += ...' instead.")]
              public Subscription SubscribeToLayoutUpdated (Action<LayoutUpdatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LayoutUpdatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackLayoutUpdated = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_LayoutUpdated (handle, callbackLayoutUpdated, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackLayoutUpdated, GCHandle.ToIntPtr (s.gch), 1456117591 /* new StringHash("E_LAYOUTUPDATED").Code */);
                   return s;
              }
 
@@ -4392,20 +4169,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct PressedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct PressedEventArgs */
 
         public partial class Button {
              ObjectCallbackSignature callbackPressed;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_Pressed (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Pressed += ...' instead.")]
              public Subscription SubscribeToPressed (Action<PressedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PressedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPressed = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_Pressed (handle, callbackPressed, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPressed, GCHandle.ToIntPtr (s.gch), 1260119080 /* new StringHash("E_PRESSED").Code */);
                   return s;
              }
 
@@ -4427,20 +4202,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ReleasedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct ReleasedEventArgs */
 
         public partial class Button {
              ObjectCallbackSignature callbackReleased;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_Released (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Released += ...' instead.")]
              public Subscription SubscribeToReleased (Action<ReleasedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReleasedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackReleased = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_Released (handle, callbackReleased, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackReleased, GCHandle.ToIntPtr (s.gch), 1806634935 /* new StringHash("E_RELEASED").Code */);
                   return s;
              }
 
@@ -4462,21 +4235,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ToggledEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public bool State => UrhoMap.get_bool (handle, UrhoHash.P_STATE);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public bool State => UrhoMap.get_bool (handle, unchecked((int)3049107362) /* P_STATE */);
         } /* struct ToggledEventArgs */
 
         public partial class CheckBox {
              ObjectCallbackSignature callbackToggled;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_Toggled (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Toggled += ...' instead.")]
              public Subscription SubscribeToToggled (Action<ToggledEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ToggledEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackToggled = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_Toggled (handle, callbackToggled, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackToggled, GCHandle.ToIntPtr (s.gch), 3075932918 /* new StringHash("E_TOGGLED").Code */);
                   return s;
              }
 
@@ -4498,21 +4269,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct SliderChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public float Value => UrhoMap.get_float (handle, UrhoHash.P_VALUE);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public float Value => UrhoMap.get_float (handle, unchecked((int)317520194) /* P_VALUE */);
         } /* struct SliderChangedEventArgs */
 
         public partial class Slider {
              ObjectCallbackSignature callbackSliderChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_SliderChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SliderChanged += ...' instead.")]
              public Subscription SubscribeToSliderChanged (Action<SliderChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SliderChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackSliderChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_SliderChanged (handle, callbackSliderChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSliderChanged, GCHandle.ToIntPtr (s.gch), 3371245657 /* new StringHash("E_SLIDERCHANGED").Code */);
                   return s;
              }
 
@@ -4534,22 +4303,20 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct SliderPagedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int Offset => UrhoMap.get_int (handle, UrhoHash.P_OFFSET);
-            public bool Pressed => UrhoMap.get_bool (handle, UrhoHash.P_PRESSED);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int Offset => UrhoMap.get_int (handle, unchecked((int)1104512642) /* P_OFFSET */);
+            public bool Pressed => UrhoMap.get_bool (handle, unchecked((int)1563889203) /* P_PRESSED */);
         } /* struct SliderPagedEventArgs */
 
         public partial class Slider {
              ObjectCallbackSignature callbackSliderPaged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_SliderPaged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SliderPaged += ...' instead.")]
              public Subscription SubscribeToSliderPaged (Action<SliderPagedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SliderPagedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackSliderPaged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_SliderPaged (handle, callbackSliderPaged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSliderPaged, GCHandle.ToIntPtr (s.gch), 2834623674 /* new StringHash("E_SLIDERPAGED").Code */);
                   return s;
              }
 
@@ -4571,8 +4338,8 @@ namespace Urho.Gui {
 namespace Urho {
         public partial struct ProgressBarChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public float Value => UrhoMap.get_float (handle, UrhoHash.P_VALUE);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public float Value => UrhoMap.get_float (handle, unchecked((int)317520194) /* P_VALUE */);
         } /* struct ProgressBarChangedEventArgs */
 
 } /* namespace */
@@ -4580,21 +4347,19 @@ namespace Urho {
 namespace Urho.Gui {
         public partial struct ScrollBarChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public float Value => UrhoMap.get_float (handle, UrhoHash.P_VALUE);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public float Value => UrhoMap.get_float (handle, unchecked((int)317520194) /* P_VALUE */);
         } /* struct ScrollBarChangedEventArgs */
 
         public partial class ScrollBar {
              ObjectCallbackSignature callbackScrollBarChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ScrollBarChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ScrollBarChanged += ...' instead.")]
              public Subscription SubscribeToScrollBarChanged (Action<ScrollBarChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ScrollBarChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackScrollBarChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ScrollBarChanged (handle, callbackScrollBarChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackScrollBarChanged, GCHandle.ToIntPtr (s.gch), 3832352008 /* new StringHash("E_SCROLLBARCHANGED").Code */);
                   return s;
              }
 
@@ -4616,22 +4381,20 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ViewChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
         } /* struct ViewChangedEventArgs */
 
         public partial class ScrollView {
              ObjectCallbackSignature callbackViewChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ViewChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ViewChanged += ...' instead.")]
              public Subscription SubscribeToViewChanged (Action<ViewChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ViewChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackViewChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ViewChanged (handle, callbackViewChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackViewChanged, GCHandle.ToIntPtr (s.gch), 1855039189 /* new StringHash("E_VIEWCHANGED").Code */);
                   return s;
              }
 
@@ -4653,21 +4416,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ModalChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public bool Modal => UrhoMap.get_bool (handle, UrhoHash.P_MODAL);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public bool Modal => UrhoMap.get_bool (handle, unchecked((int)922258366) /* P_MODAL */);
         } /* struct ModalChangedEventArgs */
 
         public partial class Window {
              ObjectCallbackSignature callbackModalChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ModalChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ModalChanged += ...' instead.")]
              public Subscription SubscribeToModalChanged (Action<ModalChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ModalChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackModalChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ModalChanged (handle, callbackModalChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackModalChanged, GCHandle.ToIntPtr (s.gch), 4100448801 /* new StringHash("E_MODALCHANGED").Code */);
                   return s;
              }
 
@@ -4689,23 +4450,21 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct CharEntryEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public String Text => UrhoMap.get_String (handle, UrhoHash.P_TEXT);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public String Text => UrhoMap.get_String (handle, unchecked((int)795647836) /* P_TEXT */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct CharEntryEventArgs */
 
         public partial class LineEdit {
              ObjectCallbackSignature callbackCharEntry;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_CharEntry (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CharEntry += ...' instead.")]
              public Subscription SubscribeToCharEntry (Action<CharEntryEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CharEntryEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackCharEntry = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_CharEntry (handle, callbackCharEntry, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackCharEntry, GCHandle.ToIntPtr (s.gch), 3139211147 /* new StringHash("E_TEXTENTRY").Code */);
                   return s;
              }
 
@@ -4727,21 +4486,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct TextChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public String Text => UrhoMap.get_String (handle, UrhoHash.P_TEXT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public String Text => UrhoMap.get_String (handle, unchecked((int)795647836) /* P_TEXT */);
         } /* struct TextChangedEventArgs */
 
         public partial class LineEdit {
              ObjectCallbackSignature callbackTextChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TextChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextChanged += ...' instead.")]
              public Subscription SubscribeToTextChanged (Action<TextChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTextChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TextChanged (handle, callbackTextChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTextChanged, GCHandle.ToIntPtr (s.gch), 2646149037 /* new StringHash("E_TEXTCHANGED").Code */);
                   return s;
              }
 
@@ -4763,22 +4520,20 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct TextFinishedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public String Text => UrhoMap.get_String (handle, UrhoHash.P_TEXT);
-            public float Value => UrhoMap.get_float (handle, UrhoHash.P_VALUE);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public String Text => UrhoMap.get_String (handle, unchecked((int)795647836) /* P_TEXT */);
+            public float Value => UrhoMap.get_float (handle, unchecked((int)317520194) /* P_VALUE */);
         } /* struct TextFinishedEventArgs */
 
         public partial class LineEdit {
              ObjectCallbackSignature callbackTextFinished;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_TextFinished (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextFinished += ...' instead.")]
              public Subscription SubscribeToTextFinished (Action<TextFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackTextFinished = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_TextFinished (handle, callbackTextFinished, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTextFinished, GCHandle.ToIntPtr (s.gch), 2483418265 /* new StringHash("E_TEXTFINISHED").Code */);
                   return s;
              }
 
@@ -4800,20 +4555,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct MenuSelectedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct MenuSelectedEventArgs */
 
         public partial class Menu {
              ObjectCallbackSignature callbackMenuSelected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MenuSelected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MenuSelected += ...' instead.")]
              public Subscription SubscribeToMenuSelected (Action<MenuSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MenuSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMenuSelected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MenuSelected (handle, callbackMenuSelected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMenuSelected, GCHandle.ToIntPtr (s.gch), 4003910964 /* new StringHash("E_MENUSELECTED").Code */);
                   return s;
              }
 
@@ -4835,21 +4588,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ItemSelectedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int Selection => UrhoMap.get_int (handle, UrhoHash.P_SELECTION);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int Selection => UrhoMap.get_int (handle, unchecked((int)2212053117) /* P_SELECTION */);
         } /* struct ItemSelectedEventArgs */
 
         public partial class DropDownList {
              ObjectCallbackSignature callbackItemSelected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ItemSelected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemSelected += ...' instead.")]
              public Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackItemSelected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ItemSelected (handle, callbackItemSelected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemSelected, GCHandle.ToIntPtr (s.gch), 3897675912 /* new StringHash("E_ITEMSELECTED").Code */);
                   return s;
              }
 
@@ -4868,15 +4619,13 @@ namespace Urho.Gui {
 
         public partial class ListView {
              ObjectCallbackSignature callbackItemSelected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ItemSelected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemSelected += ...' instead.")]
              public Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackItemSelected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ItemSelected (handle, callbackItemSelected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemSelected, GCHandle.ToIntPtr (s.gch), 3897675912 /* new StringHash("E_ITEMSELECTED").Code */);
                   return s;
              }
 
@@ -4898,21 +4647,19 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ItemDeselectedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int Selection => UrhoMap.get_int (handle, UrhoHash.P_SELECTION);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int Selection => UrhoMap.get_int (handle, unchecked((int)2212053117) /* P_SELECTION */);
         } /* struct ItemDeselectedEventArgs */
 
         public partial class ListView {
              ObjectCallbackSignature callbackItemDeselected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ItemDeselected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemDeselected += ...' instead.")]
              public Subscription SubscribeToItemDeselected (Action<ItemDeselectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemDeselectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackItemDeselected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ItemDeselected (handle, callbackItemDeselected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemDeselected, GCHandle.ToIntPtr (s.gch), 146198793 /* new StringHash("E_ITEMDESELECTED").Code */);
                   return s;
              }
 
@@ -4934,20 +4681,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct SelectionChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct SelectionChangedEventArgs */
 
         public partial class ListView {
              ObjectCallbackSignature callbackSelectionChanged;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_SelectionChanged (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SelectionChanged += ...' instead.")]
              public Subscription SubscribeToSelectionChanged (Action<SelectionChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SelectionChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackSelectionChanged = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_SelectionChanged (handle, callbackSelectionChanged, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSelectionChanged, GCHandle.ToIntPtr (s.gch), 1895407778 /* new StringHash("E_SELECTIONCHANGED").Code */);
                   return s;
              }
 
@@ -4969,25 +4714,23 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ItemClickedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public UIElement Item => UrhoMap.get_UIElement (handle, UrhoHash.P_ITEM);
-            public int Selection => UrhoMap.get_int (handle, UrhoHash.P_SELECTION);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Item => UrhoMap.get_UIElement (handle, unchecked((int)921799426) /* P_ITEM */);
+            public int Selection => UrhoMap.get_int (handle, unchecked((int)2212053117) /* P_SELECTION */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct ItemClickedEventArgs */
 
         public partial class ListView {
              ObjectCallbackSignature callbackItemClicked;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ItemClicked (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemClicked += ...' instead.")]
              public Subscription SubscribeToItemClicked (Action<ItemClickedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemClickedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackItemClicked = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ItemClicked (handle, callbackItemClicked, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemClicked, GCHandle.ToIntPtr (s.gch), 4078592346 /* new StringHash("E_ITEMCLICKED").Code */);
                   return s;
              }
 
@@ -5009,25 +4752,23 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ItemDoubleClickedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public UIElement Item => UrhoMap.get_UIElement (handle, UrhoHash.P_ITEM);
-            public int Selection => UrhoMap.get_int (handle, UrhoHash.P_SELECTION);
-            public int Button => UrhoMap.get_int (handle, UrhoHash.P_BUTTON);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Item => UrhoMap.get_UIElement (handle, unchecked((int)921799426) /* P_ITEM */);
+            public int Selection => UrhoMap.get_int (handle, unchecked((int)2212053117) /* P_SELECTION */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct ItemDoubleClickedEventArgs */
 
         public partial class ListView {
              ObjectCallbackSignature callbackItemDoubleClicked;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ItemDoubleClicked (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemDoubleClicked += ...' instead.")]
              public Subscription SubscribeToItemDoubleClicked (Action<ItemDoubleClickedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemDoubleClickedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackItemDoubleClicked = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ItemDoubleClicked (handle, callbackItemDoubleClicked, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemDoubleClicked, GCHandle.ToIntPtr (s.gch), 3021048553 /* new StringHash("E_ITEMDOUBLECLICKED").Code */);
                   return s;
              }
 
@@ -5049,23 +4790,21 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct UnhandledKeyEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public Key Key =>(Key) UrhoMap.get_int (handle, UrhoHash.P_KEY);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int Qualifiers => UrhoMap.get_int (handle, UrhoHash.P_QUALIFIERS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)814128016) /* P_KEY */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
         } /* struct UnhandledKeyEventArgs */
 
         public partial class LineEdit {
              ObjectCallbackSignature callbackUnhandledKey;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_UnhandledKey (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnhandledKey += ...' instead.")]
              public Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackUnhandledKey = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_UnhandledKey (handle, callbackUnhandledKey, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUnhandledKey, GCHandle.ToIntPtr (s.gch), 1902910774 /* new StringHash("E_UNHANDLEDKEY").Code */);
                   return s;
              }
 
@@ -5084,15 +4823,13 @@ namespace Urho.Gui {
 
         public partial class ListView {
              ObjectCallbackSignature callbackUnhandledKey;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_UnhandledKey (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnhandledKey += ...' instead.")]
              public Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackUnhandledKey = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_UnhandledKey (handle, callbackUnhandledKey, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUnhandledKey, GCHandle.ToIntPtr (s.gch), 1902910774 /* new StringHash("E_UNHANDLEDKEY").Code */);
                   return s;
              }
 
@@ -5114,22 +4851,20 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct FileSelectedEventArgs {
             internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, UrhoHash.P_FILENAME);
-            public String Filter => UrhoMap.get_String (handle, UrhoHash.P_FILTER);
-            public bool Ok => UrhoMap.get_bool (handle, UrhoHash.P_OK);
+            public String FileName => UrhoMap.get_String (handle, unchecked((int)306467350) /* P_FILENAME */);
+            public String Filter => UrhoMap.get_String (handle, unchecked((int)1571957831) /* P_FILTER */);
+            public bool Ok => UrhoMap.get_bool (handle, unchecked((int)2318544939) /* P_OK */);
         } /* struct FileSelectedEventArgs */
 
         public partial class FileSelector {
              ObjectCallbackSignature callbackFileSelected;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_FileSelected (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FileSelected += ...' instead.")]
              public Subscription SubscribeToFileSelected (Action<FileSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FileSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackFileSelected = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_FileSelected (handle, callbackFileSelected, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFileSelected, GCHandle.ToIntPtr (s.gch), 2566890353 /* new StringHash("E_FILESELECTED").Code */);
                   return s;
              }
 
@@ -5151,20 +4886,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct MessageACKEventArgs {
             internal IntPtr handle;
-            public bool Ok => UrhoMap.get_bool (handle, UrhoHash.P_OK);
+            public bool Ok => UrhoMap.get_bool (handle, unchecked((int)2318544939) /* P_OK */);
         } /* struct MessageACKEventArgs */
 
         public partial class MessageBox {
              ObjectCallbackSignature callbackMessageACK;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_MessageACK (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MessageACK += ...' instead.")]
              public Subscription SubscribeToMessageACK (Action<MessageACKEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MessageACKEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackMessageACK = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_MessageACK (handle, callbackMessageACK, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMessageACK, GCHandle.ToIntPtr (s.gch), 3324786300 /* new StringHash("E_MESSAGEACK").Code */);
                   return s;
              }
 
@@ -5186,22 +4919,20 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ElementAddedEventArgs {
             internal IntPtr handle;
-            public UIElement Root => UrhoMap.get_UIElement (handle, UrhoHash.P_ROOT);
-            public UIElement Parent => UrhoMap.get_UIElement (handle, UrhoHash.P_PARENT);
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Root => UrhoMap.get_UIElement (handle, unchecked((int)3611465393) /* P_ROOT */);
+            public UIElement Parent => UrhoMap.get_UIElement (handle, unchecked((int)735706841) /* P_PARENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct ElementAddedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackElementAdded;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ElementAdded (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ElementAdded += ...' instead.")]
              public Subscription SubscribeToElementAdded (Action<ElementAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ElementAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackElementAdded = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ElementAdded (handle, callbackElementAdded, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackElementAdded, GCHandle.ToIntPtr (s.gch), 3825150526 /* new StringHash("E_ELEMENTADDED").Code */);
                   return s;
              }
 
@@ -5223,22 +4954,20 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ElementRemovedEventArgs {
             internal IntPtr handle;
-            public UIElement Root => UrhoMap.get_UIElement (handle, UrhoHash.P_ROOT);
-            public UIElement Parent => UrhoMap.get_UIElement (handle, UrhoHash.P_PARENT);
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Root => UrhoMap.get_UIElement (handle, unchecked((int)3611465393) /* P_ROOT */);
+            public UIElement Parent => UrhoMap.get_UIElement (handle, unchecked((int)735706841) /* P_PARENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct ElementRemovedEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackElementRemoved;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_ElementRemoved (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ElementRemoved += ...' instead.")]
              public Subscription SubscribeToElementRemoved (Action<ElementRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ElementRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackElementRemoved = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_ElementRemoved (handle, callbackElementRemoved, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackElementRemoved, GCHandle.ToIntPtr (s.gch), 778949086 /* new StringHash("E_ELEMENTREMOVED").Code */);
                   return s;
              }
 
@@ -5260,24 +4989,22 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct HoverBeginEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int ElementX => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTX);
-            public int ElementY => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTY);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
         } /* struct HoverBeginEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackHoverBegin;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_HoverBegin (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.HoverBegin += ...' instead.")]
              public Subscription SubscribeToHoverBegin (Action<HoverBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new HoverBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackHoverBegin = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_HoverBegin (handle, callbackHoverBegin, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackHoverBegin, GCHandle.ToIntPtr (s.gch), 3920026151 /* new StringHash("E_HOVERBEGIN").Code */);
                   return s;
              }
 
@@ -5299,20 +5026,18 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct HoverEndEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
         } /* struct HoverEndEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackHoverEnd;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_HoverEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.HoverEnd += ...' instead.")]
              public Subscription SubscribeToHoverEnd (Action<HoverEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new HoverEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackHoverEnd = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_HoverEnd (handle, callbackHoverEnd, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackHoverEnd, GCHandle.ToIntPtr (s.gch), 1484734873 /* new StringHash("E_HOVEREND").Code */);
                   return s;
              }
 
@@ -5334,26 +5059,24 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragBeginEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int ElementX => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTX);
-            public int ElementY => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTY);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int NumButtons => UrhoMap.get_int (handle, UrhoHash.P_NUMBUTTONS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)492349674) /* P_NUMBUTTONS */);
         } /* struct DragBeginEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackDragBegin;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_DragBegin (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragBegin += ...' instead.")]
              public Subscription SubscribeToDragBegin (Action<DragBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackDragBegin = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_DragBegin (handle, callbackDragBegin, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragBegin, GCHandle.ToIntPtr (s.gch), 4267186395 /* new StringHash("E_DRAGBEGIN").Code */);
                   return s;
              }
 
@@ -5375,28 +5098,26 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragMoveEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int DX => UrhoMap.get_int (handle, UrhoHash.P_DX);
-            public int DY => UrhoMap.get_int (handle, UrhoHash.P_DY);
-            public int ElementX => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTX);
-            public int ElementY => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTY);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int NumButtons => UrhoMap.get_int (handle, UrhoHash.P_NUMBUTTONS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int DX => UrhoMap.get_int (handle, unchecked((int)2317823363) /* P_DX */);
+            public int DY => UrhoMap.get_int (handle, unchecked((int)2317823364) /* P_DY */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)492349674) /* P_NUMBUTTONS */);
         } /* struct DragMoveEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackDragMove;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_DragMove (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragMove += ...' instead.")]
              public Subscription SubscribeToDragMove (Action<DragMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackDragMove = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_DragMove (handle, callbackDragMove, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragMove, GCHandle.ToIntPtr (s.gch), 557880127 /* new StringHash("E_DRAGMOVE").Code */);
                   return s;
              }
 
@@ -5418,26 +5139,24 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragEndEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int ElementX => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTX);
-            public int ElementY => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTY);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int NumButtons => UrhoMap.get_int (handle, UrhoHash.P_NUMBUTTONS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)492349674) /* P_NUMBUTTONS */);
         } /* struct DragEndEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackDragEnd;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_DragEnd (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragEnd += ...' instead.")]
              public Subscription SubscribeToDragEnd (Action<DragEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackDragEnd = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_DragEnd (handle, callbackDragEnd, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragEnd, GCHandle.ToIntPtr (s.gch), 4231633485 /* new StringHash("E_DRAGEND").Code */);
                   return s;
              }
 
@@ -5459,26 +5178,24 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragCancelEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int ElementX => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTX);
-            public int ElementY => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTY);
-            public int Buttons => UrhoMap.get_int (handle, UrhoHash.P_BUTTONS);
-            public int NumButtons => UrhoMap.get_int (handle, UrhoHash.P_NUMBUTTONS);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
+            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)492349674) /* P_NUMBUTTONS */);
         } /* struct DragCancelEventArgs */
 
         public partial class UIElement {
              ObjectCallbackSignature callbackDragCancel;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_DragCancel (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragCancel += ...' instead.")]
              public Subscription SubscribeToDragCancel (Action<DragCancelEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragCancelEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackDragCancel = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_DragCancel (handle, callbackDragCancel, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragCancel, GCHandle.ToIntPtr (s.gch), 4189477256 /* new StringHash("E_DRAGCANCEL").Code */);
                   return s;
              }
 
@@ -5500,25 +5217,23 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct UIDropFileEventArgs {
             internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, UrhoHash.P_FILENAME);
-            public UIElement Element => UrhoMap.get_UIElement (handle, UrhoHash.P_ELEMENT);
-            public int X => UrhoMap.get_int (handle, UrhoHash.P_X);
-            public int Y => UrhoMap.get_int (handle, UrhoHash.P_Y);
-            public int ElementX => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTX);
-            public int ElementY => UrhoMap.get_int (handle, UrhoHash.P_ELEMENTY);
+            public String FileName => UrhoMap.get_String (handle, unchecked((int)306467350) /* P_FILENAME */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
         } /* struct UIDropFileEventArgs */
 
         public partial class UI {
              ObjectCallbackSignature callbackUIDropFile;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_UIDropFile (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIDropFile += ...' instead.")]
              public Subscription SubscribeToUIDropFile (Action<UIDropFileEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIDropFileEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackUIDropFile = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_UIDropFile (handle, callbackUIDropFile, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUIDropFile, GCHandle.ToIntPtr (s.gch), 89251641 /* new StringHash("E_UIDROPFILE").Code */);
                   return s;
              }
 
@@ -5540,25 +5255,23 @@ namespace Urho.Gui {
 namespace Urho.Urho2D {
         public partial struct PhysicsBeginContact2DEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, UrhoHash.P_WORLD);
-            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, UrhoHash.P_BODYA);
-            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, UrhoHash.P_BODYB);
-            public Node NodeA => UrhoMap.get_Node (handle, UrhoHash.P_NODEA);
-            public Node NodeB => UrhoMap.get_Node (handle, UrhoHash.P_NODEB);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, UrhoHash.P_CONTACT);
+            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, unchecked((int)3844349315) /* P_WORLD */);
+            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, unchecked((int)1273527440) /* P_BODYA */);
+            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, unchecked((int)1273527441) /* P_BODYB */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
+            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3279609393) /* P_CONTACT */);
         } /* struct PhysicsBeginContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
              ObjectCallbackSignature callbackPhysicsBeginContact2D;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PhysicsBeginContact2D (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsBeginContact2D += ...' instead.")]
              public Subscription SubscribeToPhysicsBeginContact2D (Action<PhysicsBeginContact2DEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsBeginContact2DEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPhysicsBeginContact2D = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PhysicsBeginContact2D (handle, callbackPhysicsBeginContact2D, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsBeginContact2D, GCHandle.ToIntPtr (s.gch), 3192613558 /* new StringHash("E_PHYSICSBEGINCONTACT2D").Code */);
                   return s;
              }
 
@@ -5580,25 +5293,23 @@ namespace Urho.Urho2D {
 namespace Urho.Urho2D {
         public partial struct PhysicsEndContact2DEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, UrhoHash.P_WORLD);
-            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, UrhoHash.P_BODYA);
-            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, UrhoHash.P_BODYB);
-            public Node NodeA => UrhoMap.get_Node (handle, UrhoHash.P_NODEA);
-            public Node NodeB => UrhoMap.get_Node (handle, UrhoHash.P_NODEB);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, UrhoHash.P_CONTACT);
+            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, unchecked((int)3844349315) /* P_WORLD */);
+            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, unchecked((int)1273527440) /* P_BODYA */);
+            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, unchecked((int)1273527441) /* P_BODYB */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
+            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3279609393) /* P_CONTACT */);
         } /* struct PhysicsEndContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
              ObjectCallbackSignature callbackPhysicsEndContact2D;
-             [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-             extern static IntPtr urho_subscribe_PhysicsEndContact2D (IntPtr target, ObjectCallbackSignature act, IntPtr data);
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsEndContact2D += ...' instead.")]
              public Subscription SubscribeToPhysicsEndContact2D (Action<PhysicsEndContact2DEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsEndContact2DEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
                   callbackPhysicsEndContact2D = ObjectCallback;
-                  s.UnmanagedProxy = urho_subscribe_PhysicsEndContact2D (handle, callbackPhysicsEndContact2D, GCHandle.ToIntPtr (s.gch));
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsEndContact2D, GCHandle.ToIntPtr (s.gch), 3284244804 /* new StringHash("E_PHYSICSENDCONTACT2D").Code */);
                   return s;
              }
 
@@ -5620,10 +5331,10 @@ namespace Urho.Urho2D {
 namespace Urho {
         public partial struct NodeBeginContact2DEventArgs {
             internal IntPtr handle;
-            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, UrhoHash.P_BODY);
-            public Node OtherNode => UrhoMap.get_Node (handle, UrhoHash.P_OTHERNODE);
-            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, UrhoHash.P_OTHERBODY);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, UrhoHash.P_CONTACT);
+            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, unchecked((int)4006250513) /* P_BODY */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
+            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, unchecked((int)622343843) /* P_OTHERBODY */);
+            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3279609393) /* P_CONTACT */);
         } /* struct NodeBeginContact2DEventArgs */
 
 } /* namespace */
@@ -5631,650 +5342,12 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeEndContact2DEventArgs {
             internal IntPtr handle;
-            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, UrhoHash.P_BODY);
-            public Node OtherNode => UrhoMap.get_Node (handle, UrhoHash.P_OTHERNODE);
-            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, UrhoHash.P_OTHERBODY);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, UrhoHash.P_CONTACT);
+            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, unchecked((int)4006250513) /* P_BODY */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
+            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, unchecked((int)622343843) /* P_OTHERBODY */);
+            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3279609393) /* P_CONTACT */);
         } /* struct NodeEndContact2DEventArgs */
 
 } /* namespace */
 
-// Hash Getters
-namespace Urho {    internal class UrhoHash {
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESOURCENAME ();
-            static int _P_RESOURCENAME;
-            internal static int P_RESOURCENAME { get { if (_P_RESOURCENAME == 0){ _P_RESOURCENAME = urho_hash_get_P_RESOURCENAME (); } return _P_RESOURCENAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TARGET ();
-            static int _P_TARGET;
-            internal static int P_TARGET { get { if (_P_TARGET == 0){ _P_TARGET = urho_hash_get_P_TARGET (); } return _P_TARGET; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_HEIGHT ();
-            static int _P_HEIGHT;
-            internal static int P_HEIGHT { get { if (_P_HEIGHT == 0){ _P_HEIGHT = urho_hash_get_P_HEIGHT (); } return _P_HEIGHT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SIZE ();
-            static int _P_SIZE;
-            internal static int P_SIZE { get { if (_P_SIZE == 0){ _P_SIZE = urho_hash_get_P_SIZE (); } return _P_SIZE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SCENE ();
-            static int _P_SCENE;
-            internal static int P_SCENE { get { if (_P_SCENE == 0){ _P_SCENE = urho_hash_get_P_SCENE (); } return _P_SCENE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LOOPED ();
-            static int _P_LOOPED;
-            internal static int P_LOOPED { get { if (_P_LOOPED == 0){ _P_LOOPED = urho_hash_get_P_LOOPED (); } return _P_LOOPED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENT ();
-            static int _P_ELEMENT;
-            internal static int P_ELEMENT { get { if (_P_ELEMENT == 0){ _P_ELEMENT = urho_hash_get_P_ELEMENT (); } return _P_ELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VALUE ();
-            static int _P_VALUE;
-            internal static int P_VALUE { get { if (_P_VALUE == 0){ _P_VALUE = urho_hash_get_P_VALUE (); } return _P_VALUE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TEXT ();
-            static int _P_TEXT;
-            internal static int P_TEXT { get { if (_P_TEXT == 0){ _P_TEXT = urho_hash_get_P_TEXT (); } return _P_TEXT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FRAMENUMBER ();
-            static int _P_FRAMENUMBER;
-            internal static int P_FRAMENUMBER { get { if (_P_FRAMENUMBER == 0){ _P_FRAMENUMBER = urho_hash_get_P_FRAMENUMBER (); } return _P_FRAMENUMBER; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONSUMED ();
-            static int _P_CONSUMED;
-            internal static int P_CONSUMED { get { if (_P_CONSUMED == 0){ _P_CONSUMED = urho_hash_get_P_CONSUMED (); } return _P_CONSUMED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DATA ();
-            static int _P_DATA;
-            internal static int P_DATA { get { if (_P_DATA == 0){ _P_DATA = urho_hash_get_P_DATA (); } return _P_DATA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CLONENODE ();
-            static int _P_CLONENODE;
-            internal static int P_CLONENODE { get { if (_P_CLONENODE == 0){ _P_CLONENODE = urho_hash_get_P_CLONENODE (); } return _P_CLONENODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODYB ();
-            static int _P_BODYB;
-            internal static int P_BODYB { get { if (_P_BODYB == 0){ _P_BODYB = urho_hash_get_P_BODYB (); } return _P_BODYB; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OFFSET ();
-            static int _P_OFFSET;
-            internal static int P_OFFSET { get { if (_P_OFFSET == 0){ _P_OFFSET = urho_hash_get_P_OFFSET (); } return _P_OFFSET; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOTALRESOURCES ();
-            static int _P_TOTALRESOURCES;
-            internal static int P_TOTALRESOURCES { get { if (_P_TOTALRESOURCES == 0){ _P_TOTALRESOURCES = urho_hash_get_P_TOTALRESOURCES (); } return _P_TOTALRESOURCES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_COMPONENT ();
-            static int _P_COMPONENT;
-            internal static int P_COMPONENT { get { if (_P_COMPONENT == 0){ _P_COMPONENT = urho_hash_get_P_COMPONENT (); } return _P_COMPONENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FOCUS ();
-            static int _P_FOCUS;
-            internal static int P_FOCUS { get { if (_P_FOCUS == 0){ _P_FOCUS = urho_hash_get_P_FOCUS (); } return _P_FOCUS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FULLSCREEN ();
-            static int _P_FULLSCREEN;
-            internal static int P_FULLSCREEN { get { if (_P_FULLSCREEN == 0){ _P_FULLSCREEN = urho_hash_get_P_FULLSCREEN (); } return _P_FULLSCREEN; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VISIBLE ();
-            static int _P_VISIBLE;
-            internal static int P_VISIBLE { get { if (_P_VISIBLE == 0){ _P_VISIBLE = urho_hash_get_P_VISIBLE (); } return _P_VISIBLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TAG ();
-            static int _P_TAG;
-            internal static int P_TAG { get { if (_P_TAG == 0){ _P_TAG = urho_hash_get_P_TAG (); } return _P_TAG; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SCANCODE ();
-            static int _P_SCANCODE;
-            internal static int P_SCANCODE { get { if (_P_SCANCODE == 0){ _P_SCANCODE = urho_hash_get_P_SCANCODE (); } return _P_SCANCODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PRESSURE ();
-            static int _P_PRESSURE;
-            internal static int P_PRESSURE { get { if (_P_PRESSURE == 0){ _P_PRESSURE = urho_hash_get_P_PRESSURE (); } return _P_PRESSURE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESOURCETYPE ();
-            static int _P_RESOURCETYPE;
-            internal static int P_RESOURCETYPE { get { if (_P_RESOURCETYPE == 0){ _P_RESOURCETYPE = urho_hash_get_P_RESOURCETYPE (); } return _P_RESOURCETYPE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_STATE ();
-            static int _P_STATE;
-            internal static int P_STATE { get { if (_P_STATE == 0){ _P_STATE = urho_hash_get_P_STATE (); } return _P_STATE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SERIALIZABLE ();
-            static int _P_SERIALIZABLE;
-            internal static int P_SERIALIZABLE { get { if (_P_SERIALIZABLE == 0){ _P_SERIALIZABLE = urho_hash_get_P_SERIALIZABLE (); } return _P_SERIALIZABLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NAME ();
-            static int _P_NAME;
-            internal static int P_NAME { get { if (_P_NAME == 0){ _P_NAME = urho_hash_get_P_NAME (); } return _P_NAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_JOYSTICKID ();
-            static int _P_JOYSTICKID;
-            internal static int P_JOYSTICKID { get { if (_P_JOYSTICKID == 0){ _P_JOYSTICKID = urho_hash_get_P_JOYSTICKID (); } return _P_JOYSTICKID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SOUND ();
-            static int _P_SOUND;
-            internal static int P_SOUND { get { if (_P_SOUND == 0){ _P_SOUND = urho_hash_get_P_SOUND (); } return _P_SOUND; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SQUAREDSNAPTHRESHOLD ();
-            static int _P_SQUAREDSNAPTHRESHOLD;
-            internal static int P_SQUAREDSNAPTHRESHOLD { get { if (_P_SQUAREDSNAPTHRESHOLD == 0){ _P_SQUAREDSNAPTHRESHOLD = urho_hash_get_P_SQUAREDSNAPTHRESHOLD (); } return _P_SQUAREDSNAPTHRESHOLD; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NUMFINGERS ();
-            static int _P_NUMFINGERS;
-            internal static int P_NUMFINGERS { get { if (_P_NUMFINGERS == 0){ _P_NUMFINGERS = urho_hash_get_P_NUMFINGERS (); } return _P_NUMFINGERS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DX ();
-            static int _P_DX;
-            internal static int P_DX { get { if (_P_DX == 0){ _P_DX = urho_hash_get_P_DX (); } return _P_DX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LOADEDNODES ();
-            static int _P_LOADEDNODES;
-            internal static int P_LOADEDNODES { get { if (_P_LOADEDNODES == 0){ _P_LOADEDNODES = urho_hash_get_P_LOADEDNODES (); } return _P_LOADEDNODES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OBSTACLE ();
-            static int _P_OBSTACLE;
-            internal static int P_OBSTACLE { get { if (_P_OBSTACLE == 0){ _P_OBSTACLE = urho_hash_get_P_OBSTACLE (); } return _P_OBSTACLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_COMMAND ();
-            static int _P_COMMAND;
-            internal static int P_COMMAND { get { if (_P_COMMAND == 0){ _P_COMMAND = urho_hash_get_P_COMMAND (); } return _P_COMMAND; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TEXTURE ();
-            static int _P_TEXTURE;
-            internal static int P_TEXTURE { get { if (_P_TEXTURE == 0){ _P_TEXTURE = urho_hash_get_P_TEXTURE (); } return _P_TEXTURE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WHEEL ();
-            static int _P_WHEEL;
-            internal static int P_WHEEL { get { if (_P_WHEEL == 0){ _P_WHEEL = urho_hash_get_P_WHEEL (); } return _P_WHEEL; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONNECTION ();
-            static int _P_CONNECTION;
-            internal static int P_CONNECTION { get { if (_P_CONNECTION == 0){ _P_CONNECTION = urho_hash_get_P_CONNECTION (); } return _P_CONNECTION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SOUNDSOURCE ();
-            static int _P_SOUNDSOURCE;
-            internal static int P_SOUNDSOURCE { get { if (_P_SOUNDSOURCE == 0){ _P_SOUNDSOURCE = urho_hash_get_P_SOUNDSOURCE (); } return _P_SOUNDSOURCE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CENTERX ();
-            static int _P_CENTERX;
-            internal static int P_CENTERX { get { if (_P_CENTERX == 0){ _P_CENTERX = urho_hash_get_P_CENTERX (); } return _P_CENTERX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIME ();
-            static int _P_TIME;
-            internal static int P_TIME { get { if (_P_TIME == 0){ _P_TIME = urho_hash_get_P_TIME (); } return _P_TIME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PRESSED ();
-            static int _P_PRESSED;
-            internal static int P_PRESSED { get { if (_P_PRESSED == 0){ _P_PRESSED = urho_hash_get_P_PRESSED (); } return _P_PRESSED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_TARGET_STATE ();
-            static int _P_CROWD_TARGET_STATE;
-            internal static int P_CROWD_TARGET_STATE { get { if (_P_CROWD_TARGET_STATE == 0){ _P_CROWD_TARGET_STATE = urho_hash_get_P_CROWD_TARGET_STATE (); } return _P_CROWD_TARGET_STATE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BUTTONS ();
-            static int _P_BUTTONS;
-            internal static int P_BUTTONS { get { if (_P_BUTTONS == 0){ _P_BUTTONS = urho_hash_get_P_BUTTONS (); } return _P_BUTTONS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CENTERY ();
-            static int _P_CENTERY;
-            internal static int P_CENTERY { get { if (_P_CENTERY == 0){ _P_CENTERY = urho_hash_get_P_CENTERY (); } return _P_CENTERY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_QUALIFIERS ();
-            static int _P_QUALIFIERS;
-            internal static int P_QUALIFIERS { get { if (_P_QUALIFIERS == 0){ _P_QUALIFIERS = urho_hash_get_P_QUALIFIERS (); } return _P_QUALIFIERS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ERROR ();
-            static int _P_ERROR;
-            internal static int P_ERROR { get { if (_P_ERROR == 0){ _P_ERROR = urho_hash_get_P_ERROR (); } return _P_ERROR; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DTHETA ();
-            static int _P_DTHETA;
-            internal static int P_DTHETA { get { if (_P_DTHETA == 0){ _P_DTHETA = urho_hash_get_P_DTHETA (); } return _P_DTHETA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MODAL ();
-            static int _P_MODAL;
-            internal static int P_MODAL { get { if (_P_MODAL == 0){ _P_MODAL = urho_hash_get_P_MODAL (); } return _P_MODAL; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FILENAME ();
-            static int _P_FILENAME;
-            internal static int P_FILENAME { get { if (_P_FILENAME == 0){ _P_FILENAME = urho_hash_get_P_FILENAME (); } return _P_FILENAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ATTRIBUTEANIMATIONNAME ();
-            static int _P_ATTRIBUTEANIMATIONNAME;
-            internal static int P_ATTRIBUTEANIMATIONNAME { get { if (_P_ATTRIBUTEANIMATIONNAME == 0){ _P_ATTRIBUTEANIMATIONNAME = urho_hash_get_P_ATTRIBUTEANIMATIONNAME (); } return _P_ATTRIBUTEANIMATIONNAME; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CLICKEDELEMENT ();
-            static int _P_CLICKEDELEMENT;
-            internal static int P_CLICKEDELEMENT { get { if (_P_CLICKEDELEMENT == 0){ _P_CLICKEDELEMENT = urho_hash_get_P_CLICKEDELEMENT (); } return _P_CLICKEDELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BOUNDSMIN ();
-            static int _P_BOUNDSMIN;
-            internal static int P_BOUNDSMIN { get { if (_P_BOUNDSMIN == 0){ _P_BOUNDSMIN = urho_hash_get_P_BOUNDSMIN (); } return _P_BOUNDSMIN; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODYA ();
-            static int _P_BODYA;
-            internal static int P_BODYA { get { if (_P_BODYA == 0){ _P_BODYA = urho_hash_get_P_BODYA (); } return _P_BODYA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BYKEY ();
-            static int _P_BYKEY;
-            internal static int P_BYKEY { get { if (_P_BYKEY == 0){ _P_BYKEY = urho_hash_get_P_BYKEY (); } return _P_BYKEY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_AGENT_STATE ();
-            static int _P_CROWD_AGENT_STATE;
-            internal static int P_CROWD_AGENT_STATE { get { if (_P_CROWD_AGENT_STATE == 0){ _P_CROWD_AGENT_STATE = urho_hash_get_P_CROWD_AGENT_STATE (); } return _P_CROWD_AGENT_STATE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_POSITION ();
-            static int _P_POSITION;
-            internal static int P_POSITION { get { if (_P_POSITION == 0){ _P_POSITION = urho_hash_get_P_POSITION (); } return _P_POSITION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VELOCITY ();
-            static int _P_VELOCITY;
-            internal static int P_VELOCITY { get { if (_P_VELOCITY == 0){ _P_VELOCITY = urho_hash_get_P_VELOCITY (); } return _P_VELOCITY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LEVEL ();
-            static int _P_LEVEL;
-            internal static int P_LEVEL { get { if (_P_LEVEL == 0){ _P_LEVEL = urho_hash_get_P_LEVEL (); } return _P_LEVEL; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONTACTS ();
-            static int _P_CONTACTS;
-            internal static int P_CONTACTS { get { if (_P_CONTACTS == 0){ _P_CONTACTS = urho_hash_get_P_CONTACTS (); } return _P_CONTACTS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BUTTON ();
-            static int _P_BUTTON;
-            internal static int P_BUTTON { get { if (_P_BUTTON == 0){ _P_BUTTON = urho_hash_get_P_BUTTON (); } return _P_BUTTON; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_EXITCODE ();
-            static int _P_EXITCODE;
-            internal static int P_EXITCODE { get { if (_P_EXITCODE == 0){ _P_EXITCODE = urho_hash_get_P_EXITCODE (); } return _P_EXITCODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESIZABLE ();
-            static int _P_RESIZABLE;
-            internal static int P_RESIZABLE { get { if (_P_RESIZABLE == 0){ _P_RESIZABLE = urho_hash_get_P_RESIZABLE (); } return _P_RESIZABLE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIMESTAMP ();
-            static int _P_TIMESTAMP;
-            internal static int P_TIMESTAMP { get { if (_P_TIMESTAMP == 0){ _P_TIMESTAMP = urho_hash_get_P_TIMESTAMP (); } return _P_TIMESTAMP; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OBJECTANIMATION ();
-            static int _P_OBJECTANIMATION;
-            internal static int P_OBJECTANIMATION { get { if (_P_OBJECTANIMATION == 0){ _P_OBJECTANIMATION = urho_hash_get_P_OBJECTANIMATION (); } return _P_OBJECTANIMATION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_REPEAT ();
-            static int _P_REPEAT;
-            internal static int P_REPEAT { get { if (_P_REPEAT == 0){ _P_REPEAT = urho_hash_get_P_REPEAT (); } return _P_REPEAT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_REQUESTID ();
-            static int _P_REQUESTID;
-            internal static int P_REQUESTID { get { if (_P_REQUESTID == 0){ _P_REQUESTID = urho_hash_get_P_REQUESTID (); } return _P_REQUESTID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PROGRESS ();
-            static int _P_PROGRESS;
-            internal static int P_PROGRESS { get { if (_P_PROGRESS == 0){ _P_PROGRESS = urho_hash_get_P_PROGRESS (); } return _P_PROGRESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WIDTH ();
-            static int _P_WIDTH;
-            internal static int P_WIDTH { get { if (_P_WIDTH == 0){ _P_WIDTH = urho_hash_get_P_WIDTH (); } return _P_WIDTH; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENTY ();
-            static int _P_ELEMENTY;
-            internal static int P_ELEMENTY { get { if (_P_ELEMENTY == 0){ _P_ELEMENTY = urho_hash_get_P_ELEMENTY (); } return _P_ELEMENTY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_X ();
-            static int _P_X;
-            internal static int P_X { get { if (_P_X == 0){ _P_X = urho_hash_get_P_X (); } return _P_X; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_WORLD ();
-            static int _P_WORLD;
-            internal static int P_WORLD { get { if (_P_WORLD == 0){ _P_WORLD = urho_hash_get_P_WORLD (); } return _P_WORLD; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TIMESTEP ();
-            static int _P_TIMESTEP;
-            internal static int P_TIMESTEP { get { if (_P_TIMESTEP == 0){ _P_TIMESTEP = urho_hash_get_P_TIMESTEP (); } return _P_TIMESTEP; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODE ();
-            static int _P_NODE;
-            internal static int P_NODE { get { if (_P_NODE == 0){ _P_NODE = urho_hash_get_P_NODE (); } return _P_NODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_PARENT ();
-            static int _P_PARENT;
-            internal static int P_PARENT { get { if (_P_PARENT == 0){ _P_PARENT = urho_hash_get_P_PARENT (); } return _P_PARENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ITEM ();
-            static int _P_ITEM;
-            internal static int P_ITEM { get { if (_P_ITEM == 0){ _P_ITEM = urho_hash_get_P_ITEM (); } return _P_ITEM; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_VIEW ();
-            static int _P_VIEW;
-            internal static int P_VIEW { get { if (_P_VIEW == 0){ _P_VIEW = urho_hash_get_P_VIEW (); } return _P_VIEW; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NUMBUTTONS ();
-            static int _P_NUMBUTTONS;
-            internal static int P_NUMBUTTONS { get { if (_P_NUMBUTTONS == 0){ _P_NUMBUTTONS = urho_hash_get_P_NUMBUTTONS (); } return _P_NUMBUTTONS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONSTANT ();
-            static int _P_CONSTANT;
-            internal static int P_CONSTANT { get { if (_P_CONSTANT == 0){ _P_CONSTANT = urho_hash_get_P_CONSTANT (); } return _P_CONSTANT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_AXIS ();
-            static int _P_AXIS;
-            internal static int P_AXIS { get { if (_P_AXIS == 0){ _P_AXIS = urho_hash_get_P_AXIS (); } return _P_AXIS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_KEY ();
-            static int _P_KEY;
-            internal static int P_KEY { get { if (_P_KEY == 0){ _P_KEY = urho_hash_get_P_KEY (); } return _P_KEY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ANIMATION ();
-            static int _P_ANIMATION;
-            internal static int P_ANIMATION { get { if (_P_ANIMATION == 0){ _P_ANIMATION = urho_hash_get_P_ANIMATION (); } return _P_ANIMATION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESH ();
-            static int _P_MESH;
-            internal static int P_MESH { get { if (_P_MESH == 0){ _P_MESH = urho_hash_get_P_MESH (); } return _P_MESH; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TRIGGER ();
-            static int _P_TRIGGER;
-            internal static int P_TRIGGER { get { if (_P_TRIGGER == 0){ _P_TRIGGER = urho_hash_get_P_TRIGGER (); } return _P_TRIGGER; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SOURCE ();
-            static int _P_SOURCE;
-            internal static int P_SOURCE { get { if (_P_SOURCE == 0){ _P_SOURCE = urho_hash_get_P_SOURCE (); } return _P_SOURCE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CLONECOMPONENT ();
-            static int _P_CLONECOMPONENT;
-            internal static int P_CLONECOMPONENT { get { if (_P_CLONECOMPONENT == 0){ _P_CLONECOMPONENT = urho_hash_get_P_CLONECOMPONENT (); } return _P_CLONECOMPONENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOTALNODES ();
-            static int _P_TOTALNODES;
-            internal static int P_TOTALNODES { get { if (_P_TOTALNODES == 0){ _P_TOTALNODES = urho_hash_get_P_TOTALNODES (); } return _P_TOTALNODES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SURFACE ();
-            static int _P_SURFACE;
-            internal static int P_SURFACE { get { if (_P_SURFACE == 0){ _P_SURFACE = urho_hash_get_P_SURFACE (); } return _P_SURFACE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OTHERNODE ();
-            static int _P_OTHERNODE;
-            internal static int P_OTHERNODE { get { if (_P_OTHERNODE == 0){ _P_OTHERNODE = urho_hash_get_P_OTHERNODE (); } return _P_OTHERNODE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESSAGEID ();
-            static int _P_MESSAGEID;
-            internal static int P_MESSAGEID { get { if (_P_MESSAGEID == 0){ _P_MESSAGEID = urho_hash_get_P_MESSAGEID (); } return _P_MESSAGEID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_HIGHDPI ();
-            static int _P_HIGHDPI;
-            internal static int P_HIGHDPI { get { if (_P_HIGHDPI == 0){ _P_HIGHDPI = urho_hash_get_P_HIGHDPI (); } return _P_HIGHDPI; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CROWD_AGENT ();
-            static int _P_CROWD_AGENT;
-            internal static int P_CROWD_AGENT { get { if (_P_CROWD_AGENT == 0){ _P_CROWD_AGENT = urho_hash_get_P_CROWD_AGENT (); } return _P_CROWD_AGENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_FILTER ();
-            static int _P_FILTER;
-            internal static int P_FILTER { get { if (_P_FILTER == 0){ _P_FILTER = urho_hash_get_P_FILTER (); } return _P_FILTER; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MESSAGE ();
-            static int _P_MESSAGE;
-            internal static int P_MESSAGE { get { if (_P_MESSAGE == 0){ _P_MESSAGE = urho_hash_get_P_MESSAGE (); } return _P_MESSAGE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OTHERBODY ();
-            static int _P_OTHERBODY;
-            internal static int P_OTHERBODY { get { if (_P_OTHERBODY == 0){ _P_OTHERBODY = urho_hash_get_P_OTHERBODY (); } return _P_OTHERBODY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ELEMENTX ();
-            static int _P_ELEMENTX;
-            internal static int P_ELEMENTX { get { if (_P_ELEMENTX == 0){ _P_ELEMENTX = urho_hash_get_P_ELEMENTX (); } return _P_ELEMENTX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RESOURCE ();
-            static int _P_RESOURCE;
-            internal static int P_RESOURCE { get { if (_P_RESOURCE == 0){ _P_RESOURCE = urho_hash_get_P_RESOURCE (); } return _P_RESOURCE; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODEA ();
-            static int _P_NODEA;
-            internal static int P_NODEA { get { if (_P_NODEA == 0){ _P_NODEA = urho_hash_get_P_NODEA (); } return _P_NODEA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_LOADEDRESOURCES ();
-            static int _P_LOADEDRESOURCES;
-            internal static int P_LOADEDRESOURCES { get { if (_P_LOADEDRESOURCES == 0){ _P_LOADEDRESOURCES = urho_hash_get_P_LOADEDRESOURCES (); } return _P_LOADEDRESOURCES; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_TOUCHID ();
-            static int _P_TOUCHID;
-            internal static int P_TOUCHID { get { if (_P_TOUCHID == 0){ _P_TOUCHID = urho_hash_get_P_TOUCHID (); } return _P_TOUCHID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ARRIVED ();
-            static int _P_ARRIVED;
-            internal static int P_ARRIVED { get { if (_P_ARRIVED == 0){ _P_ARRIVED = urho_hash_get_P_ARRIVED (); } return _P_ARRIVED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_GESTUREID ();
-            static int _P_GESTUREID;
-            internal static int P_GESTUREID { get { if (_P_GESTUREID == 0){ _P_GESTUREID = urho_hash_get_P_GESTUREID (); } return _P_GESTUREID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DDIST ();
-            static int _P_DDIST;
-            internal static int P_DDIST { get { if (_P_DDIST == 0){ _P_DDIST = urho_hash_get_P_DDIST (); } return _P_DDIST; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_Y ();
-            static int _P_Y;
-            internal static int P_Y { get { if (_P_Y == 0){ _P_Y = urho_hash_get_P_Y (); } return _P_Y; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BOUNDSMAX ();
-            static int _P_BOUNDSMAX;
-            internal static int P_BOUNDSMAX { get { if (_P_BOUNDSMAX == 0){ _P_BOUNDSMAX = urho_hash_get_P_BOUNDSMAX (); } return _P_BOUNDSMAX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CONTACT ();
-            static int _P_CONTACT;
-            internal static int P_CONTACT { get { if (_P_CONTACT == 0){ _P_CONTACT = urho_hash_get_P_CONTACT (); } return _P_CONTACT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BORDERLESS ();
-            static int _P_BORDERLESS;
-            internal static int P_BORDERLESS { get { if (_P_BORDERLESS == 0){ _P_BORDERLESS = urho_hash_get_P_BORDERLESS (); } return _P_BORDERLESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SUCCESS ();
-            static int _P_SUCCESS;
-            internal static int P_SUCCESS { get { if (_P_SUCCESS == 0){ _P_SUCCESS = urho_hash_get_P_SUCCESS (); } return _P_SUCCESS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_NODEB ();
-            static int _P_NODEB;
-            internal static int P_NODEB { get { if (_P_NODEB == 0){ _P_NODEB = urho_hash_get_P_NODEB (); } return _P_NODEB; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_OK ();
-            static int _P_OK;
-            internal static int P_OK { get { if (_P_OK == 0){ _P_OK = urho_hash_get_P_OK (); } return _P_OK; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_INDEX ();
-            static int _P_INDEX;
-            internal static int P_INDEX { get { if (_P_INDEX == 0){ _P_INDEX = urho_hash_get_P_INDEX (); } return _P_INDEX; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BEGINELEMENT ();
-            static int _P_BEGINELEMENT;
-            internal static int P_BEGINELEMENT { get { if (_P_BEGINELEMENT == 0){ _P_BEGINELEMENT = urho_hash_get_P_BEGINELEMENT (); } return _P_BEGINELEMENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ACCEPT ();
-            static int _P_ACCEPT;
-            internal static int P_ACCEPT { get { if (_P_ACCEPT == 0){ _P_ACCEPT = urho_hash_get_P_ACCEPT (); } return _P_ACCEPT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_DY ();
-            static int _P_DY;
-            internal static int P_DY { get { if (_P_DY == 0){ _P_DY = urho_hash_get_P_DY (); } return _P_DY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SELECTION ();
-            static int _P_SELECTION;
-            internal static int P_SELECTION { get { if (_P_SELECTION == 0){ _P_SELECTION = urho_hash_get_P_SELECTION (); } return _P_SELECTION; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_EFFECT ();
-            static int _P_EFFECT;
-            internal static int P_EFFECT { get { if (_P_EFFECT == 0){ _P_EFFECT = urho_hash_get_P_EFFECT (); } return _P_EFFECT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_CAMERA ();
-            static int _P_CAMERA;
-            internal static int P_CAMERA { get { if (_P_CAMERA == 0){ _P_CAMERA = urho_hash_get_P_CAMERA (); } return _P_CAMERA; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_HAT ();
-            static int _P_HAT;
-            internal static int P_HAT { get { if (_P_HAT == 0){ _P_HAT = urho_hash_get_P_HAT (); } return _P_HAT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MINIMIZED ();
-            static int _P_MINIMIZED;
-            internal static int P_MINIMIZED { get { if (_P_MINIMIZED == 0){ _P_MINIMIZED = urho_hash_get_P_MINIMIZED (); } return _P_MINIMIZED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ALLOW ();
-            static int _P_ALLOW;
-            internal static int P_ALLOW { get { if (_P_ALLOW == 0){ _P_ALLOW = urho_hash_get_P_ALLOW (); } return _P_ALLOW; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MOUSELOCKED ();
-            static int _P_MOUSELOCKED;
-            internal static int P_MOUSELOCKED { get { if (_P_MOUSELOCKED == 0){ _P_MOUSELOCKED = urho_hash_get_P_MOUSELOCKED (); } return _P_MOUSELOCKED; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ID ();
-            static int _P_ID;
-            internal static int P_ID { get { if (_P_ID == 0){ _P_ID = urho_hash_get_P_ID (); } return _P_ID; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_RADIUS ();
-            static int _P_RADIUS;
-            internal static int P_RADIUS { get { if (_P_RADIUS == 0){ _P_RADIUS = urho_hash_get_P_RADIUS (); } return _P_RADIUS; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_SDLEVENT ();
-            static int _P_SDLEVENT;
-            internal static int P_SDLEVENT { get { if (_P_SDLEVENT == 0){ _P_SDLEVENT = urho_hash_get_P_SDLEVENT (); } return _P_SDLEVENT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_ROOT ();
-            static int _P_ROOT;
-            internal static int P_ROOT { get { if (_P_ROOT == 0){ _P_ROOT = urho_hash_get_P_ROOT (); } return _P_ROOT; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_BODY ();
-            static int _P_BODY;
-            internal static int P_BODY { get { if (_P_BODY == 0){ _P_BODY = urho_hash_get_P_BODY (); } return _P_BODY; }}
-
-            [DllImport(Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-            extern static int urho_hash_get_P_MODE ();
-            static int _P_MODE;
-            internal static int P_MODE { get { if (_P_MODE == 0){ _P_MODE = urho_hash_get_P_MODE (); } return _P_MODE; }}
-
-        }
-    }
+#pragma warning restore CS0618, CS0649
