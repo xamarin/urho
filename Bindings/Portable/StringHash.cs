@@ -4,8 +4,10 @@ using System.Runtime.InteropServices;
 namespace Urho {
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct StringHash {
+	public struct StringHash
+	{
 		public int Code;
+
 		[Preserve]
 		public StringHash (int code)
 		{
@@ -19,11 +21,16 @@ namespace Urho {
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
-		extern static int urho_stringhash_from_string (string str);
+		static extern int urho_stringhash_from_string (string str);
 		
 		public override string ToString ()
 		{
 			return $"StringHash({Code:x})";
+		}
+
+		public static explicit operator StringHash(string s)
+		{
+			return new StringHash(s);
 		}
 	}
 

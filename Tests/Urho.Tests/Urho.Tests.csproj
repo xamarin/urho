@@ -38,6 +38,7 @@
     <Compile Include="Bootstrap\TestApp.cs" />
     <Compile Include="ColorTests.cs" />
     <Compile Include="Issue222.cs" />
+    <Compile Include="StringHash.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\bindings\Urho.Desktop.csproj">
