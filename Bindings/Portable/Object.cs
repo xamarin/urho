@@ -29,5 +29,12 @@ namespace Urho {
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal extern static IntPtr urho_subscribe_event(IntPtr target, ObjectCallbackSignature act, IntPtr data, int eventNameHash);
+
+		public Subscription SubscribeToEvent(string eventName, Action<EventDataContainer> handler)
+		{
+			var s = new Subscription(ptr => handler(new EventDataContainer(ptr)));
+			s.UnmanagedProxy = urho_subscribe_event(handle, ObjectCallbackInstance, GCHandle.ToIntPtr(s.gch), new StringHash(eventName).Code);
+			return s;
+		}
 	}
 }
