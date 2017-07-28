@@ -17,26 +17,26 @@ namespace Urho {
 
 namespace Urho {
         public partial struct SoundFinishedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public SoundSource SoundSource => UrhoMap.get_SoundSource (handle, unchecked((int)368456554) /* SoundSource (P_SOUNDSOURCE) */);
-            public Sound Sound => UrhoMap.get_Sound (handle, unchecked((int)3920519599) /* Sound (P_SOUND) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public SoundSource SoundSource => EventData.get_SoundSource (unchecked((int)368456554) /* SoundSource (P_SOUNDSOURCE) */);
+            public Sound Sound => EventData.get_Sound (unchecked((int)3920519599) /* Sound (P_SOUND) */);
         } /* struct SoundFinishedEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct FrameStartedEventArgs {
-            internal IntPtr handle;
-            public uint FrameNumber => UrhoMap.get_uint (handle, unchecked((int)1441088918) /* FrameNumber (P_FRAMENUMBER) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public uint FrameNumber => EventData.get_uint (unchecked((int)1441088918) /* FrameNumber (P_FRAMENUMBER) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct FrameStartedEventArgs */
 
         public partial class Time {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FrameStarted += ...' instead.")]
              public Subscription SubscribeToFrameStarted (Action<FrameStartedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new FrameStartedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new FrameStartedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)529677540) /* BeginFrame (E_BEGINFRAME) */);
                   return s;
@@ -59,15 +59,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct UpdateEventArgs {
-            internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct UpdateEventArgs */
 
         public partial class Engine {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Update += ...' instead.")]
              internal Subscription SubscribeToUpdate (Action<UpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new UpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new UpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)915638697) /* Update (E_UPDATE) */);
                   return s;
@@ -90,15 +90,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct PostUpdateEventArgs {
-            internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct PostUpdateEventArgs */
 
         public partial class Engine {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PostUpdate += ...' instead.")]
              public Subscription SubscribeToPostUpdate (Action<PostUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PostUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PostUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2702758633) /* PostUpdate (E_POSTUPDATE) */);
                   return s;
@@ -121,15 +121,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct RenderUpdateEventArgs {
-            internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct RenderUpdateEventArgs */
 
         public partial class Engine {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.RenderUpdate += ...' instead.")]
              public Subscription SubscribeToRenderUpdate (Action<RenderUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new RenderUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new RenderUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3851615199) /* RenderUpdate (E_RENDERUPDATE) */);
                   return s;
@@ -152,15 +152,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct PostRenderUpdateEventArgs {
-            internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct PostRenderUpdateEventArgs */
 
         public partial class Engine {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PostRenderUpdate += ...' instead.")]
              public Subscription SubscribeToPostRenderUpdate (Action<PostRenderUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PostRenderUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PostRenderUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)22439199) /* PostRenderUpdate (E_POSTRENDERUPDATE) */);
                   return s;
@@ -183,14 +183,14 @@ namespace Urho {
 
 namespace Urho {
         public partial struct FrameEndedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct FrameEndedEventArgs */
 
         public partial class Time {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FrameEnded += ...' instead.")]
              public Subscription SubscribeToFrameEnded (Action<FrameEndedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new FrameEndedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new FrameEndedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4264256242) /* EndFrame (E_ENDFRAME) */);
                   return s;
@@ -213,15 +213,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct WorkItemCompletedEventArgs {
-            internal IntPtr handle;
-            public WorkItem Item => UrhoMap.get_WorkItem (handle, unchecked((int)1322237459) /* Item (P_ITEM) */);
+            public EventDataContainer EventData;
+            public WorkItem Item => EventData.get_WorkItem (unchecked((int)1322237459) /* Item (P_ITEM) */);
         } /* struct WorkItemCompletedEventArgs */
 
         public partial class WorkQueue {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.WorkItemCompleted += ...' instead.")]
              public Subscription SubscribeToWorkItemCompleted (Action<WorkItemCompletedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new WorkItemCompletedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new WorkItemCompletedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1507705319) /* WorkItemCompleted (E_WORKITEMCOMPLETED) */);
                   return s;
@@ -244,16 +244,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct ConsoleCommandEventArgs {
-            internal IntPtr handle;
-            public String Command => UrhoMap.get_String (handle, unchecked((int)1528149579) /* Command (P_COMMAND) */);
-            public String Id => UrhoMap.get_String (handle, unchecked((int)6887995) /* Id (P_ID) */);
+            public EventDataContainer EventData;
+            public String Command => EventData.get_String (unchecked((int)1528149579) /* Command (P_COMMAND) */);
+            public String Id => EventData.get_String (unchecked((int)6887995) /* Id (P_ID) */);
         } /* struct ConsoleCommandEventArgs */
 
         public partial class UrhoConsole {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ConsoleCommand += ...' instead.")]
              public Subscription SubscribeToConsoleCommand (Action<ConsoleCommandEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ConsoleCommandEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ConsoleCommandEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1402653748) /* ConsoleCommand (E_CONSOLECOMMAND) */);
                   return s;
@@ -276,15 +276,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct BoneHierarchyCreatedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct BoneHierarchyCreatedEventArgs */
 
         public partial class Node {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BoneHierarchyCreated += ...' instead.")]
              public Subscription SubscribeToBoneHierarchyCreated (Action<BoneHierarchyCreatedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new BoneHierarchyCreatedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new BoneHierarchyCreatedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1724904343) /* BoneHierarchyCreated (E_BONEHIERARCHYCREATED) */);
                   return s;
@@ -307,19 +307,19 @@ namespace Urho {
 
 namespace Urho {
         public partial struct AnimationTriggerEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public Animation Animation => UrhoMap.get_Animation (handle, unchecked((int)1554425540) /* Animation (P_ANIMATION) */);
-            public String Name => UrhoMap.get_String (handle, unchecked((int)773762347) /* Name (P_NAME) */);
-            public float Time => UrhoMap.get_float (handle, unchecked((int)1228410285) /* Time (P_TIME) */);
-            public IntPtr Data => UrhoMap.get_IntPtr (handle, unchecked((int)1558284138) /* Data (P_DATA) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public Animation Animation => EventData.get_Animation (unchecked((int)1554425540) /* Animation (P_ANIMATION) */);
+            public String Name => EventData.get_String (unchecked((int)773762347) /* Name (P_NAME) */);
+            public float Time => EventData.get_float (unchecked((int)1228410285) /* Time (P_TIME) */);
+            public IntPtr Data => EventData.get_IntPtr (unchecked((int)1558284138) /* Data (P_DATA) */);
         } /* struct AnimationTriggerEventArgs */
 
         public partial class Node {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AnimationTrigger += ...' instead.")]
              public Subscription SubscribeToAnimationTrigger (Action<AnimationTriggerEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new AnimationTriggerEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new AnimationTriggerEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3945634612) /* AnimationTrigger (E_ANIMATIONTRIGGER) */);
                   return s;
@@ -342,35 +342,35 @@ namespace Urho {
 
 namespace Urho {
         public partial struct AnimationFinishedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public Animation Animation => UrhoMap.get_Animation (handle, unchecked((int)1554425540) /* Animation (P_ANIMATION) */);
-            public String Name => UrhoMap.get_String (handle, unchecked((int)773762347) /* Name (P_NAME) */);
-            public bool Looped => UrhoMap.get_bool (handle, unchecked((int)842439811) /* Looped (P_LOOPED) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public Animation Animation => EventData.get_Animation (unchecked((int)1554425540) /* Animation (P_ANIMATION) */);
+            public String Name => EventData.get_String (unchecked((int)773762347) /* Name (P_NAME) */);
+            public bool Looped => EventData.get_bool (unchecked((int)842439811) /* Looped (P_LOOPED) */);
         } /* struct AnimationFinishedEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct ParticleEffectFinishedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public ParticleEffect Effect => UrhoMap.get_ParticleEffect (handle, unchecked((int)2340854545) /* Effect (P_EFFECT) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public ParticleEffect Effect => EventData.get_ParticleEffect (unchecked((int)2340854545) /* Effect (P_EFFECT) */);
         } /* struct ParticleEffectFinishedEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct TerrainCreatedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct TerrainCreatedEventArgs */
 
         public partial class Terrain {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TerrainCreated += ...' instead.")]
              public Subscription SubscribeToTerrainCreated (Action<TerrainCreatedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TerrainCreatedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TerrainCreatedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1280797747) /* TerrainCreated (E_TERRAINCREATED) */);
                   return s;
@@ -393,36 +393,36 @@ namespace Urho {
 
 namespace Urho {
         public partial struct ScreenModeEventArgs {
-            internal IntPtr handle;
-            public int Width => UrhoMap.get_int (handle, unchecked((int)3655201574) /* Width (P_WIDTH) */);
-            public int Height => UrhoMap.get_int (handle, unchecked((int)380957255) /* Height (P_HEIGHT) */);
-            public bool Fullscreen => UrhoMap.get_bool (handle, unchecked((int)1835757435) /* Fullscreen (P_FULLSCREEN) */);
-            public bool Borderless => UrhoMap.get_bool (handle, unchecked((int)2212104069) /* Borderless (P_BORDERLESS) */);
-            public bool Resizable => UrhoMap.get_bool (handle, unchecked((int)3579260107) /* Resizable (P_RESIZABLE) */);
-            public bool HighDPI => UrhoMap.get_bool (handle, unchecked((int)2251421851) /* HighDPI (P_HIGHDPI) */);
+            public EventDataContainer EventData;
+            public int Width => EventData.get_int (unchecked((int)3655201574) /* Width (P_WIDTH) */);
+            public int Height => EventData.get_int (unchecked((int)380957255) /* Height (P_HEIGHT) */);
+            public bool Fullscreen => EventData.get_bool (unchecked((int)1835757435) /* Fullscreen (P_FULLSCREEN) */);
+            public bool Borderless => EventData.get_bool (unchecked((int)2212104069) /* Borderless (P_BORDERLESS) */);
+            public bool Resizable => EventData.get_bool (unchecked((int)3579260107) /* Resizable (P_RESIZABLE) */);
+            public bool HighDPI => EventData.get_bool (unchecked((int)2251421851) /* HighDPI (P_HIGHDPI) */);
         } /* struct ScreenModeEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct WindowPosEventArgs {
-            internal IntPtr handle;
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public EventDataContainer EventData;
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
         } /* struct WindowPosEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct RenderSurfaceUpdateEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct RenderSurfaceUpdateEventArgs */
 
         public partial class Renderer {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.RenderSurfaceUpdate += ...' instead.")]
              public Subscription SubscribeToRenderSurfaceUpdate (Action<RenderSurfaceUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new RenderSurfaceUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new RenderSurfaceUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)530312032) /* RenderSurfaceUpdate (E_RENDERSURFACEUPDATE) */);
                   return s;
@@ -445,33 +445,33 @@ namespace Urho {
 
 namespace Urho {
         public partial struct BeginRenderingEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct BeginRenderingEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct EndRenderingEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct EndRenderingEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct BeginViewUpdateEventArgs {
-            internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
+            public EventDataContainer EventData;
+            public View View => EventData.get_View (unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => EventData.get_Texture (unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => EventData.get_RenderSurface (unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => EventData.get_Camera (unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct BeginViewUpdateEventArgs */
 
         public partial class View {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BeginViewUpdate += ...' instead.")]
              public Subscription SubscribeToBeginViewUpdate (Action<BeginViewUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new BeginViewUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new BeginViewUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1204361687) /* BeginViewUpdate (E_BEGINVIEWUPDATE) */);
                   return s;
@@ -494,19 +494,19 @@ namespace Urho {
 
 namespace Urho {
         public partial struct EndViewUpdateEventArgs {
-            internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
+            public EventDataContainer EventData;
+            public View View => EventData.get_View (unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => EventData.get_Texture (unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => EventData.get_RenderSurface (unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => EventData.get_Camera (unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct EndViewUpdateEventArgs */
 
         public partial class View {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.EndViewUpdate += ...' instead.")]
              public Subscription SubscribeToEndViewUpdate (Action<EndViewUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new EndViewUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new EndViewUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3578578249) /* EndViewUpdate (E_ENDVIEWUPDATE) */);
                   return s;
@@ -529,19 +529,19 @@ namespace Urho {
 
 namespace Urho {
         public partial struct BeginViewRenderEventArgs {
-            internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
+            public EventDataContainer EventData;
+            public View View => EventData.get_View (unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => EventData.get_Texture (unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => EventData.get_RenderSurface (unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => EventData.get_Camera (unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct BeginViewRenderEventArgs */
 
         public partial class Renderer {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BeginViewRender += ...' instead.")]
              public Subscription SubscribeToBeginViewRender (Action<BeginViewRenderEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new BeginViewRenderEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new BeginViewRenderEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3972739940) /* BeginViewRender (E_BEGINVIEWRENDER) */);
                   return s;
@@ -564,43 +564,43 @@ namespace Urho {
 
 namespace Urho {
         public partial struct ViewBuffersReadyEventArgs {
-            internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
+            public EventDataContainer EventData;
+            public View View => EventData.get_View (unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => EventData.get_Texture (unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => EventData.get_RenderSurface (unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => EventData.get_Camera (unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct ViewBuffersReadyEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct ViewGlobalShaderParametersEventArgs {
-            internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
+            public EventDataContainer EventData;
+            public View View => EventData.get_View (unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => EventData.get_Texture (unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => EventData.get_RenderSurface (unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => EventData.get_Camera (unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct ViewGlobalShaderParametersEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct EndViewRenderEventArgs {
-            internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
+            public EventDataContainer EventData;
+            public View View => EventData.get_View (unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => EventData.get_Texture (unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => EventData.get_RenderSurface (unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => EventData.get_Camera (unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct EndViewRenderEventArgs */
 
         public partial class Renderer {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.EndViewRender += ...' instead.")]
              public Subscription SubscribeToEndViewRender (Action<EndViewRenderEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new EndViewRenderEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new EndViewRenderEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2051989206) /* EndViewRender (E_ENDVIEWRENDER) */);
                   return s;
@@ -623,38 +623,38 @@ namespace Urho {
 
 namespace Urho {
         public partial struct RenderPathEventEventArgs {
-            internal IntPtr handle;
-            public String Name => UrhoMap.get_String (handle, unchecked((int)773762347) /* Name (P_NAME) */);
+            public EventDataContainer EventData;
+            public String Name => EventData.get_String (unchecked((int)773762347) /* Name (P_NAME) */);
         } /* struct RenderPathEventEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct DeviceLostEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct DeviceLostEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct DeviceResetEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct DeviceResetEventArgs */
 
 } /* namespace */
 
 namespace Urho.IO {
         public partial struct LogMessageEventArgs {
-            internal IntPtr handle;
-            public String Message => UrhoMap.get_String (handle, unchecked((int)2310231975) /* Message (P_MESSAGE) */);
-            public int Level => UrhoMap.get_int (handle, unchecked((int)1030270596) /* Level (P_LEVEL) */);
+            public EventDataContainer EventData;
+            public String Message => EventData.get_String (unchecked((int)2310231975) /* Message (P_MESSAGE) */);
+            public int Level => EventData.get_int (unchecked((int)1030270596) /* Level (P_LEVEL) */);
         } /* struct LogMessageEventArgs */
 
         public partial class Log {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LogMessage += ...' instead.")]
              public Subscription SubscribeToLogMessage (Action<LogMessageEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new LogMessageEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new LogMessageEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2123706499) /* LogMessage (E_LOGMESSAGE) */);
                   return s;
@@ -677,16 +677,16 @@ namespace Urho.IO {
 
 namespace Urho.IO {
         public partial struct AsyncExecFinishedEventArgs {
-            internal IntPtr handle;
-            public uint RequestID => UrhoMap.get_uint (handle, unchecked((int)4010202986) /* RequestID (P_REQUESTID) */);
-            public int ExitCode => UrhoMap.get_int (handle, unchecked((int)3466160107) /* ExitCode (P_EXITCODE) */);
+            public EventDataContainer EventData;
+            public uint RequestID => EventData.get_uint (unchecked((int)4010202986) /* RequestID (P_REQUESTID) */);
+            public int ExitCode => EventData.get_int (unchecked((int)3466160107) /* ExitCode (P_EXITCODE) */);
         } /* struct AsyncExecFinishedEventArgs */
 
         public partial class FileSystem {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncExecFinished += ...' instead.")]
              public Subscription SubscribeToAsyncExecFinished (Action<AsyncExecFinishedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new AsyncExecFinishedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new AsyncExecFinishedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1250019487) /* AsyncExecFinished (E_ASYNCEXECFINISHED) */);
                   return s;
@@ -709,17 +709,17 @@ namespace Urho.IO {
 
 namespace Urho {
         public partial struct MouseButtonDownEventArgs {
-            internal IntPtr handle;
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct MouseButtonDownEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseButtonDown += ...' instead.")]
              public Subscription SubscribeToMouseButtonDown (Action<MouseButtonDownEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MouseButtonDownEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MouseButtonDownEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1619012089) /* MouseButtonDown (E_MOUSEBUTTONDOWN) */);
                   return s;
@@ -742,17 +742,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct MouseButtonUpEventArgs {
-            internal IntPtr handle;
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct MouseButtonUpEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseButtonUp += ...' instead.")]
              public Subscription SubscribeToMouseButtonUp (Action<MouseButtonUpEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MouseButtonUpEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MouseButtonUpEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)546345330) /* MouseButtonUp (E_MOUSEBUTTONUP) */);
                   return s;
@@ -775,20 +775,20 @@ namespace Urho {
 
 namespace Urho {
         public partial struct MouseMovedEventArgs {
-            internal IntPtr handle;
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int DX => UrhoMap.get_int (handle, unchecked((int)6560020) /* DX (P_DX) */);
-            public int DY => UrhoMap.get_int (handle, unchecked((int)6560021) /* DY (P_DY) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int DX => EventData.get_int (unchecked((int)6560020) /* DX (P_DX) */);
+            public int DY => EventData.get_int (unchecked((int)6560021) /* DY (P_DY) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct MouseMovedEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseMoved += ...' instead.")]
              public Subscription SubscribeToMouseMoved (Action<MouseMovedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MouseMovedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MouseMovedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1089985430) /* MouseMove (E_MOUSEMOVE) */);
                   return s;
@@ -811,17 +811,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct MouseWheelEventArgs {
-            internal IntPtr handle;
-            public int Wheel => UrhoMap.get_int (handle, unchecked((int)2881891899) /* Wheel (P_WHEEL) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public int Wheel => EventData.get_int (unchecked((int)2881891899) /* Wheel (P_WHEEL) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct MouseWheelEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseWheel += ...' instead.")]
              public Subscription SubscribeToMouseWheel (Action<MouseWheelEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MouseWheelEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MouseWheelEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)834798486) /* MouseWheel (E_MOUSEWHEEL) */);
                   return s;
@@ -844,19 +844,19 @@ namespace Urho {
 
 namespace Urho {
         public partial struct KeyDownEventArgs {
-            internal IntPtr handle;
-            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)890606655) /* Key (P_KEY) */);
-            public int Scancode => UrhoMap.get_int (handle, unchecked((int)3743304650) /* Scancode (P_SCANCODE) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
-            public bool Repeat => UrhoMap.get_bool (handle, unchecked((int)958223163) /* Repeat (P_REPEAT) */);
+            public EventDataContainer EventData;
+            public Key Key =>(Key) EventData.get_int (unchecked((int)890606655) /* Key (P_KEY) */);
+            public int Scancode => EventData.get_int (unchecked((int)3743304650) /* Scancode (P_SCANCODE) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public bool Repeat => EventData.get_bool (unchecked((int)958223163) /* Repeat (P_REPEAT) */);
         } /* struct KeyDownEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.KeyDown += ...' instead.")]
              public Subscription SubscribeToKeyDown (Action<KeyDownEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new KeyDownEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new KeyDownEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3254146689) /* KeyDown (E_KEYDOWN) */);
                   return s;
@@ -879,18 +879,18 @@ namespace Urho {
 
 namespace Urho {
         public partial struct KeyUpEventArgs {
-            internal IntPtr handle;
-            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)890606655) /* Key (P_KEY) */);
-            public int Scancode => UrhoMap.get_int (handle, unchecked((int)3743304650) /* Scancode (P_SCANCODE) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public Key Key =>(Key) EventData.get_int (unchecked((int)890606655) /* Key (P_KEY) */);
+            public int Scancode => EventData.get_int (unchecked((int)3743304650) /* Scancode (P_SCANCODE) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct KeyUpEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.KeyUp += ...' instead.")]
              public Subscription SubscribeToKeyUp (Action<KeyUpEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new KeyUpEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new KeyUpEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4211507706) /* KeyUp (E_KEYUP) */);
                   return s;
@@ -913,17 +913,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct TextInputEventArgs {
-            internal IntPtr handle;
-            public String Text => UrhoMap.get_String (handle, unchecked((int)1196085869) /* Text (P_TEXT) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public String Text => EventData.get_String (unchecked((int)1196085869) /* Text (P_TEXT) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct TextInputEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextInput += ...' instead.")]
              public Subscription SubscribeToTextInput (Action<TextInputEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TextInputEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TextInputEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2136843517) /* TextInput (E_TEXTINPUT) */);
                   return s;
@@ -946,15 +946,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct JoystickConnectedEventArgs {
-            internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public EventDataContainer EventData;
+            public int JoystickID => EventData.get_int (unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
         } /* struct JoystickConnectedEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickConnected += ...' instead.")]
              public Subscription SubscribeToJoystickConnected (Action<JoystickConnectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new JoystickConnectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new JoystickConnectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2560363053) /* JoystickConnected (E_JOYSTICKCONNECTED) */);
                   return s;
@@ -977,15 +977,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct JoystickDisconnectedEventArgs {
-            internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public EventDataContainer EventData;
+            public int JoystickID => EventData.get_int (unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
         } /* struct JoystickDisconnectedEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickDisconnected += ...' instead.")]
              public Subscription SubscribeToJoystickDisconnected (Action<JoystickDisconnectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new JoystickDisconnectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new JoystickDisconnectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)819446519) /* JoystickDisconnected (E_JOYSTICKDISCONNECTED) */);
                   return s;
@@ -1008,16 +1008,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct JoystickButtonDownEventArgs {
-            internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public EventDataContainer EventData;
+            public int JoystickID => EventData.get_int (unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
         } /* struct JoystickButtonDownEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickButtonDown += ...' instead.")]
              public Subscription SubscribeToJoystickButtonDown (Action<JoystickButtonDownEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonDownEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonDownEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2528733712) /* JoystickButtonDown (E_JOYSTICKBUTTONDOWN) */);
                   return s;
@@ -1040,16 +1040,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct JoystickButtonUpEventArgs {
-            internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public EventDataContainer EventData;
+            public int JoystickID => EventData.get_int (unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
         } /* struct JoystickButtonUpEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickButtonUp += ...' instead.")]
              public Subscription SubscribeToJoystickButtonUp (Action<JoystickButtonUpEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonUpEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonUpEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)109849865) /* JoystickButtonUp (E_JOYSTICKBUTTONUP) */);
                   return s;
@@ -1072,17 +1072,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct JoystickAxisMoveEventArgs {
-            internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_AXIS) */);
-            public float Position => UrhoMap.get_float (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public EventDataContainer EventData;
+            public int JoystickID => EventData.get_int (unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_AXIS) */);
+            public float Position => EventData.get_float (unchecked((int)1333256809) /* Position (P_POSITION) */);
         } /* struct JoystickAxisMoveEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickAxisMove += ...' instead.")]
              public Subscription SubscribeToJoystickAxisMove (Action<JoystickAxisMoveEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new JoystickAxisMoveEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new JoystickAxisMoveEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1368926286) /* JoystickAxisMove (E_JOYSTICKAXISMOVE) */);
                   return s;
@@ -1105,17 +1105,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct JoystickHatMoveEventArgs {
-            internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_HAT) */);
-            public int Position => UrhoMap.get_int (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public EventDataContainer EventData;
+            public int JoystickID => EventData.get_int (unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_HAT) */);
+            public int Position => EventData.get_int (unchecked((int)1333256809) /* Position (P_POSITION) */);
         } /* struct JoystickHatMoveEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickHatMove += ...' instead.")]
              public Subscription SubscribeToJoystickHatMove (Action<JoystickHatMoveEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new JoystickHatMoveEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new JoystickHatMoveEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3808716784) /* JoystickHatMove (E_JOYSTICKHATMOVE) */);
                   return s;
@@ -1138,18 +1138,18 @@ namespace Urho {
 
 namespace Urho {
         public partial struct TouchBeginEventArgs {
-            internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public float Pressure => UrhoMap.get_float (handle, unchecked((int)439090309) /* Pressure (P_PRESSURE) */);
+            public EventDataContainer EventData;
+            public int TouchID => EventData.get_int (unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public float Pressure => EventData.get_float (unchecked((int)439090309) /* Pressure (P_PRESSURE) */);
         } /* struct TouchBeginEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchBegin += ...' instead.")]
              public Subscription SubscribeToTouchBegin (Action<TouchBeginEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TouchBeginEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TouchBeginEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3456070058) /* TouchBegin (E_TOUCHBEGIN) */);
                   return s;
@@ -1172,17 +1172,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct TouchEndEventArgs {
-            internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public EventDataContainer EventData;
+            public int TouchID => EventData.get_int (unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
         } /* struct TouchEndEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchEnd += ...' instead.")]
              public Subscription SubscribeToTouchEnd (Action<TouchEndEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TouchEndEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TouchEndEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1078078108) /* TouchEnd (E_TOUCHEND) */);
                   return s;
@@ -1205,20 +1205,20 @@ namespace Urho {
 
 namespace Urho {
         public partial struct TouchMoveEventArgs {
-            internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int DX => UrhoMap.get_int (handle, unchecked((int)6560020) /* DX (P_DX) */);
-            public int DY => UrhoMap.get_int (handle, unchecked((int)6560021) /* DY (P_DY) */);
-            public float Pressure => UrhoMap.get_float (handle, unchecked((int)439090309) /* Pressure (P_PRESSURE) */);
+            public EventDataContainer EventData;
+            public int TouchID => EventData.get_int (unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int DX => EventData.get_int (unchecked((int)6560020) /* DX (P_DX) */);
+            public int DY => EventData.get_int (unchecked((int)6560021) /* DY (P_DY) */);
+            public float Pressure => EventData.get_float (unchecked((int)439090309) /* Pressure (P_PRESSURE) */);
         } /* struct TouchMoveEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchMove += ...' instead.")]
              public Subscription SubscribeToTouchMove (Action<TouchMoveEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TouchMoveEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TouchMoveEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1873483440) /* TouchMove (E_TOUCHMOVE) */);
                   return s;
@@ -1241,15 +1241,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct GestureRecordedEventArgs {
-            internal IntPtr handle;
-            public uint GestureID => UrhoMap.get_uint (handle, unchecked((int)2079416292) /* GestureID (P_GESTUREID) */);
+            public EventDataContainer EventData;
+            public uint GestureID => EventData.get_uint (unchecked((int)2079416292) /* GestureID (P_GESTUREID) */);
         } /* struct GestureRecordedEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.GestureRecorded += ...' instead.")]
              public Subscription SubscribeToGestureRecorded (Action<GestureRecordedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new GestureRecordedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new GestureRecordedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2974572953) /* GestureRecorded (E_GESTURERECORDED) */);
                   return s;
@@ -1272,19 +1272,19 @@ namespace Urho {
 
 namespace Urho {
         public partial struct GestureInputEventArgs {
-            internal IntPtr handle;
-            public uint GestureID => UrhoMap.get_uint (handle, unchecked((int)2079416292) /* GestureID (P_GESTUREID) */);
-            public int CenterX => UrhoMap.get_int (handle, unchecked((int)150093091) /* CenterX (P_CENTERX) */);
-            public int CenterY => UrhoMap.get_int (handle, unchecked((int)150093092) /* CenterY (P_CENTERY) */);
-            public int NumFingers => UrhoMap.get_int (handle, unchecked((int)2749362116) /* NumFingers (P_NUMFINGERS) */);
-            public float Error => UrhoMap.get_float (handle, unchecked((int)3168564136) /* Error (P_ERROR) */);
+            public EventDataContainer EventData;
+            public uint GestureID => EventData.get_uint (unchecked((int)2079416292) /* GestureID (P_GESTUREID) */);
+            public int CenterX => EventData.get_int (unchecked((int)150093091) /* CenterX (P_CENTERX) */);
+            public int CenterY => EventData.get_int (unchecked((int)150093092) /* CenterY (P_CENTERY) */);
+            public int NumFingers => EventData.get_int (unchecked((int)2749362116) /* NumFingers (P_NUMFINGERS) */);
+            public float Error => EventData.get_float (unchecked((int)3168564136) /* Error (P_ERROR) */);
         } /* struct GestureInputEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.GestureInput += ...' instead.")]
              public Subscription SubscribeToGestureInput (Action<GestureInputEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new GestureInputEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new GestureInputEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3375880257) /* GestureInput (E_GESTUREINPUT) */);
                   return s;
@@ -1307,19 +1307,19 @@ namespace Urho {
 
 namespace Urho {
         public partial struct MultiGestureEventArgs {
-            internal IntPtr handle;
-            public int CenterX => UrhoMap.get_int (handle, unchecked((int)150093091) /* CenterX (P_CENTERX) */);
-            public int CenterY => UrhoMap.get_int (handle, unchecked((int)150093092) /* CenterY (P_CENTERY) */);
-            public int NumFingers => UrhoMap.get_int (handle, unchecked((int)2749362116) /* NumFingers (P_NUMFINGERS) */);
-            public float DTheta => UrhoMap.get_float (handle, unchecked((int)2305167738) /* DTheta (P_DTHETA) */);
-            public float DDist => UrhoMap.get_float (handle, unchecked((int)3911589802) /* DDist (P_DDIST) */);
+            public EventDataContainer EventData;
+            public int CenterX => EventData.get_int (unchecked((int)150093091) /* CenterX (P_CENTERX) */);
+            public int CenterY => EventData.get_int (unchecked((int)150093092) /* CenterY (P_CENTERY) */);
+            public int NumFingers => EventData.get_int (unchecked((int)2749362116) /* NumFingers (P_NUMFINGERS) */);
+            public float DTheta => EventData.get_float (unchecked((int)2305167738) /* DTheta (P_DTHETA) */);
+            public float DDist => EventData.get_float (unchecked((int)3911589802) /* DDist (P_DDIST) */);
         } /* struct MultiGestureEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MultiGesture += ...' instead.")]
              public Subscription SubscribeToMultiGesture (Action<MultiGestureEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MultiGestureEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MultiGestureEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2419467216) /* MultiGesture (E_MULTIGESTURE) */);
                   return s;
@@ -1342,15 +1342,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct DropFileEventArgs {
-            internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, unchecked((int)633459751) /* FileName (P_FILENAME) */);
+            public EventDataContainer EventData;
+            public String FileName => EventData.get_String (unchecked((int)633459751) /* FileName (P_FILENAME) */);
         } /* struct DropFileEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DropFile += ...' instead.")]
              public Subscription SubscribeToDropFile (Action<DropFileEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new DropFileEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new DropFileEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)612827595) /* DropFile (E_DROPFILE) */);
                   return s;
@@ -1373,16 +1373,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct InputFocusEventArgs {
-            internal IntPtr handle;
-            public bool Focus => UrhoMap.get_bool (handle, unchecked((int)1842837848) /* Focus (P_FOCUS) */);
-            public bool Minimized => UrhoMap.get_bool (handle, unchecked((int)541506182) /* Minimized (P_MINIMIZED) */);
+            public EventDataContainer EventData;
+            public bool Focus => EventData.get_bool (unchecked((int)1842837848) /* Focus (P_FOCUS) */);
+            public bool Minimized => EventData.get_bool (unchecked((int)541506182) /* Minimized (P_MINIMIZED) */);
         } /* struct InputFocusEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.InputFocus += ...' instead.")]
              public Subscription SubscribeToInputFocus (Action<InputFocusEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new InputFocusEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new InputFocusEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)620076718) /* InputFocus (E_INPUTFOCUS) */);
                   return s;
@@ -1405,15 +1405,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct MouseVisibleChangedEventArgs {
-            internal IntPtr handle;
-            public bool Visible => UrhoMap.get_bool (handle, unchecked((int)2569414770) /* Visible (P_VISIBLE) */);
+            public EventDataContainer EventData;
+            public bool Visible => EventData.get_bool (unchecked((int)2569414770) /* Visible (P_VISIBLE) */);
         } /* struct MouseVisibleChangedEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseVisibleChanged += ...' instead.")]
              public Subscription SubscribeToMouseVisibleChanged (Action<MouseVisibleChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MouseVisibleChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MouseVisibleChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)360201095) /* MouseVisibleChanged (E_MOUSEVISIBLECHANGED) */);
                   return s;
@@ -1436,16 +1436,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct MouseModeChangedEventArgs {
-            internal IntPtr handle;
-            public MouseMode Mode => UrhoMap.get_MouseMode (handle, unchecked((int)108245827) /* Mode (P_MODE) */);
-            public bool MouseLocked => UrhoMap.get_bool (handle, unchecked((int)3485665135) /* MouseLocked (P_MOUSELOCKED) */);
+            public EventDataContainer EventData;
+            public MouseMode Mode => EventData.get_MouseMode (unchecked((int)108245827) /* Mode (P_MODE) */);
+            public bool MouseLocked => EventData.get_bool (unchecked((int)3485665135) /* MouseLocked (P_MOUSELOCKED) */);
         } /* struct MouseModeChangedEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseModeChanged += ...' instead.")]
              public Subscription SubscribeToMouseModeChanged (Action<MouseModeChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MouseModeChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MouseModeChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3642946540) /* MouseModeChanged (E_MOUSEMODECHANGED) */);
                   return s;
@@ -1468,14 +1468,14 @@ namespace Urho {
 
 namespace Urho {
         public partial struct ExitRequestedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct ExitRequestedEventArgs */
 
         public partial class Input {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ExitRequested += ...' instead.")]
              public Subscription SubscribeToExitRequested (Action<ExitRequestedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ExitRequestedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ExitRequestedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)899637200) /* ExitRequested (E_EXITREQUESTED) */);
                   return s;
@@ -1498,39 +1498,39 @@ namespace Urho {
 
 namespace Urho {
         public partial struct SDLRawInputEventArgs {
-            internal IntPtr handle;
-            public IntPtr SDLEvent => UrhoMap.get_IntPtr (handle, unchecked((int)3036739231) /* SDLEvent (P_SDLEVENT) */);
-            public bool Consumed => UrhoMap.get_bool (handle, unchecked((int)1885648840) /* Consumed (P_CONSUMED) */);
+            public EventDataContainer EventData;
+            public IntPtr SDLEvent => EventData.get_IntPtr (unchecked((int)3036739231) /* SDLEvent (P_SDLEVENT) */);
+            public bool Consumed => EventData.get_bool (unchecked((int)1885648840) /* Consumed (P_CONSUMED) */);
         } /* struct SDLRawInputEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct InputBeginEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct InputBeginEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct InputEndEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct InputEndEventArgs */
 
 } /* namespace */
 
 namespace Urho.Navigation {
         public partial struct NavigationMeshRebuiltEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, unchecked((int)26614765) /* Mesh (P_MESH) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public NavigationMesh Mesh => EventData.get_NavigationMesh (unchecked((int)26614765) /* Mesh (P_MESH) */);
         } /* struct NavigationMeshRebuiltEventArgs */
 
         public partial class NavigationMesh {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationMeshRebuilt += ...' instead.")]
              public Subscription SubscribeToNavigationMeshRebuilt (Action<NavigationMeshRebuiltEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NavigationMeshRebuiltEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NavigationMeshRebuiltEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1184056682) /* NavigationMeshRebuilt (E_NAVIGATION_MESH_REBUILT) */);
                   return s;
@@ -1553,18 +1553,18 @@ namespace Urho.Navigation {
 
 namespace Urho.Navigation {
         public partial struct NavigationAreaRebuiltEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, unchecked((int)26614765) /* Mesh (P_MESH) */);
-            public Vector3 BoundsMin => UrhoMap.get_Vector3 (handle, unchecked((int)2452762269) /* BoundsMin (P_BOUNDSMIN) */);
-            public Vector3 BoundsMax => UrhoMap.get_Vector3 (handle, unchecked((int)2452237487) /* BoundsMax (P_BOUNDSMAX) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public NavigationMesh Mesh => EventData.get_NavigationMesh (unchecked((int)26614765) /* Mesh (P_MESH) */);
+            public Vector3 BoundsMin => EventData.get_Vector3 (unchecked((int)2452762269) /* BoundsMin (P_BOUNDSMIN) */);
+            public Vector3 BoundsMax => EventData.get_Vector3 (unchecked((int)2452237487) /* BoundsMax (P_BOUNDSMAX) */);
         } /* struct NavigationAreaRebuiltEventArgs */
 
         public partial class NavigationMesh {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationAreaRebuilt += ...' instead.")]
              public Subscription SubscribeToNavigationAreaRebuilt (Action<NavigationAreaRebuiltEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NavigationAreaRebuiltEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NavigationAreaRebuiltEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2012037194) /* NavigationAreaRebuilt (E_NAVIGATION_AREA_REBUILT) */);
                   return s;
@@ -1587,44 +1587,44 @@ namespace Urho.Navigation {
 
 namespace Urho.Navigation {
         public partial struct CrowdAgentFormationEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
-            public uint Index => UrhoMap.get_uint (handle, unchecked((int)193188146) /* Index (P_INDEX) */);
-            public uint Size => UrhoMap.get_uint (handle, unchecked((int)448675873) /* Size (P_SIZE) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => EventData.get_CrowdAgent (unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public uint Index => EventData.get_uint (unchecked((int)193188146) /* Index (P_INDEX) */);
+            public uint Size => EventData.get_uint (unchecked((int)448675873) /* Size (P_SIZE) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
         } /* struct CrowdAgentFormationEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct CrowdAgentNodeFormationEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
-            public uint Index => UrhoMap.get_uint (handle, unchecked((int)193188146) /* Index (P_INDEX) */);
-            public uint Size => UrhoMap.get_uint (handle, unchecked((int)448675873) /* Size (P_SIZE) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => EventData.get_CrowdAgent (unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public uint Index => EventData.get_uint (unchecked((int)193188146) /* Index (P_INDEX) */);
+            public uint Size => EventData.get_uint (unchecked((int)448675873) /* Size (P_SIZE) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
         } /* struct CrowdAgentNodeFormationEventArgs */
 
 } /* namespace */
 
 namespace Urho.Navigation {
         public partial struct CrowdAgentRepositionEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
-            public bool Arrived => UrhoMap.get_bool (handle, unchecked((int)2501236845) /* Arrived (P_ARRIVED) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => EventData.get_CrowdAgent (unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => EventData.get_Vector3 (unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public bool Arrived => EventData.get_bool (unchecked((int)2501236845) /* Arrived (P_ARRIVED) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct CrowdAgentRepositionEventArgs */
 
         public partial class CrowdManager {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentReposition += ...' instead.")]
              public Subscription SubscribeToCrowdAgentReposition (Action<CrowdAgentRepositionEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentRepositionEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentRepositionEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3736902068) /* CrowdAgentReposition (E_CROWD_AGENT_REPOSITION) */);
                   return s;
@@ -1647,33 +1647,33 @@ namespace Urho.Navigation {
 
 namespace Urho {
         public partial struct CrowdAgentNodeRepositionEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
-            public bool Arrived => UrhoMap.get_bool (handle, unchecked((int)2501236845) /* Arrived (P_ARRIVED) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => EventData.get_CrowdAgent (unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => EventData.get_Vector3 (unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public bool Arrived => EventData.get_bool (unchecked((int)2501236845) /* Arrived (P_ARRIVED) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct CrowdAgentNodeRepositionEventArgs */
 
 } /* namespace */
 
 namespace Urho.Navigation {
         public partial struct CrowdAgentFailureEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
-            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
-            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => EventData.get_CrowdAgent (unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => EventData.get_Vector3 (unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public int CrowdAgentState => EventData.get_int (unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
+            public int CrowdTargetState => EventData.get_int (unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
         } /* struct CrowdAgentFailureEventArgs */
 
         public partial class CrowdManager {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentFailure += ...' instead.")]
              public Subscription SubscribeToCrowdAgentFailure (Action<CrowdAgentFailureEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentFailureEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentFailureEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)487208914) /* CrowdAgentFailure (E_CROWD_AGENT_FAILURE) */);
                   return s;
@@ -1696,33 +1696,33 @@ namespace Urho.Navigation {
 
 namespace Urho {
         public partial struct CrowdAgentNodeFailureEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
-            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
-            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => EventData.get_CrowdAgent (unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => EventData.get_Vector3 (unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public int CrowdAgentState => EventData.get_int (unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
+            public int CrowdTargetState => EventData.get_int (unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
         } /* struct CrowdAgentNodeFailureEventArgs */
 
 } /* namespace */
 
 namespace Urho.Navigation {
         public partial struct CrowdAgentStateChangedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
-            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
-            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => EventData.get_CrowdAgent (unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => EventData.get_Vector3 (unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public int CrowdAgentState => EventData.get_int (unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
+            public int CrowdTargetState => EventData.get_int (unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
         } /* struct CrowdAgentStateChangedEventArgs */
 
         public partial class CrowdManager {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentStateChanged += ...' instead.")]
              public Subscription SubscribeToCrowdAgentStateChanged (Action<CrowdAgentStateChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentStateChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentStateChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1897461467) /* CrowdAgentStateChanged (E_CROWD_AGENT_STATE_CHANGED) */);
                   return s;
@@ -1745,32 +1745,32 @@ namespace Urho.Navigation {
 
 namespace Urho {
         public partial struct CrowdAgentNodeStateChangedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
-            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
-            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => EventData.get_CrowdAgent (unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => EventData.get_Vector3 (unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public int CrowdAgentState => EventData.get_int (unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
+            public int CrowdTargetState => EventData.get_int (unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
         } /* struct CrowdAgentNodeStateChangedEventArgs */
 
 } /* namespace */
 
 namespace Urho.Navigation {
         public partial struct NavigationObstacleAddedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, unchecked((int)1080511791) /* Obstacle (P_OBSTACLE) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
-            public float Radius => UrhoMap.get_float (handle, unchecked((int)4247146802) /* Radius (P_RADIUS) */);
-            public float Height => UrhoMap.get_float (handle, unchecked((int)380957255) /* Height (P_HEIGHT) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public Obstacle Obstacle => EventData.get_Obstacle (unchecked((int)1080511791) /* Obstacle (P_OBSTACLE) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public float Radius => EventData.get_float (unchecked((int)4247146802) /* Radius (P_RADIUS) */);
+            public float Height => EventData.get_float (unchecked((int)380957255) /* Height (P_HEIGHT) */);
         } /* struct NavigationObstacleAddedEventArgs */
 
         public partial class DynamicNavigationMesh {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationObstacleAdded += ...' instead.")]
              public Subscription SubscribeToNavigationObstacleAdded (Action<NavigationObstacleAddedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleAddedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleAddedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)842705885) /* NavigationObstacleAdded (E_NAVIGATION_OBSTACLE_ADDED) */);
                   return s;
@@ -1793,19 +1793,19 @@ namespace Urho.Navigation {
 
 namespace Urho.Navigation {
         public partial struct NavigationObstacleRemovedEventArgs {
-            internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, unchecked((int)1080511791) /* Obstacle (P_OBSTACLE) */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
-            public float Radius => UrhoMap.get_float (handle, unchecked((int)4247146802) /* Radius (P_RADIUS) */);
-            public float Height => UrhoMap.get_float (handle, unchecked((int)380957255) /* Height (P_HEIGHT) */);
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public Obstacle Obstacle => EventData.get_Obstacle (unchecked((int)1080511791) /* Obstacle (P_OBSTACLE) */);
+            public Vector3 Position => EventData.get_Vector3 (unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public float Radius => EventData.get_float (unchecked((int)4247146802) /* Radius (P_RADIUS) */);
+            public float Height => EventData.get_float (unchecked((int)380957255) /* Height (P_HEIGHT) */);
         } /* struct NavigationObstacleRemovedEventArgs */
 
         public partial class DynamicNavigationMesh {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationObstacleRemoved += ...' instead.")]
              public Subscription SubscribeToNavigationObstacleRemoved (Action<NavigationObstacleRemovedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleRemovedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleRemovedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3812914173) /* NavigationObstacleRemoved (E_NAVIGATION_OBSTACLE_REMOVED) */);
                   return s;
@@ -1828,14 +1828,14 @@ namespace Urho.Navigation {
 
 namespace Urho.Network {
         public partial struct ServerConnectedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct ServerConnectedEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ServerConnected += ...' instead.")]
              public Subscription SubscribeToServerConnected (Action<ServerConnectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ServerConnectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ServerConnectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4052463078) /* ServerConnected (E_SERVERCONNECTED) */);
                   return s;
@@ -1858,14 +1858,14 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct ServerDisconnectedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct ServerDisconnectedEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ServerDisconnected += ...' instead.")]
              public Subscription SubscribeToServerDisconnected (Action<ServerDisconnectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ServerDisconnectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ServerDisconnectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)830421502) /* ServerDisconnected (E_SERVERDISCONNECTED) */);
                   return s;
@@ -1888,14 +1888,14 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct ConnectFailedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct ConnectFailedEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ConnectFailed += ...' instead.")]
              public Subscription SubscribeToConnectFailed (Action<ConnectFailedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ConnectFailedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ConnectFailedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1377395431) /* ConnectFailed (E_CONNECTFAILED) */);
                   return s;
@@ -1918,15 +1918,15 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct ClientConnectedEventArgs {
-            internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public EventDataContainer EventData;
+            public Connection Connection => EventData.get_Connection (unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct ClientConnectedEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientConnected += ...' instead.")]
              public Subscription SubscribeToClientConnected (Action<ClientConnectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ClientConnectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ClientConnectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4110472926) /* ClientConnected (E_CLIENTCONNECTED) */);
                   return s;
@@ -1949,15 +1949,15 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct ClientDisconnectedEventArgs {
-            internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public EventDataContainer EventData;
+            public Connection Connection => EventData.get_Connection (unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct ClientDisconnectedEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientDisconnected += ...' instead.")]
              public Subscription SubscribeToClientDisconnected (Action<ClientDisconnectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ClientDisconnectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ClientDisconnectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4177677062) /* ClientDisconnected (E_CLIENTDISCONNECTED) */);
                   return s;
@@ -1980,16 +1980,16 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct ClientIdentityEventArgs {
-            internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
-            public bool Allow => UrhoMap.get_bool (handle, unchecked((int)2467149353) /* Allow (P_ALLOW) */);
+            public EventDataContainer EventData;
+            public Connection Connection => EventData.get_Connection (unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public bool Allow => EventData.get_bool (unchecked((int)2467149353) /* Allow (P_ALLOW) */);
         } /* struct ClientIdentityEventArgs */
 
         public partial class Connection {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientIdentity += ...' instead.")]
              public Subscription SubscribeToClientIdentity (Action<ClientIdentityEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ClientIdentityEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ClientIdentityEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)165479177) /* ClientIdentity (E_CLIENTIDENTITY) */);
                   return s;
@@ -2012,15 +2012,15 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct ClientSceneLoadedEventArgs {
-            internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public EventDataContainer EventData;
+            public Connection Connection => EventData.get_Connection (unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct ClientSceneLoadedEventArgs */
 
         public partial class Connection {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientSceneLoaded += ...' instead.")]
              public Subscription SubscribeToClientSceneLoaded (Action<ClientSceneLoadedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ClientSceneLoadedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ClientSceneLoadedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2870394214) /* ClientSceneLoaded (E_CLIENTSCENELOADED) */);
                   return s;
@@ -2043,17 +2043,17 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct NetworkMessageEventArgs {
-            internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
-            public int MessageID => UrhoMap.get_int (handle, unchecked((int)169676386) /* MessageID (P_MESSAGEID) */);
-            public byte [] Data => UrhoMap.get_Buffer (handle, unchecked((int)1558284138) /* Data (P_DATA) */);
+            public EventDataContainer EventData;
+            public Connection Connection => EventData.get_Connection (unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public int MessageID => EventData.get_int (unchecked((int)169676386) /* MessageID (P_MESSAGEID) */);
+            public byte [] Data => EventData.get_Buffer (unchecked((int)1558284138) /* Data (P_DATA) */);
         } /* struct NetworkMessageEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkMessage += ...' instead.")]
              public Subscription SubscribeToNetworkMessage (Action<NetworkMessageEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NetworkMessageEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NetworkMessageEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)511054905) /* NetworkMessage (E_NETWORKMESSAGE) */);
                   return s;
@@ -2076,14 +2076,14 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct NetworkUpdateEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct NetworkUpdateEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkUpdate += ...' instead.")]
              public Subscription SubscribeToNetworkUpdate (Action<NetworkUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3682502807) /* NetworkUpdate (E_NETWORKUPDATE) */);
                   return s;
@@ -2106,14 +2106,14 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct NetworkUpdateSentEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct NetworkUpdateSentEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkUpdateSent += ...' instead.")]
              public Subscription SubscribeToNetworkUpdateSent (Action<NetworkUpdateSentEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateSentEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateSentEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1495044303) /* NetworkUpdateSent (E_NETWORKUPDATESENT) */);
                   return s;
@@ -2136,15 +2136,15 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct NetworkSceneLoadFailedEventArgs {
-            internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public EventDataContainer EventData;
+            public Connection Connection => EventData.get_Connection (unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct NetworkSceneLoadFailedEventArgs */
 
         public partial class Network {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkSceneLoadFailed += ...' instead.")]
              public Subscription SubscribeToNetworkSceneLoadFailed (Action<NetworkSceneLoadFailedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NetworkSceneLoadFailedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NetworkSceneLoadFailedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3832128641) /* NetworkSceneLoadFailed (E_NETWORKSCENELOADFAILED) */);
                   return s;
@@ -2167,24 +2167,24 @@ namespace Urho.Network {
 
 namespace Urho.Network {
         public partial struct RemoteEventDataEventArgs {
-            internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public EventDataContainer EventData;
+            public Connection Connection => EventData.get_Connection (unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct RemoteEventDataEventArgs */
 
 } /* namespace */
 
 namespace Urho.Physics {
         public partial struct PhysicsPreStepEventArgs {
-            internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public PhysicsWorld World => EventData.get_PhysicsWorld (unchecked((int)4158893746) /* World (P_WORLD) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct PhysicsPreStepEventArgs */
 
         public partial class PhysicsWorld {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsPreStep += ...' instead.")]
              public Subscription SubscribeToPhysicsPreStep (Action<PhysicsPreStepEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsPreStepEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsPreStepEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2540038056) /* PhysicsPreStep (E_PHYSICSPRESTEP) */);
                   return s;
@@ -2207,16 +2207,16 @@ namespace Urho.Physics {
 
 namespace Urho.Physics {
         public partial struct PhysicsPostStepEventArgs {
-            internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public PhysicsWorld World => EventData.get_PhysicsWorld (unchecked((int)4158893746) /* World (P_WORLD) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct PhysicsPostStepEventArgs */
 
         public partial class PhysicsWorld {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsPostStep += ...' instead.")]
              public Subscription SubscribeToPhysicsPostStep (Action<PhysicsPostStepEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsPostStepEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsPostStepEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4200987859) /* PhysicsPostStep (E_PHYSICSPOSTSTEP) */);
                   return s;
@@ -2239,21 +2239,21 @@ namespace Urho.Physics {
 
 namespace Urho.Physics {
         public partial struct PhysicsCollisionStartEventArgs {
-            internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public EventDataContainer EventData;
+            public PhysicsWorld World => EventData.get_PhysicsWorld (unchecked((int)4158893746) /* World (P_WORLD) */);
+            public Node NodeA => EventData.get_Node (unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => EventData.get_Node (unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public RigidBody BodyA => EventData.get_RigidBody (unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody BodyB => EventData.get_RigidBody (unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public bool Trigger => EventData.get_bool (unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
         } /* struct PhysicsCollisionStartEventArgs */
 
         public partial class PhysicsWorld {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollisionStart += ...' instead.")]
              public Subscription SubscribeToPhysicsCollisionStart (Action<PhysicsCollisionStartEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionStartEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionStartEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3207652439) /* PhysicsCollisionStart (E_PHYSICSCOLLISIONSTART) */);
                   return s;
@@ -2276,21 +2276,21 @@ namespace Urho.Physics {
 
 namespace Urho.Physics {
         public partial struct PhysicsCollisionEventArgs {
-            internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public EventDataContainer EventData;
+            public PhysicsWorld World => EventData.get_PhysicsWorld (unchecked((int)4158893746) /* World (P_WORLD) */);
+            public Node NodeA => EventData.get_Node (unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => EventData.get_Node (unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public RigidBody BodyA => EventData.get_RigidBody (unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody BodyB => EventData.get_RigidBody (unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public bool Trigger => EventData.get_bool (unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
         } /* struct PhysicsCollisionEventArgs */
 
         public partial class PhysicsWorld {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollision += ...' instead.")]
              public Subscription SubscribeToPhysicsCollision (Action<PhysicsCollisionEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2202188235) /* PhysicsCollision (E_PHYSICSCOLLISION) */);
                   return s;
@@ -2313,20 +2313,20 @@ namespace Urho.Physics {
 
 namespace Urho.Physics {
         public partial struct PhysicsCollisionEndEventArgs {
-            internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public EventDataContainer EventData;
+            public PhysicsWorld World => EventData.get_PhysicsWorld (unchecked((int)4158893746) /* World (P_WORLD) */);
+            public Node NodeA => EventData.get_Node (unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => EventData.get_Node (unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public RigidBody BodyA => EventData.get_RigidBody (unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody BodyB => EventData.get_RigidBody (unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public bool Trigger => EventData.get_bool (unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
         } /* struct PhysicsCollisionEndEventArgs */
 
         public partial class PhysicsWorld {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollisionEnd += ...' instead.")]
              public Subscription SubscribeToPhysicsCollisionEnd (Action<PhysicsCollisionEndEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEndEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEndEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)304728016) /* PhysicsCollisionEnd (E_PHYSICSCOLLISIONEND) */);
                   return s;
@@ -2349,19 +2349,19 @@ namespace Urho.Physics {
 
 namespace Urho {
         public partial struct NodeCollisionStartEventArgs {
-            internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)111721250) /* Body (P_BODY) */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public EventDataContainer EventData;
+            public RigidBody Body => EventData.get_RigidBody (unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => EventData.get_Node (unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody OtherBody => EventData.get_RigidBody (unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public bool Trigger => EventData.get_bool (unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
         } /* struct NodeCollisionStartEventArgs */
 
         public partial class Node {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollisionStart += ...' instead.")]
              public Subscription SubscribeToNodeCollisionStart (Action<NodeCollisionStartEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionStartEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionStartEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2797145554) /* NodeCollisionStart (E_NODECOLLISIONSTART) */);
                   return s;
@@ -2384,19 +2384,19 @@ namespace Urho {
 
 namespace Urho {
         public partial struct NodeCollisionEventArgs {
-            internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)111721250) /* Body (P_BODY) */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public EventDataContainer EventData;
+            public RigidBody Body => EventData.get_RigidBody (unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => EventData.get_Node (unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody OtherBody => EventData.get_RigidBody (unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public bool Trigger => EventData.get_bool (unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
         } /* struct NodeCollisionEventArgs */
 
         public partial class Node {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollision += ...' instead.")]
              public Subscription SubscribeToNodeCollision (Action<NodeCollisionEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2675467920) /* NodeCollision (E_NODECOLLISION) */);
                   return s;
@@ -2419,18 +2419,18 @@ namespace Urho {
 
 namespace Urho {
         public partial struct NodeCollisionEndEventArgs {
-            internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)111721250) /* Body (P_BODY) */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public EventDataContainer EventData;
+            public RigidBody Body => EventData.get_RigidBody (unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => EventData.get_Node (unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody OtherBody => EventData.get_RigidBody (unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public bool Trigger => EventData.get_bool (unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
         } /* struct NodeCollisionEndEventArgs */
 
         public partial class Node {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollisionEnd += ...' instead.")]
              public Subscription SubscribeToNodeCollisionEnd (Action<NodeCollisionEndEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEndEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEndEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2410921675) /* NodeCollisionEnd (E_NODECOLLISIONEND) */);
                   return s;
@@ -2453,14 +2453,14 @@ namespace Urho {
 
 namespace Urho.Resources {
         public partial struct ReloadStartedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct ReloadStartedEventArgs */
 
         public partial class Resource {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadStarted += ...' instead.")]
              public Subscription SubscribeToReloadStarted (Action<ReloadStartedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ReloadStartedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ReloadStartedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)213872936) /* ReloadStarted (E_RELOADSTARTED) */);
                   return s;
@@ -2483,14 +2483,14 @@ namespace Urho.Resources {
 
 namespace Urho.Resources {
         public partial struct ReloadFinishedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct ReloadFinishedEventArgs */
 
         public partial class Resource {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadFinished += ...' instead.")]
              public Subscription SubscribeToReloadFinished (Action<ReloadFinishedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ReloadFinishedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ReloadFinishedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2825685547) /* ReloadFinished (E_RELOADFINISHED) */);
                   return s;
@@ -2513,14 +2513,14 @@ namespace Urho.Resources {
 
 namespace Urho.Resources {
         public partial struct ReloadFailedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct ReloadFailedEventArgs */
 
         public partial class Resource {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadFailed += ...' instead.")]
              public Subscription SubscribeToReloadFailed (Action<ReloadFailedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ReloadFailedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ReloadFailedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4176168502) /* ReloadFailed (E_RELOADFAILED) */);
                   return s;
@@ -2543,16 +2543,16 @@ namespace Urho.Resources {
 
 namespace Urho.Resources {
         public partial struct FileChangedEventArgs {
-            internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, unchecked((int)633459751) /* FileName (P_FILENAME) */);
-            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
+            public EventDataContainer EventData;
+            public String FileName => EventData.get_String (unchecked((int)633459751) /* FileName (P_FILENAME) */);
+            public String ResourceName => EventData.get_String (unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
         } /* struct FileChangedEventArgs */
 
         public partial class ResourceCache {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FileChanged += ...' instead.")]
              public Subscription SubscribeToFileChanged (Action<FileChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new FileChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new FileChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3297483544) /* FileChanged (E_FILECHANGED) */);
                   return s;
@@ -2575,15 +2575,15 @@ namespace Urho.Resources {
 
 namespace Urho.Resources {
         public partial struct LoadFailedEventArgs {
-            internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
+            public EventDataContainer EventData;
+            public String ResourceName => EventData.get_String (unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
         } /* struct LoadFailedEventArgs */
 
         public partial class ResourceCache {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LoadFailed += ...' instead.")]
              public Subscription SubscribeToLoadFailed (Action<LoadFailedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new LoadFailedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new LoadFailedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2824526147) /* LoadFailed (E_LOADFAILED) */);
                   return s;
@@ -2606,15 +2606,15 @@ namespace Urho.Resources {
 
 namespace Urho.Resources {
         public partial struct ResourceNotFoundEventArgs {
-            internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
+            public EventDataContainer EventData;
+            public String ResourceName => EventData.get_String (unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
         } /* struct ResourceNotFoundEventArgs */
 
         public partial class ResourceCache {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ResourceNotFound += ...' instead.")]
              public Subscription SubscribeToResourceNotFound (Action<ResourceNotFoundEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ResourceNotFoundEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ResourceNotFoundEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)217257309) /* ResourceNotFound (E_RESOURCENOTFOUND) */);
                   return s;
@@ -2637,15 +2637,15 @@ namespace Urho.Resources {
 
 namespace Urho.Resources {
         public partial struct UnknownResourceTypeEventArgs {
-            internal IntPtr handle;
-            public StringHash ResourceType => UrhoMap.get_StringHash (handle, unchecked((int)426680488) /* ResourceType (P_RESOURCETYPE) */);
+            public EventDataContainer EventData;
+            public StringHash ResourceType => EventData.get_StringHash (unchecked((int)426680488) /* ResourceType (P_RESOURCETYPE) */);
         } /* struct UnknownResourceTypeEventArgs */
 
         public partial class ResourceCache {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnknownResourceType += ...' instead.")]
              public Subscription SubscribeToUnknownResourceType (Action<UnknownResourceTypeEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new UnknownResourceTypeEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new UnknownResourceTypeEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2352310994) /* UnknownResourceType (E_UNKNOWNRESOURCETYPE) */);
                   return s;
@@ -2668,17 +2668,17 @@ namespace Urho.Resources {
 
 namespace Urho.Resources {
         public partial struct ResourceBackgroundLoadedEventArgs {
-            internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
-            public bool Success => UrhoMap.get_bool (handle, unchecked((int)3427551139) /* Success (P_SUCCESS) */);
-            public Resource Resource => UrhoMap.get_Resource (handle, unchecked((int)39946286) /* Resource (P_RESOURCE) */);
+            public EventDataContainer EventData;
+            public String ResourceName => EventData.get_String (unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
+            public bool Success => EventData.get_bool (unchecked((int)3427551139) /* Success (P_SUCCESS) */);
+            public Resource Resource => EventData.get_Resource (unchecked((int)39946286) /* Resource (P_RESOURCE) */);
         } /* struct ResourceBackgroundLoadedEventArgs */
 
         public partial class ResourceCache {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ResourceBackgroundLoaded += ...' instead.")]
              public Subscription SubscribeToResourceBackgroundLoaded (Action<ResourceBackgroundLoadedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ResourceBackgroundLoadedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ResourceBackgroundLoadedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4263239041) /* ResourceBackgroundLoaded (E_RESOURCEBACKGROUNDLOADED) */);
                   return s;
@@ -2701,14 +2701,14 @@ namespace Urho.Resources {
 
 namespace Urho.Resources {
         public partial struct ChangeLanguageEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct ChangeLanguageEventArgs */
 
         public partial class Localization {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ChangeLanguage += ...' instead.")]
              public Subscription SubscribeToChangeLanguage (Action<ChangeLanguageEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ChangeLanguageEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ChangeLanguageEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1337208360) /* ChangeLanguage (E_CHANGELANGUAGE) */);
                   return s;
@@ -2731,16 +2731,16 @@ namespace Urho.Resources {
 
 namespace Urho {
         public partial struct SceneUpdateEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct SceneUpdateEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneUpdate += ...' instead.")]
              public Subscription SubscribeToSceneUpdate (Action<SceneUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new SceneUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new SceneUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3145164885) /* SceneUpdate (E_SCENEUPDATE) */);
                   return s;
@@ -2763,16 +2763,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct SceneSubsystemUpdateEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct SceneSubsystemUpdateEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneSubsystemUpdate += ...' instead.")]
              public Subscription SubscribeToSceneSubsystemUpdate (Action<SceneSubsystemUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new SceneSubsystemUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new SceneSubsystemUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1997371372) /* SceneSubsystemUpdate (E_SCENESUBSYSTEMUPDATE) */);
                   return s;
@@ -2795,16 +2795,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct UpdateSmoothingEventArgs {
-            internal IntPtr handle;
-            public float Constant => UrhoMap.get_float (handle, unchecked((int)1006513988) /* Constant (P_CONSTANT) */);
-            public float SquaredSnapThreshold => UrhoMap.get_float (handle, unchecked((int)4276457658) /* SquaredSnapThreshold (P_SQUAREDSNAPTHRESHOLD) */);
+            public EventDataContainer EventData;
+            public float Constant => EventData.get_float (unchecked((int)1006513988) /* Constant (P_CONSTANT) */);
+            public float SquaredSnapThreshold => EventData.get_float (unchecked((int)4276457658) /* SquaredSnapThreshold (P_SQUAREDSNAPTHRESHOLD) */);
         } /* struct UpdateSmoothingEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UpdateSmoothing += ...' instead.")]
              public Subscription SubscribeToUpdateSmoothing (Action<UpdateSmoothingEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new UpdateSmoothingEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new UpdateSmoothingEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4083015947) /* UpdateSmoothing (E_UPDATESMOOTHING) */);
                   return s;
@@ -2827,16 +2827,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct SceneDrawableUpdateFinishedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct SceneDrawableUpdateFinishedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneDrawableUpdateFinished += ...' instead.")]
              public Subscription SubscribeToSceneDrawableUpdateFinished (Action<SceneDrawableUpdateFinishedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new SceneDrawableUpdateFinishedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new SceneDrawableUpdateFinishedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)228472677) /* SceneDrawableUpdateFinished (E_SCENEDRAWABLEUPDATEFINISHED) */);
                   return s;
@@ -2859,14 +2859,14 @@ namespace Urho {
 
 namespace Urho {
         public partial struct TargetPositionChangedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct TargetPositionChangedEventArgs */
 
         public partial class SmoothedTransform {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TargetPositionChanged += ...' instead.")]
              public Subscription SubscribeToTargetPositionChanged (Action<TargetPositionChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TargetPositionChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TargetPositionChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3850327802) /* TargetPositionChanged (E_TARGETPOSITION) */);
                   return s;
@@ -2889,14 +2889,14 @@ namespace Urho {
 
 namespace Urho {
         public partial struct TargetRotationChangedEventArgs {
-            internal IntPtr handle;
+            public EventDataContainer EventData;
         } /* struct TargetRotationChangedEventArgs */
 
         public partial class SmoothedTransform {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TargetRotationChanged += ...' instead.")]
              public Subscription SubscribeToTargetRotationChanged (Action<TargetRotationChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TargetRotationChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TargetRotationChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3938072325) /* TargetRotationChanged (E_TARGETROTATION) */);
                   return s;
@@ -2919,16 +2919,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct AttributeAnimationUpdateEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct AttributeAnimationUpdateEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationUpdate += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationUpdate (Action<AttributeAnimationUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1013401233) /* AttributeAnimationUpdate (E_ATTRIBUTEANIMATIONUPDATE) */);
                   return s;
@@ -2951,16 +2951,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct AttributeAnimationAddedEventArgs {
-            internal IntPtr handle;
-            public Object ObjectAnimation => UrhoMap.get_Object (handle, unchecked((int)485250565) /* ObjectAnimation (P_OBJECTANIMATION) */);
-            public String AttributeAnimationName => UrhoMap.get_String (handle, unchecked((int)4253834771) /* AttributeAnimationName (P_ATTRIBUTEANIMATIONNAME) */);
+            public EventDataContainer EventData;
+            public Object ObjectAnimation => EventData.get_Object (unchecked((int)485250565) /* ObjectAnimation (P_OBJECTANIMATION) */);
+            public String AttributeAnimationName => EventData.get_String (unchecked((int)4253834771) /* AttributeAnimationName (P_ATTRIBUTEANIMATIONNAME) */);
         } /* struct AttributeAnimationAddedEventArgs */
 
         public partial class ObjectAnimation {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationAdded += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationAdded (Action<AttributeAnimationAddedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationAddedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationAddedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3619895992) /* AttributeAnimationAdded (E_ATTRIBUTEANIMATIONADDED) */);
                   return s;
@@ -2983,16 +2983,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct AttributeAnimationRemovedEventArgs {
-            internal IntPtr handle;
-            public Object ObjectAnimation => UrhoMap.get_Object (handle, unchecked((int)485250565) /* ObjectAnimation (P_OBJECTANIMATION) */);
-            public String AttributeAnimationName => UrhoMap.get_String (handle, unchecked((int)4253834771) /* AttributeAnimationName (P_ATTRIBUTEANIMATIONNAME) */);
+            public EventDataContainer EventData;
+            public Object ObjectAnimation => EventData.get_Object (unchecked((int)485250565) /* ObjectAnimation (P_OBJECTANIMATION) */);
+            public String AttributeAnimationName => EventData.get_String (unchecked((int)4253834771) /* AttributeAnimationName (P_ATTRIBUTEANIMATIONNAME) */);
         } /* struct AttributeAnimationRemovedEventArgs */
 
         public partial class ObjectAnimation {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationRemoved += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationRemoved (Action<AttributeAnimationRemovedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationRemovedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationRemovedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2638038360) /* AttributeAnimationRemoved (E_ATTRIBUTEANIMATIONREMOVED) */);
                   return s;
@@ -3015,16 +3015,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct ScenePostUpdateEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => EventData.get_float (unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct ScenePostUpdateEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ScenePostUpdate += ...' instead.")]
              public Subscription SubscribeToScenePostUpdate (Action<ScenePostUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ScenePostUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ScenePostUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3048853) /* ScenePostUpdate (E_SCENEPOSTUPDATE) */);
                   return s;
@@ -3047,20 +3047,20 @@ namespace Urho {
 
 namespace Urho {
         public partial struct AsyncLoadProgressEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public float Progress => UrhoMap.get_float (handle, unchecked((int)2456587373) /* Progress (P_PROGRESS) */);
-            public int LoadedNodes => UrhoMap.get_int (handle, unchecked((int)2460871468) /* LoadedNodes (P_LOADEDNODES) */);
-            public int TotalNodes => UrhoMap.get_int (handle, unchecked((int)3592672237) /* TotalNodes (P_TOTALNODES) */);
-            public int LoadedResources => UrhoMap.get_int (handle, unchecked((int)914347776) /* LoadedResources (P_LOADEDRESOURCES) */);
-            public int TotalResources => UrhoMap.get_int (handle, unchecked((int)1346461377) /* TotalResources (P_TOTALRESOURCES) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float Progress => EventData.get_float (unchecked((int)2456587373) /* Progress (P_PROGRESS) */);
+            public int LoadedNodes => EventData.get_int (unchecked((int)2460871468) /* LoadedNodes (P_LOADEDNODES) */);
+            public int TotalNodes => EventData.get_int (unchecked((int)3592672237) /* TotalNodes (P_TOTALNODES) */);
+            public int LoadedResources => EventData.get_int (unchecked((int)914347776) /* LoadedResources (P_LOADEDRESOURCES) */);
+            public int TotalResources => EventData.get_int (unchecked((int)1346461377) /* TotalResources (P_TOTALRESOURCES) */);
         } /* struct AsyncLoadProgressEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncLoadProgress += ...' instead.")]
              public Subscription SubscribeToAsyncLoadProgress (Action<AsyncLoadProgressEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadProgressEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadProgressEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1563837135) /* AsyncLoadProgress (E_ASYNCLOADPROGRESS) */);
                   return s;
@@ -3083,15 +3083,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct AsyncLoadFinishedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
         } /* struct AsyncLoadFinishedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncLoadFinished += ...' instead.")]
              public Subscription SubscribeToAsyncLoadFinished (Action<AsyncLoadFinishedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadFinishedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadFinishedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)413288276) /* AsyncLoadFinished (E_ASYNCLOADFINISHED) */);
                   return s;
@@ -3114,17 +3114,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct NodeAddedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Parent => UrhoMap.get_Node (handle, unchecked((int)1512946026) /* Parent (P_PARENT) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Parent => EventData.get_Node (unchecked((int)1512946026) /* Parent (P_PARENT) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct NodeAddedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeAdded += ...' instead.")]
              public Subscription SubscribeToNodeAdded (Action<NodeAddedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NodeAddedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NodeAddedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3974098974) /* NodeAdded (E_NODEADDED) */);
                   return s;
@@ -3147,17 +3147,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct NodeRemovedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Parent => UrhoMap.get_Node (handle, unchecked((int)1512946026) /* Parent (P_PARENT) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Parent => EventData.get_Node (unchecked((int)1512946026) /* Parent (P_PARENT) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct NodeRemovedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeRemoved += ...' instead.")]
              public Subscription SubscribeToNodeRemoved (Action<NodeRemovedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NodeRemovedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NodeRemovedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)931768254) /* NodeRemoved (E_NODEREMOVED) */);
                   return s;
@@ -3180,17 +3180,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct ComponentAddedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public Component Component => UrhoMap.get_Component (handle, unchecked((int)3739730333) /* Component (P_COMPONENT) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public Component Component => EventData.get_Component (unchecked((int)3739730333) /* Component (P_COMPONENT) */);
         } /* struct ComponentAddedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentAdded += ...' instead.")]
              public Subscription SubscribeToComponentAdded (Action<ComponentAddedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ComponentAddedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ComponentAddedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2336085059) /* ComponentAdded (E_COMPONENTADDED) */);
                   return s;
@@ -3213,17 +3213,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct ComponentRemovedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public Component Component => UrhoMap.get_Component (handle, unchecked((int)3739730333) /* Component (P_COMPONENT) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public Component Component => EventData.get_Component (unchecked((int)3739730333) /* Component (P_COMPONENT) */);
         } /* struct ComponentRemovedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentRemoved += ...' instead.")]
              public Subscription SubscribeToComponentRemoved (Action<ComponentRemovedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ComponentRemovedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ComponentRemovedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3480078691) /* ComponentRemoved (E_COMPONENTREMOVED) */);
                   return s;
@@ -3246,16 +3246,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct NodeNameChangedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct NodeNameChangedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeNameChanged += ...' instead.")]
              public Subscription SubscribeToNodeNameChanged (Action<NodeNameChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NodeNameChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NodeNameChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2921157799) /* NodeNameChanged (E_NODENAMECHANGED) */);
                   return s;
@@ -3278,16 +3278,16 @@ namespace Urho {
 
 namespace Urho {
         public partial struct NodeEnabledChangedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct NodeEnabledChangedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeEnabledChanged += ...' instead.")]
              public Subscription SubscribeToNodeEnabledChanged (Action<NodeEnabledChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NodeEnabledChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NodeEnabledChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)476028341) /* NodeEnabledChanged (E_NODEENABLEDCHANGED) */);
                   return s;
@@ -3310,37 +3310,37 @@ namespace Urho {
 
 namespace Urho {
         public partial struct NodeTagAddedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public String Tag => UrhoMap.get_String (handle, unchecked((int)964697786) /* Tag (P_TAG) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public String Tag => EventData.get_String (unchecked((int)964697786) /* Tag (P_TAG) */);
         } /* struct NodeTagAddedEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct NodeTagRemovedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public String Tag => UrhoMap.get_String (handle, unchecked((int)964697786) /* Tag (P_TAG) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public String Tag => EventData.get_String (unchecked((int)964697786) /* Tag (P_TAG) */);
         } /* struct NodeTagRemovedEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct ComponentEnabledChangedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public Component Component => UrhoMap.get_Component (handle, unchecked((int)3739730333) /* Component (P_COMPONENT) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public Component Component => EventData.get_Component (unchecked((int)3739730333) /* Component (P_COMPONENT) */);
         } /* struct ComponentEnabledChangedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentEnabledChanged += ...' instead.")]
              public Subscription SubscribeToComponentEnabledChanged (Action<ComponentEnabledChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ComponentEnabledChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ComponentEnabledChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1976356048) /* ComponentEnabledChanged (E_COMPONENTENABLEDCHANGED) */);
                   return s;
@@ -3363,15 +3363,15 @@ namespace Urho {
 
 namespace Urho {
         public partial struct TemporaryChangedEventArgs {
-            internal IntPtr handle;
-            public Serializable Serializable => UrhoMap.get_Serializable (handle, unchecked((int)1481290239) /* Serializable (P_SERIALIZABLE) */);
+            public EventDataContainer EventData;
+            public Serializable Serializable => EventData.get_Serializable (unchecked((int)1481290239) /* Serializable (P_SERIALIZABLE) */);
         } /* struct TemporaryChangedEventArgs */
 
         public partial class Serializable {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TemporaryChanged += ...' instead.")]
              public Subscription SubscribeToTemporaryChanged (Action<TemporaryChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TemporaryChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TemporaryChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2975291043) /* TemporaryChanged (E_TEMPORARYCHANGED) */);
                   return s;
@@ -3394,17 +3394,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct NodeClonedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
-            public Node CloneNode => UrhoMap.get_Node (handle, unchecked((int)3545672031) /* CloneNode (P_CLONENODE) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public Node CloneNode => EventData.get_Node (unchecked((int)3545672031) /* CloneNode (P_CLONENODE) */);
         } /* struct NodeClonedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCloned += ...' instead.")]
              public Subscription SubscribeToNodeCloned (Action<NodeClonedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NodeClonedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NodeClonedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2335200841) /* NodeCloned (E_NODECLONED) */);
                   return s;
@@ -3427,17 +3427,17 @@ namespace Urho {
 
 namespace Urho {
         public partial struct ComponentClonedEventArgs {
-            internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
-            public Component Component => UrhoMap.get_Component (handle, unchecked((int)3739730333) /* Component (P_COMPONENT) */);
-            public Component CloneComponent => UrhoMap.get_Component (handle, unchecked((int)733556864) /* CloneComponent (P_CLONECOMPONENT) */);
+            public EventDataContainer EventData;
+            public Scene Scene => EventData.get_Scene (unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Component Component => EventData.get_Component (unchecked((int)3739730333) /* Component (P_COMPONENT) */);
+            public Component CloneComponent => EventData.get_Component (unchecked((int)733556864) /* CloneComponent (P_CLONECOMPONENT) */);
         } /* struct ComponentClonedEventArgs */
 
         public partial class Scene {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentCloned += ...' instead.")]
              public Subscription SubscribeToComponentCloned (Action<ComponentClonedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ComponentClonedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ComponentClonedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1752202084) /* ComponentCloned (E_COMPONENTCLONED) */);
                   return s;
@@ -3460,19 +3460,19 @@ namespace Urho {
 
 namespace Urho {
         public partial struct InterceptNetworkUpdateEventArgs {
-            internal IntPtr handle;
-            public Serializable Serializable => UrhoMap.get_Serializable (handle, unchecked((int)1481290239) /* Serializable (P_SERIALIZABLE) */);
-            public uint TimeStamp => UrhoMap.get_uint (handle, unchecked((int)1110190518) /* TimeStamp (P_TIMESTAMP) */);
-            public uint Index => UrhoMap.get_uint (handle, unchecked((int)193188146) /* Index (P_INDEX) */);
-            public String Name => UrhoMap.get_String (handle, unchecked((int)773762347) /* Name (P_NAME) */);
-            public Variant Value => UrhoMap.get_Variant (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
+            public EventDataContainer EventData;
+            public Serializable Serializable => EventData.get_Serializable (unchecked((int)1481290239) /* Serializable (P_SERIALIZABLE) */);
+            public uint TimeStamp => EventData.get_uint (unchecked((int)1110190518) /* TimeStamp (P_TIMESTAMP) */);
+            public uint Index => EventData.get_uint (unchecked((int)193188146) /* Index (P_INDEX) */);
+            public String Name => EventData.get_String (unchecked((int)773762347) /* Name (P_NAME) */);
+            public Variant Value => EventData.get_Variant (unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct InterceptNetworkUpdateEventArgs */
 
         public partial class Serializable {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.InterceptNetworkUpdate += ...' instead.")]
              public Subscription SubscribeToInterceptNetworkUpdate (Action<InterceptNetworkUpdateEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new InterceptNetworkUpdateEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new InterceptNetworkUpdateEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4264627733) /* InterceptNetworkUpdate (E_INTERCEPTNETWORKUPDATE) */);
                   return s;
@@ -3495,20 +3495,20 @@ namespace Urho {
 
 namespace Urho.Gui {
         public partial struct UIMouseClickEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct UIMouseClickEventArgs */
 
         public partial class UI {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIMouseClick += ...' instead.")]
              public Subscription SubscribeToUIMouseClick (Action<UIMouseClickEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2980213559) /* UIMouseClick (E_UIMOUSECLICK) */);
                   return s;
@@ -3531,21 +3531,21 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct UIMouseClickEndEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public UIElement BeginElement => UrhoMap.get_UIElement (handle, unchecked((int)660892787) /* BeginElement (P_BEGINELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement BeginElement => EventData.get_UIElement (unchecked((int)660892787) /* BeginElement (P_BEGINELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct UIMouseClickEndEventArgs */
 
         public partial class UI {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIMouseClickEnd += ...' instead.")]
              public Subscription SubscribeToUIMouseClickEnd (Action<UIMouseClickEndEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEndEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEndEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3905216356) /* UIMouseClickEnd (E_UIMOUSECLICKEND) */);
                   return s;
@@ -3568,70 +3568,70 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct UIMouseDoubleClickEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct UIMouseDoubleClickEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct ClickEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct ClickEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct ClickEndEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public UIElement BeginElement => UrhoMap.get_UIElement (handle, unchecked((int)660892787) /* BeginElement (P_BEGINELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement BeginElement => EventData.get_UIElement (unchecked((int)660892787) /* BeginElement (P_BEGINELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct ClickEndEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct DoubleClickEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct DoubleClickEventArgs */
 
 } /* namespace */
 
 namespace Urho.Gui {
         public partial struct DragDropTestEventArgs {
-            internal IntPtr handle;
-            public UIElement Source => UrhoMap.get_UIElement (handle, unchecked((int)3851438139) /* Source (P_SOURCE) */);
-            public UIElement Target => UrhoMap.get_UIElement (handle, unchecked((int)3016907569) /* Target (P_TARGET) */);
-            public bool Accept => UrhoMap.get_bool (handle, unchecked((int)3683158536) /* Accept (P_ACCEPT) */);
+            public EventDataContainer EventData;
+            public UIElement Source => EventData.get_UIElement (unchecked((int)3851438139) /* Source (P_SOURCE) */);
+            public UIElement Target => EventData.get_UIElement (unchecked((int)3016907569) /* Target (P_TARGET) */);
+            public bool Accept => EventData.get_bool (unchecked((int)3683158536) /* Accept (P_ACCEPT) */);
         } /* struct DragDropTestEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragDropTest += ...' instead.")]
              public Subscription SubscribeToDragDropTest (Action<DragDropTestEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new DragDropTestEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new DragDropTestEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2650870357) /* DragDropTest (E_DRAGDROPTEST) */);
                   return s;
@@ -3654,17 +3654,17 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct DragDropFinishEventArgs {
-            internal IntPtr handle;
-            public UIElement Source => UrhoMap.get_UIElement (handle, unchecked((int)3851438139) /* Source (P_SOURCE) */);
-            public UIElement Target => UrhoMap.get_UIElement (handle, unchecked((int)3016907569) /* Target (P_TARGET) */);
-            public bool Accept => UrhoMap.get_bool (handle, unchecked((int)3683158536) /* Accept (P_ACCEPT) */);
+            public EventDataContainer EventData;
+            public UIElement Source => EventData.get_UIElement (unchecked((int)3851438139) /* Source (P_SOURCE) */);
+            public UIElement Target => EventData.get_UIElement (unchecked((int)3016907569) /* Target (P_TARGET) */);
+            public bool Accept => EventData.get_bool (unchecked((int)3683158536) /* Accept (P_ACCEPT) */);
         } /* struct DragDropFinishEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragDropFinish += ...' instead.")]
              public Subscription SubscribeToDragDropFinish (Action<DragDropFinishEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new DragDropFinishEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new DragDropFinishEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2686304470) /* DragDropFinish (E_DRAGDROPFINISH) */);
                   return s;
@@ -3687,16 +3687,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct FocusChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public UIElement ClickedElement => UrhoMap.get_UIElement (handle, unchecked((int)1630589429) /* ClickedElement (P_CLICKEDELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement ClickedElement => EventData.get_UIElement (unchecked((int)1630589429) /* ClickedElement (P_CLICKEDELEMENT) */);
         } /* struct FocusChangedEventArgs */
 
         public partial class UI {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FocusChanged += ...' instead.")]
              public Subscription SubscribeToFocusChanged (Action<FocusChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new FocusChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new FocusChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3351127484) /* FocusChanged (E_FOCUSCHANGED) */);
                   return s;
@@ -3719,15 +3719,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct NameChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct NameChangedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NameChanged += ...' instead.")]
              public Subscription SubscribeToNameChanged (Action<NameChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new NameChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new NameChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1102426921) /* NameChanged (E_NAMECHANGED) */);
                   return s;
@@ -3750,19 +3750,19 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ResizedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int Width => UrhoMap.get_int (handle, unchecked((int)3655201574) /* Width (P_WIDTH) */);
-            public int Height => UrhoMap.get_int (handle, unchecked((int)380957255) /* Height (P_HEIGHT) */);
-            public int DX => UrhoMap.get_int (handle, unchecked((int)6560020) /* DX (P_DX) */);
-            public int DY => UrhoMap.get_int (handle, unchecked((int)6560021) /* DY (P_DY) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int Width => EventData.get_int (unchecked((int)3655201574) /* Width (P_WIDTH) */);
+            public int Height => EventData.get_int (unchecked((int)380957255) /* Height (P_HEIGHT) */);
+            public int DX => EventData.get_int (unchecked((int)6560020) /* DX (P_DX) */);
+            public int DY => EventData.get_int (unchecked((int)6560021) /* DY (P_DY) */);
         } /* struct ResizedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Resized += ...' instead.")]
              public Subscription SubscribeToResized (Action<ResizedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ResizedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ResizedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4086520784) /* Resized (E_RESIZED) */);
                   return s;
@@ -3785,17 +3785,17 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct PositionedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
         } /* struct PositionedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Positioned += ...' instead.")]
              public Subscription SubscribeToPositioned (Action<PositionedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PositionedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PositionedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2176866088) /* Positioned (E_POSITIONED) */);
                   return s;
@@ -3818,16 +3818,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct VisibleChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public bool Visible => UrhoMap.get_bool (handle, unchecked((int)2569414770) /* Visible (P_VISIBLE) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public bool Visible => EventData.get_bool (unchecked((int)2569414770) /* Visible (P_VISIBLE) */);
         } /* struct VisibleChangedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.VisibleChanged += ...' instead.")]
              public Subscription SubscribeToVisibleChanged (Action<VisibleChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new VisibleChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new VisibleChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2906506274) /* VisibleChanged (E_VISIBLECHANGED) */);
                   return s;
@@ -3850,16 +3850,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct FocusedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public bool ByKey => UrhoMap.get_bool (handle, unchecked((int)860527848) /* ByKey (P_BYKEY) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public bool ByKey => EventData.get_bool (unchecked((int)860527848) /* ByKey (P_BYKEY) */);
         } /* struct FocusedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Focused += ...' instead.")]
              public Subscription SubscribeToFocused (Action<FocusedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new FocusedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new FocusedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3009767063) /* Focused (E_FOCUSED) */);
                   return s;
@@ -3882,15 +3882,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct DefocusedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct DefocusedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Defocused += ...' instead.")]
              public Subscription SubscribeToDefocused (Action<DefocusedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new DefocusedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new DefocusedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2137964374) /* Defocused (E_DEFOCUSED) */);
                   return s;
@@ -3913,15 +3913,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct LayoutUpdatedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct LayoutUpdatedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LayoutUpdated += ...' instead.")]
              public Subscription SubscribeToLayoutUpdated (Action<LayoutUpdatedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new LayoutUpdatedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new LayoutUpdatedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4202066961) /* LayoutUpdated (E_LAYOUTUPDATED) */);
                   return s;
@@ -3944,15 +3944,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct PressedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct PressedEventArgs */
 
         public partial class Button {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Pressed += ...' instead.")]
              public Subscription SubscribeToPressed (Action<PressedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PressedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PressedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2120415202) /* Pressed (E_PRESSED) */);
                   return s;
@@ -3975,15 +3975,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ReleasedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct ReleasedEventArgs */
 
         public partial class Button {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Released += ...' instead.")]
              public Subscription SubscribeToReleased (Action<ReleasedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ReleasedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ReleasedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)501672573) /* Released (E_RELEASED) */);
                   return s;
@@ -4006,16 +4006,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ToggledEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public bool State => UrhoMap.get_bool (handle, unchecked((int)3363651793) /* State (P_STATE) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public bool State => EventData.get_bool (unchecked((int)3363651793) /* State (P_STATE) */);
         } /* struct ToggledEventArgs */
 
         public partial class CheckBox {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Toggled += ...' instead.")]
              public Subscription SubscribeToToggled (Action<ToggledEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ToggledEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ToggledEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3936229040) /* Toggled (E_TOGGLED) */);
                   return s;
@@ -4038,16 +4038,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct SliderChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public float Value => UrhoMap.get_float (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public float Value => EventData.get_float (unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct SliderChangedEventArgs */
 
         public partial class Slider {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SliderChanged += ...' instead.")]
              public Subscription SubscribeToSliderChanged (Action<SliderChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new SliderChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new SliderChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1822227731) /* SliderChanged (E_SLIDERCHANGED) */);
                   return s;
@@ -4070,17 +4070,17 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct SliderPagedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int Offset => UrhoMap.get_int (handle, unchecked((int)1881751827) /* Offset (P_OFFSET) */);
-            public bool Pressed => UrhoMap.get_bool (handle, unchecked((int)2120415202) /* Pressed (P_PRESSED) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int Offset => EventData.get_int (unchecked((int)1881751827) /* Offset (P_OFFSET) */);
+            public bool Pressed => EventData.get_bool (unchecked((int)2120415202) /* Pressed (P_PRESSED) */);
         } /* struct SliderPagedEventArgs */
 
         public partial class Slider {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SliderPaged += ...' instead.")]
              public Subscription SubscribeToSliderPaged (Action<SliderPagedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new SliderPagedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new SliderPagedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)436602484) /* SliderPaged (E_SLIDERPAGED) */);
                   return s;
@@ -4103,25 +4103,25 @@ namespace Urho.Gui {
 
 namespace Urho {
         public partial struct ProgressBarChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public float Value => UrhoMap.get_float (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public float Value => EventData.get_float (unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct ProgressBarChangedEventArgs */
 
 } /* namespace */
 
 namespace Urho.Gui {
         public partial struct ScrollBarChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public float Value => UrhoMap.get_float (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public float Value => EventData.get_float (unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct ScrollBarChangedEventArgs */
 
         public partial class ScrollBar {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ScrollBarChanged += ...' instead.")]
              public Subscription SubscribeToScrollBarChanged (Action<ScrollBarChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ScrollBarChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ScrollBarChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2589580238) /* ScrollBarChanged (E_SCROLLBARCHANGED) */);
                   return s;
@@ -4144,17 +4144,17 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ViewChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
         } /* struct ViewChangedEventArgs */
 
         public partial class ScrollView {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ViewChanged += ...' instead.")]
              public Subscription SubscribeToViewChanged (Action<ViewChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ViewChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ViewChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3751985295) /* ViewChanged (E_VIEWCHANGED) */);
                   return s;
@@ -4177,16 +4177,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ModalChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public bool Modal => UrhoMap.get_bool (handle, unchecked((int)1236802797) /* Modal (P_MODAL) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public bool Modal => EventData.get_bool (unchecked((int)1236802797) /* Modal (P_MODAL) */);
         } /* struct ModalChangedEventArgs */
 
         public partial class Window {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ModalChanged += ...' instead.")]
              public Subscription SubscribeToModalChanged (Action<ModalChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ModalChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ModalChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3780589287) /* ModalChanged (E_MODALCHANGED) */);
                   return s;
@@ -4209,18 +4209,18 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct CharEntryEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public String Text => UrhoMap.get_String (handle, unchecked((int)1196085869) /* Text (P_TEXT) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public String Text => EventData.get_String (unchecked((int)1196085869) /* Text (P_TEXT) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct CharEntryEventArgs */
 
         public partial class LineEdit {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CharEntry += ...' instead.")]
              public Subscription SubscribeToCharEntry (Action<CharEntryEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new CharEntryEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new CharEntryEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3958156636) /* CharEntry (E_TEXTENTRY) */);
                   return s;
@@ -4243,16 +4243,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct TextChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public String Text => UrhoMap.get_String (handle, unchecked((int)1196085869) /* Text (P_TEXT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public String Text => EventData.get_String (unchecked((int)1196085869) /* Text (P_TEXT) */);
         } /* struct TextChangedEventArgs */
 
         public partial class LineEdit {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextChanged += ...' instead.")]
              public Subscription SubscribeToTextChanged (Action<TextChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TextChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TextChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)248127847) /* TextChanged (E_TEXTCHANGED) */);
                   return s;
@@ -4275,17 +4275,17 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct TextFinishedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public String Text => UrhoMap.get_String (handle, unchecked((int)1196085869) /* Text (P_TEXT) */);
-            public float Value => UrhoMap.get_float (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public String Text => EventData.get_String (unchecked((int)1196085869) /* Text (P_TEXT) */);
+            public float Value => EventData.get_float (unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct TextFinishedEventArgs */
 
         public partial class LineEdit {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextFinished += ...' instead.")]
              public Subscription SubscribeToTextFinished (Action<TextFinishedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new TextFinishedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TextFinishedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2163558751) /* TextFinished (E_TEXTFINISHED) */);
                   return s;
@@ -4308,15 +4308,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct MenuSelectedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct MenuSelectedEventArgs */
 
         public partial class Menu {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MenuSelected += ...' instead.")]
              public Subscription SubscribeToMenuSelected (Action<MenuSelectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MenuSelectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MenuSelectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3684051450) /* MenuSelected (E_MENUSELECTED) */);
                   return s;
@@ -4339,16 +4339,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ItemSelectedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int Selection => UrhoMap.get_int (handle, unchecked((int)3519890092) /* Selection (P_SELECTION) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int Selection => EventData.get_int (unchecked((int)3519890092) /* Selection (P_SELECTION) */);
         } /* struct ItemSelectedEventArgs */
 
         public partial class DropDownList {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemSelected += ...' instead.")]
              public Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3577816398) /* ItemSelected (E_ITEMSELECTED) */);
                   return s;
@@ -4371,7 +4371,7 @@ namespace Urho.Gui {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemSelected += ...' instead.")]
              public Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3577816398) /* ItemSelected (E_ITEMSELECTED) */);
                   return s;
@@ -4394,16 +4394,16 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ItemDeselectedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int Selection => UrhoMap.get_int (handle, unchecked((int)3519890092) /* Selection (P_SELECTION) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int Selection => EventData.get_int (unchecked((int)3519890092) /* Selection (P_SELECTION) */);
         } /* struct ItemDeselectedEventArgs */
 
         public partial class ListView {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemDeselected += ...' instead.")]
              public Subscription SubscribeToItemDeselected (Action<ItemDeselectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ItemDeselectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ItemDeselectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)750527183) /* ItemDeselected (E_ITEMDESELECTED) */);
                   return s;
@@ -4426,15 +4426,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct SelectionChangedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct SelectionChangedEventArgs */
 
         public partial class ListView {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SelectionChanged += ...' instead.")]
              public Subscription SubscribeToSelectionChanged (Action<SelectionChangedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new SelectionChangedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new SelectionChangedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)652636008) /* SelectionChanged (E_SELECTIONCHANGED) */);
                   return s;
@@ -4457,20 +4457,20 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ItemClickedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public UIElement Item => UrhoMap.get_UIElement (handle, unchecked((int)1322237459) /* Item (P_ITEM) */);
-            public int Selection => UrhoMap.get_int (handle, unchecked((int)3519890092) /* Selection (P_SELECTION) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement Item => EventData.get_UIElement (unchecked((int)1322237459) /* Item (P_ITEM) */);
+            public int Selection => EventData.get_int (unchecked((int)3519890092) /* Selection (P_SELECTION) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct ItemClickedEventArgs */
 
         public partial class ListView {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemClicked += ...' instead.")]
              public Subscription SubscribeToItemClicked (Action<ItemClickedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ItemClickedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ItemClickedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1680571156) /* ItemClicked (E_ITEMCLICKED) */);
                   return s;
@@ -4493,20 +4493,20 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ItemDoubleClickedEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public UIElement Item => UrhoMap.get_UIElement (handle, unchecked((int)1322237459) /* Item (P_ITEM) */);
-            public int Selection => UrhoMap.get_int (handle, unchecked((int)3519890092) /* Selection (P_SELECTION) */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement Item => EventData.get_UIElement (unchecked((int)1322237459) /* Item (P_ITEM) */);
+            public int Selection => EventData.get_int (unchecked((int)3519890092) /* Selection (P_SELECTION) */);
+            public int Button => EventData.get_int (unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct ItemDoubleClickedEventArgs */
 
         public partial class ListView {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemDoubleClicked += ...' instead.")]
              public Subscription SubscribeToItemDoubleClicked (Action<ItemDoubleClickedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ItemDoubleClickedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ItemDoubleClickedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1209953699) /* ItemDoubleClicked (E_ITEMDOUBLECLICKED) */);
                   return s;
@@ -4529,18 +4529,18 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct UnhandledKeyEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)890606655) /* Key (P_KEY) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public Key Key =>(Key) EventData.get_int (unchecked((int)890606655) /* Key (P_KEY) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct UnhandledKeyEventArgs */
 
         public partial class LineEdit {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnhandledKey += ...' instead.")]
              public Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1583051260) /* UnhandledKey (E_UNHANDLEDKEY) */);
                   return s;
@@ -4563,7 +4563,7 @@ namespace Urho.Gui {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnhandledKey += ...' instead.")]
              public Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1583051260) /* UnhandledKey (E_UNHANDLEDKEY) */);
                   return s;
@@ -4586,17 +4586,17 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct FileSelectedEventArgs {
-            internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, unchecked((int)633459751) /* FileName (P_FILENAME) */);
-            public String Filter => UrhoMap.get_String (handle, unchecked((int)2349197016) /* Filter (P_FILTER) */);
-            public bool Ok => UrhoMap.get_bool (handle, unchecked((int)7281596) /* Ok (P_OK) */);
+            public EventDataContainer EventData;
+            public String FileName => EventData.get_String (unchecked((int)633459751) /* FileName (P_FILENAME) */);
+            public String Filter => EventData.get_String (unchecked((int)2349197016) /* Filter (P_FILTER) */);
+            public bool Ok => EventData.get_bool (unchecked((int)7281596) /* Ok (P_OK) */);
         } /* struct FileSelectedEventArgs */
 
         public partial class FileSelector {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FileSelected += ...' instead.")]
              public Subscription SubscribeToFileSelected (Action<FileSelectedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new FileSelectedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new FileSelectedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2247030839) /* FileSelected (E_FILESELECTED) */);
                   return s;
@@ -4619,15 +4619,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct MessageACKEventArgs {
-            internal IntPtr handle;
-            public bool Ok => UrhoMap.get_bool (handle, unchecked((int)7281596) /* Ok (P_OK) */);
+            public EventDataContainer EventData;
+            public bool Ok => EventData.get_bool (unchecked((int)7281596) /* Ok (P_OK) */);
         } /* struct MessageACKEventArgs */
 
         public partial class MessageBox {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MessageACK += ...' instead.")]
              public Subscription SubscribeToMessageACK (Action<MessageACKEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new MessageACKEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new MessageACKEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2274823746) /* MessageACK (E_MESSAGEACK) */);
                   return s;
@@ -4650,17 +4650,17 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ElementAddedEventArgs {
-            internal IntPtr handle;
-            public UIElement Root => UrhoMap.get_UIElement (handle, unchecked((int)4011903426) /* Root (P_ROOT) */);
-            public UIElement Parent => UrhoMap.get_UIElement (handle, unchecked((int)1512946026) /* Parent (P_PARENT) */);
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Root => EventData.get_UIElement (unchecked((int)4011903426) /* Root (P_ROOT) */);
+            public UIElement Parent => EventData.get_UIElement (unchecked((int)1512946026) /* Parent (P_PARENT) */);
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct ElementAddedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ElementAdded += ...' instead.")]
              public Subscription SubscribeToElementAdded (Action<ElementAddedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ElementAddedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ElementAddedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3505291012) /* ElementAdded (E_ELEMENTADDED) */);
                   return s;
@@ -4683,17 +4683,17 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct ElementRemovedEventArgs {
-            internal IntPtr handle;
-            public UIElement Root => UrhoMap.get_UIElement (handle, unchecked((int)4011903426) /* Root (P_ROOT) */);
-            public UIElement Parent => UrhoMap.get_UIElement (handle, unchecked((int)1512946026) /* Parent (P_PARENT) */);
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Root => EventData.get_UIElement (unchecked((int)4011903426) /* Root (P_ROOT) */);
+            public UIElement Parent => EventData.get_UIElement (unchecked((int)1512946026) /* Parent (P_PARENT) */);
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct ElementRemovedEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ElementRemoved += ...' instead.")]
              public Subscription SubscribeToElementRemoved (Action<ElementRemovedEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new ElementRemovedEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new ElementRemovedEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1383277476) /* ElementRemoved (E_ELEMENTREMOVED) */);
                   return s;
@@ -4716,19 +4716,19 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct HoverBeginEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => EventData.get_int (unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => EventData.get_int (unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
         } /* struct HoverBeginEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.HoverBegin += ...' instead.")]
              public Subscription SubscribeToHoverBegin (Action<HoverBeginEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new HoverBeginEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new HoverBeginEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2870063597) /* HoverBegin (E_HOVERBEGIN) */);
                   return s;
@@ -4751,15 +4751,15 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct HoverEndEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct HoverEndEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.HoverEnd += ...' instead.")]
              public Subscription SubscribeToHoverEnd (Action<HoverEndEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new HoverEndEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new HoverEndEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)179772511) /* HoverEnd (E_HOVEREND) */);
                   return s;
@@ -4782,21 +4782,21 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct DragBeginEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => EventData.get_int (unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => EventData.get_int (unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int NumButtons => EventData.get_int (unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
         } /* struct DragBeginEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragBegin += ...' instead.")]
              public Subscription SubscribeToDragBegin (Action<DragBeginEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new DragBeginEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new DragBeginEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3034378133) /* DragBegin (E_DRAGBEGIN) */);
                   return s;
@@ -4819,23 +4819,23 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct DragMoveEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int DX => UrhoMap.get_int (handle, unchecked((int)6560020) /* DX (P_DX) */);
-            public int DY => UrhoMap.get_int (handle, unchecked((int)6560021) /* DY (P_DY) */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int DX => EventData.get_int (unchecked((int)6560020) /* DX (P_DX) */);
+            public int DY => EventData.get_int (unchecked((int)6560021) /* DY (P_DY) */);
+            public int ElementX => EventData.get_int (unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => EventData.get_int (unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int NumButtons => EventData.get_int (unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
         } /* struct DragMoveEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragMove += ...' instead.")]
              public Subscription SubscribeToDragMove (Action<DragMoveEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new DragMoveEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new DragMoveEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3547885061) /* DragMove (E_DRAGMOVE) */);
                   return s;
@@ -4858,21 +4858,21 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct DragEndEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => EventData.get_int (unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => EventData.get_int (unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int NumButtons => EventData.get_int (unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
         } /* struct DragEndEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragEnd += ...' instead.")]
              public Subscription SubscribeToDragEnd (Action<DragEndEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new DragEndEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new DragEndEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)796962311) /* DragEnd (E_DRAGEND) */);
                   return s;
@@ -4895,21 +4895,21 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct DragCancelEventArgs {
-            internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
+            public EventDataContainer EventData;
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => EventData.get_int (unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => EventData.get_int (unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int NumButtons => EventData.get_int (unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
         } /* struct DragCancelEventArgs */
 
         public partial class UIElement {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragCancel += ...' instead.")]
              public Subscription SubscribeToDragCancel (Action<DragCancelEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new DragCancelEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new DragCancelEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3139514702) /* DragCancel (E_DRAGCANCEL) */);
                   return s;
@@ -4932,20 +4932,20 @@ namespace Urho.Gui {
 
 namespace Urho.Gui {
         public partial struct UIDropFileEventArgs {
-            internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, unchecked((int)633459751) /* FileName (P_FILENAME) */);
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public EventDataContainer EventData;
+            public String FileName => EventData.get_String (unchecked((int)633459751) /* FileName (P_FILENAME) */);
+            public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => EventData.get_int (unchecked((int)120) /* X (P_X) */);
+            public int Y => EventData.get_int (unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => EventData.get_int (unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => EventData.get_int (unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
         } /* struct UIDropFileEventArgs */
 
         public partial class UI {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIDropFile += ...' instead.")]
              public Subscription SubscribeToUIDropFile (Action<UIDropFileEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new UIDropFileEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new UIDropFileEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3334256383) /* UIDropFile (E_UIDROPFILE) */);
                   return s;
@@ -4968,20 +4968,20 @@ namespace Urho.Gui {
 
 namespace Urho.Urho2D {
         public partial struct PhysicsBeginContact2DEventArgs {
-            internal IntPtr handle;
-            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
-            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
-            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3836135392) /* Contact (P_CONTACT) */);
+            public EventDataContainer EventData;
+            public PhysicsWorld2D World => EventData.get_PhysicsWorld2D (unchecked((int)4158893746) /* World (P_WORLD) */);
+            public RigidBody2D BodyA => EventData.get_RigidBody2D (unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody2D BodyB => EventData.get_RigidBody2D (unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public Node NodeA => EventData.get_Node (unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => EventData.get_Node (unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public IntPtr Contact => EventData.get_IntPtr (unchecked((int)3836135392) /* Contact (P_CONTACT) */);
         } /* struct PhysicsBeginContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsBeginContact2D += ...' instead.")]
              public Subscription SubscribeToPhysicsBeginContact2D (Action<PhysicsBeginContact2DEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsBeginContact2DEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsBeginContact2DEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3421721456) /* PhysicsBeginContact2D (E_PHYSICSBEGINCONTACT2D) */);
                   return s;
@@ -5004,20 +5004,20 @@ namespace Urho.Urho2D {
 
 namespace Urho.Urho2D {
         public partial struct PhysicsEndContact2DEventArgs {
-            internal IntPtr handle;
-            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
-            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
-            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3836135392) /* Contact (P_CONTACT) */);
+            public EventDataContainer EventData;
+            public PhysicsWorld2D World => EventData.get_PhysicsWorld2D (unchecked((int)4158893746) /* World (P_WORLD) */);
+            public RigidBody2D BodyA => EventData.get_RigidBody2D (unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody2D BodyB => EventData.get_RigidBody2D (unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public Node NodeA => EventData.get_Node (unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => EventData.get_Node (unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public IntPtr Contact => EventData.get_IntPtr (unchecked((int)3836135392) /* Contact (P_CONTACT) */);
         } /* struct PhysicsEndContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsEndContact2D += ...' instead.")]
              public Subscription SubscribeToPhysicsEndContact2D (Action<PhysicsEndContact2DEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsEndContact2DEventArgs () { handle = x }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new PhysicsEndContact2DEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
                   s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3071590142) /* PhysicsEndContact2D (E_PHYSICSENDCONTACT2D) */);
                   return s;
@@ -5040,22 +5040,22 @@ namespace Urho.Urho2D {
 
 namespace Urho {
         public partial struct NodeBeginContact2DEventArgs {
-            internal IntPtr handle;
-            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, unchecked((int)111721250) /* Body (P_BODY) */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
-            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3836135392) /* Contact (P_CONTACT) */);
+            public EventDataContainer EventData;
+            public RigidBody2D Body => EventData.get_RigidBody2D (unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => EventData.get_Node (unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody2D OtherBody => EventData.get_RigidBody2D (unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public IntPtr Contact => EventData.get_IntPtr (unchecked((int)3836135392) /* Contact (P_CONTACT) */);
         } /* struct NodeBeginContact2DEventArgs */
 
 } /* namespace */
 
 namespace Urho {
         public partial struct NodeEndContact2DEventArgs {
-            internal IntPtr handle;
-            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, unchecked((int)111721250) /* Body (P_BODY) */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
-            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3836135392) /* Contact (P_CONTACT) */);
+            public EventDataContainer EventData;
+            public RigidBody2D Body => EventData.get_RigidBody2D (unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => EventData.get_Node (unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody2D OtherBody => EventData.get_RigidBody2D (unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public IntPtr Contact => EventData.get_IntPtr (unchecked((int)3836135392) /* Contact (P_CONTACT) */);
         } /* struct NodeEndContact2DEventArgs */
 
 } /* namespace */

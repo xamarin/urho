@@ -173,7 +173,7 @@ while (<>){
 	    }
 	    
 	    print CS "        public partial struct ${eventName}EventArgs {\n";
-	    print CS "            internal IntPtr handle;\n";
+	    print CS "            public EventDataContainer EventData;\n";
 
 	    while (<>){
 		chop;
@@ -191,7 +191,7 @@ while (<>){
 		    }
 		    $hashgetters{$pc} = $en;
 			$pccode = &stringHash($pn);
-		    print CS "            public $cspt $pn =>$cast UrhoMap.get_$plain (handle, unchecked((int)$pccode) /* $pn ($pc) */);\n";
+		    print CS "            public $cspt $pn =>$cast EventData.get_$plain (unchecked((int)$pccode) /* $pn ($pc) */);\n";
 		}
 		if (/}/){
 		    print CS "        } /* struct ${eventName}EventArgs */\n\n";
@@ -203,7 +203,7 @@ while (<>){
 			print CS "             [Obsolete(\"SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.${eventName} += ...' instead.\")]\n";			
 			print CS "             @{[$en eq 'Update' ? 'internal' : 'public']} Subscription SubscribeTo${eventName} (Action<${eventName}EventArgs> handler)\n";
 			print CS "             {\n";
-			print CS "                  Action<IntPtr> proxy = (x)=> { var d = new ${eventName}EventArgs () { handle = x }; handler (d); };\n";
+			print CS "                  Action<IntPtr> proxy = (x)=> { var d = new ${eventName}EventArgs () { EventData = new EventDataContainer(x) }; handler (d); };\n";
 			print CS "                  var s = new Subscription (proxy);\n";
 			print CS "                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)$eccode) /* $en ($ec) */);\n";
 			print CS "                  return s;\n";
